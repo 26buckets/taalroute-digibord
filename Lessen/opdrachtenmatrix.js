@@ -23,6 +23,8 @@ globalThis.DigiBoardMatrix=(()=>{
    m=s.matrix={version:1,route:r.id,day:date,slots:{},playerSlots:{},lastTurn:s.turn||0,awaiting:false,revision:(m?.revision||0)+1};
    const chosen=[];for(const base of content.tasks){const row=pick(d,shape(base),chosen);m.slots[base.id]=row.id;chosen.push(row.id);}
   }
+  // Sentence turns keep the language-task deck untouched.
+  if(d.settings.diceStyle==='sentence')return;
   // Assignment changes only on a committed turn, never on animation or rendering.
   if((s.turn||0)!==m.lastTurn||m.awaiting){
    if(s.travel?.pending){m.awaiting=true;return;}

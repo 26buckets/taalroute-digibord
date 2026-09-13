@@ -220,7 +220,7 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
      </section>
      <section id="pp-panel-dice" data-settings-panel="dice" aria-labelledby="pp-dice-title" hidden>
       <h3 id="pp-dice-title">Spelvorm</h3>
-      <label for="pp-dice-style">Wat wil je doen?</label><select id="pp-dice-style"><option value="numbers">Speel op de kaart</option><option value="verbs">Vertel een verhaal</option><option value="wordgame">Bouw een zin</option><option value="sentence">Eenvoudig zinnenspel</option></select>
+      <label for="pp-dice-style">Wat wil je doen?</label><select id="pp-dice-style"><option value="numbers">Speel op de kaart</option><option value="verbs">Vertel een verhaal</option><option value="wordgame">Bouw een zin</option><option value="sentence">Zinnen maken op de kaart</option></select>
       <p id="pp-form-note" class="pp-note">Kies een spelvorm en stel de les hieronder in. Je voortgang blijft bewaard wanneer je wisselt.</p><div class="db-map-picker"><label for="db-map">Kaart</label><select id="db-map"></select><p class="pp-note">Je lesvoortgang blijft per kaart bewaard.</p></div>
       <div id="pp-picture-options">
       <fieldset id="pp-icon-style-options"><legend>Icoonstijl</legend><div class="pp-icon-style-choices">
@@ -1104,7 +1104,7 @@ function validate(d){
  const ids=new Set(d.roster.map(p=>p.id)),integer=(x,a,b)=>Number.isInteger(x)&&x>=a&&x<=b;
  if(d.settings.actionLayout!==undefined&&!['row','grid'].includes(d.settings.actionLayout))return false;
  const validPicture=p=>p===undefined||p&&Number.isInteger(p.turn)&&p.turn>=0&&p.turn<=100000&&(p.result===null||integer(p.result,1,6))&&typeof p.word==='boolean'&&typeof p.paused==='boolean'&&Array.isArray(p.history)&&p.history.length<=20&&p.history.every(h=>h&&integer(h.turn,0,100000)&&(h.result===null||integer(h.result,1,6))&&(h.actions===undefined||globalThis.PraatpadActionRolls.validValues(h.actions)))&&(p.actions===undefined||globalThis.PraatpadActionRolls.valid(p.actions))&&globalThis.PraatpadLibrary.validState(p);
- const validLearning=s=>{if(!DigiBoardMatrix.validSession(s.matrix))return false;if(s.lessonAssignments&&(!s.lessonAssignments||typeof s.lessonAssignments!=='object'||Array.isArray(s.lessonAssignments)||Object.entries(s.lessonAssignments).some(([id,action])=>!content.tasks.some(t=>t.id===id)||!DigiBoardRouteLessons.cards.some(c=>c.actionId===action))))return false;if(s.speakerQueue){const q=s.speakerQueue;if(!Array.isArray(q.order)||q.order.length>300||q.order.some(id=>typeof id!=='string')||new Set(q.order).size!==q.order.length||!integer(q.index,-1,q.order.length-1)||(q.current!==null&&!q.order.includes(q.current)))return false;}if(s.batch){const b=s.batch;if(!Array.isArray(b.queue)||b.queue.length>30||!Array.isArray(b.results)||b.results.length>30||b.queue.some(id=>!s.players.some(p=>p.id===id))||(b.current&&!s.players.some(p=>p.id===b.current.id)))return false;}return true;};
+ const validLearning=s=>{if(!DigiBoardMatrix.validSession(s.matrix)||!DigiBoardSentence.validBoard(s.sentenceBoard))return false;if(s.lessonAssignments&&(!s.lessonAssignments||typeof s.lessonAssignments!=='object'||Array.isArray(s.lessonAssignments)||Object.entries(s.lessonAssignments).some(([id,action])=>!content.tasks.some(t=>t.id===id)||!DigiBoardRouteLessons.cards.some(c=>c.actionId===action))))return false;if(s.speakerQueue){const q=s.speakerQueue;if(!Array.isArray(q.order)||q.order.length>300||q.order.some(id=>typeof id!=='string')||new Set(q.order).size!==q.order.length||!integer(q.index,-1,q.order.length-1)||(q.current!==null&&!q.order.includes(q.current)))return false;}if(s.batch){const b=s.batch;if(!Array.isArray(b.queue)||b.queue.length>30||!Array.isArray(b.results)||b.results.length>30||b.queue.some(id=>!s.players.some(p=>p.id===id))||(b.current&&!s.players.some(p=>p.id===b.current.id)))return false;}return true;};
  const vs=s=>s&&validLearning(s)&&validPicture(s.pictureDice)&&typeof s.id==='string'&&(s.groupId==null||typeof s.groupId==='string')&&(s.groupName===undefined||typeof s.groupName==='string'&&s.groupName.length<=60)&&validBoard(s.board)&&['class','individual','teams'].includes(s.mode)&&Array.isArray(s.people)&&s.people.length>=1&&s.people.length<=30&&s.people.every(p=>ids.has(p))&&new Set(s.people).size===s.people.length&&Array.isArray(s.players)&&s.players.length>=1&&s.players.length<=30&&s.players.every(p=>p&&typeof p.id==='string'&&typeof p.name==='string'&&Array.isArray(p.members)&&p.members.length>0&&p.members.every(m=>s.people.includes(m))&&integer(p.pos,0,FINISH)&&integer(p.turns,0,100000))&&integer(s.active,0,s.players.length-1)&&integer(s.turn,0,100000)&&integer(s.round,1,100000)&&integer(s.selected,0,TASK_COUNT)&&(s.result===null||integer(s.result,1,6))&&integer(s.demo,0,100000)&&['paused','large','finished','started'].every(k=>typeof s[k]==='boolean')&&Routes.validState(s);
  return vs(d.session)&&Array.isArray(d.history)&&d.history.length<=20&&d.history.every(vs)&&Array.isArray(d.previous)&&d.previous.length<=3&&d.previous.every(p=>p&&vs(p.session)&&Array.isArray(p.history)&&p.history.length<=20&&p.history.every(vs));
 }
@@ -1113,6 +1113,7 @@ if(standalone)try{const raw=localStorage.getItem(KEY);if(raw){const saved=JSON.p
  try{const reserve=JSON.parse(localStorage.getItem(BACKUP));if(!validate(reserve))throw Error();data=normalizeData(reserve);loaded=true;recovery='De laatste opslag kon niet worden gelezen. De reserve van de vorige wijziging is hersteld.';}catch{storageOK=false;recovery='Automatisch bewaren is hier niet beschikbaar of eerdere lesgegevens zijn beschadigd. Gebruik de losse lesversie en bewaar een reservekopie.';}
 }
 data=DigiBoard.restoreShared(data,validate,normalizeData,loaded);
+DigiBoardSentence.migrate(data);
 const s=()=>data.session,current=()=>s().players[s().active],person=pid=>data.roster.find(p=>p.id===pid),members=p=>p.members.map(person).filter(p=>p?.present),playerName=p=>s().mode==='class'?'Samen spelen':s().mode==='individual'?(person(p.members[0])?.name||'Deelnemer'):p.name;
 const present=()=>s().people.map(person).filter(p=>p?.present),task=n=>DigiBoardLearning.adapt(content.tasks.find(t=>t.id===s().board.tasks[n-1]),data.settings,s());
 const busy=()=>!!anim||!!s().travel?.pending,reduced=()=>!!s().batch||data.settings.motion||matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1123,6 +1124,7 @@ function remember(){data.history.push(clone(s()));if(data.history.length>20)data
 function announce(msg){$('pp-live').textContent=msg;}
 function notice(msg){$('pp-notice').textContent=msg;$('pp-notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('pp-notice').hidden=true,6000);announce(msg);}
 function save(){
+ DigiBoardSentence.ensure(data);
  DigiBoardMatrix.ensure(data,content);
  DigiBoard.saveShared(data);
  data.savedAt=new Date().toISOString();
@@ -1133,13 +1135,13 @@ function save(){
 function change(fn,msg){if(busy())return;remember();fn();save();render();if(msg)announce(msg);}
 function undo(){if(pictureMode())return undoPicture();if(!data.history.length)return;run++;cancelTransport();anim=null;data.session=data.history.pop();save();render();announce('Laatste stap teruggenomen.');}
 function archive(){data.previous.unshift({session:clone(s()),history:clone(data.history)});data.previous=data.previous.slice(0,3);}
-function start(board,mode,people,group={id:s().groupId??null,name:s().groupName??''}){archive();data.settings.diceStyle='numbers';data.session=makeSession(board,data.settings.workForm==='spotlight'?'class':mode,people,{...group,pawnCount:data.settings.pawnCount||5});data.history=[];page='game';mapKey='';save();render();$('pp-roll').focus();}
+function start(board,mode,people,group={id:s().groupId??null,name:s().groupName??''}){archive();if(data.settings.diceStyle!=='sentence')data.settings.diceStyle='numbers';data.session=makeSession(board,data.settings.workForm==='spotlight'?'class':mode,people,{...group,pawnCount:data.settings.pawnCount||5});data.history=[];page='game';mapKey='';save();render();$('pp-roll').focus();}
 
 const mapRuntime=globalThis.DigiBoardMap?.connectRuntime?.({$,root,Routes,s,current,routeConnections,reduced,drawMap,renderControls,get anim(){return anim;},set anim(v){anim=v;},get run(){return run;},get transportCancel(){return transportCancel;},set transportCancel(v){transportCancel=v;}});
 DigiBoard.connect({read:()=>data,busy,save,showMapRules,openMapPicker:()=>settings('board'),chooseForm(value){if(busy())return;data.settings.diceStyle=value;save();render();},chooseMap(value){if(busy())return;save();DigiBoard.changeMap(value);}});
 DigiBoardMatrix.ensure(data,content);
 const diceAudioUI=DigiBoardDiceAudio.connect({root,read:()=>data,save,notice});
-const learningUI=DigiBoardLearning.connect({$,root,s,read:()=>data,save,render,dialog,esc,task,playerName,busy,animating:()=>!!anim,notice,closeDialog,finish:FINISH,configurePawns,continueRound,baseTask:n=>content.tasks.find(t=>t.id===s().board.tasks[n-1]),remember,ensure:()=>DigiBoardMatrix.ensure(data,content),chooseMatrix(id){if(busy())return;remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT);DigiBoardMatrix.select(data,content.tasks.find(t=>t.id===s().board.tasks[node-1]),id);s().selected=node;page="game";save();render();},chooseLesson(actionId){if(busy())return;remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT),baseId=s().board.tasks[node-1];s().lessonAssignments??={};s().lessonAssignments[baseId]=actionId;s().selected=node;page='game';save();render();},selectPlayer(id){if(busy())return;const i=s().players.findIndex(p=>p.id===id);if(i<0)return;s().active=i;s().selected=current().pos<FINISH?current().pos:0;save();render();}});
+const learningUI=DigiBoardLearning.connect({$,root,s,read:()=>data,save,render,dialog,esc,task,playerName,busy,animating:()=>!!anim,notice,closeDialog,finish:FINISH,configurePawns,continueRound,baseTask:n=>content.tasks.find(t=>t.id===s().board.tasks[n-1]),remember,ensure:()=>DigiBoardMatrix.ensure(data,content),chooseMatrix(id){if(busy())return;data.settings.diceStyle="numbers";remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT);DigiBoardMatrix.select(data,content.tasks.find(t=>t.id===s().board.tasks[node-1]),id);s().selected=node;page="game";save();render();},chooseLesson(actionId){if(busy())return;remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT),baseId=s().board.tasks[node-1];s().lessonAssignments??={};s().lessonAssignments[baseId]=actionId;s().selected=node;page='game';save();render();},selectPlayer(id){if(busy())return;const i=s().players.findIndex(p=>p.id===id);if(i<0)return;s().active=i;s().selected=current().pos<FINISH?current().pos:0;save();render();}});
 const sentenceUI=DigiBoardSentence.connect({root,$,read:()=>data,save,render,settings,busy,closeDialog,dialog,esc});
 $('pp-progress').max=FINISH;
 
@@ -1155,8 +1157,8 @@ async function roll(){
  if(data.settings.workForm==='spotlight')DigiBoardLearning.speaker(s(),data.roster);remember();if(data.settings.workForm==='spotlight')DigiBoardLearning.speaker(s(),data.roster,true);const token=++run;
  if(s().players.every(p=>p.pos===FINISH)){s().players.forEach(p=>p.pos=0);s().round++;s().active=0;s().started=false;}
  s().active=nextIndex();const before=current().pos;if(s().started&&s().active===0&&s().mode!=='class')s().round++;
- s().result=data.settings.pace==='all'?1:1+Math.floor(Math.random()*6);s().turn++;current().turns++;s().started=true;s().selected=0;s().large=false;s().demo=Math.max(0,s().turn-1);current().pos=Math.min(FINISH,before+s().result);s().selected=current().pos<FINISH?current().pos:0;
- const landing=current().pos,travel=data.settings.pace==='all'?(Routes.state(s()).last=null,null):Routes.arrive(s(),landing,Math.random,before);
+ s().result=data.settings.pace==='all'&&data.settings.diceStyle!=='sentence'?1:1+Math.floor(Math.random()*6);s().turn++;current().turns++;s().started=true;s().selected=0;s().large=false;s().demo=Math.max(0,s().turn-1);current().pos=Math.min(FINISH,before+s().result);s().selected=current().pos<FINISH?current().pos:0;
+ const landing=current().pos,travel=data.settings.pace==='all'&&data.settings.diceStyle!=='sentence'?(Routes.state(s()).last=null,null):Routes.arrive(s(),landing,Math.random,before);
  // Commit automatic destinations before animation; a pending choice is persisted at its entrance.
  const rollMs=ROLL_DURATION;root.style.setProperty('--pp-roll-time',rollMs+'ms');
  save();anim={pos:before,stage:'rolling'};render();die();diceAudioUI.play();await delay(reduced()?0:rollMs);if(token!==run)return;
@@ -1178,11 +1180,11 @@ function continueRound(){
  if(anim||s().travel?.pending||!s().batch)return;
  diceAudioUI.play();
  const batch=s().batch;
- function collect(){const r=batch.current,p=s().players.find(p=>p.id===r.id);DigiBoardMatrix.ensure(data,content);batch.results.push({...r,to:p.pos,lessonId:p.pos>0&&p.pos<FINISH?task(p.pos).lessonId:null});batch.queue.shift();batch.current=null;}
+ function collect(){DigiBoardSentence.ensure(data);const r=batch.current,p=s().players.find(p=>p.id===r.id);DigiBoardMatrix.ensure(data,content);batch.results.push({...r,to:p.pos,lessonId:p.pos>0&&p.pos<FINISH?task(p.pos).lessonId:null});batch.queue.shift();batch.current=null;}
  if(batch.current)collect();
  while(batch.queue.length){const id=batch.queue[0],idx=s().players.findIndex(p=>p.id===id);if(idx<0){batch.queue.shift();continue;}s().active=idx;const p=current(),before=p.pos;if(!members(p).length||before===FINISH){batch.queue.shift();continue;}
- const value=data.settings.pace==='all'?1:1+Math.floor(Math.random()*6);s().result=value;s().turn++;p.turns++;s().started=true;p.pos=Math.min(FINISH,before+value);s().selected=p.pos<FINISH?p.pos:0;batch.current={id,from:before,roll:value};
- if(data.settings.pace!=='all')Routes.arrive(s(),p.pos,Math.random,before);else Routes.state(s()).last=null;
+ const value=data.settings.pace==='all'&&data.settings.diceStyle!=='sentence'?1:1+Math.floor(Math.random()*6);s().result=value;s().turn++;p.turns++;s().started=true;p.pos=Math.min(FINISH,before+value);s().selected=p.pos<FINISH?p.pos:0;batch.current={id,from:before,roll:value};
+ if(data.settings.pace!=='all'||data.settings.diceStyle==='sentence')Routes.arrive(s(),p.pos,Math.random,before);else Routes.state(s()).last=null;
  if(s().travel?.pending){save();render();return;}collect();
  }
  s().roundResults=batch.results;s().round++;delete s().batch;save();render();learningUI.showRound();
@@ -1225,7 +1227,7 @@ function renderTask(){
 function renderControls(){
 
  const p=current(),n=s().players[nextIndex()],pos=anim?anim.pos:p.pos;
- const caption=s().finished?'Les afgerond':s().paused?'Even pauze':s().travel?.pending&&!anim?'Kies een uitgang':busy()?'De pion is onderweg':p.pos===FINISH?'Gooi voor een nieuwe ronde':s().batch?'Vervolg de ronde':data.settings.turnStyle==='parallel'&&s().mode!=='class'?'Gooi voor iedereen':data.settings.pace==='all'?'Klik voor het volgende vak':s().mode==='class'?'Gooi voor de groep':'Gooi voor '+playerName(n);
+ const caption=s().finished?'Les afgerond':s().paused?'Even pauze':s().travel?.pending&&!anim?'Kies een uitgang':busy()?'De pion is onderweg':p.pos===FINISH?'Gooi voor een nieuwe ronde':s().batch?'Vervolg de ronde':data.settings.turnStyle==='parallel'&&s().mode!=='class'?'Gooi voor iedereen':data.settings.pace==='all'&&data.settings.diceStyle!=='sentence'?'Klik voor het volgende vak':s().mode==='class'?'Gooi voor de groep':'Gooi voor '+playerName(n);
  $('pp-roll-caption').textContent=caption;$('pp-roll').setAttribute('aria-label',caption);$('pp-roll').disabled=busy()||s().paused||s().finished;
  $('pp-turn-label').textContent=s().mode==='class'?'ÉÉN GEDEELDE PION':'AAN DE BEURT';$('pp-current-name').textContent=playerName(p);$('pp-current-token').textContent=s().mode==='class'?'':s().active+1;$('pp-current-token').hidden=s().mode==='class';$('pp-current-token').style.setProperty('--pp-player',colors[s().active%colors.length]);
  $('pp-result').textContent=s().travel?.pending&&!anim?'Kies hieronder waar je heen gaat':anim?.stage==='rolling'?'De dobbelsteen rolt…':s().result?s().result+(s().result===1?' stap':' stappen'):'Klaar om te beginnen';
@@ -1238,7 +1240,7 @@ function renderControls(){
 }
 function render(){
  if(['sentencegame','wordgame'].includes(page)&&data.settings.diceStyle!==(page==='sentencegame'?'sentence':'wordgame'))page='game';
- if(page==='game'&&data.settings.diceStyle==='sentence')page='sentencegame';
+ if(page==='sentencegame')page='game';
  DigiBoard.sync(data);
  if(page==='game'&&data.settings.diceStyle==='wordgame')page='wordgame';
  if(page==='wordgame'&&data.settings.diceStyle!=='wordgame')page='game';
@@ -1292,10 +1294,10 @@ function error(msg){$('pp-error').textContent=msg;$('pp-error').hidden=false;not
 function modeNote(){$('pp-mode-note').textContent=$('pp-group-mode').value==='class'?'Iedereen gebruikt dezelfde pion. Kies bij Kaarten & oefenen of iedereen individueel, klassikaal of samen werkt.':$('pp-group-mode').value==='teams'?'Eén pion per groepje. Het aantal groepjes kies je bij Kaarten & oefenen.':'Iedere deelnemer krijgt een eigen pion, tot 30 deelnemers.';}
 function library(){page='library';settingsSection='play';const available=true;$('pp-route').value=data.settings.learningLevel||'A2';$('pp-library-empty').hidden=available;$('pp-library-games').hidden=!available;$('pp-compose').hidden=!available;
  $('pp-library-games').innerHTML=availableBoards().map(b=>`<article class="pp-game-row"><div class="pp-preview" style="background-image:url('${$('pp-scenery').src}')"></div><div><span class="pp-kicker">${b.own?'MIJN BORD':b.example?'VOORBEELDBORD':'TAALROUTE'} · ${esc(data.settings.learningLevel||'A2')}</span><h3>${esc(b.title)}</h3><p>${esc(content.goal)}</p><p><strong>15–20 min</strong> · 2–30 deelnemers · ${TASK_COUNT} opdrachten<br>Hele klas, teams of kleine groep · taalhulp beschikbaar</p><p>Korte instructies lezen, of de docent leest voor.</p></div><div class="pp-board-actions"><button type="button" class="pp-primary" data-open="${esc(b.id)}">${b.id===s().board.id?'Verder met deze les':'Les klaarzetten'}</button><button type="button" class="pp-text-button" data-edit-route="${esc(b.id)}">Bordvorm en verbindingen</button><button type="button" class="pp-text-button" data-print-board="${esc(b.id)}">Print dit bord</button></div></article>`).join('')+(data.previous.length?'<h3>Eerdere lessen op dit apparaat</h3>'+data.previous.map((a,i)=>`<div class="pp-session-row"><div><strong>${esc(a.session.groupName||'Eenmalige groep')} · ${esc(a.session.board.title)}</strong><p>${a.session.people.length} deelnemers · ${a.session.turn} beurten · ${a.session.finished?'afgerond':'onderbroken'}</p></div><button type="button" class="pp-text-button" data-restore="${i}">Les hervatten</button></div>`).join(''):'');
- root.querySelectorAll('[data-open]').forEach(el=>el.onclick=()=>{data.settings.diceStyle='numbers';save();const b=availableBoards().find(b=>b.id===el.dataset.open);if(b.id===s().board.id){page='game';render();}else{start(b,s().mode,s().people);settings('groups');}});
+ root.querySelectorAll('[data-open]').forEach(el=>el.onclick=()=>{if(data.settings.diceStyle!=='sentence')data.settings.diceStyle='numbers';save();const b=availableBoards().find(b=>b.id===el.dataset.open);if(b.id===s().board.id){page='game';render();}else{start(b,s().mode,s().people);settings('groups');}});
  root.querySelectorAll('[data-edit-route]').forEach(el=>el.onclick=()=>openRouteEditor(availableBoards().find(b=>b.id===el.dataset.editRoute)));
  root.querySelectorAll('[data-print-board]').forEach(el=>el.onclick=()=>printDialog(availableBoards().find(b=>b.id===el.dataset.printBoard)));
- root.querySelectorAll('[data-restore]').forEach(el=>el.onclick=()=>{data.settings.diceStyle='numbers';const a=data.previous.splice(+el.dataset.restore,1)[0];archive();data.session=a.session;data.history=a.history;page='game';mapKey='';save();render();});render();
+ root.querySelectorAll('[data-restore]').forEach(el=>el.onclick=()=>{if(data.settings.diceStyle!=='sentence')data.settings.diceStyle='numbers';const a=data.previous.splice(+el.dataset.restore,1)[0];archive();data.session=a.session;data.history=a.history;page='game';mapKey='';save();render();});render();
 }
 function compose(){page='builder';$('pp-custom-title').value='Mijn rondje door de buurt';$('pp-builder-tasks').innerHTML=Array.from({length:TASK_COUNT},(_,i)=>`<label><span class="pp-building-number">${i+1}</span><select data-assignment aria-label="Opdracht voor vak ${i+1}">${content.tasks.map(t=>`<option value="${t.id}" ${s().board.tasks[i]===t.id?'selected':''}>${esc(t.title)}</option>`).join('')}</select></label>`).join('');root.querySelectorAll('[data-assignment]').forEach(el=>el.onchange=variety);variety();render();$('pp-custom-title').focus();}
 function variety(){const n=new Set([...root.querySelectorAll('[data-assignment]')].map(el=>el.value)).size;$('pp-variety').textContent=n+' verschillende opdrachten op '+TASK_COUNT+' vakken.'+(n<TASK_COUNT?' Er is herhaling. Gebruik dat bewust om hetzelfde gesprek opnieuw te oefenen.':'');}
@@ -1334,7 +1336,7 @@ function renderPictures(){
  globalThis.PraatpadBasisIcons.setStyle(data.settings.iconStyle);root.querySelectorAll('[name="pp-icon-style"]').forEach(el=>el.checked=el.value===globalThis.PraatpadBasisIcons.getStyle());
  const on=pictureMode();root.classList.toggle('pp-picture-mode',on);$('pp-dice-style').value=data.settings.diceStyle||'numbers';$('pp-pictures').hidden=true;
  $('pp-picture-options').hidden=!on;$('pp-action-layout').value='grid';
- $('pp-form-note').textContent=data.settings.diceStyle==='sentence'?'Maak één zin met een persoon, een werkwoord en een tijd. Kies hieronder welke woorden en tijden meedoen.':data.settings.diceStyle==='wordgame'?'Kies hieronder hoe je met woorden wilt oefenen. Je keuzes worden automatisch bewaard.':on?'Kies een beeldpakket en stel de speeltafel hieronder in.':'Gooi met punten en verplaats de pion. Stel het speelbord verder in bij Bord & oefenen.';
+ $('pp-form-note').textContent=data.settings.diceStyle==='sentence'?'Gooi op de kaart: de pion loopt het aantal ogen. Dezelfde worp bepaalt de persoon. Kies hieronder de werkwoorden en tijden.':data.settings.diceStyle==='wordgame'?'Kies hieronder hoe je met woorden wilt oefenen. Je keuzes worden automatisch bewaard.':on?'Kies een beeldpakket en stel de speeltafel hieronder in.':'Gooi met punten en verplaats de pion. Stel het speelbord verder in bij Bord & oefenen.';
  $('pp-game').querySelector('.pp-gamebar .pp-kicker').textContent=on?'KIJK · VERBIND · VERTEL':'SPREEKSPEL · A2';
  root.querySelector('.pp-progress').hidden=on;$('pp-finish-button').hidden=on||data.settings.diceStyle==='wordgame';
  if(!on){$('pp-paused').querySelector('p').textContent='De opdracht en pionnen blijven bewaard.';return;}

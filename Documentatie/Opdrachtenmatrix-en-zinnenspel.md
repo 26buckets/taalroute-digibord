@@ -40,26 +40,30 @@ Bij een gezamenlijke ronde kunnen twee pionnen op hetzelfde vak verschillende op
 
 Opslag is plaatselijk: dezelfde browser en hetzelfde webadres gebruiken dezelfde gegevens. Wis je die opslag, dan verdwijnt ook de gebruikshistorie. Gebruik **Bewaren & terugzetten** voor een reservekopie. Er is geen centrale cursistendatabase.
 
-## Eenvoudig zinnenspel
+## Zinnen maken op de kaart
 
-Open **Instellingen → Spel & beelden → Eenvoudig zinnenspel**. Kies daarna eventueel **Personen, werkwoorden en tijden kiezen**.
+Het zinnenspel gebruikt het gewone speelbord en de gewone dobbelsteen. Je blijft dus door Rotterdam of een van de andere tien werelden lopen. Onder **Instellingen → Bord & oefenen → Oefening op de kaart** kies je tussen zinnen maken en de taalopdrachten met de vier vormen. Zinnen maken is de startkeuze na deze correctie. Een eenmaal gemaakte keuze wordt bewaard.
+
+Eén worp heeft twee functies: de pion loopt het aantal ogen en dezelfde worp bepaalt de persoon.
 
 - 1 = ik; 2 = jij; 3 = hij/zij; 4 = wij; 5 = jullie; 6 = zij (meer mensen).
-- Groen = tegenwoordige tijd: *Ik werk thuis.*
-- Blauw = onvoltooid verleden tijd: *Ik werkte thuis.*
-- Rood = voltooide tijd: *Ik heb thuis gewerkt.*
+- Vanaf START brengt een worp van 5 je naar vak 5: **jullie · werken**.
+- Gooi je daarna 2, dan kom je op vak 7: **jij · werken**. Het vaknummer bepaalt de persoon dus niet.
+- Een tunnel, brug, afkorting of terugstap verandert de persoon niet. Daarvoor blijft de oorspronkelijke worp gelden.
 
-Iedere worp kiest een persoon, een werkwoord en een tijd uit de docentselectie. De cursist maakt één zin. De kleur heeft ook een tekstlabel. Een woordgroep, zoals *een appel*, geeft concrete inhoud; die woordgroep is optioneel. Hulp en Voorbeeld blijven afzonderlijke knoppen.
+Het bestaande opdrachtvak onder de kaart geeft de persoon, een werkwoord en de tijd. Groen betekent tegenwoordige tijd, blauw onvoltooid verleden tijd en rood voltooide tijd. Naast de kleur staat altijd het tijdlabel. De keuze van de tijd staat los van de geschilderde vormen. De vormen blijven de basis van de gewone taalopdrachten.
 
-Er zijn 24 werkwoorden, zes personen en drie tijden: maximaal 432 combinaties. De vormen zijn vooraf gecontroleerd, inclusief sterke werkwoorden, hebben/zijn en de scheidbare werkwoorden opstaan en meenemen. Het voorbeeld bij hij/zij gebruikt zij; hij is ook goed. Bij richtingszinnen wordt bijvoorbeeld *Ik ben naar school gefietst* gebruikt.
+Bij **Werkwoorden en tijden kiezen** bepaal je wat de groep oefent. Alle zes dobbelsteenpersonen blijven meedoen. De eerste route start met zes werkwoorden en tegenwoordige tijd; de volgende route met twaalf werkwoorden. A1 → A2 voegt de voltooide tijd toe bij alle 24 werkwoorden. A2 → B1 gebruikt alle drie tijden. De docent kan deze startkeuzes aanpassen.
 
-De startkeuze voor A0 → A1 gebruikt ik/jij/hij-zij, zes werkwoorden en alleen groen. A1 → A1+ start met zes personen, twaalf werkwoorden en groen. A1 → A2 voegt rood toe bij alle 24 werkwoorden. A2 → B1 gebruikt alle drie tijden. Dit zijn startkeuzes; de docent mag ze aanpassen. Een bestaande docentselectie wordt bewaard en niet stilzwijgend overschreven bij een niveauwijziging. De knop **Gebruik startkeuze voor …** stelt de selectie opnieuw af op de gekozen route.
+**Hulp** geeft een begin; **Voorbeeld** toont pas op verzoek bijvoorbeeld *Jullie werken thuis*, *Jullie werkten thuis* of *Jullie hebben thuis gewerkt*. **Andere opdracht** wisselt werkwoord of tijd binnen de selectie en behoudt de persoon en pionstand. Bij slechts één mogelijke combinatie blijft die combinatie hetzelfde. **Terug** herstelt de vorige pionstand én de bijbehorende zin.
 
-**Vorige** haalt de vorige combinatie terug. Een nieuwe worp doorloopt eerst ongebruikte combinaties binnen de selectie. Bij een gewijzigde selectie begint zo nodig een nieuwe reeks. De kaartpion beweegt niet in dit aparte zinnenspel. Het bestaande uitgebreide woordspel en de negen beelddobbelstenen blijven beschikbaar.
+Iedere pion bewaart zijn eigen opdracht. Ook een gezamenlijke ronde met meerdere pionnen gebruikt de eigen worp per pion. Bij **Klassikaal · één spreker** bepaalt de bestaande cursistenlijst wie hardop antwoordt; de dobbelsteen bepaalt het grammaticale onderwerp. Een worp van 5 betekent dus *jullie*, ongeacht welke cursist aan de beurt is.
+
+De 24 werkwoorden, zes personen en drie tijden leveren maximaal 432 combinaties. De gecontroleerde vervoegingen blijven dezelfde. Er is geen afzonderlijk zinnenspelscherm meer. Pionstanden, kaartkeuze, cursisten en andere spelvormen blijven in de bestaande app bewaard.
 
 ## Inhoud beheren
 
-`Lessen/opdrachtenmatrix.json` is de inhoudelijke bron. `npm run build:matrix` maakt daarvan de browserbundel `Lessen/opdrachtenmatrix-data.js`; daardoor werkt de app ook vanaf schijf. `Lessen/opdrachtenmatrix.js` kiest en bewaart opdrachten. `Lessen/kaartvormen.js` koppelt de zichtbare kaartvakken aan de vier vormen. `Lessen/zinnenspel.js` bevat het aparte zinnenspel en de gecontroleerde werkwoordvormen.
+`Lessen/opdrachtenmatrix.json` is de inhoudelijke bron. `npm run build:matrix` maakt daarvan de browserbundel `Lessen/opdrachtenmatrix-data.js`; daardoor werkt de app ook vanaf schijf. `Lessen/opdrachtenmatrix.js` kiest en bewaart opdrachten. `Lessen/kaartvormen.js` koppelt de zichtbare kaartvakken aan de vier vormen. `Lessen/zinnenspel.js` bevat de zinsopdrachten op de kaart en de gecontroleerde werkwoordvormen.
 
 `Documentatie/Opdrachtenmatrix.xlsx` bevat een overzicht, vier filterbare routebladen en het zinnenspel. De kolom **Review / wijzigingsvoorstel** is bedoeld voor inhoudelijke opmerkingen bij vaste opdracht-ID's. Excel-wijzigingen worden niet automatisch geïmporteerd. Verwerk goedgekeurde wijzigingen in de JSON-bron, maak de browserbundel opnieuw en controleer de veranderde opdrachten in de app. De JSON houdt de vorm, route, opdracht, hulp, voorbeeld en grammatica bij elkaar.
 
