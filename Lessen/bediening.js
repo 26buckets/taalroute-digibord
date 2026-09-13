@@ -85,23 +85,31 @@ globalThis.DigiBoardSupport=(()=>{
   const teacher=node('div','db-teacher-actions');teacher.setAttribute('role','group');teacher.setAttribute('aria-label','Voor de docent');teacher.append(node('span','db-teacher-label','Docent'));
   const extra=addIcon($('pp-extra'),'Extra stap voor de docent','footprints');extra.setAttribute('aria-haspopup','dialog');
   const notes=addIcon($('db-lesson-support'),'Docentaanpak','graduation-cap');notes.setAttribute('aria-haspopup','dialog');teacher.append(extra,notes);toolbar.append(teacher);$('pp-task').append(toolbar);
-  const expandLabel=node('span','db-expand-label','Lees alles');$('pp-large-button').append(expandLabel);
-  const focusButton=node('button','pp-text-button');focusButton.id='db-map-focus';focusButton.type='button';
-  focusButton.innerHTML='<i data-lucide="maximize-2" aria-hidden="true"></i><span>Kaart groter</span>';
-  document.querySelector('.pp-task-actions').prepend(focusButton);
   const surface=$('praatpad-board'),game=$('pp-game');
-  function mapFocus(on){surface.dataset.mapFocus=String(on);focusButton.setAttribute('aria-pressed',String(on));focusButton.querySelector('span').textContent=on?'Kaart en opdracht':'Kaart groter';}
+  function mapFocus(on){surface.dataset.mapFocus=String(on);}
   mapFocus(false);
-  focusButton.onclick=()=>{if(game.dataset.large==='true')$('pp-board-button').click();mapFocus(surface.dataset.mapFocus!=='true');};
   let previousMapFocus=false;
   document.addEventListener('fullscreenchange',()=>{
    if(document.fullscreenElement){previousMapFocus=surface.dataset.mapFocus==='true';if(game.dataset.large==='true')$('pp-board-button').click();mapFocus(true);}
    else mapFocus(previousMapFocus);
   });
-  const instruction=$('pp-instruction');instruction.tabIndex=0;instruction.setAttribute('role','button');instruction.title='Klik om de opdracht groot te bekijken';
-  const expand=()=>{if(game.dataset.large!=='true'&&!$('pp-large-button').disabled)$('pp-large-button').click();};
-  instruction.addEventListener('click',expand);
-  instruction.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();expand();}});
+  const taskPanel=$('pp-task');taskPanel.tabIndex=0;
+  taskPanel.setAttribute('aria-keyshortcuts','Enter');
+  taskPanel.title='Klik om de opdracht te vergroten. Klik nogmaals om terug te gaan.';
+  const interactive='button,a,input,select,textarea,summary,[role="button"],[contenteditable]:not([contenteditable="false"])';
+  function toggleTask(){
+   const control=$(game.dataset.large==='true'?'pp-board-button':'pp-large-button');
+   if(control.disabled)return;
+   control.click();taskPanel.focus({preventScroll:true});
+  }
+  taskPanel.addEventListener('click',e=>{
+   if(e.composedPath().some(n=>n instanceof Element&&n!==taskPanel&&n.matches(interactive)))return;
+   toggleTask();
+  });
+  taskPanel.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target===taskPanel){e.preventDefault();toggleTask();}});
+  document.addEventListener('keydown',e=>{
+   if(e.key==='Escape'&&game.dataset.large==='true'&&!document.querySelector('dialog[open],#tr-app-trigger[aria-expanded="true"],.tr-controls[open]')){e.preventDefault();toggleTask();}
+  });
   $('pp-roll').setAttribute('aria-keyshortcuts','Space');$('pp-roll').title='Gooi de dobbelsteen · spatiebalk';
   document.addEventListener('keydown',e=>{
    if(e.code!=='Space'||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.defaultPrevented)return;

@@ -309,11 +309,6 @@
 #praatpad-board.db-ui .db-teacher-panel .db-more summary{min-height:44px;display:flex;align-items:center;font-size:14px;}
 #praatpad-board.db-ui .db-teacher-panel .db-source{grid-template-columns:80px 1fr;gap:8px;margin:16px 0;font-size:14px;}
 #praatpad-board.db-ui #pp-dialog .db-teacher-panel #db-support-back{font-size:14px;min-height:44px;margin:8px 0 0;padding:8px 12px;}
-#praatpad-board.db-ui #pp-instruction[role=button]{cursor:zoom-in;border-radius:4px;}
-#praatpad-board.db-ui #pp-instruction[role=button]:focus-visible{outline:3px solid #0075d5;outline-offset:3px;}
-#praatpad-board.db-ui #pp-game[data-large=true] #pp-instruction{cursor:default;}
-#praatpad-board.db-ui #db-map-focus{min-height:44px;display:inline-flex;align-items:center;gap:6px;font-size:12px;white-space:normal;}
-#praatpad-board.db-ui #db-map-focus svg{width:18px;height:18px;flex:none;}
 /* A stable, explicit map view: no task-length changes during a roll. */
 @media(min-width:600px){
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-playfield{grid-template-rows:minmax(0,1fr) 142px;}
@@ -337,3 +332,10 @@
  #praatpad-board.db-ui[data-map-focus=true] #pp-game:not([data-large=true]) #pp-task:has(#pp-travel-choices:not([hidden])) .pp-roles{display:none;}
  #praatpad-board.db-ui[data-map-focus=true] #pp-game:not([data-large=true]) #pp-travel-choices:not([hidden]){min-height:44px;max-height:none;flex:1;overflow:auto;}
 }
+
+/* The entire task surface is the single view switch. Keep old hooks for saved-state rendering. */
+#praatpad-board.db-ui #pp-task :is(#pp-large-button,#pp-board-button,#db-map-focus){display:none!important;}
+#praatpad-board.db-ui #pp-task{cursor:zoom-in;}
+#praatpad-board.db-ui #pp-game[data-large=true] #pp-task{cursor:zoom-out;}
+#praatpad-board.db-ui #pp-task :is(button,a,input,select,summary){cursor:pointer;}
+#praatpad-board.db-ui #pp-task:focus-visible{outline:3px solid #0075d5;outline-offset:-3px;}

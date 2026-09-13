@@ -5,9 +5,9 @@
 ## Gebruik
 
 - **Docentaanpak** opent een rustig venster van maximaal 580 px breed. Start, Luister, Help kort en Opnieuw zijn de vier korte stappen. Gewone tekst is 15 px, de venstertitel 20 px. Doel en voorbeeld en Achtergrond staan op aparte tabs; de volledige notitie is uitklapbaar. Bestaande didactische gegevens blijven beschikbaar.
-- **Spatiebalk** gooit op het speelbord, ook nadat de knop Volledig scherm is aangeklikt. Invoervelden, keuzelijsten, links, het appmenu, open dialogen en instellingen behouden hun eigen bediening. Ingedrukt houden veroorzaakt geen extra worpen. Tijdens een lopende worp is opnieuw gooien geblokkeerd. De opdrachttekst houdt zijn eigen toetsenbordactie om te vergroten.
-- Klik op **de opdrachttekst** om de bestaande grote opdrachtweergave te openen. Enter en spatie werken ook wanneer deze tekst toetsenbordfocus heeft. **Speelbord tonen** brengt de kaart terug.
-- **Kaart groter** maakt het opdrachtvak een vaste strook van 142 px. De volledige taak, voorbeelden en docentknoppen blijven bereikbaar via **Lees alles** of de opdrachttekst. **Kaart en opdracht** herstelt de gewone verdeling.
+- **Spatiebalk** gooit op het speelbord, ook nadat de knop Volledig scherm is aangeklikt. Invoervelden, keuzelijsten, links, het appmenu, open dialogen en instellingen behouden hun eigen bediening. Ingedrukt houden veroorzaakt geen extra worpen. Tijdens een lopende worp is opnieuw gooien geblokkeerd. Enter vergroot of verkleint het witte vlak; spatie laat de dobbelsteen rollen.
+- Klik **ergens op het witte opdrachtvlak** om de opdracht te vergroten. Klik nogmaals op dat vlak om terug te gaan naar de kaart. Ook lege ruimte, de kop en de toelichting werken. De hulpknoppen behouden hun eigen actie. Enter schakelt de weergave wanneer het vlak toetsenbordfocus heeft; Escape verkleint. Spatie blijft gooien.
+- De dubbele knoppen **Kaart groter**, **Lees alles** en **Speelbord tonen** zijn niet meer zichtbaar. In volledig scherm blijft de korte opdrachtstrook van 142 px beschikbaar; klik op die strook om de volledige taak en hulp te openen.
 - Bij het betreden van volledig scherm wordt de kaartstand actief; bij verlaten wordt de eerdere verdeling hersteld. Dit verandert geen opgeslagen lesinstellingen. Bij bijzondere verplaatsingen blijven de knoppen voor de routekeuze bereikbaar in de strook.
 
 ## Metingen
@@ -29,5 +29,7 @@ Visuele controle uitgevoerd in de lokale app en met schermafbeeldingen. JSON-opd
 - [Docentaanpak](Kaartfocus-QA/docentaanpak.png)
 - [Grote kaart bij 1920 × 1080](Kaartfocus-QA/grote-kaart.png)
 - [Meetgegevens](Kaartfocus-QA/metingen.json)
+
+Aanvullende controle: `tests/task-surface.cjs` controleert klikken op lege ruimte en koppen op 767, 1280 en 1920 px; terugkeer naar dezelfde kaartafmetingen; afwezigheid van dubbele knoppen; Enter/Escape; spatie vanaf het vlak; en hulpknoppen zonder onbedoeld vergroten/verkleinen. Ook in de bestaande lokale browser is één klik vergroten en één klik verkleinen gecontroleerd, met behoud van vak 23.
 
 Bronwijzigingen: `Lessen/bediening.js`, `Lessen/bediening.css`, `package.json`, `tests/focus-controls.cjs`.
