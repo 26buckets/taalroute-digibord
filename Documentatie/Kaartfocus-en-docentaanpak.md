@@ -1,35 +1,42 @@
-# Kaartfocus, spatiebalk en docentaanpak
+# Kaartweergave en docentbediening
 
-13 september 2026 — lokale KANDIDAAT. Geen push of deployment in deze wijziging.
+13 september 2026 — lokale KANDIDAAT. Niet gepusht of gepubliceerd in deze wijziging.
 
 ## Gebruik
 
-- **Docentaanpak** opent een rustig venster van maximaal 580 px breed. Start, Luister, Help kort en Opnieuw zijn de vier korte stappen. Gewone tekst is 15 px, de venstertitel 20 px. Doel en voorbeeld en Achtergrond staan op aparte tabs; de volledige notitie is uitklapbaar. Bestaande didactische gegevens blijven beschikbaar.
-- **Spatiebalk** gooit op het speelbord, ook nadat de knop Volledig scherm is aangeklikt. Invoervelden, keuzelijsten, links, het appmenu, open dialogen en instellingen behouden hun eigen bediening. Ingedrukt houden veroorzaakt geen extra worpen. Tijdens een lopende worp is opnieuw gooien geblokkeerd. Enter vergroot of verkleint het witte vlak; spatie laat de dobbelsteen rollen.
-- Klik **ergens op het witte opdrachtvlak** om de opdracht te vergroten. Klik nogmaals op dat vlak om terug te gaan naar de kaart. Ook lege ruimte, de kop en de toelichting werken. De hulpknoppen behouden hun eigen actie. Enter schakelt de weergave wanneer het vlak toetsenbordfocus heeft; Escape verkleint. Spatie blijft gooien.
-- De dubbele knoppen **Kaart groter**, **Lees alles** en **Speelbord tonen** zijn niet meer zichtbaar. In volledig scherm blijft de korte opdrachtstrook van 142 px beschikbaar; klik op die strook om de volledige taak en hulp te openen.
-- Bij het betreden van volledig scherm wordt de kaartstand actief; bij verlaten wordt de eerdere verdeling hersteld. Dit verandert geen opgeslagen lesinstellingen. Bij bijzondere verplaatsingen blijven de knoppen voor de routekeuze bereikbaar in de strook.
+Vanaf 600 px breedte gebruikt de kaart de volledige vensterbreedte. Onder de kaart staat een vaste opdrachtstrook van 148 px. De bestaande dobbelsteen blijft rechtsonder, 140 × 140 px groot. Deze indeling werkt direct in het gewone venster en blijft behouden in volledig scherm.
 
-## Metingen
+Klik ergens op het witte opdrachtvlak om de volledige opdracht te lezen. Nogmaals klikken verkleint; Enter schakelt het gefocuste vlak en Escape verkleint. Hulpknoppen behouden hun eigen actie. Er zijn geen extra knoppen Kaart groter of Lees alles.
 
-| Venster | Kaartvlak normaal | Kaartvlak in kaartstand |
-| --- | ---: | ---: |
-| 767 × 889 | 491,19 px hoog | 687 px hoog |
-| 1280 × 720 | 386,41 px hoog | 518 px hoog |
-| 1920 × 1080 | 680 px hoog | 878 px hoog |
+**Bediening** opent een paneel over de kaart heen. Niveau, Oefening, Opdracht kiezen/Woorden en tijden en de drie kaartopties staan bovenaan. Daaronder staan Hulp, Andere opdracht, Voorbeeld en de docentopties. De bestaande namen, werkvorm, voortgang en terugknop blijven beschikbaar. Bij weinig hoogte kan het paneel scrollen. In de vergrote opdracht staan de hulpknoppen direct bij de opdracht. De naam van de actieve deelnemer of klassikale spreker blijft in de korte opdrachtstrook zichtbaar.
 
-Dit zijn maten van het kaartvlak. De afbeelding behoudt haar oorspronkelijke verhouding en wordt volledig passend getoond. Op smalle vensters kan de breedte de afbeeldingsgrootte begrenzen; meer hoogte levert daar niet automatisch een grotere afbeelding op. Op brede schermen krijgt de kaart daadwerkelijk meer afbeeldingsruimte. Geen afbeeldingen uitgerekt of afgesneden, geen route- of tunnelgeometrie veranderd.
+De knop opnieuw aanklikken, buiten het paneel klikken of Escape sluit Bediening. Escape brengt de focus terug naar de knop. Pijl omlaag opent het paneel en focust de sluitknop. Focus buiten het paneel sluit het. Instellingen, appmenu en andere dialogen sluiten het paneel eveneens. Openen verschuift de kaart niet.
 
-## Controle
+De spatiebalk gooit op het speelbord. Invoervelden, keuzelijsten, links en geopende menu’s of dialogen behouden hun eigen toetsenbediening. Ingedrukt houden veroorzaakt geen extra worpen. Tijdens een lopende worp is opnieuw gooien geblokkeerd.
 
-De volledige bestaande npm-testreeks is geslaagd. De nieuwe `tests/focus-controls.cjs` is apart geslaagd en toegevoegd aan npm test. Die controleert één worp per spatie, herhaalde toetsaanslagen, dialoog-/instellingenblokkering, spatie direct na de fullscreenknop, docenttabs en tekstgrootte, klikken op de opdracht, bereikbare hulp in grote opdrachtweergave, ongewijzigde kaartgeometrie tijdens worpen op drie schermmaten, herstellen na fullscreen en een werkelijke transportkeuze naar vak 25 op Ruimtewereld in kaartstand.
+Docentaanpak blijft een venster van maximaal 580 px breed, met 15 px lopende tekst en een titel van 20 px. De vier stappen Start, Luister, Help kort en Opnieuw blijven behouden. Doel en voorbeeld en Achtergrond staan op aparte tabs.
 
-Visuele controle uitgevoerd in de lokale app en met schermafbeeldingen. JSON-opdrachten, bronmedia, kaarten, pionstanden, opslagstructuur en het Taalroute-appmenu zijn niet gewijzigd.
+Onder 600 px en bij de andere spelvormen blijft de bestaande indeling actief. Bestaande knoppen worden verplaatst als dezelfde elementen, niet gekopieerd; handlers, ID’s en lesgegevens blijven behouden.
 
-- [Docentaanpak](Kaartfocus-QA/docentaanpak.png)
-- [Grote kaart bij 1920 × 1080](Kaartfocus-QA/grote-kaart.png)
-- [Meetgegevens](Kaartfocus-QA/metingen.json)
+## Werkelijk weergegeven afbeelding
 
-Aanvullende controle: `tests/task-surface.cjs` controleert klikken op lege ruimte en koppen op 767, 1280 en 1920 px; terugkeer naar dezelfde kaartafmetingen; afwezigheid van dubbele knoppen; Enter/Escape; spatie vanaf het vlak; en hulpknoppen zonder onbedoeld vergroten/verkleinen. Ook in de bestaande lokale browser is één klik vergroten en één klik verkleinen gecontroleerd, met behoud van vak 23.
+| Venster | Voorheen | Nieuwe kaartweergave | Groei in breedte en hoogte |
+| --- | --- | --- | --- |
+| 788 × 889 | 598 × 336,55 px | 788 × 443,49 px | 31,8% |
+| 1280 × 720 | 686,58 × 386,41 px | 909,74 × 512 px | 32,5% |
+| 1920 × 1080 | 1208,25 × 680 px | 1549,40 × 872 px | 28,2% |
 
-Bronwijzigingen: `Lessen/bediening.js`, `Lessen/bediening.css`, `package.json`, `tests/focus-controls.cjs`.
+Dit zijn de maten van de afbeelding zelf, berekend uit de natuurlijke verhouding en het passende kaartvlak. Het kaartvlak is respectievelijk 788 × 681, 1280 × 512 en 1920 × 872 px. De header blijft 60 px inclusief 2 px accent. Afbeeldingen worden niet uitgerekt of afgesneden; routes en tunnelgeometrie veranderen niet. Door de beeldverhouding kunnen rustige randen overblijven. Geen handmatige zoom toegevoegd.
+
+## Bronnen en controle
+
+Implementatie: `Lessen/kaartweergave.js`, `Lessen/kaartweergave.css`, de inlaadregel in `Start-Praatpad.html` en toetsen-/hulpregels in `Lessen/bediening.js` en `Lessen/bediening.css`.
+
+`tests/card-view.cjs` meet de afbeeldingsgrootte en controleert het paneel, de grote dobbelsteen, onbeweeglijke kaart tijdens worpen, één klik vergroten/verkleinen, toetsenbord, dialogen, volledig scherm en de telefoonindeling. Bestaande tests bedienen verborgen knoppen voortaan via de echte Bediening-knop met `tests/ui-controls.cjs`; controles op inhoud en spelgedrag blijven behouden.
+
+- [Meetgegevens](Kaartweergave-QA/metingen.json)
+- [Kaart op 788 px](Kaartweergave-QA/kaart-788.png)
+- [Kaart op 1920 px](Kaartweergave-QA/kaart-1920.png)
+- [Bedieningspaneel](Kaartweergave-QA/bediening.png)
+
+De definitieve testuitkomst staat in het bijbehorende QA-verslag.

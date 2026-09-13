@@ -1,0 +1,36 @@
+/* One full-width map and a fixed, short task strip. No automatic zoom or crop. */
+#praatpad-board .db-dice-dock,#praatpad-board .db-controls-heading{display:none;}
+@media(min-width:600px){
+ #praatpad-board.db-ui[data-card-view=true] #pp-game .pp-play-layout{display:grid;position:relative;grid-template-columns:minmax(0,1fr) clamp(206px,18vw,260px);grid-template-rows:minmax(0,1fr) 148px;gap:0;}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game .pp-playfield{display:contents;}
+ #praatpad-board.db-ui[data-card-view=true] #pp-board-area{grid-column:1/-1;grid-row:1;}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game #pp-task{grid-column:1;grid-row:2;border-top:1px solid var(--ui-line);}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game:not([data-large=true]) .pp-task-heading{height:42px;min-height:42px;flex-basis:42px;}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game[data-large=true] #pp-task{grid-row:1/-1;}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game[data-large=true] .db-dice-dock{grid-row:1;align-self:start;border-top:0;}
+ #praatpad-board.db-ui[data-card-view=true] #pp-paused:not([hidden]){grid-row:1;grid-column:1/-1;}
+ #praatpad-board.db-ui[data-card-view=true] .db-dice-dock{display:flex;grid-row:2;grid-column:2;align-items:center;justify-content:space-evenly;gap:2px;padding:3px 4px;box-sizing:border-box;min-width:0;background:white;border-top:1px solid var(--ui-line);}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game #pp-roll{width:140px;height:140px;min-width:140px;min-height:140px;flex:0 0 140px;margin:0;}
+ #praatpad-board.db-ui[data-card-view=true] #db-controls-toggle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:56px;min-height:56px;padding:6px 3px;font-size:11px;border-color:var(--ui-line);color:var(--ui-ink);}
+ #praatpad-board.db-ui[data-card-view=true] #db-controls-toggle svg{width:20px;height:20px;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls{display:none;position:absolute;right:8px;bottom:154px;top:auto;width:300px;max-width:calc(100% - 16px);max-height:calc(100% - 162px);height:auto;overflow:auto;overscroll-behavior:contain;box-sizing:border-box;z-index:55;padding:12px;gap:10px;border:1px solid var(--ui-line);border-radius:12px;background:white;box-shadow:0 12px 36px #18304933;}
+ #praatpad-board.db-ui[data-card-view=true][data-controls-open=true] #db-play-controls{display:flex;}
+ #praatpad-board.db-ui[data-card-view=true] .db-controls-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0;}
+ #praatpad-board.db-ui[data-card-view=true] .db-controls-heading strong{font-size:18px;}
+ #praatpad-board.db-ui[data-card-view=true] .db-controls-heading button{width:44px;min-width:44px;height:44px;min-height:44px;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls .db-roll-area{display:contents;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls :is(.pp-current,.pp-progress,.pp-demo,.pp-roll-heading){height:auto;min-height:0;overflow:visible;flex-shrink:0;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls .pp-current{margin:0;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls #pp-current-name{font-size:20px;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls #pp-group{min-height:44px;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls :is(#db-lesson-bar,#db-map-tools,.pp-undo-row){flex-shrink:0;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls #db-round-controls{flex-shrink:0;}
+}
+#praatpad-board .db-turn-cue{display:none;}
+@media(min-width:600px){
+ #praatpad-board.db-ui[data-card-view=true] .db-turn-cue{display:block;font-size:16px;font-weight:700;line-height:1.2;text-align:right;flex:0 1 38%;max-height:40px;overflow:auto;color:var(--ui-ink);}
+ #praatpad-board.db-ui[data-card-view=true] #pp-game:not([data-large=true]) .pp-task-heading>div:first-child{flex:1;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls .db-controls-heading{position:sticky;top:0;z-index:2;background:white;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls .db-task-support{display:flex;flex-shrink:0;justify-content:flex-start;border-top:1px solid var(--ui-line);padding-top:10px;}
+ #praatpad-board.db-ui[data-card-view=true] #db-play-controls .db-teacher-actions{margin:0;padding:0;border:0;}
+}

@@ -85,14 +85,7 @@ globalThis.DigiBoardSupport=(()=>{
   const teacher=node('div','db-teacher-actions');teacher.setAttribute('role','group');teacher.setAttribute('aria-label','Voor de docent');teacher.append(node('span','db-teacher-label','Docent'));
   const extra=addIcon($('pp-extra'),'Extra stap voor de docent','footprints');extra.setAttribute('aria-haspopup','dialog');
   const notes=addIcon($('db-lesson-support'),'Docentaanpak','graduation-cap');notes.setAttribute('aria-haspopup','dialog');teacher.append(extra,notes);toolbar.append(teacher);$('pp-task').append(toolbar);
-  const surface=$('praatpad-board'),game=$('pp-game');
-  function mapFocus(on){surface.dataset.mapFocus=String(on);}
-  mapFocus(false);
-  let previousMapFocus=false;
-  document.addEventListener('fullscreenchange',()=>{
-   if(document.fullscreenElement){previousMapFocus=surface.dataset.mapFocus==='true';if(game.dataset.large==='true')$('pp-board-button').click();mapFocus(true);}
-   else mapFocus(previousMapFocus);
-  });
+  const game=$('pp-game');
   const taskPanel=$('pp-task');taskPanel.tabIndex=0;
   taskPanel.setAttribute('aria-keyshortcuts','Enter');
   taskPanel.title='Klik om de opdracht te vergroten. Klik nogmaals om terug te gaan.';
@@ -108,13 +101,13 @@ globalThis.DigiBoardSupport=(()=>{
   });
   taskPanel.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target===taskPanel){e.preventDefault();toggleTask();}});
   document.addEventListener('keydown',e=>{
-   if(e.key==='Escape'&&game.dataset.large==='true'&&!document.querySelector('dialog[open],#tr-app-trigger[aria-expanded="true"],.tr-controls[open]')){e.preventDefault();toggleTask();}
+   if(e.key==='Escape'&&game.dataset.large==='true'&&!document.querySelector('dialog[open],#tr-app-trigger[aria-expanded="true"],.tr-controls[open],#praatpad-board[data-controls-open="true"]')){e.preventDefault();toggleTask();}
   });
   $('pp-roll').setAttribute('aria-keyshortcuts','Space');$('pp-roll').title='Gooi de dobbelsteen · spatiebalk';
   document.addEventListener('keydown',e=>{
    if(e.code!=='Space'||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.defaultPrevented)return;
-   if(e.target.closest('input,textarea,select,a,summary,#tr-app-trigger,[contenteditable]:not([contenteditable="false"])'))return;
-   if(document.querySelector('dialog[open],#tr-app-trigger[aria-expanded="true"],.tr-controls[open]')||!game.getClientRects().length)return;
+   if(e.target.closest('input,textarea,select,a,summary,#tr-app-trigger,#db-controls-toggle,[contenteditable]:not([contenteditable="false"])'))return;
+   if(document.querySelector('dialog[open],#tr-app-trigger[aria-expanded="true"],.tr-controls[open],#praatpad-board[data-controls-open="true"]')||!game.getClientRects().length)return;
    const roll=$('pp-roll');if(!roll.getClientRects().length)return;
    e.preventDefault();if(e.repeat||roll.disabled)return;roll.click();
   });

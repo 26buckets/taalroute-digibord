@@ -1,3 +1,4 @@
+const {control,reveal,conceal}=require('./ui-controls.cjs');
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs');
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
@@ -29,10 +30,10 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
  await page.locator('#pp-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);await check();
  await page.locator('#pp-pause-button').click();assert(await page.locator('#pp-paused').isVisible());await check();await page.locator('#pp-pause-button').click();
  await page.locator('#pp-settings-button').click();assert(await page.locator('#pp-settings').isVisible());await page.locator('#pp-settings-close').click();
- await page.locator('#world-route-help').click();assert.equal(await page.locator('#world-route-help').getAttribute('aria-pressed'),'true');
- await page.locator('#map-rules-button').click();assert(await page.locator('#pp-dialog').isVisible());await page.locator('#pp-dialog-close').click();
- await page.locator('#db-pawns').click();assert(await page.locator('#pp-dialog').isVisible());await page.locator('#pp-dialog-close').click();
- await page.locator('#db-open-maps').click();assert(await page.locator('[data-choose-world]').first().isVisible());await page.locator('#pp-dialog-close').click();
+ await control(page,'#world-route-help','click');assert.equal(await page.locator('#world-route-help').getAttribute('aria-pressed'),'true');
+ await control(page,'#map-rules-button','click');assert(await page.locator('#pp-dialog').isVisible());await page.locator('#pp-dialog-close').click();
+ await control(page,'#db-pawns','click');assert(await page.locator('#pp-dialog').isVisible());await page.locator('#pp-dialog-close').click();
+ await control(page,'#db-open-maps','click');assert(await page.locator('[data-choose-world]').first().isVisible());await page.locator('#pp-dialog-close').click();
  await page.screenshot({path:__dirname+'/artifacts/controls-fullscreen.png'});
  await page.locator('#pp-fullscreen').click();await page.waitForFunction(()=>!document.fullscreenElement);
  assert.deepEqual(errors,[]);console.log('PASS toolbar hit targets, sidebar bounds, shared/team pawns, fullscreen pause/settings/map controls');

@@ -317,7 +317,7 @@
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-task-title{font-size:18px;margin:2px 0;}
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-task-label{font-size:12px;}
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-task-actions{max-width:55%;max-height:56px;overflow:auto;}
- #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) :is(.db-task-support,.pp-task-bottom,.pp-role-label){display:none;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-task :is(.db-task-support,.pp-task-bottom,.pp-role-label){display:none;}
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-roles{grid-template-columns:1fr;gap:4px;}
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-instruction{font-size:24px;line-height:1.25;}
  #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-partner{font-size:16px;line-height:1.3;}
