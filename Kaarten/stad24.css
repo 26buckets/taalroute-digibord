@@ -1,0 +1,36 @@
+#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-gamebar,#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-boardbar{display:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-scenery{opacity:1;object-fit:contain;object-position:center;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map{background:#0d3149;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-preview-label{display:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile{height:var(--pp-tile-height);width:var(--pp-tile-width);background:linear-gradient(145deg,#fffef9,#f6f2e8);border:3px solid var(--pp-tile-color);border-radius:10px;box-shadow:0 3px 0 #173d5080,0 5px 8px #173d5033;transform:translate(-50%,-50%);}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-topic-art{display:block;top:18%;left:3%;width:94%;height:78%;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-topic-label{display:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile .pp-action-symbol{width:15%;height:15%;top:5%;left:auto;right:5%;transform:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile .pp-number{font-size:clamp(9px,calc(var(--pp-tile-width)*.15),15px);top:4%;left:6%;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal{width:calc(var(--pp-tile-width)*1.12);height:calc(var(--pp-tile-height)*.85);background:#fffdf1;border:3px solid #167562;border-radius:12px;font-size:0;box-shadow:0 3px 0 #143a4960;padding:0;display:block;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal.pp-end{border-color:#163d4c;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal::after{content:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .city-terminal-name{display:block;width:100%;box-sizing:border-box;background:#167562;color:#fff;font:800 clamp(10px,calc(var(--city-scale)*17px),17px)/1.6 Arial,sans-serif;letter-spacing:.08em;border-radius:8px 8px 0 0;text-align:center;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-end .city-terminal-name{background:#163d4c;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .city-terminal-sign{display:block;width:40%;height:48%;margin:3% 6% 0 auto;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .city-terminal-sign svg{width:100%;height:100%;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile[data-active="true"]{outline:none;border-color:#193d4d;background:#fff7dd;box-shadow:0 0 0 3px #fffdf4,0 4px 9px #163e4d66;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile[data-preview="true"]{outline:none;border-color:#193d4d;background:#fffdf4;box-shadow:0 3px 0 #193d4d,0 7px 10px #163e4d44;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile:focus-visible{outline:3px solid #193d4d;outline-offset:4px;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map #pp-path .pp-road-shadow{display:block;stroke:#183b4d;stroke-width:calc(var(--city-scale)*19px);opacity:.7;transform:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map #pp-path .pp-road{stroke:#fff2d8;stroke-width:calc(var(--city-scale)*14px);}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map #pp-path .pp-travelled{stroke:#0a719b;stroke-width:calc(var(--city-scale)*6px);stroke-dasharray:2 5;opacity:.75;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-pawn,#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-pawn[data-current="true"]{width:clamp(28px,calc(var(--city-scale)*47px),47px);height:clamp(40px,calc(var(--city-scale)*68px),68px);background:none;border:0;border-radius:0;padding:0;box-shadow:none;color:var(--pp-player);filter:drop-shadow(0 2px 1px #183b4d55);z-index:7;transition:none;transform:translate(-50%,-85%);scale:1;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-pawn::before,#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-pawn::after{content:none;display:none;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-pawn svg{width:100%;height:100%;overflow:visible;}
+
+#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-play-layout{grid-template-columns:minmax(0,1fr) 250px;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-task{min-height:180px;padding:12px 20px;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-task-heading{margin-bottom:8px;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-instruction,#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-partner{font-size:clamp(18px,1.55vw,25px);}
+#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-task-bottom{min-height:28px;margin-top:6px;}
+#city-clean-toggle{font:600 13px Arial,sans-serif;border:1px solid #d3d9dd;border-radius:8px;padding:8px 12px;background:white;color:#183b4d;cursor:pointer;}
+#praatpad-board[data-clean="true"] #pp-path,#praatpad-board[data-clean="true"] #pp-tiles,#praatpad-board[data-clean="true"] #pp-pawns,#praatpad-board[data-clean="true"] #pp-connections,#praatpad-board[data-clean="true"] #pp-ports{visibility:hidden;}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-print,#praatpad-board[data-db-form="numbers"][data-city="true"] [data-print-board],#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-edit-route,#praatpad-board[data-db-form="numbers"][data-city="true"] [data-edit-route],#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-compose{display:none;}
+@media(max-width:899px){#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-play-layout{grid-template-columns:minmax(0,1fr) 190px;}#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-playfield{grid-template-rows:440px auto;}}
+@media(max-width:599px){#praatpad-board .pp-brand{flex-wrap:wrap;}#praatpad-board #pp-main-tools{margin-left:auto;}#praatpad-board[data-db-form="numbers"][data-city="true"] .pp-play-layout{display:flex;}#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-board-area{height:430px;}#city-clean-toggle{font-size:11px;padding:6px;}}

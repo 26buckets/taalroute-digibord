@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" stroke="#174D76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="De telefoon"><title>De telefoon — stijl B</title>
+<rect fill="#174D76" x="35" y="13" width="58" height="102" rx="11"/>
+<rect fill="white" x="41" y="26" width="46" height="72" rx="4"/>
+<path stroke="white" d="M57 20H71M59 106H69"/>
+<path fill="#174D76" d="M50 47 54 44Q57 43 58 46L63 53Q64 55 61 57L58 60Q62 67 69 71L72 67Q74 65 76 67L82 72Q84 74 82 77L79 81Q76 84 70 81C57 75 47 64 46 55Q45 50 50 47Z"/>
+</svg>

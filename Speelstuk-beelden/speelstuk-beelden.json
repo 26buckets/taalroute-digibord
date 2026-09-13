@@ -1,0 +1,103 @@
+{
+  "version": "1.0",
+  "status": "Beeldassets voor de twaalf bestaande A2-taken; geen nieuwe taakinhoud.",
+  "usage": "Gebruik taskId voor de koppeling. Label is een kort onderwerpwoord, niet de volledige opdracht. Beeld blijft rechtop. Voeg functie, kleur, nummer en pion apart toe.",
+  "items": [
+    {
+      "taskId": "t01",
+      "label": "Vrije middag",
+      "alt": "Zon boven een rustige buitenstoel",
+      "file": "t01.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t02",
+      "label": "Pen lenen",
+      "alt": "Blauwe pen op een klein notitieboek",
+      "file": "t02.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t03",
+      "label": "Naar de markt",
+      "alt": "Stadsfiets met een mand",
+      "file": "t03.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t04",
+      "label": "Afspraak",
+      "alt": "Agenda met een gemarkeerde afspraak",
+      "file": "t04.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t05",
+      "label": "Gisteren",
+      "alt": "Kalender met een teruggeslagen blad",
+      "file": "t05.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t06",
+      "label": "Samen oefenen",
+      "alt": "Twee stoelen met een open oefenboek op tafel",
+      "file": "t06.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t07",
+      "label": "Bibliotheek",
+      "alt": "Open boek met twee gesloten boeken",
+      "file": "t07.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t08",
+      "label": "Te laat",
+      "alt": "Telefoon met een klok ernaast",
+      "file": "t08.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t09",
+      "label": "Fijne plek",
+      "alt": "Parkbank onder een boom",
+      "file": "t09.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t10",
+      "label": "Iets drinken",
+      "alt": "Keramische kop op een schotel",
+      "file": "t10.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t11",
+      "label": "Cadeautje",
+      "alt": "Een ingepakt cadeau met een stoffen lint",
+      "file": "t11.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    },
+    {
+      "taskId": "t12",
+      "label": "Verkeerde tas",
+      "alt": "Twee vergelijkbare tassen in verschillende kleuren",
+      "file": "t12.svg",
+      "source": "Origineel vectorontwerp voor Praatpad",
+      "semanticRole": "Onderwerpillustratie; functie en kleur worden door de tegel bepaald."
+    }
+  ]
+}

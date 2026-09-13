@@ -1,0 +1,168 @@
+/* Full-width tabletop; keep the settings and pause controls in the app's corner. */
+#praatpad-board.pp-picture-mode .pp-play-layout{display:flex;flex-direction:column;min-height:0}
+#praatpad-board.pp-picture-mode .pp-playfield{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0}
+#praatpad-board.pp-picture-mode .pp-play-controls{display:none}
+#praatpad-board.pp-picture-mode #pp-pictures{display:block;width:100%;min-height:0;overflow:auto;padding:12px 22px 24px;height:auto;flex:1;text-align:left;background:var(--pp-wash)}
+#praatpad-board.pp-picture-mode #pp-pictures[hidden]{display:none}
+#praatpad-board.pp-picture-mode #pp-pictures>.pp-picture-intro,#praatpad-board.pp-picture-mode #pp-picture-cue,#praatpad-board.pp-picture-mode #pp-pictures>.pp-picture-help,#praatpad-board.pp-picture-mode #pp-pictures>.pp-picture-partner{display:none}
+#praatpad-board .aw-table{width:100%;max-width:1900px;margin:auto;color:var(--pp-ink)}
+#praatpad-board .aw-lead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+#praatpad-board .aw-lead p{font-size:clamp(18px,1.6vw,25px);margin:0}
+#praatpad-board .aw-count{font-size:14px;color:var(--pp-soft)}
+#praatpad-board .aw-rail{overflow-x:auto;padding:6px 2px 16px;scrollbar-width:thin;overscroll-behavior-x:contain}
+#praatpad-board .aw-strip{display:grid;grid-template-columns:repeat(9,minmax(118px,1fr));gap:8px;min-width:1128px}
+#praatpad-board .aw-card{min-width:0;padding:0 0 9px;background:var(--pp-bg);border:1px solid var(--pp-line);border-top:4px solid var(--aw-accent);border-radius:14px;box-shadow:0 4px 0 #1830490a;text-align:center;overflow:hidden}
+#praatpad-board .aw-card-head{display:flex;flex-direction:column;align-items:center;gap:7px;padding:12px 7px 0;min-height:83px}
+#praatpad-board .aw-number{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;box-sizing:border-box;width:24px;height:24px;margin:0;padding:0;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;text-align:center;border-radius:50%;color:white;background:var(--aw-accent)}
+#praatpad-board .aw-theme{font-size:13px;line-height:1.2;color:var(--pp-soft)}
+#praatpad-board .aw-face{display:block;width:100%;height:auto;padding:0;margin:0;background:transparent;border:0;box-shadow:none;cursor:zoom-in;touch-action:manipulation}
+#praatpad-board .aw-face:disabled{opacity:1;cursor:default}
+#praatpad-board .aw-face:hover:not(:disabled){background:var(--pp-blue-soft)}
+#praatpad-board .aw-canvas{display:block;width:100%;height:auto;aspect-ratio:1/1.06;pointer-events:none}
+#praatpad-board .aw-word{font-size:clamp(15px,1.2vw,20px);font-weight:700;line-height:1.25;overflow-wrap:anywhere;padding:2px 8px 8px;margin:0;color:var(--pp-blue)}
+#praatpad-board .aw-tools{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 14px}
+#praatpad-board .aw-tools button{min-height:48px}
+#praatpad-board .aw-roll{font-size:20px;padding:14px 25px;border-radius:12px;min-width:240px}
+#praatpad-board .aw-roll[aria-disabled="true"]{opacity:.75;cursor:wait}
+#praatpad-board .aw-status{text-align:center;font-weight:600;font-size:16px;min-height:24px;margin:9px 0}
+#praatpad-board .aw-help,#praatpad-board .aw-partner{font-size:14px;color:var(--pp-soft);margin:7px 0;text-align:center}
+#praatpad-board .aw-table[data-layout="grid"] .aw-strip{grid-template-columns:repeat(3,minmax(0,1fr));min-width:0;max-width:930px;margin:auto;gap:14px}
+#praatpad-board .aw-table[data-layout="grid"] .aw-card-head{flex-direction:row;min-height:40px;padding:8px 12px 0;text-align:left}
+#praatpad-board .aw-table[data-layout="grid"] .aw-canvas{height:clamp(100px,15vh,185px);aspect-ratio:auto}
+#praatpad-board .aw-collection{margin:22px 0}
+#praatpad-board .aw-collection details{padding:12px 0;border-top:1px solid var(--pp-line)}
+#praatpad-board .aw-collection summary{font-weight:600;cursor:pointer;min-height:32px}
+#praatpad-board .aw-collection-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:12px}
+#praatpad-board .aw-collection figure{margin:0;text-align:center;font-size:13px}
+#praatpad-board .aw-collection svg{width:100%;height:85px}
+#praatpad-board .aw-zoom{width:min(90vw,580px);max-height:90vh;box-sizing:border-box;padding:24px;border:1px solid var(--pp-line);border-radius:22px;background:var(--pp-bg);color:var(--pp-ink);text-align:center}
+#praatpad-board .aw-zoom::backdrop{background:#10244788;backdrop-filter:blur(3px)}
+#praatpad-board .aw-zoom h2{font-size:21px;margin:0 0 16px}
+#praatpad-board .aw-zoom-image svg{width:min(100%,340px);height:min(45vh,340px)}
+#praatpad-board .aw-zoom-word{font-size:30px;font-weight:700;margin:12px 0}
+#praatpad-board .aw-zoom button{display:block;margin:20px auto 0}
+@media(max-width:700px){#praatpad-board.pp-picture-mode #pp-pictures{padding:12px}#praatpad-board .aw-lead{margin-bottom:12px}#praatpad-board .aw-collection-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#praatpad-board .aw-theme{font-size:12px}#praatpad-board .aw-table[data-layout="grid"] .aw-card-head{padding:10px;min-height:58px}#praatpad-board .aw-table[data-layout="grid"] .aw-strip{gap:7px}}
+
+#praatpad-board .aw-number{flex-shrink:0}
+#praatpad-board .aw-theme{min-width:0}
+#praatpad-board .aw-lead p{max-width:1050px}
+#praatpad-board .aw-partner{max-width:1000px;margin:12px auto;line-height:1.5}
+#praatpad-board #pp-picture-reselect{margin:0 0 20px}
+#praatpad-board .aw-theme-tip{padding:12px 14px;background:var(--pp-blue-soft);border-radius:10px;font-size:15px;line-height:1.5}
+
+/* Level-specific vocabulary stays separate from the shared picture dice. */
+.aw-language{margin:18px 0 0;padding:18px;border:1px solid #d9e4f0;border-radius:18px;background:#f5f8fc}.aw-language h3{margin:0 0 12px;font-size:18px;color:#234767}.aw-language-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.aw-language-card{padding:16px;background:white;border:1px solid #dce5ef;border-top:4px solid #4b77ba;border-radius:12px;min-width:0}.aw-language-card h4{margin:0 0 8px;font-size:20px;line-height:1.3;color:#194b78;overflow-wrap:anywhere}.aw-language-card p{margin:0;line-height:1.5;font-size:16px;color:#435b72}.aw-language-tip{font-size:14px;margin:12px 0 0;color:#52687a}.aw-support{margin-top:16px;padding:12px 16px;background:#f3f7fb;border-radius:12px}.aw-support summary{cursor:pointer;font-weight:650}.aw-support p{line-height:1.6;margin-bottom:0}.aw-lead{flex-wrap:wrap}.aw-count{white-space:normal!important}.aw-lead p{line-height:1.55}.aw-partner{line-height:1.6}
+@media(max-width:700px){.aw-language-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aw-language-card{padding:12px}.aw-language-card h4{font-size:18px}}@media(max-width:420px){.aw-language-grid{grid-template-columns:1fr}}
+
+/* A fixed digibord surface: resize the nine dice instead of scrolling. */
+body.pp-standalone:has(#praatpad-board.pp-picture-mode){height:100dvh;overflow:hidden}
+body.pp-standalone #praatpad-board.pp-picture-mode{height:100dvh;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+#praatpad-board.pp-picture-mode #pp-game{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+#praatpad-board.pp-picture-mode .pp-brand,#praatpad-board.pp-picture-mode .pp-gamebar{flex-shrink:0}
+#praatpad-board.pp-picture-mode .pp-gamebar{padding:10px 20px}
+#praatpad-board.pp-picture-mode .pp-gamebar h2{font-size:clamp(20px,2.4vw,34px);margin:0}
+#praatpad-board.pp-picture-mode .pp-play-layout{flex:1;min-height:0;overflow:hidden}
+#praatpad-board.pp-picture-mode #pp-pictures{overflow:hidden;padding:12px 18px;height:100%;min-height:0}
+#praatpad-board .aw-table{height:100%;min-height:0;max-width:none;display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,20vw,310px);grid-template-rows:auto minmax(0,1fr) auto auto;gap:10px 18px;overflow:hidden}
+#praatpad-board .aw-lead{grid-column:1;grid-row:1;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+#praatpad-board .aw-lead p{font-size:clamp(16px,1.55vw,25px);line-height:1.35;max-width:none}
+#praatpad-board .aw-count{font-size:13px}
+#praatpad-board .aw-rail{grid-column:1;grid-row:2;overflow:hidden;min-height:0;min-width:0;padding:0;display:flex;align-items:center}
+#praatpad-board .aw-table .aw-strip{width:100%;height:100%;max-height:440px;min-height:0;min-width:0;max-width:none;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));grid-template-rows:minmax(0,1fr);gap:6px;align-items:stretch}
+#praatpad-board .aw-table .aw-card{display:flex;flex-direction:column;min-height:0;padding:0 0 8px;border-radius:12px;box-shadow:none}
+#praatpad-board .aw-table .aw-card-head{flex:0 0 auto;min-height:0;padding:10px 4px 0;gap:6px;flex-direction:column;align-items:center}
+#praatpad-board .aw-table .aw-theme{font-size:clamp(10px,.9vw,14px);min-height:2.4em}
+#praatpad-board .aw-table .aw-face{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#praatpad-board .aw-table .aw-canvas{width:100%;height:100%;min-height:0;aspect-ratio:auto;max-height:300px}
+#praatpad-board .aw-table .aw-word{flex:0 0 auto;min-height:2.5em;font-size:clamp(12px,1.1vw,20px);line-height:1.25;padding:4px 3px 0}
+#praatpad-board .aw-help{grid-column:1;grid-row:3;margin:0;font-size:12px;line-height:1.3}
+#praatpad-board .aw-partner{grid-column:1;grid-row:4;margin:0;max-width:none;font-size:clamp(13px,1.1vw,18px);line-height:1.4}
+#praatpad-board .aw-sidebar{grid-column:2;grid-row:1/5;min-height:0;display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--pp-line);padding-left:18px;overflow:hidden}
+#praatpad-board .aw-tools{display:flex;flex-direction:column;align-items:stretch;flex-wrap:nowrap;margin:0;gap:8px}
+#praatpad-board .aw-tools button{min-width:0;width:100%;min-height:44px;padding:10px 8px;font-size:16px;line-height:1.25}
+#praatpad-board .aw-tools .aw-roll{font-size:20px;min-height:64px}
+#praatpad-board .aw-status{font-size:13px;line-height:1.3;min-height:0;margin:0}
+#praatpad-board .aw-language{margin:0;padding:12px;min-height:0;border-radius:12px}
+#praatpad-board .aw-language h3{font-size:15px;margin:0 0 8px}
+#praatpad-board .aw-language-grid{display:block}
+#praatpad-board .aw-language-card{padding:12px;min-height:105px}
+#praatpad-board .aw-language-card[hidden]{display:none}
+#praatpad-board .aw-language-card h4{font-size:18px;line-height:1.25;margin:0 0 8px;overflow-wrap:anywhere}
+#praatpad-board .aw-language-card p{font-size:14px;line-height:1.35}
+#praatpad-board .aw-language-pager{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:13px}
+#praatpad-board .aw-language-pager button{min-width:40px;min-height:40px;padding:0;font-size:24px}
+#praatpad-board .aw-support{margin:0;padding:10px;font-size:14px}
+#praatpad-board .aw-support p{margin:8px 0 0;line-height:1.35}
+#praatpad-board .aw-table[data-layout="grid"] .aw-strip{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));max-height:none;gap:8px}
+#praatpad-board .aw-table[data-layout="grid"] .aw-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);padding:5px}
+#praatpad-board .aw-table[data-layout="grid"] .aw-card-head{grid-column:1;grid-row:1;flex-direction:row;padding:0;gap:5px;text-align:left}
+#praatpad-board .aw-table[data-layout="grid"] .aw-theme{min-height:0;font-size:12px}
+#praatpad-board .aw-table[data-layout="grid"] .aw-face{grid-column:2;grid-row:1/3;height:100%}
+#praatpad-board .aw-table[data-layout="grid"] .aw-word{grid-column:1;grid-row:2;align-self:center;min-height:0;font-size:clamp(13px,1.35vw,22px)}
+@media(max-width:1100px){
+ #praatpad-board .aw-table{grid-template-columns:minmax(0,1fr) 220px;gap:8px 12px}
+ #praatpad-board .aw-table .aw-strip{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));max-height:none}
+ #praatpad-board .aw-table .aw-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);padding:5px}
+ #praatpad-board .aw-table .aw-card-head{grid-column:1;grid-row:1;flex-direction:row;padding:0;gap:5px;text-align:left}
+ #praatpad-board .aw-table .aw-theme{min-height:0;font-size:11px}
+ #praatpad-board .aw-table .aw-face{grid-column:2;grid-row:1/3;height:100%}
+ #praatpad-board .aw-table .aw-word{grid-column:1;grid-row:2;align-self:center;min-height:0;font-size:13px}
+ #praatpad-board .aw-sidebar{padding-left:12px}
+}
+@media(max-height:760px){
+ #praatpad-board .aw-sidebar{gap:6px}#praatpad-board .aw-tools{gap:5px}
+ #praatpad-board .aw-tools button{min-height:36px;padding:7px;font-size:14px}#praatpad-board .aw-tools .aw-roll{min-height:48px;font-size:17px}
+ #praatpad-board .aw-language{padding:8px}#praatpad-board .aw-language-card{padding:8px;min-height:0}#praatpad-board .aw-language-card h4{font-size:16px}#praatpad-board .aw-language-card p{font-size:13px}
+ #praatpad-board .aw-support{font-size:12px;padding:6px}#praatpad-board .aw-table{gap:6px 12px}
+}
+@media(max-width:600px){
+ #praatpad-board.pp-picture-mode #pp-pictures{padding:8px}#praatpad-board.pp-picture-mode .pp-gamebar{padding:6px 10px}
+ #praatpad-board .aw-table{grid-template-columns:minmax(0,1fr) 135px;gap:6px}
+ #praatpad-board .aw-sidebar{padding-left:6px;gap:6px}#praatpad-board .aw-lead p{font-size:13px}#praatpad-board .aw-count{font-size:10px}
+ #praatpad-board .aw-tools button{font-size:12px;padding:6px;min-height:36px}#praatpad-board .aw-tools .aw-roll{font-size:14px;min-height:48px}
+ #praatpad-board .aw-table .aw-card,#praatpad-board .aw-table[data-layout="grid"] .aw-card{display:flex;padding:3px}
+ #praatpad-board .aw-table .aw-theme{display:none}#praatpad-board .aw-table .aw-number{width:18px;height:18px;flex-basis:18px;font-size:10px}
+ #praatpad-board .aw-table .aw-card-head{justify-content:center}#praatpad-board .aw-table .aw-word,#praatpad-board .aw-table[data-layout="grid"] .aw-word{font-size:10px;min-height:2.5em;align-self:stretch}
+ #praatpad-board .aw-language{padding:6px}#praatpad-board .aw-language h3{font-size:12px}#praatpad-board .aw-language-card{padding:6px;min-height:0}#praatpad-board .aw-language-card h4{font-size:13px}#praatpad-board .aw-language-card p{font-size:12px}
+ #praatpad-board .aw-language-pager{gap:2px}#praatpad-board .aw-language-pager button{min-width:30px;min-height:36px}
+ #praatpad-board .aw-help{font-size:10px}#praatpad-board .aw-partner{font-size:11px}#praatpad-board .aw-support{font-size:12px;padding:6px}#praatpad-board .aw-status{font-size:11px}
+}
+/* Keep a single row compact instead of stretching cards into tall columns. */
+@media(min-width:1101px){#praatpad-board .aw-table[data-layout="row"] .aw-strip{height:min(100%,clamp(210px,18vw,330px));max-height:330px}}
+/* Switch packs directly on the board, with pages instead of scrolling. */
+#praatpad-board .aw-tools .aw-set-button{border:1px solid var(--pp-line);background:white;font-weight:700}
+#praatpad-board .aw-set-dialog{box-sizing:border-box;width:min(760px,calc(100vw - 28px));height:min(640px,calc(100dvh - 28px));max-height:none;max-width:none;margin:auto;padding:24px;border:1px solid var(--pp-line);border-radius:20px;background:var(--pp-bg);color:var(--pp-ink);overflow:hidden}
+#praatpad-board .aw-set-dialog[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto auto auto;gap:16px}
+#praatpad-board .aw-set-dialog::backdrop{background:#10244799;backdrop-filter:blur(3px)}
+#praatpad-board .aw-set-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#praatpad-board .aw-set-head h2{font-size:26px;margin:0}
+#praatpad-board .aw-set-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;min-height:0}
+#praatpad-board .aw-set-tile{padding:14px;border:2px solid #d5e2ed;background:#f5f8fb;border-radius:14px;font-family:inherit;font-weight:700;font-size:18px;line-height:1.3;color:var(--pp-ink);min-width:0;overflow-wrap:anywhere}
+#praatpad-board .aw-set-tile[aria-pressed="true"]{border-color:#0077cf;background:#e8f4ff;color:#064e87;box-shadow:inset 0 0 0 1px #0077cf}
+#praatpad-board .aw-set-pager{display:flex;align-items:center;justify-content:space-between;gap:12px}
+#praatpad-board .aw-set-pager button{min-width:92px;min-height:40px}
+#praatpad-board .aw-set-options{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#praatpad-board .aw-set-options[hidden]{display:none}
+#praatpad-board .aw-set-options label{font-size:14px;display:grid;gap:6px;margin:0}
+#praatpad-board .aw-set-options select{box-sizing:border-box;width:100%;min-height:44px;margin:0;padding:8px;font-size:16px}
+#praatpad-board .aw-set-footer{display:flex;justify-content:flex-end}
+#praatpad-board .aw-set-footer button{min-height:48px}
+@media(max-height:850px){#praatpad-board .aw-sidebar{gap:6px}#praatpad-board .aw-tools{gap:5px}#praatpad-board .aw-tools button{min-height:34px;padding:6px 8px;font-size:14px}#praatpad-board .aw-tools .aw-roll{min-height:48px;font-size:17px}#praatpad-board .aw-language{padding:8px}#praatpad-board .aw-language-card{padding:8px;min-height:0}#praatpad-board .aw-language-card h4{font-size:16px}#praatpad-board .aw-language-card p{font-size:13px}#praatpad-board .aw-support{font-size:12px;padding:6px}}
+@media(max-width:600px){#praatpad-board .aw-set-dialog{padding:16px}#praatpad-board .aw-set-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:8px}#praatpad-board .aw-set-tile{font-size:15px;padding:8px}#praatpad-board .aw-set-head h2{font-size:22px}#praatpad-board .aw-tools button{font-size:12px}#praatpad-board .aw-tools .aw-roll{font-size:14px}#praatpad-board .aw-language-card h4{font-size:13px}#praatpad-board .aw-language-card p{font-size:12px}}
+
+#praatpad-board .aw-tools .aw-sound-button{display:flex;align-items:center;justify-content:center;align-self:center;width:44px;height:44px;min-height:44px;padding:10px;border-radius:12px;color:var(--pp-blue)}
+#praatpad-board .aw-sound-button svg{display:block;width:24px;height:24px;flex:none}
+#praatpad-board .aw-sound-button[aria-pressed="false"]{color:var(--pp-soft)}
+
+/* Two approved basis-icon styles, stored with the existing app settings. */
+#praatpad-board #pp-icon-style-options{border:0;padding:0;margin:14px 0 24px;min-width:0;}
+#praatpad-board #pp-icon-style-options legend{font-weight:700;margin-bottom:9px;}
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices label{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #c2d2de;border-radius:10px;background:#fff;cursor:pointer;min-width:0;margin:0;}
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices label:has(input:checked){border-color:#174d76;box-shadow:inset 0 0 0 1px #174d76;}
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices input{width:18px;max-width:18px;height:18px;min-height:18px;flex:none;margin:0;accent-color:#174d76;}
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices img{width:48px;height:48px;flex:none;}
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices small{display:block;font-size:12px;color:#536c7b;font-weight:400;}
+@media(max-width:640px){#praatpad-board #pp-icon-style-options .pp-icon-style-choices{grid-template-columns:1fr;}}
+
+#praatpad-board #pp-icon-style-options .pp-icon-style-choices span{min-width:0;white-space:normal;}

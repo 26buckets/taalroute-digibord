@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" stroke="#174D76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="De koffer"><title>De koffer — stijl B</title>
+<path d="M54 39V19Q54 15 59 15H75Q79 15 79 19V39"/>
+<path fill="#174D76" d="M54 20V18Q54 15 59 15H75Q79 15 79 18V20Z"/>
+<path d="M48 32H41Q36 32 36 39V49"/>
+<rect fill="#174D76" x="29" y="38" width="70" height="68" rx="10"/>
+<path stroke="white" d="M44 49V95M64 49V95M84 49V95"/>
+<path fill="white" d="M85 38V52L95 57 103 43 91 38Z"/>
+<path d="M93 45 96 46" stroke-width="2"/>
+<circle fill="white" cx="42" cy="111" r="4"/><circle fill="white" cx="86" cy="111" r="4"/>
+</svg>

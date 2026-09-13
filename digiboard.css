@@ -1,0 +1,5 @@
+.db-map-picker,.db-board-select{padding:12px 0;margin:8px 0 14px;display:grid;gap:6px;max-width:560px}
+#praatpad-board .db-map-picker label,#praatpad-board .db-board-select label{font-weight:700}
+#praatpad-board .db-map-picker select,#praatpad-board .db-board-select select{width:100%;min-height:46px}
+/* The whiteboard is a fixed viewport for every game form. */
+@media(min-width:900px){html,body{height:100%;overflow:hidden}#praatpad-board{height:100dvh;min-height:0}#praatpad-board[data-city="true"]:not(.pp-picture-mode) .pp-play-layout{height:100%;min-height:0}#praatpad-board[data-city="true"]:not(.pp-picture-mode) .pp-playfield{min-height:0;grid-template-rows:minmax(0,1fr) auto}#praatpad-board[data-city="true"]:not(.pp-picture-mode) #pp-board-area{height:auto;min-height:0}}

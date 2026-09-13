@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" stroke="#174D76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Het park"><title>Het park — stijl B</title>
+<path fill="#174D76" d="M37 18C27 16 20 22 20 32 9 35 9 50 17 56 15 68 29 76 39 70 49 76 63 70 63 59 73 49 67 35 57 34 58 23 49 16 37 18Z"/>
+<path d="M37 71V105M13 109H115"/>
+<path stroke="white" d="M37 70V39M37 56 27 48M37 48 48 38"/>
+<rect fill="white" x="70" y="61" width="40" height="20" rx="3"/>
+<path d="M70 71H110M73 81V90M107 81V90"/>
+<rect fill="#174D76" x="64" y="89" width="52" height="7" rx="2"/>
+<path d="M71 97V108M109 97V108M51 108 54 102M20 108 17 103"/>
+</svg>

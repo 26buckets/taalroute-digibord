@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" stroke="#174D76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="De reiziger"><title>De reiziger — stijl B</title>
+<path fill="#174D76" d="M20 50H28V78H14V60Q14 50 20 50Z"/>
+<path fill="white" d="M30 77 46 77 56 104 48 108 35 88 27 105 18 102Z"/>
+<path fill="#174D76" d="M18 102 27 105 27 111H12Q9 108 12 105ZM48 108 56 104 63 108Q66 112 61 113H48Z"/>
+<path fill="#174D76" d="M28 45 38 43 49 47 55 56 71 59 69 68 50 66 44 58V81H24V58Q24 49 28 45Z"/>
+<path stroke="white" d="M30 48Q37 56 34 69M34 69H25"/>
+<path fill="white" d="M69 59H78Q84 59 84 63T78 68H69Z"/>
+<path d="M84 65H94V79M89 65V79"/>
+<rect fill="#174D76" x="77" y="78" width="34" height="29" rx="5"/>
+<path stroke="white" d="M85 84V100M94 84V100M103 84V100"/>
+<circle fill="white" cx="83" cy="111" r="3"/><circle fill="white" cx="105" cy="111" r="3"/>
+<path fill="#174D76" d="M25 28V23C25 15 30 12 39 12 49 12 53 18 53 27L48 32H29Z"/>
+<path fill="white" d="M30 25Q42 27 46 20L49 28V32Q48 44 39 44T30 32Z"/>
+<path d="M40 30V34H43M36 38Q40 41 44 38" stroke-width="2"/>
+</svg>

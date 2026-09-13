@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" stroke="#174D76" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="De buurvrouw"><title>De buurvrouw — stijl A</title>
+<path fill="white" d="M86 76 101 63 116 76V108H86Z"/>
+<path d="M82 77 101 60 120 77M96 108V91H107V108"/>
+<rect fill="white" x="94" y="77" width="13" height="8" rx="2"/>
+<path fill="white" d="M25 48V38C25 24 33 18 44 18S62 26 62 39V51L54 57H31Z"/>
+<path fill="white" d="M32 35C39 37 46 33 49 28 51 33 55 36 57 37V46C57 56 51 62 44 62S31 55 31 45V37Z"/>
+<path d="M44 44V48H47M40 53Q44 56 48 53" stroke-width="2"/>
+<path fill="white" d="M36 64 29 65C20 67 16 74 16 84V108H69V82L78 72 85 61 77 56 68 67 59 64 52 63 44 70Z"/>
+<path fill="white" d="M77 56 73 50Q72 47 75 46L79 50 78 39Q78 36 81 36L85 48 89 44Q92 43 93 46L89 57 85 61Z"/>
+<path stroke="#174D76" d="M29 83V108M57 83V108M37 78H51"/>
+</svg>
