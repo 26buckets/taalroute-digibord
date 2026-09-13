@@ -1,0 +1,175 @@
+{
+  "status": "KANDIDAAT",
+  "results": [
+    {
+      "width": 320,
+      "colorScheme": "light",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 320,
+      "colorScheme": "light",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 320,
+      "colorScheme": "dark",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 320,
+      "colorScheme": "dark",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 390,
+      "colorScheme": "light",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 390,
+      "colorScheme": "light",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 390,
+      "colorScheme": "dark",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 390,
+      "colorScheme": "dark",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 768,
+      "colorScheme": "light",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 768,
+      "colorScheme": "light",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 768,
+      "colorScheme": "dark",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 768,
+      "colorScheme": "dark",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1280,
+      "colorScheme": "light",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1280,
+      "colorScheme": "light",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1280,
+      "colorScheme": "dark",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1280,
+      "colorScheme": "dark",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1920,
+      "colorScheme": "light",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1920,
+      "colorScheme": "light",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1920,
+      "colorScheme": "dark",
+      "text": 100,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    },
+    {
+      "width": 1920,
+      "colorScheme": "dark",
+      "text": 200,
+      "header": 60,
+      "accent": 2,
+      "lessonShift": 0
+    }
+  ],
+  "checks": [
+    "keyboard",
+    "outside click",
+    "menu exclusivity",
+    "fullscreen",
+    "three same-tab links and browser Back",
+    "short-height scrolling",
+    "unique IDs",
+    "no console errors"
+  ]
+}

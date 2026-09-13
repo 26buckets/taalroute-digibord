@@ -1,0 +1,35 @@
+/* Shared geometry, including the accent in the total header height. */
+:root{--tr-header-height:60px;--tr-accent-height:2px;--tr-active-accent:#0090F2;}
+#praatpad-board.db-ui>.pp-brand[data-app-menu]:has(#pp-main-tools){--tr-logo-width:193px;--tr-gap:16px;--tr-chevron-gap:8px;--tr-inset:22px;--tr-wordmark:#223a59;box-sizing:border-box;position:relative;z-index:50;height:var(--tr-header-height);min-height:var(--tr-header-height);max-height:var(--tr-header-height);flex-shrink:0;padding:0 var(--tr-inset);border-bottom:var(--tr-accent-height) solid var(--tr-active-accent);gap:12px;}
+#praatpad-board .pp-brand[data-app-menu] .tr-home{display:flex;flex:1;min-width:0;flex-wrap:nowrap;gap:var(--tr-gap);}
+#praatpad-board .tr-brand{position:static;flex:none;}
+#praatpad-board .tr-trigger{display:flex;align-items:center;gap:var(--tr-chevron-gap);height:44px;min-height:44px;padding:0;border:0;border-radius:4px;background:transparent;color:var(--tr-wordmark);cursor:pointer;}
+#praatpad-board .tr-trigger:hover,#praatpad-board .tr-trigger[aria-expanded=true]{background:#edf3f7;}
+#praatpad-board .tr-logo{display:block;width:var(--tr-logo-width);height:auto;flex:none;color:var(--tr-wordmark);}
+#praatpad-board .tr-chevron{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+#praatpad-board .tr-trigger[aria-expanded=true] .tr-chevron{transform:rotate(180deg);}
+#praatpad-board .pp-brand[data-app-menu] :is(.pp-brand-divider,.tr-divider){display:block;width:1px;height:32px;flex:none;background:#bdcdd8;}
+#praatpad-board .pp-brand[data-app-menu] .tr-product-name{font-size:1rem;line-height:1.1;white-space:normal;overflow:visible;flex:none;}
+#praatpad-board #tr-app-menu{position:absolute;top:calc(100% + var(--tr-accent-height));left:0;width:min(460px,100%);box-sizing:border-box;max-height:calc(100dvh - var(--tr-header-height) - 8px);overflow-y:auto;padding:4px 0;border:1px solid #d4dfe7;border-top:0;border-radius:0 0 6px 6px;background:#fff;box-shadow:0 12px 24px #0002;}
+#praatpad-board #tr-app-menu[hidden],#praatpad-board #pp-logo[hidden]{display:none;}
+#praatpad-board #tr-app-menu a{display:flex;align-items:center;gap:var(--tr-gap);min-height:58px;box-sizing:border-box;padding:8px calc(var(--tr-inset) - 1px);color:var(--tr-wordmark);text-decoration:none;font-size:1rem;line-height:1.2;font-weight:700;}
+#praatpad-board #tr-app-menu a>span:last-child{min-width:0;overflow-wrap:anywhere;}
+#praatpad-board #tr-app-menu .tr-divider{margin-left:calc(16px + var(--tr-chevron-gap));}
+#praatpad-board #tr-app-menu a:hover{box-shadow:inset 4px 0 currentColor;text-decoration:underline;}
+#praatpad-board #tr-app-menu a.tr-missies{background:#FCF8ED;color:#59402D;}
+#praatpad-board #tr-app-menu .tr-missies .tr-logo{color:#59402D;}
+#praatpad-board :is(.tr-trigger,#tr-app-menu a,.tr-controls summary):focus-visible{outline:3px solid #0075d5;outline-offset:-3px;}
+#praatpad-board .tr-controls{display:none;position:relative;}
+#praatpad-board .tr-controls summary{list-style:none;cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;flex-direction:column;font:400 11px/13px Arial;}
+#praatpad-board .tr-controls summary::-webkit-details-marker{display:none;}
+#praatpad-board .tr-controls summary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;}
+#praatpad-board .tr-control-panel{position:absolute;top:50px;right:0;padding:8px;min-width:150px;background:#fff;border:1px solid #d4dfe7;border-radius:8px;box-shadow:0 12px 24px #0002;max-height:calc(100dvh - 70px);overflow:auto;}
+#praatpad-board .tr-control-panel .pp-icon-button{width:100%;}
+#praatpad-board.db-ui>.pp-brand[data-app-menu][data-compact]:has(#pp-main-tools){--tr-logo-width:clamp(64px,16vw,146px);--tr-gap:6px;--tr-chevron-gap:6px;--tr-inset:8px;gap:6px;}
+#praatpad-board [data-compact] .tr-controls{display:block;}
+@media(prefers-color-scheme:dark){
+ #praatpad-board.db-ui>.pp-brand[data-app-menu]:has(#pp-main-tools){--tr-wordmark:#223a59;}
+ #praatpad-board #tr-app-menu{--tr-wordmark:#edf1f3;background:#22313e;color:#edf1f3;border-color:#536472;}
+}
+#praatpad-board.db-ui>.pp-brand[data-app-menu]:has(#pp-main-tools){display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;}
+#praatpad-board.db-ui>.pp-brand[data-app-menu] #pp-main-tools{width:auto;flex:none;}
