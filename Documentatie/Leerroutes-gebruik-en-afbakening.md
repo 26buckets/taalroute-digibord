@@ -1,3 +1,5 @@
+> **Bijgewerkt aanbod:** de kaartapp gebruikt nu de [960 concrete opdrachten en het eenvoudige zinnenspel](Opdrachtenmatrix-en-zinnenspel.md). Beschrijvingen hieronder van 192 opdrachten en 48 verplichte handelingen per route zijn historisch; ze bepalen niet meer het leerlingaanbod.
+
 # Algemene didactiek in DigiBoard
 
 DigiBoard is een algemene taal- en oefenapp. De bestaande eigen didactiek is leidend: zes families, 48 taalhandelingen en een opbouw van korte, begeleide reacties naar zelfstandiger uitwisselen, regelen, uitleggen en doorgeven. Spreektijd is één mogelijke toepassing, net als andere methodes en losse lessen. Boek-, hoofdstuk- en themaregels van een specifieke methode zijn geen eisen aan deze app.

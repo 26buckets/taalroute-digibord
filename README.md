@@ -1,9 +1,10 @@
 # Taalroute DigiBoard
 
-Eén app met drie spelvormen, bereikbaar via **Instellingen → Spelvorm**:
+Eén app met vier spelvormen, bereikbaar via **Instellingen → Spel & beelden**:
 
 - **Speel op de kaart**: Rotterdam, Amsterdam, Utrecht, Dorp, Kust, Bos, Polder, Haven, Heuvels, Fantasiewereld en Ruimtewereld. De kaartkiezer toont uitsluitend deze elf werelden; oude bronmodules en lesgegevens zijn behouden.
 - **Vertel een verhaal**: negen beelddobbelstenen, wisselen van sets, woorden tonen/verbergen, geluid en vorige worp.
+- **Eenvoudig zinnenspel**: persoon, werkwoord en kleur voor de tijd; 24 werkwoorden en maximaal 432 combinaties.
 - **Bouw een zin**: het woordspel met verschillende oefenvormen en een vrij instelbare zinnentafel.
 
 De 54 nieuwe basisiconen zijn beschikbaar in Lijn en Lijn met vlakken. Die laatste stijl is standaard. De bestaande 54 actiewoorden en acht themapakketten met niveauprofielen A1–C2 zijn meegenomen.
@@ -69,15 +70,16 @@ Tests: npm test controleert de gedeelde app, kaartfamilie en lesvormen, inclusie
 
 ## Algemene leerroutes en taalhandelingen
 
-DigiBoard heeft een eigen, methodeonafhankelijk didactisch systeem: zes families en 48 taalhandelingen. De kaartapp biedt 48 uitgewerkte opdrachten op elk van de routes A0–A1, A1–A1+, A1–A2 en A2–B1, in totaal 192 routeopdrachten. De opdrachten staan in Lessen/leerroutes-content.js. Bij een voorbereidende handeling blijft begeleiding expliciet vermeld.
+DigiBoard biedt 960 concrete opdrachten: 240 op elk van de routes A0–A1, A1–A1+, A1–A2 en A2–B1. Rondje = vertel, vierkant = vraag, driehoek = kies, ruit = regel iets. De bron staat in `Lessen/opdrachtenmatrix.json`. Per groep, route en vorm bewaart de app welke opdrachten gespeeld zijn. Hulp en voorbeelden verschijnen pas na een klik.
 
-Onder Kaarten staat de opdrachtenbank met een familiefilter. Didactiek kan dezelfde handelingen direct op het bord zetten. Bron & docent toont input, model, grammatica en observatiepunt. Spreektijd kan deze algemene app gebruiken, maar is niet leidend voor haar opbouw. De bank is een verzameling oefentaken, geen volledige methode of officiële grammaticale niveaulijst.
+Onder **Kaart & les** staat een filterbare catalogus met 240 opdrachten per route. **Leerdoelen** houdt de zes families en 48 taalhandelingen beschikbaar als docentachtergrond en verwijst naar de concrete catalogus. Spreektijd is één mogelijke toepassing van deze algemene app.
 
+Zie [Opdrachtenmatrix en eenvoudig zinnenspel](Documentatie/Opdrachtenmatrix-en-zinnenspel.md) en het [Excel-overzicht](Documentatie/Opdrachtenmatrix.xlsx). Excel is een reviewbestand; de app leest de JSON-bron.
 
 ## Filosofie, opdrachten en archief
 
 - [Filosofie en gebruik](Documentatie/Filosofie-en-gebruik.md)
-- [Alle 192 opdrachten en grammaticale oefendoelen](Documentatie/Alle-192-opdrachten-en-grammatica.md)
+- [Historisch: eerdere 192 opdrachten en grammaticale oefendoelen](Documentatie/Alle-192-opdrachten-en-grammatica.md)
 - [Kaartfamilie en variatieafspraken](Documentatie/Kaartfamilie-en-variatie.md)
 - [Leerroutes: gebruik en afbakening](Documentatie/Leerroutes-gebruik-en-afbakening.md)
 - [Kaartcontrole: plaatsing, labels en dieptewerking](Documentatie/Kaartcontrole-en-aanpassingen.md)

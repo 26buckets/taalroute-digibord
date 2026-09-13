@@ -17,7 +17,7 @@ globalThis.DigiBoard=(()=>{
   for(const el of map.children)if(el.tagName.toLowerCase()==='svg'&&!['pp-path','pp-connections'].includes(el.id))el.classList.add('db-map-layer');
   document.getElementById('praatpad-board').dataset.city='true';
  }
- function saveShared(d){try{localStorage.setItem(SHARED,JSON.stringify({version:1,settings:d.settings,roster:d.roster,groups:d.groups,wordspel:d.wordspel,pictureDice:d.session.pictureDice,mode:d.session.mode,people:d.session.people,players:d.session.players}));localStorage.setItem(ACTIVE,JSON.stringify(mapId));}catch{/* The core reports storage failures. */}}
+ function saveShared(d){try{localStorage.setItem(SHARED,JSON.stringify({version:1,settings:d.settings,roster:d.roster,groups:d.groups,wordspel:d.wordspel,matrixProgress:d.matrixProgress,sentenceGame:d.sentenceGame,pictureDice:d.session.pictureDice,groupId:d.session.groupId,groupName:d.session.groupName,mode:d.session.mode,people:d.session.people,players:d.session.players}));localStorage.setItem(ACTIVE,JSON.stringify(mapId));}catch{/* The core reports storage failures. */}}
  function restoreShared(d,validate,normalize,loaded){
   const common=read(SHARED);if(!common||common.version!==1)return d;
   try{
@@ -27,7 +27,9 @@ globalThis.DigiBoard=(()=>{
    candidate.groups=common.groups||candidate.groups;
    if(common.pictureDice)candidate.session.pictureDice=copy(common.pictureDice);
    if(common.wordspel)candidate.wordspel=copy(common.wordspel);
-   if(!loaded&&common.people?.length&&common.players?.length){candidate.session.mode=common.mode;candidate.session.people=copy(common.people);candidate.session.players=common.players.map(p=>({...copy(p),pos:0,turns:0}));}
+   if(DigiBoardMatrix.validProgress(common.matrixProgress))candidate.matrixProgress=copy(common.matrixProgress||{version:1,groups:{}});
+   if(common.sentenceGame)candidate.sentenceGame=copy(common.sentenceGame);
+   if(!loaded&&common.people?.length&&common.players?.length){candidate.session.groupId=common.groupId??null;candidate.session.groupName=common.groupName||'';candidate.session.mode=common.mode;candidate.session.people=copy(common.people);candidate.session.players=common.players.map(p=>({...copy(p),pos:0,turns:0}));}
    return validate(candidate)?normalize(candidate):d;
   }catch{return d;}
  }

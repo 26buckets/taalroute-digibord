@@ -1,3 +1,5 @@
+> **Bijgewerkt aanbod:** de kaartapp gebruikt nu de [960 concrete opdrachten en het eenvoudige zinnenspel](Opdrachtenmatrix-en-zinnenspel.md). Beschrijvingen hieronder van 192 opdrachten en 48 verplichte handelingen per route zijn historisch; ze bepalen niet meer het leerlingaanbod.
+
 # DigiBoard — filosofie en gebruik
 
 Actuele stand: 13 september 2026. Dit document beschrijft de gezamenlijke app in deze overdracht. Oudere voorstellen in het bronarchief beschrijven eerdere ontwikkelfasen.

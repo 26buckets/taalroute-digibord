@@ -1,3 +1,5 @@
+> **Bijgewerkt aanbod:** de kaartapp gebruikt nu de [960 concrete opdrachten en het eenvoudige zinnenspel](Opdrachtenmatrix-en-zinnenspel.md). Beschrijvingen hieronder van 192 opdrachten en 48 verplichte handelingen per route zijn historisch; ze bepalen niet meer het leerlingaanbod.
+
 # Algemene DigiBoard-opdrachten per leerroute
 
 Uitwerking van de bestaande zes families en 48 taalhandelingen. Deze opdrachten zijn methodeonafhankelijk.
