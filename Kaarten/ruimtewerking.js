@@ -15,6 +15,8 @@ globalThis.DigiBoardSpatial=(()=>{
   'ruimte-maanroute':{prefix:'ruimte',size:104,entry:[462,305],exit:[576,196],front:[.62,.91],deep:[.5,.66],entryPath:[[579,462],[532,450],[526.48,423]],exitPath:[[652,316]]}
  };
  const objects={
+  // The forest path crosses in front of the roots between tiles 33 and 34.
+  'bos-bosroute':[{selector:'#bos-boom-front image',rect:[1440,350,230,230],frontY:527}],
   'fantasie-eilanden':[{selector:'#fantasie-paddenstoel-front image',rect:[252,476,128,141]}],
   'polder-slotenroute':[{selector:'#polder-boom-front image',rect:[232,401,160,180]}],
   'heuvels-panorama':[{selector:'image[href$="15300d0ecbb493a9.png"]',rect:[518,539,118,118]}],
@@ -106,8 +108,8 @@ globalThis.DigiBoardSpatial=(()=>{
   }
   if(travelling||!globalThis.PraatpadWorld||!globalThis.DigiBoardMap)return base;
   const f=PraatpadWorld.fit(w,h),x=(point[0]-f.x)/f.scale,y=(point[1]-f.y)/f.scale,c=geometry(DigiBoardMap.id);
-  const foreground=[...(objects[DigiBoardMap.id]||[]).map(o=>o.rect),...(c?[c.entry,c.exit].map(p=>[...p,c.size,c.size]):[])];
-  return foreground.some(r=>x>r[0]-22&&x<r[0]+r[2]+22&&y>r[1]+r[3]&&y<r[1]+r[3]+75)?11:base;
+  const foreground=[...(objects[DigiBoardMap.id]||[]),...(c?[c.entry,c.exit].map(p=>({rect:[...p,c.size,c.size]})):[])];
+  return foreground.some(({rect:r,frontY=r[1]+r[3]})=>x>r[0]-22&&x<r[0]+r[2]+22&&y>frontY&&y<r[1]+r[3]+75)?11:base;
  }
  return{maps,geometry,paths,pose,trace,prepare,layoutLabels,pawnDepth,obstacles:()=>obstacles.map(x=>[...x])};
 })();

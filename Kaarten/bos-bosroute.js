@@ -25,7 +25,7 @@ PraatpadCity.terminal=end=>`<span class="city-terminal-name">${end?'FINISH':'STA
 
 };
 DigiBoardMap.positions={'worteltunnel':[516,570],'bospad':[955,65]};
-DigiBoardMap.depthRoutes={tree:{from:1,exits:[3]},bridge:{from:38,exits:[42]}};
+DigiBoardMap.depthRoutes={tree:{from:31,exits:[36]},bridge:{from:38,exits:[42]}};
 DigiBoardMap.connectRuntime=host=>{
 const {$,root,Routes,s,current,routeConnections,reduced,drawMap,renderControls}=host;
 function tunnelPose(t,from,to){return DigiBoardSpatial.pose('bos-bosroute',t,from,to);}
