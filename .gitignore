@@ -2,3 +2,5 @@ node_modules/
 tests/artifacts/
 .DS_Store
 *.log
+
+.wrangler/

@@ -1,5 +1,6 @@
 # Alleen de bestanden van de browser-app publiceren.
 *
+!_redirects
 !index.html
 !Start-Praatpad.html
 !digiboard.js
