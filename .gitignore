@@ -4,3 +4,6 @@ tests/artifacts/
 *.log
 
 .wrangler/
+
+# Local diagnostics and temporary screenshots
+work/

@@ -40,3 +40,13 @@ De pion blijft bij verkleinen op zijn voeten staan. De animatie bevat vijf opeen
 ## Gebruiken
 
 Ververs de gezamenlijke app op http://127.0.0.1:61381/Start-Praatpad.html. Gebruik bij Speciale plekken de bewegingsvoorbeelden om de tunnel, brug en groenpassage te bekijken. De spelregels en bestemmingen zijn behouden.
+
+## Tunnelranden bij het uitlopen
+
+De worteltunnel en kristalgrot maakten zichtbaar dat de pion tijdens de uitloopfase nog op de achterste laag bleef. De gezamenlijke dieptefunctie ontvangt nu de tunnel-fase. Na het verlaten van de mond loopt de pion op laag 11 vóór de rand terug naar het eindvak. In- en uitkomen door de opening en volledige onzichtbaarheid onder de grond blijven behouden. De controle bemonstert de volledige uitloopfase bij elke tunnel. Ook vaste ronde vaknummers reserveren hun werkelijke schermruimte bij het plaatsen van labels.
+
+Tekstlabels reserveren ook de toegangs- en uitlooppaden van de tunnels, met ruimte voor de volledige pion boven het pad. Dit voorkomt dat een bovenliggend bordje de pion na het uitkomen afdekt.
+
+## Correctie bij de mond zelf
+
+De eerdere uitloopcorrectie liet het probleem bij het naderen van de opening bestaan. Nu blijven het aanlopen en de buitenste helft van het in- en uitlopen vóór de rand. Pas zodra de verkleinde pion binnen de opening past (schaal maximaal 0,66), wordt het voorgrondmasker gebruikt. De terugweg gebruikt dezelfde overgang in omgekeerde volgorde. Close-ups zijn gecontroleerd voor beide tunnelmonden, naast de geautomatiseerde controle van alle vijf fasen.

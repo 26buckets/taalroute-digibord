@@ -57,7 +57,7 @@ function animateTunnel(record,token){
    host.anim.cityTunnelOpacity=pose.opacity;host.anim.tunnelScale=pose.scale;host.anim.tunnelPhase=pose.phase;host.anim.tunnelProgress=pose.progress;
    $('pp-transit-label').textContent=pose.phase==='hidden'?'T1 · Onder de grond → vak 10':pose.phase==='exit'||pose.phase==='arrive'?'T1 · De tunnel uit bij 10':'T1 · De maantunnel in bij 7';
    drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }
@@ -84,7 +84,7 @@ function animateBeam(record,token){
   const frame=now=>{if(token!==host.run||!host.anim){done();return;}start??=now;const t=Math.min(1,(now-start)/beamDuration),pose=beamPose(t,record.from,record.to),f=PraatpadWorld.fit($('pp-map').clientWidth,$('pp-map').clientHeight);
    host.anim.stepPoint=[pose.point[0]*f.scale+f.x,pose.point[1]*f.scale+f.y];host.anim.cityTunnelOpacity=pose.opacity;host.anim.tunnelScale=pose.scale;host.anim.beamPhase=pose.phase;host.anim.beamFrom=record.from;host.anim.beamTo=record.to;
    $('pp-transit-label').textContent=pose.phase==='hidden'?'B1 · Onderweg naar basis '+record.to:pose.phase==='descend'||pose.phase==='arrive'?'B1 · Landen bij '+record.to:'B1 · Omhoog vanaf '+record.from;drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }

@@ -47,7 +47,7 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
    <aside class="pp-play-controls" aria-label="Dobbelsteen en voortgang">
     <div class="pp-roll-heading"><p id="pp-roll-caption"></p></div><button type="button" id="pp-roll" class="pp-dice"><canvas class="pp-cube" id="pp-cube" aria-hidden="true"></canvas></button>
     <div class="pp-current"><span id="pp-turn-label" class="pp-kicker"></span><div class="pp-current-name"><span id="pp-current-token" class="pp-token"></span><h3 id="pp-current-name"></h3></div><p id="pp-result"></p></div>
-    <div class="pp-progress"><div><span id="pp-position-label"></span><span>EINDE</span></div><progress id="pp-progress" max="13" value="0" aria-label="Positie van de pion"></progress></div>
+    <div class="pp-progress"><div><span id="pp-position-label"></span><span>Einde</span></div><progress id="pp-progress" max="13" value="0" aria-label="Positie van de pion"></progress></div>
     <div class="pp-demo"><span id="pp-demo-label" class="pp-kicker"></span><p id="pp-speaker"></p><button type="button" id="pp-next-duo" class="pp-text-button">Ander duo</button></div>
     <div class="pp-undo-row"><button type="button" id="pp-back" class="pp-text-button"><i data-lucide="undo-2" aria-hidden="true"></i>Terug</button><span id="pp-history"></span></div>
     <div id="db-round-controls" aria-label="Pionnen en ronde"></div>
@@ -125,15 +125,6 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
 #pp-family-lab .sequence-number{font-size:12px;color:var(--soft);}
 #pp-family-lab .sequence-prompt{margin:10px 0 12px;padding-left:10px;border-left:3px solid var(--color);font-size:14px;}
 #pp-family-lab [hidden]{display:none!important;}
-/* Use available width for the lesson preview in narrow app panels. */
-#praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-window{width:min(100%,1180px);}
-@media(max-width:1100px){
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-layout{grid-template-columns:1fr;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-nav{display:flex;flex-direction:row;flex-wrap:wrap;gap:3px;padding:6px 10px;border-right:0;border-bottom:1px solid #d8e3ea;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-nav button{min-height:36px;padding:6px 8px;gap:5px;font-size:12px;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-nav #pp-finish-button{margin:0;padding:6px 8px;border:0;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-content{padding:14px 16px;}
-}
 @media(max-width:800px){
  #pp-family-lab .didactics-workspace{grid-template-columns:1fr;gap:12px;}
  #pp-family-lab .families{grid-template-columns:repeat(3,minmax(0,1fr));}
@@ -142,11 +133,6 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
  #pp-family-lab .detail-heading{padding:10px 12px;}
 }
 @media(max-width:520px){
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])){padding:8px;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-content{padding:12px;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:6px;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-nav button{padding:6px;font-size:11px;}
- #praatpad-board #pp-settings:has(#pp-panel-didactics:not([hidden])) .pp-settings-nav button svg{display:none;}
  #pp-family-lab .families,#pp-family-lab .actions{grid-template-columns:repeat(2,minmax(0,1fr));}
  #pp-family-lab .didactics-heading{align-items:center;}
  #pp-family-lab .didactics-heading>span{font-size:11px;}
@@ -195,7 +181,7 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
       <div class="pp-hub-actions"><button type="button" id="pp-compose" class="pp-text-button"><i data-lucide="pencil-line" aria-hidden="true"></i>Zelf samenstellen</button><button type="button" id="pp-print" class="pp-text-button"><i data-lucide="printer" aria-hidden="true"></i>Printversie</button></div>
      </section>
      <section id="pp-panel-groups" data-settings-panel="groups" aria-labelledby="pp-groups-title" hidden>
-      <h3 id="pp-groups-title">Groepen op deze laptop</h3><p class="pp-note">Kies een klas of maak een vaste groepslijst. Een nieuwe les begint bij START; de vorige les staat bij Spellen &amp; niveaus.</p>
+      <h3 id="pp-groups-title">Groepen op deze laptop</h3><p class="pp-note">Kies een klas of maak een vaste groepslijst. Een nieuwe les begint bij START; de vorige les staat bij Lessen en printen.</p>
       <label for="pp-saved-group">Bewaarde groep</label><div class="pp-group-pick"><select id="pp-saved-group"><option value="">Nieuwe of eenmalige groep</option></select><button type="button" id="pp-start-group" class="pp-primary">Nieuwe les starten</button></div>
       <label for="pp-group-name">Groepsnaam · leeg voor een eenmalige les</label><input id="pp-group-name" maxlength="60" placeholder="Bijvoorbeeld: Maandag A2" autocomplete="off">
       <div class="pp-settings-fields"><div><label for="pp-names">Cursistnamen · één per regel</label><textarea id="pp-names" rows="6" maxlength="1500"></textarea></div><div>
@@ -1138,11 +1124,11 @@ function undo(){if(pictureMode())return undoPicture();if(!data.history.length)re
 function archive(){data.previous.unshift({session:clone(s()),history:clone(data.history)});data.previous=data.previous.slice(0,3);}
 function start(board,mode,people,group={id:s().groupId??null,name:s().groupName??''}){archive();if(data.settings.diceStyle!=='sentence')data.settings.diceStyle='numbers';data.session=makeSession(board,data.settings.workForm==='spotlight'?'class':mode,people,{...group,pawnCount:data.settings.pawnCount||5});data.history=[];page='game';mapKey='';save();render();$('pp-roll').focus();}
 
-const mapRuntime=globalThis.DigiBoardMap?.connectRuntime?.({$,root,Routes,s,current,routeConnections,reduced,drawMap,renderControls,get anim(){return anim;},set anim(v){anim=v;},get run(){return run;},get transportCancel(){return transportCancel;},set transportCancel(v){transportCancel=v;}});
-DigiBoard.connect({read:()=>data,busy,save,showMapRules,openMapPicker:()=>settings('board'),chooseForm(value){if(busy())return;data.settings.diceStyle=value;save();render();},chooseMap(value){if(busy())return;save();DigiBoard.changeMap(value);}});
+const mapRuntime=globalThis.DigiBoardMap?.connectRuntime?.({$,root,Routes,s,current,routeConnections,reduced,drawMap,renderControls,previewLanding,get anim(){return anim;},set anim(v){anim=v;},get run(){return run;},get transportCancel(){return transportCancel;},set transportCancel(v){transportCancel=v;}});
+DigiBoard.connect({read:()=>data,busy,save,showMapRules,openMapPicker:showMapPicker,chooseForm(value){if(busy())return;data.settings.diceStyle=value;save();render();},chooseMap(value){if(busy())return;save();DigiBoard.changeMap(value);}});
 DigiBoardMatrix.ensure(data,content);
 const diceAudioUI=DigiBoardDiceAudio.connect({root,read:()=>data,save,notice});
-const learningUI=DigiBoardLearning.connect({$,root,s,read:()=>data,save,render,dialog,esc,task,playerName,busy,animating:()=>!!anim,notice,closeDialog,finish:FINISH,configurePawns,continueRound,baseTask:n=>content.tasks.find(t=>t.id===s().board.tasks[n-1]),remember,ensure:()=>DigiBoardMatrix.ensure(data,content),chooseMatrix(id){if(busy())return;data.settings.diceStyle="numbers";remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT);DigiBoardMatrix.select(data,content.tasks.find(t=>t.id===s().board.tasks[node-1]),id);s().selected=node;page="game";save();render();},chooseLesson(actionId){if(busy())return;remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT),baseId=s().board.tasks[node-1];s().lessonAssignments??={};s().lessonAssignments[baseId]=actionId;s().selected=node;page='game';save();render();},selectPlayer(id){if(busy())return;const i=s().players.findIndex(p=>p.id===id);if(i<0)return;s().active=i;s().selected=current().pos<FINISH?current().pos:0;save();render();}});
+const learningUI=DigiBoardLearning.connect({$,root,s,read:()=>data,save,render,dialog,esc,task,playerName,busy,previewTask:()=>!!anim?.taskReady,animating:()=>!!anim,notice,closeDialog,finish:FINISH,configurePawns,continueRound,baseTask:n=>content.tasks.find(t=>t.id===s().board.tasks[n-1]),remember,ensure:()=>DigiBoardMatrix.ensure(data,content),chooseMatrix(id){if(busy())return;data.settings.diceStyle="numbers";remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT);DigiBoardMatrix.select(data,content.tasks.find(t=>t.id===s().board.tasks[node-1]),id);s().selected=node;page="game";save();render();},chooseLesson(actionId){if(busy())return;remember();const node=s().selected||Math.min(current().pos||1,TASK_COUNT),baseId=s().board.tasks[node-1];s().lessonAssignments??={};s().lessonAssignments[baseId]=actionId;s().selected=node;page='game';save();render();},selectPlayer(id){if(busy())return;const i=s().players.findIndex(p=>p.id===id);if(i<0)return;s().active=i;s().selected=current().pos<FINISH?current().pos:0;save();render();}});
 const sentenceUI=DigiBoardSentence.connect({root,$,read:()=>data,save,render,settings,busy,closeDialog,dialog,esc});
 $('pp-progress').max=FINISH;
 
@@ -1206,13 +1192,18 @@ function drawMap(){
  const wanted=new Set();for(let i=0;i<=FINISH;i++){
   const group=s().players.filter(p=>(p===current()&&anim?anim.pos:p.pos)===i).sort((a,b)=>(b===current())-(a===current()));
   group.slice(0,2).forEach((p,j)=>{let el=$('pp-pawns').querySelector(`[data-player="${p.id}"]`);if(!el){el=document.createElement('span');el.className='pp-token pp-pawn';el.dataset.player=p.id;el.setAttribute('role','img');$('pp-pawns').append(el);}wanted.add(el);
-   const pi=s().players.indexOf(p);el.style.setProperty('--pp-player',colors[pi%colors.length]);el.style.left=Math.max(20,Math.min(w-22,coords[i][0]+(group.length===1?tileLayout.tileWidth/2+6:(j===0?-tileLayout.tileWidth/2-6:tileLayout.tileWidth/2+6))))+'px';el.style.top=Math.min(h-17,coords[i][1]+tileLayout.pawnOffsetY)+'px';if(p===current()&&anim?.stepPoint){el.style.left=anim.stepPoint[0]+'px';el.style.top=anim.stepPoint[1]+'px';}if(s().board.cityArtwork&&!(p===current()&&anim?.stepPoint)){el.style.left=(coords[i][0]+(i===0||i===FINISH?0:tileLayout.pawnOffsetX)+(group.length===1?0:(j===0?-20:20)*tileLayout.scale))+'px';}mapRuntime?.adjustPawn(el,w,h);el.style.scale='';el.style.transformOrigin=s().board.cityArtwork?'50% 93%':'';el.style.transform=s().board.cityArtwork?`translate(-50%,-93%) scale(${p===current()&&anim?.tunnelScale!==undefined?anim.tunnelScale:1})`:'';el.style.opacity=p===current()&&anim?.cityTunnelOpacity!==undefined?anim.cityTunnelOpacity:'';el.style.zIndex=DigiBoardSpatial.pawnDepth([parseFloat(el.style.left),parseFloat(el.style.top)],w,h,globalThis.PraatpadWorld?.pawnDepth?.([parseFloat(el.style.left),parseFloat(el.style.top)],w,h)||8,!!(p===current()&&anim&&(anim.tunnelPhase||anim.portalPhase||anim.beamPhase||anim.ferryPhase)));el.dataset.current=p===current();el.textContent=s().mode==='class'?'':pi+1;if(s().board.cityArtwork)el.innerHTML=PraatpadCity.pawn(s().mode==='class'?'':pi+1);el.setAttribute('aria-label',playerName(p)+', '+(i===0?'START':i===FINISH?'EINDE':'vak '+i));
+   const pi=s().players.indexOf(p);el.style.setProperty('--pp-player',colors[pi%colors.length]);el.style.left=Math.max(20,Math.min(w-22,coords[i][0]+(group.length===1?tileLayout.tileWidth/2+6:(j===0?-tileLayout.tileWidth/2-6:tileLayout.tileWidth/2+6))))+'px';el.style.top=Math.min(h-17,coords[i][1]+tileLayout.pawnOffsetY)+'px';if(p===current()&&anim?.stepPoint){el.style.left=anim.stepPoint[0]+'px';el.style.top=anim.stepPoint[1]+'px';}if(s().board.cityArtwork&&!(p===current()&&anim?.stepPoint)){el.style.left=(coords[i][0]+(i===0||i===FINISH?0:tileLayout.pawnOffsetX)+(group.length===1?0:(j===0?-20:20)*tileLayout.scale))+'px';}mapRuntime?.adjustPawn(el,w,h);el.style.scale='';el.style.transformOrigin=s().board.cityArtwork?'50% 93%':'';el.style.transform=s().board.cityArtwork?`translate(-50%,-93%) scale(${p===current()&&anim?.tunnelScale!==undefined?anim.tunnelScale:1})`:'';el.style.opacity=p===current()&&anim?.cityTunnelOpacity!==undefined?anim.cityTunnelOpacity:'';el.style.zIndex=DigiBoardSpatial.pawnDepth([parseFloat(el.style.left),parseFloat(el.style.top)],w,h,globalThis.PraatpadWorld?.pawnDepth?.([parseFloat(el.style.left),parseFloat(el.style.top)],w,h)||8,!!(p===current()&&anim&&(anim.tunnelPhase||anim.portalPhase||anim.beamPhase||anim.ferryPhase)),p===current()?anim?.tunnelPhase:'',p===current()?anim?.tunnelScale:1);el.dataset.current=p===current();el.textContent=s().mode==='class'?'':pi+1;if(s().board.cityArtwork)el.innerHTML=PraatpadCity.pawn(s().mode==='class'?'':pi+1);el.setAttribute('aria-label',playerName(p)+', '+(i===0?'START':i===FINISH?'EINDE':'vak '+i));
   });
   if(group.length>2){let el=$('pp-pawns').querySelector(`[data-more="${i}"]`);if(!el){el=document.createElement('span');el.className='pp-pawn-more';el.dataset.more=i;$('pp-pawns').append(el);}wanted.add(el);el.textContent='+'+(group.length-2);el.style.left=coords[i][0]+'px';el.style.top=Math.min(h-8,coords[i][1]+tileLayout.tileHeight/2+8)+'px';}
  }for(const el of [...$('pp-pawns').children])if(!wanted.has(el))el.remove();
  drawConnections();positionExitLabels();mapRuntime?.draw();DigiBoardSpatial.layoutLabels(w,h);if(globalThis.PraatpadVariations){const v=PraatpadVariations.lookup(s().board);root.style.setProperty('--route-color',v.color);root.style.setProperty('--route-tile-scale',v.tileScale);const n=$('pp-neighborhood');if(n){n.setAttribute('viewBox','0 0 '+w+' '+h);n.innerHTML=PraatpadVariations.landscape?.(s().board,w,h)||'';}}const ferry=$('world-ferry');if(ferry&&globalThis.PraatpadWorld){ferry.setAttribute('viewBox',`0 0 ${w} ${h}`);const boat=anim?.ferryState||{point:current().pos===FINISH?PraatpadWorld.arrival:PraatpadWorld.departure,angle:current().pos===FINISH?-90:-35};ferry.innerHTML=PraatpadWorld.boatMarkup(boat,w,h);}
 }
+function previewLanding(progress=1){
+ if(progress<.85||!anim||anim.taskReady||anim.preview||anim.previewRecord||s().travel?.pending||!s().selected||current().pos===FINISH)return;
+ anim.taskReady=true;renderTask();learningUI?.sync();
+}
 function renderTask(){
+ $('pp-task').dataset.arriving=String(!!anim?.taskReady);
  if($('pp-travel-choices'))$('pp-travel-choices').hidden=true;if(transitTask())return;
  const t=s().selected?task(s().selected):null,preview=t&&s().selected!==current().pos;
  $('pp-task').dataset.preview=!!preview;$('pp-task-label').textContent=preview?'BEKIJK · VAK '+s().selected:t?'VAK '+s().selected+' · '+(s().mode==='class'?'ALLE TWEETALLEN':'SAMEN SPREKEN'):s().finished?'LES AFGEROND':current().pos===FINISH?'BIJ HET EINDE':'KLAAR VOOR DE START';
@@ -1222,7 +1213,7 @@ function renderTask(){
  $('pp-role-a').textContent=s().mode==='class'?'A begint':speaker(current())+' begint';$('pp-role-b').textContent=s().mode==='class'?'B reageert':'Partner reageert';
  $('pp-practice-hint').textContent=data.settings.help&&t?t.help:s().mode==='class'?'Iedereen oefent tegelijk. Wissel daarna A en B.':s().mode==='teams'?'Iedereen bereidt voor. Wissel daarna van rol.':'Voer het gesprek. Wissel daarna van rol.';
  if(s().travel?.last?.blocked)$('pp-practice-hint').textContent='De deur is dicht. Haal eerst de sleutel op vak '+routeConnections().find(c=>c.id===s().travel.last.id).keyAt+'. Doe nu de opdracht op dit vak.';if(s().travel?.last?.noHistory)$('pp-practice-hint').textContent='Nog geen eerder eindvak voor deze pion. Doe de opdracht op dit vak.';
- $('pp-help').hidden=!t;$('pp-extra').hidden=!t;$('pp-active-task').hidden=!preview;
+ if($('pp-use-task'))$('pp-use-task').disabled=busy();$('pp-active-task').disabled=busy();$('pp-help').hidden=!t;$('pp-extra').hidden=!t;$('pp-help').disabled=busy();$('pp-extra').disabled=busy();$('pp-active-task').hidden=!preview;
  let use=$('pp-use-task');if(!use){use=document.createElement('button');use.id='pp-use-task';use.className='pp-text-button';use.type='button';use.textContent='Speel dit vak';$('pp-active-task').after(use);use.onclick=()=>change(()=>{current().pos=s().selected;s().started=true;const base=content.tasks.find(t=>t.id===s().board.tasks[s().selected-1]);DigiBoardMatrix.select(data,base,task(s().selected).lessonId);},'De pion staat op het gekozen vak.');}use.hidden=!preview||busy();
 }
 function renderControls(){
@@ -1230,9 +1221,9 @@ function renderControls(){
  const p=current(),n=s().players[nextIndex()],pos=anim?anim.pos:p.pos;
  const caption=s().finished?'Les afgerond':s().paused?'Even pauze':s().travel?.pending&&!anim?'Kies een uitgang':busy()?'De pion is onderweg':p.pos===FINISH?'Gooi voor een nieuwe ronde':s().batch?'Vervolg de ronde':data.settings.turnStyle==='parallel'&&s().mode!=='class'?'Gooi voor iedereen':data.settings.pace==='all'&&data.settings.diceStyle!=='sentence'?'Klik voor het volgende vak':s().mode==='class'?'Gooi voor de groep':'Gooi voor '+playerName(n);
  $('pp-roll-caption').textContent=caption;$('pp-roll').setAttribute('aria-label',caption);$('pp-roll').disabled=busy()||s().paused||s().finished;
- $('pp-turn-label').textContent=s().mode==='class'?'ÉÉN GEDEELDE PION':'AAN DE BEURT';$('pp-current-name').textContent=playerName(p);$('pp-current-token').textContent=s().mode==='class'?'':s().active+1;$('pp-current-token').hidden=s().mode==='class';$('pp-current-token').style.setProperty('--pp-player',colors[s().active%colors.length]);
+ $('pp-turn-label').textContent=s().mode==='class'?'Eén gedeelde pion':'Aan de beurt';$('pp-current-name').textContent=playerName(p);$('pp-current-token').textContent=s().mode==='class'?'':s().active+1;$('pp-current-token').hidden=s().mode==='class';$('pp-current-token').style.setProperty('--pp-player',colors[s().active%colors.length]);
  $('pp-result').textContent=s().travel?.pending&&!anim?'Kies hieronder waar je heen gaat':anim?.stage==='rolling'?'De dobbelsteen rolt…':s().result?s().result+(s().result===1?' stap':' stappen'):'Klaar om te beginnen';
- $('pp-position-label').textContent=pos===0?'START':pos===FINISH?'EINDE':'Vak '+pos;$('pp-progress').value=pos;$('pp-progress').setAttribute('aria-valuetext',playerName(p)+' bij '+$('pp-position-label').textContent);
+ $('pp-position-label').textContent=pos===0?'Start':pos===FINISH?'Einde':'Vak '+pos;$('pp-progress').value=pos;$('pp-progress').setAttribute('aria-valuetext',playerName(p)+' bij '+$('pp-position-label').textContent);
  $('pp-class-mode').textContent=s().mode==='class'?'ALLE TWEETALLEN OEFENEN':s().mode==='teams'?'SAMEN VOORBEREIDEN, SAMEN SPREKEN':'KLEINE GROEP';$('pp-route-status').textContent='Ronde '+s().round;
  const ps=pairs(),duo=ps.length?ps[s().demo%ps.length]:[];$('pp-demo-label').textContent=s().mode==='class'?'DAARNA KORT DELEN':s().mode==='teams'?'SPREKER IN DIT TEAM':'GESPREKSPARTNER';$('pp-speaker').textContent=s().mode==='class'?(duo.map(p=>p.name).join(' + ')||'Maak een tweetal'):s().mode==='teams'?speaker(p):speaker(n,true);
  $('pp-next-duo').hidden=s().mode!=='class'||ps.length<2;$('pp-next-duo').disabled=busy();$('pp-back').disabled=!data.history.length;$('pp-history').textContent=data.history.length+'/20';$('pp-group-count').textContent=(s().groupName?s().groupName+' · ':'')+(s().mode==='teams'?s().players.length+' teams · '+present().length+' aanwezig':present().length+' deelnemers');
@@ -1249,12 +1240,12 @@ function render(){
  globalThis.PraatpadWordspel?.sync(data.wordspel);
  $('pp-main-tools').hidden=!['game','wordgame','sentencegame'].includes(page);$('pp-saved').hidden=['game','wordgame','sentencegame'].includes(page);$('pp-pause-button').hidden=['wordgame','sentencegame'].includes(page);
  ['game','builder','routeedit'].forEach(p=>$('pp-'+p).hidden=page!==p);$('pp-settings').hidden=!['settings','library'].includes(page);renderSettingsSections();$('pp-game-title').textContent=s().board.title;$('pp-game').dataset.large=s().large;$('pp-board-area').hidden=s().large||s().paused;$('pp-task').hidden=s().paused;$('pp-paused').hidden=!s().paused;
- root.classList.toggle('pp-quiet',reduced());root.classList.toggle('pp-alt-shape',Routes.config(s().board).shape!=='snake');renderTask();renderControls();die();drawMap();renderPictures();iconsRefresh();learningUI?.sync();sentenceUI?.sync(page);
+ root.classList.toggle('pp-quiet',reduced());root.classList.toggle('pp-alt-shape',Routes.config(s().board).shape!=='snake');renderTask();renderControls();die();drawMap();renderPictures();diceAudioUI.sync();iconsRefresh();learningUI?.sync();sentenceUI?.sync(page);
 }
 function closeDialog(){if($('pp-dialog').open)$('pp-dialog').close();}
 function dialog(title,body,setup){dialogReturn=document.activeElement;$('pp-dialog-title').textContent=title;$('pp-dialog-content').innerHTML=body;if(!$('pp-dialog').open)$('pp-dialog').showModal();iconsRefresh();if(setup)setup();}
 function help(extra=false){const t=task(s().selected);if(!t)return;DigiBoardSupport.show(extra?'extra':'example',t,dialog,closeDialog);}
-function settings(section=settingsSection){if(typeof section!=='string')section=settingsSection;page='settings';$('pp-error').hidden=true;$('pp-group-feedback').hidden=true;$('pp-current-group-title').textContent=s().groupName?'Deze les · '+s().groupName:'Deze les aanpassen';fillGroupPicker(s().groupId);const group=data.groups.find(g=>g.id===$('pp-saved-group').value);$('pp-names').value=group?group.names.join('\n'):s().people.map(person).map(p=>p.name).join('\n');$('pp-group-name').value=group?.name||'';$('pp-class-size').value=group?.names.length||s().people.length;$('pp-group-mode').value=group?.mode||s().mode;$('pp-motion').checked=data.settings.motion;$('pp-default-help').checked=data.settings.help;$('pp-pace').value=data.settings.pace;fillRoster();groupButtons();modeNote();showSettingsSection(section);root.querySelector('[data-settings-section="'+settingsSection+'"]').focus();}
+function settings(section=settingsSection){if(typeof section!=='string')section=settingsSection;page='settings';$('pp-error').hidden=true;$('pp-group-feedback').hidden=true;$('pp-current-group-title').textContent=s().groupName?'Namen en pionnen · '+s().groupName:'Namen en pionnen';fillGroupPicker(s().groupId);const group=data.groups.find(g=>g.id===$('pp-saved-group').value);$('pp-names').value=group?group.names.join('\n'):s().people.map(person).map(p=>p.name).join('\n');$('pp-group-name').value=group?.name||'';$('pp-class-size').value=group?.names.length||s().people.length;$('pp-group-mode').value=group?.mode||s().mode;$('pp-motion').checked=data.settings.motion;$('pp-default-help').checked=data.settings.help;$('pp-pace').value=data.settings.pace;fillRoster();groupButtons();modeNote();showSettingsSection(section);root.querySelector('[data-settings-section="'+settingsSection+'"]').focus();}
 function renderSettingsSections(){
  root.querySelectorAll('[data-settings-section]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.settingsSection===settingsSection)));
  root.querySelectorAll('[data-settings-panel]').forEach(el=>el.hidden=el.dataset.settingsPanel!==settingsSection);
@@ -1418,10 +1409,14 @@ function positionSpecialLabels(){
  const positions=globalThis.DigiBoardMap?.positions||{'terug-een':[490,280],'vooruit-vijf':[770,292],'terug-zeven':[1457,555]};
  for(const c of routeConnections()){const el=$('pp-ports').querySelector(`[data-connection="${c.id}"]`),p=positions[c.id]||PraatpadWorld.anchors[c.from];if(el){el.style.left=(p[0]*f.scale+f.x)+'px';el.style.top=(p[1]*f.scale+f.y)+'px';}}
 }
+function showMapPicker(){
+ if(busy())return;
+ dialog('Wissel kaart','<p>Je voortgang blijft per wereld bewaard.</p><div class="db-world-grid">'+DigiBoardMaps.map(m=>'<button type="button" class="pp-secondary" data-choose-world="'+esc(m.id)+'" aria-pressed="'+(m.id===DigiBoard.mapId)+'">'+icon('map')+'<span>'+esc(m.label)+'<small>'+m.count+' vakken</small></span></button>').join('')+'</div>',()=>root.querySelectorAll('[data-choose-world]').forEach(b=>b.onclick=()=>{if(busy())return;closeDialog();if(b.dataset.chooseWorld!==DigiBoard.mapId){save();DigiBoard.changeMap(b.dataset.chooseWorld);}}));
+}
 function showMapRules(selected){
  if(busy())return;
  const cs=selected?routeConnections().filter(c=>c.id===selected):routeConnections();
- dialog('Speciale plekken',`<p>Alleen landen telt. Per worp volgt één extra verplaatsing. De opdracht verschijnt op het eindvak.</p><div class="map-rules">${cs.map(c=>`<section><h3>${c.label} · ${c.from} → ${c.exits.join(" of ")}</h3><p>${esc(connectionRule(c))}</p>${c.exits.map(to=>`<button class="pp-primary" data-preview-route="${c.id}" data-preview-to="${to}">${c.exits.length>1?'Bekijk → '+to:'Bekijk de beweging'}</button>`).join(' ')}</section>`).join('')}</div><p>Deze voorbeelden veranderen je spelstand niet.</p>${selected?'':`<div class="map-depth-demos"><button class="pp-primary" data-preview-depth="tree">${globalThis.DigiBoardMap?.depthLabels?.tree||'Langs de boom'}</button><button class="pp-primary" data-preview-depth="bridge">${globalThis.DigiBoardMap?.depthLabels?.bridge||'Over de Erasmusbrug'}</button></div>`}`,()=>{
+ dialog('Speciale plekken',`<p>Alleen landen telt. Per worp volgt één extra verplaatsing. De opdracht verschijnt op het eindvak.</p><div class="map-rules">${cs.map(c=>`<section class="db-place-card"><h3>${icon(Routes.getType(c.type).icon)}${esc(c.label)}</h3><p class="db-place-route">Vak ${c.from} → ${c.exits.join(" of ")}</p><p>${esc(connectionRule(c))}</p><div class="db-place-actions">${c.exits.map(to=>`<button class="pp-secondary" data-preview-route="${c.id}" data-preview-to="${to}">${c.exits.length>1?'Bekijk → '+to:'Bekijk de beweging'}</button>`).join(' ')}</div></section>`).join('')}</div><p>Deze voorbeelden veranderen je spelstand niet.</p>${selected?'':`<div class="map-depth-demos"><button class="pp-primary" data-preview-depth="tree">${globalThis.DigiBoardMap?.depthLabels?.tree||'Langs de boom'}</button><button class="pp-primary" data-preview-depth="bridge">${globalThis.DigiBoardMap?.depthLabels?.bridge||'Over de Erasmusbrug'}</button></div>`}`,()=>{
  root.querySelectorAll('[data-preview-route]').forEach(b=>b.onclick=()=>previewRoute({...routeConnections().find(c=>c.id===b.dataset.previewRoute),exits:[+b.dataset.previewTo]}));
  root.querySelectorAll('[data-preview-depth]').forEach(b=>b.onclick=()=>previewRoute(globalThis.DigiBoardMap?.depthRoutes?.[b.dataset.previewDepth]||(b.dataset.previewDepth==='tree'?{from:5,exits:[8]}:{from:30,exits:[33]})));
  });
@@ -1444,11 +1439,16 @@ function drawConnections(){
 }
 function positionExitLabels(){if(DigiBoard.mapId==='Rotterdam-havenroute'||globalThis.DigiBoardMap?.special)return positionSpecialLabels();if(globalThis.DigiBoardMap){for(const el of root.querySelectorAll('[data-port-node],[data-exit-node]')){const p=coords[+(el.dataset.portNode||el.dataset.exitNode)];if(p){el.style.left=p[0]+'px';el.style.top=(p[1]-22)+'px';}}return;}const w=$('pp-map').clientWidth,h=$('pp-map').clientHeight,els=[...root.querySelectorAll('[data-port-node],[data-exit-node]')],positions=Routes.badgePositions(s().board,w,h,els.map(el=>({node:+(el.dataset.portNode||el.dataset.exitNode),width:el.offsetWidth||55,height:el.offsetHeight||25})));els.forEach((el,i)=>{el.style.left=positions[i][0]+'px';el.style.top=positions[i][1]+'px';});}
 function transitTask(){
- const pending=s().travel?.pending,travel=anim?.previewRecord||s().travel?.last;if(!anim&&!pending)return false;
+ const pending=s().travel?.pending,travel=anim?.previewRecord||s().travel?.last;if((!anim&&!pending)||anim?.taskReady)return false;
+ // Keep the current task while the pawn travels. The fixed roll caption shows progress.
+ if(anim&&!anim.preview&&!anim.previewRecord){
+  for(const id of ['pp-help','pp-extra','pp-active-task','pp-use-task'])if($(id))$(id).disabled=true;
+  return true;
+ }
  const moving=anim?.stage==='transport'||anim?.stage==='landing',c=pending?routeConnections().find(c=>c.id===pending.id):travel?routeConnections().find(c=>c.id===travel.id):null;
  $('pp-task-label').textContent=pending&&!anim?'KIES DE UITGANG':moving?'ONDERWEG':'DE PION LOOPT';$('pp-task-title').textContent=c?(c.label||Routes.getType(c.type).label):'Volg de pion';
  $('pp-role-a').textContent='';$('pp-role-b').textContent='';$('pp-instruction').textContent=pending&&!anim?'Waar gaat de pion naartoe?':moving?`${tileName(travel.from)} → ${tileName(travel.to)}`:'Eerst gooien en lopen. Daarna verschijnt de opdracht.';
- $('pp-partner').textContent=pending&&!anim?Routes.getType(c.type).description:'De opdracht verschijnt zodra de pion is geland.';$('pp-practice-hint').textContent='';$('pp-help').hidden=true;$('pp-extra').hidden=true;$('pp-active-task').hidden=true;if($('pp-use-task'))$('pp-use-task').hidden=true;
+ $('pp-partner').textContent=pending&&!anim?Routes.getType(c.type).description:'De opdracht verschijnt vlak voor de landing.';$('pp-practice-hint').textContent='';$('pp-help').hidden=true;$('pp-extra').hidden=true;$('pp-active-task').hidden=true;if($('pp-use-task'))$('pp-use-task').hidden=true;
  let choices=$('pp-travel-choices');if(!choices){choices=document.createElement('div');choices.id='pp-travel-choices';$('pp-task').append(choices);}choices.hidden=!!anim||!pending;
  if(pending&&!anim){choices.innerHTML=pending.targets.map(to=>`<button type="button" class="pp-primary" data-travel-choice="${to}">${c.type==='beam_choice'?(to<c.from?'Landingsbasis → '+to:'Lanceerbasis → '+to):c.type==='hill_choice'?(to<c.from?'Afdalen → '+to:'Verder omhoog → '+to):to===c.from?(c.type==='ferry'?'Via de brug · blijf op '+to:'Buitenom · blijf op '+to):c.type==='tunnel'?'Neem de tunnel → '+to:c.type==='ferry'?'Neem het pontje → '+to:tileName(to)}</button>`).join('');choices.querySelectorAll('button').forEach(b=>b.onclick=()=>completeRouteChoice(+b.dataset.travelChoice));}
  return true;
@@ -1501,6 +1501,7 @@ function animateStep_variaties(from,to,token){
 
 
 function animateStep(from,to,token){
+ if(anim?.stage==='moving'&&to===current().pos)previewLanding();
  if(DigiBoard.mapId==='variaties')return animateStep_variaties(from,to,token);
  if(DigiBoard.mapId==='stadproef')return animateStep_stadproef(from,to,token);
  if(DigiBoard.mapId==='stad24')return animateStep_stad24(from,to,token);
@@ -1526,7 +1527,7 @@ async function animateExtraSteps(record,token){
  $('pp-transit-label').textContent=`${record.from} → ${record.to} · ${Math.abs(record.to-record.from)} ${direction>0?'vooruit':'terug'}`;
  await delay(350);
  while(token===run&&anim&&anim.pos!==record.to){
-  const from=anim.pos,to=from+direction;
+  const from=anim.pos,to=from+direction;if(to===record.to)previewLanding();
   await new Promise(resolve=>{let start=null;const frame=now=>{
    if(token!==run||!anim){resolve();return;}
    start??=now;const t=Math.min(1,(now-start)/(DigiBoard.mapId==='heuvels-panorama'&&Math.min(from,to)===20?3200:600)),w=$('pp-map').clientWidth,h=$('pp-map').clientHeight;
@@ -1551,7 +1552,7 @@ function animateConnection(record,token){
  const svg=layer.querySelector('svg'),track=svg.querySelector('.pp-effect-track'),deck=svg.querySelector('.pp-effect-deck'),trail=svg.querySelector('.pp-effect-progress'),rings=svg.querySelector('.pp-effect-rings'),vehicle=layer.querySelector('.pp-vehicle'),echo=layer.querySelector('.pp-flight-echo');
  $('pp-transit-label').hidden=false;$('pp-transit-label').textContent=`${type.label} · ${tileName(record.from)} → ${tileName(record.to)}`;
  return new Promise(resolve=>{let raf=0,startAt=null;const done=()=>{cancelAnimationFrame(raf);layer.hidden=true;pawn.style.visibility='';$('pp-transit-label').hidden=true;transportCancel=null;resolve(token===run);};transportCancel=done;
- const frame=time=>{if(token!==run){done();return;}if(startAt===null)startAt=time;const elapsed=time-startAt,entry=350,landing=450,total=type.duration,t=Math.max(0,Math.min(1,(elapsed-entry)/(total-entry-landing))),stage=elapsed<entry?'departure':elapsed>=total-landing?'landing':'transport';anim.stage=stage;layer.dataset.stage=stage;
+ const frame=time=>{if(token!==run){done();return;}if(startAt===null)startAt=time;const elapsed=time-startAt,entry=350,landing=450,total=type.duration,t=Math.max(0,Math.min(1,(elapsed-entry)/(total-entry-landing))),stage=elapsed<entry?'departure':elapsed>=total-landing?'landing':'transport';anim.stage=stage;layer.dataset.stage=stage;if(t>=.85)previewLanding();
  const w=$('pp-map').clientWidth,h=$('pp-map').clientHeight,g=Routes.layout(s().board,w,h),p=g.points,a=[p[record.from][0]+(s().players.some(q=>q!==current()&&q.pos===record.from)?-g.tileWidth/2-6:g.tileWidth/2+6),Math.min(h-17,p[record.from][1]+g.pawnOffsetY)],b=[p[record.to][0]+(s().players.some(q=>q!==current()&&q.pos===record.to)?-g.tileWidth/2-6:g.tileWidth/2+6),Math.min(h-17,p[record.to][1]+g.pawnOffsetY)],dx=b[0]-a[0],dy=b[1]-a[1],size=Math.min(70,h*.15),m=Routes.motion(type.id,t),geometry=Routes.routeGeometry(s().board,w,h,c,record.to),route=[a,...geometry.points,b];
  const position=v=>{if(type.id==='time_jump'&&record.trace?.length>1)return Routes.along(record.trace.map(n=>[p[n][0]+18,p[n][1]+g.pawnOffsetY]),v.x);const q=Routes.along(route,v.x);return [q[0],q[1]+(['bridge','ferry','shuttle_bus','wormhole'].includes(type.id)?0:v.y*size)];};let [x,y]=position(m);
  if(type.id==='wormhole'){m.opacity=t<.22?1-Math.min(1,t/.22):t>.78?Math.min(1,(t-.78)/.22):0;m.scale=.3+.7*m.opacity;}
@@ -1572,7 +1573,7 @@ function animateFantasyConnection(record,token){
  $('pp-transit-label').hidden=false;$('pp-transit-label').textContent=c.type==='bridge'?'Over de stenen brug':c.type==='tornado'?'Mee met de wind':'Door de lichtpoort';
  return new Promise(resolve=>{let raf=0,start=null;const done=()=>{cancelAnimationFrame(raf);layer.hidden=true;pawn.style.visibility='';$('pp-transit-label').hidden=true;transportCancel=null;resolve(token===run)};transportCancel=done;
  const frame=now=>{if(token!==run){done();return;}start??=now;const t=Math.min(1,(now-start)/(c.type==='bridge'?7000:5200)),w=$('pp-map').clientWidth,h=$('pp-map').clientHeight,f=PraatpadWorld.fit(w,h),map=p=>[p[0]*f.scale+f.x,p[1]*f.scale+f.y],lerp=(a,b,k)=>a.map((v,i)=>v+(b[i]-v)*k),from=PraatpadWorld.anchors[record.from],to=PraatpadWorld.anchors[record.to];let point=from,opacity=1,scale=1,angle=0;
- anim.stage=t<.16?'departure':t>.9?'landing':'transport';
+ anim.stage=t<.16?'departure':t>.9?'landing':'transport';previewLanding(t);
  if(c.type==='bridge')point=Routes.along(PraatpadWorld.bridgePath,t);
  else if(c.type==='portal'){
  const west=record.from===38,entry=west?[279,746]:[1442,299],exit=west?[1442,299]:[279,746];

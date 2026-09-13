@@ -23,7 +23,7 @@ function init(){
  rollButton=button('Werp alle negen',()=>{if(!context.rolling&&!context.p.paused)context.roll();},'pp-primary aw-roll');
  wordButton=button('Toon de woorden',()=>context.words(),'pp-secondary');
  backButton=button('Vorige worp',()=>context.undo(),'pp-text-button');
- setButton=button('',openSets,'pp-secondary aw-set-button');setButton.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3c5 0 5 10 10 10h5m-4-4 4 4-4 4M3 17h3c5 0 5-10 10-10h5m-4-4 4 4-4 4"/></svg><span>Wissel set</span>';setButton.setAttribute('aria-haspopup','dialog');
+ setButton=button('',openSets,'pp-secondary aw-set-button');setButton.innerHTML='<i data-lucide="shuffle" aria-hidden="true"></i><span>Wissel set</span>';setButton.setAttribute('aria-haspopup','dialog');
  const utilities=node('div','aw-utilities');utilities.append(backButton);tools.append(setButton,rollButton,wordButton,utilities);root.append(tools);
  status=node('p','aw-status');root.append(status,node('p','aw-partner','A vertelt. B stelt een vraag. Wissel daarna van rol.'));
  const language=node('section','aw-language');language.hidden=true;language.setAttribute('aria-label','Woordkaarten bij de opdracht');root.append(language);
@@ -99,8 +99,8 @@ function render(next){
   c.face.setAttribute('aria-label','Vergroot dobbelsteen '+(i+1)+'. '+(rolling?'De dobbelsteen rolt.':item.description));
   c.label.textContent=item.label;c.label.hidden=!p.word||rolling;
  });
- rollButton.setAttribute('aria-disabled',String(rolling||p.paused));rollButton.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path stroke-linecap="round" stroke-width="3" d="M8 8h0m8 0h0m-4 4h0m-4 4h0m8 0h0"/></svg><span>'+(rolling?'De dobbelstenen rollen…':'Werp alle negen')+'</span>';
- wordButton.disabled=rolling;wordButton.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>'+(p.word?'Verberg de woorden':'Toon de woorden')+'</span>';wordButton.setAttribute('aria-pressed',String(p.word));
+ rollButton.setAttribute('aria-disabled',String(rolling||p.paused));rollButton.innerHTML='<i data-lucide="dice-5" aria-hidden="true"></i><span>'+(rolling?'De dobbelstenen rollen…':'Werp alle negen')+'</span>';
+ wordButton.disabled=rolling;wordButton.innerHTML='<i data-lucide="'+(p.word?'eye-off':'eye')+'" aria-hidden="true"></i><span>'+(p.word?'Verberg de woorden':'Toon de woorden')+'</span>';wordButton.setAttribute('aria-pressed',String(p.word));
  backButton.disabled=rolling||!p.history.length;
  setButton.disabled=rolling;
  status.textContent=rolling?'De dobbelstenen rollen…':'Worp '+p.turn;

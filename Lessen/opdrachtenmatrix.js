@@ -27,8 +27,10 @@ globalThis.DigiBoardMatrix=(()=>{
   const s=d.session,r=route(d.settings),date=day();progress(d);
   let m=s.matrix;
   if(!m||m.route!==r.id||(m.mode||'conversation')!==mode(d.settings)||!m.slots||m.version!==1){
+   const previous=m;
    m=s.matrix={version:1,route:r.id,mode:mode(d.settings),day:date,slots:{},playerSlots:{},lastTurn:s.turn||0,awaiting:false,revision:(m?.revision||0)+1};
-   const chosen=[];for(const base of content.tasks){const row=pick(d,shape(base),chosen);m.slots[base.id]=row.id;chosen.push(row.id);}
+   const chosen=[];for(const base of content.tasks){const old=byId.get(previous?.slots?.[base.id]),sameContext=previous?.route!==r.id&&old?deck(d.settings,shape(base)).find(c=>c.scenario===old.scenario):null;const row=sameContext||pick(d,shape(base),chosen);m.slots[base.id]=row.id;chosen.push(row.id);}
+   if(previous?.route!==r.id)for(const [id,slot]of Object.entries(previous?.playerSlots||{})){const old=byId.get(slot.id),base=content.tasks.find(b=>b.id===slot.baseId),row=old&&base?deck(d.settings,shape(base)).find(c=>c.scenario===old.scenario):null;if(row)m.playerSlots[id]={baseId:slot.baseId,id:row.id};}
   }
   // Sentence turns keep the language-task deck untouched.
   if(d.settings.diceStyle==='sentence')return;

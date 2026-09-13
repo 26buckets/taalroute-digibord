@@ -67,7 +67,7 @@ globalThis.DigiBoardSpatial=(()=>{
  function layoutLabels(w,h){
   if(!mapEl||!globalThis.PraatpadWorld)return;
   const id=DigiBoardMap.id,f=PraatpadWorld.fit(w,h),c=geometry(id),ports=[...mapEl.querySelectorAll('.pp-port')];
-  const key=[id,w,h,...ports.map(e=>e.textContent+'|'+e.offsetWidth)].join('/');
+  const key=[id,w,h,document.getElementById('praatpad-board').dataset.routeHelp,...ports.map(e=>e.textContent+'|'+e.offsetWidth)].join('/');
   if(cache?.key===key){for(const [el,x,y]of cache.ports){el.style.left=x+'px';el.style.top=y+'px';}return;}
   const tunnel=PraatpadWorld.connections?.find(x=>x.type==='tunnel');
   if(c&&tunnel){const route=paths(id,tunnel.from,tunnel.exits[0]),access=[route.entry,route.exit];if(id==='fantasie-eilanden')access.push([PraatpadWorld.anchors[8],[307,341.4]],[PraatpadWorld.anchors[26],[1367,268.4]]);mapEl.querySelector('#db-tunnel-paths').innerHTML=access.map(points=>`<path d="M ${points.map(p=>p.join(' ')).join(' L ')}" fill="none" stroke="${id==='ruimte-maanroute'?'#9ea5a8':'#bfab83'}" stroke-width="5" stroke-opacity=".7" stroke-linecap="round" stroke-linejoin="round"/><path d="M ${points.map(p=>p.join(' ')).join(' L ')}" fill="none" stroke="#f5ecd7" stroke-opacity=".65" stroke-width="1.5" stroke-dasharray="2 5"/>`).join('');}
@@ -75,8 +75,17 @@ globalThis.DigiBoardSpatial=(()=>{
   const blocked=obstacles.map(screen);for(const p of [PraatpadWorld.anchors[0],PraatpadWorld.anchors.at(-1)])blocked.push(screen([p[0]-78,p[1]-50,156,100]));
   // Reserve the full walking corridor, including between the tile centres.
   for(const leg of PraatpadWorld.legs||[]){let length=0;for(let i=1;i<leg.length;i++)length+=Math.hypot(leg[i][0]-leg[i-1][0],leg[i][1]-leg[i-1][1]);for(let i=0;i<=Math.ceil(length/14);i++){const p=PraatpadRoutes.along(leg,i/Math.max(1,Math.ceil(length/14)));blocked.push(screen([p[0]-31,p[1]-25,62,50]));}}
+  // The pawn also needs clear headroom on the access paths, not only on numbered tiles.
+  if(c&&tunnel)for(const leg of Object.values(paths(id,tunnel.from,tunnel.exits[0]))){
+   let length=0;for(let i=1;i<leg.length;i++)length+=Math.hypot(leg[i][0]-leg[i-1][0],leg[i][1]-leg[i-1][1]);
+   const steps=Math.max(1,Math.ceil(length/14));for(let i=0;i<=steps;i++){const p=PraatpadRoutes.along(leg,i/steps);blocked.push(screen([p[0]-31,p[1]-68,62,78]));}
+  }
   // Labels and controls form a top layer; their reserved rectangles stay clear of scenery and the route.
   const origin=mapEl.getBoundingClientRect();
+  // Number badges have a fixed screen size, even on the smallest maps.
+  for(const number of mapEl.querySelectorAll('.pp-number'))if(getComputedStyle(number).visibility==='visible'){
+   const r=number.getBoundingClientRect();blocked.push([r.x-origin.x,r.y-origin.y,r.width,r.height]);
+  }
   const worldLabels=[...mapEl.querySelectorAll('svg text')].filter(t=>t.previousElementSibling?.tagName.toLowerCase()==='rect');
   for(const text of worldLabels){let g=text.parentElement;if(!g.classList.contains('db-world-label')){const wrap=document.createElementNS('http://www.w3.org/2000/svg','g');wrap.classList.add('db-world-label');g.insertBefore(wrap,text.previousElementSibling);wrap.append(text.previousElementSibling,text);g=wrap;}g.removeAttribute('transform');}
   const choose=(preferred,width,height)=>{
@@ -88,7 +97,13 @@ globalThis.DigiBoardSpatial=(()=>{
   const placed=[];for(const el of ports){const preferred=[parseFloat(el.style.left),parseFloat(el.style.top)];if(!preferred.every(Number.isFinite))continue;const p=choose(preferred,el.offsetWidth,el.offsetHeight);el.style.left=p[0]+'px';el.style.top=p[1]+'px';placed.push([el,...p]);}
   cache={key,ports:placed};
  }
- function pawnDepth(point,w,h,base,travelling){
+ function pawnDepth(point,w,h,base,travelling,tunnelPhase='',tunnelScale=1){
+  // A full-size pawn is still on the apron, not yet inside the opening.
+  // Change layers only after it fits in the mouth; reverse the same crossing on exit.
+  if(travelling&&maps[globalThis.DigiBoardMap?.id]&&tunnelPhase){
+   if(tunnelPhase==='approach'||tunnelPhase==='arrive')return 11;
+   if((tunnelPhase==='enter'||tunnelPhase==='exit')&&tunnelScale>.66)return 11;
+  }
   if(travelling||!globalThis.PraatpadWorld||!globalThis.DigiBoardMap)return base;
   const f=PraatpadWorld.fit(w,h),x=(point[0]-f.x)/f.scale,y=(point[1]-f.y)/f.scale,c=geometry(DigiBoardMap.id);
   const foreground=[...(objects[DigiBoardMap.id]||[]).map(o=>o.rect),...(c?[c.entry,c.exit].map(p=>[...p,c.size,c.size]):[])];

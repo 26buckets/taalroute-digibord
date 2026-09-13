@@ -61,7 +61,7 @@ function animateTunnel(record,token){
    host.anim.cityTunnelOpacity=pose.opacity;host.anim.tunnelScale=pose.scale;host.anim.tunnelPhase=pose.phase;host.anim.tunnelProgress=pose.progress;
    $('pp-transit-label').textContent=pose.phase==='hidden'?'T1 · Onder de grond → vak 23':pose.phase==='exit'||pose.phase==='arrive'?'T1 · De tunnel uit bij 23':'T1 · De trap af bij 18';
    drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }

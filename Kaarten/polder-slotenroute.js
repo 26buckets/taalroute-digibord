@@ -57,7 +57,7 @@ function animateTunnel(record,token){
    host.anim.cityTunnelOpacity=pose.opacity;host.anim.tunnelScale=pose.scale;host.anim.tunnelPhase=pose.phase;host.anim.tunnelProgress=pose.progress;
    $('pp-transit-label').textContent=pose.phase==='hidden'?'T1 · Onder de grond → vak 57':pose.phase==='exit'||pose.phase==='arrive'?'T1 · De tunnel uit bij 57':'T1 · De dijk in bij 54';
    drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }
@@ -85,7 +85,7 @@ function animateFerry(record,token){
   const frame=now=>{if(token!==host.run||!host.anim){done();return;}start??=now;const t=Math.min(1,(now-start)/6000),pose=ferryPose(t,record.from,record.to),f=PraatpadWorld.fit($('pp-map').clientWidth,$('pp-map').clientHeight);
    host.anim.stepPoint=[pose.point[0]*f.scale+f.x,pose.point[1]*f.scale+f.y];host.anim.ferryPoint=pose.boat;host.anim.ferryPhase=pose.phase;
    $('pp-transit-label').textContent=pose.phase==='boarding'?'P1 · Aan boord':pose.phase==='sailing'?'P1 · Met het pontje naar vak 47':'P1 · Uitstappen bij 47';drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }

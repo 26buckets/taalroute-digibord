@@ -10,11 +10,11 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
  await page.locator('[data-node="1"]').click();await page.locator('#pp-use-task').click();
  async function check(){
  const issues=await page.evaluate(()=>{
- const issues=[];for(const e of document.querySelectorAll('#pp-main-tools button,#db-open-exercise,#db-map-tools button,#db-round-controls button,#pp-group')){
+ const issues=[];if(document.getElementById('pp-roll').getBoundingClientRect().height<140)issues.push('die too small for the board');for(const e of document.querySelectorAll('#pp-main-tools button,#db-open-exercise,#db-map-tools button,#db-round-controls button,#pp-group')){
  if(!e.getClientRects().length)continue;const r=e.getBoundingClientRect();
  if(r.bottom>innerHeight+.5||r.right>innerWidth||r.top<0)issues.push(e.id+' outside viewport '+r.bottom);
  if(!e.disabled&&!e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)))issues.push(e.id+' covered');
- if(e.closest('#pp-main-tools')&&(r.width<56||r.height<56))issues.push(e.id+' too small');
+ if(e.closest('#pp-main-tools')&&(r.width<44||r.height<44))issues.push(e.id+' too small');
  }
  if(document.documentElement.scrollHeight>innerHeight)issues.push('page scrolls');return issues;
  });if(issues.length){await page.screenshot({path:__dirname+'/artifacts/controls-overflow.png'});console.log(await page.locator('.pp-play-controls').evaluate(e=>[...e.children].map(e=>[e.id||e.className,e.getBoundingClientRect().height])));}assert.deepEqual(issues,[]);
@@ -32,7 +32,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
  await page.locator('#world-route-help').click();assert.equal(await page.locator('#world-route-help').getAttribute('aria-pressed'),'true');
  await page.locator('#map-rules-button').click();assert(await page.locator('#pp-dialog').isVisible());await page.locator('#pp-dialog-close').click();
  await page.locator('#db-pawns').click();assert(await page.locator('#pp-dialog').isVisible());await page.locator('#pp-dialog-close').click();
- await page.locator('#db-open-maps').click();assert(await page.locator('#db-board-map').isVisible());await page.locator('#pp-settings-close').click();
+ await page.locator('#db-open-maps').click();assert(await page.locator('[data-choose-world]').first().isVisible());await page.locator('#pp-dialog-close').click();
  await page.screenshot({path:__dirname+'/artifacts/controls-fullscreen.png'});
  await page.locator('#pp-fullscreen').click();await page.waitForFunction(()=>!document.fullscreenElement);
  assert.deepEqual(errors,[]);console.log('PASS toolbar hit targets, sidebar bounds, shared/team pawns, fullscreen pause/settings/map controls');

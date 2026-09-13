@@ -5,7 +5,7 @@
   "description": "Een DigiBoard-app voor speelkaarten, verhalen met beelden en zinnenbouw.",
   "scripts": {
     "start": "node server.cjs",
-    "test": "node tests/matrix.cjs && node tests/direct-questions.cjs && node tests/direct-questions-ui.cjs && node tests/integration.cjs && node tests/map-family.cjs && node tests/learning.cjs && node tests/learning-context.cjs && node tests/leerroutes.cjs && node tests/spatial.cjs && node tests/controls.cjs && node tests/audio.cjs && node tests/sentence-matrix-ui.cjs && node tests/sound-menu.cjs && node tests/layers.cjs",
+    "test": "node tests/board-tools.cjs && node tests/matrix.cjs && node tests/stable-layout.cjs && node tests/map-scale.cjs && node tests/quick-lesson-ui.cjs && node tests/direct-questions.cjs && node tests/direct-questions-ui.cjs && node tests/integration.cjs && node tests/map-family.cjs && node tests/learning.cjs && node tests/learning-context.cjs && node tests/leerroutes.cjs && node tests/spatial.cjs && node tests/controls.cjs && node tests/audio.cjs && node tests/sentence-matrix-ui.cjs && node tests/sound-menu.cjs && node tests/layers.cjs",
     "build:matrix": "node scripts/build-matrix.cjs"
   },
   "devDependencies": {

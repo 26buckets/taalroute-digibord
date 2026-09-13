@@ -18,7 +18,8 @@ globalThis.DigiBoardDiceAudio={connect({root,read,save,notice}){
   if(previewing&&(root.querySelector('#pp-settings').hidden||root.querySelector('#pp-panel-sound').hidden))stop();
   choice.value=selected()[0];checkbox.checked=enabled();preview.textContent=previewing?'Stop':'Beluisteren';preview.setAttribute('aria-label',(previewing?'Stop het voorbeeld van ':'Beluister ')+selected()[1]);
   const on=enabled(),label=on?'Geluid uitzetten':'Geluid aanzetten';button.setAttribute('aria-label',label);button.setAttribute('aria-pressed',String(on));button.title=label;
-  button.innerHTML='<svg style="width:24px;height:24px;flex-shrink:0;pointer-events:none" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/>'+(on?'<path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>':'<path d="m16 9 5 6m0-6-5 6"/>')+'</svg>';
+  button.innerHTML='<i data-lucide="'+(on?'volume-2':'volume-x')+'" aria-hidden="true"></i>';
+  globalThis.lucide?.createIcons({attrs:{width:20,height:20}});
   const target=read().settings.diceStyle==='verbs'?root.querySelector('.aw-utilities'):root.querySelector('.pp-roll-heading');
   if(target&&button.parentNode!==target)target.append(button);
  }

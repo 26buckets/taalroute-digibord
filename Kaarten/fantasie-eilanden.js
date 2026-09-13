@@ -57,7 +57,7 @@ function animateTunnel(record,token){
    host.anim.cityTunnelOpacity=pose.opacity;host.anim.tunnelScale=pose.scale;host.anim.tunnelPhase=pose.phase;host.anim.tunnelProgress=pose.progress;
    $('pp-transit-label').textContent=pose.phase==='hidden'?'T1 · Onder de grond → vak 32':pose.phase==='exit'||pose.phase==='arrive'?'T1 · De tunnel uit bij 32':'T1 · De kristalgrot in bij 28';
    drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }
@@ -85,7 +85,7 @@ function animatePortal(record,token){
   const frame=now=>{if(token!==host.run||!host.anim){done();return;}start??=now;const t=Math.min(1,(now-start)/portalDuration),pose=portalPose(t,record.from,record.to),f=PraatpadWorld.fit($('pp-map').clientWidth,$('pp-map').clientHeight);
    host.anim.stepPoint=[pose.point[0]*f.scale+f.x,pose.point[1]*f.scale+f.y];host.anim.cityTunnelOpacity=pose.opacity;host.anim.tunnelScale=pose.scale;host.anim.portalPhase=pose.phase;host.anim.portalProgress=t;
    $('pp-transit-label').textContent=pose.phase==='hidden'?'P1 · Tussen de eilanden':pose.phase==='exit'||pose.phase==='arrive'?'P1 · De poort uit bij '+record.to:'P1 · De lichtsluier in bij '+record.from;drawMap();
-   if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
+   host.previewLanding?.(t);if(t===1){host.anim.pos=record.to;done();drawMap();}else raf=requestAnimationFrame(frame);
   };raf=requestAnimationFrame(frame);
  });
 }
