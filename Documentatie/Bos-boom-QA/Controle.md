@@ -18,3 +18,11 @@ Volledige `npm test`: geslaagd, alle 23 onderdelen. Dit omvat alle elf kaartwere
 
 ![Vak 33: achter de boom](vak-33.png)
 ![Vak 34: vóór de wortels](vak-34.png)
+
+## Aanvulling: oude browserkopie
+
+Na de eerste correctie bleek de open in-app browser nog de oude `pawnDepth`-functie en het voorbeeld 1→3 te gebruiken, terwijl de lokale server de nieuwe bestanden leverde. Dat is rechtstreeks in de draaiende app vastgesteld. De HTML laadt de dieptecode en de app-loader nu met een expliciete bestandsversie; dynamische kaartmodules nemen de versie van de loader over. De actieve app is zonder oude cache herladen.
+
+In de echte in-app browser is vervolgens bevestigd: nieuwe dieptecode actief, voorbeeld 31→36, bewaarde pion op vak 34 op laag 11 vóór de boom op laag 10. Visueel gecontroleerd en door de gebruiker bevestigd: ‘Ja, nu is het goed. Perfect.’
+
+Gerichte aanvullende controles geslaagd: `tests/map-cache.cjs` (oude scripts met een jaar browsercache, daarna nieuwe HTML: alle drie scripts worden vernieuwd; les, instellingen, deelnemers en geschiedenis behouden), `tests/forest-tree.cjs` en `tests/integration.cjs`. De eerdere volledige testreeks hoort bij de dieptecorrectie; voor deze aanvullende laadwijziging zijn de genoemde gerichte controles uitgevoerd.

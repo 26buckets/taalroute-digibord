@@ -1,12 +1,14 @@
 /* One entry point, shared preferences and separate resumable map lessons. */
 globalThis.DigiBoard=(()=>{
  'use strict';
+ // Keep dynamically loaded map code on the same revision as this loader.
+ const scriptVersion=new URL(document.currentScript?.src||location.href).searchParams.get('v');
  const SHARED='taalroute-digiboard-shared-v1',ACTIVE='taalroute-digiboard-map';
  const copy=v=>JSON.parse(JSON.stringify(v)),read=k=>{try{return JSON.parse(localStorage.getItem(k));}catch{return null;}};
  const wanted=new URLSearchParams(location.search).get('kaart')||read(ACTIVE)||'Rotterdam-havenroute';
  const mapId=DigiBoardMaps.some(m=>m.id===wanted)?wanted:'Rotterdam-havenroute';let host;
  function storageKey(){return mapId==='buurt'?'taalroute-praatpad-les-v2':'taalroute-digiboard-les-'+mapId+'-v1';}
- function loadMap(){if(mapId!=='buurt')document.write('<script src="Kaarten/'+mapId+'.js"><\/script>');}
+ function loadMap(){if(mapId!=='buurt')document.write('<script src="Kaarten/'+mapId+'.js'+(scriptVersion?'?v='+encodeURIComponent(scriptVersion):'')+'"><\/script>');}
  function prepare(){
   const m=globalThis.DigiBoardMap;if(!m)return;
   document.getElementById('pp-content').textContent=JSON.stringify(m.content);
