@@ -1,6 +1,6 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),server=require('../server.cjs');
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const b=await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});try{
- const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));const base=`http://127.0.0.1:${server.address().port}/Start-Praatpad.html`;
+ const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));const base=`http://127.0.0.1:${server.address().port}/Praatpad.html`;
  await p.goto(base);const maps=await p.evaluate(()=>DigiBoardMaps);
  for(const map of maps){await p.goto(base+'?kaart='+map.id);await p.locator('#pp-scenery').evaluate(e=>e.decode());
  const result=await p.evaluate(()=>{

@@ -11,7 +11,7 @@ De 54 nieuwe basisiconen zijn beschikbaar in Lijn en Lijn met vlakken. Die laats
 
 ## Starten
 
-Open `Start-Praatpad.html` in een moderne browser, of dubbelklik op `Start-DigiBoard.command` op een Mac. De bestandsnaam van de HTML-ingang blijft behouden om bestaande lokale lesgegevens te kunnen blijven gebruiken.
+Open `Praatpad.html` in een moderne browser, of dubbelklik op `Start-DigiBoard.command` op een Mac. De oude ingang Start-Praatpad.html verwijst door. De lokale server blijft dezelfde poort en opslagsleutels gebruiken voor bestaande lesgegevens.
 
 Met Node.js:
 
@@ -41,7 +41,7 @@ De controle start een eigen tijdelijke lokale server. Ze test spelvormen, behoud
 
 ## Onderdelen
 
-- `Start-Praatpad.html`: gezamenlijke bediening, leslogica en dobbelsteenrenderer.
+- `Praatpad.html`: gezamenlijke bediening, leslogica en dobbelsteenrenderer.
 - `digiboard.js`: kaartkeuze en gedeelde opslag.
 - `Kaarten/`: kaartinhoud, geometrie, voorgrondlagen en vormgeving.
 - `Beeldbibliotheek/`: basisiconen, thema's, niveauprofielen en stijlkeuze.

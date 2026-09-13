@@ -8,7 +8,7 @@ import time
 import urllib.request
 
 folder = Path.cwd()
-url = 'http://127.0.0.1:61381/Start-Praatpad.html'
+url = 'http://127.0.0.1:61381/Praatpad.html'
 
 def ready():
     try:
@@ -18,8 +18,8 @@ def ready():
         return False
 
 try:
-    if not (folder / 'Start-Praatpad.html').is_file():
-        raise RuntimeError('Het lespakket is niet gevonden. Zet dit startbestand naast Start-Praatpad.html.')
+    if not (folder / 'Praatpad.html').is_file():
+        raise RuntimeError('Het lespakket is niet gevonden. Zet dit startbestand naast Praatpad.html.')
     if not ready():
         logs = Path.home() / 'Library' / 'Logs' / 'DigiBoard'
         logs.mkdir(parents=True, exist_ok=True)

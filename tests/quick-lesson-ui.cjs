@@ -1,7 +1,7 @@
 const {control,reveal,conceal}=require('./ui-controls.cjs');
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs');
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const b=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});try{
-const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto('http://127.0.0.1:'+server.address().port+'/Start-Praatpad.html?kaart=Rotterdam-havenroute');
+const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto('http://127.0.0.1:'+server.address().port+'/Praatpad.html?kaart=Rotterdam-havenroute');
 const state=()=>p.evaluate(()=>JSON.parse(localStorage.getItem(DigiBoard.storageKey())));
 await reveal(p);assert.ok(await p.locator('#db-lesson-bar').isVisible());await conceal(p);await control(p,'#db-quick-level','selectOption','A2');await control(p,'#db-open-exercise','selectOption','numbers');assert.equal(await p.locator('#pp-settings').isVisible(),false);assert.equal((await state()).settings.learningLevel,'A2');
 await p.evaluate(()=>{const d=JSON.parse(localStorage.getItem(DigiBoard.storageKey()));const n=DigiBoardTileShapes[DigiBoard.mapId].indexOf('circle')+1;d.session.players[0].pos=n;d.session.active=0;d.session.selected=n;d.session.started=true;d.session.turn=1;d.settings.motion=false;localStorage.setItem(DigiBoard.storageKey(),JSON.stringify(d));DigiBoard.saveShared(d);});await p.reload();const pos=(await state()).session.players[0].pos;

@@ -2,7 +2,7 @@
 
 Dit is de gezamenlijke ontwikkelbasis voor Taalroute DigiBoard. Gebruik één toepassing en één instellingenmenu. Maak geen volledige kopieën van de app voor nieuwe kaarten.
 
-- `Start-Praatpad.html` is de gezamenlijke ingang; `index.html` verwijst ernaar.
+- `Praatpad.html` is de gezamenlijke ingang; `index.html` verwijst ernaar.
 - Kaarten zijn gegevens, geometrie en voorgrondlagen onder `Kaarten/`. Registreer nieuwe kaarten in `Kaarten/register.js`.
 - Behoud de afgesproken speeltafel met negen dobbelstenen, zichtbare woorden als standaard, bediening rechts en geen scroll op het digibord.
 - Kaartlessen bewaren hun eigen pionstand. De beeldbibliotheek, geluid, iconenstijl en verhaaldobbelstenen zijn gedeeld.
@@ -51,8 +51,10 @@ Gebruikerscorrectie: één klik ergens op het witte opdrachtvlak vergroot de taa
 
 Bosboom bij vak 31–36: `Kaarten/ruimtewerking.js` gebruikt voor de bestaande boom een eigen `frontY=527`, tussen vak 33 en 34. Houd 31–33 achter de boom en 34–35 vóór de wortels; bij 36 is de pion voorbij de boom. Gebruik dezelfde positiegebonden diepte tijdens heen- en teruglopen. Het voorbeeld Langs de boom volgt 31→36. Controle: tests/forest-tree.cjs.
 
-Cache bij lokale previews: alleen de juiste bronbestanden op schijf is niet voldoende. Controleer bij een verschil met de gebruikersweergave de daadwerkelijk geladen code. `Start-Praatpad.html` gebruikt een expliciete `?v=` voor ruimtewerking en de app-loader; `digiboard.js` geeft de eigen versie door aan dynamisch geladen kaartmodules. Behoud lesopslag en route-URL. Controle: tests/map-cache.cjs.
+Cache bij lokale previews: alleen de juiste bronbestanden op schijf is niet voldoende. Controleer bij een verschil met de gebruikersweergave de daadwerkelijk geladen code. `Praatpad.html` gebruikt een expliciete `?v=` voor ruimtewerking en de app-loader; `digiboard.js` geeft de eigen versie door aan dynamisch geladen kaartmodules. Behoud lesopslag en route-URL. Controle: tests/map-cache.cjs.
 
 Vaste kaartbasis op verzoek van de gebruiker: lokale tag `kaartbasis-11-werelden-2026-09-13` (bda6201) bewaart de volledige bestaande app met elf kaarten. Zie Documentatie/Vaste-kaartbasis-2026-09-13. Verander bestaande kaartbeelden, routes en passages niet voor nieuwe kaartproductie; nieuwe kaarten krijgen eigen modules/media. Later expliciet gevraagde correcties blijven mogelijk. Markt (12), Station (16) en Poolwereld (30) zijn op dit moment uitsluitend uitbreidingsadvies, nog niet gebouwd of goedgekeurd.
 
 Publicatie uitgevoerd op 13 september 2026 na expliciete gebruikersopdracht: appbron 31a431e is naar GitHub main gepusht en staat op https://digibord.taalroute.nl/ (Cloudflare-versie bd678471-ec15-4f16-8f0a-3e329339dfbf). De eerdere vermeldingen van lokale kandidaat/publicatie gesloten zijn historische bouwstatus. Zie Documentatie/Publicatie-2026-09-13.md. Latere wijzigingen niet automatisch publiceren.
+
+Op expliciet verzoek van Nico heet de gezamenlijke HTML-ingang vanaf 13 september 2026 `Praatpad.html`. `Start-Praatpad.html` is uitsluitend een compatibiliteitsdoorverwijzing met behoud van query en fragment. Behoud de bestaande opslagsleutels en lokale poort. Deze naamswijziging is expliciet geautoriseerd voor GitHub en online publicatie.

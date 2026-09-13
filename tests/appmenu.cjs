@@ -1,6 +1,6 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),server=require('../server.cjs');
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});const results=[];
-try{const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const base=`http://127.0.0.1:${server.address().port}/Start-Praatpad.html?kaart=bos-bosroute`;await page.goto(base);await page.waitForSelector('#tr-app-trigger');
+try{const page=await browser.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));const base=`http://127.0.0.1:${server.address().port}/Praatpad.html?kaart=bos-bosroute`;await page.goto(base);await page.waitForSelector('#tr-app-trigger');
 for(const width of [320,390,768,1280,1920])for(const colorScheme of ['light','dark'])for(const text of [100,200]){
  await page.setViewportSize({width,height:900});await page.emulateMedia({colorScheme});await page.evaluate(text=>document.documentElement.style.fontSize=text===200?'32px':'16px',text);await page.waitForTimeout(80);
  const before=await page.locator('#pp-map').boundingBox(),taskBefore=await page.locator('#pp-task').boundingBox();await page.locator('#tr-app-trigger').click();

@@ -2,7 +2,7 @@ const {control,reveal,conceal}=require('./ui-controls.cjs');
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs');
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const browser=await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});try{
 const p=await browser.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));
-const base=`http://127.0.0.1:${server.address().port}/Start-Praatpad.html`;await p.goto(base+'?kaart=Rotterdam-havenroute');await control(p,'#db-open-exercise','selectOption','direct');
+const base=`http://127.0.0.1:${server.address().port}/Praatpad.html`;await p.goto(base+'?kaart=Rotterdam-havenroute');await control(p,'#db-open-exercise','selectOption','direct');
 await reveal(p);for(const label of ['Wissel kaart','Speciale plekken','Vaknummers'])assert.ok(await p.locator('#db-map-tools .db-map-tool-label').getByText(label,{exact:true}).isVisible());
 await control(p,'#db-quick-task','click');assert.equal(await p.locator('[data-catalog-shape]').count(),5);
 for(const shape of ['circle','square','triangle','diamond']){await p.locator(`[data-catalog-shape="${shape}"]`).click();assert.equal(await p.locator(`[data-catalog-shape="${shape}"]`).getAttribute('aria-pressed'),'true');const size=await p.locator(`[data-catalog-shape="${shape}"] svg`).boundingBox();assert.equal(size.width,24);assert.equal(size.height,24);assert.ok(await p.locator('#pp-dialog .db-shape svg').count()>4);}

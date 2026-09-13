@@ -3,7 +3,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const b=await chromium.launch({executablePath:process.env.CHROME_PATH,headless:true});try{
  const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.addInitScript(()=>{const Native=window.Audio;window.__audio=[];window.__played=0;window.Audio=function(...args){const a=new Native(...args);a.addEventListener('playing',()=>window.__played++);window.__audio.push(a);return a;};});
- await p.goto(`http://127.0.0.1:${server.address().port}/Start-Praatpad.html`);
+ await p.goto(`http://127.0.0.1:${server.address().port}/Praatpad.html`);
  assert.equal(await p.locator('#pp-sound').getAttribute('aria-pressed'),'true');
  await p.locator('#pp-roll').click();await p.waitForFunction(()=>window.__played===1);await p.waitForFunction(()=>window.__audio[0].ended);
  assert(await p.evaluate(()=>window.__audio[0].currentTime>.5));

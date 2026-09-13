@@ -6,7 +6,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
  try{
  const page=await browser.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(`http://127.0.0.1:${server.address().port}/Start-Praatpad.html`);
+ await page.goto(`http://127.0.0.1:${server.address().port}/Praatpad.html`);
  assert.equal(await page.locator('#pp-main-tools button').count(),3);
  await page.locator('[data-node="1"]').click();await page.locator('#pp-use-task').click();
  async function check(){
