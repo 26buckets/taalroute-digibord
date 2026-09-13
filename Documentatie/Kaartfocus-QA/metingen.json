@@ -1,0 +1,20 @@
+[
+  {
+    "width": 767,
+    "height": 889,
+    "normal": 491.1875,
+    "mapView": 687
+  },
+  {
+    "width": 1280,
+    "height": 720,
+    "normal": 386.40625,
+    "mapView": 518
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "normal": 680,
+    "mapView": 878
+  }
+]

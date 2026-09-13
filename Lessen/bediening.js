@@ -10,10 +10,10 @@ globalThis.DigiBoardSupport=(()=>{
   }
   const row=globalThis.DigiBoardRouteLessons?.cards.find(c=>c.id===t.lessonId);
   const summary=card('Doel',t.definition||t.criterion)+card('Grammatica',t.grammar)+card('Voorbeeld',t.model,true)+(t.partner?card('Samen oefenen',t.partner):'');
-  const approach='<ol class="db-support-steps"><li><strong>Start</strong><span>'+(t.preparatory?'Doe de voorbeeldzin één keer voor.':'Laat de cursist de opdracht proberen.')+'</span></li><li><strong>Let op</strong><span>'+escape(t.definition||t.criterion)+'</span></li><li><strong>Geef één tip</strong><span>'+escape(t.grammar)+'</span></li><li><strong>Opnieuw</strong><span>Gebruik de extra stap voor een volgende poging.</span></li></ol><details class="db-more"><summary>Volledige docentnotitie</summary><p>'+escape(t.teacher)+'</p><p>'+escape(t.criterion)+'</p></details>';
+  const approach='<ol class="db-support-steps"><li><strong>Start</strong><span>'+(t.preparatory?'Doe de voorbeeldzin één keer voor.':'Laat de cursist de opdracht proberen.')+'</span></li><li><strong>Luister</strong><span>'+escape(t.teacherCriterion||t.criterion||t.definition)+'</span></li><li><strong>Help kort</strong><span>Geef één aanwijzing. Laat de cursist zelf verbeteren.</span></li><li><strong>Opnieuw</strong><span>Laat de cursist het nog eens proberen. Kies daarna eventueel Extra stap.</span></li></ol><details class="db-more"><summary>Volledige docentnotitie</summary><p>'+escape(t.teacher)+'</p><p>'+escape(t.criterion)+'</p></details>';
   const source='<dl class="db-source"><dt>Materiaal</dt><dd>Taalroute · DigiBoard</dd><dt>Reeks</dt><dd>960 opdrachten · vier niveauroutes</dd><dt>Route</dt><dd>'+escape(t.routeLabel||t.level)+'</dd><dt>Familie</dt><dd>'+escape(t.family)+'</dd></dl>'+(t.input?'<details class="db-more"><summary>Oefengegevens</summary><p>'+escape(t.input)+'</p></details>':'')+(row?'<details class="db-more"><summary>Oorspronkelijke opdracht</summary><p>'+escape(row.sourceInstruction)+'</p></details>':'');
-  const tabs=[['goal','Lesdoel',summary],['approach','Aanpak',approach],['source','Bron',source]];
-  dialog('Voor de docent · '+t.title,'<div class="db-support"><p class="db-support-meta">'+escape(t.routeLabel||t.level)+' · '+escape(t.family)+(t.preparatory?' · Voorbereidend':'')+'</p><div class="db-support-tabs" role="tablist" aria-label="Docentinformatie">'+tabs.map(([id,label],i)=>'<button type="button" role="tab" id="db-tab-'+id+'" aria-controls="db-tabpanel-'+id+'" aria-selected="'+!i+'" tabindex="'+(i?-1:0)+'">'+label+'</button>').join('')+'</div>'+tabs.map(([id,label,body],i)=>'<div role="tabpanel" id="db-tabpanel-'+id+'" aria-labelledby="db-tab-'+id+'" tabindex="0" '+(i?'hidden':'')+'>'+body+'</div>').join('')+back+'</div>',()=>{
+  const tabs=[['approach','Aanpak',approach],['goal','Doel en voorbeeld',summary],['source','Achtergrond',source]];
+  dialog('Docentaanpak','<div class="db-support db-teacher-panel"><p class="db-teacher-task">'+escape(t.title)+'</p><p class="db-support-meta">'+escape(t.routeLabel||t.level)+' · '+escape(t.family)+(t.preparatory?' · Voorbereidend':'')+'</p><div class="db-support-tabs" role="tablist" aria-label="Docentinformatie">'+tabs.map(([id,label],i)=>'<button type="button" role="tab" id="db-tab-'+id+'" aria-controls="db-tabpanel-'+id+'" aria-selected="'+!i+'" tabindex="'+(i?-1:0)+'">'+label+'</button>').join('')+'</div>'+tabs.map(([id,label,body],i)=>'<div role="tabpanel" id="db-tabpanel-'+id+'" aria-labelledby="db-tab-'+id+'" tabindex="0" '+(i?'hidden':'')+'>'+body+'</div>').join('')+back+'</div>',()=>{
    const buttons=[...document.querySelectorAll('.db-support-tabs [role="tab"]')];
    function choose(n){buttons.forEach((b,i)=>{b.setAttribute('aria-selected',String(i===n));b.tabIndex=i===n?0:-1;document.getElementById(b.getAttribute('aria-controls')).hidden=i!==n;});buttons[n].focus();}
    buttons.forEach((b,i)=>{b.onclick=()=>choose(i);b.onkeydown=e=>{let n;if(e.key==='ArrowRight')n=(i+1)%buttons.length;if(e.key==='ArrowLeft')n=(i+buttons.length-1)%buttons.length;if(e.key==='Home')n=0;if(e.key==='End')n=buttons.length-1;if(n!==undefined){e.preventDefault();choose(n);}};});document.getElementById('db-support-back').onclick=close;
@@ -86,6 +86,30 @@ globalThis.DigiBoardSupport=(()=>{
   const extra=addIcon($('pp-extra'),'Extra stap voor de docent','footprints');extra.setAttribute('aria-haspopup','dialog');
   const notes=addIcon($('db-lesson-support'),'Docentaanpak','graduation-cap');notes.setAttribute('aria-haspopup','dialog');teacher.append(extra,notes);toolbar.append(teacher);$('pp-task').append(toolbar);
   const expandLabel=node('span','db-expand-label','Lees alles');$('pp-large-button').append(expandLabel);
+  const focusButton=node('button','pp-text-button');focusButton.id='db-map-focus';focusButton.type='button';
+  focusButton.innerHTML='<i data-lucide="maximize-2" aria-hidden="true"></i><span>Kaart groter</span>';
+  document.querySelector('.pp-task-actions').prepend(focusButton);
+  const surface=$('praatpad-board'),game=$('pp-game');
+  function mapFocus(on){surface.dataset.mapFocus=String(on);focusButton.setAttribute('aria-pressed',String(on));focusButton.querySelector('span').textContent=on?'Kaart en opdracht':'Kaart groter';}
+  mapFocus(false);
+  focusButton.onclick=()=>{if(game.dataset.large==='true')$('pp-board-button').click();mapFocus(surface.dataset.mapFocus!=='true');};
+  let previousMapFocus=false;
+  document.addEventListener('fullscreenchange',()=>{
+   if(document.fullscreenElement){previousMapFocus=surface.dataset.mapFocus==='true';if(game.dataset.large==='true')$('pp-board-button').click();mapFocus(true);}
+   else mapFocus(previousMapFocus);
+  });
+  const instruction=$('pp-instruction');instruction.tabIndex=0;instruction.setAttribute('role','button');instruction.title='Klik om de opdracht groot te bekijken';
+  const expand=()=>{if(game.dataset.large!=='true'&&!$('pp-large-button').disabled)$('pp-large-button').click();};
+  instruction.addEventListener('click',expand);
+  instruction.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();expand();}});
+  $('pp-roll').setAttribute('aria-keyshortcuts','Space');$('pp-roll').title='Gooi de dobbelsteen · spatiebalk';
+  document.addEventListener('keydown',e=>{
+   if(e.code!=='Space'||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.defaultPrevented)return;
+   if(e.target.closest('input,textarea,select,a,summary,#tr-app-trigger,[contenteditable]:not([contenteditable="false"])'))return;
+   if(document.querySelector('dialog[open],#tr-app-trigger[aria-expanded="true"],.tr-controls[open]')||!game.getClientRects().length)return;
+   const roll=$('pp-roll');if(!roll.getClientRects().length)return;
+   e.preventDefault();if(e.repeat||roll.disabled)return;roll.click();
+  });
   const textArea=document.querySelector('#pp-task .pp-roles');
   const overflowObserver=new ResizeObserver(()=>$('pp-task').classList.toggle('db-long-task',textArea.scrollHeight>textArea.clientHeight+1));
   for(const element of [textArea,$('pp-instruction'),$('pp-partner')])overflowObserver.observe(element);

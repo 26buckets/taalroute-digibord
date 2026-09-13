@@ -289,3 +289,51 @@
 #praatpad-board.db-ui #pp-large-button{width:auto;display:inline-flex;gap:5px;align-items:center;}
 #praatpad-board.db-ui #pp-large-button .db-expand-label{display:inline;font:400 12px/1.2 var(--ui-font);}
 @media(min-width:600px) and (max-width:699px){#praatpad-board.db-ui[data-db-form="numbers"] #pp-task .db-task-support{flex-basis:138px;}}
+/* Quiet teacher notes; large learner examples keep their own presentation. */
+#praatpad-board.db-ui #pp-dialog:has(.db-teacher-panel){width:min(580px,calc(100vw - 24px));max-height:calc(100dvh - 32px);padding:18px 22px;border-radius:12px;}
+#praatpad-board.db-ui #pp-dialog:has(.db-teacher-panel) .pp-dialog-heading{padding-bottom:10px;margin-bottom:12px;}
+#praatpad-board.db-ui #pp-dialog:has(.db-teacher-panel) #pp-dialog-title{font-size:20px;line-height:1.25;}
+#praatpad-board.db-ui #pp-dialog .db-teacher-panel{font-size:15px;line-height:1.45;}
+#praatpad-board.db-ui #pp-dialog .db-teacher-panel p{font-size:15px;line-height:1.45;margin:0 0 10px;}
+#praatpad-board.db-ui #pp-dialog .db-teacher-panel .db-teacher-task{font-size:16px;font-weight:700;margin-bottom:3px;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-meta{font-size:13px!important;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-tabs{gap:4px;padding-bottom:8px;flex-wrap:wrap;}
+#praatpad-board.db-ui #pp-dialog .db-teacher-panel .db-support-tabs button{font-size:14px;padding:8px 10px;margin:0;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-steps{list-style:none;counter-reset:steps;gap:0;margin:12px 0;padding:0;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-steps li{counter-increment:steps;position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--ui-line);}
+#praatpad-board.db-ui .db-teacher-panel .db-support-steps li::before{content:counter(steps);position:absolute;left:0;top:10px;width:23px;height:23px;text-align:center;background:var(--ui-wash);border-radius:50%;font-size:13px;color:var(--ui-muted);}
+#praatpad-board.db-ui .db-teacher-panel .db-support-steps strong{font-size:14px;margin-bottom:3px;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-card{padding:12px;margin:10px 0;background:var(--ui-wash);border-radius:8px;}
+#praatpad-board.db-ui #pp-dialog .db-teacher-panel .db-support-example{font-size:18px;}
+#praatpad-board.db-ui .db-teacher-panel .db-more{padding:8px 12px;margin:10px 0;}
+#praatpad-board.db-ui .db-teacher-panel .db-more summary{min-height:44px;display:flex;align-items:center;font-size:14px;}
+#praatpad-board.db-ui .db-teacher-panel .db-source{grid-template-columns:80px 1fr;gap:8px;margin:16px 0;font-size:14px;}
+#praatpad-board.db-ui #pp-dialog .db-teacher-panel #db-support-back{font-size:14px;min-height:44px;margin:8px 0 0;padding:8px 12px;}
+#praatpad-board.db-ui #pp-instruction[role=button]{cursor:zoom-in;border-radius:4px;}
+#praatpad-board.db-ui #pp-instruction[role=button]:focus-visible{outline:3px solid #0075d5;outline-offset:3px;}
+#praatpad-board.db-ui #pp-game[data-large=true] #pp-instruction{cursor:default;}
+#praatpad-board.db-ui #db-map-focus{min-height:44px;display:inline-flex;align-items:center;gap:6px;font-size:12px;white-space:normal;}
+#praatpad-board.db-ui #db-map-focus svg{width:18px;height:18px;flex:none;}
+/* A stable, explicit map view: no task-length changes during a roll. */
+@media(min-width:600px){
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-playfield{grid-template-rows:minmax(0,1fr) 142px;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-task{padding:8px 16px;gap:4px;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-task-heading{height:56px;min-height:56px;flex-basis:56px;align-items:center;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-task-title{font-size:18px;margin:2px 0;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-task-label{font-size:12px;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-task-actions{max-width:55%;max-height:56px;overflow:auto;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) :is(.db-task-support,.pp-task-bottom,.pp-role-label){display:none;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-roles{grid-template-columns:1fr;gap:4px;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-instruction{font-size:24px;line-height:1.25;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) #pp-partner{font-size:16px;line-height:1.3;}
+ #praatpad-board.db-ui[data-map-focus=true][data-db-form=numbers] #pp-game:not([data-large=true]) .pp-roles>div+div{padding:0;border:0;}
+}
+#praatpad-board.db-ui .db-teacher-panel .db-support-steps li{display:grid;grid-template-columns:82px minmax(0,1fr);gap:8px;padding-block:12px;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-steps strong{margin:0;}
+#praatpad-board.db-ui .db-teacher-panel .db-more summary{display:list-item;box-sizing:border-box;padding-block:10px;}
+#praatpad-board.db-ui .db-teacher-panel .db-support-tabs button[aria-selected=true]{background:#e6eff4;color:#164c64;border-color:#9bbacb;}
+@media(max-width:420px){#praatpad-board.db-ui .db-teacher-panel .db-support-steps li{grid-template-columns:1fr;gap:3px;}}
+@media(min-width:600px){
+ #praatpad-board.db-ui[data-map-focus=true] #pp-game:not([data-large=true]) #pp-task:has(#pp-travel-choices:not([hidden])) .pp-roles{display:none;}
+ #praatpad-board.db-ui[data-map-focus=true] #pp-game:not([data-large=true]) #pp-travel-choices:not([hidden]){min-height:44px;max-height:none;flex:1;overflow:auto;}
+}
