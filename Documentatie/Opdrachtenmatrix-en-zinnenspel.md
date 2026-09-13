@@ -64,3 +64,7 @@ De startkeuze voor A0 → A1 gebruikt ik/jij/hij-zij, zes werkwoorden en alleen 
 `Documentatie/Opdrachtenmatrix.xlsx` bevat een overzicht, vier filterbare routebladen en het zinnenspel. De kolom **Review / wijzigingsvoorstel** is bedoeld voor inhoudelijke opmerkingen bij vaste opdracht-ID's. Excel-wijzigingen worden niet automatisch geïmporteerd. Verwerk goedgekeurde wijzigingen in de JSON-bron, maak de browserbundel opnieuw en controleer de veranderde opdrachten in de app. De JSON houdt de vorm, route, opdracht, hulp, voorbeeld en grammatica bij elkaar.
 
 De controles staan onder `tests/matrix.cjs`, `tests/leerroutes.cjs` en `tests/sentence-matrix-ui.cjs`, naast de bestaande kaart-, opslag- en lesvormcontroles. Ze controleren aantallen en dekking, herhalingscycli, verborgen hulp, bewaren, routekeuzes, verschillende pionopdrachten en vervoegingen. De inhoud is redactioneel nagekeken op grammatica, logica en natuurlijk Nederlands; toets de bruikbaarheid daarnaast in de eigen lespraktijk.
+
+## Taalreview van 13 september 2026
+
+De opdrachten, situaties, hulp en voorbeelden zijn opnieuw op Nederlands, samenhang en niveau nagekeken en waar nodig herschreven. Lees [Taalreview-opdrachten.md](Taalreview-opdrachten.md) voor het bereik, de belangrijkste correcties en de afzonderlijke controle van alle 432 zinscombinaties. De vaste opdracht-ID’s zijn behouden.
