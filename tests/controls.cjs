@@ -10,7 +10,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
  await page.locator('[data-node="1"]').click();await page.locator('#pp-use-task').click();
  async function check(){
  const issues=await page.evaluate(()=>{
- const issues=[];for(const e of document.querySelectorAll('#pp-main-tools button,#db-map-tools button,#db-round-controls button,#pp-group')){
+ const issues=[];for(const e of document.querySelectorAll('#pp-main-tools button,#db-open-exercise,#db-map-tools button,#db-round-controls button,#pp-group')){
  if(!e.getClientRects().length)continue;const r=e.getBoundingClientRect();
  if(r.bottom>innerHeight+.5||r.right>innerWidth||r.top<0)issues.push(e.id+' outside viewport '+r.bottom);
  if(!e.disabled&&!e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)))issues.push(e.id+' covered');

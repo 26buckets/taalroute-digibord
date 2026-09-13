@@ -1,0 +1,1220 @@
+{
+  "date": "2026-09-13",
+  "scope": "240 directe vragen met mogelijke antwoorden, hulp en route-indeling. Redactioneel nagekeken bij het schrijven; geen officiële niveaucertificering.",
+  "review_points": [
+    "De vraag spreekt de cursist rechtstreeks aan.",
+    "Het voorbeeld geeft antwoord op precies die vraag.",
+    "A0 gebruikt concrete onderwerpen, één korte vraag en geen verplichte reden of verleden tijd.",
+    "Eigen en verzonnen antwoorden zijn mogelijk.",
+    "Hulp en volledig voorbeeld staan niet vooraf op het bord.",
+    "De vier vormen behouden een eigen functie binnen de directe oefening."
+  ],
+  "routes": {
+    "A0 → A1": 60,
+    "A1 → A1+": 60,
+    "A1 → A2": 60,
+    "A2 → B1": 60
+  },
+  "cards": [
+    {
+      "id": "dq-0-circle-01",
+      "question": "Hoe heet jij?",
+      "possible_answer": "Ik heet Sara."
+    },
+    {
+      "id": "dq-0-circle-02",
+      "question": "Waar woon jij?",
+      "possible_answer": "Ik woon in Rotterdam."
+    },
+    {
+      "id": "dq-0-circle-03",
+      "question": "Uit welk land kom jij?",
+      "possible_answer": "Ik kom uit Spanje."
+    },
+    {
+      "id": "dq-0-circle-04",
+      "question": "Welke taal spreek jij?",
+      "possible_answer": "Ik spreek Arabisch."
+    },
+    {
+      "id": "dq-0-circle-05",
+      "question": "Hoe oud ben jij?",
+      "possible_answer": "Ik ben dertig jaar."
+    },
+    {
+      "id": "dq-0-circle-06",
+      "question": "Wat drink jij graag?",
+      "possible_answer": "Ik drink graag thee."
+    },
+    {
+      "id": "dq-0-circle-07",
+      "question": "Wat eet jij graag?",
+      "possible_answer": "Ik eet graag rijst."
+    },
+    {
+      "id": "dq-0-circle-08",
+      "question": "Welke kleur heeft jouw tas?",
+      "possible_answer": "Mijn tas is blauw."
+    },
+    {
+      "id": "dq-0-circle-09",
+      "question": "Welke kleur heeft jouw jas?",
+      "possible_answer": "Mijn jas is zwart."
+    },
+    {
+      "id": "dq-0-circle-10",
+      "question": "Hoe heet jouw docent?",
+      "possible_answer": "Mijn docent heet Noor."
+    },
+    {
+      "id": "dq-0-circle-11",
+      "question": "Wat is jouw voornaam?",
+      "possible_answer": "Mijn voornaam is Amir."
+    },
+    {
+      "id": "dq-0-circle-12",
+      "question": "Wat is jouw achternaam?",
+      "possible_answer": "Mijn achternaam is Bakker."
+    },
+    {
+      "id": "dq-0-circle-13",
+      "question": "Waar is jouw tas?",
+      "possible_answer": "Mijn tas staat hier."
+    },
+    {
+      "id": "dq-0-circle-14",
+      "question": "Wat zit er in jouw tas?",
+      "possible_answer": "Er zit een boek in mijn tas."
+    },
+    {
+      "id": "dq-0-circle-15",
+      "question": "Wat doe jij vandaag?",
+      "possible_answer": "Ik werk vandaag."
+    },
+    {
+      "id": "dq-0-square-01",
+      "question": "Woon jij in de stad?",
+      "possible_answer": "Ja, ik woon in de stad."
+    },
+    {
+      "id": "dq-0-square-02",
+      "question": "Draag jij vandaag een trui?",
+      "possible_answer": "Ja, ik draag een trui."
+    },
+    {
+      "id": "dq-0-square-03",
+      "question": "Drink jij koffie?",
+      "possible_answer": "Nee, ik drink thee."
+    },
+    {
+      "id": "dq-0-square-04",
+      "question": "Heb jij een fiets?",
+      "possible_answer": "Ja, ik heb een fiets."
+    },
+    {
+      "id": "dq-0-square-05",
+      "question": "Heb jij een pen?",
+      "possible_answer": "Nee, ik heb geen pen."
+    },
+    {
+      "id": "dq-0-square-06",
+      "question": "Spreek jij Engels?",
+      "possible_answer": "Ja, ik spreek Engels."
+    },
+    {
+      "id": "dq-0-square-07",
+      "question": "Kom jij met de bus?",
+      "possible_answer": "Nee, ik kom met de fiets."
+    },
+    {
+      "id": "dq-0-square-08",
+      "question": "Eet jij graag brood?",
+      "possible_answer": "Ja, ik eet graag brood."
+    },
+    {
+      "id": "dq-0-square-09",
+      "question": "Ben jij moe?",
+      "possible_answer": "Ja, ik ben moe."
+    },
+    {
+      "id": "dq-0-square-10",
+      "question": "Heb jij het koud?",
+      "possible_answer": "Nee, ik heb het warm."
+    },
+    {
+      "id": "dq-0-square-11",
+      "question": "Heb jij vandaag les?",
+      "possible_answer": "Ja, ik heb vandaag les."
+    },
+    {
+      "id": "dq-0-square-12",
+      "question": "Woon jij in een huis?",
+      "possible_answer": "Nee, ik woon in een flat."
+    },
+    {
+      "id": "dq-0-square-13",
+      "question": "Lees jij graag?",
+      "possible_answer": "Ja, ik lees graag."
+    },
+    {
+      "id": "dq-0-square-14",
+      "question": "Kook jij vandaag?",
+      "possible_answer": "Ja, ik kook vandaag."
+    },
+    {
+      "id": "dq-0-square-15",
+      "question": "Luister jij graag naar muziek?",
+      "possible_answer": "Ja, ik luister graag naar muziek."
+    },
+    {
+      "id": "dq-0-triangle-01",
+      "question": "Drink jij liever koffie of thee?",
+      "possible_answer": "Ik drink liever thee."
+    },
+    {
+      "id": "dq-0-triangle-02",
+      "question": "Eet jij liever brood of rijst?",
+      "possible_answer": "Ik eet liever rijst."
+    },
+    {
+      "id": "dq-0-triangle-03",
+      "question": "Ga jij liever lopen of fietsen?",
+      "possible_answer": "Ik ga liever fietsen."
+    },
+    {
+      "id": "dq-0-triangle-04",
+      "question": "Welke kleur vind jij mooi: blauw of rood?",
+      "possible_answer": "Ik vind blauw mooi."
+    },
+    {
+      "id": "dq-0-triangle-05",
+      "question": "Drink jij liever water of sap?",
+      "possible_answer": "Ik drink liever water."
+    },
+    {
+      "id": "dq-0-triangle-06",
+      "question": "Eet jij liever een appel of een banaan?",
+      "possible_answer": "Ik eet liever een banaan."
+    },
+    {
+      "id": "dq-0-triangle-07",
+      "question": "Lees jij liever een boek of een krant?",
+      "possible_answer": "Ik lees liever een boek."
+    },
+    {
+      "id": "dq-0-triangle-08",
+      "question": "Kook jij liever rijst of pasta?",
+      "possible_answer": "Ik kook liever pasta."
+    },
+    {
+      "id": "dq-0-triangle-09",
+      "question": "Ben jij liever binnen of buiten?",
+      "possible_answer": "Ik ben liever buiten."
+    },
+    {
+      "id": "dq-0-triangle-10",
+      "question": "Werk jij liever 's ochtends of 's avonds?",
+      "possible_answer": "Ik werk liever 's ochtends."
+    },
+    {
+      "id": "dq-0-triangle-11",
+      "question": "Reis jij liever met de bus of met de trein?",
+      "possible_answer": "Ik reis liever met de trein."
+    },
+    {
+      "id": "dq-0-triangle-12",
+      "question": "Draag jij liever een trui of een vest?",
+      "possible_answer": "Ik draag liever een trui."
+    },
+    {
+      "id": "dq-0-triangle-13",
+      "question": "Schrijf jij liever met een pen of een potlood?",
+      "possible_answer": "Ik schrijf liever met een pen."
+    },
+    {
+      "id": "dq-0-triangle-14",
+      "question": "Drink jij thee met of zonder suiker?",
+      "possible_answer": "Ik drink thee zonder suiker."
+    },
+    {
+      "id": "dq-0-triangle-15",
+      "question": "Eet jij brood met kaas of met jam?",
+      "possible_answer": "Ik eet brood met kaas."
+    },
+    {
+      "id": "dq-0-diamond-01",
+      "question": "Wil je koffie?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-02",
+      "question": "Wil je een glas water?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-03",
+      "question": "Wil je een pen lenen?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-04",
+      "question": "Kan ik je helpen?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-05",
+      "question": "Wil je nog een broodje?",
+      "possible_answer": "Nee, dank je."
+    },
+    {
+      "id": "dq-0-diamond-06",
+      "question": "Wil je suiker in je thee?",
+      "possible_answer": "Nee, dank je."
+    },
+    {
+      "id": "dq-0-diamond-07",
+      "question": "Wil je melk in je koffie?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-08",
+      "question": "Wil je een tas voor je boodschappen?",
+      "possible_answer": "Nee, dank je."
+    },
+    {
+      "id": "dq-0-diamond-09",
+      "question": "Wil je hier zitten?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-10",
+      "question": "Wil je het raam open?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-11",
+      "question": "Wil je even pauze?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-12",
+      "question": "Wil je een kop thee?",
+      "possible_answer": "Nee, dank je."
+    },
+    {
+      "id": "dq-0-diamond-13",
+      "question": "Wil je een glas sap?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-0-diamond-14",
+      "question": "Wil je een koekje?",
+      "possible_answer": "Nee, dank je."
+    },
+    {
+      "id": "dq-0-diamond-15",
+      "question": "Wil je een lepel?",
+      "possible_answer": "Ja, graag."
+    },
+    {
+      "id": "dq-1-circle-01",
+      "question": "Hoe ga jij naar de les?",
+      "possible_answer": "Ik ga met de fiets naar de les."
+    },
+    {
+      "id": "dq-1-circle-02",
+      "question": "Hoe laat sta jij op?",
+      "possible_answer": "Ik sta om zeven uur op."
+    },
+    {
+      "id": "dq-1-circle-03",
+      "question": "Wat eet jij bij het ontbijt?",
+      "possible_answer": "Ik eet brood met kaas."
+    },
+    {
+      "id": "dq-1-circle-04",
+      "question": "Wat doe jij na de les?",
+      "possible_answer": "Ik ga na de les naar huis."
+    },
+    {
+      "id": "dq-1-circle-05",
+      "question": "Waar doe jij boodschappen?",
+      "possible_answer": "Ik doe boodschappen bij de supermarkt."
+    },
+    {
+      "id": "dq-1-circle-06",
+      "question": "Met wie woon jij?",
+      "possible_answer": "Ik woon met mijn partner."
+    },
+    {
+      "id": "dq-1-circle-07",
+      "question": "Hoe vaak sport jij?",
+      "possible_answer": "Ik sport twee keer per week."
+    },
+    {
+      "id": "dq-1-circle-08",
+      "question": "Wat doe jij in het weekend?",
+      "possible_answer": "Ik wandel in het weekend."
+    },
+    {
+      "id": "dq-1-circle-09",
+      "question": "Wat neem jij mee naar de les?",
+      "possible_answer": "Ik neem een boek en een pen mee."
+    },
+    {
+      "id": "dq-1-circle-10",
+      "question": "Hoe laat begint jouw les?",
+      "possible_answer": "Mijn les begint om negen uur."
+    },
+    {
+      "id": "dq-1-circle-11",
+      "question": "Waar ligt jouw telefoon nu?",
+      "possible_answer": "Mijn telefoon ligt in mijn tas."
+    },
+    {
+      "id": "dq-1-circle-12",
+      "question": "Wat doe jij graag thuis?",
+      "possible_answer": "Ik luister thuis graag naar muziek."
+    },
+    {
+      "id": "dq-1-circle-13",
+      "question": "Wanneer bel jij met je familie?",
+      "possible_answer": "Ik bel op zondag met mijn familie."
+    },
+    {
+      "id": "dq-1-circle-14",
+      "question": "Wat voor weer is het vandaag?",
+      "possible_answer": "Het regent vandaag."
+    },
+    {
+      "id": "dq-1-circle-15",
+      "question": "Wat draag jij als het koud is?",
+      "possible_answer": "Ik draag een warme jas."
+    },
+    {
+      "id": "dq-1-square-01",
+      "question": "Ga jij elke dag naar buiten?",
+      "possible_answer": "Ja, ik maak elke dag een wandeling."
+    },
+    {
+      "id": "dq-1-square-02",
+      "question": "Kun jij zwemmen?",
+      "possible_answer": "Ja, ik kan zwemmen."
+    },
+    {
+      "id": "dq-1-square-03",
+      "question": "Heb jij een supermarkt in de buurt?",
+      "possible_answer": "Ja, er is een supermarkt in mijn straat."
+    },
+    {
+      "id": "dq-1-square-04",
+      "question": "Werk jij op zaterdag?",
+      "possible_answer": "Nee, ik ben op zaterdag vrij."
+    },
+    {
+      "id": "dq-1-square-05",
+      "question": "Maak jij thuis je huiswerk?",
+      "possible_answer": "Ja, ik maak mijn huiswerk aan tafel."
+    },
+    {
+      "id": "dq-1-square-06",
+      "question": "Eet jij elke dag fruit?",
+      "possible_answer": "Ja, ik eet elke dag een appel."
+    },
+    {
+      "id": "dq-1-square-07",
+      "question": "Gebruik jij je telefoon in de trein?",
+      "possible_answer": "Ja, ik lees berichten in de trein."
+    },
+    {
+      "id": "dq-1-square-08",
+      "question": "Heb jij vandaag tijd om te koken?",
+      "possible_answer": "Ja, ik kook vanavond soep."
+    },
+    {
+      "id": "dq-1-square-09",
+      "question": "Kun jij om negen uur komen?",
+      "possible_answer": "Nee, ik kan om tien uur komen."
+    },
+    {
+      "id": "dq-1-square-10",
+      "question": "Ligt jouw huis dicht bij de school?",
+      "possible_answer": "Ja, ik loop in tien minuten naar school."
+    },
+    {
+      "id": "dq-1-square-11",
+      "question": "Koop jij weleens eten op de markt?",
+      "possible_answer": "Ja, ik koop er groenten."
+    },
+    {
+      "id": "dq-1-square-12",
+      "question": "Neem jij een tas mee naar de winkel?",
+      "possible_answer": "Ja, ik neem altijd mijn eigen tas mee."
+    },
+    {
+      "id": "dq-1-square-13",
+      "question": "Leer jij thuis nieuwe woorden?",
+      "possible_answer": "Ja, ik oefen elke avond tien woorden."
+    },
+    {
+      "id": "dq-1-square-14",
+      "question": "Drink jij koffie voor het slapen?",
+      "possible_answer": "Nee, ik drink dan water."
+    },
+    {
+      "id": "dq-1-square-15",
+      "question": "Heb jij morgen een afspraak?",
+      "possible_answer": "Ja, ik heb morgen een afspraak bij de tandarts."
+    },
+    {
+      "id": "dq-1-triangle-01",
+      "question": "Eet jij liever thuis of in een restaurant?",
+      "possible_answer": "Ik eet liever thuis. Dat is goedkoper."
+    },
+    {
+      "id": "dq-1-triangle-02",
+      "question": "Winkel jij liever op de markt of in de supermarkt?",
+      "possible_answer": "Ik winkel liever op de markt."
+    },
+    {
+      "id": "dq-1-triangle-03",
+      "question": "Leer jij liever alleen of samen?",
+      "possible_answer": "Ik leer liever samen met een klasgenoot."
+    },
+    {
+      "id": "dq-1-triangle-04",
+      "question": "Sport jij liever binnen of buiten?",
+      "possible_answer": "Ik sport liever buiten."
+    },
+    {
+      "id": "dq-1-triangle-05",
+      "question": "Kijk jij liever een film of een serie?",
+      "possible_answer": "Ik kijk liever een film."
+    },
+    {
+      "id": "dq-1-triangle-06",
+      "question": "Ga jij liever vroeg of laat naar bed?",
+      "possible_answer": "Ik ga liever vroeg naar bed."
+    },
+    {
+      "id": "dq-1-triangle-07",
+      "question": "Kook jij liever zelf of bestel jij eten?",
+      "possible_answer": "Ik kook liever zelf."
+    },
+    {
+      "id": "dq-1-triangle-08",
+      "question": "Reis jij liever met de fiets of met de bus?",
+      "possible_answer": "Ik reis liever met de fiets."
+    },
+    {
+      "id": "dq-1-triangle-09",
+      "question": "Drink jij bij het ontbijt liever thee of koffie?",
+      "possible_answer": "Ik drink bij het ontbijt liever thee."
+    },
+    {
+      "id": "dq-1-triangle-10",
+      "question": "Lees jij nieuws liever op papier of op je telefoon?",
+      "possible_answer": "Ik lees nieuws liever op mijn telefoon."
+    },
+    {
+      "id": "dq-1-triangle-11",
+      "question": "Woon jij liever in een rustige of een drukke straat?",
+      "possible_answer": "Ik woon liever in een rustige straat."
+    },
+    {
+      "id": "dq-1-triangle-12",
+      "question": "Ga jij liever naar het park of naar het strand?",
+      "possible_answer": "Ik ga liever naar het strand."
+    },
+    {
+      "id": "dq-1-triangle-13",
+      "question": "Betaal jij liever contant of met je pinpas?",
+      "possible_answer": "Ik betaal liever met mijn pinpas."
+    },
+    {
+      "id": "dq-1-triangle-14",
+      "question": "Plan jij een afspraak liever op maandag of op vrijdag?",
+      "possible_answer": "Ik plan een afspraak liever op vrijdag."
+    },
+    {
+      "id": "dq-1-triangle-15",
+      "question": "Oefen jij woorden liever in de ochtend of in de avond?",
+      "possible_answer": "Ik oefen woorden liever in de avond."
+    },
+    {
+      "id": "dq-1-diamond-01",
+      "question": "Wat wil je bestellen?",
+      "possible_answer": "Ik wil graag een kop thee."
+    },
+    {
+      "id": "dq-1-diamond-02",
+      "question": "Wil je hier eten of meenemen?",
+      "possible_answer": "Ik wil het graag meenemen."
+    },
+    {
+      "id": "dq-1-diamond-03",
+      "question": "Hoeveel broodjes wil je?",
+      "possible_answer": "Ik wil graag twee broodjes."
+    },
+    {
+      "id": "dq-1-diamond-04",
+      "question": "Wil je een bonnetje?",
+      "possible_answer": "Ja, graag. Ik bewaar mijn bonnetjes."
+    },
+    {
+      "id": "dq-1-diamond-05",
+      "question": "Welke maat zoek je?",
+      "possible_answer": "Ik zoek maat M."
+    },
+    {
+      "id": "dq-1-diamond-06",
+      "question": "Welke kleur wil je hebben?",
+      "possible_answer": "Ik wil graag een blauwe."
+    },
+    {
+      "id": "dq-1-diamond-07",
+      "question": "Wanneer kun je langskomen?",
+      "possible_answer": "Ik kan morgen om tien uur langskomen."
+    },
+    {
+      "id": "dq-1-diamond-08",
+      "question": "Hoe laat wil je afspreken?",
+      "possible_answer": "Ik wil graag om twee uur afspreken."
+    },
+    {
+      "id": "dq-1-diamond-09",
+      "question": "Waar wil je afspreken?",
+      "possible_answer": "Ik wil graag bij het station afspreken."
+    },
+    {
+      "id": "dq-1-diamond-10",
+      "question": "Wat heb je nodig voor de les?",
+      "possible_answer": "Ik heb een pen en een schrift nodig."
+    },
+    {
+      "id": "dq-1-diamond-11",
+      "question": "Zal ik wat langzamer praten?",
+      "possible_answer": "Ja, graag. Dat helpt mij."
+    },
+    {
+      "id": "dq-1-diamond-12",
+      "question": "Welke pagina zoek je?",
+      "possible_answer": "Ik zoek pagina twaalf."
+    },
+    {
+      "id": "dq-1-diamond-13",
+      "question": "Wil je dat ik het herhaal?",
+      "possible_answer": "Ja, graag. Ik hoor het niet goed."
+    },
+    {
+      "id": "dq-1-diamond-14",
+      "question": "Waar kan ik jouw tas neerzetten?",
+      "possible_answer": "Je kunt mijn tas naast de stoel zetten."
+    },
+    {
+      "id": "dq-1-diamond-15",
+      "question": "Wil je eerst lezen of meteen beginnen?",
+      "possible_answer": "Ik wil eerst even lezen."
+    },
+    {
+      "id": "dq-2-circle-01",
+      "question": "Wat heb jij gisteren gegeten?",
+      "possible_answer": "Ik heb gisteren pasta gegeten."
+    },
+    {
+      "id": "dq-2-circle-02",
+      "question": "Wat heb jij dit weekend gedaan?",
+      "possible_answer": "Ik heb dit weekend gewandeld."
+    },
+    {
+      "id": "dq-2-circle-03",
+      "question": "Waar ben jij gisteren geweest?",
+      "possible_answer": "Ik ben gisteren op de markt geweest."
+    },
+    {
+      "id": "dq-2-circle-04",
+      "question": "Hoe ben jij vandaag naar de les gekomen?",
+      "possible_answer": "Ik ben met de bus naar de les gekomen."
+    },
+    {
+      "id": "dq-2-circle-05",
+      "question": "Wat heb jij deze week gekocht?",
+      "possible_answer": "Ik heb deze week een jas gekocht."
+    },
+    {
+      "id": "dq-2-circle-06",
+      "question": "Met wie heb jij gisteren gepraat?",
+      "possible_answer": "Ik heb gisteren met mijn buurvrouw gepraat."
+    },
+    {
+      "id": "dq-2-circle-07",
+      "question": "Wat heb jij vandaag al gedaan?",
+      "possible_answer": "Ik heb al ontbeten en boodschappen gedaan."
+    },
+    {
+      "id": "dq-2-circle-08",
+      "question": "Waarom leer jij Nederlands?",
+      "possible_answer": "Ik leer Nederlands omdat ik hier werk."
+    },
+    {
+      "id": "dq-2-circle-09",
+      "question": "Wat ga jij morgen doen?",
+      "possible_answer": "Ik ga morgen mijn zus bezoeken."
+    },
+    {
+      "id": "dq-2-circle-10",
+      "question": "Hoe ziet jouw ochtend eruit?",
+      "possible_answer": "Ik ontbijt eerst. Daarna ga ik naar mijn werk."
+    },
+    {
+      "id": "dq-2-circle-11",
+      "question": "Wat vind jij leuk aan jouw buurt?",
+      "possible_answer": "Ik vind het park leuk, want ik wandel graag."
+    },
+    {
+      "id": "dq-2-circle-12",
+      "question": "Wat heb jij voor het laatst gekookt?",
+      "possible_answer": "Ik heb voor het laatst soep gekookt."
+    },
+    {
+      "id": "dq-2-circle-13",
+      "question": "Wat doe jij als je een woord niet kent?",
+      "possible_answer": "Ik zoek het woord op in een woordenboek."
+    },
+    {
+      "id": "dq-2-circle-14",
+      "question": "Hoe oefen jij Nederlands buiten de les?",
+      "possible_answer": "Ik praat Nederlands met mijn buren."
+    },
+    {
+      "id": "dq-2-circle-15",
+      "question": "Wat wil jij deze maand leren?",
+      "possible_answer": "Ik wil leren om een afspraak te maken."
+    },
+    {
+      "id": "dq-2-square-01",
+      "question": "Heb jij gisteren gekookt? Wat heb je gemaakt?",
+      "possible_answer": "Ja, ik heb groentesoep gemaakt."
+    },
+    {
+      "id": "dq-2-square-02",
+      "question": "Ben jij weleens met de trein gereisd? Waarheen?",
+      "possible_answer": "Ja, ik ben met de trein naar Utrecht gereisd."
+    },
+    {
+      "id": "dq-2-square-03",
+      "question": "Heb jij deze week gesport? Wat heb je gedaan?",
+      "possible_answer": "Ja, ik heb een uur gezwommen."
+    },
+    {
+      "id": "dq-2-square-04",
+      "question": "Heb jij vandaag ontbeten? Wat heb je gegeten?",
+      "possible_answer": "Ja, ik heb yoghurt met fruit gegeten."
+    },
+    {
+      "id": "dq-2-square-05",
+      "question": "Heb jij weleens iets geleend? Wat was het?",
+      "possible_answer": "Ja, ik heb een fiets geleend."
+    },
+    {
+      "id": "dq-2-square-06",
+      "question": "Ben jij gisteren buiten geweest? Waar was je?",
+      "possible_answer": "Ja, ik was in het park."
+    },
+    {
+      "id": "dq-2-square-07",
+      "question": "Heb jij vandaag Nederlands gesproken? Met wie?",
+      "possible_answer": "Ja, ik heb met een collega Nederlands gesproken."
+    },
+    {
+      "id": "dq-2-square-08",
+      "question": "Heb jij ooit een sleutel verloren? Wat deed je toen?",
+      "possible_answer": "Ja, ik heb mijn huisgenoot gebeld."
+    },
+    {
+      "id": "dq-2-square-09",
+      "question": "Heb jij gisteren muziek geluisterd? Welke muziek?",
+      "possible_answer": "Ja, ik heb naar jazz geluisterd."
+    },
+    {
+      "id": "dq-2-square-10",
+      "question": "Heb jij weleens een trein gemist? Wat deed je toen?",
+      "possible_answer": "Ja, ik heb op de volgende trein gewacht."
+    },
+    {
+      "id": "dq-2-square-11",
+      "question": "Kun jij morgen eerder komen? Hoe laat?",
+      "possible_answer": "Ja, ik kan om halfnegen komen."
+    },
+    {
+      "id": "dq-2-square-12",
+      "question": "Wil jij later een andere taal leren? Welke taal?",
+      "possible_answer": "Ja, ik wil later Frans leren."
+    },
+    {
+      "id": "dq-2-square-13",
+      "question": "Heb jij weleens iets online gekocht? Wat was het?",
+      "possible_answer": "Ja, ik heb online schoenen gekocht."
+    },
+    {
+      "id": "dq-2-square-14",
+      "question": "Heb jij deze week iemand geholpen? Waarmee?",
+      "possible_answer": "Ja, ik heb mijn buurman met de boodschappen geholpen."
+    },
+    {
+      "id": "dq-2-square-15",
+      "question": "Heb jij gisteren iets gelezen? Wat heb je gelezen?",
+      "possible_answer": "Ja, ik heb een bericht van mijn zus gelezen."
+    },
+    {
+      "id": "dq-2-triangle-01",
+      "question": "Ga jij liever met de trein of de bus? Waarom?",
+      "possible_answer": "Ik ga liever met de trein, want die is sneller."
+    },
+    {
+      "id": "dq-2-triangle-02",
+      "question": "Koop jij liever nieuw of tweedehands? Waarom?",
+      "possible_answer": "Ik koop liever tweedehands, want dat is goedkoper."
+    },
+    {
+      "id": "dq-2-triangle-03",
+      "question": "Leer jij liever met een boek of een app? Waarom?",
+      "possible_answer": "Ik leer liever met een app, want die heb ik altijd bij me."
+    },
+    {
+      "id": "dq-2-triangle-04",
+      "question": "Kook jij liever samen of alleen? Waarom?",
+      "possible_answer": "Ik kook liever samen, want dat vind ik gezellig."
+    },
+    {
+      "id": "dq-2-triangle-05",
+      "question": "Woon jij liever in de stad of in een dorp? Waarom?",
+      "possible_answer": "Ik woon liever in de stad, want er zijn veel winkels."
+    },
+    {
+      "id": "dq-2-triangle-06",
+      "question": "Werk jij liever vroeg of laat? Waarom?",
+      "possible_answer": "Ik werk liever vroeg, want dan ben ik eerder vrij."
+    },
+    {
+      "id": "dq-2-triangle-07",
+      "question": "Spreek jij liever thuis of in een café af? Waarom?",
+      "possible_answer": "Ik spreek liever thuis af, want daar is het rustig."
+    },
+    {
+      "id": "dq-2-triangle-08",
+      "question": "Bel jij liever of stuur je een bericht? Waarom?",
+      "possible_answer": "Ik stuur liever een bericht, want dat kan op elk moment."
+    },
+    {
+      "id": "dq-2-triangle-09",
+      "question": "Ga jij liever wandelen of zwemmen? Waarom?",
+      "possible_answer": "Ik ga liever wandelen, want dan ben ik buiten."
+    },
+    {
+      "id": "dq-2-triangle-10",
+      "question": "Plan jij je weekend of beslis je op de dag zelf?",
+      "possible_answer": "Ik plan mijn weekend, want dan kan ik vrienden uitnodigen."
+    },
+    {
+      "id": "dq-2-triangle-11",
+      "question": "Ga jij liever op zaterdag of maandag winkelen? Waarom?",
+      "possible_answer": "Ik ga liever op maandag, want dan is het rustiger."
+    },
+    {
+      "id": "dq-2-triangle-12",
+      "question": "Oefen jij liever spreken of schrijven? Waarom?",
+      "possible_answer": "Ik oefen liever spreken, want dat heb ik op mijn werk nodig."
+    },
+    {
+      "id": "dq-2-triangle-13",
+      "question": "Kies jij liever een korte of een lange vakantie? Waarom?",
+      "possible_answer": "Ik kies liever een lange vakantie, want dan kan ik goed uitrusten."
+    },
+    {
+      "id": "dq-2-triangle-14",
+      "question": "Eet jij liever warm in de middag of in de avond? Waarom?",
+      "possible_answer": "Ik eet liever in de avond warm, want dan ben ik thuis."
+    },
+    {
+      "id": "dq-2-triangle-15",
+      "question": "Fiets jij liever of loop je liever naar de winkel? Waarom?",
+      "possible_answer": "Ik loop liever, want de winkel is dichtbij."
+    },
+    {
+      "id": "dq-2-diamond-01",
+      "question": "De afspraak is om tien uur. Kun jij dan komen?",
+      "possible_answer": "Nee, ik werk dan. Kan het om twee uur?"
+    },
+    {
+      "id": "dq-2-diamond-02",
+      "question": "Je bestelling is er nog niet. Wil je wachten of je geld terug?",
+      "possible_answer": "Ik wil mijn geld terug, want ik heb haast."
+    },
+    {
+      "id": "dq-2-diamond-03",
+      "question": "Deze broek is te klein. Welke maat wil je passen?",
+      "possible_answer": "Ik wil graag een maat groter passen."
+    },
+    {
+      "id": "dq-2-diamond-04",
+      "question": "De bus rijdt niet. Hoe kom jij nu naar de les?",
+      "possible_answer": "Ik neem de fiets. Dan ben ik op tijd."
+    },
+    {
+      "id": "dq-2-diamond-05",
+      "question": "Het raam staat open. Heb je het koud?",
+      "possible_answer": "Ja, ik heb het koud. Mag het raam dicht?"
+    },
+    {
+      "id": "dq-2-diamond-06",
+      "question": "De soep is op. Wat wil je in plaats daarvan?",
+      "possible_answer": "Ik wil graag een broodje kaas."
+    },
+    {
+      "id": "dq-2-diamond-07",
+      "question": "Je boek is nog niet uit. Wil je het langer lenen?",
+      "possible_answer": "Ja, ik wil het graag nog een week lenen."
+    },
+    {
+      "id": "dq-2-diamond-08",
+      "question": "Je telefoon is leeg. Wil je mijn oplader lenen?",
+      "possible_answer": "Ja, graag. Ik geef hem straks terug."
+    },
+    {
+      "id": "dq-2-diamond-09",
+      "question": "De les begint later. Wat ga jij in de tussentijd doen?",
+      "possible_answer": "Ik ga even koffie drinken."
+    },
+    {
+      "id": "dq-2-diamond-10",
+      "question": "Je kunt niet op dinsdag. Welke dag past jou wel?",
+      "possible_answer": "Donderdag past mij goed. Kan dat ook?"
+    },
+    {
+      "id": "dq-2-diamond-11",
+      "question": "Je tas is zwaar. Zal ik hem even dragen?",
+      "possible_answer": "Ja, graag. Dat helpt mij."
+    },
+    {
+      "id": "dq-2-diamond-12",
+      "question": "Je kunt niet alles lezen. Wil je een grotere tekst?",
+      "possible_answer": "Ja, graag. Deze letters zijn te klein."
+    },
+    {
+      "id": "dq-2-diamond-13",
+      "question": "Je hebt haast. Wil je jouw eten meenemen?",
+      "possible_answer": "Ja, graag. Ik eet het thuis op."
+    },
+    {
+      "id": "dq-2-diamond-14",
+      "question": "Je hebt een vraag over het huiswerk. Waar wil je hulp bij?",
+      "possible_answer": "Ik wil hulp bij opdracht drie. Ik begrijp die niet."
+    },
+    {
+      "id": "dq-2-diamond-15",
+      "question": "Je fiets is kapot. Wil je mijn fiets lenen?",
+      "possible_answer": "Ja, graag. Ik breng hem vanavond terug."
+    },
+    {
+      "id": "dq-3-circle-01",
+      "question": "Wat gaat bij het leren van Nederlands nu beter dan eerst?",
+      "possible_answer": "Ik begrijp gesprekken beter dan eerst, omdat ik elke dag luister."
+    },
+    {
+      "id": "dq-3-circle-02",
+      "question": "Wat zou jij graag aan jouw buurt veranderen?",
+      "possible_answer": "Ik zou meer bomen willen, zodat er in de zomer meer schaduw is."
+    },
+    {
+      "id": "dq-3-circle-03",
+      "question": "Hoe bereid jij je voor op een drukke week?",
+      "possible_answer": "Ik maak een planning en kook alvast voor twee dagen."
+    },
+    {
+      "id": "dq-3-circle-04",
+      "question": "Wat heb jij geleerd van een fout die je maakte?",
+      "possible_answer": "Ik was een afspraak vergeten. Nu zet ik afspraken meteen in mijn agenda."
+    },
+    {
+      "id": "dq-3-circle-05",
+      "question": "Welke gewoonte helpt jou om iets te leren?",
+      "possible_answer": "Elke dag kort oefenen helpt mij, omdat ik de woorden dan beter onthoud."
+    },
+    {
+      "id": "dq-3-circle-06",
+      "question": "Hoe is jouw dagelijks leven de laatste jaren veranderd?",
+      "possible_answer": "Vroeger werkte ik 's avonds. Nu werk ik overdag en heb ik meer tijd voor mijn gezin."
+    },
+    {
+      "id": "dq-3-circle-07",
+      "question": "Wat vind jij belangrijk bij het kiezen van een opleiding?",
+      "possible_answer": "Ik vind het belangrijk dat de lestijden bij mijn werk passen."
+    },
+    {
+      "id": "dq-3-circle-08",
+      "question": "Hoe houd jij contact met mensen die ver weg wonen?",
+      "possible_answer": "Ik stuur berichten en bel in het weekend, zodat we rustig kunnen praten."
+    },
+    {
+      "id": "dq-3-circle-09",
+      "question": "Wat doe jij om een drukke dag rustig af te sluiten?",
+      "possible_answer": "Ik leg mijn telefoon weg en lees een boek. Daardoor kom ik tot rust."
+    },
+    {
+      "id": "dq-3-circle-10",
+      "question": "Wat was een praktische tip waar jij veel aan had?",
+      "possible_answer": "Iemand adviseerde mij om een boodschappenlijst te maken. Sindsdien vergeet ik minder."
+    },
+    {
+      "id": "dq-3-circle-11",
+      "question": "Hoe pak jij een taak aan die je nog nooit hebt gedaan?",
+      "possible_answer": "Ik zoek eerst een voorbeeld en probeer het daarna zelf."
+    },
+    {
+      "id": "dq-3-circle-12",
+      "question": "Wat vind jij prettig aan samenwerken?",
+      "possible_answer": "Ik vind het prettig dat we elkaar kunnen helpen als iets niet lukt."
+    },
+    {
+      "id": "dq-3-circle-13",
+      "question": "Welke plek raad jij een bezoeker aan? Waarom?",
+      "possible_answer": "Ik raad het park aan, omdat je daar rustig kunt wandelen."
+    },
+    {
+      "id": "dq-3-circle-14",
+      "question": "Wat zou jij doen met een extra vrije dag per week?",
+      "possible_answer": "Ik zou een cursus volgen die ik nu niet met mijn werk kan combineren."
+    },
+    {
+      "id": "dq-3-circle-15",
+      "question": "Wanneer ben jij tevreden over een gesprek in het Nederlands?",
+      "possible_answer": "Ik ben tevreden als ik kan uitleggen wat ik bedoel, ook als ik fouten maak."
+    },
+    {
+      "id": "dq-3-square-01",
+      "question": "Heb jij weleens een planning veranderd? Waarom was dat nodig?",
+      "possible_answer": "Ja, een collega was ziek. Daarom heb ik mijn afspraak verzet."
+    },
+    {
+      "id": "dq-3-square-02",
+      "question": "Vind jij dat winkels op zondag open moeten zijn? Waarom?",
+      "possible_answer": "Ja, want sommige mensen kunnen alleen op zondag boodschappen doen."
+    },
+    {
+      "id": "dq-3-square-03",
+      "question": "Zou jij dichter bij je werk willen wonen? Waarom wel of niet?",
+      "possible_answer": "Ja, dan zou ik minder tijd kwijt zijn aan reizen."
+    },
+    {
+      "id": "dq-3-square-04",
+      "question": "Lukt het jou om elke dag Nederlands te oefenen? Hoe doe je dat?",
+      "possible_answer": "Meestal wel. Ik luister onderweg naar een kort gesprek."
+    },
+    {
+      "id": "dq-3-square-05",
+      "question": "Heb jij weleens een misverstand opgelost? Hoe deed je dat?",
+      "possible_answer": "Ja, ik heb rustig uitgelegd wat ik bedoelde. Daarna begrepen we elkaar."
+    },
+    {
+      "id": "dq-3-square-06",
+      "question": "Vind jij het makkelijk om hulp te vragen? Waarom wel of niet?",
+      "possible_answer": "Niet altijd, omdat ik het eerst zelf wil proberen."
+    },
+    {
+      "id": "dq-3-square-07",
+      "question": "Zou jij een cursus in de avond volgen? Waarom wel of niet?",
+      "possible_answer": "Ja, omdat ik overdag werk en 's avonds tijd heb."
+    },
+    {
+      "id": "dq-3-square-08",
+      "question": "Heb jij weleens een aankoop teruggebracht? Hoe ging dat?",
+      "possible_answer": "Ja, de jas was te klein. Met de bon kon ik hem omruilen."
+    },
+    {
+      "id": "dq-3-square-09",
+      "question": "Vind jij online contact even prettig als persoonlijk contact? Waarom?",
+      "possible_answer": "Nee, persoonlijk contact vind ik prettiger omdat ik iemand beter kan begrijpen."
+    },
+    {
+      "id": "dq-3-square-10",
+      "question": "Zou jij een week zonder auto kunnen? Hoe zou je reizen?",
+      "possible_answer": "Ja, ik zou fietsen en voor langere afstanden de trein nemen."
+    },
+    {
+      "id": "dq-3-square-11",
+      "question": "Heb jij weleens nee gezegd tegen een verzoek? Hoe deed je dat?",
+      "possible_answer": "Ja, ik zei dat ik geen tijd had en bood aan om later te helpen."
+    },
+    {
+      "id": "dq-3-square-12",
+      "question": "Vind jij dat iedereen dezelfde werktijden moet hebben? Waarom?",
+      "possible_answer": "Nee, verschillende werktijden kunnen helpen om werk en gezin te combineren."
+    },
+    {
+      "id": "dq-3-square-13",
+      "question": "Heb jij weleens iets uitgelegd aan een nieuwe collega? Hoe pakte je dat aan?",
+      "possible_answer": "Ja, ik deed het eerst voor en liet de collega het daarna proberen."
+    },
+    {
+      "id": "dq-3-square-14",
+      "question": "Zou jij in een andere stad willen wonen? Wat zou je afwegen?",
+      "possible_answer": "Misschien. Ik zou kijken naar de huur en de reistijd naar mijn werk."
+    },
+    {
+      "id": "dq-3-square-15",
+      "question": "Kun jij makkelijk kiezen als er veel mogelijkheden zijn? Wat helpt jou?",
+      "possible_answer": "Niet altijd. Het helpt mij om eerst te bepalen wat ik het belangrijkst vind."
+    },
+    {
+      "id": "dq-3-triangle-01",
+      "question": "Kies jij liever meer vrije tijd of een hoger salaris? Leg je keuze uit.",
+      "possible_answer": "Ik kies liever meer vrije tijd, omdat ik meer bij mijn gezin wil zijn."
+    },
+    {
+      "id": "dq-3-triangle-02",
+      "question": "Huur jij liever iets duurs dichtbij of iets goedkopers verder weg? Waarom?",
+      "possible_answer": "Ik kies liever iets dichtbij. De hogere huur weegt voor mij op tegen de kortere reistijd."
+    },
+    {
+      "id": "dq-3-triangle-03",
+      "question": "Leer jij liever online of op locatie? Noem een voordeel en een nadeel.",
+      "possible_answer": "Ik leer liever op locatie. Ik kan makkelijk vragen stellen, maar ik moet wel reizen."
+    },
+    {
+      "id": "dq-3-triangle-04",
+      "question": "Koop jij liever een goedkoop of een duurzaam product? Waarom?",
+      "possible_answer": "Ik kies liever een duurzaam product als ik het kan betalen, omdat het langer meegaat."
+    },
+    {
+      "id": "dq-3-triangle-05",
+      "question": "Werk jij liever thuis of op kantoor? Leg je keuze uit.",
+      "possible_answer": "Ik werk liever thuis, omdat ik me daar goed kan concentreren. Soms mis ik mijn collega's."
+    },
+    {
+      "id": "dq-3-triangle-06",
+      "question": "Reis jij liever snel of goedkoop? Wanneer kies je anders?",
+      "possible_answer": "Meestal kies ik goedkoop. Als ik een belangrijke afspraak heb, kies ik de snelste reis."
+    },
+    {
+      "id": "dq-3-triangle-07",
+      "question": "Woon jij liever klein in het centrum of ruim buiten de stad? Waarom?",
+      "possible_answer": "Ik woon liever ruim buiten de stad, omdat ik graag een tuin wil."
+    },
+    {
+      "id": "dq-3-triangle-08",
+      "question": "Plan jij liever alles vooraf of laat je ruimte voor verandering? Waarom?",
+      "possible_answer": "Ik plan de belangrijkste dingen vooraf en houd de rest vrij."
+    },
+    {
+      "id": "dq-3-triangle-09",
+      "question": "Kies jij liever een vaste baan of tijdelijk werk met meer afwisseling? Waarom?",
+      "possible_answer": "Ik kies liever een vaste baan, omdat ik zekerheid over mijn inkomen wil."
+    },
+    {
+      "id": "dq-3-triangle-10",
+      "question": "Bespreek jij een probleem liever meteen of denk je eerst na? Waarom?",
+      "possible_answer": "Ik denk liever eerst na, zodat ik rustig kan uitleggen wat er is."
+    },
+    {
+      "id": "dq-3-triangle-11",
+      "question": "Koop jij liever in een kleine winkel of bij een grote keten? Waarom?",
+      "possible_answer": "Ik koop liever in een kleine winkel, omdat ik persoonlijk advies prettig vind."
+    },
+    {
+      "id": "dq-3-triangle-12",
+      "question": "Leer jij liever veel in korte tijd of elke dag een beetje? Waarom?",
+      "possible_answer": "Ik leer liever elke dag een beetje, omdat ik de informatie dan beter onthoud."
+    },
+    {
+      "id": "dq-3-triangle-13",
+      "question": "Kies jij liever een bekende of een nieuwe vakantiebestemming? Waarom?",
+      "possible_answer": "Ik kies liever een nieuwe bestemming, omdat ik graag andere plekken ontdek."
+    },
+    {
+      "id": "dq-3-triangle-14",
+      "question": "Gebruik jij liever een papieren of digitale agenda? Noem twee redenen.",
+      "possible_answer": "Ik gebruik liever een digitale agenda. Die heb ik altijd bij me en ik krijg herinneringen."
+    },
+    {
+      "id": "dq-3-triangle-15",
+      "question": "Ga jij liever met een groep of alleen op pad? Wanneer kies je anders?",
+      "possible_answer": "Meestal ga ik graag met een groep. Als ik rust nodig heb, ga ik alleen."
+    },
+    {
+      "id": "dq-3-diamond-01",
+      "question": "Ik kan onze afspraak niet nakomen. Wat stel jij voor?",
+      "possible_answer": "We kunnen een andere dag kiezen. Past donderdagmiddag voor jou?"
+    },
+    {
+      "id": "dq-3-diamond-02",
+      "question": "Je bestelling is beschadigd. Wil je een vervanging of je geld terug? Waarom?",
+      "possible_answer": "Ik wil graag een vervanging, omdat ik het product nog steeds nodig heb."
+    },
+    {
+      "id": "dq-3-diamond-03",
+      "question": "We hebben te weinig tijd voor alles. Wat kunnen we uitstellen?",
+      "possible_answer": "We kunnen het opruimen uitstellen en eerst de belangrijkste opdracht afmaken."
+    },
+    {
+      "id": "dq-3-diamond-04",
+      "question": "De ruimte is te klein voor onze groep. Welke oplossing stel jij voor?",
+      "possible_answer": "We kunnen een grotere ruimte zoeken of de groep in tweeën verdelen."
+    },
+    {
+      "id": "dq-3-diamond-05",
+      "question": "Ik begrijp jouw uitleg nog niet. Kun je een voorbeeld geven?",
+      "possible_answer": "Met vroeg bedoel ik vóór acht uur, bijvoorbeeld om halfacht."
+    },
+    {
+      "id": "dq-3-diamond-06",
+      "question": "Ik wil muziek aan, maar jij wilt rust. Wat spreken we af?",
+      "possible_answer": "Je kunt een koptelefoon gebruiken. Dan heb jij muziek en kan ik rustig werken."
+    },
+    {
+      "id": "dq-3-diamond-07",
+      "question": "De cursus is vol. Wil je wachten of een andere cursus kiezen? Waarom?",
+      "possible_answer": "Ik wil een andere cursus kiezen, omdat ik deze maand wil beginnen."
+    },
+    {
+      "id": "dq-3-diamond-08",
+      "question": "Ik ben het niet met je eens. Hoe kunnen we verder praten?",
+      "possible_answer": "Laten we eerst allebei uitleggen waarom we dat vinden."
+    },
+    {
+      "id": "dq-3-diamond-09",
+      "question": "We zoeken iemand die wil helpen. Wat kun jij doen en wanneer?",
+      "possible_answer": "Ik kan vrijdag helpen met klaarzetten, maar daarna moet ik weg."
+    },
+    {
+      "id": "dq-3-diamond-10",
+      "question": "De prijs is hoger dan afgesproken. Wat wil jij nu weten?",
+      "possible_answer": "Ik wil weten waarom de prijs hoger is en of de oude prijs nog geldt."
+    },
+    {
+      "id": "dq-3-diamond-11",
+      "question": "Ik kan alleen in de ochtend, jij alleen in de middag. Wat stel jij voor?",
+      "possible_answer": "Misschien kunnen we tijdens de lunch kort bellen."
+    },
+    {
+      "id": "dq-3-diamond-12",
+      "question": "We moeten onze buren informeren over lawaai. Wat zou jij in een bericht zetten?",
+      "possible_answer": "Morgen klussen we van tien tot vier. Het kan lawaai geven. Excuses voor de overlast."
+    },
+    {
+      "id": "dq-3-diamond-13",
+      "question": "Ik ben mijn afspraak vergeten. Wat raad jij mij aan voor de volgende keer?",
+      "possible_answer": "Zet de afspraak meteen in je agenda en stel een herinnering in."
+    },
+    {
+      "id": "dq-3-diamond-14",
+      "question": "De nieuwe lestijd past niet bij jouw werk. Welke oplossing vraag je?",
+      "possible_answer": "Kan ik aansluiten bij een andere groep? Op deze tijd moet ik werken."
+    },
+    {
+      "id": "dq-3-diamond-15",
+      "question": "We hebben twee verschillende plannen. Hoe komen we tot een keuze?",
+      "possible_answer": "Laten we de voordelen van beide plannen vergelijken en daarna samen kiezen."
+    }
+  ]
+}

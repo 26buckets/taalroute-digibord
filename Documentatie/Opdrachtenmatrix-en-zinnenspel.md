@@ -1,6 +1,6 @@
 # DigiBoard: eenvoudige opdrachten met dagelijkse variatie
 
-De kaartapp gebruikt 960 concrete opdrachten: 240 per route. De routes zijn A0 → A1, A1 → A1+, A1 → A2 en A2 → B1. De eerdere abstracte opdrachten zijn vervangen als standaardaanbod op het bord. De zes families en 48 taalhandelingen blijven achtergrond voor de docent; beginners hoeven niet alle 48 handelingen te beheersen.
+De kaartapp heeft twee afzonderlijke voorraden: 240 directe vragen (60 per route) en de 960 bestaande opdrachten (240 per route). Kies **Directe vragen**, **Met een gesprekspartner**, **Mix van beide** of **Zinnen maken** met de knop Oefening op het bord. Zie [Oefeningen-op-het-speelbord.md](Oefeningen-op-het-speelbord.md) voor het actuele didactische overzicht. De onderstaande beschrijving van 960 kaarten betreft de oorspronkelijke gespreksvoorraad. De routes zijn A0 → A1, A1 → A1+, A1 → A2 en A2 → B1. De directe voorraad stelt de vraag rechtstreeks aan de cursist; de gespreksvoorraad laat de cursist zelf een beurt in het gesprek formuleren. De zes families en 48 taalhandelingen blijven achtergrond voor de docent; beginners hoeven niet alle 48 handelingen te beheersen.
 
 ## De vier vormen blijven de basis
 
@@ -42,7 +42,7 @@ Opslag is plaatselijk: dezelfde browser en hetzelfde webadres gebruiken dezelfde
 
 ## Zinnen maken op de kaart
 
-Het zinnenspel gebruikt het gewone speelbord en de gewone dobbelsteen. Je blijft dus door Rotterdam of een van de andere tien werelden lopen. Onder **Instellingen → Bord & oefenen → Oefening op de kaart** kies je tussen zinnen maken en de taalopdrachten met de vier vormen. Zinnen maken is de startkeuze na deze correctie. Een eenmaal gemaakte keuze wordt bewaard.
+Het zinnenspel gebruikt het gewone speelbord en de gewone dobbelsteen. Je blijft dus door Rotterdam of een van de andere tien werelden lopen. Onder **Instellingen → Bord & oefenen → Oefening op de kaart** kies je uit de vier oefeningen hierboven. Zinnen maken is de startkeuze na deze correctie. Een eenmaal gemaakte keuze wordt bewaard.
 
 Eén worp heeft twee functies: de pion loopt het aantal ogen en dezelfde worp bepaalt de persoon.
 
