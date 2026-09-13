@@ -12,8 +12,8 @@
 
 #praatpad-board #db-lesson-support{position:absolute;bottom:8px;left:16px;font-size:13px;min-height:36px}#praatpad-board #pp-practice-hint{padding-bottom:32px}.db-lesson-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}.db-lesson-list section{border:1px solid #d7dfe3;padding:12px;border-radius:8px}.db-lesson-list h3{margin:0 0 8px}.db-lesson-list p{font-size:15px;line-height:1.45}
 
-/* Map numbers remain readable above foreground scenery; pawns keep their own depth. */
-#praatpad-board[data-city="true"] #pp-tiles{position:absolute;inset:0;z-index:11;pointer-events:none}
+/* Route numbers and selection rings sit below pawns; scenery retains its depth. */
+#praatpad-board[data-city="true"] #pp-tiles{position:absolute;inset:0;z-index:5;pointer-events:none}
 #praatpad-board[data-city="true"] #pp-tiles .pp-tile{pointer-events:auto}
 #praatpad-board[data-city="true"] #pp-map .db-world-label{pointer-events:none}
 
