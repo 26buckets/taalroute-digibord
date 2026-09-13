@@ -46,6 +46,19 @@ globalThis.DigiBoardSupport=(()=>{
    for(const[id,label]of items){const b=$(id);b.querySelector('span').textContent=label;group.append(b);}nav.append(group);
   }nav.append($('pp-finish-button'));
   $('pp-board-settings-title').textContent='Kaart en oefening';$('pp-dice-title').textContent='Andere spelvormen';
+  const gameDescriptions={
+   numbers:'Gooi de dobbelsteen en verplaats de pion. Beantwoord de vraag of oefen een gesprek bij het vak waar je landt.',
+   verbs:'Gooi negen dobbelstenen met afbeeldingen. Gebruik de beelden om samen zinnen of een verhaal te vertellen.',
+   wordgame:'Maak zinnen met woordkaartjes. Verander woorden, beschrijf en raad, of zet zinsdelen in de juiste volgorde.',
+   sentence:'Gooi en loop over de kaart. De worp bepaalt de persoon (ik, jij, hij/zij …). Maak een zin met het opgegeven werkwoord en de gekozen tijd.'
+  };
+  const gameGuide=node('dl','db-game-guide');
+  for(const option of $('pp-dice-style').options){
+   if(!gameDescriptions[option.value])continue;
+   const entry=node('div','db-game-guide-entry');
+   entry.append(node('dt','',option.textContent),node('dd','',gameDescriptions[option.value]));gameGuide.append(entry);
+  }
+  $('pp-dice-style').after(gameGuide);
   $('pp-library-title').textContent='Lessen en printen';$('pp-didactics-title').textContent='Didactische uitleg';
   const board=$('pp-panel-board');board.prepend($('pp-board-settings-title'));
   // One visible map selector, beside the board exercise settings.
