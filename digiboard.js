@@ -22,6 +22,7 @@ globalThis.DigiBoard=(()=>{
   const common=read(SHARED);if(!common||common.version!==1)return d;
   try{
    const candidate=copy(d);candidate.settings={...candidate.settings,...common.settings};
+   if(!common.settings?.diceAudioRestored){candidate.settings.sound=true;candidate.settings.diceAudioRestored=true;}
    const roster=new Map(candidate.roster.map(p=>[p.id,p]));for(const p of common.roster||[])roster.set(p.id,p);candidate.roster=[...roster.values()];
    candidate.groups=common.groups||candidate.groups;
    if(common.pictureDice)candidate.session.pictureDice=copy(common.pictureDice);
