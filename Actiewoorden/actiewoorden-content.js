@@ -5,13 +5,15 @@ const items=[{"id": "aw-01", "label": "wakker worden", "group": 0, "paths": ["M3
 const groups=["De dag beginnen", "In huis", "Onderweg", "Taal en leren", "Samen", "Winkelen en meenemen", "Werk en maken", "Vrije tijd", "Actie en verandering"];
 function svg(index,colour='#0865b0'){
  const item=items[index]||items[0];
+ if(globalThis.PraatpadBasisIcons?.has(item.id))return globalThis.PraatpadBasisIcons.svg(item.id);
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" stroke="${colour}" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${item.paths.map(d=>`<path d="${d}"/>`).join('')}</svg>`;
 }
 const atlases=new Map();
 function provider(group){return {atlas(){
- if(atlases.has(group))return atlases.get(group);
+ const key=group+':'+(globalThis.PraatpadBasisIcons?.getStyle()||'legacy');
+ if(atlases.has(key))return atlases.get(key);
  const c=document.createElement('canvas');c.width=1536;c.height=256;const x=c.getContext('2d');x.strokeStyle='#fff';x.lineWidth=4.2;x.lineCap='round';x.lineJoin='round';
- items.slice(group*6,group*6+6).forEach((item,i)=>{x.save();x.translate(i*256,0);x.scale(256/96,256/96);for(const d of item.paths)x.stroke(new Path2D(d));x.restore();});atlases.set(group,c);return c;
+ items.slice(group*6,group*6+6).forEach((item,i)=>{x.save();x.translate(i*256,0);if(globalThis.PraatpadBasisIcons?.has(item.id)){x.scale(2,2);globalThis.PraatpadBasisIcons.draw(x,item.id);x.restore();return;}x.scale(256/96,256/96);for(const d of item.paths)x.stroke(new Path2D(d));x.restore();});atlases.set(key,c);return c;
  }};}
 return {items,groups,svg,provider};
 })();

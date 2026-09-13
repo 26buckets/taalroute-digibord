@@ -1,7 +1,7 @@
 globalThis.PraatpadActionTable=(()=>{
 'use strict';
 const A=globalThis.PraatpadActions,R=globalThis.PraatpadActionRolls,L=globalThis.PraatpadLibrary;
-let root,strip,rollButton,wordButton,backButton,soundButton,status,help,dialog,zoomImage,zoomWord,context,setButton,setDialog,setGrid,setPageLabel,previousSetPage,nextSetPage,setLevel,setMode,setOptions,setApply;
+let root,strip,rollButton,wordButton,backButton,status,help,dialog,zoomImage,zoomWord,context,setButton,setDialog,setGrid,setPageLabel,previousSetPage,nextSetPage,setLevel,setMode,setOptions,setApply;
 let setDraft,setPage=0;
 const cards=[],views=[];let lastRun=null,profiles=[],activeDecks=[],deckKey=null,languageIndex=0;
 const node=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
@@ -15,17 +15,16 @@ function init(){
   const card=node('section','aw-card');card.style.setProperty('--aw-accent',['#4769b1','#a55235','#25818a','#7652a1','#ae577b','#907037','#3d8365','#526bb4','#956345'][i]);
   const name=node('span','aw-card-head');name.append(node('span','aw-number',String(i+1)),node('span','aw-theme',A.groups[i]));
   const face=button('',()=>zoom(i),'aw-face');face.setAttribute('aria-label','Vergroot dobbelsteen '+(i+1));
-  const canvas=node('canvas','aw-canvas');canvas.setAttribute('aria-hidden','true');const front=node('span','aw-die-front');front.setAttribute('aria-hidden','true');face.append(canvas,front,name);
-  const label=node('p','aw-word','');card.append(face,label);strip.append(card);cards.push({card,face,canvas,label,front});
+  const canvas=node('canvas','aw-canvas');canvas.setAttribute('aria-hidden','true');face.append(canvas,name);
+  const label=node('p','aw-word','');card.append(face,label);strip.append(card);cards.push({card,face,canvas,label});
  }
  help=node('p','aw-help','Tik op een dobbelsteen om het beeld te vergroten.');root.append(help);
  const tools=node('div','aw-tools');
  rollButton=button('Werp alle negen',()=>{if(!context.rolling&&!context.p.paused)context.roll();},'pp-primary aw-roll');
  wordButton=button('Toon de woorden',()=>context.words(),'pp-secondary');
  backButton=button('Vorige worp',()=>context.undo(),'pp-text-button');
- soundButton=button('',()=>document.getElementById('pp-sound').click(),'pp-icon-button aw-sound-button');
  setButton=button('',openSets,'pp-secondary aw-set-button');setButton.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3c5 0 5 10 10 10h5m-4-4 4 4-4 4M3 17h3c5 0 5-10 10-10h5m-4-4 4 4-4 4"/></svg><span>Wissel set</span>';setButton.setAttribute('aria-haspopup','dialog');
- const utilities=node('div','aw-utilities');utilities.append(backButton,soundButton);tools.append(setButton,rollButton,wordButton,utilities);root.append(tools);
+ const utilities=node('div','aw-utilities');utilities.append(backButton);tools.append(setButton,rollButton,wordButton,utilities);root.append(tools);
  status=node('p','aw-status');root.append(status,node('p','aw-partner','A vertelt. B stelt een vraag. Wissel daarna van rol.'));
  const language=node('section','aw-language');language.hidden=true;language.setAttribute('aria-label','Woordkaarten bij de opdracht');root.append(language);
  const support=node('details','aw-support');support.append(node('summary','','Een beginzin nodig?'),node('p'));support.hidden=true;root.append(support);
@@ -55,18 +54,13 @@ function renderSets(){
  previousSetPage.disabled=setPage===0;nextSetPage.disabled=setPage===count-1;setPageLabel.textContent=(setPage+1)+' / '+count;setOptions.hidden=!L.theme(setDraft.collection);setLevel.value=setDraft.level;setMode.value=setDraft.practiceMode;
  setApply.textContent='Gebruik deze set';
 }
-function syncSound(on){if(!soundButton)return;const label=on?'Geluid uitzetten':'Geluid aanzetten';soundButton.setAttribute('aria-pressed',String(on));soundButton.setAttribute('aria-label',label);soundButton.title=label;if(soundButton.dataset.on===String(on))return;soundButton.dataset.on=String(on);soundButton.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/>'+(on?'<path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>':'<path d="m17 9 5 6m0-6-5 6"/>')+'</svg>';}
 
 function zoom(i){if(context.rolling||context.p.paused)return;const id=activeDecks[i].ids[context.p.actions.values[i]-1],item=L.lookup.get(id);dialog.querySelector('h2').textContent='Dobbelsteen '+(i+1)+' · '+activeDecks[i].label;zoomImage.innerHTML=L.svg(id);zoomImage.setAttribute('role','img');zoomImage.setAttribute('aria-label',item.description);zoomWord.textContent=item.label;zoomWord.hidden=!context.p.word;dialog.showModal();}
 function configure(p){
  const id=p.collection||'actions',selection=p.selection||0,key=id+':'+selection+':'+(globalThis.PraatpadBasisIcons?.getStyle()||'b');
  if(deckKey!==key){
   views.splice(0).forEach(v=>v.destroy());activeDecks=L.decks(id,selection);deckKey=key;lastRun=null;
-  cards.forEach((c,i)=>{const old=c.face.querySelector('canvas'),canvas=old.cloneNode(false);old.replaceWith(canvas);c.canvas=canvas;views.push(globalThis.PraatpadDice.create(canvas,{pictures:L.provider(activeDecks[i].ids),fill:.43,front:true,onProgress:t=>{
-   // Match the settled face to the cube, then dissolve each die independently.
-   const u=Math.max(0,Math.min(1,(t-.80)/.20)),rest=u*u*(3-2*u);
-   c.face.style.setProperty('--aw-rest',String(rest));
-  }}));c.card.querySelector('.aw-theme').textContent=activeDecks[i].label;});
+  cards.forEach((c,i)=>{const old=c.face.querySelector('canvas'),canvas=old.cloneNode(false);old.replaceWith(canvas);c.canvas=canvas;views.push(globalThis.PraatpadDice.create(canvas,{pictures:L.provider(activeDecks[i].ids),fill:.43,front:true}));c.card.querySelector('.aw-theme').textContent=activeDecks[i].label;});
  }
  const theme=L.theme(id),pack=L.profile(p),level=L.level(p),goal=L.goals[level],writing=p.practiceMode==='write';
  const gameTitle=document.getElementById('pp-game-title');gameTitle.textContent=L.title(id);if(pack)gameTitle.append(document.createTextNode(' '),node('span','aw-level-badge',level));
@@ -100,7 +94,7 @@ function render(next){
   const delay=Math.min(motion.delay,duration*.06),ms=Math.max(1,duration*motion.fraction-delay);
   views[i].show(value,{style:'verbs',animate:rolling&&!quiet,key,duration:ms,delay,spin:motion.spin,lift:motion.lift});
   c.card.dataset.value=String(value);c.card.dataset.word=item.id;
-  c.face.dataset.rolling=String(rolling&&!quiet);const faceKey=item.id+':'+(globalThis.PraatpadBasisIcons?.getStyle()||'b');if(c.front.dataset.word!==faceKey){c.front.dataset.word=faceKey;c.front.innerHTML=L.svg(item.id,true);}
+  c.face.dataset.rolling=String(rolling&&!quiet);
   c.face.disabled=rolling||p.paused;
   c.face.setAttribute('aria-label','Vergroot dobbelsteen '+(i+1)+'. '+(rolling?'De dobbelsteen rolt.':item.description));
   c.label.textContent=item.label;c.label.hidden=!p.word||rolling;
@@ -108,7 +102,6 @@ function render(next){
  rollButton.setAttribute('aria-disabled',String(rolling||p.paused));rollButton.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path stroke-linecap="round" stroke-width="3" d="M8 8h0m8 0h0m-4 4h0m-4 4h0m8 0h0"/></svg><span>'+(rolling?'De dobbelstenen rollen…':'Werp alle negen')+'</span>';
  wordButton.disabled=rolling;wordButton.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>'+(p.word?'Verberg de woorden':'Toon de woorden')+'</span>';wordButton.setAttribute('aria-pressed',String(p.word));
  backButton.disabled=rolling||!p.history.length;
- syncSound(document.getElementById('pp-sound').getAttribute('aria-pressed')==='true');
  setButton.disabled=rolling;
  status.textContent=rolling?'De dobbelstenen rollen…':'Worp '+p.turn;
  help.textContent='Tik op een dobbelsteen om het beeld te vergroten.';
@@ -123,5 +116,5 @@ function collection(target,id='actions'){
  items.forEach(item=>{const figure=node('figure');figure.innerHTML=L.svg(item.id);figure.append(node('figcaption','',item.label));group.append(figure);});details.append(group);target.append(details);});
 
 }
-return {render,collection,syncSound};
+return {render,collection};
 })();

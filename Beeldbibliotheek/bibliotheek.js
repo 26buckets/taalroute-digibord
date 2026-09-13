@@ -1,7 +1,7 @@
 globalThis.PraatpadLibrary=(()=>{
 'use strict';
 const C=globalThis.PraatpadLibraryContent,A=globalThis.PraatpadActions,R=globalThis.PraatpadActionRolls;
-const actions=A.items.map(x=>({...x,kind:'action'})),items=[...C.items,...actions].map(item=>({...item,...globalThis.PraatpadBoldPictures?.[item.id]})),lookup=new Map(items.map(x=>[x.id,x]));
+const actions=A.items.map(x=>({...x,kind:'action'})),items=[...C.items,...actions].map(item=>({...item,...globalThis.PraatpadBoldPictures?.[item.id],...(globalThis.PraatpadBasisIcons?.description(item.id)?{description:globalThis.PraatpadBasisIcons.description(item.id)}:{})})),lookup=new Map(items.map(x=>[x.id,x]));
 const choices=[{id:'actions',label:'54 actiewoorden'},{id:'base',label:'Basisset · personen, plaatsen en voorwerpen'},{id:'mix',label:'Basisset + actiewoorden'},...C.themes.map(t=>({id:t.id,label:t.label}))];
 const known=id=>choices.some(c=>c.id===id),theme=id=>C.themes.find(t=>t.id===id),title=id=>choices.find(c=>c.id===id)?.label||choices[0].label;
 const labels={person:'Personen en rollen',place:'Plaatsen',object:'Voorwerpen',action:'Actiewoorden'};

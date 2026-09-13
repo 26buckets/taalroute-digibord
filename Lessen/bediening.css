@@ -1,0 +1,30 @@
+#praatpad-board .db-task-support{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:8px;flex-wrap:wrap;}
+#praatpad-board .db-task-support button{min-height:40px;padding:8px 14px;border:1px solid #c9d9e5;border-radius:9px;background:white;font-size:14px;}
+#praatpad-board .db-task-support #db-lesson-support{margin-left:auto;color:#526779;}
+#praatpad-board .pp-task-bottom:has(#pp-practice-hint:empty){display:none;}
+#praatpad-board .db-nav-heading{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#60758a;margin:13px 10px 4px;}
+#praatpad-board .pp-settings-nav{gap:4px;}
+#praatpad-board .pp-settings-nav button{min-height:42px;}
+#praatpad-board .db-learning-options{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+#praatpad-board .db-settings-card{padding:16px;border:1px solid #d8e3ea;border-radius:12px;background:#f8fafc;}
+#praatpad-board .db-settings-card h4{margin:0 0 12px;font-size:17px;}
+#praatpad-board .db-more{border:1px solid #d8e3ea;border-radius:9px;padding:12px 14px;margin:12px 0;background:#fff;}
+#praatpad-board .db-more summary{cursor:pointer;font-size:14px;font-weight:600;min-height:24px;}
+#praatpad-board .db-more p{font-size:14px;line-height:1.5;margin-top:12px;}
+#praatpad-board .db-support-card{padding:18px;border:1px solid #d8e3ea;border-radius:12px;margin:12px 0;background:#f8fafc;}
+#praatpad-board .db-support-card h3{font-size:13px;color:#526779;margin:0 0 8px;}
+#praatpad-board #pp-dialog-content .db-support-card p{margin:0;font-size:18px;}
+#praatpad-board #pp-dialog-content .db-support-card .db-support-example{font-size:clamp(24px,3vw,34px);color:#123e69;line-height:1.4;}
+#praatpad-board .db-support-tabs{display:flex;gap:6px;border-bottom:1px solid #d8e3ea;padding-bottom:10px;}
+#praatpad-board .db-support-tabs button{border:1px solid #d8e3ea;border-radius:8px;padding:10px 16px;background:white;min-height:44px;}
+#praatpad-board .db-support-tabs button[aria-selected=true]{background:#163e66;color:#fff;border-color:#163e66;}
+#praatpad-board .db-support-meta{font-size:14px;color:#526779;}
+#praatpad-board .db-support-steps{padding-left:28px;display:grid;gap:18px;line-height:1.5;}
+#praatpad-board .db-support-steps strong,#praatpad-board .db-support-steps span{display:block;}
+#praatpad-board .db-source{display:grid;grid-template-columns:100px 1fr;gap:14px;margin:24px 0;}
+#praatpad-board .db-source dt{color:#526779;}#praatpad-board .db-source dd{margin:0;}
+#praatpad-board .db-support button:focus-visible,#praatpad-board .db-more summary:focus-visible{outline:3px solid #006db6;outline-offset:3px;}
+@media(max-width:1100px){#praatpad-board .db-learning-options{grid-template-columns:1fr;}#praatpad-board .db-task-support button{font-size:13px;min-height:36px;padding:6px 10px;}}
+#praatpad-board .db-task-support #db-lesson-support{position:static;margin-left:12px;}
+#praatpad-board .pp-settings-nav button span{white-space:normal;overflow-wrap:anywhere;}
+#praatpad-board #pp-settings .pp-settings-nav .db-nav-heading{flex-basis:100%;}

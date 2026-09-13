@@ -3,3 +3,16 @@
 #praatpad-board .db-map-picker select,#praatpad-board .db-board-select select{width:100%;min-height:46px}
 /* The whiteboard is a fixed viewport for every game form. */
 @media(min-width:900px){html,body{height:100%;overflow:hidden}#praatpad-board{height:100dvh;min-height:0}#praatpad-board[data-city="true"]:not(.pp-picture-mode) .pp-play-layout{height:100%;min-height:0}#praatpad-board[data-city="true"]:not(.pp-picture-mode) .pp-playfield{min-height:0;grid-template-rows:minmax(0,1fr) auto}#praatpad-board[data-city="true"]:not(.pp-picture-mode) #pp-board-area{height:auto;min-height:0}}
+
+#praatpad-board #db-open-maps{background:#175b70;color:white;border:0;border-radius:8px;padding:9px 14px;font:600 14px Arial;cursor:pointer}#praatpad-board #db-open-maps:disabled{opacity:.5;cursor:default}
+
+.db-learning-options{display:grid;gap:8px;padding:12px 0 20px;border-bottom:1px solid #d7dfe3;margin-bottom:20px}.db-learning-options h4{margin:12px 0 4px}.db-learning-options select,.db-learning-options button{min-height:48px}.db-player-list{display:flex;flex-wrap:wrap;gap:10px}.db-round-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.db-round-list section{padding:12px;border:1px solid #d7dfe3;border-radius:10px}.db-round-list p{margin:8px 0}.db-round-list small{line-height:1.5}#praatpad-board .pp-pawn-more{pointer-events:auto;cursor:pointer;z-index:15;min-width:32px;min-height:32px}#praatpad-board #db-read-task{position:absolute;bottom:8px;right:16px;min-height:36px}#praatpad-board #pp-practice-hint{padding-right:65px}#praatpad-board #pp-main-tools{gap:6px}#praatpad-board #pp-main-tools .pp-text-button{font-size:13px;padding:6px}
+
+#db-read-task{min-height:44px;}
+
+#praatpad-board #db-lesson-support{position:absolute;bottom:8px;left:16px;font-size:13px;min-height:36px}#praatpad-board #pp-practice-hint{padding-bottom:32px}.db-lesson-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:12px}.db-lesson-list section{border:1px solid #d7dfe3;padding:12px;border-radius:8px}.db-lesson-list h3{margin:0 0 8px}.db-lesson-list p{font-size:15px;line-height:1.45}
+
+/* Map numbers remain readable above foreground scenery; pawns keep their own depth. */
+#praatpad-board[data-city="true"] #pp-tiles{position:absolute;inset:0;z-index:11;pointer-events:none}
+#praatpad-board[data-city="true"] #pp-tiles .pp-tile{pointer-events:auto}
+#praatpad-board[data-city="true"] #pp-map .db-world-label{pointer-events:none}
