@@ -1,0 +1,20 @@
+# Alleen de bestanden van de browser-app publiceren.
+*
+!index.html
+!Start-Praatpad.html
+!digiboard.js
+!digiboard.css
+!Actiewoorden/
+!Actiewoorden/**
+!Beeldbibliotheek/
+!Beeldbibliotheek/**
+!Woordspel/
+!Woordspel/**
+!Speelstuk-beelden/
+!Speelstuk-beelden/**
+!Kaarten/
+!Kaarten/**
+!Lessen/
+!Lessen/**
+**/*.md
+**/.DS_Store
