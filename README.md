@@ -2,7 +2,7 @@
 
 Eén app met vier spelvormen, bereikbaar via **Instellingen → Spel & beelden**:
 
-- **Speel op de kaart**: Rotterdam, Amsterdam, Utrecht, Dorp, Kust, Bos, Polder, Haven, Heuvels, Fantasiewereld en Ruimtewereld. De kaartkiezer toont uitsluitend deze elf werelden; oude bronmodules en lesgegevens zijn behouden.
+- **Speel op de kaart**: Rotterdam, Amsterdam, Utrecht, Dorp, Kust, Bos, Polder, Haven, Heuvels, Fantasiewereld, Ruimtewereld, Markt · kort (12), Station · kort (16) en Poolwereld (30). De kaartkiezer toont deze veertien werelden; oude bronmodules en lesgegevens zijn behouden.
 - **Vertel een verhaal**: negen beelddobbelstenen, wisselen van sets, woorden tonen/verbergen, geluid en vorige worp.
 - **Eenvoudig zinnenspel**: persoon, werkwoord en kleur voor de tijd; 24 werkwoorden en maximaal 432 combinaties.
 - **Bouw een zin**: het woordspel met verschillende oefenvormen en een vrij instelbare zinnentafel.

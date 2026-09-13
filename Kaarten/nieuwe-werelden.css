@@ -1,0 +1,16 @@
+/* Reuse the existing board controls and pawn styling without modifying old maps. */
+@import url("bos-bosroute.css");
+.new-world-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.new-world-tiles{z-index:3}.new-world-front{z-index:10}.new-world-lift-back{z-index:6}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal{border:2px solid #285a55;background:#fffdf0;box-shadow:0 3px 5px #142d4655;border-radius:8px;min-width:0}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal>*{visibility:visible}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .city-terminal-name{font-size:clamp(8px,calc(var(--city-scale)*16px),16px);line-height:1.4;letter-spacing:.03em;border-radius:5px 5px 0 0}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .city-terminal-sign{height:42%;margin-top:0}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .pp-tile{border-radius:8px}
+#praatpad-board[data-clean="true"] .new-world-tiles{visibility:hidden}
+#praatpad-board[data-db-form="numbers"][data-city="true"] #pp-map .new-passage-label{min-height:32px;min-width:76px;height:auto;font:700 12px Arial,sans-serif;color:#24495b;border:1px solid #92a6af;background:#fffdf3;box-shadow:0 2px 5px #18304933;padding:6px 8px}
+
+/* Painted boards own their path and tiles. Only hit areas and optional numbers remain. */
+#praatpad-board[data-painted-route="true"] #pp-map #pp-path{opacity:0!important}
+#praatpad-board[data-painted-route="true"][data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal{border:0;background:none;box-shadow:none}
+#praatpad-board[data-painted-route="true"][data-db-form="numbers"][data-city="true"] #pp-map .pp-terminal>*{visibility:hidden}

@@ -68,3 +68,13 @@ Vergelijk de nieuwe kaart met de bestaande serie. Controleer vervolgens aansluit
 ## Centrale beschikbaarheid
 
 Op 13 september 2026 zijn alle elf geschilderde kaarten geïntegreerd in de gezamenlijke DigiBoard-app. Via **Kaarten** zijn ook de vijf bestaande opties bereikbaar. De app gebruikt hetzelfde instellingenmenu, bewaart per kaart de pionstand en deelt deelnemers, voorkeuren, verhaaldobbelstenen en woordspel. Tunnels, pontje, poorten, hellingkeuze en transportstraal blijven kaartgebonden. Lokaal startadres: http://127.0.0.1:61381/Start-Praatpad.html. Zie `DigiBoard-integratie/Leeswijzer.md`.
+
+## Drie goedgekeurde uitbreidingen · lokaal gebouwd
+
+| Kaart | Compositie en route | Beweging | Nieuwe variatie |
+| --- | --- | --- | --- |
+| Markt · kort | 12 vakken op een open route langs marktkramen naar een plein; warme stedelijke dag | Achter de broodkraamluifel en om de uitstalling heen | Kleine schaal, korte speeltijd, geen transport of strafvakken; geen nieuwe stadsrondgang |
+| Station · kort | 16 vakken op twee lange perron-/pleinzones, gescheiden door een spoorwand | Tunnel 8–9 als onderdeel van de gewone route; verdwijnen en via de trap weer bovenkomen | Twee hoogten zonder brug of terugstuurvak; langgerekte reis van hal naar perron |
+| Poolwereld | 30 vakken langs een sneeuwvallei en begaanbare helling naar een hoog onderzoeksstation | Sneeuwtunnel 12–13 en verticale gletsjerlift 24–25 | Veel open ruimte, koude blauwe sneeuw en een mechanische lift; geen maanbases of zwevende eilanden |
+
+De eerdere elf kaartbestanden zijn behouden. De kiezer toont nu veertien werelden. Uitwerking en controles: `Drie-nieuwe-kaarten/Leeswijzer.md`.
