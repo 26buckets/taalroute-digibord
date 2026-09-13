@@ -21,7 +21,7 @@ globalThis.DigiBoardSupport=(()=>{
  function organize(){
   const $=id=>document.getElementById(id),node=(tag,cls,text)=>{const e=document.createElement(tag);e.className=cls;if(text)e.textContent=text;return e;};
   const nav=document.querySelector('.pp-settings-nav');
-  for(const [heading,items] of [['Les',[['pp-nav-board','Kaart & les'],['pp-nav-dice','Spel & beelden'],['pp-home','Lessen & printen']]],['Groep',[['pp-nav-people','Deelnemers'],['pp-nav-groups','Bewaarde groepen']]],['Beheer',[['pp-nav-didactics','Leerdoelen'],['pp-nav-storage','Bewaren & terugzetten']]]]){
+  for(const [heading,items] of [['Les',[['pp-nav-board','Kaart & les'],['pp-nav-dice','Spel & beelden'],['pp-home','Lessen & printen']]],['Groep',[['pp-nav-people','Deelnemers'],['pp-nav-groups','Bewaarde groepen']]],['Beheer',[['pp-nav-didactics','Leerdoelen'],['pp-nav-sound','Geluid'],['pp-nav-storage','Bewaren & terugzetten']]]]){
    nav.append(node('p','db-nav-heading',heading));for(const[id,label]of items){const b=$(id);b.querySelector('span').textContent=label;nav.append(b);}
   }nav.append($('pp-finish-button'));
   $('pp-board-settings-title').textContent='Kaart & les';$('pp-dice-title').textContent='Spel & beelden';

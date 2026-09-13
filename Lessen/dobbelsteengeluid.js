@@ -1,23 +1,38 @@
 /* Shared roll audio and one movable mute button for both dice tables. */
 globalThis.DigiBoardDiceAudio={connect({root,read,save,notice}){
- const audio=new Audio(new URL('dobbelsteen-hout.mp3',document.currentScript?.src||new URL('Lessen/dobbelsteengeluid.js',location.href)).href);
- audio.preload='auto';audio.volume=.85;
- let attempt=0;
+ const choices=[['original','Origineel','original.wav'],['felt','Zacht op vilt','felt.mp3'],['wood','Klassiek op hout','hout.mp3'],['cup','Dobbelbeker en rollen','cup.mp3'],['board','Licht op het spelbord','board.mp3']];
+ const settings=()=>read().settings;
+ // Restore the first-ever sound once; later choices and mute remain user preferences.
+ if(!settings().diceSoundMenuRestored){settings().diceSound='original';settings().diceSoundMenuRestored=true;queueMicrotask(save);}
+ const selected=()=>choices.find(c=>c[0]===settings().diceSound)||choices[0];
+ const source=()=>new URL('Lessen/dobbelsteen-'+selected()[2],location.href).href;
+ const audio=new Audio(source());audio.preload='auto';
+ let attempt=0,previewing=false;
+ const choice=root.querySelector('#pp-sound-choice'),preview=root.querySelector('#pp-sound-preview'),checkbox=root.querySelector('#pp-sound-enabled');
+ choice.replaceChildren(...choices.map(([id,label])=>{const option=document.createElement('option');option.value=id;option.textContent=label;return option;}));
  const enabled=()=>read().settings.sound!==false;
  const button=document.createElement('button');button.id='pp-sound';button.type='button';button.className='pp-icon-button';
  button.style.cssText='width:44px;height:44px;min-width:44px;min-height:44px;flex:0 0 44px;padding:10px;border:1px solid #dce3e8;border-radius:10px;background:#f7f9fb;touch-action:manipulation';
- function stop(){attempt++;audio.pause();audio.currentTime=0;}
+ function stop(){attempt++;previewing=false;audio.pause();audio.currentTime=0;preview.textContent='Beluisteren';preview.setAttribute('aria-label','Beluister '+selected()[1]);}
  function sync(){
+  if(previewing&&(root.querySelector('#pp-settings').hidden||root.querySelector('#pp-panel-sound').hidden))stop();
+  choice.value=selected()[0];checkbox.checked=enabled();preview.textContent=previewing?'Stop':'Beluisteren';preview.setAttribute('aria-label',(previewing?'Stop het voorbeeld van ':'Beluister ')+selected()[1]);
   const on=enabled(),label=on?'Geluid uitzetten':'Geluid aanzetten';button.setAttribute('aria-label',label);button.setAttribute('aria-pressed',String(on));button.title=label;
   button.innerHTML='<svg style="width:24px;height:24px;flex-shrink:0;pointer-events:none" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/>'+(on?'<path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>':'<path d="m16 9 5 6m0-6-5 6"/>')+'</svg>';
   const target=read().settings.diceStyle==='verbs'?root.querySelector('.aw-utilities'):root.querySelector('.pp-roll-heading');
   if(target&&button.parentNode!==target)target.append(button);
  }
- function play(){
-  if(!enabled())return;stop();const current=attempt;
-  audio.play().catch(error=>{if(current===attempt&&error.name!=='AbortError')notice('Het dobbelsteengeluid kon niet starten. Probeer de luidsprekerknop.');});
+ function play(isPreview=false){
+  if(!isPreview&&!enabled())return;stop();const current=attempt;previewing=isPreview;
+  if(audio.src!==source())audio.src=source();audio.volume=selected()[0]==='original'?.62:1;sync();
+  audio.play().catch(error=>{if(current===attempt&&error.name!=='AbortError'){stop();notice('Het dobbelsteengeluid kon niet starten. Probeer de luidsprekerknop.');}});
  }
- button.onclick=()=>{read().settings.sound=!enabled();read().settings.diceAudioRestored=true;save();sync();if(enabled())play();else stop();};
+ function setSound(on){settings().sound=on;settings().diceAudioRestored=true;stop();save();sync();}
+ button.onclick=()=>{setSound(!enabled());if(enabled())play();};
+ checkbox.onchange=()=>setSound(checkbox.checked);
+ choice.onchange=()=>{stop();settings().diceSound=choice.value;save();sync();};
+ preview.onclick=()=>{if(previewing)stop();else play(true);};
+ audio.addEventListener('ended',()=>{previewing=false;sync();});
  root.addEventListener('click',event=>{if(event.target.closest('#pp-back,#pp-pause-button,#pp-settings-button,#db-open-maps,.aw-utilities button:not(#pp-sound)'))stop();},true);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});window.addEventListener('pagehide',stop);
  sync();return{play,stop,sync};

@@ -66,6 +66,7 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
      <button type="button" id="pp-nav-people" data-settings-section="people" aria-controls="pp-panel-people" aria-pressed="false"><i data-lucide="contact-round" aria-hidden="true"></i><span>Deelnemers</span></button>
      <button type="button" id="pp-nav-board" data-settings-section="board" aria-controls="pp-panel-board" aria-pressed="false"><i data-lucide="route" aria-hidden="true"></i><span>Kaarten &amp; oefenen</span></button>
      <button type="button" id="pp-nav-dice" data-settings-section="dice" aria-controls="pp-panel-dice" aria-pressed="false"><i data-lucide="dice-5" aria-hidden="true"></i><span>Spelvorm</span></button>
+     <button type="button" id="pp-nav-sound" data-settings-section="sound" aria-controls="pp-panel-sound" aria-pressed="false"><i data-lucide="volume-2" aria-hidden="true"></i><span>Geluid</span></button>
      <button type="button" id="pp-nav-storage" data-settings-section="storage" aria-controls="pp-panel-storage" aria-pressed="false"><i data-lucide="hard-drive-download" aria-hidden="true"></i><span>Bewaren</span></button>
      <button type="button" id="pp-finish-button" class="pp-finish-action"><i data-lucide="flag" aria-hidden="true"></i><span>Les afronden</span></button>
     </nav>
@@ -228,6 +229,11 @@ lucide.createIcons({icons});\``);if(typeof c>"u")throw new Error("`createIcons()
       </div><p class="pp-note">Voor alle 108 beelden: basis, actiewoorden en themasets. Je keuze wordt automatisch bewaard.</p></fieldset>
       <h4>Beeldbibliotheek</h4><label for="pp-picture-collection">Welk pakket wil je gebruiken?</label><select id="pp-picture-collection"></select><p id="pp-picture-collection-note" class="pp-note"></p><div id="pp-theme-level-options" hidden><label for="pp-theme-level">Niveau van het themapakket</label><select id="pp-theme-level"><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select><label for="pp-theme-mode">Wat gaan we doen?</label><select id="pp-theme-mode"><option value="speak">Samen spreken</option><option value="write">Verhaal schrijven</option></select><label for="pp-theme-cards">Woordkaarten bij de opdracht</label><select id="pp-theme-cards"><option value="hidden">Verborgen · zelf woorden zoeken</option><option value="shown">Toon zes woorden met uitleg</option></select><p id="pp-theme-level-note" class="pp-note"></p></div><button type="button" id="pp-picture-reselect" class="pp-secondary">Andere beeldselectie</button><select id="pp-action-layout" hidden aria-label="Dobbelstenen op tafel"><option value="grid">Drie rijen van drie</option></select><p class="pp-note">Iedere dobbelsteen heeft zes eigen beelden. Eén knop werpt alle negen. Alle negen blijven binnen het scherm. Op een smal scherm staan ze in drie rijen.</p><div id="pp-picture-set" aria-label="Negen reeksen van zes actiewoorden"></div>
       <p class="pp-note">De afbeeldingen zijn spreeksteunen. Toon de woorden op verzoek en bespreek ook andere passende benoemingen.</p></div>
+     </section>
+     <section id="pp-panel-sound" data-settings-panel="sound" aria-labelledby="pp-sound-title" hidden>
+      <h3 id="pp-sound-title">Dobbelsteengeluid</h3><p class="pp-note">Het rustige, oorspronkelijke geluid staat bovenaan. Kies een geluid en beluister het voorbeeld.</p>
+      <label for="pp-sound-choice">Kies je geluid</label><div class="pp-sound-picker"><select id="pp-sound-choice" aria-describedby="pp-sound-note"></select><button type="button" id="pp-sound-preview" class="pp-secondary">Beluisteren</button></div>
+      <label class="pp-check"><input type="checkbox" id="pp-sound-enabled" checked>Geluid bij het gooien</label><p class="pp-note" id="pp-sound-note">Je keuze wordt automatisch bewaard. Beluisteren kan ook als het spelgeluid uitstaat.</p>
      </section>
 <section id="pp-panel-storage" data-settings-panel="storage" aria-labelledby="pp-storage-title" hidden>
       <h3 id="pp-storage-title">Bewaren &amp; terugzetten</h3><p class="pp-note">Lessen, groepen en voorkeuren worden automatisch op dit apparaat bewaard. Download een kopie om ze mee te nemen naar een andere laptop.</p>
@@ -1242,7 +1248,7 @@ function renderSettingsSections(){
  $('pp-settings-close').hidden=page==='library';$('pp-library-back').hidden=page!=='library';
 }
 function showSettingsSection(section){
- if(!['play','didactics','groups','people','board','dice','storage'].includes(section))section='play';
+ if(!['play','didactics','groups','people','board','dice','sound','storage'].includes(section))section='play';
  settingsSection=section;$('pp-error').hidden=true;root.querySelector('.pp-settings-content').scrollTop=0;
  if(section==='didactics')root.dispatchEvent(new Event('praatpad:didactics-open'));if(section==='play')library();else{page='settings';render();}
 }
