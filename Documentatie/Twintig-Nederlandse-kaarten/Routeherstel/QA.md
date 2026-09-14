@@ -1,6 +1,6 @@
 # Nederlandse kaarten — herstel van de routelogica
 
-Status: **KANDIDAAT, lokaal**. Geen push of publicatie uitgevoerd. Correctie op de eerste integratie van 14 september 2026 (basiscommit `4bb62a7`).
+Historische bouwstatus: **KANDIDAAT, lokaal**. Inmiddels op 14 september 2026 gepubliceerd; zie ../../Publicatie-2026-09-14.md. Correctie op de eerste integratie van 14 september 2026 (basiscommit `4bb62a7`).
 
 De eerste controle bewees dat animaties zonder technische sprongen afspeelden, maar niet dat de pion op een aannemelijk geschilderd pad bleef. Daarom zijn alle twintig hoofdtrajecten én alle optionele routes opnieuw op de beelden beoordeeld. De bevindingen hieronder vervangen de eerdere algemene uitspraak dat de routes al goed waren.
 

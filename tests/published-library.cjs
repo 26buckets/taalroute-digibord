@@ -6,12 +6,12 @@ const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
  const registry={};vm.runInNewContext(fs.readFileSync('Kaarten/register.js','utf8'),registry);
  const maps=registry.DigiBoardMaps,out=path.join(__dirname,'artifacts/published-library');fs.mkdirSync(out,{recursive:true});
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),page=await browser.newPage({viewport:{width:1280,height:900},reducedMotion:'reduce'});
- const errors=[],verified={},pending=[],wanted=new Set(['Praatpad.html','Kaarten/register.js','Kaarten/nieuwe-werelden.js','Kaarten/nederland-werelden.js','Kaarten/ruimtewerking.js','digiboard.js','Lessen/kaartvormen.js',...maps.flatMap(m=>['Kaarten/'+m.id+'.js',m.image])]);
+ const errors=[],verified={},wanted=new Set(['Praatpad.html','Kaarten/register.js','Kaarten/nieuwe-werelden.js','Kaarten/nederland-werelden.js','Kaarten/ruimtewerking.js','digiboard.js','Lessen/kaartvormen.js',...maps.flatMap(m=>['Kaarten/'+m.id+'.js',m.image])]);
  page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{
   const url=new URL(r.url()),file=decodeURIComponent(url.pathname).replace(/^\//,'');
   if(url.origin!==new URL(base).origin)return;
   if(r.status()>=400)errors.push(r.status()+' '+file);
-  if(wanted.has(file))pending.push((async()=>{try{const online=await r.body(),local=fs.readFileSync(file);assert.equal(hash(online),hash(local),'Published bytes differ: '+file);verified[file]=hash(online);}catch(e){errors.push(e.message);}})());
+
  });
  try{
   for(const map of maps){
@@ -33,7 +33,11 @@ const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
   await page.waitForFunction(()=>document.querySelector('[data-dutch-boat]')?.getAttribute('visibility')==='visible');
   await page.screenshot({path:path.join(out,'online-delft-pont.png')});
   await page.waitForFunction(()=>!document.querySelector('#pp-roll').disabled);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem(DigiBoard.storageKey())).session.players[0].pos),16);
-  await Promise.all(pending);assert.deepEqual(errors,[]);for(const file of wanted)assert(verified[file],'Not loaded online: '+file);
+  // Compare a complete HTTP response, following redirects; cached browser responses may have no body.
+  const files=[...wanted];for(let i=0;i<files.length;i+=6)await Promise.all(files.slice(i,i+6).map(async file=>{
+   const response=await fetch(new URL(file,base),{cache:'no-store'});assert.equal(response.status,200,file);
+   const online=Buffer.from(await response.arrayBuffer()),local=fs.readFileSync(file);assert.equal(hash(online),hash(local),'Published bytes differ: '+file);verified[file]=hash(online);
+  }));assert.deepEqual(errors,[]);for(const file of wanted)assert(verified[file],'Not loaded online: '+file);
   fs.writeFileSync(path.join(out,'qa.json'),JSON.stringify({url:base,maps:46,categories:5,short:12,boat:'15→16 passed',history:true,verified,errors},null,2));
   console.log('PASS published 46 maps, five categories, short links/history, actual Delft ferry and '+Object.keys(verified).length+' identical source/media files');
  }finally{await browser.close();}

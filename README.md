@@ -87,3 +87,7 @@ Zie [Opdrachtenmatrix en eenvoudig zinnenspel](Documentatie/Opdrachtenmatrix-en-
 De oorspronkelijke kaarten gebruiken `Kaarten/ruimtewerking.js`; latere uitbreidingen gebruiken `Kaarten/nieuwe-werelden.js` en de Nederlandse reeks `Kaarten/nederland-werelden.js`. Beeldplaatsing, toegangspaden en pionbewegingen gebruiken dezelfde geometrie. `npm test` controleert alle 46 kaarten, de categorieën, doorgangen, keuzes, herladen en bestaande bediening.
 
 De [Google Drive-overdracht](https://drive.google.com/drive/folders/15_yOMXk-xiSsmJc0dNCIpJ8ojrF6SvH-) bevat de complete app, de documentatie en het bronarchief met eerdere kaartdemo’s en controlebeelden. De repository bevat de actuele gezamenlijke app. Persoonlijke lesstanden staan in de browser en kunnen via Bewaren worden geëxporteerd.
+
+## Publicatie
+
+De 46 kaarten en vijf categorieën staan op [digibord.taalroute.nl](https://digibord.taalroute.nl/). Zie het [publicatie- en controleverslag van 14 september 2026](Documentatie/Publicatie-2026-09-14.md).
