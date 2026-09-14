@@ -1,0 +1,58 @@
+[
+  {
+    "id": "buurttuin-kasroute",
+    "count": 12,
+    "image": "Kaarten/assets/buurttuin-kasroute/buurttuin-kasroute-speelroute.png",
+    "sha256": "19258420ff869c8d934d56f36f5e64e95d44fae008814884208b361311189780",
+    "sizeBytes": 3454526
+  },
+  {
+    "id": "bibliotheek-leesroute",
+    "count": 16,
+    "image": "Kaarten/assets/bibliotheek-leesroute/bibliotheek-leesroute-speelroute.png",
+    "sha256": "3efcb115b4041f01648fbe919471ebbe46a8092ad09b3a5d1d554bd022dae24a",
+    "sizeBytes": 3124209
+  },
+  {
+    "id": "museum-zalenroute",
+    "count": 20,
+    "image": "Kaarten/assets/museum-zalenroute/museum-zalenroute-speelroute.png",
+    "sha256": "71ac558b984b04f6dbe76d8a6da69ee9dcd23737d05dfbdaaa106f9ccd1f6fe9",
+    "sizeBytes": 2933386
+  },
+  {
+    "id": "onderwater-koraalroute",
+    "count": 24,
+    "image": "Kaarten/assets/onderwater-koraalroute/onderwater-koraalroute-speelroute.png",
+    "sha256": "2ff9ef690489945ae5bbec989e63439aeab87ce23d1b6c7133276b14ad2c9f5e",
+    "sizeBytes": 3335753
+  },
+  {
+    "id": "jungle-watervalroute",
+    "count": 28,
+    "image": "Kaarten/assets/jungle-watervalroute/jungle-watervalroute-speelroute.png",
+    "sha256": "44afebc8d84f1dba25a44dddc043100157814b808803d7f4c4cda2466bcd35f9",
+    "sizeBytes": 3450332
+  },
+  {
+    "id": "woestijn-oaseroute",
+    "count": 24,
+    "image": "Kaarten/assets/woestijn-oaseroute/woestijn-oaseroute-speelroute.png",
+    "sha256": "ba49b3f9f09a418f726f1cfd413768a720b887e38d441001476c125237c0eb63",
+    "sizeBytes": 3342777
+  },
+  {
+    "id": "kasteel-poortroute",
+    "count": 30,
+    "image": "Kaarten/assets/kasteel-poortroute/kasteel-poortroute-speelroute.png",
+    "sha256": "57e7f5951ea4e245e6a4043384e5b6879a6c673c9336edb980650b1dcc8e260f",
+    "sizeBytes": 3311829
+  },
+  {
+    "id": "bergdorp-kabelroute",
+    "count": 28,
+    "image": "Kaarten/assets/bergdorp-kabelroute/bergdorp-kabelroute-speelroute.png",
+    "sha256": "da3f8377f6acd85e7002459beb549c273a30fd6cc844b521bfc6403a1bc6ba0d",
+    "sizeBytes": 3504680
+  }
+]

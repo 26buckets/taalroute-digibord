@@ -1,0 +1,562 @@
+[
+  {
+    "id": "buurttuin-kasroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "buurttuin-kasroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "bibliotheek-leesroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "bibliotheek-leesroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "museum-zalenroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "museum-zalenroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "onderwater-koraalroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "onderwater-koraalroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "jungle-watervalroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "jungle-watervalroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "woestijn-oaseroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "woestijn-oaseroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "kasteel-poortroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "kasteel-poortroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  },
+  {
+    "id": "bergdorp-kabelroute",
+    "width": 1672,
+    "height": 1149,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1672,
+      "height": 941,
+      "top": 60,
+      "right": 1672,
+      "bottom": 1001,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 1001,
+      "width": 1412,
+      "height": 148,
+      "top": 1001,
+      "right": 1412,
+      "bottom": 1149,
+      "left": 0
+    }
+  },
+  {
+    "id": "bergdorp-kabelroute",
+    "width": 1600,
+    "height": 1000,
+    "map": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "image": {
+      "x": 0,
+      "y": 60,
+      "width": 1600,
+      "height": 792,
+      "top": 60,
+      "right": 1600,
+      "bottom": 852,
+      "left": 0
+    },
+    "task": {
+      "x": 0,
+      "y": 852,
+      "width": 1340,
+      "height": 148,
+      "top": 852,
+      "right": 1340,
+      "bottom": 1000,
+      "left": 0
+    }
+  }
+]

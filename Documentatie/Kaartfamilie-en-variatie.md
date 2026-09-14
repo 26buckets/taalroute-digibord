@@ -78,3 +78,10 @@ Op 13 september 2026 zijn alle elf geschilderde kaarten geïntegreerd in de geza
 | Poolwereld | 30 vakken langs een sneeuwvallei en begaanbare helling naar een hoog onderzoeksstation | Sneeuwtunnel 12–13 en verticale gletsjerlift 24–25 | Veel open ruimte, koude blauwe sneeuw en een mechanische lift; geen maanbases of zwevende eilanden |
 
 De eerdere elf kaartbestanden zijn behouden. De kiezer toont nu veertien werelden. Uitwerking en controles: `Drie-nieuwe-kaarten/Leeswijzer.md`.
+
+
+## Acht nieuwe werelden · 14 september 2026 · lokale kandidaat
+
+Buurttuin (12) voegt een korte open tuinroute toe; Bibliotheek (16) en Museum (20) voegen rustige binnenruimtes toe. Onderwaterwereld (24) gebruikt glazen wandelbuizen tussen koraalrotsen. Jungle (28) gebruikt een diagonale kloofroute met hangbrug en watervaldoorgang. Woestijn (24) combineert open zand en zandsteen met een oase. Kasteel (30) loopt over muren en een ophaalbrug. Bergdorp (28) verbindt twee dorpshellingen met een kabelbaan. Licht, materialen, inrichting en passages verschillen; de volwassen geschilderde stijl en bediening blijven gelijk.
+
+De definitieve beelden bevatten meteen de volledige route en alle gekleurde tegels met hun vier symbolen, zoals Haven en Rotterdam. De 22 kaarten blijven in dezelfde app. Zie `Acht-nieuwe-kaarten/Leeswijzer.md` en het bijbehorende controleverslag.

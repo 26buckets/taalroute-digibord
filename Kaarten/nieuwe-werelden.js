@@ -11,10 +11,10 @@ function create(c){
  function pose(from,to,t){
   const p=find(from,to),reverse=from>to;t=clamp(t);if(!p)return{point:PraatpadRoutes.along(legs[Math.min(from,to)],reverse?1-t:t),opacity:1,scale:1,phase:'walk',kind:'walk',depth:7};
   const k=reverse?1-t:t;
-  if(p.kind==='lift'){
+  if(p.kind==='lift'||p.kind==='cable'){
    const on=k>=.18&&k<=.82,point=k<.18?mix(anchors[p.from],p.bottom,k/.18):k>.82?mix(p.top,anchors[p.to],(k-.82)/.18):mix(p.bottom,p.top,(k-.18)/.64);
    const liftPoint=k<.18?p.bottom:k>.82?p.top:point;
-   return{point,opacity:1,scale:1,phase:on?'riding':k<.18?'boarding':'leaving',kind:'lift',depth:7,liftPoint};
+   return{point,opacity:1,scale:p.kind==='cable'?(k<.18?1-.22*k/.18:k>.82?.78+.22*(k-.82)/.18:.78):1,phase:on?'riding':k<.18?'boarding':'leaving',kind:p.kind,depth:7,liftPoint};
   }
   const along=(path,k)=>PraatpadRoutes.along(path,clamp(k));
   let point,opacity=1,scale=1,phase;
@@ -33,6 +33,10 @@ function create(c){
  let extras=svg('tiles','new-world-tiles',`<defs>${fills}<filter id="${prefix}shade" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#153044" flood-opacity=".35"/></filter></defs>`+anchors.slice(1,-1).map((a,i)=>{const shape=c.shapes[i],colors=palette[shape];return`<g transform="translate(${a})" style="filter:url(#${prefix}shade)"><g transform="scale(${c.size})" fill="url(#${prefix}fill-${shape})" stroke="${colors[1]}" stroke-width=".04" stroke-linejoin="round">${tile(shape)}</g></g>`;}).join(''));
  if(c.paintedRoute)extras='';
  extras+=svg('front','new-world-front',`<defs>${c.masks.map(m=>`<clipPath id="${prefix+m.id}"><path d="${m.path}"/></clipPath>`).join('')}</defs>`+c.masks.map(m=>`<image width="${W}" height="${H}" href="${image}" clip-path="url(#${prefix+m.id})"/>`).join(''));
+ if(passages.some(p=>p.kind==='cable')){
+  extras+=svg('cable-back','new-world-lift-back','<g data-lift-car><path d="M0 -65V-47 M-20 -47H20" stroke="#293e49" stroke-width="4" fill="none"/><path d="M-28 -45 Q0 -53 28 -45 L31 5 H-31Z" fill="#bb8c53" stroke="#473e32" stroke-width="3"/><path d="M-23 -40 H23 L26 -2 H-26Z" fill="#b4c6bf"/><path d="M-29 2 H29 V8 H-29Z" fill="#55493b"/></g>');
+  extras+=svg('cable-front','new-world-front','<g data-lift-car><path d="M-28 -44 L-30 7 H30 L28 -44 M-28 -44 Q0 -51 28 -44 M-30 -9 H30" fill="none" stroke="#63452a" stroke-width="4"/><path d="M-29 -5 H29 V8 H-29Z" fill="#b68042" stroke="#63452a" stroke-width="2"/><path d="M-9 -44V-10 M9 -44V-10" stroke="#71583e" stroke-width="2"/></g>');
+ }
  if(passages.some(p=>p.kind==='lift')){
   extras+=svg('lift-back','new-world-lift-back','<g data-lift-car><path d="M-25 -54 H25 V2 H-25Z" fill="#334d61" stroke="#d6e3e7" stroke-width="3"/><path d="M-20 -48 H20 V-5 H-20Z" fill="#bdcfdb"/><path d="M-30 0 L-22 -9 H25 L32 0 L23 9 H-25Z" fill="#c9d0cf" stroke="#344f60" stroke-width="3"/></g>');
   extras+=svg('lift-front','new-world-front','<g data-lift-car><path d="M-27 -52 V5 M27 -52 V5 M-27 -52 H27 M-27 -15 H27 M-27 3 H27" fill="none" stroke="#496274" stroke-width="4"/><path d="M-22 -12 V3 M-10 -12 V3 M3 -12 V3 M15 -12 V3" stroke="#9eb0bd" stroke-width="2"/><path d="M-30 4 H30 V10 H-30Z" fill="#6b7f8a"/></g>');
@@ -55,8 +59,8 @@ function create(c){
   const {$,root,drawMap,reduced}=host;
   function draw(){
    const f=fit($('pp-map').clientWidth,$('pp-map').clientHeight);
-   for(const p of passages){let el=$('pp-ports').querySelector('[data-new-passage="'+p.id+'"]');if(!el){el=document.createElement('button');el.type='button';el.className='pp-port new-passage-label';el.dataset.newPassage=p.id;el.textContent=(p.kind==='lift'?'Lift':'T1')+' · '+p.from+'–'+p.to;el.setAttribute('aria-label',p.label+' · bekijk uitleg');el.onclick=()=>host.showMapRules();$('pp-ports').append(el);}const pos=p.kind==='lift'?[1270,370]:c.id==='station-perronroute'?[970,500]:[492,170],point=screen(pos,f);el.style.left=point[0]+'px';el.style.top=point[1]+'px';el.disabled=!!host.anim;}
-   root.dataset.tunnelPhase=host.anim?.tunnelPhase||'';root.dataset.liftPhase=host.anim?.liftPhase||'';const lift=passages.find(p=>p.kind==='lift');if(lift){const point=host.anim?.liftPoint||(host.current().pos>=lift.to?lift.top:lift.bottom);root.querySelectorAll('[data-lift-car]').forEach(el=>el.setAttribute('transform',`translate(${point})`));}}
+   for(const p of passages){let el=$('pp-ports').querySelector('[data-new-passage="'+p.id+'"]');if(!el){el=document.createElement('button');el.type='button';el.className='pp-port new-passage-label';el.dataset.newPassage=p.id;el.textContent=(p.kind==='cable'?'Kabelbaan':p.kind==='lift'?'Lift':'T1')+' · '+p.from+'–'+p.to;el.setAttribute('aria-label',p.label+' · bekijk uitleg');el.onclick=()=>host.showMapRules();$('pp-ports').append(el);}const pos=p.labelPos||(p.kind==='lift'?[1270,370]:c.id==='station-perronroute'?[970,500]:[492,170]),point=screen(pos,f);el.style.left=point[0]+'px';el.style.top=point[1]+'px';el.disabled=!!host.anim;}
+   root.dataset.tunnelPhase=host.anim?.tunnelPhase||'';root.dataset.liftPhase=host.anim?.liftPhase||'';const lift=passages.find(p=>p.kind==='lift'||p.kind==='cable');if(lift){const point=host.anim?.liftPoint||(host.current().pos>=lift.to?lift.top:lift.bottom);root.querySelectorAll('[data-lift-car]').forEach(el=>el.setAttribute('transform',`translate(${point})`));}}
   function segment(from,to,token){
    if(reduced()){host.anim.pos=to;drawMap();return Promise.resolve();}
    root.classList.add('pp-stepping');const passage=find(from,to),duration=passage?5200:650;
@@ -66,9 +70,9 @@ function create(c){
     const frame=now=>{if(token!==host.run||!host.anim){done();return;}start??=now;const t=clamp((now-start)/duration),q=pose(from,to,t),f=fit($('pp-map').clientWidth,$('pp-map').clientHeight);
      Object.assign(host.anim,{stepPoint:screen(q.point,f),cityTunnelOpacity:q.opacity,tunnelScale:q.scale,newDepth:q.kind==='tunnel'?q.depth:undefined});
      if(q.kind==='tunnel')host.anim.tunnelPhase=q.phase;
-     if(q.kind==='lift'){host.anim.liftPhase=q.phase;host.anim.liftPoint=q.liftPoint;}
+     if(q.kind==='lift'||q.kind==='cable'){host.anim.liftPhase=q.phase;host.anim.liftPoint=q.liftPoint;}
      root.dataset.journey=q.kind;
-     if(passage){$('pp-transit-label').hidden=false;$('pp-transit-label').textContent=passage.label+' · '+(q.phase==='hidden'?'Onder de grond':q.kind==='lift'?'Met de lift naar vak '+to:'Op weg naar vak '+to);}
+     if(passage){$('pp-transit-label').hidden=false;$('pp-transit-label').textContent=passage.label+' · '+(q.phase==='hidden'?'Onder de grond':q.kind==='cable'?'Met de kabelbaan naar vak '+to:q.kind==='lift'?'Met de lift naar vak '+to:'Op weg naar vak '+to);}
      drawMap();if(t===1){host.anim.pos=to;done();drawMap();}else raf=requestAnimationFrame(frame);
     };raf=requestAnimationFrame(frame);
    });
