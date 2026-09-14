@@ -1,0 +1,14 @@
+{
+  "maps": [
+    {
+      "id": "spreektijd-afspraak",
+      "count": 16,
+      "passages": [
+        "De spoortunnel"
+      ],
+      "status": "passed"
+    }
+  ],
+  "preservedFiles": 844,
+  "errors": []
+}

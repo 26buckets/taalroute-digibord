@@ -72,7 +72,7 @@ function create(c){
      if(q.kind==='tunnel')host.anim.tunnelPhase=q.phase;
      if(q.kind==='lift'||q.kind==='cable'){host.anim.liftPhase=q.phase;host.anim.liftPoint=q.liftPoint;}
      root.dataset.journey=q.kind;
-     if(passage){$('pp-transit-label').hidden=false;$('pp-transit-label').textContent=passage.label+' · '+(q.phase==='hidden'?'Onder de grond':q.kind==='cable'?'Met de kabelbaan naar vak '+to:q.kind==='lift'?'Met de lift naar vak '+to:'Op weg naar vak '+to);}
+     if(passage){$('pp-transit-label').hidden=false;$('pp-transit-label').textContent=passage.label+' · '+(q.phase==='hidden'?(passage.hiddenLabel||'Onder de grond'):q.kind==='cable'?'Met de kabelbaan naar vak '+to:q.kind==='lift'?'Met de lift naar vak '+to:'Op weg naar vak '+to);}
      drawMap();if(t===1){host.anim.pos=to;done();drawMap();}else raf=requestAnimationFrame(frame);
     };raf=requestAnimationFrame(frame);
    });

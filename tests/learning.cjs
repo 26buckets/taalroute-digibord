@@ -1,6 +1,6 @@
 const {control,reveal,conceal}=require('./ui-controls.cjs');
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs'),fs=require('node:fs');
-(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const b=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});try{const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));const base='http://127.0.0.1:'+server.address().port+'/Praatpad.html';await p.goto(base+'?kaart=stad24');assert.equal(await p.evaluate(()=>DigiBoard.mapId),'Rotterdam-havenroute');assert.equal(await p.locator('#db-board-map option').count(),22);
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const b=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});try{const p=await b.newPage({viewport:{width:1366,height:768},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));const base='http://127.0.0.1:'+server.address().port+'/Praatpad.html';await p.goto(base+'?kaart=stad24');assert.equal(await p.evaluate(()=>DigiBoard.mapId),'Rotterdam-havenroute');assert.equal(await p.locator('#db-board-map option').count(),26);
 await p.locator('[data-node="1"]').click();await p.locator('#pp-use-task').click();
 const state=()=>p.evaluate(()=>JSON.parse(localStorage.getItem(DigiBoard.storageKey())));
 async function seed(fn){await p.evaluate(fn);await p.reload();}

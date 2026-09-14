@@ -1,0 +1,4 @@
+@import url("nieuwe-werelden.css?v=20260914-spreektijd-routes");
+/* Numbers keep the shared layer below pawns; rim-adjacent labels have free space. */
+#praatpad-board.db-ui #pp-map #pp-tiles .pp-tile[data-node="11"] .pp-number{margin-left:calc(var(--city-scale)*50px);margin-top:calc(var(--city-scale)*30px);}
+#praatpad-board.db-ui #pp-map #pp-tiles .pp-tile[data-node="25"] .pp-number{margin-left:calc(var(--city-scale)*0px);margin-top:calc(var(--city-scale)*-28px);}
