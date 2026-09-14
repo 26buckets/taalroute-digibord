@@ -1,0 +1,25 @@
+{
+  "maps": 46,
+  "categories": {
+    "dagelijks": 6,
+    "nederland": 28,
+    "fantasie": 8,
+    "spreektijd": 4,
+    "kort": 12
+  },
+  "short": [
+    "markt-pleinroute",
+    "station-perronroute",
+    "buurttuin-kasroute",
+    "bibliotheek-leesroute",
+    "museum-zalenroute",
+    "spreektijd-afspraak",
+    "spreektijd-zorg",
+    "nederland-leiden",
+    "nederland-haarlem",
+    "nederland-den-bosch",
+    "nederland-zaanse-schans",
+    "nederland-giethoorn"
+  ],
+  "errors": []
+}

@@ -8,6 +8,20 @@ function create(c){
  const fit=(w,h)=>{const scale=Math.min(w/W,h/H);return{scale,x:(w-W*scale)/2,y:(h-H*scale)/2};},screen=(p,f)=>[p[0]*f.scale+f.x,p[1]*f.scale+f.y];
  const find=(a,b)=>passages.find(p=>p.from===Math.min(a,b)&&p.to===Math.max(a,b));
  const legs=anchors.slice(0,-1).map((a,i)=>c.waypoints?.[i]||[a,anchors[i+1]]);
+ function depthAt(point){
+  // Keep the pawn in front of the mouth after landing, too: animation and rest share geometry.
+  for(const p of passages.filter(p=>p.kind==='tunnel'))for(const path of[p.enter,[...p.exit].reverse()]){
+   const [a,b]=path,ax=b[0]-a[0],ay=b[1]-a[1],n=ax*ax+ay*ay;
+   const t=n?clamp(((point[0]-a[0])*ax+(point[1]-a[1])*ay)/n):0;
+   if(Math.hypot(point[0]-a[0]-t*ax,point[1]-a[1]-t*ay)<28)return 11;
+   const mouth=path.at(-2),inner=path.at(-1),dx=inner[0]-mouth[0],dy=inner[1]-mouth[1],len=Math.hypot(dx,dy);
+   if(!len)continue;
+   const vx=point[0]-mouth[0],vy=point[1]-mouth[1],forward=(vx*dx+vy*dy)/len,side=Math.abs(vx*dy-vy*dx)/len;
+   if(forward<=1&&forward>=-125&&side<65)return 11;
+  }
+  const [x,y]=point;
+  return c.masks.some(m=>x>=m.area[0]-25&&x<=m.area[2]+25&&y>=m.frontY&&y<=m.area[3]+70)?11:7;
+ }
  function pose(from,to,t){
   const p=find(from,to),reverse=from>to;t=clamp(t);if(!p)return{point:PraatpadRoutes.along(legs[Math.min(from,to)],reverse?1-t:t),opacity:1,scale:1,phase:'walk',kind:'walk',depth:7};
   const k=reverse?1-t:t;
@@ -51,7 +65,7 @@ function create(c){
   // Underground and vertical passages are not drawn as a surface shortcut.
   R.mainPath=(b,w,h,stop=anchors.length-1)=>Array.from({length:stop},(_,i)=>find(i,i+1)?'':R.routeGeometry(b,w,h,{from:i,exits:[i+1]}).d).join(' ');
   R.artwork=()=>'';R.portPosition=(b,w,h,c)=>R.layout(b,w,h).points[c.from];
-  globalThis.PraatpadWorld={anchors,legs,fit,connections:[],passages,pose,step:(a,b,t,w,h)=>{const q=pose(a,b,t);return{...q,point:screen(q.point,fit(w,h)),boat:null};},pawnDepth(point,w,h){const f=fit(w,h),x=(point[0]-f.x)/f.scale,y=(point[1]-f.y)/f.scale;return c.masks.some(m=>x>=m.area[0]-25&&x<=m.area[2]+25&&y>=m.frontY&&y<=m.area[3]+70)?11:7;},duration:from=>find(from,from+1)?5200:650};
+  globalThis.PraatpadWorld={anchors,legs,fit,connections:[],passages,pose,step:(a,b,t,w,h)=>{const q=pose(a,b,t);return{...q,point:screen(q.point,fit(w,h)),boat:null};},depthAt,pawnDepth(point,w,h){const f=fit(w,h);return depthAt([(point[0]-f.x)/f.scale,(point[1]-f.y)/f.scale]);},duration:from=>find(from,from+1)?5200:650};
   globalThis.PraatpadCity={fit,anchors,angles:Array(anchors.length).fill(0)};
   installPawn();
  };

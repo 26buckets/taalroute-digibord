@@ -1,0 +1,2 @@
+PASS board sentence game: 5 steps=jullie, later roll vs tile, all six persons, undo/reload, shortcuts/backward, tenses, three pawns, shared layouts and original language tasks
+Exitcode: 0

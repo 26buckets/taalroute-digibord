@@ -1,0 +1,1 @@
+PASS five original sounds, original default, preview while muted, playback completion, remembered choices and stop on close

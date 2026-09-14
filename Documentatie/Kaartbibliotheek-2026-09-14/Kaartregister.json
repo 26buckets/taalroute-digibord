@@ -1,0 +1,383 @@
+{
+  "uniqueMaps": 46,
+  "groups": [
+    {
+      "id": "dagelijks",
+      "label": "Algemeen",
+      "maps": [
+        {
+          "id": "dorp-boomgaardroute",
+          "label": "Dorp",
+          "count": 55,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=dorp-boomgaardroute"
+        },
+        {
+          "id": "markt-pleinroute",
+          "label": "Markt · kort",
+          "count": 12,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=markt-pleinroute"
+        },
+        {
+          "id": "station-perronroute",
+          "label": "Station · kort",
+          "count": 16,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=station-perronroute"
+        },
+        {
+          "id": "buurttuin-kasroute",
+          "label": "Buurttuin · kort",
+          "count": 12,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=buurttuin-kasroute"
+        },
+        {
+          "id": "bibliotheek-leesroute",
+          "label": "Bibliotheek · kort",
+          "count": 16,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=bibliotheek-leesroute"
+        },
+        {
+          "id": "museum-zalenroute",
+          "label": "Museum",
+          "count": 20,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=museum-zalenroute"
+        }
+      ]
+    },
+    {
+      "id": "nederland",
+      "label": "Nederland",
+      "maps": [
+        {
+          "id": "Rotterdam-havenroute",
+          "label": "Rotterdam",
+          "count": 40,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=Rotterdam-havenroute"
+        },
+        {
+          "id": "amsterdam-grachtenroute",
+          "label": "Amsterdam",
+          "count": 46,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=amsterdam-grachtenroute"
+        },
+        {
+          "id": "utrecht-werfroute",
+          "label": "Utrecht",
+          "count": 46,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=utrecht-werfroute"
+        },
+        {
+          "id": "kust-duinroute",
+          "label": "Kust",
+          "count": 32,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=kust-duinroute"
+        },
+        {
+          "id": "bos-bosroute",
+          "label": "Bos",
+          "count": 53,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=bos-bosroute"
+        },
+        {
+          "id": "polder-slotenroute",
+          "label": "Polder",
+          "count": 57,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=polder-slotenroute"
+        },
+        {
+          "id": "haven-kaderoute",
+          "label": "Haven",
+          "count": 35,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=haven-kaderoute"
+        },
+        {
+          "id": "heuvels-panorama",
+          "label": "Heuvels",
+          "count": 39,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=heuvels-panorama"
+        },
+        {
+          "id": "nederland-delft",
+          "label": "Delft",
+          "count": 25,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-delft"
+        },
+        {
+          "id": "nederland-leiden",
+          "label": "Leiden",
+          "count": 18,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-leiden"
+        },
+        {
+          "id": "nederland-haarlem",
+          "label": "Haarlem",
+          "count": 18,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-haarlem"
+        },
+        {
+          "id": "nederland-amersfoort",
+          "label": "Amersfoort",
+          "count": 34,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-amersfoort"
+        },
+        {
+          "id": "nederland-dordrecht",
+          "label": "Dordrecht",
+          "count": 24,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-dordrecht"
+        },
+        {
+          "id": "nederland-den-bosch",
+          "label": "Den Bosch",
+          "count": 19,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-den-bosch"
+        },
+        {
+          "id": "nederland-groningen",
+          "label": "Groningen",
+          "count": 25,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-groningen"
+        },
+        {
+          "id": "nederland-maastricht",
+          "label": "Maastricht",
+          "count": 30,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-maastricht"
+        },
+        {
+          "id": "nederland-nijmegen",
+          "label": "Nijmegen",
+          "count": 22,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-nijmegen"
+        },
+        {
+          "id": "nederland-deventer",
+          "label": "Deventer",
+          "count": 26,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-deventer"
+        },
+        {
+          "id": "nederland-kinderdijk",
+          "label": "Kinderdijk",
+          "count": 27,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-kinderdijk"
+        },
+        {
+          "id": "nederland-zaanse-schans",
+          "label": "Zaanse Schans",
+          "count": 20,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-zaanse-schans"
+        },
+        {
+          "id": "nederland-afsluitdijk",
+          "label": "Afsluitdijk",
+          "count": 23,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-afsluitdijk"
+        },
+        {
+          "id": "nederland-neeltje-jans",
+          "label": "Neeltje Jans",
+          "count": 41,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-neeltje-jans"
+        },
+        {
+          "id": "nederland-giethoorn",
+          "label": "Giethoorn",
+          "count": 19,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-giethoorn"
+        },
+        {
+          "id": "nederland-biesbosch",
+          "label": "Biesbosch",
+          "count": 39,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-biesbosch"
+        },
+        {
+          "id": "nederland-texel",
+          "label": "Texel",
+          "count": 28,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-texel"
+        },
+        {
+          "id": "nederland-valkenburg",
+          "label": "Valkenburg",
+          "count": 26,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-valkenburg"
+        },
+        {
+          "id": "nederland-muiderslot",
+          "label": "Muiderslot",
+          "count": 35,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-muiderslot"
+        },
+        {
+          "id": "nederland-veluwe",
+          "label": "Veluwe",
+          "count": 26,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-veluwe"
+        }
+      ]
+    },
+    {
+      "id": "fantasie",
+      "label": "Fantasie & avontuur",
+      "maps": [
+        {
+          "id": "fantasie-eilanden",
+          "label": "Fantasiewereld",
+          "count": 32,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=fantasie-eilanden"
+        },
+        {
+          "id": "ruimte-maanroute",
+          "label": "Ruimtewereld",
+          "count": 27,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=ruimte-maanroute"
+        },
+        {
+          "id": "pool-ijsroute",
+          "label": "Poolwereld",
+          "count": 30,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=pool-ijsroute"
+        },
+        {
+          "id": "onderwater-koraalroute",
+          "label": "Onderwaterwereld",
+          "count": 24,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=onderwater-koraalroute"
+        },
+        {
+          "id": "jungle-watervalroute",
+          "label": "Jungle",
+          "count": 28,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=jungle-watervalroute"
+        },
+        {
+          "id": "woestijn-oaseroute",
+          "label": "Woestijn",
+          "count": 24,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=woestijn-oaseroute"
+        },
+        {
+          "id": "kasteel-poortroute",
+          "label": "Kasteel",
+          "count": 30,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=kasteel-poortroute"
+        },
+        {
+          "id": "bergdorp-kabelroute",
+          "label": "Bergdorp",
+          "count": 28,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=bergdorp-kabelroute"
+        }
+      ]
+    },
+    {
+      "id": "spreektijd",
+      "label": "Spreektijd",
+      "maps": [
+        {
+          "id": "spreektijd-smalltalk",
+          "label": "Spreektijd · Smalltalk",
+          "count": 33,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=spreektijd-smalltalk"
+        },
+        {
+          "id": "spreektijd-werken",
+          "label": "Spreektijd · Werken",
+          "count": 30,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=spreektijd-werken"
+        },
+        {
+          "id": "spreektijd-afspraak",
+          "label": "Spreektijd · Afspraak",
+          "count": 16,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=spreektijd-afspraak"
+        },
+        {
+          "id": "spreektijd-zorg",
+          "label": "Spreektijd · Gezondheid en zorg",
+          "count": 17,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=spreektijd-zorg"
+        }
+      ]
+    },
+    {
+      "id": "kort",
+      "label": "Kort",
+      "maps": [
+        {
+          "id": "markt-pleinroute",
+          "label": "Markt · kort",
+          "count": 12,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=markt-pleinroute"
+        },
+        {
+          "id": "station-perronroute",
+          "label": "Station · kort",
+          "count": 16,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=station-perronroute"
+        },
+        {
+          "id": "buurttuin-kasroute",
+          "label": "Buurttuin · kort",
+          "count": 12,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=buurttuin-kasroute"
+        },
+        {
+          "id": "bibliotheek-leesroute",
+          "label": "Bibliotheek · kort",
+          "count": 16,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=bibliotheek-leesroute"
+        },
+        {
+          "id": "museum-zalenroute",
+          "label": "Museum",
+          "count": 20,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=museum-zalenroute"
+        },
+        {
+          "id": "spreektijd-afspraak",
+          "label": "Spreektijd · Afspraak",
+          "count": 16,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=spreektijd-afspraak"
+        },
+        {
+          "id": "spreektijd-zorg",
+          "label": "Spreektijd · Gezondheid en zorg",
+          "count": 17,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=spreektijd-zorg"
+        },
+        {
+          "id": "nederland-leiden",
+          "label": "Leiden",
+          "count": 18,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-leiden"
+        },
+        {
+          "id": "nederland-haarlem",
+          "label": "Haarlem",
+          "count": 18,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-haarlem"
+        },
+        {
+          "id": "nederland-den-bosch",
+          "label": "Den Bosch",
+          "count": 19,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-den-bosch"
+        },
+        {
+          "id": "nederland-zaanse-schans",
+          "label": "Zaanse Schans",
+          "count": 20,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-zaanse-schans"
+        },
+        {
+          "id": "nederland-giethoorn",
+          "label": "Giethoorn",
+          "count": 19,
+          "url": "https://digibord.taalroute.nl/Praatpad.html?kaart=nederland-giethoorn"
+        }
+      ]
+    }
+  ]
+}

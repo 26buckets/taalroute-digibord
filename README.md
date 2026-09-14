@@ -2,7 +2,7 @@
 
 Eén app met vier spelvormen, bereikbaar via **Instellingen → Spel & beelden**:
 
-- **Speel op de kaart**: Rotterdam, Amsterdam, Utrecht, Dorp, Kust, Bos, Polder, Haven, Heuvels, Fantasiewereld, Ruimtewereld, Markt · kort (12), Station · kort (16), Poolwereld (30), Buurttuin · kort (12), Bibliotheek · kort (16), Museum (20), Onderwaterwereld (24), Jungle (28), Woestijn (24), Kasteel (30) en Bergdorp (28). De kaartkiezer toont deze 22 werelden; oude bronmodules en lesgegevens zijn behouden.
+- **Speel op de kaart**: 46 speelbare kaarten, verdeeld over Algemeen (6), Nederland (28), Fantasie & avontuur (8) en Spreektijd (4). De extra categorie Kort verzamelt de twaalf kaarten met maximaal twintig vakken. Die kaarten blijven ook in hun inhoudelijke categorie staan; er zijn geen dubbele lessen.
 - **Vertel een verhaal**: negen beelddobbelstenen, wisselen van sets, woorden tonen/verbergen, geluid en vorige worp.
 - **Eenvoudig zinnenspel**: persoon, werkwoord en kleur voor de tijd; 24 werkwoorden en maximaal 432 combinaties.
 - **Bouw een zin**: het woordspel met verschillende oefenvormen en een vrij instelbare zinnentafel.
@@ -23,7 +23,7 @@ Open daarna http://127.0.0.1:4173. Er is geen buildstap nodig. Alle speelbeelden
 
 ## Kaart kiezen en voortgang
 
-Gebruik de knop **Kaarten** bovenaan, kies de kaart in **Instellingen → Kaarten & oefenen**, of onder de spelvorm **Speel op de kaart**. De app bewaart de pionstand per kaart. Geluid, iconenstijl, bewaarde groepen, deelnemersgegevens, het woordspel en de verhaaldobbelstenen worden gedeeld.
+Open **Bediening → Wissel kaart** en kies een categorie en afbeelding. Niveau en oefening blijven afzonderlijk instelbaar. De app bewaart de pionstand per kaart. Geluid, iconenstijl, bewaarde groepen, deelnemersgegevens, het woordspel en de verhaaldobbelstenen worden gedeeld.
 
 Bij een nog niet gebruikte kaart gaat de huidige groep mee. Een eerder gebruikte kaart hervat de deelnemers en pionnen van haar bewaarde les; bijgewerkte namen blijven beschikbaar. Opslag hoort bij de browser en het lokale webadres. Gebruik hetzelfde adres om bestaande voortgang terug te vinden. De reservekopie bij Bewaren bevat de huidige kaartles en de gedeelde onderdelen.
 
@@ -84,6 +84,6 @@ Zie [Opdrachtenmatrix en eenvoudig zinnenspel](Documentatie/Opdrachtenmatrix-en-
 - [Leerroutes: gebruik en afbakening](Documentatie/Leerroutes-gebruik-en-afbakening.md)
 - [Kaartcontrole: plaatsing, labels en dieptewerking](Documentatie/Kaartcontrole-en-aanpassingen.md)
 
-De actuele tunnel- en objectplaatsing staat in `Kaarten/ruimtewerking.js`. Beeldplaatsing, toegangspaden en pionbewegingen gebruiken dezelfde geometrie. `npm test` controleert ook alle elf kaarten op leesbare labels en de tien tunnelanimaties.
+De oorspronkelijke kaarten gebruiken `Kaarten/ruimtewerking.js`; latere uitbreidingen gebruiken `Kaarten/nieuwe-werelden.js` en de Nederlandse reeks `Kaarten/nederland-werelden.js`. Beeldplaatsing, toegangspaden en pionbewegingen gebruiken dezelfde geometrie. `npm test` controleert alle 46 kaarten, de categorieën, doorgangen, keuzes, herladen en bestaande bediening.
 
 De [Google Drive-overdracht](https://drive.google.com/drive/folders/15_yOMXk-xiSsmJc0dNCIpJ8ojrF6SvH-) bevat de complete app, de documentatie en het bronarchief met eerdere kaartdemo’s en controlebeelden. De repository bevat de actuele gezamenlijke app. Persoonlijke lesstanden staan in de browser en kunnen via Bewaren worden geëxporteerd.

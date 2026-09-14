@@ -1,0 +1,2 @@
+PASS toolbar hit targets, sidebar bounds, shared/team pawns, fullscreen pause/settings/map controls
+PASS actual audio playback, non-silent sample, both dice games, mute, reload and one-time restoration
