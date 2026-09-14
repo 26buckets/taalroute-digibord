@@ -18,6 +18,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=r
    delete tile.dataset.active;delete tile.dataset.preview;
   }
   for(const [id,z] of [['map-green-front',10],['rotterdam-near-pylon',10],['rotterdam-far-pylon',8]]){const e=document.getElementById(id);if(e&&+getComputedStyle(e).zIndex!==z)failures.push('changed foreground depth '+id);}
+  const bridge=document.querySelector('.dutch-bridge-front');if(bridge&&+getComputedStyle(bridge).zIndex<=11)failures.push('doorway depth overrides bridge railing');
   if(getComputedStyle(pawn.parentElement).zIndex!=='auto')failures.push('pawn wrapper traps dynamic depth');
   return{failures,tileZ,pawnZ};
  });assert.deepEqual(result.failures,[],map.id);console.log('PASS pawn above markers',map.id);

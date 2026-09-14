@@ -1,0 +1,302 @@
+[
+  {
+    "map": "nederland-delft",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-delft",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-leiden",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-leiden",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-haarlem",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-haarlem",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-2",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-2",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-dordrecht",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-dordrecht",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-den-bosch",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-den-bosch",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-groningen",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-groningen",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-maastricht",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-maastricht",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-nijmegen",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-nijmegen",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "pont-8",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "pont-8",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "doorgang-2",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "doorgang-2",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-kinderdijk",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-kinderdijk",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-zaanse-schans",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-zaanse-schans",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-afsluitdijk",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-afsluitdijk",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-neeltje-jans",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-neeltje-jans",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-giethoorn",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-giethoorn",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-13",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-13",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "doorgang-2",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "doorgang-2",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-30",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-30",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-texel",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-texel",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-valkenburg",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-valkenburg",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-2",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-2",
+    "reduced": true,
+    "passed": true
+  },
+  {
+    "map": "nederland-veluwe",
+    "passage": "doorgang-1",
+    "reduced": false,
+    "passed": true
+  },
+  {
+    "map": "nederland-veluwe",
+    "passage": "doorgang-1",
+    "reduced": true,
+    "passed": true
+  }
+]

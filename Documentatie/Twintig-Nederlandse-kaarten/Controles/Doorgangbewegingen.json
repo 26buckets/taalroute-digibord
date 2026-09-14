@@ -1,0 +1,760 @@
+[
+  {
+    "map": "nederland-delft",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-delft",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-leiden",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-leiden",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-haarlem",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-haarlem",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-2",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-amersfoort",
+    "passage": "doorgang-2",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-dordrecht",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-dordrecht",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-den-bosch",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-den-bosch",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-groningen",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-groningen",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-maastricht",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-maastricht",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-nijmegen",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-nijmegen",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "pont-8",
+    "reverse": false,
+    "phases": [
+      "ferry"
+    ],
+    "screenshots": 0
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "pont-8",
+    "reverse": true,
+    "phases": [
+      "ferry"
+    ],
+    "screenshots": 0
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "doorgang-2",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-deventer",
+    "passage": "doorgang-2",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-kinderdijk",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-kinderdijk",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-zaanse-schans",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-zaanse-schans",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-afsluitdijk",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-afsluitdijk",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-neeltje-jans",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-neeltje-jans",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-giethoorn",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-giethoorn",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-13",
+    "reverse": false,
+    "phases": [
+      "ferry"
+    ],
+    "screenshots": 0
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-13",
+    "reverse": true,
+    "phases": [
+      "ferry"
+    ],
+    "screenshots": 0
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "doorgang-2",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "doorgang-2",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-30",
+    "reverse": false,
+    "phases": [
+      "ferry"
+    ],
+    "screenshots": 0
+  },
+  {
+    "map": "nederland-biesbosch",
+    "passage": "pont-30",
+    "reverse": true,
+    "phases": [
+      "ferry"
+    ],
+    "screenshots": 0
+  },
+  {
+    "map": "nederland-texel",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-texel",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-valkenburg",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-valkenburg",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-2",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-muiderslot",
+    "passage": "doorgang-2",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-veluwe",
+    "passage": "doorgang-1",
+    "reverse": false,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  },
+  {
+    "map": "nederland-veluwe",
+    "passage": "doorgang-1",
+    "reverse": true,
+    "phases": [
+      "approach",
+      "enter",
+      "shot-enter",
+      "hidden",
+      "exit",
+      "shot-exit",
+      "arrive",
+      "shot-arrive"
+    ],
+    "screenshots": 3
+  }
+]

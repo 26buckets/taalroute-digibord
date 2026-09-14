@@ -1,0 +1,8725 @@
+[
+  {
+    "id": "nederland-delft",
+    "slug": "delft",
+    "anchors": [
+      [
+        155,
+        829
+      ],
+      [
+        245,
+        760
+      ],
+      [
+        298,
+        718
+      ],
+      [
+        347,
+        678
+      ],
+      [
+        403,
+        640
+      ],
+      [
+        456,
+        608
+      ],
+      [
+        521,
+        573
+      ],
+      [
+        594,
+        539
+      ],
+      [
+        648,
+        515
+      ],
+      [
+        681,
+        505
+      ],
+      [
+        795,
+        485
+      ],
+      [
+        839,
+        454
+      ],
+      [
+        875,
+        425
+      ],
+      [
+        909,
+        399
+      ],
+      [
+        972,
+        380
+      ],
+      [
+        1036,
+        360
+      ],
+      [
+        1627,
+        600
+      ],
+      [
+        1612,
+        560
+      ],
+      [
+        1601,
+        522
+      ],
+      [
+        1588,
+        485
+      ],
+      [
+        1575,
+        453
+      ],
+      [
+        1540,
+        421
+      ],
+      [
+        1495,
+        395
+      ],
+      [
+        1453,
+        374
+      ],
+      [
+        1409,
+        354
+      ],
+      [
+        1370,
+        337
+      ],
+      [
+        1377,
+        309
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 16,
+        "label": "Kadepassage",
+        "enter": [
+          [
+            403,
+            640
+          ],
+          [
+            430,
+            717
+          ],
+          [
+            512,
+            771
+          ],
+          [
+            591,
+            852
+          ],
+          [
+            717,
+            897
+          ],
+          [
+            737,
+            866
+          ],
+          [
+            751,
+            825
+          ]
+        ],
+        "exit": [
+          [
+            1176,
+            858
+          ],
+          [
+            1187,
+            926
+          ],
+          [
+            1280,
+            930
+          ],
+          [
+            1380,
+            890
+          ],
+          [
+            1475,
+            834
+          ],
+          [
+            1537,
+            752
+          ],
+          [
+            1582,
+            645
+          ],
+          [
+            1627,
+            600
+          ]
+        ],
+        "labelPos": [
+          953,
+          902
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 4,
+        "icon": "move-down",
+        "description": "Bij vak 4 kun je via deze doorgang naar vak 16. Je kunt ook de gewone route volgen.",
+        "duration": 10048,
+        "timeline": [
+          0.30759913980450126,
+          0.3971694116899776,
+          0.5165964408706126,
+          0.6061667127560889
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M650 879V740H823V879H817V746H656V879Z",
+        "area": [
+          650,
+          740,
+          823,
+          879
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1087 932V787H1280V932H1274V793H1093V932Z",
+        "area": [
+          1087,
+          787,
+          1280,
+          932
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M522.8 641.9 L549.8 586.9 L546.2 585.1 L519.2 640.1Z M549.1 587.7 L610.1 549.7 L607.9 546.3 L546.9 584.3Z M610.0 549.7 L653.0 525.7 L651.0 522.3 L608.0 546.3Z M652.9 525.8 L698.9 503.8 L697.1 500.2 L651.1 522.2Z M698.4 504.0 L743.4 495.0 L742.6 491.0 L697.6 500.0Z M742.0 494.7 L780.0 516.7 L782.0 513.3 L744.0 491.3Z M780.2 516.8 L819.2 533.8 L820.8 530.2 L781.8 513.2Z",
+        "area": [
+          521,
+          493,
+          820,
+          641
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "9": [
+        [
+          681,
+          505
+        ],
+        [
+          720,
+          505
+        ],
+        [
+          758,
+          499
+        ],
+        [
+          795,
+          485
+        ]
+      ],
+      "15": [
+        [
+          1036,
+          360
+        ],
+        [
+          1092,
+          357
+        ],
+        [
+          1150,
+          378
+        ],
+        [
+          1204,
+          399
+        ],
+        [
+          1270,
+          410
+        ],
+        [
+          1380,
+          439
+        ],
+        [
+          1500,
+          464
+        ],
+        [
+          1533,
+          515
+        ],
+        [
+          1555,
+          584
+        ],
+        [
+          1582,
+          624
+        ],
+        [
+          1627,
+          600
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-5",
+        "to": 10,
+        "label": "Over de grachtbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 5
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 16,
+        "label": "Kadepassage",
+        "enter": [
+          [
+            403,
+            640
+          ],
+          [
+            430,
+            717
+          ],
+          [
+            512,
+            771
+          ],
+          [
+            591,
+            852
+          ],
+          [
+            717,
+            897
+          ],
+          [
+            737,
+            866
+          ],
+          [
+            751,
+            825
+          ]
+        ],
+        "exit": [
+          [
+            1176,
+            858
+          ],
+          [
+            1187,
+            926
+          ],
+          [
+            1280,
+            930
+          ],
+          [
+            1380,
+            890
+          ],
+          [
+            1475,
+            834
+          ],
+          [
+            1537,
+            752
+          ],
+          [
+            1582,
+            645
+          ],
+          [
+            1627,
+            600
+          ]
+        ],
+        "labelPos": [
+          953,
+          902
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 4,
+        "icon": "move-down",
+        "description": "Bij vak 4 kun je via deze doorgang naar vak 16. Je kunt ook de gewone route volgen.",
+        "duration": 10048,
+        "timeline": [
+          0.30759913980450126,
+          0.3971694116899776,
+          0.5165964408706126,
+          0.6061667127560889
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Delft",
+    "title": "Delft — grachten en keramiek",
+    "count": 25,
+    "shapes": [
+      "triangle",
+      "square",
+      "diamond",
+      "circle",
+      "triangle",
+      "square",
+      "diamond",
+      "square",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-delft-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-leiden",
+    "slug": "leiden",
+    "anchors": [
+      [
+        1545,
+        839
+      ],
+      [
+        1500,
+        773
+      ],
+      [
+        1457,
+        728
+      ],
+      [
+        1409,
+        685
+      ],
+      [
+        1357,
+        645
+      ],
+      [
+        1309,
+        603
+      ],
+      [
+        1247,
+        563
+      ],
+      [
+        1190,
+        521
+      ],
+      [
+        1139,
+        487
+      ],
+      [
+        1085,
+        458
+      ],
+      [
+        1002,
+        435
+      ],
+      [
+        922,
+        418
+      ],
+      [
+        837,
+        406
+      ],
+      [
+        790,
+        385
+      ],
+      [
+        735,
+        360
+      ],
+      [
+        672,
+        233
+      ],
+      [
+        679,
+        208
+      ],
+      [
+        692,
+        185
+      ],
+      [
+        707,
+        166
+      ],
+      [
+        784,
+        155
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Tuintunnel",
+        "enter": [
+          [
+            1002,
+            435
+          ],
+          [
+            922,
+            418
+          ],
+          [
+            837,
+            406
+          ],
+          [
+            790,
+            385
+          ],
+          [
+            735,
+            360
+          ],
+          [
+            663,
+            353
+          ],
+          [
+            630,
+            423
+          ],
+          [
+            563,
+            450
+          ],
+          [
+            519,
+            421
+          ],
+          [
+            472,
+            394
+          ],
+          [
+            414,
+            374
+          ],
+          [
+            355,
+            360
+          ],
+          [
+            293,
+            347
+          ],
+          [
+            213,
+            347
+          ],
+          [
+            142,
+            385
+          ],
+          [
+            148,
+            486
+          ],
+          [
+            173,
+            566
+          ],
+          [
+            228,
+            614
+          ],
+          [
+            298,
+            670
+          ],
+          [
+            348,
+            753
+          ],
+          [
+            401,
+            817
+          ],
+          [
+            401,
+            776
+          ],
+          [
+            405,
+            736
+          ],
+          [
+            421,
+            705
+          ],
+          [
+            447,
+            679
+          ],
+          [
+            447,
+            657
+          ]
+        ],
+        "exit": [
+          [
+            733,
+            651
+          ],
+          [
+            738,
+            673
+          ],
+          [
+            764,
+            695
+          ],
+          [
+            807,
+            726
+          ],
+          [
+            850,
+            762
+          ],
+          [
+            908,
+            798
+          ],
+          [
+            978,
+            830
+          ],
+          [
+            1058,
+            859
+          ],
+          [
+            1125,
+            887
+          ],
+          [
+            1110,
+            921
+          ],
+          [
+            966,
+            928
+          ],
+          [
+            798,
+            927
+          ],
+          [
+            622,
+            925
+          ],
+          [
+            503,
+            896
+          ],
+          [
+            447,
+            858
+          ],
+          [
+            402,
+            817
+          ],
+          [
+            348,
+            753
+          ],
+          [
+            298,
+            670
+          ],
+          [
+            228,
+            614
+          ],
+          [
+            173,
+            566
+          ],
+          [
+            148,
+            486
+          ],
+          [
+            142,
+            385
+          ],
+          [
+            213,
+            347
+          ],
+          [
+            293,
+            347
+          ],
+          [
+            355,
+            360
+          ],
+          [
+            414,
+            374
+          ],
+          [
+            472,
+            394
+          ],
+          [
+            519,
+            421
+          ],
+          [
+            563,
+            450
+          ],
+          [
+            630,
+            423
+          ],
+          [
+            663,
+            353
+          ],
+          [
+            735,
+            360
+          ]
+        ],
+        "labelPos": [
+          611,
+          609
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 10,
+        "icon": "move-down",
+        "description": "Bij vak 10 kun je via deze doorgang naar vak 14. Je kunt ook de gewone route volgen.",
+        "duration": 30068,
+        "timeline": [
+          0.3624527123095626,
+          0.3923847737507844,
+          0.43229418900574673,
+          0.4622262504469685
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M363 712V592H493V712H487V598H369V712Z",
+        "area": [
+          363,
+          592,
+          493,
+          712
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M695 696V587H822V696H816V593H701V696Z",
+        "area": [
+          695,
+          587,
+          822,
+          696
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M862.0 440.8 L891.0 424.8 L889.0 421.2 L860.0 437.2Z M889.6 425.0 L939.6 435.0 L940.4 431.0 L890.4 421.0Z M939.3 434.9 L991.3 454.9 L992.7 451.1 L940.7 431.1Z M991.2 454.8 L1047.2 479.8 L1048.8 476.2 L992.8 451.2Z M1046.9 479.7 L1113.9 521.7 L1116.1 518.3 L1049.1 476.3Z M1113.8 521.6 L1178.8 569.6 L1181.2 566.4 L1116.2 518.4Z",
+        "area": [
+          861,
+          423,
+          1180,
+          568
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "14": [
+        [
+          735,
+          360
+        ],
+        [
+          715,
+          335
+        ],
+        [
+          692,
+          305
+        ],
+        [
+          667,
+          277
+        ],
+        [
+          670,
+          249
+        ],
+        [
+          672,
+          233
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-6",
+        "to": 12,
+        "label": "Over de singelbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 6
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Tuintunnel",
+        "enter": [
+          [
+            1002,
+            435
+          ],
+          [
+            922,
+            418
+          ],
+          [
+            837,
+            406
+          ],
+          [
+            790,
+            385
+          ],
+          [
+            735,
+            360
+          ],
+          [
+            663,
+            353
+          ],
+          [
+            630,
+            423
+          ],
+          [
+            563,
+            450
+          ],
+          [
+            519,
+            421
+          ],
+          [
+            472,
+            394
+          ],
+          [
+            414,
+            374
+          ],
+          [
+            355,
+            360
+          ],
+          [
+            293,
+            347
+          ],
+          [
+            213,
+            347
+          ],
+          [
+            142,
+            385
+          ],
+          [
+            148,
+            486
+          ],
+          [
+            173,
+            566
+          ],
+          [
+            228,
+            614
+          ],
+          [
+            298,
+            670
+          ],
+          [
+            348,
+            753
+          ],
+          [
+            401,
+            817
+          ],
+          [
+            401,
+            776
+          ],
+          [
+            405,
+            736
+          ],
+          [
+            421,
+            705
+          ],
+          [
+            447,
+            679
+          ],
+          [
+            447,
+            657
+          ]
+        ],
+        "exit": [
+          [
+            733,
+            651
+          ],
+          [
+            738,
+            673
+          ],
+          [
+            764,
+            695
+          ],
+          [
+            807,
+            726
+          ],
+          [
+            850,
+            762
+          ],
+          [
+            908,
+            798
+          ],
+          [
+            978,
+            830
+          ],
+          [
+            1058,
+            859
+          ],
+          [
+            1125,
+            887
+          ],
+          [
+            1110,
+            921
+          ],
+          [
+            966,
+            928
+          ],
+          [
+            798,
+            927
+          ],
+          [
+            622,
+            925
+          ],
+          [
+            503,
+            896
+          ],
+          [
+            447,
+            858
+          ],
+          [
+            402,
+            817
+          ],
+          [
+            348,
+            753
+          ],
+          [
+            298,
+            670
+          ],
+          [
+            228,
+            614
+          ],
+          [
+            173,
+            566
+          ],
+          [
+            148,
+            486
+          ],
+          [
+            142,
+            385
+          ],
+          [
+            213,
+            347
+          ],
+          [
+            293,
+            347
+          ],
+          [
+            355,
+            360
+          ],
+          [
+            414,
+            374
+          ],
+          [
+            472,
+            394
+          ],
+          [
+            519,
+            421
+          ],
+          [
+            563,
+            450
+          ],
+          [
+            630,
+            423
+          ],
+          [
+            663,
+            353
+          ],
+          [
+            735,
+            360
+          ]
+        ],
+        "labelPos": [
+          611,
+          609
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 10,
+        "icon": "move-down",
+        "description": "Bij vak 10 kun je via deze doorgang naar vak 14. Je kunt ook de gewone route volgen.",
+        "duration": 30068,
+        "timeline": [
+          0.3624527123095626,
+          0.3923847737507844,
+          0.43229418900574673,
+          0.4622262504469685
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Leiden",
+    "title": "Leiden — naar de Burcht",
+    "count": 18,
+    "shapes": [
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "square",
+      "triangle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-leiden-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-haarlem",
+    "slug": "haarlem",
+    "anchors": [
+      [
+        137,
+        840
+      ],
+      [
+        255,
+        819
+      ],
+      [
+        317,
+        787
+      ],
+      [
+        389,
+        744
+      ],
+      [
+        438,
+        700
+      ],
+      [
+        442,
+        650
+      ],
+      [
+        435,
+        597
+      ],
+      [
+        522,
+        585
+      ],
+      [
+        769,
+        522
+      ],
+      [
+        833,
+        513
+      ],
+      [
+        893,
+        503
+      ],
+      [
+        1097,
+        480
+      ],
+      [
+        1176,
+        469
+      ],
+      [
+        1238,
+        457
+      ],
+      [
+        1279,
+        426
+      ],
+      [
+        1310,
+        394
+      ],
+      [
+        1351,
+        365
+      ],
+      [
+        1380,
+        337
+      ],
+      [
+        1504,
+        158
+      ],
+      [
+        1529,
+        180
+      ],
+      [
+        1574,
+        193
+      ],
+      [
+        1630,
+        200
+      ],
+      [
+        1588,
+        146
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 18,
+        "label": "Pakhuispassage",
+        "enter": [
+          [
+            1380,
+            337
+          ],
+          [
+            1385,
+            329
+          ],
+          [
+            1385,
+            309
+          ]
+        ],
+        "exit": [
+          [
+            1469,
+            139
+          ],
+          [
+            1482,
+            150
+          ],
+          [
+            1504,
+            158
+          ]
+        ],
+        "labelPos": [
+          1220,
+          280
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 17,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 17 naar 18. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1308 353V257H1409V353H1403V263H1314V353Z",
+        "area": [
+          1308,
+          257,
+          1409,
+          353
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1441 152V94H1484V152H1478V100H1447V152Z",
+        "area": [
+          1441,
+          94,
+          1484,
+          152
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M560.6 579.9 L608.6 564.9 L607.4 561.1 L559.4 576.1Z M608.5 564.9 L663.5 549.9 L662.5 546.1 L607.5 561.1Z M663.4 550.0 L712.4 539.0 L711.6 535.0 L662.6 546.0Z M712.3 539.0 L756.3 532.0 L755.7 528.0 L711.7 535.0Z M756.3 532.0 L893.3 513.0 L892.7 509.0 L755.7 528.0Z M892.9 513.0 L955.9 515.0 L956.1 511.0 L893.1 509.0Z M956.3 515.0 L1017.3 506.0 L1016.7 502.0 L955.7 511.0Z M1017.4 506.0 L1075.4 493.0 L1074.6 489.0 L1016.6 502.0Z",
+        "area": [
+          560,
+          491,
+          1075,
+          578
+        ],
+        "frontY": 2000,
+        "bridge": true
+      },
+      {
+        "id": "brug-staander",
+        "path": "M716.0 541.1 L719.0 421.1 L711.0 420.9 L708.0 540.9Z",
+        "area": [
+          712,
+          421,
+          715,
+          541
+        ],
+        "frontY": 2000,
+        "bridge": true
+      },
+      {
+        "id": "brug-staander2",
+        "path": "M960.0 515.0 L959.0 393.0 L951.0 393.0 L952.0 515.0Z",
+        "area": [
+          955,
+          393,
+          956,
+          515
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "7": [
+        [
+          522,
+          585
+        ],
+        [
+          598,
+          562
+        ],
+        [
+          670,
+          544
+        ],
+        [
+          724,
+          533
+        ],
+        [
+          769,
+          522
+        ]
+      ],
+      "10": [
+        [
+          893,
+          503
+        ],
+        [
+          961,
+          503
+        ],
+        [
+          1022,
+          491
+        ],
+        [
+          1097,
+          480
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-7",
+        "to": 11,
+        "label": "Over de ophaalbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 7
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 18,
+        "label": "Pakhuispassage",
+        "enter": [
+          [
+            1380,
+            337
+          ],
+          [
+            1385,
+            329
+          ],
+          [
+            1385,
+            309
+          ]
+        ],
+        "exit": [
+          [
+            1469,
+            139
+          ],
+          [
+            1482,
+            150
+          ],
+          [
+            1504,
+            158
+          ]
+        ],
+        "labelPos": [
+          1220,
+          280
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 17,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 17 naar 18. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Haarlem",
+    "title": "Haarlem — langs het Spaarne",
+    "count": 21,
+    "shapes": [
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "diamond",
+      "triangle",
+      "circle",
+      "square",
+      "triangle",
+      "diamond"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-haarlem-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-amersfoort",
+    "slug": "amersfoort",
+    "anchors": [
+      [
+        382,
+        827
+      ],
+      [
+        268,
+        774
+      ],
+      [
+        220,
+        728
+      ],
+      [
+        194,
+        685
+      ],
+      [
+        209,
+        644
+      ],
+      [
+        255,
+        600
+      ],
+      [
+        306,
+        558
+      ],
+      [
+        337,
+        519
+      ],
+      [
+        341,
+        480
+      ],
+      [
+        318,
+        443
+      ],
+      [
+        276,
+        430
+      ],
+      [
+        304,
+        198
+      ],
+      [
+        267,
+        209
+      ],
+      [
+        228,
+        226
+      ],
+      [
+        185,
+        247
+      ],
+      [
+        136,
+        268
+      ],
+      [
+        88,
+        289
+      ],
+      [
+        475,
+        419
+      ],
+      [
+        545,
+        399
+      ],
+      [
+        606,
+        385
+      ],
+      [
+        661,
+        371
+      ],
+      [
+        706,
+        361
+      ],
+      [
+        751,
+        346
+      ],
+      [
+        748,
+        321
+      ],
+      [
+        953,
+        769
+      ],
+      [
+        988,
+        723
+      ],
+      [
+        1037,
+        670
+      ],
+      [
+        1073,
+        616
+      ],
+      [
+        1094,
+        567
+      ],
+      [
+        1119,
+        519
+      ],
+      [
+        1158,
+        480
+      ],
+      [
+        1209,
+        445
+      ],
+      [
+        1264,
+        421
+      ],
+      [
+        1333,
+        402
+      ],
+      [
+        1401,
+        391
+      ],
+      [
+        1565,
+        413
+      ],
+      [
+        1569,
+        376
+      ],
+      [
+        1545,
+        348
+      ],
+      [
+        1509,
+        322
+      ],
+      [
+        1474,
+        301
+      ],
+      [
+        1417,
+        266
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 11,
+        "label": "Door de stadswal",
+        "enter": [
+          [
+            276,
+            430
+          ],
+          [
+            287,
+            410
+          ],
+          [
+            286,
+            392
+          ]
+        ],
+        "exit": [
+          [
+            294,
+            168
+          ],
+          [
+            297,
+            187
+          ],
+          [
+            304,
+            198
+          ]
+        ],
+        "labelPos": [
+          453,
+          296
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 10,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 10 naar 11. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 24,
+        "label": "Door de Koppelpoort",
+        "enter": [
+          [
+            748,
+            321
+          ],
+          [
+            748,
+            313
+          ],
+          [
+            749,
+            295
+          ]
+        ],
+        "exit": [
+          [
+            1291,
+            311
+          ],
+          [
+            1358,
+            332
+          ],
+          [
+            1435,
+            370
+          ],
+          [
+            1490,
+            405
+          ],
+          [
+            1484,
+            438
+          ],
+          [
+            1396,
+            458
+          ],
+          [
+            1300,
+            488
+          ],
+          [
+            1215,
+            558
+          ],
+          [
+            1150,
+            654
+          ],
+          [
+            1080,
+            735
+          ],
+          [
+            1002,
+            793
+          ],
+          [
+            953,
+            769
+          ]
+        ],
+        "labelPos": [
+          816,
+          240
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 23,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 23 naar 24. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 9385,
+        "timeline": [
+          0.06925752121430297,
+          0.16515255058795325,
+          0.29301258975282024,
+          0.38890761912647054
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M245 423V339H330V423H324V345H251V423Z",
+        "area": [
+          245,
+          339,
+          330,
+          423
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M269 183V131H321V183H315V137H275V183Z",
+        "area": [
+          269,
+          131,
+          321,
+          183
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-2-mond-0",
+        "path": "M720 334V264H780V334H774V270H726V334Z",
+        "area": [
+          720,
+          264,
+          780,
+          334
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M1125.8 672.0 L1162.8 605.0 L1159.2 603.0 L1122.2 670.0Z M1162.7 605.1 L1205.7 537.1 L1202.3 534.9 L1159.3 602.9Z M1205.4 537.4 L1255.4 488.4 L1252.6 485.6 L1202.6 534.6Z M1255.0 488.7 L1311.0 457.7 L1309.0 454.3 L1253.0 485.3Z M1310.6 457.9 L1380.6 436.9 L1379.4 433.1 L1309.4 454.1Z M1380.4 437.0 L1455.4 423.0 L1454.6 419.0 L1379.6 433.0Z M1455.4 423.0 L1512.4 411.0 L1511.6 407.0 L1454.6 419.0Z",
+        "area": [
+          1124,
+          409,
+          1512,
+          671
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "16": [
+        [
+          88,
+          289
+        ],
+        [
+          60,
+          311
+        ],
+        [
+          122,
+          310
+        ],
+        [
+          212,
+          287
+        ],
+        [
+          324,
+          253
+        ],
+        [
+          422,
+          236
+        ],
+        [
+          438,
+          265
+        ],
+        [
+          425,
+          349
+        ],
+        [
+          406,
+          412
+        ],
+        [
+          475,
+          419
+        ]
+      ],
+      "34": [
+        [
+          1401,
+          391
+        ],
+        [
+          1469,
+          383
+        ],
+        [
+          1521,
+          390
+        ],
+        [
+          1565,
+          413
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-25",
+        "to": 35,
+        "label": "Over de stenen brug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 25
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 11,
+        "label": "Door de stadswal",
+        "enter": [
+          [
+            276,
+            430
+          ],
+          [
+            287,
+            410
+          ],
+          [
+            286,
+            392
+          ]
+        ],
+        "exit": [
+          [
+            294,
+            168
+          ],
+          [
+            297,
+            187
+          ],
+          [
+            304,
+            198
+          ]
+        ],
+        "labelPos": [
+          453,
+          296
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 10,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 10 naar 11. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 24,
+        "label": "Door de Koppelpoort",
+        "enter": [
+          [
+            748,
+            321
+          ],
+          [
+            748,
+            313
+          ],
+          [
+            749,
+            295
+          ]
+        ],
+        "exit": [
+          [
+            1291,
+            311
+          ],
+          [
+            1358,
+            332
+          ],
+          [
+            1435,
+            370
+          ],
+          [
+            1490,
+            405
+          ],
+          [
+            1484,
+            438
+          ],
+          [
+            1396,
+            458
+          ],
+          [
+            1300,
+            488
+          ],
+          [
+            1215,
+            558
+          ],
+          [
+            1150,
+            654
+          ],
+          [
+            1080,
+            735
+          ],
+          [
+            1002,
+            793
+          ],
+          [
+            953,
+            769
+          ]
+        ],
+        "labelPos": [
+          816,
+          240
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 23,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 23 naar 24. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 9385,
+        "timeline": [
+          0.06925752121430297,
+          0.16515255058795325,
+          0.29301258975282024,
+          0.38890761912647054
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Amersfoort",
+    "title": "Amersfoort — door de stadspoort",
+    "count": 39,
+    "shapes": [
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "square",
+      "diamond",
+      "square",
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "triangle",
+      "circle",
+      "diamond",
+      "square",
+      "triangle",
+      "diamond",
+      "triangle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "square",
+      "triangle",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-amersfoort-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-dordrecht",
+    "slug": "dordrecht",
+    "anchors": [
+      [
+        110,
+        847
+      ],
+      [
+        179,
+        781
+      ],
+      [
+        222,
+        739
+      ],
+      [
+        263,
+        693
+      ],
+      [
+        304,
+        650
+      ],
+      [
+        355,
+        609
+      ],
+      [
+        415,
+        576
+      ],
+      [
+        487,
+        561
+      ],
+      [
+        655,
+        491
+      ],
+      [
+        688,
+        465
+      ],
+      [
+        718,
+        436
+      ],
+      [
+        746,
+        407
+      ],
+      [
+        998,
+        442
+      ],
+      [
+        962,
+        471
+      ],
+      [
+        925,
+        503
+      ],
+      [
+        884,
+        533
+      ],
+      [
+        1017,
+        489
+      ],
+      [
+        1083,
+        504
+      ],
+      [
+        1162,
+        515
+      ],
+      [
+        1245,
+        510
+      ],
+      [
+        1296,
+        480
+      ],
+      [
+        1339,
+        442
+      ],
+      [
+        1370,
+        409
+      ],
+      [
+        1407,
+        381
+      ],
+      [
+        1447,
+        357
+      ],
+      [
+        1512,
+        326
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 12,
+        "label": "Pakhuizenpassage",
+        "enter": [
+          [
+            746,
+            407
+          ],
+          [
+            746,
+            395
+          ],
+          [
+            744,
+            376
+          ]
+        ],
+        "exit": [
+          [
+            1026,
+            411
+          ],
+          [
+            1015,
+            429
+          ],
+          [
+            998,
+            442
+          ]
+        ],
+        "labelPos": [
+          855,
+          343
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 11,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 11 naar 12. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M700 399V324H779V399H773V330H706V399Z",
+        "area": [
+          700,
+          324,
+          779,
+          399
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M972 443V353H1060V443H1054V359H978V443Z",
+        "area": [
+          972,
+          353,
+          1060,
+          443
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M541.7 577.9 L600.7 556.9 L599.3 553.1 L540.3 574.1Z M600.5 556.9 L674.5 536.9 L673.5 533.1 L599.5 553.1Z M674.7 536.9 L721.7 519.9 L720.3 516.1 L673.3 533.1Z",
+        "area": [
+          541,
+          518,
+          721,
+          576
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "7": [
+        [
+          487,
+          561
+        ],
+        [
+          536,
+          552
+        ],
+        [
+          601,
+          540
+        ],
+        [
+          650,
+          529
+        ],
+        [
+          667,
+          513
+        ],
+        [
+          655,
+          491
+        ]
+      ],
+      "15": [
+        [
+          884,
+          533
+        ],
+        [
+          938,
+          529
+        ],
+        [
+          988,
+          505
+        ],
+        [
+          1017,
+          489
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-7",
+        "to": 8,
+        "label": "Over de draaibrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 7
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 12,
+        "label": "Pakhuizenpassage",
+        "enter": [
+          [
+            746,
+            407
+          ],
+          [
+            746,
+            395
+          ],
+          [
+            744,
+            376
+          ]
+        ],
+        "exit": [
+          [
+            1026,
+            411
+          ],
+          [
+            1015,
+            429
+          ],
+          [
+            998,
+            442
+          ]
+        ],
+        "labelPos": [
+          855,
+          343
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 11,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 11 naar 12. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Dordrecht",
+    "title": "Dordrecht — stad aan het water",
+    "count": 24,
+    "shapes": [
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "triangle",
+      "diamond",
+      "circle",
+      "triangle",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "square",
+      "triangle",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "square"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-dordrecht-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-den-bosch",
+    "slug": "den-bosch",
+    "anchors": [
+      [
+        305,
+        790
+      ],
+      [
+        445,
+        740
+      ],
+      [
+        531,
+        702
+      ],
+      [
+        618,
+        672
+      ],
+      [
+        698,
+        632
+      ],
+      [
+        772,
+        601
+      ],
+      [
+        855,
+        574
+      ],
+      [
+        941,
+        551
+      ],
+      [
+        1009,
+        526
+      ],
+      [
+        1046,
+        495
+      ],
+      [
+        1083,
+        465
+      ],
+      [
+        1091,
+        430
+      ],
+      [
+        1048,
+        378
+      ],
+      [
+        1084,
+        355
+      ],
+      [
+        1131,
+        328
+      ],
+      [
+        1179,
+        304
+      ],
+      [
+        1221,
+        282
+      ],
+      [
+        1276,
+        266
+      ],
+      [
+        1338,
+        248
+      ],
+      [
+        1404,
+        231
+      ],
+      [
+        1520,
+        220
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 10,
+        "label": "Varen onder de huizen",
+        "enter": [
+          [
+            445,
+            740
+          ],
+          [
+            429,
+            677
+          ],
+          [
+            371,
+            637
+          ],
+          [
+            319,
+            594
+          ],
+          [
+            268,
+            551
+          ],
+          [
+            318,
+            512
+          ],
+          [
+            369,
+            477
+          ],
+          [
+            428,
+            461
+          ],
+          [
+            481,
+            458
+          ],
+          [
+            536,
+            455
+          ],
+          [
+            554,
+            429
+          ],
+          [
+            577,
+            400
+          ]
+        ],
+        "exit": [
+          [
+            1295,
+            625
+          ],
+          [
+            1250,
+            667
+          ],
+          [
+            1170,
+            674
+          ],
+          [
+            1110,
+            641
+          ],
+          [
+            1112,
+            614
+          ],
+          [
+            1119,
+            581
+          ],
+          [
+            1110,
+            512
+          ],
+          [
+            1083,
+            465
+          ]
+        ],
+        "labelPos": [
+          743,
+          452
+        ],
+        "optional": true,
+        "boat": true,
+        "hiddenLabel": "Onder de huizen",
+        "from": 1,
+        "boardAt": 8,
+        "landAt": 3,
+        "icon": "ship",
+        "description": "Bij vak 1 kun je via deze doorgang naar vak 10. Je kunt ook de gewone route volgen.",
+        "duration": 9195,
+        "timeline": [
+          0.43200729256456255,
+          0.5298898198746603,
+          0.6603998562881238,
+          0.7582823835982215
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M520 433V307H646V433H640V313H526V433Z",
+        "area": [
+          520,
+          307,
+          646,
+          433
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1231 675V547H1362V675H1356V553H1237V675Z",
+        "area": [
+          1231,
+          547,
+          1362,
+          675
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M642.0 702.7 L699.0 669.7 L697.0 666.3 L640.0 699.3Z M698.9 669.8 L762.9 637.8 L761.1 634.2 L697.1 666.2Z M762.9 637.8 L833.9 602.8 L832.1 599.2 L761.1 634.2Z M833.6 602.9 L900.6 579.9 L899.4 576.1 L832.4 599.1Z M900.5 579.9 L977.5 559.9 L976.5 556.1 L899.5 576.1Z",
+        "area": [
+          641,
+          558,
+          977,
+          701
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "11": [
+        [
+          1091,
+          430
+        ],
+        [
+          1095,
+          409
+        ],
+        [
+          1072,
+          395
+        ],
+        [
+          1048,
+          378
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-2",
+        "to": 8,
+        "label": "Over de Binnendieze",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 2
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 10,
+        "label": "Varen onder de huizen",
+        "enter": [
+          [
+            445,
+            740
+          ],
+          [
+            429,
+            677
+          ],
+          [
+            371,
+            637
+          ],
+          [
+            319,
+            594
+          ],
+          [
+            268,
+            551
+          ],
+          [
+            318,
+            512
+          ],
+          [
+            369,
+            477
+          ],
+          [
+            428,
+            461
+          ],
+          [
+            481,
+            458
+          ],
+          [
+            536,
+            455
+          ],
+          [
+            554,
+            429
+          ],
+          [
+            577,
+            400
+          ]
+        ],
+        "exit": [
+          [
+            1295,
+            625
+          ],
+          [
+            1250,
+            667
+          ],
+          [
+            1170,
+            674
+          ],
+          [
+            1110,
+            641
+          ],
+          [
+            1112,
+            614
+          ],
+          [
+            1119,
+            581
+          ],
+          [
+            1110,
+            512
+          ],
+          [
+            1083,
+            465
+          ]
+        ],
+        "labelPos": [
+          743,
+          452
+        ],
+        "optional": true,
+        "boat": true,
+        "hiddenLabel": "Onder de huizen",
+        "from": 1,
+        "boardAt": 8,
+        "landAt": 3,
+        "icon": "ship",
+        "description": "Bij vak 1 kun je via deze doorgang naar vak 10. Je kunt ook de gewone route volgen.",
+        "duration": 9195,
+        "timeline": [
+          0.43200729256456255,
+          0.5298898198746603,
+          0.6603998562881238,
+          0.7582823835982215
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Den Bosch",
+    "title": "Den Bosch — boven en onder de stad",
+    "count": 19,
+    "shapes": [
+      "square",
+      "diamond",
+      "triangle",
+      "square",
+      "diamond",
+      "circle",
+      "square",
+      "diamond",
+      "triangle",
+      "circle",
+      "square",
+      "circle",
+      "triangle",
+      "square",
+      "diamond",
+      "circle",
+      "triangle",
+      "square",
+      "diamond"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-den-bosch-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-groningen",
+    "slug": "groningen",
+    "anchors": [
+      [
+        148,
+        815
+      ],
+      [
+        250,
+        750
+      ],
+      [
+        318,
+        716
+      ],
+      [
+        384,
+        682
+      ],
+      [
+        438,
+        643
+      ],
+      [
+        457,
+        600
+      ],
+      [
+        466,
+        561
+      ],
+      [
+        479,
+        525
+      ],
+      [
+        504,
+        491
+      ],
+      [
+        523,
+        460
+      ],
+      [
+        736,
+        547
+      ],
+      [
+        794,
+        568
+      ],
+      [
+        850,
+        590
+      ],
+      [
+        907,
+        612
+      ],
+      [
+        983,
+        613
+      ],
+      [
+        1058,
+        610
+      ],
+      [
+        1120,
+        587
+      ],
+      [
+        1151,
+        551
+      ],
+      [
+        1185,
+        515
+      ],
+      [
+        1221,
+        481
+      ],
+      [
+        1250,
+        451
+      ],
+      [
+        1287,
+        425
+      ],
+      [
+        1320,
+        402
+      ],
+      [
+        1356,
+        380
+      ],
+      [
+        1383,
+        363
+      ],
+      [
+        1412,
+        347
+      ],
+      [
+        1440,
+        310
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 20,
+        "label": "Pleinonderdoorgang",
+        "enter": [
+          [
+            983,
+            613
+          ],
+          [
+            1080,
+            630
+          ],
+          [
+            1175,
+            614
+          ],
+          [
+            1286,
+            610
+          ],
+          [
+            1345,
+            590
+          ],
+          [
+            1357,
+            557
+          ]
+        ],
+        "exit": [
+          [
+            1054,
+            515
+          ],
+          [
+            1071,
+            548
+          ],
+          [
+            1120,
+            539
+          ],
+          [
+            1164,
+            486
+          ],
+          [
+            1250,
+            451
+          ]
+        ],
+        "labelPos": [
+          1516,
+          596
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 14,
+        "icon": "move-down",
+        "description": "Bij vak 14 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+        "duration": 6865,
+        "timeline": [
+          0.35755280501731446,
+          0.48865397835817215,
+          0.6634555428126491,
+          0.7945567161535068
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1255 615V493H1451V615H1445V499H1261V615Z",
+        "area": [
+          1255,
+          493,
+          1451,
+          615
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M941 554V446H1145V554H1139V452H947V554Z",
+        "area": [
+          941,
+          446,
+          1145,
+          554
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M551.5 500.9 L612.5 515.9 L613.5 512.1 L552.5 497.1Z M612.3 515.9 L675.3 538.9 L676.7 535.1 L613.7 512.1Z M675.3 538.9 L736.3 560.9 L737.7 557.1 L676.7 535.1Z M736.1 560.8 L792.1 587.8 L793.9 584.2 L737.9 557.2Z M792.2 587.8 L850.2 613.8 L851.8 610.2 L793.8 584.2Z",
+        "area": [
+          552,
+          499,
+          851,
+          612
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "9": [
+        [
+          523,
+          460
+        ],
+        [
+          553,
+          474
+        ],
+        [
+          599,
+          490
+        ],
+        [
+          663,
+          509
+        ],
+        [
+          703,
+          529
+        ],
+        [
+          736,
+          547
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-9",
+        "to": 13,
+        "label": "Over de museumbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 9
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 20,
+        "label": "Pleinonderdoorgang",
+        "enter": [
+          [
+            983,
+            613
+          ],
+          [
+            1080,
+            630
+          ],
+          [
+            1175,
+            614
+          ],
+          [
+            1286,
+            610
+          ],
+          [
+            1345,
+            590
+          ],
+          [
+            1357,
+            557
+          ]
+        ],
+        "exit": [
+          [
+            1054,
+            515
+          ],
+          [
+            1071,
+            548
+          ],
+          [
+            1120,
+            539
+          ],
+          [
+            1164,
+            486
+          ],
+          [
+            1250,
+            451
+          ]
+        ],
+        "labelPos": [
+          1516,
+          596
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 14,
+        "icon": "move-down",
+        "description": "Bij vak 14 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+        "duration": 6865,
+        "timeline": [
+          0.35755280501731446,
+          0.48865397835817215,
+          0.6634555428126491,
+          0.7945567161535068
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Groningen",
+    "title": "Groningen — markt en museum",
+    "count": 25,
+    "shapes": [
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "triangle",
+      "circle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "square",
+      "triangle",
+      "circle",
+      "diamond",
+      "square",
+      "triangle",
+      "circle",
+      "diamond",
+      "triangle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-groningen-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-maastricht",
+    "slug": "maastricht",
+    "anchors": [
+      [
+        149,
+        839
+      ],
+      [
+        263,
+        795
+      ],
+      [
+        236,
+        754
+      ],
+      [
+        217,
+        710
+      ],
+      [
+        206,
+        670
+      ],
+      [
+        210,
+        628
+      ],
+      [
+        218,
+        587
+      ],
+      [
+        237,
+        553
+      ],
+      [
+        273,
+        523
+      ],
+      [
+        332,
+        501
+      ],
+      [
+        397,
+        481
+      ],
+      [
+        459,
+        462
+      ],
+      [
+        522,
+        447
+      ],
+      [
+        586,
+        431
+      ],
+      [
+        646,
+        418
+      ],
+      [
+        706,
+        404
+      ],
+      [
+        765,
+        391
+      ],
+      [
+        822,
+        379
+      ],
+      [
+        874,
+        369
+      ],
+      [
+        919,
+        359
+      ],
+      [
+        967,
+        351
+      ],
+      [
+        1012,
+        346
+      ],
+      [
+        1058,
+        338
+      ],
+      [
+        1376,
+        558
+      ],
+      [
+        1390,
+        534
+      ],
+      [
+        1543,
+        466
+      ],
+      [
+        1551,
+        433
+      ],
+      [
+        1546,
+        398
+      ],
+      [
+        1528,
+        367
+      ],
+      [
+        1505,
+        343
+      ],
+      [
+        1481,
+        322
+      ],
+      [
+        1455,
+        290
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 25,
+        "label": "Kademuurpassage",
+        "enter": [
+          [
+            1390,
+            534
+          ],
+          [
+            1381,
+            519
+          ],
+          [
+            1381,
+            504
+          ]
+        ],
+        "exit": [
+          [
+            1519,
+            553
+          ],
+          [
+            1514,
+            574
+          ],
+          [
+            1500,
+            603
+          ],
+          [
+            1460,
+            619
+          ],
+          [
+            1430,
+            592
+          ],
+          [
+            1430,
+            536
+          ],
+          [
+            1452,
+            498
+          ],
+          [
+            1500,
+            481
+          ],
+          [
+            1543,
+            466
+          ]
+        ],
+        "labelPos": [
+          1327,
+          614
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 24,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 24 naar 25. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 5730,
+        "timeline": [
+          0.1134358848607654,
+          0.2705009562064406,
+          0.4799210513340075,
+          0.6369861226796827
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1360 531V474H1403V531H1397V480H1366V531Z",
+        "area": [
+          1360,
+          474,
+          1403,
+          531
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1487 580V513H1545V580H1539V519H1493V580Z",
+        "area": [
+          1487,
+          513,
+          1545,
+          580
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brugmuur",
+        "path": "M337.7 522.4 L526.7 471.4 L525.3 466.6 L336.3 517.6Z M526.6 471.4 L713.6 426.4 L712.4 421.6 L525.4 466.6Z M713.5 426.5 L900.5 389.5 L899.5 384.5 L712.5 421.5Z M900.4 389.5 L1068.4 360.5 L1067.6 355.5 L899.6 384.5Z",
+        "area": [
+          337,
+          358,
+          1068,
+          520
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "22": [
+        [
+          1058,
+          338
+        ],
+        [
+          1103,
+          331
+        ],
+        [
+          1152,
+          332
+        ],
+        [
+          1191,
+          363
+        ],
+        [
+          1223,
+          414
+        ],
+        [
+          1267,
+          470
+        ],
+        [
+          1298,
+          514
+        ],
+        [
+          1343,
+          554
+        ],
+        [
+          1376,
+          558
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-8",
+        "to": 22,
+        "label": "Over de Sint-Servaasbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 8
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 25,
+        "label": "Kademuurpassage",
+        "enter": [
+          [
+            1390,
+            534
+          ],
+          [
+            1381,
+            519
+          ],
+          [
+            1381,
+            504
+          ]
+        ],
+        "exit": [
+          [
+            1519,
+            553
+          ],
+          [
+            1514,
+            574
+          ],
+          [
+            1500,
+            603
+          ],
+          [
+            1460,
+            619
+          ],
+          [
+            1430,
+            592
+          ],
+          [
+            1430,
+            536
+          ],
+          [
+            1452,
+            498
+          ],
+          [
+            1500,
+            481
+          ],
+          [
+            1543,
+            466
+          ]
+        ],
+        "labelPos": [
+          1327,
+          614
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 24,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 24 naar 25. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 5730,
+        "timeline": [
+          0.1134358848607654,
+          0.2705009562064406,
+          0.4799210513340075,
+          0.6369861226796827
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Maastricht",
+    "title": "Maastricht — over de Maas",
+    "count": 30,
+    "shapes": [
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "triangle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "triangle",
+      "circle",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-maastricht-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-nijmegen",
+    "slug": "nijmegen",
+    "anchors": [
+      [
+        1309,
+        859
+      ],
+      [
+        1210,
+        787
+      ],
+      [
+        1161,
+        749
+      ],
+      [
+        1118,
+        697
+      ],
+      [
+        1084,
+        650
+      ],
+      [
+        1088,
+        611
+      ],
+      [
+        1126,
+        583
+      ],
+      [
+        1158,
+        567
+      ],
+      [
+        632,
+        458
+      ],
+      [
+        592,
+        478
+      ],
+      [
+        554,
+        503
+      ],
+      [
+        615,
+        532
+      ],
+      [
+        679,
+        558
+      ],
+      [
+        751,
+        585
+      ],
+      [
+        823,
+        611
+      ],
+      [
+        898,
+        646
+      ],
+      [
+        977,
+        678
+      ],
+      [
+        1054,
+        716
+      ],
+      [
+        845,
+        367
+      ],
+      [
+        790,
+        350
+      ],
+      [
+        736,
+        336
+      ],
+      [
+        682,
+        322
+      ],
+      [
+        649,
+        302
+      ],
+      [
+        649,
+        279
+      ],
+      [
+        680,
+        265
+      ],
+      [
+        725,
+        252
+      ],
+      [
+        1132,
+        351
+      ],
+      [
+        1189,
+        367
+      ],
+      [
+        1255,
+        384
+      ],
+      [
+        1334,
+        392
+      ],
+      [
+        1416,
+        391
+      ],
+      [
+        1514,
+        347
+      ],
+      [
+        1531,
+        319
+      ],
+      [
+        1549,
+        269
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 8,
+        "label": "Walpassage",
+        "enter": [
+          [
+            1158,
+            567
+          ],
+          [
+            1160,
+            548
+          ],
+          [
+            1160,
+            532
+          ]
+        ],
+        "exit": [
+          [
+            654,
+            429
+          ],
+          [
+            645,
+            446
+          ],
+          [
+            632,
+            458
+          ]
+        ],
+        "labelPos": [
+          923,
+          502
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 7,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 7 naar 8. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1092 566V476H1201V566H1195V482H1098V566Z",
+        "area": [
+          1092,
+          476,
+          1201,
+          566
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M595 449V374H686V449H680V380H601V449Z",
+        "area": [
+          595,
+          374,
+          686,
+          449
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "parkbrug-front",
+        "path": "M835.6 292.9 L884.6 277.9 L883.4 274.1 L834.4 289.1Z M883.9 278.0 L936.9 280.0 L937.1 276.0 L884.1 274.0Z M936.6 280.0 L992.6 291.0 L993.4 287.0 L937.4 276.0Z M992.3 290.9 L1050.3 310.9 L1051.7 307.1 L993.7 287.1Z",
+        "area": [
+          835,
+          276,
+          1051,
+          309
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "17": [
+        [
+          1054,
+          716
+        ],
+        [
+          1054,
+          667
+        ],
+        [
+          1004,
+          613
+        ],
+        [
+          905,
+          561
+        ],
+        [
+          838,
+          529
+        ],
+        [
+          845,
+          492
+        ],
+        [
+          882,
+          438
+        ],
+        [
+          910,
+          402
+        ],
+        [
+          874,
+          382
+        ],
+        [
+          845,
+          367
+        ]
+      ],
+      "25": [
+        [
+          725,
+          252
+        ],
+        [
+          775,
+          265
+        ],
+        [
+          818,
+          280
+        ],
+        [
+          856,
+          299
+        ],
+        [
+          891,
+          293
+        ],
+        [
+          930,
+          296
+        ],
+        [
+          973,
+          305
+        ],
+        [
+          1018,
+          320
+        ],
+        [
+          1063,
+          332
+        ],
+        [
+          1102,
+          336
+        ],
+        [
+          1132,
+          351
+        ]
+      ],
+      "30": [
+        [
+          1416,
+          391
+        ],
+        [
+          1472,
+          375
+        ],
+        [
+          1514,
+          347
+        ]
+      ],
+      "32": [
+        [
+          1531,
+          319
+        ],
+        [
+          1544,
+          294
+        ],
+        [
+          1549,
+          269
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-25",
+        "to": 26,
+        "label": "Over de parkbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 25
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 8,
+        "label": "Walpassage",
+        "enter": [
+          [
+            1158,
+            567
+          ],
+          [
+            1160,
+            548
+          ],
+          [
+            1160,
+            532
+          ]
+        ],
+        "exit": [
+          [
+            654,
+            429
+          ],
+          [
+            645,
+            446
+          ],
+          [
+            632,
+            458
+          ]
+        ],
+        "labelPos": [
+          923,
+          502
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 7,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 7 naar 8. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Nijmegen",
+    "title": "Nijmegen — van Waalkade naar Valkhof",
+    "count": 32,
+    "shapes": [
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "square",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "circle",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "square"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-nijmegen-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-deventer",
+    "slug": "deventer",
+    "anchors": [
+      [
+        138,
+        816
+      ],
+      [
+        246,
+        781
+      ],
+      [
+        299,
+        753
+      ],
+      [
+        348,
+        730
+      ],
+      [
+        389,
+        700
+      ],
+      [
+        425,
+        666
+      ],
+      [
+        474,
+        641
+      ],
+      [
+        518,
+        621
+      ],
+      [
+        563,
+        603
+      ],
+      [
+        1007,
+        434
+      ],
+      [
+        1013,
+        414
+      ],
+      [
+        1019,
+        394
+      ],
+      [
+        1032,
+        374
+      ],
+      [
+        1035,
+        355
+      ],
+      [
+        1045,
+        341
+      ],
+      [
+        896,
+        316
+      ],
+      [
+        896,
+        327
+      ],
+      [
+        905,
+        340
+      ],
+      [
+        922,
+        348
+      ],
+      [
+        1324,
+        413
+      ],
+      [
+        1397,
+        406
+      ],
+      [
+        1435,
+        392
+      ],
+      [
+        1465,
+        376
+      ],
+      [
+        1490,
+        359
+      ],
+      [
+        1458,
+        343
+      ],
+      [
+        1443,
+        326
+      ],
+      [
+        1445,
+        311
+      ],
+      [
+        1535,
+        326
+      ]
+    ],
+    "passages": [
+      {
+        "id": "pont-8",
+        "kind": "ferry",
+        "to": 9,
+        "label": "Met het pontje over de IJssel",
+        "enter": [
+          [
+            563,
+            603
+          ],
+          [
+            616,
+            582
+          ],
+          [
+            670,
+            563
+          ]
+        ],
+        "water": [
+          [
+            670,
+            563
+          ],
+          [
+            756,
+            541
+          ],
+          [
+            853,
+            520
+          ],
+          [
+            928,
+            486
+          ],
+          [
+            957,
+            464
+          ]
+        ],
+        "exit": [
+          [
+            957,
+            464
+          ],
+          [
+            984,
+            449
+          ],
+          [
+            1007,
+            434
+          ]
+        ],
+        "labelPos": [
+          799,
+          617
+        ],
+        "from": 8,
+        "icon": "ship",
+        "description": "Deze passage hoort bij de stap van vak 8 naar 9. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 3507,
+        "timeline": [
+          0.217205322419654,
+          0.8003869700563623
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 15,
+        "label": "Pakhuizenpassage",
+        "enter": [
+          [
+            1045,
+            341
+          ],
+          [
+            1047,
+            330
+          ],
+          [
+            1045,
+            319
+          ]
+        ],
+        "exit": [
+          [
+            895,
+            306
+          ],
+          [
+            895,
+            313
+          ],
+          [
+            896,
+            316
+          ]
+        ],
+        "labelPos": [
+          1111,
+          297
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 14,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 14 naar 15. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-2-mond-0",
+        "path": "M1019 346V301H1066V346H1060V307H1025V346Z",
+        "area": [
+          1019,
+          301,
+          1066,
+          346
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-2-mond-1",
+        "path": "M872 325V279H916V325H910V285H878V325Z",
+        "area": [
+          872,
+          279,
+          916,
+          325
+        ],
+        "frontY": 2000,
+        "portal": true
+      }
+    ],
+    "waypoints": {
+      "18": [
+        [
+          922,
+          348
+        ],
+        [
+          1000,
+          366
+        ],
+        [
+          1100,
+          390
+        ],
+        [
+          1199,
+          414
+        ],
+        [
+          1263,
+          425
+        ],
+        [
+          1324,
+          413
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "pont-8",
+        "kind": "ferry",
+        "to": 9,
+        "label": "Met het pontje over de IJssel",
+        "enter": [
+          [
+            563,
+            603
+          ],
+          [
+            616,
+            582
+          ],
+          [
+            670,
+            563
+          ]
+        ],
+        "water": [
+          [
+            670,
+            563
+          ],
+          [
+            756,
+            541
+          ],
+          [
+            853,
+            520
+          ],
+          [
+            928,
+            486
+          ],
+          [
+            957,
+            464
+          ]
+        ],
+        "exit": [
+          [
+            957,
+            464
+          ],
+          [
+            984,
+            449
+          ],
+          [
+            1007,
+            434
+          ]
+        ],
+        "labelPos": [
+          799,
+          617
+        ],
+        "from": 8,
+        "icon": "ship",
+        "description": "Deze passage hoort bij de stap van vak 8 naar 9. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 3507,
+        "timeline": [
+          0.217205322419654,
+          0.8003869700563623
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 15,
+        "label": "Pakhuizenpassage",
+        "enter": [
+          [
+            1045,
+            341
+          ],
+          [
+            1047,
+            330
+          ],
+          [
+            1045,
+            319
+          ]
+        ],
+        "exit": [
+          [
+            895,
+            306
+          ],
+          [
+            895,
+            313
+          ],
+          [
+            896,
+            316
+          ]
+        ],
+        "labelPos": [
+          1111,
+          297
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 14,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 14 naar 15. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Deventer",
+    "title": "Deventer — met het pontje",
+    "count": 26,
+    "shapes": [
+      "circle",
+      "square",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "diamond",
+      "square",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "diamond",
+      "square",
+      "circle",
+      "triangle",
+      "circle",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "diamond",
+      "triangle",
+      "square"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-deventer-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-kinderdijk",
+    "slug": "kinderdijk",
+    "anchors": [
+      [
+        1474,
+        831
+      ],
+      [
+        1488,
+        754
+      ],
+      [
+        1473,
+        707
+      ],
+      [
+        1462,
+        655
+      ],
+      [
+        1443,
+        607
+      ],
+      [
+        1420,
+        560
+      ],
+      [
+        1355,
+        532
+      ],
+      [
+        1290,
+        508
+      ],
+      [
+        1234,
+        484
+      ],
+      [
+        1180,
+        460
+      ],
+      [
+        1130,
+        440
+      ],
+      [
+        797,
+        345
+      ],
+      [
+        754,
+        334
+      ],
+      [
+        707,
+        325
+      ],
+      [
+        610,
+        425
+      ],
+      [
+        554,
+        407
+      ],
+      [
+        500,
+        389
+      ],
+      [
+        444,
+        373
+      ],
+      [
+        400,
+        355
+      ],
+      [
+        443,
+        329
+      ],
+      [
+        474,
+        301
+      ],
+      [
+        428,
+        282
+      ],
+      [
+        385,
+        265
+      ],
+      [
+        342,
+        248
+      ],
+      [
+        296,
+        232
+      ],
+      [
+        254,
+        219
+      ],
+      [
+        215,
+        206
+      ],
+      [
+        198,
+        198
+      ],
+      [
+        128,
+        172
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Dijktunnel",
+        "enter": [
+          [
+            1488,
+            754
+          ],
+          [
+            1453,
+            777
+          ],
+          [
+            1404,
+            758
+          ],
+          [
+            1350,
+            715
+          ],
+          [
+            1308,
+            679
+          ],
+          [
+            1270,
+            650
+          ],
+          [
+            1252,
+            638
+          ],
+          [
+            1252,
+            620
+          ]
+        ],
+        "exit": [
+          [
+            661,
+            395
+          ],
+          [
+            657,
+            410
+          ],
+          [
+            610,
+            425
+          ]
+        ],
+        "labelPos": [
+          982,
+          583
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 1,
+        "icon": "move-down",
+        "description": "Bij vak 1 kun je via deze doorgang naar vak 14. Je kunt ook de gewone route volgen.",
+        "duration": 5571,
+        "timeline": [
+          0.34487372193974974,
+          0.5064117083107703,
+          0.7217956901387977,
+          0.8833336765098184
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1202 646V566H1305V646H1299V572H1208V646Z",
+        "area": [
+          1202,
+          566,
+          1305,
+          646
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M627 419V352H700V419H694V358H633V419Z",
+        "area": [
+          627,
+          352,
+          700,
+          419
+        ],
+        "frontY": 2000,
+        "portal": true
+      }
+    ],
+    "waypoints": {
+      "10": [
+        [
+          1130,
+          440
+        ],
+        [
+          1095,
+          439
+        ],
+        [
+          1096,
+          427
+        ],
+        [
+          1130,
+          403
+        ],
+        [
+          1124,
+          358
+        ],
+        [
+          1070,
+          332
+        ],
+        [
+          960,
+          317
+        ],
+        [
+          873,
+          333
+        ],
+        [
+          797,
+          345
+        ]
+      ],
+      "13": [
+        [
+          707,
+          325
+        ],
+        [
+          662,
+          325
+        ],
+        [
+          602,
+          326
+        ],
+        [
+          554,
+          345
+        ],
+        [
+          574,
+          392
+        ],
+        [
+          610,
+          425
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Dijktunnel",
+        "enter": [
+          [
+            1488,
+            754
+          ],
+          [
+            1453,
+            777
+          ],
+          [
+            1404,
+            758
+          ],
+          [
+            1350,
+            715
+          ],
+          [
+            1308,
+            679
+          ],
+          [
+            1270,
+            650
+          ],
+          [
+            1252,
+            638
+          ],
+          [
+            1252,
+            620
+          ]
+        ],
+        "exit": [
+          [
+            661,
+            395
+          ],
+          [
+            657,
+            410
+          ],
+          [
+            610,
+            425
+          ]
+        ],
+        "labelPos": [
+          982,
+          583
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 1,
+        "icon": "move-down",
+        "description": "Bij vak 1 kun je via deze doorgang naar vak 14. Je kunt ook de gewone route volgen.",
+        "duration": 5571,
+        "timeline": [
+          0.34487372193974974,
+          0.5064117083107703,
+          0.7217956901387977,
+          0.8833336765098184
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Kinderdijk",
+    "title": "Kinderdijk — molens en gemalen",
+    "count": 27,
+    "shapes": [
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "triangle",
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-kinderdijk-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-zaanse-schans",
+    "slug": "zaanse-schans",
+    "anchors": [
+      [
+        192,
+        841
+      ],
+      [
+        488,
+        866
+      ],
+      [
+        407,
+        813
+      ],
+      [
+        329,
+        765
+      ],
+      [
+        404,
+        719
+      ],
+      [
+        486,
+        680
+      ],
+      [
+        563,
+        648
+      ],
+      [
+        1068,
+        511
+      ],
+      [
+        970,
+        500
+      ],
+      [
+        886,
+        474
+      ],
+      [
+        807,
+        448
+      ],
+      [
+        737,
+        423
+      ],
+      [
+        670,
+        395
+      ],
+      [
+        613,
+        372
+      ],
+      [
+        571,
+        345
+      ],
+      [
+        531,
+        318
+      ],
+      [
+        506,
+        289
+      ],
+      [
+        489,
+        264
+      ],
+      [
+        1170,
+        412
+      ],
+      [
+        1214,
+        439
+      ],
+      [
+        1236,
+        480
+      ],
+      [
+        1301,
+        446
+      ],
+      [
+        1368,
+        420
+      ],
+      [
+        1419,
+        388
+      ],
+      [
+        1463,
+        355
+      ],
+      [
+        1504,
+        325
+      ],
+      [
+        1555,
+        275
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 18,
+        "label": "Door de werkplaats",
+        "enter": [
+          [
+            489,
+            264
+          ],
+          [
+            485,
+            253
+          ],
+          [
+            484,
+            238
+          ]
+        ],
+        "exit": [
+          [
+            1153,
+            391
+          ],
+          [
+            1160,
+            404
+          ],
+          [
+            1170,
+            412
+          ]
+        ],
+        "labelPos": [
+          840,
+          300
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 17,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 17 naar 18. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M441 269V194H527V269H521V200H447V269Z",
+        "area": [
+          441,
+          194,
+          527,
+          269
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1134 419V328H1208V419H1202V334H1140V419Z",
+        "area": [
+          1134,
+          328,
+          1208,
+          419
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M659.3 648.2 L693.3 628.2 L690.7 623.8 L656.7 643.8Z M693.0 628.3 L753.0 601.3 L751.0 596.7 L691.0 623.7Z M752.7 601.4 L811.7 584.4 L810.3 579.6 L751.3 596.6Z",
+        "area": [
+          658,
+          582,
+          811,
+          646
+        ],
+        "frontY": 2000,
+        "bridge": true
+      },
+      {
+        "id": "brug-paal",
+        "path": "M666.5 652.0 L666.5 541.0 L659.5 541.0 L659.5 652.0Z",
+        "area": [
+          663,
+          541,
+          663,
+          652
+        ],
+        "frontY": 2000,
+        "bridge": true
+      },
+      {
+        "id": "brug-paal2",
+        "path": "M756.5 599.0 L756.5 508.0 L749.5 508.0 L749.5 599.0Z",
+        "area": [
+          753,
+          508,
+          753,
+          599
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "0": [
+        [
+          192,
+          841
+        ],
+        [
+          267,
+          880
+        ],
+        [
+          374,
+          910
+        ],
+        [
+          449,
+          909
+        ],
+        [
+          488,
+          866
+        ]
+      ],
+      "6": [
+        [
+          563,
+          648
+        ],
+        [
+          619,
+          614
+        ],
+        [
+          673,
+          586
+        ],
+        [
+          724,
+          560
+        ],
+        [
+          779,
+          546
+        ],
+        [
+          850,
+          540
+        ],
+        [
+          961,
+          531
+        ],
+        [
+          1068,
+          511
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-6",
+        "to": 7,
+        "label": "Over de houten ophaalbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 6
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 18,
+        "label": "Door de werkplaats",
+        "enter": [
+          [
+            489,
+            264
+          ],
+          [
+            485,
+            253
+          ],
+          [
+            484,
+            238
+          ]
+        ],
+        "exit": [
+          [
+            1153,
+            391
+          ],
+          [
+            1160,
+            404
+          ],
+          [
+            1170,
+            412
+          ]
+        ],
+        "labelPos": [
+          840,
+          300
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 17,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 17 naar 18. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Zaanse Schans",
+    "title": "Zaanse Schans — ambachten aan de Zaan",
+    "count": 25,
+    "shapes": [
+      "diamond",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "triangle",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "square",
+      "circle",
+      "triangle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-zaanse-schans-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-afsluitdijk",
+    "slug": "afsluitdijk",
+    "anchors": [
+      [
+        154,
+        825
+      ],
+      [
+        270,
+        754
+      ],
+      [
+        337,
+        715
+      ],
+      [
+        401,
+        676
+      ],
+      [
+        462,
+        637
+      ],
+      [
+        522,
+        601
+      ],
+      [
+        585,
+        569
+      ],
+      [
+        647,
+        535
+      ],
+      [
+        710,
+        555
+      ],
+      [
+        773,
+        547
+      ],
+      [
+        839,
+        529
+      ],
+      [
+        897,
+        508
+      ],
+      [
+        946,
+        487
+      ],
+      [
+        988,
+        466
+      ],
+      [
+        1190,
+        389
+      ],
+      [
+        1227,
+        367
+      ],
+      [
+        1260,
+        348
+      ],
+      [
+        1294,
+        330
+      ],
+      [
+        1330,
+        312
+      ],
+      [
+        1363,
+        292
+      ],
+      [
+        1398,
+        247
+      ],
+      [
+        1428,
+        229
+      ],
+      [
+        1452,
+        210
+      ],
+      [
+        1465,
+        190
+      ],
+      [
+        1494,
+        158
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Onder de onderhoudsstrook",
+        "enter": [
+          [
+            988,
+            466
+          ],
+          [
+            1036,
+            475
+          ],
+          [
+            1076,
+            464
+          ],
+          [
+            1094,
+            445
+          ],
+          [
+            1100,
+            419
+          ]
+        ],
+        "exit": [
+          [
+            1322,
+            264
+          ],
+          [
+            1351,
+            285
+          ],
+          [
+            1330,
+            331
+          ],
+          [
+            1254,
+            379
+          ],
+          [
+            1190,
+            389
+          ]
+        ],
+        "labelPos": [
+          1035,
+          572
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 13,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 5145,
+        "timeline": [
+          0.15095240525410927,
+          0.3258849476639576,
+          0.5591283375437552,
+          0.7340608799536036
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M965 456V361H1169V456H1163V367H971V456Z",
+        "area": [
+          965,
+          361,
+          1169,
+          456
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1237 286V225H1394V286H1388V231H1243V286Z",
+        "area": [
+          1237,
+          225,
+          1394,
+          286
+        ],
+        "frontY": 2000,
+        "portal": true
+      }
+    ],
+    "waypoints": {
+      "19": [
+        [
+          1363,
+          292
+        ],
+        [
+          1385,
+          270
+        ],
+        [
+          1398,
+          247
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Onder de onderhoudsstrook",
+        "enter": [
+          [
+            988,
+            466
+          ],
+          [
+            1036,
+            475
+          ],
+          [
+            1076,
+            464
+          ],
+          [
+            1094,
+            445
+          ],
+          [
+            1100,
+            419
+          ]
+        ],
+        "exit": [
+          [
+            1322,
+            264
+          ],
+          [
+            1351,
+            285
+          ],
+          [
+            1330,
+            331
+          ],
+          [
+            1254,
+            379
+          ],
+          [
+            1190,
+            389
+          ]
+        ],
+        "labelPos": [
+          1035,
+          572
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 13,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 5145,
+        "timeline": [
+          0.15095240525410927,
+          0.3258849476639576,
+          0.5591283375437552,
+          0.7340608799536036
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Afsluitdijk",
+    "title": "Afsluitdijk — tussen twee wateren",
+    "count": 23,
+    "shapes": [
+      "diamond",
+      "square",
+      "triangle",
+      "circle",
+      "diamond",
+      "square",
+      "triangle",
+      "circle",
+      "diamond",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "circle",
+      "diamond",
+      "triangle",
+      "circle",
+      "diamond",
+      "square",
+      "diamond",
+      "triangle",
+      "circle",
+      "diamond"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-afsluitdijk-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-neeltje-jans",
+    "slug": "neeltje-jans",
+    "anchors": [
+      [
+        1525,
+        873
+      ],
+      [
+        1433,
+        841
+      ],
+      [
+        1382,
+        819
+      ],
+      [
+        1306,
+        790
+      ],
+      [
+        1234,
+        765
+      ],
+      [
+        1161,
+        739
+      ],
+      [
+        1106,
+        711
+      ],
+      [
+        1078,
+        676
+      ],
+      [
+        1078,
+        646
+      ],
+      [
+        1089,
+        625
+      ],
+      [
+        1103,
+        608
+      ],
+      [
+        1115,
+        599
+      ],
+      [
+        452,
+        409
+      ],
+      [
+        437,
+        425
+      ],
+      [
+        429,
+        444
+      ],
+      [
+        434,
+        471
+      ],
+      [
+        460,
+        500
+      ],
+      [
+        494,
+        527
+      ],
+      [
+        539,
+        555
+      ],
+      [
+        590,
+        579
+      ],
+      [
+        645,
+        602
+      ],
+      [
+        706,
+        626
+      ],
+      [
+        766,
+        650
+      ],
+      [
+        826,
+        677
+      ],
+      [
+        883,
+        702
+      ],
+      [
+        943,
+        721
+      ],
+      [
+        1238,
+        534
+      ],
+      [
+        1177,
+        516
+      ],
+      [
+        1116,
+        500
+      ],
+      [
+        1055,
+        480
+      ],
+      [
+        989,
+        460
+      ],
+      [
+        929,
+        441
+      ],
+      [
+        872,
+        417
+      ],
+      [
+        816,
+        394
+      ],
+      [
+        757,
+        375
+      ],
+      [
+        701,
+        354
+      ],
+      [
+        647,
+        332
+      ],
+      [
+        595,
+        316
+      ],
+      [
+        539,
+        296
+      ],
+      [
+        485,
+        280
+      ],
+      [
+        434,
+        264
+      ],
+      [
+        386,
+        248
+      ],
+      [
+        338,
+        235
+      ],
+      [
+        299,
+        219
+      ],
+      [
+        281,
+        198
+      ],
+      [
+        259,
+        182
+      ],
+      [
+        234,
+        170
+      ],
+      [
+        153,
+        160
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 12,
+        "label": "Door de deltawerken",
+        "enter": [
+          [
+            1115,
+            599
+          ],
+          [
+            1124,
+            594
+          ],
+          [
+            1129,
+            581
+          ]
+        ],
+        "exit": [
+          [
+            459,
+            396
+          ],
+          [
+            456,
+            404
+          ],
+          [
+            452,
+            409
+          ]
+        ],
+        "labelPos": [
+          783,
+          499
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 11,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 11 naar 12. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1034 630V545H1154V630H1148V551H1040V630Z",
+        "area": [
+          1034,
+          545,
+          1154,
+          630
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M403 429V349H489V429H483V355H409V429Z",
+        "area": [
+          403,
+          349,
+          489,
+          429
+        ],
+        "frontY": 2000,
+        "portal": true
+      }
+    ],
+    "waypoints": {
+      "25": [
+        [
+          943,
+          721
+        ],
+        [
+          995,
+          740
+        ],
+        [
+          1008,
+          695
+        ],
+        [
+          988,
+          628
+        ],
+        [
+          1005,
+          554
+        ],
+        [
+          1168,
+          557
+        ],
+        [
+          1238,
+          534
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 12,
+        "label": "Door de deltawerken",
+        "enter": [
+          [
+            1115,
+            599
+          ],
+          [
+            1124,
+            594
+          ],
+          [
+            1129,
+            581
+          ]
+        ],
+        "exit": [
+          [
+            459,
+            396
+          ],
+          [
+            456,
+            404
+          ],
+          [
+            452,
+            409
+          ]
+        ],
+        "labelPos": [
+          783,
+          499
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 11,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 11 naar 12. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Neeltje Jans",
+    "title": "Neeltje Jans — de Deltawerken",
+    "count": 46,
+    "shapes": [
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "square",
+      "triangle",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-neeltje-jans-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-giethoorn",
+    "slug": "giethoorn",
+    "anchors": [
+      [
+        155,
+        827
+      ],
+      [
+        275,
+        760
+      ],
+      [
+        349,
+        717
+      ],
+      [
+        419,
+        676
+      ],
+      [
+        478,
+        632
+      ],
+      [
+        512,
+        588
+      ],
+      [
+        521,
+        548
+      ],
+      [
+        522,
+        512
+      ],
+      [
+        553,
+        479
+      ],
+      [
+        599,
+        451
+      ],
+      [
+        655,
+        426
+      ],
+      [
+        712,
+        402
+      ],
+      [
+        754,
+        381
+      ],
+      [
+        784,
+        359
+      ],
+      [
+        1253,
+        276
+      ],
+      [
+        1283,
+        287
+      ],
+      [
+        1336,
+        281
+      ],
+      [
+        1383,
+        269
+      ],
+      [
+        1432,
+        253
+      ],
+      [
+        1465,
+        224
+      ],
+      [
+        1441,
+        199
+      ],
+      [
+        1403,
+        188
+      ],
+      [
+        1365,
+        171
+      ],
+      [
+        1556,
+        234
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Door het boothuis",
+        "enter": [
+          [
+            784,
+            359
+          ],
+          [
+            789,
+            350
+          ],
+          [
+            787,
+            337
+          ]
+        ],
+        "exit": [
+          [
+            1262,
+            260
+          ],
+          [
+            1257,
+            271
+          ],
+          [
+            1253,
+            276
+          ]
+        ],
+        "labelPos": [
+          1075,
+          180
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 13,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M725 369V286H812V369H806V292H731V369Z",
+        "area": [
+          725,
+          286,
+          812,
+          369
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1238 277V210H1301V277H1295V216H1244V277Z",
+        "area": [
+          1238,
+          210,
+          1301,
+          277
+        ],
+        "frontY": 2000,
+        "portal": true
+      }
+    ],
+    "waypoints": {
+      "22": [
+        [
+          1365,
+          171
+        ],
+        [
+          1384,
+          168
+        ],
+        [
+          1446,
+          179
+        ],
+        [
+          1498,
+          202
+        ],
+        [
+          1556,
+          234
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 14,
+        "label": "Door het boothuis",
+        "enter": [
+          [
+            784,
+            359
+          ],
+          [
+            789,
+            350
+          ],
+          [
+            787,
+            337
+          ]
+        ],
+        "exit": [
+          [
+            1262,
+            260
+          ],
+          [
+            1257,
+            271
+          ],
+          [
+            1253,
+            276
+          ]
+        ],
+        "labelPos": [
+          1075,
+          180
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 13,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Giethoorn",
+    "title": "Giethoorn — bruggetjes en punters",
+    "count": 22,
+    "shapes": [
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "triangle",
+      "diamond",
+      "circle",
+      "triangle",
+      "triangle",
+      "circle",
+      "square",
+      "diamond",
+      "triangle",
+      "square",
+      "diamond",
+      "triangle",
+      "square"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-giethoorn-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-biesbosch",
+    "slug": "biesbosch",
+    "anchors": [
+      [
+        160,
+        771
+      ],
+      [
+        153,
+        708
+      ],
+      [
+        218,
+        677
+      ],
+      [
+        291,
+        648
+      ],
+      [
+        334,
+        608
+      ],
+      [
+        295,
+        566
+      ],
+      [
+        252,
+        533
+      ],
+      [
+        232,
+        494
+      ],
+      [
+        240,
+        457
+      ],
+      [
+        278,
+        427
+      ],
+      [
+        330,
+        403
+      ],
+      [
+        386,
+        383
+      ],
+      [
+        446,
+        366
+      ],
+      [
+        501,
+        358
+      ],
+      [
+        1508,
+        424
+      ],
+      [
+        1000,
+        550
+      ],
+      [
+        960,
+        574
+      ],
+      [
+        919,
+        598
+      ],
+      [
+        986,
+        628
+      ],
+      [
+        1068,
+        636
+      ],
+      [
+        1149,
+        652
+      ],
+      [
+        1237,
+        684
+      ],
+      [
+        1329,
+        721
+      ],
+      [
+        1395,
+        766
+      ],
+      [
+        1463,
+        815
+      ],
+      [
+        1527,
+        865
+      ],
+      [
+        1434,
+        557
+      ],
+      [
+        1489,
+        534
+      ],
+      [
+        1537,
+        509
+      ],
+      [
+        1562,
+        475
+      ],
+      [
+        1543,
+        446
+      ],
+      [
+        1051,
+        269
+      ],
+      [
+        1107,
+        260
+      ],
+      [
+        1157,
+        252
+      ],
+      [
+        1209,
+        246
+      ],
+      [
+        1263,
+        235
+      ],
+      [
+        1311,
+        219
+      ],
+      [
+        1346,
+        199
+      ],
+      [
+        1379,
+        181
+      ],
+      [
+        1415,
+        164
+      ],
+      [
+        1490,
+        145
+      ]
+    ],
+    "passages": [
+      {
+        "id": "pont-13",
+        "kind": "ferry",
+        "to": 14,
+        "label": "Pont naar het wilgeneiland",
+        "enter": [
+          [
+            501,
+            358
+          ],
+          [
+            562,
+            351
+          ],
+          [
+            606,
+            343
+          ]
+        ],
+        "water": [
+          [
+            606,
+            343
+          ],
+          [
+            738,
+            353
+          ],
+          [
+            902,
+            352
+          ],
+          [
+            1100,
+            340
+          ],
+          [
+            1324,
+            330
+          ],
+          [
+            1493,
+            340
+          ],
+          [
+            1578,
+            380
+          ]
+        ],
+        "exit": [
+          [
+            1578,
+            380
+          ],
+          [
+            1563,
+            405
+          ],
+          [
+            1537,
+            420
+          ],
+          [
+            1508,
+            424
+          ]
+        ],
+        "labelPos": [
+          743,
+          264
+        ],
+        "from": 13,
+        "icon": "ship",
+        "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 7956,
+        "timeline": [
+          0.08892929899829248,
+          0.9120106661517389
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 15,
+        "label": "Wilgentunnel",
+        "enter": [
+          [
+            1508,
+            424
+          ],
+          [
+            1513,
+            419
+          ],
+          [
+            1513,
+            409
+          ]
+        ],
+        "exit": [
+          [
+            1005,
+            525
+          ],
+          [
+            1006,
+            539
+          ],
+          [
+            1000,
+            550
+          ]
+        ],
+        "labelPos": [
+          1265,
+          453
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 14,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 14 naar 15. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      },
+      {
+        "id": "pont-30",
+        "kind": "ferry",
+        "to": 31,
+        "label": "Pont naar de uitkijkroute",
+        "enter": [
+          [
+            1543,
+            446
+          ],
+          [
+            1587,
+            443
+          ],
+          [
+            1613,
+            418
+          ]
+        ],
+        "water": [
+          [
+            1613,
+            418
+          ],
+          [
+            1600,
+            359
+          ],
+          [
+            1490,
+            320
+          ],
+          [
+            1314,
+            312
+          ],
+          [
+            1140,
+            307
+          ],
+          [
+            1000,
+            303
+          ],
+          [
+            981,
+            286
+          ]
+        ],
+        "exit": [
+          [
+            981,
+            286
+          ],
+          [
+            1008,
+            277
+          ],
+          [
+            1051,
+            269
+          ]
+        ],
+        "labelPos": [
+          1427,
+          326
+        ],
+        "from": 30,
+        "icon": "ship",
+        "description": "Deze passage hoort bij de stap van vak 30 naar 31. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 6020,
+        "timeline": [
+          0.11628807827119597,
+          0.883711921728804
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-2-mond-0",
+        "path": "M1485 421V359H1538V421H1532V365H1491V421Z",
+        "area": [
+          1485,
+          359,
+          1538,
+          421
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-2-mond-1",
+        "path": "M956 558V477H1024V558H1018V483H962V558Z",
+        "area": [
+          956,
+          477,
+          1024,
+          558
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M1001.7 640.5 L1074.7 650.5 L1075.3 645.5 L1002.3 635.5Z M1074.4 650.4 L1148.4 669.4 L1149.6 664.6 L1075.6 645.6Z M1148.1 669.3 L1229.1 701.3 L1230.9 696.7 L1149.9 664.7Z M1228.5 701.0 L1337.5 784.0 L1340.5 780.0 L1231.5 697.0Z",
+        "area": [
+          1002,
+          638,
+          1339,
+          782
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "25": [
+        [
+          1527,
+          865
+        ],
+        [
+          1590,
+          874
+        ],
+        [
+          1630,
+          802
+        ],
+        [
+          1640,
+          695
+        ],
+        [
+          1640,
+          625
+        ],
+        [
+          1575,
+          582
+        ],
+        [
+          1490,
+          571
+        ],
+        [
+          1434,
+          557
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-17",
+        "to": 24,
+        "label": "Over de kreekbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 17
+      },
+      {
+        "id": "pont-13",
+        "kind": "ferry",
+        "to": 14,
+        "label": "Pont naar het wilgeneiland",
+        "enter": [
+          [
+            501,
+            358
+          ],
+          [
+            562,
+            351
+          ],
+          [
+            606,
+            343
+          ]
+        ],
+        "water": [
+          [
+            606,
+            343
+          ],
+          [
+            738,
+            353
+          ],
+          [
+            902,
+            352
+          ],
+          [
+            1100,
+            340
+          ],
+          [
+            1324,
+            330
+          ],
+          [
+            1493,
+            340
+          ],
+          [
+            1578,
+            380
+          ]
+        ],
+        "exit": [
+          [
+            1578,
+            380
+          ],
+          [
+            1563,
+            405
+          ],
+          [
+            1537,
+            420
+          ],
+          [
+            1508,
+            424
+          ]
+        ],
+        "labelPos": [
+          743,
+          264
+        ],
+        "from": 13,
+        "icon": "ship",
+        "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 7956,
+        "timeline": [
+          0.08892929899829248,
+          0.9120106661517389
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 15,
+        "label": "Wilgentunnel",
+        "enter": [
+          [
+            1508,
+            424
+          ],
+          [
+            1513,
+            419
+          ],
+          [
+            1513,
+            409
+          ]
+        ],
+        "exit": [
+          [
+            1005,
+            525
+          ],
+          [
+            1006,
+            539
+          ],
+          [
+            1000,
+            550
+          ]
+        ],
+        "labelPos": [
+          1265,
+          453
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 14,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 14 naar 15. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      },
+      {
+        "id": "pont-30",
+        "kind": "ferry",
+        "to": 31,
+        "label": "Pont naar de uitkijkroute",
+        "enter": [
+          [
+            1543,
+            446
+          ],
+          [
+            1587,
+            443
+          ],
+          [
+            1613,
+            418
+          ]
+        ],
+        "water": [
+          [
+            1613,
+            418
+          ],
+          [
+            1600,
+            359
+          ],
+          [
+            1490,
+            320
+          ],
+          [
+            1314,
+            312
+          ],
+          [
+            1140,
+            307
+          ],
+          [
+            1000,
+            303
+          ],
+          [
+            981,
+            286
+          ]
+        ],
+        "exit": [
+          [
+            981,
+            286
+          ],
+          [
+            1008,
+            277
+          ],
+          [
+            1051,
+            269
+          ]
+        ],
+        "labelPos": [
+          1427,
+          326
+        ],
+        "from": 30,
+        "icon": "ship",
+        "description": "Deze passage hoort bij de stap van vak 30 naar 31. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 6020,
+        "timeline": [
+          0.11628807827119597,
+          0.883711921728804
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Biesbosch",
+    "title": "Biesbosch — tussen kreken en wilgen",
+    "count": 39,
+    "shapes": [
+      "circle",
+      "square",
+      "diamond",
+      "circle",
+      "square",
+      "diamond",
+      "triangle",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "square",
+      "circle",
+      "diamond",
+      "diamond",
+      "circle",
+      "triangle",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "diamond",
+      "triangle",
+      "circle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-biesbosch-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-texel",
+    "slug": "texel",
+    "anchors": [
+      [
+        197,
+        768
+      ],
+      [
+        315,
+        709
+      ],
+      [
+        397,
+        667
+      ],
+      [
+        461,
+        632
+      ],
+      [
+        518,
+        598
+      ],
+      [
+        580,
+        565
+      ],
+      [
+        631,
+        530
+      ],
+      [
+        658,
+        497
+      ],
+      [
+        662,
+        465
+      ],
+      [
+        659,
+        429
+      ],
+      [
+        666,
+        396
+      ],
+      [
+        693,
+        370
+      ],
+      [
+        731,
+        350
+      ],
+      [
+        827,
+        327
+      ],
+      [
+        878,
+        339
+      ],
+      [
+        929,
+        352
+      ],
+      [
+        985,
+        369
+      ],
+      [
+        1054,
+        388
+      ],
+      [
+        1118,
+        408
+      ],
+      [
+        1189,
+        410
+      ],
+      [
+        1259,
+        398
+      ],
+      [
+        1325,
+        379
+      ],
+      [
+        1386,
+        355
+      ],
+      [
+        1435,
+        330
+      ],
+      [
+        1469,
+        304
+      ],
+      [
+        1474,
+        278
+      ],
+      [
+        1456,
+        252
+      ],
+      [
+        1421,
+        232
+      ],
+      [
+        1388,
+        219
+      ],
+      [
+        1469,
+        205
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 20,
+        "label": "Duintunnel",
+        "enter": [
+          [
+            580,
+            565
+          ],
+          [
+            585,
+            639
+          ],
+          [
+            671,
+            750
+          ],
+          [
+            751,
+            871
+          ],
+          [
+            808,
+            833
+          ],
+          [
+            820,
+            785
+          ],
+          [
+            833,
+            745
+          ],
+          [
+            846,
+            713
+          ],
+          [
+            851,
+            690
+          ],
+          [
+            854,
+            672
+          ]
+        ],
+        "exit": [
+          [
+            1399,
+            670
+          ],
+          [
+            1419,
+            703
+          ],
+          [
+            1440,
+            735
+          ],
+          [
+            1460,
+            771
+          ],
+          [
+            1474,
+            811
+          ],
+          [
+            1514,
+            865
+          ],
+          [
+            1580,
+            802
+          ],
+          [
+            1580,
+            693
+          ],
+          [
+            1500,
+            608
+          ],
+          [
+            1370,
+            552
+          ],
+          [
+            1307,
+            477
+          ],
+          [
+            1259,
+            398
+          ]
+        ],
+        "labelPos": [
+          1130,
+          751
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 5,
+        "icon": "move-down",
+        "description": "Bij vak 5 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+        "duration": 12438,
+        "timeline": [
+          0.3096743640310156,
+          0.38203314857613685,
+          0.4785115279696318,
+          0.5508703125147532
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M786 708V622H910V708H904V628H792V708Z",
+        "area": [
+          786,
+          622,
+          910,
+          708
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M1357 691V601H1458V691H1452V607H1363V691Z",
+        "area": [
+          1357,
+          601,
+          1458,
+          691
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "brug-front",
+        "path": "M788.4 346.4 L870.4 367.4 L871.6 362.6 L789.6 341.6Z M870.3 367.4 L952.3 390.4 L953.7 385.6 L871.7 362.6Z M952.2 390.4 L1048.2 422.4 L1049.8 417.6 L953.8 385.6Z",
+        "area": [
+          789,
+          344,
+          1049,
+          420
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "12": [
+        [
+          731,
+          350
+        ],
+        [
+          779,
+          334
+        ],
+        [
+          827,
+          327
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-12",
+        "to": 18,
+        "label": "Over de duinbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 12
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 20,
+        "label": "Duintunnel",
+        "enter": [
+          [
+            580,
+            565
+          ],
+          [
+            585,
+            639
+          ],
+          [
+            671,
+            750
+          ],
+          [
+            751,
+            871
+          ],
+          [
+            808,
+            833
+          ],
+          [
+            820,
+            785
+          ],
+          [
+            833,
+            745
+          ],
+          [
+            846,
+            713
+          ],
+          [
+            851,
+            690
+          ],
+          [
+            854,
+            672
+          ]
+        ],
+        "exit": [
+          [
+            1399,
+            670
+          ],
+          [
+            1419,
+            703
+          ],
+          [
+            1440,
+            735
+          ],
+          [
+            1460,
+            771
+          ],
+          [
+            1474,
+            811
+          ],
+          [
+            1514,
+            865
+          ],
+          [
+            1580,
+            802
+          ],
+          [
+            1580,
+            693
+          ],
+          [
+            1500,
+            608
+          ],
+          [
+            1370,
+            552
+          ],
+          [
+            1307,
+            477
+          ],
+          [
+            1259,
+            398
+          ]
+        ],
+        "labelPos": [
+          1130,
+          751
+        ],
+        "optional": true,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 5,
+        "icon": "move-down",
+        "description": "Bij vak 5 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+        "duration": 12438,
+        "timeline": [
+          0.3096743640310156,
+          0.38203314857613685,
+          0.4785115279696318,
+          0.5508703125147532
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Texel",
+    "title": "Texel — naar de vuurtoren",
+    "count": 28,
+    "shapes": [
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "circle",
+      "triangle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-texel-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-valkenburg",
+    "slug": "valkenburg",
+    "anchors": [
+      [
+        1300,
+        846
+      ],
+      [
+        1231,
+        800
+      ],
+      [
+        1181,
+        774
+      ],
+      [
+        1130,
+        750
+      ],
+      [
+        1082,
+        728
+      ],
+      [
+        1035,
+        700
+      ],
+      [
+        1014,
+        672
+      ],
+      [
+        1000,
+        646
+      ],
+      [
+        982,
+        619
+      ],
+      [
+        961,
+        595
+      ],
+      [
+        950,
+        576
+      ],
+      [
+        962,
+        562
+      ],
+      [
+        340,
+        285
+      ],
+      [
+        300,
+        301
+      ],
+      [
+        343,
+        313
+      ],
+      [
+        395,
+        323
+      ],
+      [
+        446,
+        296
+      ],
+      [
+        461,
+        267
+      ],
+      [
+        483,
+        233
+      ],
+      [
+        500,
+        203
+      ],
+      [
+        516,
+        176
+      ],
+      [
+        531,
+        153
+      ],
+      [
+        535,
+        129
+      ],
+      [
+        516,
+        111
+      ],
+      [
+        491,
+        98
+      ],
+      [
+        1065,
+        208
+      ],
+      [
+        1035,
+        187
+      ],
+      [
+        1077,
+        162
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 12,
+        "label": "Door de mergelgrot",
+        "enter": [
+          [
+            962,
+            562
+          ],
+          [
+            963,
+            552
+          ],
+          [
+            965,
+            534
+          ]
+        ],
+        "exit": [
+          [
+            341,
+            262
+          ],
+          [
+            339,
+            277
+          ],
+          [
+            340,
+            285
+          ]
+        ],
+        "labelPos": [
+          766,
+          479
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 11,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 11 naar 12. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M916 600V476H1033V600H1027V482H922V600Z",
+        "area": [
+          916,
+          476,
+          1033,
+          600
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M306 279V202H382V279H376V208H312V279Z",
+        "area": [
+          306,
+          202,
+          382,
+          279
+        ],
+        "frontY": 2000,
+        "portal": true
+      }
+    ],
+    "waypoints": {
+      "24": [
+        [
+          491,
+          98
+        ],
+        [
+          546,
+          83
+        ],
+        [
+          620,
+          97
+        ],
+        [
+          684,
+          125
+        ],
+        [
+          754,
+          142
+        ],
+        [
+          842,
+          160
+        ],
+        [
+          925,
+          179
+        ],
+        [
+          997,
+          192
+        ],
+        [
+          1065,
+          208
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 12,
+        "label": "Door de mergelgrot",
+        "enter": [
+          [
+            962,
+            562
+          ],
+          [
+            963,
+            552
+          ],
+          [
+            965,
+            534
+          ]
+        ],
+        "exit": [
+          [
+            341,
+            262
+          ],
+          [
+            339,
+            277
+          ],
+          [
+            340,
+            285
+          ]
+        ],
+        "labelPos": [
+          766,
+          479
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 11,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 11 naar 12. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Valkenburg",
+    "title": "Valkenburg — grot en kasteelruïne",
+    "count": 26,
+    "shapes": [
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "diamond",
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "square",
+      "diamond"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-valkenburg-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-muiderslot",
+    "slug": "muiderslot",
+    "anchors": [
+      [
+        330,
+        825
+      ],
+      [
+        797,
+        832
+      ],
+      [
+        883,
+        807
+      ],
+      [
+        936,
+        770
+      ],
+      [
+        985,
+        735
+      ],
+      [
+        1042,
+        711
+      ],
+      [
+        1106,
+        697
+      ],
+      [
+        1169,
+        685
+      ],
+      [
+        1253,
+        668
+      ],
+      [
+        1318,
+        653
+      ],
+      [
+        1385,
+        638
+      ],
+      [
+        1428,
+        612
+      ],
+      [
+        1446,
+        576
+      ],
+      [
+        1463,
+        545
+      ],
+      [
+        1481,
+        515
+      ],
+      [
+        1505,
+        490
+      ],
+      [
+        1529,
+        470
+      ],
+      [
+        140,
+        584
+      ],
+      [
+        166,
+        606
+      ],
+      [
+        196,
+        628
+      ],
+      [
+        236,
+        650
+      ],
+      [
+        294,
+        667
+      ],
+      [
+        364,
+        678
+      ],
+      [
+        437,
+        677
+      ],
+      [
+        511,
+        663
+      ],
+      [
+        576,
+        639
+      ],
+      [
+        614,
+        600
+      ],
+      [
+        637,
+        569
+      ],
+      [
+        667,
+        537
+      ],
+      [
+        696,
+        508
+      ],
+      [
+        725,
+        480
+      ],
+      [
+        754,
+        453
+      ],
+      [
+        780,
+        428
+      ],
+      [
+        807,
+        407
+      ],
+      [
+        883,
+        305
+      ],
+      [
+        913,
+        306
+      ],
+      [
+        924,
+        272
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 17,
+        "label": "Door de tuinwal",
+        "enter": [
+          [
+            1529,
+            470
+          ],
+          [
+            1536,
+            462
+          ],
+          [
+            1543,
+            445
+          ]
+        ],
+        "exit": [
+          [
+            141,
+            566
+          ],
+          [
+            139,
+            577
+          ],
+          [
+            140,
+            584
+          ]
+        ],
+        "labelPos": [
+          1099,
+          831
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 16,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 16 naar 17. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 34,
+        "label": "Door de slotpoort",
+        "enter": [
+          [
+            807,
+            407
+          ],
+          [
+            820,
+            384
+          ],
+          [
+            824,
+            356
+          ]
+        ],
+        "exit": [
+          [
+            866,
+            311
+          ],
+          [
+            875,
+            314
+          ],
+          [
+            883,
+            305
+          ]
+        ],
+        "labelPos": [
+          929,
+          534
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 33,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 33 naar 34. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M1510 468V413H1571V468H1565V419H1516V468Z",
+        "area": [
+          1510,
+          413,
+          1571,
+          468
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M115 585V532H161V585H155V538H121V585Z",
+        "area": [
+          115,
+          532,
+          161,
+          585
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-2-mond-0",
+        "path": "M791 391V310H850V391H844V316H797V391Z",
+        "area": [
+          791,
+          310,
+          850,
+          391
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "slotbrug-front",
+        "path": "M646.4 573.4 L700.4 520.4 L697.6 517.6 L643.6 570.6Z M700.5 520.4 L752.5 464.4 L749.5 461.6 L697.5 517.6Z M752.4 464.4 L800.4 418.4 L797.6 415.6 L749.6 461.6Z M800.1 418.7 L845.1 388.7 L842.9 385.3 L797.9 415.3Z",
+        "area": [
+          645,
+          387,
+          844,
+          572
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {
+      "0": [
+        [
+          330,
+          825
+        ],
+        [
+          405,
+          851
+        ],
+        [
+          500,
+          866
+        ],
+        [
+          611,
+          881
+        ],
+        [
+          705,
+          876
+        ],
+        [
+          797,
+          832
+        ]
+      ]
+    },
+    "previews": [
+      {
+        "id": "brug-27",
+        "to": 33,
+        "label": "Over de slotbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 27
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 17,
+        "label": "Door de tuinwal",
+        "enter": [
+          [
+            1529,
+            470
+          ],
+          [
+            1536,
+            462
+          ],
+          [
+            1543,
+            445
+          ]
+        ],
+        "exit": [
+          [
+            141,
+            566
+          ],
+          [
+            139,
+            577
+          ],
+          [
+            140,
+            584
+          ]
+        ],
+        "labelPos": [
+          1099,
+          831
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 16,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 16 naar 17. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      },
+      {
+        "id": "doorgang-2",
+        "kind": "tunnel",
+        "to": 34,
+        "label": "Door de slotpoort",
+        "enter": [
+          [
+            807,
+            407
+          ],
+          [
+            820,
+            384
+          ],
+          [
+            824,
+            356
+          ]
+        ],
+        "exit": [
+          [
+            866,
+            311
+          ],
+          [
+            875,
+            314
+          ],
+          [
+            883,
+            305
+          ]
+        ],
+        "labelPos": [
+          929,
+          534
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 33,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 33 naar 34. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Muiderslot",
+    "title": "Muiderslot — poort en kasteeltuin",
+    "count": 35,
+    "shapes": [
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "square",
+      "circle",
+      "triangle",
+      "diamond",
+      "circle",
+      "square",
+      "triangle",
+      "diamond",
+      "square",
+      "circle",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "circle",
+      "square"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-muiderslot-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  },
+  {
+    "id": "nederland-veluwe",
+    "slug": "veluwe",
+    "anchors": [
+      [
+        1522,
+        854
+      ],
+      [
+        1404,
+        825
+      ],
+      [
+        1319,
+        791
+      ],
+      [
+        1246,
+        748
+      ],
+      [
+        1228,
+        699
+      ],
+      [
+        1267,
+        654
+      ],
+      [
+        1306,
+        615
+      ],
+      [
+        1312,
+        574
+      ],
+      [
+        1275,
+        535
+      ],
+      [
+        1219,
+        500
+      ],
+      [
+        1166,
+        470
+      ],
+      [
+        1106,
+        450
+      ],
+      [
+        1054,
+        427
+      ],
+      [
+        1006,
+        411
+      ],
+      [
+        959,
+        399
+      ],
+      [
+        911,
+        385
+      ],
+      [
+        901,
+        367
+      ],
+      [
+        865,
+        349
+      ],
+      [
+        836,
+        332
+      ],
+      [
+        525,
+        258
+      ],
+      [
+        476,
+        253
+      ],
+      [
+        432,
+        239
+      ],
+      [
+        397,
+        220
+      ],
+      [
+        351,
+        205
+      ],
+      [
+        298,
+        198
+      ],
+      [
+        248,
+        189
+      ],
+      [
+        199,
+        181
+      ],
+      [
+        127,
+        163
+      ]
+    ],
+    "passages": [
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 19,
+        "label": "Zandheuveltunnel",
+        "enter": [
+          [
+            836,
+            332
+          ],
+          [
+            831,
+            325
+          ],
+          [
+            827,
+            313
+          ]
+        ],
+        "exit": [
+          [
+            496,
+            225
+          ],
+          [
+            501,
+            242
+          ],
+          [
+            525,
+            258
+          ]
+        ],
+        "labelPos": [
+          707,
+          211
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 18,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 18 naar 19. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "id": "doorgang-1-mond-0",
+        "path": "M802 338V270H890V338H884V276H808V338Z",
+        "area": [
+          802,
+          270,
+          890,
+          338
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "doorgang-1-mond-1",
+        "path": "M466 238V178H536V238H530V184H472V238Z",
+        "area": [
+          466,
+          178,
+          536,
+          238
+        ],
+        "frontY": 2000,
+        "portal": true
+      },
+      {
+        "id": "zandbrug-front",
+        "path": "M817.4 399.4 L863.4 410.4 L864.6 405.6 L818.6 394.6Z M863.3 410.4 L924.3 429.4 L925.7 424.6 L864.7 405.6Z M924.3 429.4 L1008.3 454.4 L1009.7 449.6 L925.7 424.6Z M1008.2 454.4 L1096.2 483.4 L1097.8 478.6 L1009.8 449.6Z M1095.9 483.2 L1154.9 513.2 L1157.1 508.8 L1098.1 478.8Z",
+        "area": [
+          818,
+          397,
+          1156,
+          511
+        ],
+        "frontY": 2000,
+        "bridge": true
+      }
+    ],
+    "waypoints": {},
+    "previews": [
+      {
+        "id": "brug-9",
+        "to": 15,
+        "label": "Over de zandbrug",
+        "icon": "route",
+        "description": "De pion volgt het brugdek tussen de leuningen.",
+        "from": 9
+      },
+      {
+        "id": "doorgang-1",
+        "kind": "tunnel",
+        "to": 19,
+        "label": "Zandheuveltunnel",
+        "enter": [
+          [
+            836,
+            332
+          ],
+          [
+            831,
+            325
+          ],
+          [
+            827,
+            313
+          ]
+        ],
+        "exit": [
+          [
+            496,
+            225
+          ],
+          [
+            501,
+            242
+          ],
+          [
+            525,
+            258
+          ]
+        ],
+        "labelPos": [
+          707,
+          211
+        ],
+        "optional": false,
+        "boat": false,
+        "hiddenLabel": "In de doorgang",
+        "from": 18,
+        "icon": "move-down",
+        "description": "Deze passage hoort bij de stap van vak 18 naar 19. Ook bij een grotere worp wordt de passage gebruikt.",
+        "duration": 4300,
+        "timeline": [
+          0.15116279069767444,
+          0.3604651162790698,
+          0.6395348837209303,
+          0.8488372093023256
+        ]
+      }
+    ],
+    "depthModel": "thresholds",
+    "label": "Veluwe",
+    "title": "Veluwe — heide en stuifzand",
+    "count": 26,
+    "shapes": [
+      "triangle",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "diamond",
+      "square",
+      "triangle",
+      "square",
+      "circle",
+      "diamond",
+      "triangle",
+      "square",
+      "circle"
+    ],
+    "size": [
+      50,
+      32
+    ],
+    "paintedRoute": true,
+    "image": "nederland-veluwe-speelroute",
+    "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen."
+  }
+]

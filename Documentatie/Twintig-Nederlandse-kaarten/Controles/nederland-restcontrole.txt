@@ -1,0 +1,168 @@
+RUN tests/quick-lesson-ui.cjs
+PASS immediate level/exercise switches, chair search, retained context on level change, saved state, no settings navigation, word/time shortcut and toolbar layouts
+RUN tests/direct-questions.cjs
+PASS 240 direct questions; four routes and shapes; separate direct/conversation decks; mixed pool; no-repeat cycles; mode switches preserve pawns; reload and per-pawn tasks
+RUN tests/direct-questions-ui.cjs
+PASS board exercise chooser, direct city question, hidden example, individual/group independence, separate catalogs, mix label, reload/undo, same-board sentence die and screen sizes
+RUN tests/integration.cjs
+PASS shared dice state, sentence game, six maps, full screen, special landings, undo, reload, independent map progress, live tree preview
+RUN tests/map-family.cjs
+PASS amsterdam-grachtenroute 9→7, 18→23, 34→27
+PASS utrecht-werfroute 5→24, 19→16, 34→37
+PASS dorp-boomgaardroute 30→52, 46→42
+PASS kust-duinroute 9→16, 28→26
+PASS bos-bosroute 49→46, 21→24
+PASS polder-slotenroute 54→57, 15→47
+PASS haven-kaderoute 5→23, 29→25
+PASS heuvels-panorama 22→26, 9→6, 9→12
+PASS fantasie-eilanden 28→32, 8→26, 26→8
+PASS ruimte-maanroute 7→10, 14→2, 14→25
+PASS markt-pleinroute 
+PASS station-perronroute 
+PASS pool-ijsroute 
+PASS buurttuin-kasroute 
+PASS bibliotheek-leesroute 
+PASS museum-zalenroute 
+PASS onderwater-koraalroute 
+PASS jungle-watervalroute 
+PASS woestijn-oaseroute 
+PASS kasteel-poortroute 
+PASS bergdorp-kabelroute 
+PASS spreektijd-smalltalk 
+PASS spreektijd-werken 
+PASS spreektijd-afspraak 
+PASS spreektijd-zorg 
+PASS nederland-delft 4→16
+PASS nederland-leiden 10→14
+PASS nederland-haarlem 
+PASS nederland-amersfoort 
+PASS nederland-dordrecht 
+PASS nederland-den-bosch 1→10
+PASS nederland-groningen 14→20
+PASS nederland-maastricht 
+PASS nederland-nijmegen 
+PASS nederland-deventer 
+PASS nederland-kinderdijk 1→14
+PASS nederland-zaanse-schans 
+PASS nederland-afsluitdijk 
+PASS nederland-neeltje-jans 
+PASS nederland-giethoorn 
+PASS nederland-biesbosch 
+PASS nederland-texel 5→20
+PASS nederland-valkenburg 
+PASS nederland-muiderslot 
+PASS nederland-veluwe 
+PASS animation and cancel amsterdam-grachtenroute
+PASS animation and cancel bos-bosroute
+PASS animation and cancel polder-slotenroute
+PASS animation and cancel fantasie-eilanden
+PASS animation and cancel ruimte-maanroute
+PASS map family, shared picker, separate progress, previews, no asset/runtime errors
+RUN tests/learning.cjs
+PASS learning modes, 112 scenarios, speaker queue, 20 pawns, parallel round and undo
+RUN tests/learning-context.cjs
+PASS contextual B1 task and level label
+RUN tests/leerroutes.cjs
+PASS 960 matrix catalogue, separate help/example, teacher background, persistence and five work forms
+RUN tests/spatial.cjs
+PASS spatial Rotterdam-havenroute
+PASS spatial amsterdam-grachtenroute
+PASS spatial utrecht-werfroute
+PASS spatial dorp-boomgaardroute
+PASS spatial kust-duinroute
+PASS spatial bos-bosroute
+PASS spatial polder-slotenroute
+PASS spatial haven-kaderoute
+PASS spatial heuvels-panorama
+PASS spatial fantasie-eilanden
+PASS spatial ruimte-maanroute
+PASS spatial markt-pleinroute
+PASS spatial station-perronroute
+PASS spatial pool-ijsroute
+PASS spatial buurttuin-kasroute
+PASS spatial bibliotheek-leesroute
+PASS spatial museum-zalenroute
+PASS spatial onderwater-koraalroute
+PASS spatial jungle-watervalroute
+PASS spatial woestijn-oaseroute
+PASS spatial kasteel-poortroute
+PASS spatial bergdorp-kabelroute
+PASS spatial spreektijd-smalltalk
+PASS spatial spreektijd-werken
+PASS spatial spreektijd-afspraak
+PASS spatial spreektijd-zorg
+PASS spatial nederland-delft
+PASS spatial nederland-leiden
+PASS spatial nederland-haarlem
+PASS spatial nederland-amersfoort
+PASS spatial nederland-dordrecht
+PASS spatial nederland-den-bosch
+PASS spatial nederland-groningen
+PASS spatial nederland-maastricht
+PASS spatial nederland-nijmegen
+PASS spatial nederland-deventer
+PASS spatial nederland-kinderdijk
+PASS spatial nederland-zaanse-schans
+PASS spatial nederland-afsluitdijk
+PASS spatial nederland-neeltje-jans
+PASS spatial nederland-giethoorn
+PASS spatial nederland-biesbosch
+PASS spatial nederland-texel
+PASS spatial nederland-valkenburg
+PASS spatial nederland-muiderslot
+PASS spatial nederland-veluwe
+RUN tests/controls.cjs
+PASS toolbar hit targets, sidebar bounds, shared/team pawns, fullscreen pause/settings/map controls
+RUN tests/audio.cjs
+PASS actual audio playback, non-silent sample, both dice games, mute, reload and one-time restoration
+RUN tests/sentence-matrix-ui.cjs
+PASS board sentence game: 5 steps=jullie, later roll vs tile, all six persons, undo/reload, shortcuts/backward, tenses, three pawns, shared layouts and original language tasks
+RUN tests/sound-menu.cjs
+PASS five original sounds, original default, preview while muted, playback completion, remembered choices and stop on close
+RUN tests/layers.cjs
+PASS pawn above markers Rotterdam-havenroute
+PASS pawn above markers amsterdam-grachtenroute
+PASS pawn above markers utrecht-werfroute
+PASS pawn above markers dorp-boomgaardroute
+PASS pawn above markers kust-duinroute
+PASS pawn above markers bos-bosroute
+PASS pawn above markers polder-slotenroute
+PASS pawn above markers haven-kaderoute
+PASS pawn above markers heuvels-panorama
+PASS pawn above markers fantasie-eilanden
+PASS pawn above markers ruimte-maanroute
+PASS pawn above markers markt-pleinroute
+PASS pawn above markers station-perronroute
+PASS pawn above markers pool-ijsroute
+PASS pawn above markers buurttuin-kasroute
+PASS pawn above markers bibliotheek-leesroute
+PASS pawn above markers museum-zalenroute
+PASS pawn above markers onderwater-koraalroute
+PASS pawn above markers jungle-watervalroute
+PASS pawn above markers woestijn-oaseroute
+PASS pawn above markers kasteel-poortroute
+PASS pawn above markers bergdorp-kabelroute
+PASS pawn above markers spreektijd-smalltalk
+PASS pawn above markers spreektijd-werken
+PASS pawn above markers spreektijd-afspraak
+PASS pawn above markers spreektijd-zorg
+PASS pawn above markers nederland-delft
+PASS pawn above markers nederland-leiden
+PASS pawn above markers nederland-haarlem
+PASS pawn above markers nederland-amersfoort
+PASS pawn above markers nederland-dordrecht
+PASS pawn above markers nederland-den-bosch
+PASS pawn above markers nederland-groningen
+PASS pawn above markers nederland-maastricht
+PASS pawn above markers nederland-nijmegen
+PASS pawn above markers nederland-deventer
+PASS pawn above markers nederland-kinderdijk
+PASS pawn above markers nederland-zaanse-schans
+PASS pawn above markers nederland-afsluitdijk
+PASS pawn above markers nederland-neeltje-jans
+PASS pawn above markers nederland-giethoorn
+PASS pawn above markers nederland-biesbosch
+PASS pawn above markers nederland-texel
+PASS pawn above markers nederland-valkenburg
+PASS pawn above markers nederland-muiderslot
+PASS pawn above markers nederland-veluwe

@@ -1,0 +1,127 @@
+{
+  "baseline": "bb24ca9",
+  "images": [
+    {
+      "map": "nederland-delft",
+      "source": "01-delft.png",
+      "sha256": "ff92bb2caa745a2dc5858b1bd249c04028b31ecfb4ac8dfc7167e9101c411401",
+      "identical": true
+    },
+    {
+      "map": "nederland-leiden",
+      "source": "02-leiden.png",
+      "sha256": "61779ccc2f438fde23ebac9e4cf1398f1e369a363cb71ef50f9fd00ace20396b",
+      "identical": true
+    },
+    {
+      "map": "nederland-haarlem",
+      "source": "03-haarlem.png",
+      "sha256": "b2fdf3be9db429fe83e44c687b062de175eea31a86f2fd6c5900430d9a5274a6",
+      "identical": true
+    },
+    {
+      "map": "nederland-amersfoort",
+      "source": "04-amersfoort.png",
+      "sha256": "4477faf4eac9ebc711bf68121b18057235000ca02935eb0cc1d20949fff6980d",
+      "identical": true
+    },
+    {
+      "map": "nederland-dordrecht",
+      "source": "05-dordrecht.png",
+      "sha256": "f1ac51c37d94ae4ac96728da67b7d9f037b32d86f9795d47c8f567142519dcc0",
+      "identical": true
+    },
+    {
+      "map": "nederland-den-bosch",
+      "source": "06-den-bosch.png",
+      "sha256": "6a09c84f69e6e196cc5ea14e9b50ca9f0eccf5958aa67c5f998b34f692d41425",
+      "identical": true
+    },
+    {
+      "map": "nederland-groningen",
+      "source": "07-groningen.png",
+      "sha256": "f71711746327a3d60051092bec57d030d2a37b9b1e70eb3e0477f2cc2ac8b96a",
+      "identical": true
+    },
+    {
+      "map": "nederland-maastricht",
+      "source": "08-maastricht.png",
+      "sha256": "60250308b040d3a2fc1589fefbead9dc4fe0b10df53240dc357de3d6d51efef4",
+      "identical": true
+    },
+    {
+      "map": "nederland-nijmegen",
+      "source": "09-nijmegen.png",
+      "sha256": "29f398d3184271f37b231d1751d07b22f90fe7a64ccf920bcde8c17fc92439c1",
+      "identical": true
+    },
+    {
+      "map": "nederland-deventer",
+      "source": "10-deventer.png",
+      "sha256": "bee1a69adbddc8f20912e53b18b4f9f6da72738adc813a770dcd9ad17b5768aa",
+      "identical": true
+    },
+    {
+      "map": "nederland-kinderdijk",
+      "source": "11-kinderdijk.png",
+      "sha256": "9c86b37d37057fbbc940eda139060d1517aa40fa0773ce026b5e1fef4f2a410d",
+      "identical": true
+    },
+    {
+      "map": "nederland-zaanse-schans",
+      "source": "12-zaanse-schans.png",
+      "sha256": "1276f71f441e5e787f8753d27394de433b1db6f2c4898ce56cce249c141873e2",
+      "identical": true
+    },
+    {
+      "map": "nederland-afsluitdijk",
+      "source": "13-afsluitdijk.png",
+      "sha256": "f83a70e1677733a6b597b245d53fb77fd0f3a0582e01c6f9539aacdbc0049818",
+      "identical": true
+    },
+    {
+      "map": "nederland-neeltje-jans",
+      "source": "14-neeltje-jans.png",
+      "sha256": "6c8ae81961876db26e5b21e9d8dd936220a01fe3094b522b6cebd9bec22d5995",
+      "identical": true
+    },
+    {
+      "map": "nederland-giethoorn",
+      "source": "15-giethoorn.png",
+      "sha256": "6ab9774a97e36daaba18261f04ed8c933537b7f25ae4d377d76e74e466803c18",
+      "identical": true
+    },
+    {
+      "map": "nederland-biesbosch",
+      "source": "16-biesbosch.png",
+      "sha256": "37a4e993717ea23270217231cffffc559ef11991aa495b366494254527377a6f",
+      "identical": true
+    },
+    {
+      "map": "nederland-texel",
+      "source": "17-texel.png",
+      "sha256": "db2414f6ab6a6a7b293cc3de3497577e63688eecb7fafa08356231cb2cdf4cd5",
+      "identical": true
+    },
+    {
+      "map": "nederland-valkenburg",
+      "source": "18-valkenburg.png",
+      "sha256": "38e29460f3bdea4698e9dc88f9d9ebd2fe786e5c0c81f83b489a5ba789b9a6d0",
+      "identical": true
+    },
+    {
+      "map": "nederland-muiderslot",
+      "source": "19-muiderslot.png",
+      "sha256": "b756e1b920b9da9df40059a01df670b4f3da4da1fff42449f812d243f8b8e995",
+      "identical": true
+    },
+    {
+      "map": "nederland-veluwe",
+      "source": "20-veluwe.png",
+      "sha256": "d2666886e25a24bfa7f547a01335561f8d8024ef2540d97a9ac76f61333a3d09",
+      "identical": true
+    }
+  ],
+  "existingFilesCompared": 878,
+  "changedExistingMapOrLessonFiles": []
+}
