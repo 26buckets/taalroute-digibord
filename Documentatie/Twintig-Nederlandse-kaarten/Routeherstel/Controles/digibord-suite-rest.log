@@ -1,0 +1,263 @@
+RUN node tests/map-cache.cjs
+PASS warm old browser cache upgrades loader, forest map and depth code together; lesson preserved
+RUN node tests/forest-tree.cjs
+PASS forest tree: 31–33 behind, 34–35 in front, 36 clear; two sizes, real roll, forward/reverse preview, saved state preserved
+RUN node tests/card-view.cjs
+PASS full-width map, large die, drawer controls, stable roll, task toggle, fullscreen, keyboard, dialogs and phone fallback [
+  {
+    width: 788,
+    height: 889,
+    mapWidth: 788,
+    mapHeight: 681,
+    imageWidth: 788,
+    imageHeight: 443.4856459330144
+  },
+  {
+    width: 1280,
+    height: 720,
+    mapWidth: 1280,
+    mapHeight: 512,
+    imageWidth: 909.7385759829967,
+    imageHeight: 511.99999999999994
+  },
+  {
+    width: 1920,
+    height: 1080,
+    mapWidth: 1920,
+    mapHeight: 872,
+    imageWidth: 1549.3985122210413,
+    imageHeight: 872
+  }
+]
+RUN node tests/task-surface.cjs
+PASS whole white panel toggles, title/blank areas, no duplicate buttons, unchanged map on return, Enter/Escape, Space rolls, help buttons stay independent
+RUN node tests/focus-controls.cjs
+PASS compact teacher panel, Space single roll/modal/settings guards, clickable task, larger stable map, fullscreen restoration [
+  { width: 767, height: 889, normal: 681, mapView: 681 },
+  { width: 1280, height: 720, normal: 512, mapView: 512 },
+  { width: 1920, height: 1080, normal: 872, mapView: 872 }
+]
+RUN node tests/appmenu.cjs
+App menu: 20 layouts, keyboard, navigation, fullscreen and exclusivity passed.
+RUN node tests/board-tools.cjs
+PASS equal shape icons, shape filters, backdrop dismissal, categorized 46-world picker, circular number toggles on all worlds
+RUN node tests/matrix.cjs
+PASS matrix: 960 cards, 16 decks without repeats, 432 sentence combinations
+PASS language regressions and all 432 sentences against reviewed Dutch forms
+RUN node tests/stable-layout.cjs
+PASS fixed board/task/die across turns and viewport sizes, both exercises, full long task and enlarged view
+RUN node tests/map-scale.cjs
+PASS fixed map scale during real roll Rotterdam-havenroute
+PASS fixed map scale during real roll amsterdam-grachtenroute
+PASS fixed map scale during real roll utrecht-werfroute
+PASS fixed map scale during real roll dorp-boomgaardroute
+PASS fixed map scale during real roll kust-duinroute
+PASS fixed map scale during real roll bos-bosroute
+PASS fixed map scale during real roll polder-slotenroute
+PASS fixed map scale during real roll haven-kaderoute
+PASS fixed map scale during real roll heuvels-panorama
+PASS fixed map scale during real roll fantasie-eilanden
+PASS fixed map scale during real roll ruimte-maanroute
+PASS fixed map scale during real roll markt-pleinroute
+PASS fixed map scale during real roll station-perronroute
+PASS fixed map scale during real roll pool-ijsroute
+PASS fixed map scale during real roll buurttuin-kasroute
+PASS fixed map scale during real roll bibliotheek-leesroute
+PASS fixed map scale during real roll museum-zalenroute
+PASS fixed map scale during real roll onderwater-koraalroute
+PASS fixed map scale during real roll jungle-watervalroute
+PASS fixed map scale during real roll woestijn-oaseroute
+PASS fixed map scale during real roll kasteel-poortroute
+PASS fixed map scale during real roll bergdorp-kabelroute
+PASS fixed map scale during real roll spreektijd-smalltalk
+PASS fixed map scale during real roll spreektijd-werken
+PASS fixed map scale during real roll spreektijd-afspraak
+PASS fixed map scale during real roll spreektijd-zorg
+PASS fixed map scale during real roll nederland-delft
+PASS fixed map scale during real roll nederland-leiden
+PASS fixed map scale during real roll nederland-haarlem
+PASS fixed map scale during real roll nederland-amersfoort
+PASS fixed map scale during real roll nederland-dordrecht
+PASS fixed map scale during real roll nederland-den-bosch
+PASS fixed map scale during real roll nederland-groningen
+PASS fixed map scale during real roll nederland-maastricht
+PASS fixed map scale during real roll nederland-nijmegen
+PASS fixed map scale during real roll nederland-deventer
+PASS fixed map scale during real roll nederland-kinderdijk
+PASS fixed map scale during real roll nederland-zaanse-schans
+PASS fixed map scale during real roll nederland-afsluitdijk
+PASS fixed map scale during real roll nederland-neeltje-jans
+PASS fixed map scale during real roll nederland-giethoorn
+PASS fixed map scale during real roll nederland-biesbosch
+PASS fixed map scale during real roll nederland-texel
+PASS fixed map scale during real roll nederland-valkenburg
+PASS fixed map scale during real roll nederland-muiderslot
+PASS fixed map scale during real roll nederland-veluwe
+RUN node tests/quick-lesson-ui.cjs
+PASS immediate level/exercise switches, chair search, retained context on level change, saved state, no settings navigation, word/time shortcut and toolbar layouts
+RUN node tests/direct-questions.cjs
+PASS 240 direct questions; four routes and shapes; separate direct/conversation decks; mixed pool; no-repeat cycles; mode switches preserve pawns; reload and per-pawn tasks
+RUN node tests/direct-questions-ui.cjs
+PASS board exercise chooser, direct city question, hidden example, individual/group independence, separate catalogs, mix label, reload/undo, same-board sentence die and screen sizes
+RUN node tests/integration.cjs
+PASS shared dice state, sentence game, six maps, full screen, special landings, undo, reload, independent map progress, live tree preview
+RUN node tests/map-family.cjs
+PASS amsterdam-grachtenroute 9→7, 18→23, 34→27
+PASS utrecht-werfroute 5→24, 19→16, 34→37
+PASS dorp-boomgaardroute 30→52, 46→42
+PASS kust-duinroute 9→16, 28→26
+PASS bos-bosroute 49→46, 21→24
+PASS polder-slotenroute 54→57, 15→47
+PASS haven-kaderoute 5→23, 29→25
+PASS heuvels-panorama 22→26, 9→6, 9→12
+PASS fantasie-eilanden 28→32, 8→26, 26→8
+PASS ruimte-maanroute 7→10, 14→2, 14→25
+PASS markt-pleinroute 
+PASS station-perronroute 
+PASS pool-ijsroute 
+PASS buurttuin-kasroute 
+PASS bibliotheek-leesroute 
+PASS museum-zalenroute 
+PASS onderwater-koraalroute 
+PASS jungle-watervalroute 
+PASS woestijn-oaseroute 
+PASS kasteel-poortroute 
+PASS bergdorp-kabelroute 
+PASS spreektijd-smalltalk 
+PASS spreektijd-werken 
+PASS spreektijd-afspraak 
+PASS spreektijd-zorg 
+PASS nederland-delft 4→16
+PASS nederland-leiden 1→14
+PASS nederland-haarlem 
+PASS nederland-amersfoort 
+PASS nederland-dordrecht 
+PASS nederland-den-bosch 1→10
+PASS nederland-groningen 14→20
+PASS nederland-maastricht 
+PASS nederland-nijmegen 
+PASS nederland-deventer 
+PASS nederland-kinderdijk 1→14
+PASS nederland-zaanse-schans 
+PASS nederland-afsluitdijk 13→20
+PASS nederland-neeltje-jans 
+PASS nederland-giethoorn 
+PASS nederland-biesbosch 
+PASS nederland-texel 1→20
+PASS nederland-valkenburg 
+PASS nederland-muiderslot 
+PASS nederland-veluwe 
+PASS animation and cancel amsterdam-grachtenroute
+PASS animation and cancel bos-bosroute
+PASS animation and cancel polder-slotenroute
+PASS animation and cancel fantasie-eilanden
+PASS animation and cancel ruimte-maanroute
+PASS map family, shared picker, separate progress, previews, no asset/runtime errors
+RUN node tests/learning.cjs
+PASS learning modes, 112 scenarios, speaker queue, 20 pawns, parallel round and undo
+RUN node tests/learning-context.cjs
+PASS contextual B1 task and level label
+RUN node tests/leerroutes.cjs
+PASS 960 matrix catalogue, separate help/example, teacher background, persistence and five work forms
+RUN node tests/spatial.cjs
+PASS spatial Rotterdam-havenroute
+PASS spatial amsterdam-grachtenroute
+PASS spatial utrecht-werfroute
+PASS spatial dorp-boomgaardroute
+PASS spatial kust-duinroute
+PASS spatial bos-bosroute
+PASS spatial polder-slotenroute
+PASS spatial haven-kaderoute
+PASS spatial heuvels-panorama
+PASS spatial fantasie-eilanden
+PASS spatial ruimte-maanroute
+PASS spatial markt-pleinroute
+PASS spatial station-perronroute
+PASS spatial pool-ijsroute
+PASS spatial buurttuin-kasroute
+PASS spatial bibliotheek-leesroute
+PASS spatial museum-zalenroute
+PASS spatial onderwater-koraalroute
+PASS spatial jungle-watervalroute
+PASS spatial woestijn-oaseroute
+PASS spatial kasteel-poortroute
+PASS spatial bergdorp-kabelroute
+PASS spatial spreektijd-smalltalk
+PASS spatial spreektijd-werken
+PASS spatial spreektijd-afspraak
+PASS spatial spreektijd-zorg
+PASS spatial nederland-delft
+PASS spatial nederland-leiden
+PASS spatial nederland-haarlem
+PASS spatial nederland-amersfoort
+PASS spatial nederland-dordrecht
+PASS spatial nederland-den-bosch
+PASS spatial nederland-groningen
+PASS spatial nederland-maastricht
+PASS spatial nederland-nijmegen
+PASS spatial nederland-deventer
+PASS spatial nederland-kinderdijk
+PASS spatial nederland-zaanse-schans
+PASS spatial nederland-afsluitdijk
+PASS spatial nederland-neeltje-jans
+PASS spatial nederland-giethoorn
+PASS spatial nederland-biesbosch
+PASS spatial nederland-texel
+PASS spatial nederland-valkenburg
+PASS spatial nederland-muiderslot
+PASS spatial nederland-veluwe
+RUN node tests/controls.cjs
+PASS toolbar hit targets, sidebar bounds, shared/team pawns, fullscreen pause/settings/map controls
+RUN node tests/audio.cjs
+PASS actual audio playback, non-silent sample, both dice games, mute, reload and one-time restoration
+RUN node tests/sentence-matrix-ui.cjs
+PASS board sentence game: 5 steps=jullie, later roll vs tile, all six persons, undo/reload, shortcuts/backward, tenses, three pawns, shared layouts and original language tasks
+RUN node tests/sound-menu.cjs
+PASS five original sounds, original default, preview while muted, playback completion, remembered choices and stop on close
+RUN node tests/layers.cjs
+PASS pawn above markers Rotterdam-havenroute
+PASS pawn above markers amsterdam-grachtenroute
+PASS pawn above markers utrecht-werfroute
+PASS pawn above markers dorp-boomgaardroute
+PASS pawn above markers kust-duinroute
+PASS pawn above markers bos-bosroute
+PASS pawn above markers polder-slotenroute
+PASS pawn above markers haven-kaderoute
+PASS pawn above markers heuvels-panorama
+PASS pawn above markers fantasie-eilanden
+PASS pawn above markers ruimte-maanroute
+PASS pawn above markers markt-pleinroute
+PASS pawn above markers station-perronroute
+PASS pawn above markers pool-ijsroute
+PASS pawn above markers buurttuin-kasroute
+PASS pawn above markers bibliotheek-leesroute
+PASS pawn above markers museum-zalenroute
+PASS pawn above markers onderwater-koraalroute
+PASS pawn above markers jungle-watervalroute
+PASS pawn above markers woestijn-oaseroute
+PASS pawn above markers kasteel-poortroute
+PASS pawn above markers bergdorp-kabelroute
+PASS pawn above markers spreektijd-smalltalk
+PASS pawn above markers spreektijd-werken
+PASS pawn above markers spreektijd-afspraak
+PASS pawn above markers spreektijd-zorg
+PASS pawn above markers nederland-delft
+PASS pawn above markers nederland-leiden
+PASS pawn above markers nederland-haarlem
+PASS pawn above markers nederland-amersfoort
+PASS pawn above markers nederland-dordrecht
+PASS pawn above markers nederland-den-bosch
+PASS pawn above markers nederland-groningen
+PASS pawn above markers nederland-maastricht
+PASS pawn above markers nederland-nijmegen
+PASS pawn above markers nederland-deventer
+PASS pawn above markers nederland-kinderdijk
+PASS pawn above markers nederland-zaanse-schans
+PASS pawn above markers nederland-afsluitdijk
+PASS pawn above markers nederland-neeltje-jans
+PASS pawn above markers nederland-giethoorn
+PASS pawn above markers nederland-biesbosch
+PASS pawn above markers nederland-texel
+PASS pawn above markers nederland-valkenburg
+PASS pawn above markers nederland-muiderslot
+PASS pawn above markers nederland-veluwe

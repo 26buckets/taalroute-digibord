@@ -1,3 +1,5 @@
+> Historisch verslag van de eerste integratie. De routelogica is daarna opnieuw beoordeeld en hersteld; zie [het actuele herstelverslag](Routeherstel/QA.md).
+
 # Controleverslag — twintig Nederlandse speelkaarten
 
 14 september 2026 · lokale kandidaat. Geen push of publicatie.

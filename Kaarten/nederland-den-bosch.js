@@ -131,8 +131,12 @@ DigiBoardDutchWorld.create({
           458
         ],
         [
-          536,
-          455
+          500,
+          478
+        ],
+        [
+          526,
+          465
         ],
         [
           554,
@@ -157,20 +161,32 @@ DigiBoardDutchWorld.create({
           674
         ],
         [
-          1110,
-          641
+          1145,
+          618
         ],
         [
-          1112,
-          614
+          1120,
+          617
         ],
         [
-          1119,
-          581
+          1113,
+          593
         ],
         [
-          1110,
-          512
+          1096,
+          569
+        ],
+        [
+          1080,
+          544
+        ],
+        [
+          1073,
+          523
+        ],
+        [
+          1058,
+          510
         ],
         [
           1083,
@@ -185,16 +201,16 @@ DigiBoardDutchWorld.create({
       "boat": true,
       "hiddenLabel": "Onder de huizen",
       "from": 1,
-      "boardAt": 8,
+      "boardAt": 9,
       "landAt": 3,
       "icon": "ship",
       "description": "Bij vak 1 kun je via deze doorgang naar vak 10. Je kunt ook de gewone route volgen.",
-      "duration": 9195,
+      "duration": 9371,
       "timeline": [
-        0.43200729256456255,
-        0.5298898198746603,
-        0.6603998562881238,
-        0.7582823835982215
+        0.43496522226152184,
+        0.5310101214897233,
+        0.659069987127325,
+        0.7551148863555264
       ]
     }
   ],
@@ -308,8 +324,12 @@ DigiBoardDutchWorld.create({
           458
         ],
         [
-          536,
-          455
+          500,
+          478
+        ],
+        [
+          526,
+          465
         ],
         [
           554,
@@ -334,20 +354,32 @@ DigiBoardDutchWorld.create({
           674
         ],
         [
-          1110,
-          641
+          1145,
+          618
         ],
         [
-          1112,
-          614
+          1120,
+          617
         ],
         [
-          1119,
-          581
+          1113,
+          593
         ],
         [
-          1110,
-          512
+          1096,
+          569
+        ],
+        [
+          1080,
+          544
+        ],
+        [
+          1073,
+          523
+        ],
+        [
+          1058,
+          510
         ],
         [
           1083,
@@ -362,20 +394,22 @@ DigiBoardDutchWorld.create({
       "boat": true,
       "hiddenLabel": "Onder de huizen",
       "from": 1,
-      "boardAt": 8,
+      "boardAt": 9,
       "landAt": 3,
       "icon": "ship",
       "description": "Bij vak 1 kun je via deze doorgang naar vak 10. Je kunt ook de gewone route volgen.",
-      "duration": 9195,
+      "duration": 9371,
       "timeline": [
-        0.43200729256456255,
-        0.5298898198746603,
-        0.6603998562881238,
-        0.7582823835982215
+        0.43496522226152184,
+        0.5310101214897233,
+        0.659069987127325,
+        0.7551148863555264
       ]
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-den-bosch-route-v2",
   "label": "Den Bosch",
   "title": "Den Bosch — boven en onder de stad",
   "count": 19,
@@ -405,7 +439,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-den-bosch-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

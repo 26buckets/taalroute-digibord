@@ -79,18 +79,6 @@ DigiBoardDutchWorld.create({
       158
     ],
     [
-      1529,
-      180
-    ],
-    [
-      1574,
-      193
-    ],
-    [
-      1630,
-      200
-    ],
-    [
       1588,
       146
     ]
@@ -314,9 +302,58 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "legacyIndexOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    22
+  ],
+  "legacyPositionMap": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    18,
+    18,
+    18,
+    19
+  ],
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-haarlem-route-v2",
   "label": "Haarlem",
   "title": "Haarlem — langs het Spaarne",
-  "count": 21,
+  "count": 18,
   "shapes": [
     "triangle",
     "square",
@@ -335,17 +372,13 @@ DigiBoardDutchWorld.create({
     "triangle",
     "diamond",
     "triangle",
-    "circle",
-    "square",
-    "triangle",
-    "diamond"
+    "circle"
   ],
   "size": [
     50,
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-haarlem-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,
@@ -361,7 +394,7 @@ DigiBoardDutchWorld.create({
     "groupSize": "2–30 deelnemers",
     "literacy": "Korte instructies lezen; de docent kan ze voorlezen.",
     "methodLinks": [],
-    "finish": 22,
+    "finish": 19,
     "coordinates": [
       [
         0.0819377990430622,
@@ -438,18 +471,6 @@ DigiBoardDutchWorld.create({
       [
         0.8995215311004785,
         0.16790648246546228
-      ],
-      [
-        0.9144736842105263,
-        0.19128586609989373
-      ],
-      [
-        0.9413875598086124,
-        0.2051009564293305
-      ],
-      [
-        0.9748803827751196,
-        0.21253985122210414
       ],
       [
         0.9497607655502392,
@@ -1129,117 +1150,6 @@ DigiBoardDutchWorld.create({
           }
         },
         "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t19",
-        "number": 19,
-        "title": "Een brief versturen",
-        "type": "vraag",
-        "goalIds": [
-          "vraag"
-        ],
-        "instruction": "Je wilt een brief naar een ander land sturen. Vraag bij het postpunt wat je moet doen.",
-        "partner": "Je werkt bij het postpunt. Vraag naar welk land de brief moet. Vertel dat er een postzegel op moet.",
-        "help": "Ik wil deze brief naar … sturen. Wat heb ik nodig?",
-        "printSummary": "Je wilt een brief naar een ander land sturen. Vraag bij het postpunt wat je moet doen. Partner: Je werkt bij het postpunt. Vraag naar welk land de brief moet. Vertel dat er een postzegel op moet.",
-        "printShort": "Je wilt een brief naar een ander land sturen. Vraag bij het postpunt wat je moet doen.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt een brief naar een ander land sturen. Vraag bij het postpunt wat je moet doen.",
-            "support": "Ik wil deze brief naar … sturen. Wat heb ik nodig?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt een brief naar een ander land sturen. Vraag bij het postpunt wat je moet doen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Vraag ook waar je de brief kunt inleveren."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t20",
-        "number": 20,
-        "title": "Bewegen in de buurt",
-        "type": "vertel",
-        "goalIds": [
-          "vertel"
-        ],
-        "instruction": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen.",
-        "partner": "Vraag hoe vaak de ander dat doet. Vertel daarna wat jij graag doet.",
-        "help": "Ik vind … leuk. Ik doe dat …",
-        "printSummary": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen. Partner: Vraag hoe vaak de ander dat doet. Vertel daarna wat jij graag doet.",
-        "printShort": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen.",
-            "support": "Ik vind … leuk. Ik doe dat …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Nodig de ander uit om een keer mee te doen."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t21",
-        "number": 21,
-        "title": "Een kort bospad",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-        "partner": "Herhaal de route en vraag wat jullie daarna doen.",
-        "help": "We gaan naar … Daarna …",
-        "printSummary": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan. Partner: Herhaal de route en vraag wat jullie daarna doen.",
-        "printShort": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-            "support": "We gaan naar … Daarna …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Vertel ook hoe de langere route loopt."
-          }
-        },
-        "teacherCriterion": "Brengt de eigen boodschap over en reageert passend op de gesprekspartner.",
         "channels": [
           "digital"
         ],

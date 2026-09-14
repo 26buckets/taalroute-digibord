@@ -7,14 +7,6 @@ DigiBoardDutchWorld.create({
       841
     ],
     [
-      488,
-      866
-    ],
-    [
-      407,
-      813
-    ],
-    [
       329,
       765
     ],
@@ -29,18 +21,6 @@ DigiBoardDutchWorld.create({
     [
       563,
       648
-    ],
-    [
-      1068,
-      511
-    ],
-    [
-      970,
-      500
-    ],
-    [
-      886,
-      474
     ],
     [
       807,
@@ -115,7 +95,7 @@ DigiBoardDutchWorld.create({
     {
       "id": "doorgang-1",
       "kind": "tunnel",
-      "to": 18,
+      "to": 13,
       "label": "Door de werkplaats",
       "enter": [
         [
@@ -152,9 +132,9 @@ DigiBoardDutchWorld.create({
       "optional": false,
       "boat": false,
       "hiddenLabel": "In de doorgang",
-      "from": 17,
+      "from": 12,
       "icon": "move-down",
-      "description": "Deze passage hoort bij de stap van vak 17 naar 18. Ook bij een grotere worp wordt de passage gebruikt.",
+      "description": "Deze passage hoort bij de stap van vak 12 naar 13. Ook bij een grotere worp wordt de passage gebruikt.",
       "duration": 4300,
       "timeline": [
         0.15116279069767444,
@@ -227,29 +207,7 @@ DigiBoardDutchWorld.create({
     }
   ],
   "waypoints": {
-    "0": [
-      [
-        192,
-        841
-      ],
-      [
-        267,
-        880
-      ],
-      [
-        374,
-        910
-      ],
-      [
-        449,
-        909
-      ],
-      [
-        488,
-        866
-      ]
-    ],
-    "6": [
+    "4": [
       [
         563,
         648
@@ -271,32 +229,32 @@ DigiBoardDutchWorld.create({
         546
       ],
       [
-        850,
-        540
+        793,
+        510
       ],
       [
-        961,
-        531
+        807,
+        478
       ],
       [
-        1068,
-        511
+        807,
+        448
       ]
     ]
   },
   "previews": [
     {
       "id": "brug-6",
-      "to": 7,
+      "to": 5,
       "label": "Over de houten ophaalbrug",
       "icon": "route",
       "description": "De pion volgt het brugdek tussen de leuningen.",
-      "from": 6
+      "from": 4
     },
     {
       "id": "doorgang-1",
       "kind": "tunnel",
-      "to": 18,
+      "to": 13,
       "label": "Door de werkplaats",
       "enter": [
         [
@@ -333,9 +291,9 @@ DigiBoardDutchWorld.create({
       "optional": false,
       "boat": false,
       "hiddenLabel": "In de doorgang",
-      "from": 17,
+      "from": 12,
       "icon": "move-down",
-      "description": "Deze passage hoort bij de stap van vak 17 naar 18. Ook bij een grotere worp wordt de passage gebruikt.",
+      "description": "Deze passage hoort bij de stap van vak 12 naar 13. Ook bij een grotere worp wordt de passage gebruikt.",
       "duration": 4300,
       "timeline": [
         0.15116279069767444,
@@ -346,19 +304,68 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "legacyIndexOrder": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "legacyPositionMap": [
+    0,
+    0,
+    0,
+    1,
+    2,
+    3,
+    4,
+    4,
+    4,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "routeRevision": "20260914-routelogica-3",
   "label": "Zaanse Schans",
   "title": "Zaanse Schans — ambachten aan de Zaan",
-  "count": 25,
+  "count": 20,
   "shapes": [
-    "diamond",
-    "square",
     "circle",
     "diamond",
     "triangle",
     "square",
-    "square",
-    "circle",
-    "diamond",
     "triangle",
     "square",
     "circle",
@@ -397,19 +404,11 @@ DigiBoardDutchWorld.create({
     "groupSize": "2–30 deelnemers",
     "literacy": "Korte instructies lezen; de docent kan ze voorlezen.",
     "methodLinks": [],
-    "finish": 26,
+    "finish": 21,
     "coordinates": [
       [
         0.11483253588516747,
         0.8937300743889479
-      ],
-      [
-        0.291866028708134,
-        0.9202975557917109
-      ],
-      [
-        0.24342105263157895,
-        0.8639744952178533
       ],
       [
         0.19677033492822968,
@@ -426,18 +425,6 @@ DigiBoardDutchWorld.create({
       [
         0.33672248803827753,
         0.6886291179596175
-      ],
-      [
-        0.638755980861244,
-        0.5430393198724761
-      ],
-      [
-        0.5801435406698564,
-        0.5313496280552603
-      ],
-      [
-        0.5299043062200957,
-        0.5037194473963869
       ],
       [
         0.4826555023923445,
@@ -1259,191 +1246,6 @@ DigiBoardDutchWorld.create({
           "digital"
         ],
         "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t21",
-        "number": 21,
-        "title": "Een kort bospad",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-        "partner": "Herhaal de route en vraag wat jullie daarna doen.",
-        "help": "We gaan naar … Daarna …",
-        "printSummary": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan. Partner: Herhaal de route en vraag wat jullie daarna doen.",
-        "printShort": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-            "support": "We gaan naar … Daarna …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Vertel ook hoe de langere route loopt."
-          }
-        },
-        "teacherCriterion": "Brengt de eigen boodschap over en reageert passend op de gesprekspartner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t22",
-        "number": 22,
-        "title": "De afvalbak is vol",
-        "type": "losop",
-        "goalIds": [
-          "losop"
-        ],
-        "instruction": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat.",
-        "partner": "Je weet een andere bak bij het plein. Leg uit waar die staat.",
-        "help": "Deze bak is vol. Weet jij …?",
-        "printSummary": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat. Partner: Je weet een andere bak bij het plein. Leg uit waar die staat.",
-        "printShort": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat.",
-            "support": "Deze bak is vol. Weet jij …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "De ander begrijpt de weg niet. Leg het nog een keer anders uit."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t23",
-        "number": 23,
-        "title": "De weg naar het plein",
-        "type": "vraag",
-        "goalIds": [
-          "vraag"
-        ],
-        "instruction": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt.",
-        "partner": "Het plein is na de brug rechts. Leg de weg uit. Vraag of het duidelijk is.",
-        "help": "Hoe kom ik bij …? Dus eerst …?",
-        "printSummary": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt. Partner: Het plein is na de brug rechts. Leg de weg uit. Vraag of het duidelijk is.",
-        "printShort": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt.",
-            "support": "Hoe kom ik bij …? Dus eerst …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Herhaal de route om te controleren of je het goed begrijpt."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t24",
-        "number": 24,
-        "title": "Een buurman of buurvrouw helpen",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit.",
-        "partner": "Vertel welke hulp je nodig hebt. Spreek af wanneer jullie beginnen.",
-        "help": "Ik kan helpen met … Wanneer …?",
-        "printSummary": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit. Partner: Vertel welke hulp je nodig hebt. Spreek af wanneer jullie beginnen.",
-        "printShort": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit.",
-            "support": "Ik kan helpen met … Wanneer …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je kunt maar een halfuur helpen. Kies samen wat eerst moet."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t25",
-        "number": 25,
-        "title": "Een avondwandeling",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water.",
-        "partner": "Vertel welke route jij prettig vindt en waarom.",
-        "help": "Ik loop liever …, want …",
-        "printSummary": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water. Partner: Vertel welke route jij prettig vindt en waarom.",
-        "printShort": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water.",
-            "support": "Ik loop liever …, want …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Het wordt donker. Pas jullie plan samen aan."
-          }
-        },
-        "teacherCriterion": "Voert de spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Docent leest voor of deelnemer leest de opdracht",
         "assets": [],
         "level": "A2",
         "routeId": "a1-a2"

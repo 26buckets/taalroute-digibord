@@ -1,3 +1,5 @@
+> Actuele versie: 525 vakken na routeherstel. Zie [wijzigingen en controle per kaart](Routeherstel/QA.md). De oorspronkelijke aantallen hieronder beschrijven de eerste integratie.
+
 # Twintig Nederlandse speelkaarten
 
 Status: LOKALE KANDIDAAT — 14 september 2026. Niet gepusht of gepubliceerd.

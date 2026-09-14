@@ -201,31 +201,31 @@ DigiBoardDutchWorld.create({
         98
       ],
       [
-        546,
-        83
+        552,
+        99
       ],
       [
-        620,
-        97
+        584,
+        104
       ],
       [
-        684,
-        125
+        643,
+        138
       ],
       [
-        754,
-        142
+        698,
+        149
       ],
       [
-        842,
-        160
+        780,
+        166
       ],
       [
-        925,
-        179
+        868,
+        181
       ],
       [
-        997,
+        950,
         192
       ],
       [
@@ -288,6 +288,8 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-valkenburg-route-v2",
   "label": "Valkenburg",
   "title": "Valkenburg — grot en kasteelruïne",
   "count": 26,
@@ -324,7 +326,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-valkenburg-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

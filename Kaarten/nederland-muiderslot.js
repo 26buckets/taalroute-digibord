@@ -313,19 +313,19 @@ DigiBoardDutchWorld.create({
       ],
       [
         405,
-        851
+        850
       ],
       [
-        500,
-        866
+        505,
+        874
       ],
       [
         611,
-        881
+        880
       ],
       [
         705,
-        876
+        875
       ],
       [
         797,
@@ -446,6 +446,8 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-muiderslot-route-v2",
   "label": "Muiderslot",
   "title": "Muiderslot — poort en kasteeltuin",
   "count": 35,
@@ -491,7 +493,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-muiderslot-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

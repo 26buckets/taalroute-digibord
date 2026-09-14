@@ -157,20 +157,24 @@ DigiBoardDutchWorld.create({
           926
         ],
         [
-          1280,
-          930
+          1270,
+          931
         ],
         [
-          1380,
-          890
+          1340,
+          926
         ],
         [
-          1475,
-          834
+          1430,
+          870
         ],
         [
-          1537,
-          752
+          1490,
+          815
+        ],
+        [
+          1540,
+          748
         ],
         [
           1582,
@@ -191,12 +195,108 @@ DigiBoardDutchWorld.create({
       "from": 4,
       "icon": "move-down",
       "description": "Bij vak 4 kun je via deze doorgang naar vak 16. Je kunt ook de gewone route volgen.",
-      "duration": 10048,
+      "duration": 10085,
       "timeline": [
-        0.30759913980450126,
-        0.3971694116899776,
-        0.5165964408706126,
-        0.6061667127560889
+        0.3064579311758178,
+        0.395695892745946,
+        0.5146798415061169,
+        0.6039178030762452
+      ]
+    },
+    {
+      "id": "pont-15",
+      "kind": "ferry",
+      "to": 16,
+      "label": "Pont over de gracht",
+      "enter": [
+        [
+          1036,
+          360
+        ],
+        [
+          1038,
+          382
+        ],
+        [
+          1049,
+          408
+        ],
+        [
+          1065,
+          424
+        ],
+        [
+          1090,
+          436
+        ],
+        [
+          1110,
+          450
+        ]
+      ],
+      "water": [
+        [
+          1110,
+          450
+        ],
+        [
+          1160,
+          498
+        ],
+        [
+          1250,
+          567
+        ],
+        [
+          1320,
+          625
+        ],
+        [
+          1400,
+          660
+        ],
+        [
+          1460,
+          665
+        ]
+      ],
+      "exit": [
+        [
+          1460,
+          665
+        ],
+        [
+          1515,
+          675
+        ],
+        [
+          1550,
+          667
+        ],
+        [
+          1580,
+          645
+        ],
+        [
+          1603,
+          619
+        ],
+        [
+          1627,
+          600
+        ]
+      ],
+      "labelPos": [
+        1295,
+        590
+      ],
+      "from": 15,
+      "icon": "ship",
+      "description": "Deze passage hoort bij de stap van vak 15 naar 16. Ook bij een grotere worp wordt de passage gebruikt.",
+      "duration": 4937,
+      "timeline": [
+        0.1689134237075215,
+        0.7375961844791444
       ]
     }
   ],
@@ -256,52 +356,6 @@ DigiBoardDutchWorld.create({
         795,
         485
       ]
-    ],
-    "15": [
-      [
-        1036,
-        360
-      ],
-      [
-        1092,
-        357
-      ],
-      [
-        1150,
-        378
-      ],
-      [
-        1204,
-        399
-      ],
-      [
-        1270,
-        410
-      ],
-      [
-        1380,
-        439
-      ],
-      [
-        1500,
-        464
-      ],
-      [
-        1533,
-        515
-      ],
-      [
-        1555,
-        584
-      ],
-      [
-        1582,
-        624
-      ],
-      [
-        1627,
-        600
-      ]
     ]
   },
   "previews": [
@@ -358,20 +412,24 @@ DigiBoardDutchWorld.create({
           926
         ],
         [
-          1280,
-          930
+          1270,
+          931
         ],
         [
-          1380,
-          890
+          1340,
+          926
         ],
         [
-          1475,
-          834
+          1430,
+          870
         ],
         [
-          1537,
-          752
+          1490,
+          815
+        ],
+        [
+          1540,
+          748
         ],
         [
           1582,
@@ -392,16 +450,114 @@ DigiBoardDutchWorld.create({
       "from": 4,
       "icon": "move-down",
       "description": "Bij vak 4 kun je via deze doorgang naar vak 16. Je kunt ook de gewone route volgen.",
-      "duration": 10048,
+      "duration": 10085,
       "timeline": [
-        0.30759913980450126,
-        0.3971694116899776,
-        0.5165964408706126,
-        0.6061667127560889
+        0.3064579311758178,
+        0.395695892745946,
+        0.5146798415061169,
+        0.6039178030762452
+      ]
+    },
+    {
+      "id": "pont-15",
+      "kind": "ferry",
+      "to": 16,
+      "label": "Pont over de gracht",
+      "enter": [
+        [
+          1036,
+          360
+        ],
+        [
+          1038,
+          382
+        ],
+        [
+          1049,
+          408
+        ],
+        [
+          1065,
+          424
+        ],
+        [
+          1090,
+          436
+        ],
+        [
+          1110,
+          450
+        ]
+      ],
+      "water": [
+        [
+          1110,
+          450
+        ],
+        [
+          1160,
+          498
+        ],
+        [
+          1250,
+          567
+        ],
+        [
+          1320,
+          625
+        ],
+        [
+          1400,
+          660
+        ],
+        [
+          1460,
+          665
+        ]
+      ],
+      "exit": [
+        [
+          1460,
+          665
+        ],
+        [
+          1515,
+          675
+        ],
+        [
+          1550,
+          667
+        ],
+        [
+          1580,
+          645
+        ],
+        [
+          1603,
+          619
+        ],
+        [
+          1627,
+          600
+        ]
+      ],
+      "labelPos": [
+        1295,
+        590
+      ],
+      "from": 15,
+      "icon": "ship",
+      "description": "Deze passage hoort bij de stap van vak 15 naar 16. Ook bij een grotere worp wordt de passage gebruikt.",
+      "duration": 4937,
+      "timeline": [
+        0.1689134237075215,
+        0.7375961844791444
       ]
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-delft-route-v2",
   "label": "Delft",
   "title": "Delft — grachten en keramiek",
   "count": 25,
@@ -437,7 +593,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-delft-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

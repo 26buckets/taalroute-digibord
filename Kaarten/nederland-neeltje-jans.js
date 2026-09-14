@@ -107,28 +107,8 @@ DigiBoardDutchWorld.create({
       721
     ],
     [
-      1238,
-      534
-    ],
-    [
-      1177,
-      516
-    ],
-    [
-      1116,
-      500
-    ],
-    [
       1055,
       480
-    ],
-    [
-      989,
-      460
-    ],
-    [
-      929,
-      441
     ],
     [
       872,
@@ -281,28 +261,40 @@ DigiBoardDutchWorld.create({
         721
       ],
       [
-        995,
-        740
+        955,
+        689
       ],
       [
-        1008,
-        695
+        935,
+        655
       ],
       [
-        988,
-        628
+        903,
+        621
       ],
       [
-        1005,
-        554
+        859,
+        587
       ],
       [
-        1168,
-        557
+        885,
+        563
       ],
       [
-        1238,
-        534
+        934,
+        542
+      ],
+      [
+        977,
+        502
+      ],
+      [
+        1029,
+        493
+      ],
+      [
+        1055,
+        480
       ]
     ]
   },
@@ -360,9 +352,106 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "legacyIndexOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    29,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47
+  ],
+  "legacyPositionMap": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    25,
+    25,
+    25,
+    26,
+    26,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-neeltje-jans-route-v2",
   "label": "Neeltje Jans",
   "title": "Neeltje Jans — de Deltawerken",
-  "count": 46,
+  "count": 41,
   "shapes": [
     "circle",
     "triangle",
@@ -389,12 +478,7 @@ DigiBoardDutchWorld.create({
     "square",
     "triangle",
     "diamond",
-    "triangle",
-    "square",
-    "circle",
     "diamond",
-    "triangle",
-    "square",
     "circle",
     "diamond",
     "triangle",
@@ -416,7 +500,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-neeltje-jans-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,
@@ -432,7 +515,7 @@ DigiBoardDutchWorld.create({
     "groupSize": "2–30 deelnemers",
     "literacy": "Korte instructies lezen; de docent kan ze voorlezen.",
     "methodLinks": [],
-    "finish": 47,
+    "finish": 42,
     "coordinates": [
       [
         0.9120813397129187,
@@ -539,28 +622,8 @@ DigiBoardDutchWorld.create({
         0.7662061636556854
       ],
       [
-        0.7404306220095693,
-        0.5674814027630181
-      ],
-      [
-        0.7039473684210527,
-        0.5483528161530287
-      ],
-      [
-        0.6674641148325359,
-        0.5313496280552603
-      ],
-      [
         0.6309808612440191,
         0.51009564293305
-      ],
-      [
-        0.5915071770334929,
-        0.48884165781083955
-      ],
-      [
-        0.555622009569378,
-        0.46865037194473963
       ],
       [
         0.5215311004784688,
@@ -2162,191 +2225,6 @@ DigiBoardDutchWorld.create({
           "extra": {
             "label": "Extra",
             "instruction": "Het gekozen brood is op. Kies samen iets anders."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t42",
-        "number": 42,
-        "title": "De bus gemist",
-        "type": "losop",
-        "goalIds": [
-          "losop"
-        ],
-        "instruction": "Je hebt de bus gemist. Je vriend wacht bij de markt. Bel en vertel wat er is gebeurd.",
-        "partner": "De volgende bus komt over een kwartier. Bespreek waar jullie elkaar ontmoeten.",
-        "help": "Ik heb de bus gemist. Kun je …?",
-        "printSummary": "Je hebt de bus gemist. Je vriend wacht bij de markt. Bel en vertel wat er is gebeurd. Partner: De volgende bus komt over een kwartier. Bespreek waar jullie elkaar ontmoeten.",
-        "printShort": "Je hebt de bus gemist. Je vriend wacht bij de markt. Bel en vertel wat er is gebeurd.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je hebt de bus gemist. Je vriend wacht bij de markt. Bel en vertel wat er is gebeurd.",
-            "support": "Ik heb de bus gemist. Kun je …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je hebt de bus gemist. Je vriend wacht bij de markt. Bel en vertel wat er is gebeurd."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je vriend kan niet lang wachten. Maak een nieuw plan."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t43",
-        "number": 43,
-        "title": "Sleutels kwijt",
-        "type": "vertel",
-        "goalIds": [
-          "vertel"
-        ],
-        "instruction": "Vertel je buurman of buurvrouw waar je vandaag bent geweest. Je zoekt je sleutels.",
-        "partner": "Vraag waar de ander de sleutels voor het laatst heeft gezien. Bedenk waar je kunt zoeken.",
-        "help": "Eerst was ik … Daarna …",
-        "printSummary": "Vertel je buurman of buurvrouw waar je vandaag bent geweest. Je zoekt je sleutels. Partner: Vraag waar de ander de sleutels voor het laatst heeft gezien. Bedenk waar je kunt zoeken.",
-        "printShort": "Vertel je buurman of buurvrouw waar je vandaag bent geweest. Je zoekt je sleutels.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Vertel je buurman of buurvrouw waar je vandaag bent geweest. Je zoekt je sleutels.",
-            "support": "Eerst was ik … Daarna …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Vertel je buurman of buurvrouw waar je vandaag bent geweest. Je zoekt je sleutels."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je vindt de sleutels niet. Bespreek wie kan helpen."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t44",
-        "number": 44,
-        "title": "Het gaat regenen",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Jullie willen buiten afspreken, maar het gaat regenen. Kies: het café of de bibliotheek. Geef een reden.",
-        "partner": "Vertel welke plek jij kiest. Spreek samen een plek af.",
-        "help": "Ik kies …, omdat …",
-        "printSummary": "Jullie willen buiten afspreken, maar het gaat regenen. Kies: het café of de bibliotheek. Geef een reden. Partner: Vertel welke plek jij kiest. Spreek samen een plek af.",
-        "printShort": "Jullie willen buiten afspreken, maar het gaat regenen. Kies: het café of de bibliotheek. Geef een reden.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Jullie willen buiten afspreken, maar het gaat regenen. Kies: het café of de bibliotheek. Geef een reden.",
-            "support": "Ik kies …, omdat …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Jullie willen buiten afspreken, maar het gaat regenen. Kies: het café of de bibliotheek. Geef een reden."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Het café is vol. Verander samen het plan."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t45",
-        "number": 45,
-        "title": "Een pakket ophalen",
-        "type": "vraag",
-        "goalIds": [
-          "vraag"
-        ],
-        "instruction": "Je pakket is bij je buurman of buurvrouw bezorgd. Vraag wanneer je het kunt ophalen.",
-        "partner": "Je bent nu weg. Je bent vanavond vanaf zeven uur thuis. Maak een afspraak.",
-        "help": "Kan ik mijn pakket … ophalen?",
-        "printSummary": "Je pakket is bij je buurman of buurvrouw bezorgd. Vraag wanneer je het kunt ophalen. Partner: Je bent nu weg. Je bent vanavond vanaf zeven uur thuis. Maak een afspraak.",
-        "printShort": "Je pakket is bij je buurman of buurvrouw bezorgd. Vraag wanneer je het kunt ophalen.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je pakket is bij je buurman of buurvrouw bezorgd. Vraag wanneer je het kunt ophalen.",
-            "support": "Kan ik mijn pakket … ophalen?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je pakket is bij je buurman of buurvrouw bezorgd. Vraag wanneer je het kunt ophalen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "De ander kan vanavond niet. Zoek een ander moment."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t46",
-        "number": 46,
-        "title": "De planten verzorgen",
-        "type": "losop",
-        "goalIds": [
-          "losop"
-        ],
-        "instruction": "Je bent drie dagen weg. Vraag je buurman of buurvrouw om je planten water te geven. Leg uit waar ze staan.",
-        "partner": "Je kunt één keer komen. Vraag hoeveel water de planten nodig hebben.",
-        "help": "Zou je …? Ze staan …",
-        "printSummary": "Je bent drie dagen weg. Vraag je buurman of buurvrouw om je planten water te geven. Leg uit waar ze staan. Partner: Je kunt één keer komen. Vraag hoeveel water de planten nodig hebben.",
-        "printShort": "Je bent drie dagen weg. Vraag je buurman of buurvrouw om je planten water te geven. Leg uit waar ze staan.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent drie dagen weg. Vraag je buurman of buurvrouw om je planten water te geven. Leg uit waar ze staan.",
-            "support": "Zou je …? Ze staan …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent drie dagen weg. Vraag je buurman of buurvrouw om je planten water te geven. Leg uit waar ze staan."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "De buurman of buurvrouw heeft geen sleutel. Regel hoe de buurman of buurvrouw binnenkomt."
           }
         },
         "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",

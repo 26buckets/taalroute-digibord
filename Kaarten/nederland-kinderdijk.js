@@ -216,6 +216,18 @@ DigiBoardDutchWorld.create({
       ],
       "frontY": 2000,
       "portal": true
+    },
+    {
+      "id": "gemaal-platform-voor",
+      "path": "M765.6077677297236 386.96116135138186L845.6077677297236 402.96116135138186L846.3922322702764 399.03883864861814L766.3922322702764 383.03883864861814Z M845.6175783167217 402.9630979741619L922.6175783167217 417.9630979741619L923.3824216832783 414.0369020258381L846.3824216832783 399.0369020258381Z M922.5914116688926 417.957819086556L1037.5914116688928 441.957819086556L1038.4085883311072 438.042180913444L923.4085883311074 414.042180913444Z",
+      "area": [
+        766,
+        385,
+        1038,
+        440
+      ],
+      "frontY": 2000,
+      "bridge": true
     }
   ],
   "waypoints": {
@@ -225,32 +237,28 @@ DigiBoardDutchWorld.create({
         440
       ],
       [
-        1095,
-        439
+        1092,
+        437
       ],
       [
-        1096,
-        427
+        1028,
+        421
       ],
       [
-        1130,
+        940,
         403
       ],
       [
-        1124,
-        358
+        852,
+        386
       ],
       [
-        1070,
-        332
+        775,
+        367
       ],
       [
-        960,
-        317
-      ],
-      [
-        873,
-        333
+        781,
+        352
       ],
       [
         797,
@@ -263,20 +271,16 @@ DigiBoardDutchWorld.create({
         325
       ],
       [
-        662,
-        325
+        661,
+        328
       ],
       [
-        602,
-        326
+        613,
+        349
       ],
       [
-        554,
-        345
-      ],
-      [
-        574,
-        392
+        598,
+        378
       ],
       [
         610,
@@ -358,6 +362,8 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-kinderdijk-route-v2",
   "label": "Kinderdijk",
   "title": "Kinderdijk — molens en gemalen",
   "count": 27,
@@ -395,7 +401,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-kinderdijk-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

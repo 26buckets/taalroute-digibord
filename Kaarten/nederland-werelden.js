@@ -3,11 +3,39 @@
 globalThis.DigiBoardDutchWorld=(()=>{
 'use strict';
 const W=1672,H=941,clamp=t=>Math.max(0,Math.min(1,t)),mix=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
+function migrateRoute(c,storage=globalThis.localStorage){
+ const key='taalroute-digiboard-les-'+c.id+'-v1',marker=key+'-route-revision';
+ try{
+  if(!c.routeRevision||storage.getItem(marker)===c.routeRevision)return;
+  let mapping,order;const finish=c.anchors.length-1;
+  const pos=n=>Number.isInteger(n)&&mapping?mapping[n]??Math.min(n,finish):n;
+  const taskId=id=>/^t\d+$/.test(id)?'t'+Math.max(1,Math.min(finish-1,pos(Number(id.slice(1))))).toString().padStart(2,'0'):id;
+  const connections=(c.passages||[]).filter(p=>p.optional).map(p=>({id:p.id,type:p.boat?'ferry':'tunnel',from:p.from,exits:[p.to],optional:true,label:p.label}));
+  const board=b=>{if(!b)return;if(order&&Array.isArray(b.tasks))b.tasks=order.slice(1,-1).map(n=>taskId(b.tasks[n-1]));if(b.layout)b.layout.connections=JSON.parse(JSON.stringify(connections));};
+  const assignments=a=>!a||!order?a:Object.fromEntries(order.slice(1,-1).map((old,i)=>['t'+String(i+1).padStart(2,'0'),a['t'+String(old).padStart(2,'0')]]).filter(([,v])=>v!==undefined));
+  const session=s=>{if(!s)return;board(s.board);s.players?.forEach(p=>p.pos=pos(p.pos));s.selected=Math.min(pos(s.selected),finish-1);if(s.lessonAssignments)s.lessonAssignments=assignments(s.lessonAssignments);if(s.matrix?.slots)s.matrix.slots=assignments(s.matrix.slots);
+   if(s.travel){s.travel.visits?.forEach(v=>v.at=pos(v.at));s.travel.uses=s.travel.uses.filter(v=>connections.some(c=>c.id===v.id));s.travel.keys=s.travel.keys.map(v=>({...v,ids:v.ids.filter(id=>connections.some(c=>c.id===id))}));s.travel.pending=null;s.travel.last=null;}
+  };
+  for(const suffix of['','-reserve']){
+   const raw=storage.getItem(key+suffix);if(!raw)continue;
+   const d=JSON.parse(raw);if(!d||d.schemaVersion!==2||!Array.isArray(d.boards)||!d.session)continue;
+   if(d.routeRevision===c.routeRevision)continue;mapping=d.routeRevision?null:c.legacyPositionMap;order=d.routeRevision?null:c.legacyIndexOrder;
+   const backup=key+suffix+'-voor-routeherstel';if(storage.getItem(backup)===null)storage.setItem(backup,raw);
+   d.boards.forEach(board);session(d.session);d.history?.forEach(session);d.previous?.forEach(p=>{session(p.session);p.history?.forEach(session);});d.routeRevision=c.routeRevision;
+   storage.setItem(key+suffix,JSON.stringify(d));
+  }
+  storage.setItem(marker,c.routeRevision);
+ }catch(error){console.warn('Routeherstel: oorspronkelijke lesopslag behouden.',error);}
+}
+
 function create(c){
+ migrateRoute(c);
  const image=`Kaarten/assets/${c.id}/${c.image}.png`,prefix=c.id+'-',passages=c.passages||[],anchors=c.anchors;
  const fit=(w,h)=>{const scale=Math.min(w/W,h/H);return{scale,x:(w-W*scale)/2,y:(h-H*scale)/2};},screen=(p,f)=>[p[0]*f.scale+f.x,p[1]*f.scale+f.y];
  const find=(a,b)=>passages.find(p=>(p.from===a&&p.to===b)||(p.from===b&&p.to===a));
  const legs=anchors.slice(0,-1).map((a,i)=>c.waypoints?.[i]||[a,anchors[i+1]]);
+ const walkDuration=i=>Math.max(650,legs[i].slice(1).reduce((n,p,j)=>n+Math.hypot(p[0]-legs[i][j][0],p[1]-legs[i][j][1]),0)/150*1000);
+ const durationFor=(a,b)=>find(a,b)?.duration||walkDuration(Math.min(a,b));
  function depthAt(point){
   // Only the apron outside a doorway is in front of its rim. Size never decides depth.
   for(const p of passages.filter(p=>p.kind==='tunnel'))for(const path of[p.enter,[...p.exit].reverse()]){
@@ -59,6 +87,8 @@ function create(c){
   extras+=svg('lift-front','new-world-front','<g data-lift-car><path d="M-27 -52 V5 M27 -52 V5 M-27 -52 H27 M-27 -15 H27 M-27 3 H27" fill="none" stroke="#496274" stroke-width="4"/><path d="M-22 -12 V3 M-10 -12 V3 M3 -12 V3 M15 -12 V3" stroke="#9eb0bd" stroke-width="2"/><path d="M-30 4 H30 V10 H-30Z" fill="#6b7f8a"/></g>');
  }
  if(passages.some(p=>p.kind==='ferry'||p.boat))extras+=svg('boat','new-world-lift-back','<g data-dutch-boat visibility="hidden"><ellipse cx="0" cy="9" rx="39" ry="11" fill="#173d49" opacity=".25"/><path d="M-38 -3Q-34 19 0 21Q34 19 38 -3L24 -17H-24Z" fill="#805939" stroke="#f2e6cf" stroke-width="3"/><path d="M-31 -3L-21 -12H21L31 -3Q0 11 -31 -3Z" fill="#d5bb8c"/><path d="M-26 4Q0 15 26 4" fill="none" stroke="#263f46" stroke-width="3"/></g>');
+ const mouthBadges=passages.filter(p=>p.kind==='tunnel').flatMap((p,i)=>[p.enter.at(-2),p.exit[1]].map((point,j)=>({point:p.mouthLabels?.[j]||[point[0]-40,point[1]-38],text:'T'+(i+1),id:p.id+'-'+j})));
+ extras+=svg('mouth-labels','dutch-mouth-labels',mouthBadges.map(b=>`<g transform="translate(${b.point})"><rect x="-17" y="-13" width="34" height="26" rx="8" fill="#fcf8ed" stroke="#39515b" stroke-width="1.5"/><text text-anchor="middle" y="5" font-family="Arial,sans-serif" font-size="17" font-weight="bold" fill="#253f49">${b.text}</text></g>`).join(''));
  const m=globalThis.DigiBoardMap={id:c.id,label:c.label,content:c.content,image,extras,special:true,routeNote:c.routeNote,previews:c.previews,positions:{},newWorld:true,paintedRoute:!!c.paintedRoute};
  m.install=()=>{
   document.getElementById('praatpad-board').dataset.dutchMap='true';
@@ -78,7 +108,7 @@ function create(c){
   // Underground and vertical passages are not drawn as a surface shortcut.
   R.mainPath=(b,w,h,stop=anchors.length-1)=>Array.from({length:stop},(_,i)=>find(i,i+1)?'':R.routeGeometry(b,w,h,{from:i,exits:[i+1]}).d).join(' ');
   R.artwork=()=>'';R.portPosition=(b,w,h,c)=>R.layout(b,w,h).points[c.from];
-  globalThis.PraatpadWorld={anchors,legs,fit,connections:passages.filter(p=>p.optional).map(p=>({id:p.id,type:p.boat?'ferry':'tunnel',from:p.from,exits:[p.to],optional:true,label:p.label})),passages,pose,depthAt,step:(a,b,t,w,h)=>{const q=pose(a,b,t);return{...q,point:screen(q.point,fit(w,h)),boat:null};},pawnDepth(point,w,h){const f=fit(w,h);return depthAt([(point[0]-f.x)/f.scale,(point[1]-f.y)/f.scale]);},duration:from=>find(from,from+1)?5200:650};
+  globalThis.PraatpadWorld={anchors,legs,fit,connections:passages.filter(p=>p.optional).map(p=>({id:p.id,type:p.boat?'ferry':'tunnel',from:p.from,exits:[p.to],optional:true,label:p.label})),passages,pose,depthAt,step:(a,b,t,w,h)=>{const q=pose(a,b,t);return{...q,point:screen(q.point,fit(w,h)),boat:null};},pawnDepth(point,w,h){const f=fit(w,h);return depthAt([(point[0]-f.x)/f.scale,(point[1]-f.y)/f.scale]);},duration:from=>durationFor(from,from+1)};
   globalThis.PraatpadCity={fit,anchors,angles:Array(anchors.length).fill(0)};
   installPawn();
  };
@@ -91,7 +121,7 @@ function create(c){
    root.dataset.tunnelPhase=host.anim?.tunnelPhase||'';root.dataset.liftPhase=host.anim?.liftPhase||'';const lift=passages.find(p=>p.kind==='lift'||p.kind==='cable');if(lift){const point=host.anim?.liftPoint||(host.current().pos>=lift.to?lift.top:lift.bottom);root.querySelectorAll('[data-lift-car]').forEach(el=>el.setAttribute('transform',`translate(${point})`));}}
   function segment(from,to,token){
    if(reduced()){host.anim.pos=to;drawMap();return Promise.resolve();}
-   root.classList.add('pp-stepping');const passage=find(from,to),duration=passage?(passage.duration||5200):650;
+   root.classList.add('pp-stepping');const passage=find(from,to),duration=durationFor(from,to);
    return new Promise(resolve=>{let start=null,raf=0,ended=false;
     const done=()=>{if(ended)return;ended=true;cancelAnimationFrame(raf);host.transportCancel=null;if(host.anim)for(const k of ['stepPoint','cityTunnelOpacity','tunnelScale','tunnelPhase','liftPhase','liftPoint','newDepth','boatPose'])delete host.anim[k];root.classList.remove('pp-stepping');root.dataset.journey='';root.dataset.tunnelPhase='';root.dataset.liftPhase='';$('pp-transit-label').hidden=true;resolve();};
     host.transportCancel=done;
@@ -111,5 +141,5 @@ function create(c){
 function installPawn(){
 PraatpadCity.pawn=(number='')=>`<svg viewBox="0 0 48 68" aria-hidden="true" focusable="false"><ellipse cx="24" cy="63" rx="21" ry="4" fill="#102e3a" opacity=".22"/><path d="M17 25C9 21 10 7 18 4C30-1 40 13 32 23L30 25C29 29 30 35 34 42L41 53C44 57 42 62 37 63H11C6 62 4 57 7 53L14 42C18 35 19 29 17 25Z" fill="currentColor" stroke="#fffdf4" stroke-width="3" stroke-linejoin="round"/><path d="M29 5C38 12 34 21 29 24C26 30 29 38 33 45L39 55C41 58 39 60 36 60H29C33 55 26 44 24 35C22 29 23 25 26 21C30 16 31 10 29 5Z" fill="#102e3a" opacity=".2"/><path d="M16 14C16 10 19 7 23 7" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/><path d="M10 54C19 57 30 57 39 54" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="2"/><text x="24" y="48" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700">${number}</text></svg>`;
 PraatpadCity.terminal=end=>`<span class="city-terminal-name">${end?'FINISH':'START'}</span><span class="city-terminal-sign" aria-hidden="true">${end?'<svg viewBox="0 0 40 32"><path d="M7 29V3" stroke="#163d4c" stroke-width="3"/><path d="M8 3H34V21H8Z" fill="#fff" stroke="#163d4c" stroke-width="2"/><path d="M8 3h7v6H8zm13 0h7v6h-7zm-6 6h6v6h-6zm13 0h6v6h-6zm-20 6h7v6H8zm13 0h7v6h-7z" fill="#163d4c"/></svg>':'<svg viewBox="0 0 40 32"><path d="M6 16H32M23 6L33 16L23 26" fill="none" stroke="#167562" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'}</span>`;}
-return{create};
+return{create,migrateRoute};
 })();

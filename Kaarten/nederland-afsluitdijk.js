@@ -107,7 +107,7 @@ DigiBoardDutchWorld.create({
     {
       "id": "doorgang-1",
       "kind": "tunnel",
-      "to": 14,
+      "to": 20,
       "label": "Onder de onderhoudsstrook",
       "enter": [
         [
@@ -141,34 +141,30 @@ DigiBoardDutchWorld.create({
           285
         ],
         [
-          1330,
-          331
+          1385,
+          270
         ],
         [
-          1254,
-          379
-        ],
-        [
-          1190,
-          389
+          1398,
+          247
         ]
       ],
       "labelPos": [
         1035,
         572
       ],
-      "optional": false,
+      "optional": true,
       "boat": false,
       "hiddenLabel": "In de doorgang",
       "from": 13,
       "icon": "move-down",
-      "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 5145,
+      "description": "Bij vak 13 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+      "duration": 4427,
       "timeline": [
-        0.15095240525410927,
-        0.3258849476639576,
-        0.5591283375437552,
-        0.7340608799536036
+        0.17544423655314476,
+        0.3787593563071639,
+        0.649846182645856,
+        0.8531613023998751
       ]
     }
   ],
@@ -212,13 +208,39 @@ DigiBoardDutchWorld.create({
         1398,
         247
       ]
+    ],
+    "13": [
+      [
+        988,
+        466
+      ],
+      [
+        1036,
+        475
+      ],
+      [
+        1107,
+        470
+      ],
+      [
+        1179,
+        449
+      ],
+      [
+        1195,
+        414
+      ],
+      [
+        1190,
+        389
+      ]
     ]
   },
   "previews": [
     {
       "id": "doorgang-1",
       "kind": "tunnel",
-      "to": 14,
+      "to": 20,
       "label": "Onder de onderhoudsstrook",
       "enter": [
         [
@@ -252,38 +274,35 @@ DigiBoardDutchWorld.create({
           285
         ],
         [
-          1330,
-          331
+          1385,
+          270
         ],
         [
-          1254,
-          379
-        ],
-        [
-          1190,
-          389
+          1398,
+          247
         ]
       ],
       "labelPos": [
         1035,
         572
       ],
-      "optional": false,
+      "optional": true,
       "boat": false,
       "hiddenLabel": "In de doorgang",
       "from": 13,
       "icon": "move-down",
-      "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 5145,
+      "description": "Bij vak 13 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+      "duration": 4427,
       "timeline": [
-        0.15095240525410927,
-        0.3258849476639576,
-        0.5591283375437552,
-        0.7340608799536036
+        0.17544423655314476,
+        0.3787593563071639,
+        0.649846182645856,
+        0.8531613023998751
       ]
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
   "label": "Afsluitdijk",
   "title": "Afsluitdijk — tussen twee wateren",
   "count": 23,

@@ -269,6 +269,7 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
   "label": "Veluwe",
   "title": "Veluwe — heide en stuifzand",
   "count": 26,

@@ -79,20 +79,8 @@ DigiBoardDutchWorld.create({
       253
     ],
     [
-      1465,
-      224
-    ],
-    [
-      1441,
-      199
-    ],
-    [
-      1403,
-      188
-    ],
-    [
-      1365,
-      171
+      1447,
+      235
     ],
     [
       1556,
@@ -178,30 +166,7 @@ DigiBoardDutchWorld.create({
       "portal": true
     }
   ],
-  "waypoints": {
-    "22": [
-      [
-        1365,
-        171
-      ],
-      [
-        1384,
-        168
-      ],
-      [
-        1446,
-        179
-      ],
-      [
-        1498,
-        202
-      ],
-      [
-        1556,
-        234
-      ]
-    ]
-  },
+  "waypoints": {},
   "previews": [
     {
       "id": "doorgang-1",
@@ -256,9 +221,60 @@ DigiBoardDutchWorld.create({
     }
   ],
   "depthModel": "thresholds",
+  "legacyIndexOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    23
+  ],
+  "legacyPositionMap": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    19,
+    19,
+    19,
+    20
+  ],
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-giethoorn-route-v2",
   "label": "Giethoorn",
   "title": "Giethoorn — bruggetjes en punters",
-  "count": 22,
+  "count": 19,
   "shapes": [
     "circle",
     "diamond",
@@ -278,9 +294,6 @@ DigiBoardDutchWorld.create({
     "square",
     "diamond",
     "triangle",
-    "square",
-    "diamond",
-    "triangle",
     "square"
   ],
   "size": [
@@ -288,7 +301,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-giethoorn-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,
@@ -304,7 +316,7 @@ DigiBoardDutchWorld.create({
     "groupSize": "2–30 deelnemers",
     "literacy": "Korte instructies lezen; de docent kan ze voorlezen.",
     "methodLinks": [],
-    "finish": 23,
+    "finish": 20,
     "coordinates": [
       [
         0.09270334928229665,
@@ -383,20 +395,8 @@ DigiBoardDutchWorld.create({
         0.2688629117959617
       ],
       [
-        0.8761961722488039,
-        0.23804463336875664
-      ],
-      [
-        0.8618421052631579,
-        0.21147715196599362
-      ],
-      [
-        0.8391148325358851,
-        0.1997874601487779
-      ],
-      [
-        0.8163875598086124,
-        0.18172157279489903
+        0.8654306220095693,
+        0.24973432518597238
       ],
       [
         0.930622009569378,
@@ -1110,117 +1110,6 @@ DigiBoardDutchWorld.create({
           "extra": {
             "label": "Extra",
             "instruction": "Vraag ook waar je de brief kunt inleveren."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t20",
-        "number": 20,
-        "title": "Bewegen in de buurt",
-        "type": "vertel",
-        "goalIds": [
-          "vertel"
-        ],
-        "instruction": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen.",
-        "partner": "Vraag hoe vaak de ander dat doet. Vertel daarna wat jij graag doet.",
-        "help": "Ik vind … leuk. Ik doe dat …",
-        "printSummary": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen. Partner: Vraag hoe vaak de ander dat doet. Vertel daarna wat jij graag doet.",
-        "printShort": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen.",
-            "support": "Ik vind … leuk. Ik doe dat …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Vertel welke sport of beweging je leuk vindt en waar je dat in de buurt kunt doen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Nodig de ander uit om een keer mee te doen."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t21",
-        "number": 21,
-        "title": "Een kort bospad",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-        "partner": "Herhaal de route en vraag wat jullie daarna doen.",
-        "help": "We gaan naar … Daarna …",
-        "printSummary": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan. Partner: Herhaal de route en vraag wat jullie daarna doen.",
-        "printShort": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan.",
-            "support": "We gaan naar … Daarna …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je ziet een kort pad dat drie vakken verder uitkomt. Leg uit waar jullie naartoe gaan."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Vertel ook hoe de langere route loopt."
-          }
-        },
-        "teacherCriterion": "Brengt de eigen boodschap over en reageert passend op de gesprekspartner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t22",
-        "number": 22,
-        "title": "De afvalbak is vol",
-        "type": "losop",
-        "goalIds": [
-          "losop"
-        ],
-        "instruction": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat.",
-        "partner": "Je weet een andere bak bij het plein. Leg uit waar die staat.",
-        "help": "Deze bak is vol. Weet jij …?",
-        "printSummary": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat. Partner: Je weet een andere bak bij het plein. Leg uit waar die staat.",
-        "printShort": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat.",
-            "support": "Deze bak is vol. Weet jij …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt afval wegbrengen, maar de bak is vol. Vraag je buurman of buurvrouw waar een andere bak staat."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "De ander begrijpt de weg niet. Leg het nog een keer anders uit."
           }
         },
         "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",

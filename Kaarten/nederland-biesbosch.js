@@ -194,41 +194,53 @@ DigiBoardDutchWorld.create({
         ],
         [
           738,
-          353
+          385
         ],
         [
           902,
-          352
+          380
         ],
         [
           1100,
-          340
+          369
         ],
         [
-          1324,
-          330
+          1300,
+          345
         ],
         [
-          1493,
-          340
+          1440,
+          325
         ],
         [
-          1578,
+          1570,
+          321
+        ],
+        [
+          1632,
+          346
+        ],
+        [
+          1635,
           380
         ]
       ],
       "exit": [
         [
-          1578,
+          1635,
           380
         ],
         [
-          1563,
-          405
+          1595,
+          379
+        ],
+        [
+          1585,
+          414
         ],
         [
           1537,
-          420
+          428
         ],
         [
           1508,
@@ -242,10 +254,10 @@ DigiBoardDutchWorld.create({
       "from": 13,
       "icon": "ship",
       "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 7956,
+      "duration": 8911,
       "timeline": [
-        0.08892929899829248,
-        0.9120106661517389
+        0.07939603015014979,
+        0.8835207136858397
       ]
     },
     {
@@ -310,38 +322,54 @@ DigiBoardDutchWorld.create({
           446
         ],
         [
-          1587,
-          443
+          1585,
+          432
         ],
         [
-          1613,
-          418
+          1595,
+          409
+        ],
+        [
+          1610,
+          383
+        ],
+        [
+          1640,
+          380
         ]
       ],
       "water": [
         [
-          1613,
-          418
+          1640,
+          380
         ],
         [
-          1600,
-          359
+          1632,
+          346
         ],
         [
-          1490,
-          320
+          1570,
+          321
         ],
         [
-          1314,
-          312
+          1440,
+          325
+        ],
+        [
+          1300,
+          345
         ],
         [
           1140,
-          307
+          366
         ],
         [
-          1000,
-          303
+          1030,
+          351
+        ],
+        [
+          975,
+          321
         ],
         [
           981,
@@ -369,10 +397,10 @@ DigiBoardDutchWorld.create({
       "from": 30,
       "icon": "ship",
       "description": "Deze passage hoort bij de stap van vak 30 naar 31. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 6020,
+      "duration": 6522,
       "timeline": [
-        0.11628807827119597,
-        0.883711921728804
+        0.13238678465170536,
+        0.8926743218902884
       ]
     }
   ],
@@ -421,28 +449,36 @@ DigiBoardDutchWorld.create({
         865
       ],
       [
-        1590,
+        1580,
         874
       ],
       [
-        1630,
-        802
+        1625,
+        830
       ],
       [
-        1640,
-        695
+        1632,
+        774
       ],
       [
-        1640,
-        625
+        1607,
+        731
       ],
       [
-        1575,
-        582
+        1567,
+        687
       ],
       [
-        1490,
-        571
+        1515,
+        650
+      ],
+      [
+        1472,
+        615
+      ],
+      [
+        1460,
+        586
       ],
       [
         1434,
@@ -485,41 +521,53 @@ DigiBoardDutchWorld.create({
         ],
         [
           738,
-          353
+          385
         ],
         [
           902,
-          352
+          380
         ],
         [
           1100,
-          340
+          369
         ],
         [
-          1324,
-          330
+          1300,
+          345
         ],
         [
-          1493,
-          340
+          1440,
+          325
         ],
         [
-          1578,
+          1570,
+          321
+        ],
+        [
+          1632,
+          346
+        ],
+        [
+          1635,
           380
         ]
       ],
       "exit": [
         [
-          1578,
+          1635,
           380
         ],
         [
-          1563,
-          405
+          1595,
+          379
+        ],
+        [
+          1585,
+          414
         ],
         [
           1537,
-          420
+          428
         ],
         [
           1508,
@@ -533,10 +581,10 @@ DigiBoardDutchWorld.create({
       "from": 13,
       "icon": "ship",
       "description": "Deze passage hoort bij de stap van vak 13 naar 14. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 7956,
+      "duration": 8911,
       "timeline": [
-        0.08892929899829248,
-        0.9120106661517389
+        0.07939603015014979,
+        0.8835207136858397
       ]
     },
     {
@@ -601,38 +649,54 @@ DigiBoardDutchWorld.create({
           446
         ],
         [
-          1587,
-          443
+          1585,
+          432
         ],
         [
-          1613,
-          418
+          1595,
+          409
+        ],
+        [
+          1610,
+          383
+        ],
+        [
+          1640,
+          380
         ]
       ],
       "water": [
         [
-          1613,
-          418
+          1640,
+          380
         ],
         [
-          1600,
-          359
+          1632,
+          346
         ],
         [
-          1490,
-          320
+          1570,
+          321
         ],
         [
-          1314,
-          312
+          1440,
+          325
+        ],
+        [
+          1300,
+          345
         ],
         [
           1140,
-          307
+          366
         ],
         [
-          1000,
-          303
+          1030,
+          351
+        ],
+        [
+          975,
+          321
         ],
         [
           981,
@@ -660,14 +724,16 @@ DigiBoardDutchWorld.create({
       "from": 30,
       "icon": "ship",
       "description": "Deze passage hoort bij de stap van vak 30 naar 31. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 6020,
+      "duration": 6522,
       "timeline": [
-        0.11628807827119597,
-        0.883711921728804
+        0.13238678465170536,
+        0.8926743218902884
       ]
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-biesbosch-route-v2",
   "label": "Biesbosch",
   "title": "Biesbosch — tussen kreken en wilgen",
   "count": 39,
@@ -717,7 +783,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-biesbosch-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

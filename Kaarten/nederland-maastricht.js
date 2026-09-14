@@ -153,36 +153,32 @@ DigiBoardDutchWorld.create({
       ],
       "exit": [
         [
-          1519,
-          553
-        ],
-        [
-          1514,
-          574
-        ],
-        [
-          1500,
-          603
-        ],
-        [
-          1460,
-          619
-        ],
-        [
-          1430,
+          1524,
           592
         ],
         [
-          1430,
-          536
+          1516,
+          610
         ],
         [
-          1452,
-          498
+          1475,
+          628
         ],
         [
-          1500,
-          481
+          1442,
+          617
+        ],
+        [
+          1462,
+          582
+        ],
+        [
+          1486,
+          546
+        ],
+        [
+          1516,
+          501
         ],
         [
           1543,
@@ -199,12 +195,12 @@ DigiBoardDutchWorld.create({
       "from": 24,
       "icon": "move-down",
       "description": "Deze passage hoort bij de stap van vak 24 naar 25. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 5730,
+      "duration": 5393,
       "timeline": [
-        0.1134358848607654,
-        0.2705009562064406,
-        0.4799210513340075,
-        0.6369861226796827
+        0.12052995709195696,
+        0.28741758998851274,
+        0.5099344338505871,
+        0.676822066747143
       ]
     }
   ],
@@ -222,18 +218,6 @@ DigiBoardDutchWorld.create({
       "portal": true
     },
     {
-      "id": "doorgang-1-mond-1",
-      "path": "M1487 580V513H1545V580H1539V519H1493V580Z",
-      "area": [
-        1487,
-        513,
-        1545,
-        580
-      ],
-      "frontY": 2000,
-      "portal": true
-    },
-    {
       "id": "brugmuur",
       "path": "M337.7 522.4 L526.7 471.4 L525.3 466.6 L336.3 517.6Z M526.6 471.4 L713.6 426.4 L712.4 421.6 L525.4 466.6Z M713.5 426.5 L900.5 389.5 L899.5 384.5 L712.5 421.5Z M900.4 389.5 L1068.4 360.5 L1067.6 355.5 L899.6 384.5Z",
       "area": [
@@ -244,6 +228,18 @@ DigiBoardDutchWorld.create({
       ],
       "frontY": 2000,
       "bridge": true
+    },
+    {
+      "id": "doorgang-1-mond-1",
+      "path": "M1492 620V548H1553V620H1548V553H1497V620Z",
+      "area": [
+        1492,
+        548,
+        1553,
+        620
+      ],
+      "frontY": 2000,
+      "portal": true
     }
   ],
   "waypoints": {
@@ -253,32 +249,40 @@ DigiBoardDutchWorld.create({
         338
       ],
       [
-        1103,
-        331
+        1097,
+        345
       ],
       [
-        1152,
-        332
+        1113,
+        377
       ],
       [
-        1191,
-        363
+        1136,
+        408
       ],
       [
-        1223,
-        414
+        1170,
+        431
       ],
       [
-        1267,
-        470
+        1194,
+        461
       ],
       [
-        1298,
-        514
+        1228,
+        496
       ],
       [
-        1343,
-        554
+        1270,
+        520
+      ],
+      [
+        1309,
+        543
+      ],
+      [
+        1350,
+        560
       ],
       [
         1376,
@@ -316,36 +320,32 @@ DigiBoardDutchWorld.create({
       ],
       "exit": [
         [
-          1519,
-          553
-        ],
-        [
-          1514,
-          574
-        ],
-        [
-          1500,
-          603
-        ],
-        [
-          1460,
-          619
-        ],
-        [
-          1430,
+          1524,
           592
         ],
         [
-          1430,
-          536
+          1516,
+          610
         ],
         [
-          1452,
-          498
+          1475,
+          628
         ],
         [
-          1500,
-          481
+          1442,
+          617
+        ],
+        [
+          1462,
+          582
+        ],
+        [
+          1486,
+          546
+        ],
+        [
+          1516,
+          501
         ],
         [
           1543,
@@ -362,16 +362,18 @@ DigiBoardDutchWorld.create({
       "from": 24,
       "icon": "move-down",
       "description": "Deze passage hoort bij de stap van vak 24 naar 25. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 5730,
+      "duration": 5393,
       "timeline": [
-        0.1134358848607654,
-        0.2705009562064406,
-        0.4799210513340075,
-        0.6369861226796827
+        0.12052995709195696,
+        0.28741758998851274,
+        0.5099344338505871,
+        0.676822066747143
       ]
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-maastricht-route-v2",
   "label": "Maastricht",
   "title": "Maastricht — over de Maas",
   "count": 30,
@@ -412,7 +414,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-maastricht-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

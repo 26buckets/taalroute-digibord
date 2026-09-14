@@ -35,46 +35,6 @@ DigiBoardDutchWorld.create({
       567
     ],
     [
-      632,
-      458
-    ],
-    [
-      592,
-      478
-    ],
-    [
-      554,
-      503
-    ],
-    [
-      615,
-      532
-    ],
-    [
-      679,
-      558
-    ],
-    [
-      751,
-      585
-    ],
-    [
-      823,
-      611
-    ],
-    [
-      898,
-      646
-    ],
-    [
-      977,
-      678
-    ],
-    [
-      1054,
-      716
-    ],
-    [
       845,
       367
     ],
@@ -171,6 +131,38 @@ DigiBoardDutchWorld.create({
         [
           632,
           458
+        ],
+        [
+          680,
+          475
+        ],
+        [
+          748,
+          509
+        ],
+        [
+          823,
+          534
+        ],
+        [
+          850,
+          496
+        ],
+        [
+          882,
+          450
+        ],
+        [
+          910,
+          412
+        ],
+        [
+          883,
+          386
+        ],
+        [
+          845,
+          367
         ]
       ],
       "labelPos": [
@@ -183,12 +175,12 @@ DigiBoardDutchWorld.create({
       "from": 7,
       "icon": "move-down",
       "description": "Deze passage hoort bij de stap van vak 7 naar 8. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 4300,
+      "duration": 6673,
       "timeline": [
-        0.15116279069767444,
-        0.3604651162790698,
-        0.6395348837209303,
-        0.8488372093023256
+        0.09740084262560429,
+        0.2322635477995179,
+        0.41208048803140274,
+        0.5469431932053164
       ]
     }
   ],
@@ -231,49 +223,7 @@ DigiBoardDutchWorld.create({
     }
   ],
   "waypoints": {
-    "17": [
-      [
-        1054,
-        716
-      ],
-      [
-        1054,
-        667
-      ],
-      [
-        1004,
-        613
-      ],
-      [
-        905,
-        561
-      ],
-      [
-        838,
-        529
-      ],
-      [
-        845,
-        492
-      ],
-      [
-        882,
-        438
-      ],
-      [
-        910,
-        402
-      ],
-      [
-        874,
-        382
-      ],
-      [
-        845,
-        367
-      ]
-    ],
-    "25": [
+    "15": [
       [
         725,
         252
@@ -319,7 +269,7 @@ DigiBoardDutchWorld.create({
         351
       ]
     ],
-    "30": [
+    "20": [
       [
         1416,
         391
@@ -333,7 +283,7 @@ DigiBoardDutchWorld.create({
         347
       ]
     ],
-    "32": [
+    "22": [
       [
         1531,
         319
@@ -351,11 +301,11 @@ DigiBoardDutchWorld.create({
   "previews": [
     {
       "id": "brug-25",
-      "to": 26,
+      "to": 16,
       "label": "Over de parkbrug",
       "icon": "route",
       "description": "De pion volgt het brugdek tussen de leuningen.",
-      "from": 25
+      "from": 15
     },
     {
       "id": "doorgang-1",
@@ -388,6 +338,38 @@ DigiBoardDutchWorld.create({
         [
           632,
           458
+        ],
+        [
+          680,
+          475
+        ],
+        [
+          748,
+          509
+        ],
+        [
+          823,
+          534
+        ],
+        [
+          850,
+          496
+        ],
+        [
+          882,
+          450
+        ],
+        [
+          910,
+          412
+        ],
+        [
+          883,
+          386
+        ],
+        [
+          845,
+          367
         ]
       ],
       "labelPos": [
@@ -400,19 +382,83 @@ DigiBoardDutchWorld.create({
       "from": 7,
       "icon": "move-down",
       "description": "Deze passage hoort bij de stap van vak 7 naar 8. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 4300,
+      "duration": 6673,
       "timeline": [
-        0.15116279069767444,
-        0.3604651162790698,
-        0.6395348837209303,
-        0.8488372093023256
+        0.09740084262560429,
+        0.2322635477995179,
+        0.41208048803140274,
+        0.5469431932053164
       ]
     }
   ],
   "depthModel": "thresholds",
+  "legacyIndexOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "legacyPositionMap": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-nijmegen-route-v2",
   "label": "Nijmegen",
   "title": "Nijmegen — van Waalkade naar Valkhof",
-  "count": 32,
+  "count": 22,
   "shapes": [
     "diamond",
     "triangle",
@@ -421,16 +467,6 @@ DigiBoardDutchWorld.create({
     "diamond",
     "triangle",
     "square",
-    "square",
-    "circle",
-    "square",
-    "triangle",
-    "diamond",
-    "circle",
-    "square",
-    "triangle",
-    "diamond",
-    "circle",
     "circle",
     "diamond",
     "triangle",
@@ -452,7 +488,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-nijmegen-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,
@@ -468,7 +503,7 @@ DigiBoardDutchWorld.create({
     "groupSize": "2–30 deelnemers",
     "literacy": "Korte instructies lezen; de docent kan ze voorlezen.",
     "methodLinks": [],
-    "finish": 33,
+    "finish": 23,
     "coordinates": [
       [
         0.7828947368421053,
@@ -501,46 +536,6 @@ DigiBoardDutchWorld.create({
       [
         0.6925837320574163,
         0.6025504782146652
-      ],
-      [
-        0.37799043062200954,
-        0.4867162592986185
-      ],
-      [
-        0.35406698564593303,
-        0.5079702444208289
-      ],
-      [
-        0.33133971291866027,
-        0.5345377258235919
-      ],
-      [
-        0.36782296650717705,
-        0.565356004250797
-      ],
-      [
-        0.4061004784688995,
-        0.5929861849096706
-      ],
-      [
-        0.4491626794258373,
-        0.6216790648246546
-      ],
-      [
-        0.4922248803827751,
-        0.6493092454835282
-      ],
-      [
-        0.5370813397129187,
-        0.6865037194473964
-      ],
-      [
-        0.5843301435406698,
-        0.720510095642933
-      ],
-      [
-        0.6303827751196173,
-        0.7608926673751328
       ],
       [
         0.5053827751196173,
@@ -1430,381 +1425,6 @@ DigiBoardDutchWorld.create({
         "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
         "channels": [
           "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t23",
-        "number": 23,
-        "title": "De weg naar het plein",
-        "type": "vraag",
-        "goalIds": [
-          "vraag"
-        ],
-        "instruction": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt.",
-        "partner": "Het plein is na de brug rechts. Leg de weg uit. Vraag of het duidelijk is.",
-        "help": "Hoe kom ik bij …? Dus eerst …?",
-        "printSummary": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt. Partner: Het plein is na de brug rechts. Leg de weg uit. Vraag of het duidelijk is.",
-        "printShort": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt.",
-            "support": "Hoe kom ik bij …? Dus eerst …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent nieuw in de buurt. Vraag hoe je bij het plein komt."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Herhaal de route om te controleren of je het goed begrijpt."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t24",
-        "number": 24,
-        "title": "Een buurman of buurvrouw helpen",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit.",
-        "partner": "Vertel welke hulp je nodig hebt. Spreek af wanneer jullie beginnen.",
-        "help": "Ik kan helpen met … Wanneer …?",
-        "printSummary": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit. Partner: Vertel welke hulp je nodig hebt. Spreek af wanneer jullie beginnen.",
-        "printShort": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit.",
-            "support": "Ik kan helpen met … Wanneer …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je buurman of buurvrouw is net verhuisd. Kies hoe je wilt helpen: dozen dragen of spullen uitpakken. Leg je keuze uit."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je kunt maar een halfuur helpen. Kies samen wat eerst moet."
-          }
-        },
-        "teacherCriterion": "Voert de genoemde spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t25",
-        "number": 25,
-        "title": "Een avondwandeling",
-        "type": "kies",
-        "goalIds": [
-          "kies"
-        ],
-        "instruction": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water.",
-        "partner": "Vertel welke route jij prettig vindt en waarom.",
-        "help": "Ik loop liever …, want …",
-        "printSummary": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water. Partner: Vertel welke route jij prettig vindt en waarom.",
-        "printShort": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water.",
-            "support": "Ik loop liever …, want …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt na het eten wandelen. Kies samen een route door het park of langs het water."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Het wordt donker. Pas jullie plan samen aan."
-          }
-        },
-        "teacherCriterion": "Voert de spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Docent leest voor of deelnemer leest de opdracht",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t26",
-        "number": 26,
-        "title": "Bij het bezoekerscentrum",
-        "type": "losop",
-        "goalIds": [
-          "losop"
-        ],
-        "instruction": "Je wilt iets vragen bij het bezoekerscentrum, maar de balie is gesloten. Bespreek wat je kunt doen.",
-        "partner": "Stel voor waar jullie informatie kunnen zoeken.",
-        "help": "Misschien staat het …",
-        "printSummary": "Je wilt iets vragen bij het bezoekerscentrum, maar de balie is gesloten. Bespreek wat je kunt doen. Partner: Stel voor waar jullie informatie kunnen zoeken.",
-        "printShort": "Je wilt iets vragen bij het bezoekerscentrum, maar de balie is gesloten. Bespreek wat je kunt doen.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt iets vragen bij het bezoekerscentrum, maar de balie is gesloten. Bespreek wat je kunt doen.",
-            "support": "Misschien staat het …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt iets vragen bij het bezoekerscentrum, maar de balie is gesloten. Bespreek wat je kunt doen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Er hangt geen informatie. Bedenk een andere mogelijkheid."
-          }
-        },
-        "teacherCriterion": "Brengt de eigen boodschap over en reageert passend op de gesprekspartner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Docent leest voor of deelnemer leest de opdracht",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t27",
-        "number": 27,
-        "title": "Een buurman of buurvrouw uitnodigen",
-        "type": "vraag",
-        "goalIds": [
-          "vraag"
-        ],
-        "instruction": "Je wilt je buurman of buurvrouw uitnodigen om thee te drinken. Vraag wanneer die tijd heeft.",
-        "partner": "Je kunt vandaag niet. Stel een ander moment voor.",
-        "help": "Heb je tijd om …?",
-        "printSummary": "Je wilt je buurman of buurvrouw uitnodigen om thee te drinken. Vraag wanneer die tijd heeft. Partner: Je kunt vandaag niet. Stel een ander moment voor.",
-        "printShort": "Je wilt je buurman of buurvrouw uitnodigen om thee te drinken. Vraag wanneer die tijd heeft.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je wilt je buurman of buurvrouw uitnodigen om thee te drinken. Vraag wanneer die tijd heeft.",
-            "support": "Heb je tijd om …?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je wilt je buurman of buurvrouw uitnodigen om thee te drinken. Vraag wanneer die tijd heeft."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Jullie eerste twee voorstellen passen niet. Vind toch een moment."
-          }
-        },
-        "teacherCriterion": "Voert de spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Docent leest voor of deelnemer leest de opdracht",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t28",
-        "number": 28,
-        "title": "Een fijne herinnering",
-        "type": "vertel",
-        "goalIds": [
-          "vertel"
-        ],
-        "instruction": "Vertel over een plek waar je vroeger graag kwam. Wat deed je daar?",
-        "partner": "Vraag met wie de ander daar kwam en reageer op het antwoord.",
-        "help": "Vroeger ging ik vaak naar …",
-        "printSummary": "Vertel over een plek waar je vroeger graag kwam. Wat deed je daar? Partner: Vraag met wie de ander daar kwam en reageer op het antwoord.",
-        "printShort": "Vertel over een plek waar je vroeger graag kwam. Wat deed je daar?",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Vertel over een plek waar je vroeger graag kwam. Wat deed je daar?",
-            "support": "Vroeger ging ik vaak naar …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Vertel over een plek waar je vroeger graag kwam. Wat deed je daar?"
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Vergelijk die plek met een plek in je huidige buurt."
-          }
-        },
-        "teacherCriterion": "Voert de spreekhandeling uit en reageert op de partner.",
-        "channels": [
-          "digital"
-        ],
-        "literacy": "Docent leest voor of deelnemer leest de opdracht",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t29",
-        "number": 29,
-        "title": "Een vrije middag",
-        "type": "vertel",
-        "goalIds": [
-          "plannen"
-        ],
-        "instruction": "Je bent morgenmiddag vrij. Stel voor om samen iets te doen.",
-        "partner": "Vraag hoe laat. Spreek samen een tijd af.",
-        "printSummary": "Je bent morgenmiddag vrij. Stel voor om samen iets te doen. Partner: Vraag hoe laat. Spreek samen een tijd af.",
-        "printShort": "Je bent morgenmiddag vrij. Stel voor om samen iets te doen.",
-        "help": "Zullen we morgen …? Om … uur?",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent morgenmiddag vrij. Stel voor om samen iets te doen.",
-            "support": "Zullen we morgen …? Om … uur?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent morgenmiddag vrij. Stel voor om samen iets te doen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Vertel ook wat je doet als het regent."
-          }
-        },
-        "teacherCriterion": "Doet een voorstel en bevestigt samen een tijd.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t30",
-        "number": 30,
-        "title": "Een pen lenen",
-        "type": "vraag",
-        "goalIds": [
-          "vragen"
-        ],
-        "instruction": "Je bent in de les en hebt geen pen. Vraag je buurman of buurvrouw om een pen.",
-        "partner": "Je hebt een extra pen. Geef antwoord.",
-        "printSummary": "Je bent in de les en hebt geen pen. Vraag je buurman of buurvrouw om een pen. Partner: Je hebt een extra pen. Geef antwoord.",
-        "printShort": "Je bent in de les en hebt geen pen. Vraag je buurman of buurvrouw om een pen.",
-        "help": "Mag ik je pen lenen? Dank je wel.",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent in de les en hebt geen pen. Vraag je buurman of buurvrouw om een pen.",
-            "support": "Mag ik je pen lenen? Dank je wel."
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent in de les en hebt geen pen. Vraag je buurman of buurvrouw om een pen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "De ander heeft geen pen over. Zoek samen een andere oplossing."
-          }
-        },
-        "teacherCriterion": "Stelt een begrijpelijke vraag en reageert op het antwoord.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t31",
-        "number": 31,
-        "title": "Naar de markt",
-        "type": "kies",
-        "goalIds": [
-          "kiezen"
-        ],
-        "instruction": "Je gaat naar de markt. Kies: met de fiets of met de bus. Vertel waarom.",
-        "partner": "Vraag hoe lang de reis duurt.",
-        "printSummary": "Je gaat naar de markt. Kies: met de fiets of met de bus. Vertel waarom. Partner: Vraag hoe lang de reis duurt.",
-        "printShort": "Je gaat naar de markt. Kies: met de fiets of met de bus. Vertel waarom.",
-        "help": "Zullen we met de … gaan? Dat is …",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je gaat naar de markt. Kies: met de fiets of met de bus. Vertel waarom.",
-            "support": "Zullen we met de … gaan? Dat is …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je gaat naar de markt. Kies: met de fiets of met de bus. Vertel waarom."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "De bus is duurder, maar het regent. Bespreek of je keuze verandert."
-          }
-        },
-        "teacherCriterion": "Maakt een keuze, geeft een reden en reageert op de vraag.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t32",
-        "number": 32,
-        "title": "De afspraak",
-        "type": "losop",
-        "goalIds": [
-          "plannen",
-          "vragen"
-        ],
-        "instruction": "Je hebt woensdag om tien uur een afspraak. Je kunt dan niet. Vraag om een andere tijd.",
-        "partner": "Je kunt woensdag om twee uur of donderdag om elf uur. Zoek samen een tijd.",
-        "printSummary": "Je hebt woensdag om tien uur een afspraak. Je kunt dan niet. Vraag om een andere tijd. Partner: Je kunt woensdag om twee uur of donderdag om elf uur. Zoek samen een tijd.",
-        "printShort": "Je hebt woensdag om tien uur een afspraak. Je kunt dan niet. Vraag om een andere tijd.",
-        "help": "Kan het woensdag om …? Dus we spreken af …",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je hebt woensdag om tien uur een afspraak. Je kunt dan niet. Vraag om een andere tijd.",
-            "support": "Kan het woensdag om …? Dus we spreken af …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je hebt woensdag om tien uur een afspraak. Je kunt dan niet. Vraag om een andere tijd."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je kunt allebei niet op de voorgestelde tijden. Stel ieder een andere mogelijkheid voor."
-          }
-        },
-        "teacherCriterion": "Vraagt om wijziging en bevestigt samen een nieuwe dag en tijd.",
-        "channels": [
-          "digital",
-          "print"
         ],
         "literacy": "Korte instructies lezen of docent leest voor",
         "assets": [],

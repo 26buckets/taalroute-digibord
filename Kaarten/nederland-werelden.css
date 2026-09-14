@@ -6,3 +6,5 @@
 
 /* A nearby doorway must never lift the pawn over a bridge railing. */
 #praatpad-board .dutch-bridge-front{z-index:12}
+/* Paired doorway identifiers stay outside the walking plane and never intercept input. */
+#praatpad-board .dutch-mouth-labels{z-index:13;pointer-events:none;}

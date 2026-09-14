@@ -131,20 +131,36 @@ DigiBoardDutchWorld.create({
       "label": "Duintunnel",
       "enter": [
         [
-          580,
-          565
+          315,
+          709
         ],
         [
-          585,
-          639
-        ],
-        [
-          671,
+          275,
           750
         ],
         [
-          751,
-          871
+          330,
+          815
+        ],
+        [
+          450,
+          850
+        ],
+        [
+          594,
+          900
+        ],
+        [
+          720,
+          928
+        ],
+        [
+          790,
+          910
+        ],
+        [
+          808,
+          866
         ],
         [
           808,
@@ -197,24 +213,40 @@ DigiBoardDutchWorld.create({
           865
         ],
         [
-          1580,
-          802
+          1514,
+          900
         ],
         [
-          1580,
-          693
+          1543,
+          850
         ],
         [
-          1500,
-          608
+          1605,
+          777
         ],
         [
-          1370,
-          552
+          1592,
+          703
         ],
         [
-          1307,
-          477
+          1558,
+          660
+        ],
+        [
+          1499,
+          581
+        ],
+        [
+          1406,
+          506
+        ],
+        [
+          1326,
+          457
+        ],
+        [
+          1247,
+          418
         ],
         [
           1259,
@@ -228,15 +260,15 @@ DigiBoardDutchWorld.create({
       "optional": true,
       "boat": false,
       "hiddenLabel": "In de doorgang",
-      "from": 5,
+      "from": 1,
       "icon": "move-down",
-      "description": "Bij vak 5 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
-      "duration": 12438,
+      "description": "Bij vak 1 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+      "duration": 14882,
       "timeline": [
-        0.3096743640310156,
-        0.38203314857613685,
-        0.4785115279696318,
-        0.5508703125147532
+        0.38139392798478156,
+        0.4418711634815422,
+        0.522507477477223,
+        0.5829847129739837
       ]
     }
   ],
@@ -310,20 +342,36 @@ DigiBoardDutchWorld.create({
       "label": "Duintunnel",
       "enter": [
         [
-          580,
-          565
+          315,
+          709
         ],
         [
-          585,
-          639
-        ],
-        [
-          671,
+          275,
           750
         ],
         [
-          751,
-          871
+          330,
+          815
+        ],
+        [
+          450,
+          850
+        ],
+        [
+          594,
+          900
+        ],
+        [
+          720,
+          928
+        ],
+        [
+          790,
+          910
+        ],
+        [
+          808,
+          866
         ],
         [
           808,
@@ -376,24 +424,40 @@ DigiBoardDutchWorld.create({
           865
         ],
         [
-          1580,
-          802
+          1514,
+          900
         ],
         [
-          1580,
-          693
+          1543,
+          850
         ],
         [
-          1500,
-          608
+          1605,
+          777
         ],
         [
-          1370,
-          552
+          1592,
+          703
         ],
         [
-          1307,
-          477
+          1558,
+          660
+        ],
+        [
+          1499,
+          581
+        ],
+        [
+          1406,
+          506
+        ],
+        [
+          1326,
+          457
+        ],
+        [
+          1247,
+          418
         ],
         [
           1259,
@@ -407,19 +471,21 @@ DigiBoardDutchWorld.create({
       "optional": true,
       "boat": false,
       "hiddenLabel": "In de doorgang",
-      "from": 5,
+      "from": 1,
       "icon": "move-down",
-      "description": "Bij vak 5 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
-      "duration": 12438,
+      "description": "Bij vak 1 kun je via deze doorgang naar vak 20. Je kunt ook de gewone route volgen.",
+      "duration": 14882,
       "timeline": [
-        0.3096743640310156,
-        0.38203314857613685,
-        0.4785115279696318,
-        0.5508703125147532
+        0.38139392798478156,
+        0.4418711634815422,
+        0.522507477477223,
+        0.5829847129739837
       ]
     }
   ],
   "depthModel": "thresholds",
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-texel-route-v2",
   "label": "Texel",
   "title": "Texel — naar de vuurtoren",
   "count": 28,
@@ -458,7 +524,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-texel-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,

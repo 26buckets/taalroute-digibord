@@ -51,26 +51,6 @@ DigiBoardDutchWorld.create({
       198
     ],
     [
-      267,
-      209
-    ],
-    [
-      228,
-      226
-    ],
-    [
-      185,
-      247
-    ],
-    [
-      136,
-      268
-    ],
-    [
-      88,
-      289
-    ],
-    [
       475,
       419
     ],
@@ -222,8 +202,8 @@ DigiBoardDutchWorld.create({
     {
       "id": "doorgang-2",
       "kind": "tunnel",
-      "to": 24,
-      "label": "Door de Koppelpoort",
+      "to": 19,
+      "label": "Poort naar de brug",
       "enter": [
         [
           748,
@@ -240,48 +220,20 @@ DigiBoardDutchWorld.create({
       ],
       "exit": [
         [
-          1291,
-          311
+          888,
+          778
         ],
         [
-          1358,
-          332
+          887,
+          800
         ],
         [
-          1435,
-          370
+          895,
+          814
         ],
         [
-          1490,
-          405
-        ],
-        [
-          1484,
-          438
-        ],
-        [
-          1396,
-          458
-        ],
-        [
-          1300,
-          488
-        ],
-        [
-          1215,
-          558
-        ],
-        [
-          1150,
-          654
-        ],
-        [
-          1080,
-          735
-        ],
-        [
-          1002,
-          793
+          932,
+          803
         ],
         [
           953,
@@ -295,15 +247,15 @@ DigiBoardDutchWorld.create({
       "optional": false,
       "boat": false,
       "hiddenLabel": "In de doorgang",
-      "from": 23,
+      "from": 18,
       "icon": "move-down",
-      "description": "Deze passage hoort bij de stap van vak 23 naar 24. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 9385,
+      "description": "Deze passage hoort bij de stap van vak 18 naar 19. Ook bij een grotere worp wordt de passage gebruikt.",
+      "duration": 4300,
       "timeline": [
-        0.06925752121430297,
-        0.16515255058795325,
-        0.29301258975282024,
-        0.38890761912647054
+        0.15116279069767444,
+        0.3604651162790698,
+        0.6395348837209303,
+        0.8488372093023256
       ]
     }
   ],
@@ -355,52 +307,22 @@ DigiBoardDutchWorld.create({
       ],
       "frontY": 2000,
       "bridge": true
+    },
+    {
+      "id": "nieuwe-poort-uitgang",
+      "path": "M858 808V745H919V808H914V750H863V808Z",
+      "area": [
+        858,
+        745,
+        919,
+        808
+      ],
+      "frontY": 2000,
+      "portal": true
     }
   ],
   "waypoints": {
-    "16": [
-      [
-        88,
-        289
-      ],
-      [
-        60,
-        311
-      ],
-      [
-        122,
-        310
-      ],
-      [
-        212,
-        287
-      ],
-      [
-        324,
-        253
-      ],
-      [
-        422,
-        236
-      ],
-      [
-        438,
-        265
-      ],
-      [
-        425,
-        349
-      ],
-      [
-        406,
-        412
-      ],
-      [
-        475,
-        419
-      ]
-    ],
-    "34": [
+    "29": [
       [
         1401,
         391
@@ -417,16 +339,50 @@ DigiBoardDutchWorld.create({
         1565,
         413
       ]
+    ],
+    "11": [
+      [
+        304,
+        198
+      ],
+      [
+        337,
+        208
+      ],
+      [
+        365,
+        255
+      ],
+      [
+        405,
+        298
+      ],
+      [
+        458,
+        345
+      ],
+      [
+        516,
+        377
+      ],
+      [
+        494,
+        402
+      ],
+      [
+        475,
+        419
+      ]
     ]
   },
   "previews": [
     {
       "id": "brug-25",
-      "to": 35,
+      "to": 30,
       "label": "Over de stenen brug",
       "icon": "route",
       "description": "De pion volgt het brugdek tussen de leuningen.",
-      "from": 25
+      "from": 20
     },
     {
       "id": "doorgang-1",
@@ -482,8 +438,8 @@ DigiBoardDutchWorld.create({
     {
       "id": "doorgang-2",
       "kind": "tunnel",
-      "to": 24,
-      "label": "Door de Koppelpoort",
+      "to": 19,
+      "label": "Poort naar de brug",
       "enter": [
         [
           748,
@@ -500,48 +456,20 @@ DigiBoardDutchWorld.create({
       ],
       "exit": [
         [
-          1291,
-          311
+          888,
+          778
         ],
         [
-          1358,
-          332
+          887,
+          800
         ],
         [
-          1435,
-          370
+          895,
+          814
         ],
         [
-          1490,
-          405
-        ],
-        [
-          1484,
-          438
-        ],
-        [
-          1396,
-          458
-        ],
-        [
-          1300,
-          488
-        ],
-        [
-          1215,
-          558
-        ],
-        [
-          1150,
-          654
-        ],
-        [
-          1080,
-          735
-        ],
-        [
-          1002,
-          793
+          932,
+          803
         ],
         [
           953,
@@ -555,22 +483,105 @@ DigiBoardDutchWorld.create({
       "optional": false,
       "boat": false,
       "hiddenLabel": "In de doorgang",
-      "from": 23,
+      "from": 18,
       "icon": "move-down",
-      "description": "Deze passage hoort bij de stap van vak 23 naar 24. Ook bij een grotere worp wordt de passage gebruikt.",
-      "duration": 9385,
+      "description": "Deze passage hoort bij de stap van vak 18 naar 19. Ook bij een grotere worp wordt de passage gebruikt.",
+      "duration": 4300,
       "timeline": [
-        0.06925752121430297,
-        0.16515255058795325,
-        0.29301258975282024,
-        0.38890761912647054
+        0.15116279069767444,
+        0.3604651162790698,
+        0.6395348837209303,
+        0.8488372093023256
       ]
     }
   ],
   "depthModel": "thresholds",
+  "legacyIndexOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "legacyPositionMap": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "routeRevision": "20260914-routelogica-3",
+  "image": "nederland-amersfoort-route-v2",
   "label": "Amersfoort",
   "title": "Amersfoort — door de stadspoort",
-  "count": 39,
+  "count": 34,
   "shapes": [
     "triangle",
     "square",
@@ -583,11 +594,6 @@ DigiBoardDutchWorld.create({
     "diamond",
     "square",
     "circle",
-    "triangle",
-    "square",
-    "circle",
-    "diamond",
-    "triangle",
     "triangle",
     "circle",
     "diamond",
@@ -617,7 +623,6 @@ DigiBoardDutchWorld.create({
     32
   ],
   "paintedRoute": true,
-  "image": "nederland-amersfoort-speelroute",
   "routeNote": "Volg de genummerde speelroute. De extra doorgangen worden aangegeven met hun vertrek- en aankomstvak. Bij een extra route kun je ook op je vak blijven en gewoon verder spelen.",
   "content": {
     "schemaVersion": 1,
@@ -633,7 +638,7 @@ DigiBoardDutchWorld.create({
     "groupSize": "2–30 deelnemers",
     "literacy": "Korte instructies lezen; de docent kan ze voorlezen.",
     "methodLinks": [],
-    "finish": 40,
+    "finish": 35,
     "coordinates": [
       [
         0.2284688995215311,
@@ -682,26 +687,6 @@ DigiBoardDutchWorld.create({
       [
         0.18181818181818182,
         0.2104144527098831
-      ],
-      [
-        0.159688995215311,
-        0.22210414452709884
-      ],
-      [
-        0.13636363636363635,
-        0.24017003188097769
-      ],
-      [
-        0.11064593301435406,
-        0.2624867162592986
-      ],
-      [
-        0.08133971291866028,
-        0.28480340063761955
-      ],
-      [
-        0.05263157894736842,
-        0.3071200850159405
       ],
       [
         0.2840909090909091,
@@ -2072,196 +2057,6 @@ DigiBoardDutchWorld.create({
           }
         },
         "teacherCriterion": "Kiest een activiteit, geeft een reden en bespreekt een moment.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t35",
-        "number": 35,
-        "title": "In de bibliotheek",
-        "type": "vraag",
-        "goalIds": [
-          "vragen"
-        ],
-        "instruction": "Je boek moet vandaag terug. Vraag of je het langer mag lenen.",
-        "partner": "Je werkt in de bibliotheek. Het mag nog één week. Vertel tot wanneer.",
-        "printSummary": "Je boek moet vandaag terug. Vraag of je het langer mag lenen. Partner: Je werkt in de bibliotheek. Het mag nog één week. Vertel tot wanneer.",
-        "printShort": "Je boek moet vandaag terug. Vraag of je het langer mag lenen.",
-        "help": "Mag ik dit boek langer lenen? Tot wanneer?",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je boek moet vandaag terug. Vraag of je het langer mag lenen.",
-            "support": "Mag ik dit boek langer lenen? Tot wanneer?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je boek moet vandaag terug. Vraag of je het langer mag lenen."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Het boek is gereserveerd. Bespreek wanneer je een ander boek kunt ophalen."
-          }
-        },
-        "teacherCriterion": "Vraagt om verlenging en controleert wanneer het boek terug moet.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t36",
-        "number": 36,
-        "title": "Te laat",
-        "type": "losop",
-        "goalIds": [
-          "plannen"
-        ],
-        "instruction": "Je bent onderweg naar een vriend. Je komt twintig minuten later. Bel je vriend en vertel dit.",
-        "partner": "Vraag hoe laat de ander er dan is. Jullie hadden om drie uur afgesproken.",
-        "printSummary": "Je bent onderweg naar een vriend. Je komt twintig minuten later. Bel je vriend en vertel dit. Partner: Vraag hoe laat de ander er dan is. Jullie hadden om drie uur afgesproken.",
-        "printShort": "Je bent onderweg naar een vriend. Je komt twintig minuten later. Bel je vriend en vertel dit.",
-        "help": "Sorry, ik kom om 15.20 uur. Is dat goed?",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent onderweg naar een vriend. Je komt twintig minuten later. Bel je vriend en vertel dit.",
-            "support": "Sorry, ik kom om 15.20 uur. Is dat goed?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent onderweg naar een vriend. Je komt twintig minuten later. Bel je vriend en vertel dit."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je vriend moet om half vier weg. Spreek af wat jullie nu doen."
-          }
-        },
-        "teacherCriterion": "Meldt de vertraging en stemt de nieuwe aankomsttijd af.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t37",
-        "number": 37,
-        "title": "Een fijne plek",
-        "type": "vertel",
-        "goalIds": [
-          "vertellen"
-        ],
-        "instruction": "Vertel over een plek in je buurt waar je graag komt.",
-        "partner": "Vraag wat je daar kunt doen.",
-        "printSummary": "Vertel over een plek in je buurt waar je graag komt. Partner: Vraag wat je daar kunt doen.",
-        "printShort": "Vertel over een plek in je buurt waar je graag komt.",
-        "help": "Ik kom graag bij … Daar kun je …",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Vertel over een plek in je buurt waar je graag komt.",
-            "support": "Ik kom graag bij … Daar kun je …"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Vertel over een plek in je buurt waar je graag komt."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Leg uit voor wie deze plek geschikt is en voor wie minder."
-          }
-        },
-        "teacherCriterion": "Beschrijft een plek en een activiteit.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t38",
-        "number": 38,
-        "title": "Iets drinken",
-        "type": "vraag",
-        "goalIds": [
-          "vragen"
-        ],
-        "instruction": "Je bent in een café. Bestel iets te drinken en vraag wat het kost.",
-        "partner": "Je werkt in het café. Noem een drankje en bedenk een prijs.",
-        "printSummary": "Je bent in een café. Bestel iets te drinken en vraag wat het kost. Partner: Je werkt in het café. Noem een drankje en bedenk een prijs.",
-        "printShort": "Je bent in een café. Bestel iets te drinken en vraag wat het kost.",
-        "help": "Mag ik …? Hoeveel kost dat?",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je bent in een café. Bestel iets te drinken en vraag wat het kost.",
-            "support": "Mag ik …? Hoeveel kost dat?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je bent in een café. Bestel iets te drinken en vraag wat het kost."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je bestelling is niet beschikbaar. Vraag naar een alternatief en kies opnieuw."
-          }
-        },
-        "teacherCriterion": "Bestelt, vraagt de prijs en reageert passend.",
-        "channels": [
-          "digital",
-          "print"
-        ],
-        "literacy": "Korte instructies lezen of docent leest voor",
-        "assets": [],
-        "level": "A2",
-        "routeId": "a1-a2"
-      },
-      {
-        "id": "t39",
-        "number": 39,
-        "title": "Een cadeautje",
-        "type": "kies",
-        "goalIds": [
-          "kiezen"
-        ],
-        "instruction": "Je zoekt een cadeautje voor een buurman of buurvrouw. Kies: bloemen of iets lekkers. Vertel waarom.",
-        "partner": "Vraag waar je het cadeau wilt kopen.",
-        "printSummary": "Je zoekt een cadeautje voor een buurman of buurvrouw. Kies: bloemen of iets lekkers. Vertel waarom. Partner: Vraag waar je het cadeau wilt kopen.",
-        "printShort": "Je zoekt een cadeautje voor een buurman of buurvrouw. Kies: bloemen of iets lekkers. Vertel waarom.",
-        "help": "Ik kies …, want … Waar kopen we het?",
-        "variants": {
-          "instap": {
-            "label": "Met hulp",
-            "instruction": "Je zoekt een cadeautje voor een buurman of buurvrouw. Kies: bloemen of iets lekkers. Vertel waarom.",
-            "support": "Ik kies …, want … Waar kopen we het?"
-          },
-          "basis": {
-            "label": "Basis",
-            "instruction": "Je zoekt een cadeautje voor een buurman of buurvrouw. Kies: bloemen of iets lekkers. Vertel waarom."
-          },
-          "extra": {
-            "label": "Extra",
-            "instruction": "Je weet niet wat de buurman of buurvrouw lekker vindt. Bespreek hoe je daar rekening mee houdt."
-          }
-        },
-        "teacherCriterion": "Maakt een keuze en licht die eenvoudig toe.",
         "channels": [
           "digital",
           "print"
