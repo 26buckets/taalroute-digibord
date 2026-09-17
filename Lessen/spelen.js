@@ -554,12 +554,21 @@ globalThis.TaalrouteSpelen = (() => {
  function mountTrigger() {
   if (document.getElementById('sp-open-trigger')) return;
   const button = el('button', { type: 'button', id: 'sp-open-trigger', class: 'sp-trigger-fab', title: 'Spelen', 'aria-label': 'Spelen', 'aria-expanded': 'false', html: icon('dice', 20) });
-  button.addEventListener('click', () => ensure().open());
+  button.addEventListener('click', () => {
+   try { ensure().open(); } catch (err) { console.error('[Lessen/spelen.js] Kon de Spelen-overlay niet openen.', err); }
+  });
   document.body.append(button);
  }
 
+ // Defensieve initialisatie: dit is een optionele, additieve module. Een onverwachte fout hierin mag de
+ // rest van de al geladen kernapp niet raken en mag zichzelf niet herhalen; log eenmalig een duidelijke
+ // ontwikkelfout in plaats van de fout te maskeren of stil te negeren.
  function init() {
-  mountTrigger();
+  try {
+   mountTrigger();
+  } catch (err) {
+   console.error('[Lessen/spelen.js] Kon de Spelen-uitbreiding niet initialiseren; de bestaande DigiBoard-app blijft ongemoeid.', err);
+  }
  }
  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 
