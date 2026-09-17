@@ -1,0 +1,155 @@
+/* Losstaande trigger-knop: vast gepositioneerd, geen kind van de bestaande .pp-brand/#pp-main-tools-layout. */
+#sp-open-trigger.sp-trigger-fab{position:fixed;right:18px;bottom:18px;z-index:55;width:48px;height:48px;border-radius:999px;border:1px solid #e1e8ee;background:#fff;color:#0090f2;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 6px rgba(24,48,73,.12),0 8px 20px rgba(24,48,73,.1);}
+#sp-open-trigger.sp-trigger-fab:hover{background:#f1f5f8;}
+#sp-open-trigger.sp-trigger-fab:focus-visible{outline:3px solid #0090f2;outline-offset:2px;}
+@media print{#sp-open-trigger.sp-trigger-fab{display:none;}}
+
+/* Spelen-overlay: nieuwe app shell en schermfamilies boven op de bestaande DigiBoard-basis. KANDIDAAT, geen frameworkwissel. */
+#sp-overlay{--sp-blue:#0090f2;--sp-ink:#183049;--sp-ink-soft:#4b6577;--sp-line:#e1e8ee;--sp-bg:#fbfcfd;--sp-surface:#fff;--sp-radius:14px;--sp-radius-sm:10px;--sp-shadow:0 1px 2px rgba(24,48,73,.06),0 8px 24px rgba(24,48,73,.06);--sp-space-1:8px;--sp-space-2:12px;--sp-space-3:16px;--sp-space-4:24px;--sp-space-5:32px;--sp-space-6:48px;
+ position:fixed;inset:0;z-index:60;background:var(--sp-bg);color:var(--sp-ink);font-family:Inter,Arial,sans-serif;display:flex;flex-direction:column;overflow:hidden;}
+#sp-overlay[hidden]{display:none;}
+#sp-overlay [hidden]{display:none!important;}
+#sp-overlay *{box-sizing:border-box;}
+#sp-overlay button{font-family:inherit;}
+#sp-overlay :focus-visible{outline:3px solid var(--sp-blue);outline-offset:2px;}
+#sp-overlay[data-motion="reduce"] *{transition:none!important;animation:none!important;}
+
+/* Bovenbalk */
+.sp-topbar{display:flex;align-items:center;gap:var(--sp-space-3);padding:10px var(--sp-space-4);border-bottom:1px solid var(--sp-line);background:var(--sp-surface);flex-shrink:0;flex-wrap:wrap;}
+.sp-brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.sp-brand svg{width:112px;height:auto;color:var(--sp-ink);}
+.sp-product-name{font-size:17px;font-weight:600;color:var(--sp-ink-soft);padding-left:10px;border-left:1px solid var(--sp-line);}
+.sp-nav{display:flex;gap:4px;margin-left:8px;}
+.sp-nav button{border:0;background:none;padding:8px 12px;border-radius:999px;font-size:14px;font-weight:600;color:var(--sp-ink-soft);cursor:pointer;}
+.sp-nav button[aria-current="page"]{color:var(--sp-blue);background:#e8f4ff;}
+.sp-nav button:not([aria-current]):hover{background:#f1f5f8;}
+.sp-topbar-end{display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap;}
+.sp-context-pill{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--sp-ink-soft);background:#f1f5f8;border-radius:999px;padding:6px 12px;}
+.sp-level-select{border:1px solid var(--sp-line);border-radius:999px;padding:6px 30px 6px 14px;font-size:13px;font-weight:600;color:var(--sp-ink);background:var(--sp-surface) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%234b6577" d="m6 9 6 6 6-6"/></svg>') no-repeat right 8px center/16px 16px;appearance:none;cursor:pointer;}
+.sp-icon-button{border:1px solid var(--sp-line);background:var(--sp-surface);width:38px;height:38px;border-radius:999px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--sp-ink-soft);}
+.sp-icon-button:hover{background:#f1f5f8;}
+.sp-icon-button svg{width:19px;height:19px;}
+.sp-close{border:0;background:none;color:var(--sp-ink-soft);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;padding:8px 4px;}
+
+/* Hoofdinhoud */
+.sp-main{flex:1;overflow-y:auto;padding:var(--sp-space-5) var(--sp-space-4) var(--sp-space-6);}
+.sp-home{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-space-5);}
+.sp-welcome h1{font-size:32px;margin:0 0 4px;}
+.sp-welcome p{margin:0;color:var(--sp-ink-soft);font-size:15px;}
+
+/* Uitbreidbare modulegrid: geen logica die exact vier tegels veronderstelt */
+.sp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:var(--sp-space-3);align-items:stretch;}
+.sp-tile{background:var(--sp-surface);border:1px solid var(--sp-line);border-radius:var(--sp-radius);box-shadow:var(--sp-shadow);display:flex;flex-direction:column;overflow:hidden;text-align:left;cursor:pointer;padding:0;min-height:220px;}
+.sp-tile:hover{border-color:var(--sp-blue);}
+.sp-tile-art{height:110px;display:flex;align-items:center;justify-content:center;background:#eef6fd;flex-shrink:0;}
+.sp-tile-art svg{width:64px;height:64px;}
+.sp-tile-body{padding:var(--sp-space-3);display:flex;flex-direction:column;gap:4px;flex:1;}
+.sp-tile-body strong{font-size:16px;}
+.sp-tile-body span{font-size:13px;color:var(--sp-ink-soft);line-height:1.35;}
+
+.sp-row-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--sp-space-3);}
+.sp-panel-row{background:var(--sp-surface);border:1px solid var(--sp-line);border-radius:var(--sp-radius);box-shadow:var(--sp-shadow);padding:var(--sp-space-3) var(--sp-space-4);display:flex;align-items:center;gap:var(--sp-space-3);text-align:left;cursor:pointer;}
+.sp-panel-row svg{width:22px;height:22px;color:var(--sp-blue);flex-shrink:0;}
+.sp-panel-row strong{display:block;font-size:14px;}
+.sp-panel-row span{display:block;font-size:12px;color:var(--sp-ink-soft);}
+.sp-panel-row-chevron{margin-left:auto;width:18px;height:18px;color:var(--sp-ink-soft);flex-shrink:0;}
+
+/* GamePageShell */
+.sp-game-shell{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-space-4);}
+.sp-game-head{display:flex;align-items:flex-start;gap:var(--sp-space-3);}
+.sp-back{border:0;background:none;color:var(--sp-ink-soft);font-size:14px;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px;flex-shrink:0;align-self:flex-start;}
+.sp-back svg{width:16px;height:16px;}
+.sp-game-icon{width:52px;height:52px;border-radius:var(--sp-radius-sm);background:#fff2e8;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sp-game-icon svg{width:28px;height:28px;color:#c76349;}
+.sp-game-titles{flex:1;min-width:0;}
+.sp-game-titles h2{font-size:24px;margin:0;}
+.sp-game-titles p{margin:2px 0 0;color:var(--sp-ink-soft);font-size:14px;}
+.sp-explain{margin-left:auto;flex-shrink:0;}
+.sp-explain-button{border:1px solid var(--sp-line);background:var(--sp-surface);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--sp-ink-soft);cursor:pointer;display:flex;align-items:center;gap:6px;}
+.sp-explain-button svg{width:16px;height:16px;}
+.sp-explain-panel{position:absolute;right:0;top:calc(100% + 6px);width:280px;background:var(--sp-surface);border:1px solid var(--sp-line);border-radius:var(--sp-radius-sm);box-shadow:var(--sp-shadow);padding:var(--sp-space-3);font-size:13px;line-height:1.5;color:var(--sp-ink);z-index:5;}
+.sp-explain-wrap{position:relative;}
+
+.sp-game-body{background:var(--sp-surface);border:1px solid var(--sp-line);border-radius:var(--sp-radius);box-shadow:var(--sp-shadow);padding:var(--sp-space-4);display:flex;flex-direction:column;gap:var(--sp-space-4);}
+
+/* Actiebalk */
+.sp-action-bar{display:flex;align-items:center;gap:var(--sp-space-2);flex-wrap:wrap;}
+.sp-action-bar>.sp-fill{flex:1;}
+.sp-btn{border-radius:999px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--sp-line);background:var(--sp-surface);color:var(--sp-ink);}
+.sp-btn svg{width:17px;height:17px;}
+.sp-btn:disabled{opacity:.5;cursor:not-allowed;}
+.sp-btn-primary{background:var(--sp-blue);border-color:var(--sp-blue);color:#fff;padding:12px 26px;font-size:15px;}
+.sp-btn-primary:hover:not(:disabled){background:#0079cc;}
+.sp-btn-ghost{border-color:transparent;color:var(--sp-blue);}
+.sp-btn-star svg{color:#e08a2b;}
+
+/* Niveauselector-context/badges */
+.sp-badge{font-size:12px;font-weight:600;color:var(--sp-ink-soft);background:#f1f5f8;border-radius:999px;padding:5px 10px;}
+
+/* Taaldobbelstenen (Taalworp) */
+.sp-dice-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:var(--sp-space-3);}
+.sp-dice{border-radius:16px;background:var(--sp-surface);border:2px solid var(--sp-line);padding:var(--sp-space-2);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-height:132px;}
+.sp-dice-face{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;}
+.sp-dice-label{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--sp-ink-soft);text-transform:uppercase;}
+.sp-dice-sub{font-size:10px;color:var(--sp-ink-soft);margin-top:-6px;}
+
+/* VerbDeckSelector / StoryDiceSetSelector: gedeelde stapel/set-tegels */
+.sp-deck-label{font-size:13px;font-weight:700;color:var(--sp-ink-soft);margin:0 0 8px;}
+.sp-deck-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
+.sp-deck{border-radius:var(--sp-radius-sm);border:2px solid var(--sp-line);background:var(--sp-surface);padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;position:relative;text-align:left;min-height:118px;}
+.sp-deck[data-active="true"]{border-color:var(--sp-blue);background:#f3f9ff;}
+.sp-deck[data-active="true"] .sp-deck-check{opacity:1;transform:scale(1);}
+.sp-deck-art{height:52px;border-radius:8px;background:#eef1f4;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.sp-deck-art svg{width:40px;height:40px;}
+.sp-deck-name{font-size:13px;font-weight:700;}
+.sp-deck-hint{font-size:11px;color:var(--sp-ink-soft);}
+.sp-deck-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:999px;background:var(--sp-blue);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease;}
+.sp-deck-check svg{width:11px;height:11px;}
+.sp-deck-more{display:flex;align-items:center;justify-content:center;color:var(--sp-ink-soft);}
+.sp-deck-more-stack{display:flex;}
+.sp-deck-more-stack span{width:26px;height:34px;border-radius:5px;background:var(--sp-blue);margin-left:-14px;border:2px solid var(--sp-surface);}
+.sp-deck-more-stack span:first-child{margin-left:0;}
+
+/* Bouw een zin */
+.sp-mode-switch{display:inline-flex;border:1px solid var(--sp-line);border-radius:999px;padding:3px;gap:2px;}
+.sp-mode-switch button{border:0;background:none;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--sp-ink-soft);cursor:pointer;}
+.sp-mode-switch button[aria-pressed="true"]{background:var(--sp-blue);color:#fff;}
+.sp-sentence-zone{display:flex;gap:8px;flex-wrap:wrap;min-height:56px;border:2px dashed var(--sp-line);border-radius:var(--sp-radius-sm);padding:10px;background:#fbfcfd;}
+.sp-sentence-zone[data-empty="true"]::before{content:'Sleep of tik hieronder woorden hierheen';color:var(--sp-ink-soft);font-size:13px;align-self:center;}
+.sp-word-tile{border:1px solid var(--sp-line);background:var(--sp-surface);border-radius:10px;padding:9px 16px;font-size:15px;font-weight:600;cursor:pointer;}
+.sp-word-tile[aria-pressed="true"]{background:var(--sp-blue);color:#fff;border-color:var(--sp-blue);}
+.sp-word-tile[data-placed="true"]{opacity:.35;}
+.sp-word-row{display:flex;gap:8px;flex-wrap:wrap;}
+.sp-live-panel{border:1px solid var(--sp-line);border-radius:var(--sp-radius-sm);padding:var(--sp-space-3);display:flex;flex-direction:column;gap:8px;background:#fbfcfd;min-width:220px;}
+.sp-qr-placeholder{width:96px;height:96px;border:1px dashed var(--sp-line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--sp-ink-soft);}
+.sp-live-panel code{background:#eef1f4;border-radius:6px;padding:3px 8px;font-weight:700;}
+.sp-results-list{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.sp-results-list li{display:flex;justify-content:space-between;gap:8px;font-size:13px;border-bottom:1px solid var(--sp-line);padding:6px 0;}
+.sp-result-status{font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;}
+.sp-result-status[data-status="new"]{background:#fff1e6;color:#b3591c;}
+.sp-result-status[data-status="seen"]{background:#eef1f4;color:var(--sp-ink-soft);}
+
+/* Verhaalworp */
+.sp-story-controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.sp-stepper{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--sp-line);border-radius:999px;padding:4px 6px;}
+.sp-stepper button{width:28px;height:28px;border-radius:999px;border:0;background:#f1f5f8;color:var(--sp-ink);font-size:16px;line-height:1;cursor:pointer;}
+.sp-stepper span{font-size:14px;font-weight:700;min-width:16px;text-align:center;}
+.sp-story-dice-row{display:flex;flex-wrap:wrap;gap:var(--sp-space-2);}
+.sp-story-die{width:88px;height:88px;border-radius:14px;border:2px solid var(--sp-line);background:var(--sp-surface);display:flex;align-items:center;justify-content:center;position:relative;}
+.sp-story-die svg{width:44px;height:44px;color:var(--sp-ink);}
+.sp-story-die[data-locked="true"]{border-color:#e08a2b;}
+.sp-story-die-lock{position:absolute;bottom:-8px;right:-8px;width:26px;height:26px;border-radius:999px;background:var(--sp-surface);border:1px solid var(--sp-line);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--sp-ink-soft);}
+.sp-story-die-lock svg{width:13px;height:13px;}
+.sp-story-die[data-locked="true"] .sp-story-die-lock{color:#e08a2b;border-color:#e08a2b;}
+.sp-fixture-note{font-size:11px;color:var(--sp-ink-soft);font-style:italic;}
+
+/* Preview/uitdaging content */
+.sp-content-panel{border:1px solid var(--sp-line);border-radius:var(--sp-radius-sm);padding:var(--sp-space-3);font-size:14px;line-height:1.5;background:#fbfcfd;}
+
+@media(max-width:760px){
+ .sp-topbar{gap:8px;}
+ .sp-nav{display:none;}
+ .sp-main{padding:var(--sp-space-4) var(--sp-space-2) var(--sp-space-5);}
+ .sp-game-head{flex-wrap:wrap;}
+ .sp-explain{margin-left:0;order:3;width:100%;}
+}
