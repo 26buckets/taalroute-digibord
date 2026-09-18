@@ -156,6 +156,22 @@
 .sp-story-die[data-locked="true"] .sp-story-die-lock{color:#e08a2b;border-color:#e08a2b;}
 .sp-fixture-note{font-size:11px;color:var(--sp-ink-soft);font-style:italic;}
 
+/* Speelborden: werelden-bibliotheek en het gehuisveste bestaande bord (Prompt 2). */
+.sp-world-tabs{display:flex;gap:6px;flex-wrap:wrap;}
+.sp-world-tabs button{border:1px solid var(--sp-line);background:var(--sp-surface);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--sp-ink-soft);cursor:pointer;}
+.sp-world-tabs button[aria-pressed="true"]{color:var(--sp-blue);background:#e8f4ff;border-color:#bfe0fb;}
+.sp-world-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--sp-space-3);margin-top:var(--sp-space-3);}
+.sp-world-tile{background:var(--sp-surface);border:1px solid var(--sp-line);border-radius:var(--sp-radius);box-shadow:var(--sp-shadow);display:flex;flex-direction:column;overflow:hidden;text-align:left;cursor:pointer;padding:0;}
+.sp-world-tile:hover{border-color:var(--sp-blue);}
+.sp-world-thumb{height:110px;background:#eef1f4;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.sp-world-thumb img{width:100%;height:100%;object-fit:cover;}
+.sp-world-body{padding:var(--sp-space-2) var(--sp-space-3);display:flex;flex-direction:column;gap:2px;}
+.sp-world-body strong{font-size:14px;}
+.sp-world-meta{font-size:12px;color:var(--sp-ink-soft);}
+/* De echte bordmotor draait ongewijzigd in Praatpad.html; dit is uitsluitend de huisvesting eromheen. */
+.sp-board-wrap{border-radius:var(--sp-radius);overflow:hidden;}
+.sp-board-frame{display:block;width:100%;height:800px;max-height:80vh;border:0;}
+
 /* Preview/uitdaging content */
 .sp-content-panel{border:1px solid var(--sp-line);border-radius:var(--sp-radius-sm);padding:var(--sp-space-3);font-size:14px;line-height:1.5;background:#fbfcfd;}
 

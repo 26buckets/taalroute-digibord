@@ -48,6 +48,25 @@ await p.locator('#sp-open-trigger').click();
 await p.waitForSelector('#sp-overlay:not([hidden])');
 assert(await p.locator('#sp-overlay .sp-tile').count()>=4);
 assert.deepEqual(pageErrors,[],'geen uncaught JavaScript errors na openen van Spelen');
+
+// Prompt 2: Speelborden opent vanuit Spelen, een bestaande wereld opent, en het bestaande bord rendert
+// (via de ongewijzigde bordmotor in een iframe) zonder nieuwe fouten en zonder leeg hoofdvlak.
+await p.evaluate(()=>globalThis.TaalrouteSpelen.instance.go('speelborden'));
+await p.waitForSelector('#sp-overlay .sp-world-tile');
+await p.locator('#sp-overlay .sp-world-tile').first().click();
+const frameEl=await p.waitForSelector('#sp-overlay .sp-board-frame');
+const frame=await frameEl.contentFrame();
+await frame.waitForSelector('#pp-map');
+await frame.waitForSelector('#pp-roll');
+assert(await frame.locator('#pp-map').isVisible(),'het bestaande bord moet renderen in de nieuwe Speelbord-pagina');
+assert(await frame.locator('#pp-roll').isVisible(),'de bestaande bewegingsbediening moet renderen');
+const boardBox=await frame.locator('#pp-map').boundingBox();
+assert(boardBox&&boardBox.height>50,'bord mag niet leeg/ingeklapt zijn');
+assert.deepEqual(pageErrors,[],'geen uncaught JavaScript errors na openen van een Speelbord-wereld');
+assert(!pageErrors.some(m=>/ReferenceError/.test(m)),'geen ReferenceError bij Speelborden');
+await p.locator('#sp-overlay .sp-back').click();
+await p.waitForSelector('#sp-overlay .sp-world-tile');
+
 await p.locator('#sp-overlay .sp-close').click();
 assert(await p.locator('#sp-overlay').isHidden());
 
@@ -62,5 +81,5 @@ assert.equal(await filePage.evaluate(()=>typeof globalThis.DigiBoard),'object');
 assert.equal(await filePage.evaluate(()=>typeof globalThis.DigiBoardRouteLessons),'object');
 await filePage.close();
 
-console.log('PASS app-boot-smoke: server- en file://-opening zonder uncaught errors, echte DigiBoard/DigiBoardRouteLessons-init, zichtbare hoofdinterface en logo, Spelen-overlay opent en sluit');
+console.log('PASS app-boot-smoke: server- en file://-opening zonder uncaught errors, echte DigiBoard/DigiBoardRouteLessons-init, zichtbare hoofdinterface en logo, Spelen-overlay opent/sluit, Speelborden opent een bestaande wereld zonder nieuwe fouten');
 }finally{await b.close();server.close()}})().catch(e=>{console.error(e);process.exit(1)});

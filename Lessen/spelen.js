@@ -534,6 +534,81 @@ globalThis.TaalrouteSpelen = (() => {
  }
 
  /* ==========================================================================================
+    Speelborden (Prompt 2). Bouwt GEEN nieuwe speelbordmotor: de bestaande motor draait
+    onveranderd in Praatpad.html zelf (dobbelwerking, pionlogica, routes/tunnels, kaartopening,
+    opslag/hervatten). Deze schermen zijn uitsluitend de nieuwe gemeenschappelijke huisvesting
+    eromheen: een schaalbare werelden-bibliotheek en een GamePageShell die het bestaande bord
+    via een same-origin <iframe> op "Praatpad.html?kaart=<id>&embed=spelen" toont. De
+    "embed=spelen"-vlag is de enige wijziging aan Praatpad.html: die verbergt uitsluitend de
+    eigen kopregel van die pagina via CSS (html[data-pp-embed="spelen"]) zodat er geen twee
+    headers zichtbaar zijn — géén enkele regel dobbel-, positie-, route- of opslaglogica is
+    aangeraakt. Zie de Prompt 2-oplevering voor de volledige onderzoeksbasis van deze keuze.
+    ========================================================================================== */
+
+ function screenSpeelborden(ctx) {
+  const { shell, body } = GamePageShell({
+   iconSvg: icon('board', 26), name: 'Speelborden', description: 'Kies een bestaande wereld en speel de route.',
+   contextBadges: [], explain: 'Content nog aan te leveren', onBack: ctx.back,
+  });
+  // Uitsluitend daadwerkelijk geregistreerde werelden (Kaarten/register.js); geen verzonnen werelden,
+  // geen layout die een vast aantal veronderstelt (§13).
+  const maps = globalThis.DigiBoardMaps || [];
+  const categories = globalThis.DigiBoardMapLibrary?.categories || [];
+  let activeCategory = 'alle';
+  const grid = el('div', { class: 'sp-world-grid' });
+  function worldTile(m) {
+   return el('button', { type: 'button', class: 'sp-world-tile', onclick: () => ctx.openWorld(m.id) }, [
+    el('div', { class: 'sp-world-thumb' }, [m.image ? el('img', { src: m.image, alt: '', loading: 'lazy' }) : null]),
+    el('div', { class: 'sp-world-body' }, [
+     el('strong', { text: m.label }),
+     el('span', { class: 'sp-world-meta', text: `${m.count} vakken` }),
+    ]),
+   ]);
+  }
+  function drawGrid() {
+   clear(grid);
+   const visible = maps.filter((m) => activeCategory === 'alle' || globalThis.DigiBoardMapLibrary?.includes(m, activeCategory));
+   for (const m of visible) grid.append(worldTile(m));
+  }
+  const allTab = el('button', { type: 'button', 'aria-pressed': 'true', text: 'Alle' });
+  const tabs = el('div', { class: 'sp-world-tabs', role: 'group', 'aria-label': 'Categorie' }, [
+   allTab,
+   ...categories.map((c) => el('button', { type: 'button', 'aria-pressed': 'false', text: c.label })),
+  ]);
+  for (const btn of tabs.children) btn.addEventListener('click', () => {
+   activeCategory = btn === allTab ? 'alle' : categories.find((c) => c.label === btn.textContent)?.id || 'alle';
+   for (const b of tabs.children) b.setAttribute('aria-pressed', String(b === btn));
+   drawGrid();
+  });
+  drawGrid();
+  body.append(tabs, grid);
+  shell.__grid = grid;
+  return shell;
+ }
+
+ function screenSpeelbord(ctx, mapId) {
+  const map = (globalThis.DigiBoardMaps || []).find((m) => m.id === mapId);
+  const { shell, body } = GamePageShell({
+   iconSvg: icon('board', 26), name: map?.label || 'Speelbord', description: '',
+   contextBadges: [], explain: 'Content nog aan te leveren', onBack: () => ctx.go('speelborden'),
+  });
+  if (!map) {
+   body.append(el('div', { class: 'sp-content-panel', text: 'Geen wereld geselecteerd. Ga terug naar de bibliotheek.' }));
+  } else {
+   // Same-origin iframe: hergebruikt de bestaande, ongewijzigde bordmotor (dobbelsteen, pionnen,
+   // routes/tunnels, kaartopening, opslag/hervatten) één-op-één. Geen tweede bordimplementatie.
+   const frame = el('iframe', {
+    class: 'sp-board-frame', title: `Speelbord: ${map.label}`,
+    src: `Praatpad.html?kaart=${encodeURIComponent(map.id)}&embed=spelen`,
+   });
+   body.append(el('div', { class: 'sp-board-wrap' }, [frame]));
+  }
+  const actionBar = GameActionBar({ preview: null, primary: null, challenge: null, context: [] });
+  body.append(actionBar.node, ...actionBar.panels);
+  return shell;
+ }
+
+ /* ==========================================================================================
     App shell: bovenbalk, navigatie en router tussen de schermen hierboven.
     ========================================================================================== */
  function build() {
@@ -573,18 +648,26 @@ globalThis.TaalrouteSpelen = (() => {
    level: state.level,
    go: (id) => render(id),
    back: () => render('home'),
+   openWorld: (mapId) => render('speelbord', { mapId }),
   };
 
-  const SCREENS = { home: () => screenHome(ctx), taalworp: () => screenTaalworp(ctx), 'bouw-een-zin': () => screenBouwEenZin(ctx), verhaalworp: () => screenVerhaalworp(ctx) };
+  const SCREENS = {
+   home: () => screenHome(ctx),
+   taalworp: () => screenTaalworp(ctx),
+   'bouw-een-zin': () => screenBouwEenZin(ctx),
+   verhaalworp: () => screenVerhaalworp(ctx),
+   speelborden: () => screenSpeelborden(ctx),
+   speelbord: (params) => screenSpeelbord(ctx, params?.mapId),
+  };
   // Module-tegels linken (waar al een schermbasis bestaat) naar hun spelpagina.
   const MODULE_TARGET = { dobbelspellen: 'taalworp', 'woorden-en-zinnen': 'bouw-een-zin' };
   ctx.go = (id) => render(MODULE_TARGET[id] || id);
 
   let route = 'home';
-  function render(next) {
+  function render(next, params) {
    route = SCREENS[next] ? next : 'home';
    clear(main);
-   main.append(SCREENS[route]());
+   main.append(SCREENS[route](params));
    overlay.dataset.route = route;
   }
 
@@ -600,6 +683,7 @@ globalThis.TaalrouteSpelen = (() => {
    open, close, overlay,
    get route() { return route; },
    go: (id) => ctx.go(id),
+   openWorld: (mapId) => ctx.openWorld(mapId),
    addModule: (mod) => { modules.push(mod); if (route === 'home') render('home'); },
    __internal: { combineUniquePools, VERB_DECKS, VERB_DECKS_EXTRA, storySets, LEVELS },
   };
@@ -642,6 +726,11 @@ globalThis.TaalrouteSpelen = (() => {
  // rest van de al geladen kernapp niet raken en mag zichzelf niet herhalen; log eenmalig een duidelijke
  // ontwikkelfout in plaats van de fout te maskeren of stil te negeren.
  function init() {
+  // Prompt 2: wanneer deze pagina zelf al gehuisvest is in een andere Spelen-omgeving
+  // (Kaarten-iframe vanuit Lessen/spelen.js's eigen Speelbord-scherm, ?embed=spelen), moet er geen
+  // geneste "Spelen"-toegang bovenop het bord verschijnen. Puur additief: buiten deze expliciete
+  // vlag om verandert er niets aan het bestaande gedrag.
+  if (document.documentElement.dataset.ppEmbed === 'spelen') return;
   try {
    mountTrigger();
   } catch (err) {

@@ -1,8 +1,10 @@
 <!doctype html>
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Taalroute DigiBoard</title><style>html,body{margin:0;padding:0;background:#fff;}@media(min-width:900px){body.pp-standalone #praatpad-board{height:100dvh;}}@media print{html,body{height:auto;}}
 #praatpad-board #pp-instruction{white-space:pre-line;}
+html[data-pp-embed="spelen"] #praatpad-board .pp-brand{display:none!important;}
 </style><link rel="stylesheet" href="digiboard.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="Lessen/kaartbibliotheek.css?v=20260914-kaartbibliotheek5"></head><body class="pp-standalone">
+<script>/* Prompt 2: alleen chroom verbergen wanneer expliciet vanuit de nieuwe Spelen-omgeving geopend (?embed=spelen). Raakt geen bordlogica, opslag of bestaande route zonder deze parameter. */if(new URLSearchParams(location.search).get('embed')==='spelen')document.documentElement.dataset.ppEmbed='spelen';</script>
 <script>/**
  * @license lucide v1.8.0 - ISC
  *
