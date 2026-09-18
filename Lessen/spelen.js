@@ -39,6 +39,7 @@ globalThis.TaalrouteSpelen = (() => {
   gear: '<circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.7 7.7 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-1.7-1l-.4-2.6H9.1l-.4 2.6a7.7 7.7 0 0 0-1.7 1l-2.4-1-2 3.4L4.6 11a7.7 7.7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7.7 7.7 0 0 0 1.7 1l.4 2.6h5.8l.4-2.6a7.7 7.7 0 0 0 1.7-1l2.4 1 2-3.4Z"/>',
   refresh: '<path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/>',
   trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+  chat: '<path d="M4 5h16v11H9l-4 4V5Z"/>',
  };
  const icon = (name, size = 20) => `<svg viewBox="0 0 24 24" width="${size}" height="${size}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ''}</svg>`;
 
@@ -76,13 +77,50 @@ globalThis.TaalrouteSpelen = (() => {
  }
 
  /* ==========================================================================================
+    Startpaginaminiaturen: visuele voorproefjes van de echte spelwerking, geen betekenisloze iconen.
+    Zuiver CSS/SVG-vormen (Prompt 1B §4) — geen externe beelden, geen nieuwe onderwijscontent.
+    ========================================================================================== */
+ function tileArtBoard() {
+  return '<svg viewBox="0 0 120 64" width="88" height="64" aria-hidden="true">'
+   + '<path d="M14 46 34 20 62 42 96 16" stroke="#c3ccd4" stroke-width="3" stroke-linecap="round" fill="none" stroke-dasharray="1 9"/>'
+   + '<circle cx="14" cy="46" r="8" fill="#176b9a"/>'
+   + '<rect x="26" y="12" width="16" height="16" rx="2" fill="#a44932"/>'
+   + '<path d="M62 28 74 50H50Z" fill="#407354"/>'
+   + '<path d="M96 4 108 16 96 28 84 16Z" fill="#8a6426"/>'
+   + '</svg>';
+ }
+ function tileArtDice() {
+  return '<svg viewBox="0 0 96 64" width="88" height="64" aria-hidden="true">'
+   + '<rect x="6" y="20" width="30" height="30" rx="7" fill="#2f6fb0"/>'
+   + '<rect x="34" y="8" width="30" height="30" rx="7" fill="#c0392b"/>'
+   + '<rect x="62" y="24" width="30" height="30" rx="7" fill="#2f7d5b"/>'
+   + '</svg>';
+ }
+ function tileArtCards() {
+  return '<svg viewBox="0 0 88 64" width="76" height="64" aria-hidden="true">'
+   + '<rect x="30" y="4" width="40" height="52" rx="5" fill="#e4e9ee"/>'
+   + '<rect x="18" y="10" width="40" height="52" rx="5" fill="#c7d2da"/>'
+   + '<rect x="6" y="16" width="40" height="52" rx="5" fill="#fff" stroke="#b9c4cd" stroke-width="2"/>'
+   + '<path d="M14 26h24M14 34h24M14 42h16" stroke="#8a99a6" stroke-width="3" stroke-linecap="round"/>'
+   + '</svg>';
+ }
+ function tileArtWords() {
+  return '<svg viewBox="0 0 100 60" width="88" height="52" aria-hidden="true">'
+   + '<rect x="2" y="16" width="34" height="28" rx="5" fill="#fff" stroke="#b9c4cd" stroke-width="2"/>'
+   + '<rect x="40" y="2" width="26" height="28" rx="5" fill="#fff" stroke="#b9c4cd" stroke-width="2"/>'
+   + '<rect x="70" y="22" width="28" height="28" rx="5" fill="#fff" stroke="#b9c4cd" stroke-width="2"/>'
+   + '<path d="M8 30h22M46 16h14M76 36h16" stroke="#4b6577" stroke-width="3" stroke-linecap="round"/>'
+   + '</svg>';
+ }
+
+ /* ==========================================================================================
     MODULEREGISTER voor de Spelen-startpagina. Uitbreidbaar: de grid veronderstelt geen vast aantal.
     ========================================================================================== */
  const BASE_MODULES = [
-  { id: 'speelborden', label: 'Speelborden', desc: 'Reis door Nederland en oefen taal in echte situaties.', art: SHAPES_SVG },
-  { id: 'dobbelspellen', label: 'Dobbelspellen', desc: 'Gooi, combineer en maak taal.', art: icon('dice', 56) },
-  { id: 'kaartspellen', label: 'Kaartspellen', desc: 'Praat, denk en oefen met kaarten.', art: icon('cards', 56) },
-  { id: 'woorden-en-zinnen', label: 'Woorden & zinnen', desc: 'Bouw, orden en ontdek taal.', art: icon('words', 56) },
+  { id: 'speelborden', label: 'Speelborden', desc: 'Reis door Nederland en oefen taal in echte situaties.', art: tileArtBoard() },
+  { id: 'dobbelspellen', label: 'Dobbelspellen', desc: 'Gooi, combineer en maak taal.', art: tileArtDice() },
+  { id: 'kaartspellen', label: 'Kaartspellen', desc: 'Praat, denk en oefen met kaarten.', art: tileArtCards() },
+  { id: 'woorden-en-zinnen', label: 'Woorden & zinnen', desc: 'Bouw, orden en ontdek taal.', art: tileArtWords() },
  ];
 
  /* ==========================================================================================
@@ -104,35 +142,49 @@ globalThis.TaalrouteSpelen = (() => {
   return wrap;
  }
 
+ // Voorbeeld en Extra uitdaging zijn vaste, altijd zichtbare onderdelen van de GameActionBar (Prompt 1B §8).
+ // Zonder aangeleverde fixtureinhoud tonen ze een expliciete ontwikkelplaceholder in plaats van te verdwijnen
+ // of een verzonnen Nederlandse tekst te tonen (Prompt 1B §13/§14).
  function PreviewButton(content) {
-  if (!content) return null; // Claude schrijft geen voorbeelden; zonder aangeleverde inhoud bestaat de knop niet.
-  const panel = el('div', { class: 'sp-content-panel', text: content });
+  const panel = el('div', { class: 'sp-content-panel', text: content || 'Voorbeeld nog niet gevuld.' });
   panel.hidden = true;
-  const button = el('button', { type: 'button', class: 'sp-btn', html: icon('eye', 17) + ' Voorbeeld', onclick: () => { panel.hidden = !panel.hidden; } });
+  const button = el('button', { type: 'button', class: 'sp-btn', 'data-fixture': String(!!content), html: icon('eye', 17) + ' Voorbeeld', onclick: () => { panel.hidden = !panel.hidden; } });
   return { button, panel };
  }
 
  function ChallengeButton(content) {
-  if (!content) return null; // Geen uitdaging gedefinieerd: knop wordt niet getoond.
-  const panel = el('div', { class: 'sp-content-panel', text: content });
+  const panel = el('div', { class: 'sp-content-panel', text: content || 'Extra uitdaging nog niet gevuld.' });
   panel.hidden = true;
-  const button = el('button', { type: 'button', class: 'sp-btn sp-btn-star', html: icon('star', 17) + ' Extra uitdaging', onclick: () => { panel.hidden = !panel.hidden; } });
+  const button = el('button', { type: 'button', class: 'sp-btn sp-btn-star', 'data-fixture': String(!!content), html: icon('star', 17) + ' Extra uitdaging', onclick: () => { panel.hidden = !panel.hidden; } });
   return { button, panel };
  }
 
- /* GameActionBar: toont uitsluitend de geconfigureerde acties, in de aanbevolen volgorde
-    Voorbeeld -> primaire actie -> Extra uitdaging -> maximaal twee contextacties. */
+ /* GameActionBar: vaste volgorde Voorbeeld -> primaire actie -> Extra uitdaging -> maximaal twee
+    contextacties. Voorbeeld/Extra uitdaging staan er altijd (met placeholder zonder inhoud); een
+    contextactie mag optioneel een eigen toggle-paneel krijgen (panelText) voor een ontwikkelplaceholder
+    wanneer de onderliggende functie nog niet bestaat — nooit een verzonnen inhoudelijke tekst. */
  function GameActionBar({ preview, primary, challenge, context = [] } = {}) {
   const bar = el('div', { class: 'sp-action-bar' });
-  const previewCmp = preview ? PreviewButton(preview) : null;
-  const challengeCmp = challenge ? ChallengeButton(challenge) : null;
-  const rendered = [];
-  if (previewCmp) rendered.push(previewCmp.button);
+  const previewCmp = PreviewButton(preview);
+  const challengeCmp = ChallengeButton(challenge);
+  const panels = [previewCmp.panel, challengeCmp.panel];
+  const rendered = [previewCmp.button];
   if (primary) rendered.push(el('button', { type: 'button', class: 'sp-btn sp-btn-primary', ...(primary.attrs || {}), onclick: primary.onClick, text: primary.label }));
-  if (challengeCmp) rendered.push(challengeCmp.button);
-  for (const action of context.slice(0, 2)) rendered.push(el('button', { type: 'button', class: 'sp-btn', ...(action.attrs || {}), onclick: action.onClick, html: (action.icon ? icon(action.icon, 17) : '') + ' ' + action.label }));
+  rendered.push(challengeCmp.button);
+  for (const action of context.slice(0, 2)) {
+   let panel = null;
+   if (action.panelText !== undefined) {
+    panel = el('div', { class: 'sp-content-panel', text: action.panelText });
+    panel.hidden = true;
+    panels.push(panel);
+   }
+   rendered.push(el('button', {
+    type: 'button', class: 'sp-btn', 'data-fixture': panel ? 'false' : undefined, ...(action.attrs || {}),
+    onclick: () => { action.onClick?.(); if (panel) panel.hidden = !panel.hidden; },
+    html: (action.icon ? icon(action.icon, 17) : '') + ' ' + action.label,
+   }));
+  }
   bar.append(...rendered);
-  const panels = [previewCmp?.panel, challengeCmp?.panel].filter(Boolean);
   return { node: bar, panels };
  }
 
@@ -361,7 +413,7 @@ globalThis.TaalrouteSpelen = (() => {
    preview: null,
    primary: { label: 'Gooien', attrs: { html: icon('dice', 17) + ' Gooien' }, onClick: () => {} },
    challenge: null,
-   context: [{ label: 'Wisselen', icon: 'refresh', onClick: () => {} }],
+   context: [{ label: 'Wisselen', icon: 'refresh', panelText: 'Wisselen: nog niet gebouwd.' }],
   });
   body.append(diceRow, deckLabel, decks, actionBar.node, ...actionBar.panels);
   shell.__decks = decks;
@@ -377,38 +429,48 @@ globalThis.TaalrouteSpelen = (() => {
   let mode = 'Klassikaal';
   const modeSwitch = ParticipationModeSwitch({ value: mode, onChange: (m) => { mode = m; livePanel.hidden = m !== 'Live'; } });
   const zone = el('div', { class: 'sp-sentence-zone', 'data-empty': 'true' });
-  const placed = [];
+  // Beschikbare woorden en gelegde zin zijn twee losse, visueel onderscheiden zones (Prompt 1B §10):
+  // elk woord bestaat als precies twee gekoppelde knoppen (bron + geplaatst), zonder losse querySelector-koppeling.
   const tiles = BUILD_WORDS.map((word) => {
-   const tile = el('button', { type: 'button', class: 'sp-word-tile', text: word, onclick: () => {
-    if (tile.dataset.placed === 'true') return;
-    tile.dataset.placed = 'true';
+   let placedTile = null;
+   const sourceTile = el('button', { type: 'button', class: 'sp-word-tile sp-word-tile-source', text: word, onclick: () => {
+    if (sourceTile.dataset.placed === 'true') return;
+    sourceTile.dataset.placed = 'true';
     zone.dataset.empty = 'false';
-    zone.append(el('span', { class: 'sp-word-tile', text: word, onclick: () => { tile.dataset.placed = 'false'; zone.querySelector(`[data-src="${word}"]`)?.remove(); if (![...zone.children].length) zone.dataset.empty = 'true'; } }));
-    placed.push(word);
+    placedTile = el('button', { type: 'button', class: 'sp-word-tile sp-word-tile-placed', text: word, onclick: () => {
+     sourceTile.dataset.placed = 'false';
+     placedTile.remove();
+     if (!zone.children.length) zone.dataset.empty = 'true';
+    } });
+    zone.append(placedTile);
    } });
-   return tile;
+   return sourceTile;
   });
-  const words = el('div', { class: 'sp-word-row' }, [...tiles, el('button', { type: 'button', class: 'sp-word-tile', text: '…' })]);
+  const availableLabel = el('div', { class: 'sp-deck-label', text: 'Beschikbare woorden' });
+  const words = el('div', { class: 'sp-word-row' }, [...tiles, el('button', { type: 'button', class: 'sp-word-tile sp-word-tile-source', text: '…' })]);
+  const zoneLabel = el('div', { class: 'sp-deck-label', text: 'Jouw zin' });
+  const results = ResultsPanel();
   const livePanel = el('div', { class: 'sp-live-panel' }, [
    el('div', { class: 'sp-qr-placeholder', html: icon('qr', 40) }),
    el('div', {}, [el('strong', { text: 'Live meedoen' }), el('div', { text: 'Laat cursisten op hun telefoon dezelfde opdracht maken.' })]),
    el('div', {}, [el('span', { text: 'Ga naar taalroute.live · Code: ' }), el('code', { text: '7K3P' })]),
+   results,
   ]);
   livePanel.hidden = mode !== 'Live';
-  const results = ResultsPanel();
   const actionBar = GameActionBar({
    preview: null,
    primary: { label: 'Controleer volgorde', onClick: () => {} },
    challenge: null,
-   context: [{ label: 'Wissen', icon: 'trash', onClick: () => { for (const t of tiles) t.dataset.placed = 'false'; clear(zone); zone.dataset.empty = 'true'; } }],
+   context: [{ label: 'Bespreek samen', icon: 'chat', panelText: 'Bespreek samen: nog niet gebouwd.' }],
   });
-  const layout = el('div', { style: 'display:flex;gap:24px;flex-wrap:wrap' }, [
-   el('div', { style: 'flex:1;min-width:260px;display:flex;flex-direction:column;gap:16px' }, [modeSwitch, zone, words]),
+  const layout = el('div', { class: 'sp-build-layout' }, [
+   el('div', { class: 'sp-build-main' }, [availableLabel, words, zoneLabel, zone]),
    livePanel,
   ]);
-  body.append(layout, actionBar.node, ...actionBar.panels, results);
+  body.append(layout, actionBar.node, ...actionBar.panels);
   shell.__modeSwitch = modeSwitch;
   shell.__livePanel = livePanel;
+  body.prepend(modeSwitch);
   return shell;
  }
 
@@ -548,6 +610,22 @@ globalThis.TaalrouteSpelen = (() => {
   if (!instance) instance = build();
   return instance;
  }
+
+ /* ---------- Prompt 1B §2 — onderzoek naar een veilige koppeling met de bestaande DigiBoard-header ----------
+    Bevinding: Lessen/appmenu.js bewaakt de zichtbare breedte van #pp-main-tools en de merknaam via een
+    ResizeObserver (zijn layout()-functie, "compact"-modus). Dat is precies waarom de Spelen-knop tijdens
+    Prompt 1 die berekening brak toen hij daar kind van werd (herstel in Prompt 1A: losgekoppeld, vast
+    gepositioneerd). Twee kansrijke, veilige routes naar één echte hoofdnavigatie-item "Spelen" — geen van
+    beide dit Prompt 1B-rond gebouwd, om dat risico niet zonder eigen regressietest opnieuw te lopen:
+     1) Een eigen <details>-item aan #pp-main-tools toevoegen, zoals appmenu.js dat zelf al doet voor zijn
+        "Bediening"-paneel (zijn "tr-controls"). Dat patroon wordt al mee bewaakt door de bestaande
+        layout()/ResizeObserver-berekening (via zijn "items"-lijst), dus zou niet opnieuw breken.
+     2) appmenu.js zelf een klein, expliciet uitbreidingspunt laten bieden (bv. window.TaalrouteAppMenu met
+        een registratiefunctie) waarmee Lessen/spelen.js zich veilig in .pp-brand/de navigatie kan haken
+        zonder zelf de breedte-berekening te hoeven kennen.
+    Optie 1 is de kleinste, laagste-risico stap; optie 2 is schoner maar vereist een gerichte wijziging aan
+    appmenu.js zelf, met een eigen test. De zwevende trigger-knop hieronder blijft tot een van beide routes
+    is doorgevoerd de tijdelijke ontwikkeltoegang (Prompt 1A/1B), niet de definitieve integratie. */
 
  // Losstaande, vast gepositioneerde knop: geen kind van #pp-main-tools, om de bestaande
  // breedte-/naamzichtbaarheidsberekening van de KANDIDAAT-appmenu-integratie niet te raken.

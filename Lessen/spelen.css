@@ -5,7 +5,7 @@
 @media print{#sp-open-trigger.sp-trigger-fab{display:none;}}
 
 /* Spelen-overlay: nieuwe app shell en schermfamilies boven op de bestaande DigiBoard-basis. KANDIDAAT, geen frameworkwissel. */
-#sp-overlay{--sp-blue:#0090f2;--sp-ink:#183049;--sp-ink-soft:#4b6577;--sp-line:#e1e8ee;--sp-bg:#fbfcfd;--sp-surface:#fff;--sp-radius:14px;--sp-radius-sm:10px;--sp-shadow:0 1px 2px rgba(24,48,73,.06),0 8px 24px rgba(24,48,73,.06);--sp-space-1:8px;--sp-space-2:12px;--sp-space-3:16px;--sp-space-4:24px;--sp-space-5:32px;--sp-space-6:48px;
+#sp-overlay{--sp-blue:#0090f2;--sp-ink:#183049;--sp-ink-soft:#4b6577;--sp-line:#e1e8ee;--sp-bg:#fbfcfd;--sp-surface:#fff;--sp-radius:14px;--sp-radius-sm:10px;--sp-shadow:0 1px 2px rgba(24,48,73,.06),0 8px 24px rgba(24,48,73,.06);--sp-space-1:8px;--sp-space-2:12px;--sp-space-3:16px;--sp-space-4:24px;--sp-space-5:32px;--sp-space-6:48px;--sp-container:1080px;
  position:fixed;inset:0;z-index:60;background:var(--sp-bg);color:var(--sp-ink);font-family:Inter,Arial,sans-serif;display:flex;flex-direction:column;overflow:hidden;}
 #sp-overlay[hidden]{display:none;}
 #sp-overlay [hidden]{display:none!important;}
@@ -31,9 +31,9 @@
 .sp-icon-button svg{width:19px;height:19px;}
 .sp-close{border:0;background:none;color:var(--sp-ink-soft);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;padding:8px 4px;}
 
-/* Hoofdinhoud */
+/* Hoofdinhoud. Eén gedeelde containerbreedte voor start- en spelpagina's (Prompt 1B §15). */
 .sp-main{flex:1;overflow-y:auto;padding:var(--sp-space-5) var(--sp-space-4) var(--sp-space-6);}
-.sp-home{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-space-5);}
+.sp-home{max-width:var(--sp-container,1080px);margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-space-5);}
 .sp-welcome h1{font-size:32px;margin:0 0 4px;}
 .sp-welcome p{margin:0;color:var(--sp-ink-soft);font-size:15px;}
 
@@ -55,7 +55,7 @@
 .sp-panel-row-chevron{margin-left:auto;width:18px;height:18px;color:var(--sp-ink-soft);flex-shrink:0;}
 
 /* GamePageShell */
-.sp-game-shell{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-space-4);}
+.sp-game-shell{max-width:var(--sp-container,1080px);margin:0 auto;display:flex;flex-direction:column;gap:var(--sp-space-4);}
 .sp-game-head{display:flex;align-items:flex-start;gap:var(--sp-space-3);}
 .sp-back{border:0;background:none;color:var(--sp-ink-soft);font-size:14px;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px;flex-shrink:0;align-self:flex-start;}
 .sp-back svg{width:16px;height:16px;}
@@ -82,47 +82,60 @@
 .sp-btn-primary:hover:not(:disabled){background:#0079cc;}
 .sp-btn-ghost{border-color:transparent;color:var(--sp-blue);}
 .sp-btn-star svg{color:#e08a2b;}
+/* Ontwikkelplaceholder-knoppen (geen aangeleverde fixtureinhoud): zichtbaar onderscheiden, geen verzonnen inhoud. */
+.sp-btn[data-fixture="false"]{border-style:dashed;color:var(--sp-ink-soft);}
 
 /* Niveauselector-context/badges */
 .sp-badge{font-size:12px;font-weight:600;color:var(--sp-ink-soft);background:#f1f5f8;border-radius:999px;padding:5px 10px;}
 
-/* Taaldobbelstenen (Taalworp) */
+/* Taaldobbelstenen (Taalworp): digitale stenen met beperkte diepte/schaduw, geen stippen, vaste kleur per soort. */
 .sp-dice-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:var(--sp-space-3);}
-.sp-dice{border-radius:16px;background:var(--sp-surface);border:2px solid var(--sp-line);padding:var(--sp-space-2);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-height:132px;}
-.sp-dice-face{width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;}
+.sp-dice{border-radius:16px;background:var(--sp-surface);border:1px solid var(--sp-line);padding:var(--sp-space-2);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-height:140px;}
+.sp-dice-face{width:68px;height:68px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;position:relative;background-image:linear-gradient(155deg,rgba(255,255,255,.3),rgba(255,255,255,0) 45%,rgba(0,0,0,.12));box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -8px 12px rgba(0,0,0,.16),0 6px 14px rgba(24,48,73,.16);}
 .sp-dice-label{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--sp-ink-soft);text-transform:uppercase;}
 .sp-dice-sub{font-size:10px;color:var(--sp-ink-soft);margin-top:-6px;}
 
-/* VerbDeckSelector / StoryDiceSetSelector: gedeelde stapel/set-tegels */
+/* VerbDeckSelector / StoryDiceSetSelector: gedeelde stapel/set-tegels, gebouwd als echte kaartstapels. */
 .sp-deck-label{font-size:13px;font-weight:700;color:var(--sp-ink-soft);margin:0 0 8px;}
-.sp-deck-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
+.sp-deck-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:16px 14px;}
 .sp-deck{border-radius:var(--sp-radius-sm);border:2px solid var(--sp-line);background:var(--sp-surface);padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;position:relative;text-align:left;min-height:118px;}
-.sp-deck[data-active="true"]{border-color:var(--sp-blue);background:#f3f9ff;}
+/* Actieve stapel: duidelijke rand + meerdere achterliggende kaarten via een gelaagde box-shadow (geen extra DOM nodig). */
+.sp-deck[data-active="true"]{border-color:var(--sp-blue);background:#f3f9ff;box-shadow:3px 3px 0 0 var(--sp-surface),3px 3px 0 2px var(--sp-line),6px 6px 0 0 var(--sp-surface),6px 6px 0 2px var(--sp-line);}
 .sp-deck[data-active="true"] .sp-deck-check{opacity:1;transform:scale(1);}
 .sp-deck-art{height:52px;border-radius:8px;background:#eef1f4;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .sp-deck-art svg{width:40px;height:40px;}
+/* Inactieve stapel toont een kaartachterkant. Geen toegeleverd kaartback-asset gevonden in Speelstuk-beelden/:
+   tijdelijke neutrale streeppatroon-achterkant, te vervangen zodra een echt asset wordt aangeleverd (open item). */
+.sp-deck[data-active="false"] .sp-deck-art{background:repeating-linear-gradient(135deg,#eef1f4,#eef1f4 7px,#e3e9ee 7px,#e3e9ee 14px);}
 .sp-deck-name{font-size:13px;font-weight:700;}
 .sp-deck-hint{font-size:11px;color:var(--sp-ink-soft);}
 .sp-deck-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:999px;background:var(--sp-blue);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease;}
 .sp-deck-check svg{width:11px;height:11px;}
 .sp-deck-more{display:flex;align-items:center;justify-content:center;color:var(--sp-ink-soft);}
 .sp-deck-more-stack{display:flex;}
-.sp-deck-more-stack span{width:26px;height:34px;border-radius:5px;background:var(--sp-blue);margin-left:-14px;border:2px solid var(--sp-surface);}
+.sp-deck-more-stack span{width:26px;height:34px;border-radius:5px;background:repeating-linear-gradient(135deg,#dbe6ef,#dbe6ef 5px,#cbd9e4 5px,#cbd9e4 10px);margin-left:-14px;border:2px solid var(--sp-surface);}
 .sp-deck-more-stack span:first-child{margin-left:0;}
 
 /* Bouw een zin */
-.sp-mode-switch{display:inline-flex;border:1px solid var(--sp-line);border-radius:999px;padding:3px;gap:2px;}
+.sp-mode-switch{display:inline-flex;border:1px solid var(--sp-line);border-radius:999px;padding:3px;gap:2px;align-self:flex-start;}
 .sp-mode-switch button{border:0;background:none;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--sp-ink-soft);cursor:pointer;}
 .sp-mode-switch button[aria-pressed="true"]{background:var(--sp-blue);color:#fff;}
-.sp-sentence-zone{display:flex;gap:8px;flex-wrap:wrap;min-height:56px;border:2px dashed var(--sp-line);border-radius:var(--sp-radius-sm);padding:10px;background:#fbfcfd;}
-.sp-sentence-zone[data-empty="true"]::before{content:'Sleep of tik hieronder woorden hierheen';color:var(--sp-ink-soft);font-size:13px;align-self:center;}
-.sp-word-tile{border:1px solid var(--sp-line);background:var(--sp-surface);border-radius:10px;padding:9px 16px;font-size:15px;font-weight:600;cursor:pointer;}
-.sp-word-tile[aria-pressed="true"]{background:var(--sp-blue);color:#fff;border-color:var(--sp-blue);}
-.sp-word-tile[data-placed="true"]{opacity:.35;}
-.sp-word-row{display:flex;gap:8px;flex-wrap:wrap;}
-.sp-live-panel{border:1px solid var(--sp-line);border-radius:var(--sp-radius-sm);padding:var(--sp-space-3);display:flex;flex-direction:column;gap:8px;background:#fbfcfd;min-width:220px;}
+.sp-build-layout{display:flex;gap:var(--sp-space-4);flex-wrap:wrap;}
+.sp-build-main{flex:1;min-width:280px;display:flex;flex-direction:column;gap:var(--sp-space-2);}
+/* Gelegde zin: prominente werkzone, duidelijk anders dan de beschikbare-woordenrij eronder. */
+.sp-sentence-zone{display:flex;gap:10px;flex-wrap:wrap;align-content:flex-start;min-height:76px;border:2px dashed var(--sp-line);border-radius:var(--sp-radius);padding:14px;background:var(--sp-surface);}
+.sp-sentence-zone[data-empty="true"]::before{content:'Tik hieronder op woorden om je zin te bouwen';color:var(--sp-ink-soft);font-size:14px;align-self:center;}
+.sp-word-tile{border:1px solid var(--sp-line);background:var(--sp-surface);border-radius:12px;padding:12px 20px;font-size:17px;font-weight:700;cursor:pointer;}
+.sp-word-row{display:flex;gap:10px;flex-wrap:wrap;padding:14px;border-radius:var(--sp-radius);background:#f1f5f8;}
+/* Beschikbare woorden (bronrij) versus de al geplaatste woorden in de zin: apart gestileerd, niet verwarrend gelijk. */
+.sp-word-tile-source{color:var(--sp-ink-soft);}
+.sp-word-tile-source[data-placed="true"]{opacity:.35;cursor:default;}
+.sp-word-tile-placed{background:var(--sp-blue);border-color:var(--sp-blue);color:#fff;}
+.sp-live-panel{border:1px solid var(--sp-line);border-radius:var(--sp-radius-sm);padding:var(--sp-space-3);display:flex;flex-direction:column;gap:8px;background:#fbfcfd;min-width:240px;}
 .sp-qr-placeholder{width:96px;height:96px;border:1px dashed var(--sp-line);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--sp-ink-soft);}
 .sp-live-panel code{background:#eef1f4;border-radius:6px;padding:3px 8px;font-weight:700;}
+/* De Resultaten-knop en -lijst zijn nu visueel onderdeel van het Live-paneel (Prompt 1B §10), niet los eronder. */
+.sp-live-panel .sp-btn{align-self:flex-start;margin-top:4px;}
 .sp-results-list{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
 .sp-results-list li{display:flex;justify-content:space-between;gap:8px;font-size:13px;border-bottom:1px solid var(--sp-line);padding:6px 0;}
 .sp-result-status{font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;}
@@ -134,8 +147,8 @@
 .sp-stepper{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--sp-line);border-radius:999px;padding:4px 6px;}
 .sp-stepper button{width:28px;height:28px;border-radius:999px;border:0;background:#f1f5f8;color:var(--sp-ink);font-size:16px;line-height:1;cursor:pointer;}
 .sp-stepper span{font-size:14px;font-weight:700;min-width:16px;text-align:center;}
-.sp-story-dice-row{display:flex;flex-wrap:wrap;gap:var(--sp-space-2);}
-.sp-story-die{width:88px;height:88px;border-radius:14px;border:2px solid var(--sp-line);background:var(--sp-surface);display:flex;align-items:center;justify-content:center;position:relative;}
+.sp-story-dice-row{display:flex;flex-wrap:wrap;gap:var(--sp-space-3);}
+.sp-story-die{width:88px;height:88px;border-radius:16px;border:1px solid var(--sp-line);background:var(--sp-surface);background-image:linear-gradient(155deg,rgba(255,255,255,.6),rgba(0,0,0,0) 45%);box-shadow:inset 0 -6px 10px rgba(24,48,73,.06),0 6px 14px rgba(24,48,73,.12);display:flex;align-items:center;justify-content:center;position:relative;}
 .sp-story-die svg{width:44px;height:44px;color:var(--sp-ink);}
 .sp-story-die[data-locked="true"]{border-color:#e08a2b;}
 .sp-story-die-lock{position:absolute;bottom:-8px;right:-8px;width:26px;height:26px;border-radius:999px;background:var(--sp-surface);border:1px solid var(--sp-line);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--sp-ink-soft);}
@@ -152,4 +165,6 @@
  .sp-main{padding:var(--sp-space-4) var(--sp-space-2) var(--sp-space-5);}
  .sp-game-head{flex-wrap:wrap;}
  .sp-explain{margin-left:0;order:3;width:100%;}
+ .sp-build-layout{flex-direction:column;}
+ .sp-live-panel{min-width:0;}
 }
