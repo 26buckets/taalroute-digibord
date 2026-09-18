@@ -59,22 +59,15 @@ globalThis.TaalrouteSpelen = (() => {
   + '</svg>';
 
  /* ==========================================================================================
-    NIVEAU: globale context (A0..C2). Herbruikbaar, niet hardgecodeerd in losse spelcomponenten.
-    Eigen instellingensleutel, apart van de bestaande vier-niveau kaartroute (data.settings.route).
+    NIVEAU (Prompt 3 §3/§4): niet langer een eigen lokale kopie. Herbruikt de centrale AppContext uit
+    Lessen/spelen-context.js, zodat een niveauwijziging voor alle toekomstige activiteiten beschikbaar
+    is via één plek — apart van de bestaande vier-niveau kaartroute (data.settings.route).
     ========================================================================================== */
- const LEVELS = ['A0', 'A1', 'A1+', 'A2', 'B1', 'B2', 'C1', 'C2'];
- const STORAGE_KEY = 'taalroute-spelen-v1';
-
- function loadState() {
-  try {
-   const raw = JSON.parse(localStorage.getItem(STORAGE_KEY));
-   if (raw && LEVELS.includes(raw.level)) return { level: raw.level };
-  } catch { /* val terug op standaard */ }
-  return { level: 'A2' };
- }
- function saveState(s) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ level: s.level })); } catch { /* opslag optioneel */ }
- }
+ const AppContext = globalThis.TaalrouteSpelenContext;
+ const ModuleRegistry = globalThis.TaalrouteModuleRegistry;
+ const ActivityRegistry = globalThis.TaalrouteActivityRegistry;
+ const SessionState = globalThis.TaalrouteSessionState;
+ const LEVELS = AppContext.LEVELS;
 
  /* ==========================================================================================
     Startpaginaminiaturen: visuele voorproefjes van de echte spelwerking, geen betekenisloze iconen.
@@ -122,6 +115,38 @@ globalThis.TaalrouteSpelen = (() => {
   { id: 'kaartspellen', label: 'Kaartspellen', desc: 'Praat, denk en oefen met kaarten.', art: tileArtCards() },
   { id: 'woorden-en-zinnen', label: 'Woorden & zinnen', desc: 'Bouw, orden en ontdek taal.', art: tileArtWords() },
  ];
+
+ /* Prompt 3 §7: de startpagina moet uit deze centrale registry lezen, niet uit een lokale kopie — zo
+    kunnen vijf, zes of zeven modules technisch worden ondersteund zonder wijziging aan de renderer.
+    Bestaande labels/beschrijvingen/miniaturen hierboven worden hergebruikt, niet herschreven. */
+ for (const mod of BASE_MODULES) {
+  TaalrouteModuleRegistry.register({ id: mod.id, label: mod.label, description: mod.desc, desc: mod.desc, icon: mod.art, art: mod.art });
+ }
+
+ /* Prompt 3 §8: technisch contract per activiteit — metadata/capabilities, geen onderwijsinhoud.
+    "status" volgt de werkelijke staat: 'ui-only' waar nog geen echte inhoud is aangesloten,
+    'legacy-iframe-adapter' voor Speelborden (zie BoardAdapter hieronder). Verhaalworp heeft nog geen
+    starttegel-ingang (geen MODULE_TARGET-koppeling); moduleId blijft eerlijk null in plaats van gegokt. */
+ TaalrouteActivityRegistry.define({
+  id: 'taalworp', gameFamily: 'dice-sentence', moduleId: 'dobbelspellen', title: 'Taalworp',
+  supportedLevels: LEVELS.slice(), themeIds: [], sectorIds: [], participationModes: ['classroom'],
+  capabilities: ['help', 'example', 'extraChallenge'], renderer: 'taalworp', status: 'ui-only',
+ });
+ TaalrouteActivityRegistry.define({
+  id: 'bouw-een-zin', gameFamily: 'sentence-build', moduleId: 'woorden-en-zinnen', title: 'Bouw een zin',
+  supportedLevels: LEVELS.slice(), themeIds: [], sectorIds: [], participationModes: ['classroom', 'live'],
+  capabilities: ['help', 'example', 'extraChallenge', 'classroom', 'live', 'results'], renderer: 'bouw-een-zin', status: 'ui-only',
+ });
+ TaalrouteActivityRegistry.define({
+  id: 'verhaalworp', gameFamily: 'image-dice-story', moduleId: null, title: 'Verhaalworp',
+  supportedLevels: LEVELS.slice(), themeIds: [], sectorIds: [], participationModes: ['classroom'],
+  capabilities: ['help', 'example', 'extraChallenge', 'image'], renderer: 'verhaalworp', status: 'ui-only',
+ });
+ TaalrouteActivityRegistry.define({
+  id: 'speelborden', gameFamily: 'board', moduleId: 'speelborden', title: 'Speelborden',
+  supportedLevels: LEVELS.slice(), themeIds: [], sectorIds: [], participationModes: ['classroom'],
+  capabilities: ['help', 'example', 'extraChallenge'], renderer: 'speelbord', status: 'legacy-iframe-adapter',
+ });
 
  /* ==========================================================================================
     Gedeelde componenten
@@ -205,13 +230,41 @@ globalThis.TaalrouteSpelen = (() => {
   return { shell, body };
  }
 
- /* ParticipationModeSwitch: alleen relevant bij activiteiten die zowel Klassikaal als Live ondersteunen. */
- function ParticipationModeSwitch({ modes = ['Klassikaal', 'Live'], value, onChange }) {
+ /* ==========================================================================================
+    Prompt 3 §11/§12 — GamePage-contract: een spelpagina levert generieke, door redesign herplaatsbare
+    gegevens (title/description/icon/actions met generieke id's/capabilities/levelContext/lessonContext/
+    participationMode/content/sessionState) in plaats van zelf visuele posities te kiezen. Deze functie
+    is de vertaling naar de huidige, tijdelijke visuele laag (GamePageShell + GameActionBar); een latere
+    redesign kan uitsluitend déze vertaalfunctie vervangen zonder dat spelcode verandert. Bestaande
+    schermen die nog rechtstreeks GamePageShell/GameActionBar aanroepen blijven werken — dit contract is
+    optioneel, niet verplicht, om regressie op bestaande schermen te vermijden. */
+ function GamePage({ title, description, icon: iconSvg, actions = [], capabilities = [], levelContext, lessonContext, participationMode, content, sessionState, onBack }) {
+  const byId = {};
+  for (const a of actions) if (a && a.id) byId[a.id] = a;
+  const primaryAction = byId.primary ? { label: byId.primary.label, onClick: byId.primary.onClick, attrs: byId.primary.attrs } : null;
+  // 'back' wordt al structureel door GamePageShell's vaste Terug-knop gedekt; 'help' door de vaste
+  // Uitleg-knop hierboven. Beide worden hier bewust niet nogmaals als contextactie gerenderd.
+  const contextActions = actions
+   .filter((a) => a && a.id && !['example', 'extraChallenge', 'primary', 'back', 'help'].includes(a.id))
+   .slice(0, 2)
+   .map((a) => ({ label: a.label, icon: a.icon, onClick: a.onClick, panelText: a.panelText, attrs: a.attrs }));
+  const { shell, body } = GamePageShell({
+   iconSvg, name: title, description, contextBadges: [], explain: byId.help?.content, onBack,
+  });
+  const actionBar = GameActionBar({ preview: byId.example?.content, primary: primaryAction, challenge: byId.extraChallenge?.content, context: contextActions });
+  return { shell, body, actionBar, capabilities, levelContext, lessonContext, participationMode, content, sessionState };
+ }
+
+ /* ParticipationModeSwitch: alleen relevant bij activiteiten die zowel classroom als live ondersteunen.
+    Neemt de technische deelnamevorm-id's uit de centrale AppContext/ActivityRegistry (Prompt 3 §10) aan
+    — niet de zichtbare labels — zodat de identiteit niet langer van de getoonde tekst afhangt. */
+ const PARTICIPATION_LABELS = { classroom: 'Klassikaal', live: 'Live' };
+ function ParticipationModeSwitch({ modes = ['classroom', 'live'], value, onChange }) {
   const wrap = el('div', { class: 'sp-mode-switch', role: 'group', 'aria-label': 'Deelnamevorm' });
-  let current = value || modes[0];
+  let current = modes.includes(value) ? value : modes[0];
   const buttons = modes.map((m) => el('button', {
-   type: 'button', 'aria-pressed': String(m === current), text: m,
-   onclick: () => { current = m; for (const b of buttons) b.setAttribute('aria-pressed', String(b.textContent === current)); onChange?.(current); },
+   type: 'button', 'aria-pressed': String(m === current), text: PARTICIPATION_LABELS[m] || m, 'data-mode': m,
+   onclick: () => { current = m; for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.mode === current)); onChange?.(current); },
   }));
   wrap.append(...buttons);
   return wrap;
@@ -377,7 +430,9 @@ globalThis.TaalrouteSpelen = (() => {
     el('div', { class: 'sp-tile-body' }, [el('strong', { text: mod.label }), el('span', { text: mod.desc })]),
    ]);
   }
-  for (const mod of ctx.modules) grid.append(drawTile(mod));
+  // Prompt 3 §7: bron van waarheid is de centrale ModuleRegistry, niet een lokale kopie — een vijfde,
+  // zesde of zevende module verschijnt hier zonder wijziging aan deze renderer.
+  for (const mod of ModuleRegistry.list()) grid.append(drawTile(mod));
   wrap.append(grid);
   const row = el('div', { class: 'sp-row-grid' }, [
    el('button', { type: 'button', class: 'sp-panel-row', onclick: () => ctx.go('taalworp'), html: icon('refresh', 22) }, [
@@ -426,8 +481,11 @@ globalThis.TaalrouteSpelen = (() => {
    iconSvg: icon('words', 26), name: 'Bouw een zin', description: 'Zet de woorden in de juiste volgorde.',
    contextBadges: [], explain: 'Content nog aan te leveren', onBack: ctx.back,
   });
-  let mode = 'Klassikaal';
-  const modeSwitch = ParticipationModeSwitch({ value: mode, onChange: (m) => { mode = m; livePanel.hidden = m !== 'Live'; } });
+  // Prompt 3 §10: de aangeboden deelnamevormen volgen uit de activiteit-capabilities, niet uit een
+  // vaste lijst per scherm — een activiteit zonder 'live'-capability zou hier nooit Live aanbieden.
+  const allowedModes = ActivityRegistry.participationModesFor('bouw-een-zin');
+  let mode = allowedModes.includes(AppContext.getState().participationMode) ? AppContext.getState().participationMode : allowedModes[0];
+  const modeSwitch = ParticipationModeSwitch({ modes: allowedModes, value: mode, onChange: (m) => { mode = m; livePanel.hidden = m !== 'live'; AppContext.setParticipationMode(m); } });
   const zone = el('div', { class: 'sp-sentence-zone', 'data-empty': 'true' });
   // Beschikbare woorden en gelegde zin zijn twee losse, visueel onderscheiden zones (Prompt 1B §10):
   // elk woord bestaat als precies twee gekoppelde knoppen (bron + geplaatst), zonder losse querySelector-koppeling.
@@ -456,7 +514,7 @@ globalThis.TaalrouteSpelen = (() => {
    el('div', {}, [el('span', { text: 'Ga naar taalroute.live · Code: ' }), el('code', { text: '7K3P' })]),
    results,
   ]);
-  livePanel.hidden = mode !== 'Live';
+  livePanel.hidden = mode !== 'live';
   const actionBar = GameActionBar({
    preview: null,
    primary: { label: 'Controleer volgorde', onClick: () => {} },
@@ -588,11 +646,17 @@ globalThis.TaalrouteSpelen = (() => {
 
  function screenSpeelbord(ctx, mapId) {
   const map = (globalThis.DigiBoardMaps || []).find((m) => m.id === mapId);
-  const { shell, body } = GamePageShell({
-   iconSvg: icon('board', 26), name: map?.label || 'Speelbord', description: '',
-   contextBadges: [], explain: 'Content nog aan te leveren', onBack: () => ctx.go('speelborden'),
+  const activity = ActivityRegistry.get('speelborden');
+  const appState = AppContext.getState();
+  const { shell, body, actionBar } = GamePage({
+   iconSvg: icon('board', 26), title: map?.label || 'Speelbord', description: '',
+   actions: [], capabilities: activity?.capabilities || [],
+   levelContext: appState.level, lessonContext: appState.lessonContext, participationMode: appState.participationMode,
+   content: map ? { mapId: map.id } : null, sessionState: null,
+   onBack: () => { ctx.setBoardFrame(null); ctx.go('speelborden'); },
   });
   if (!map) {
+   ctx.setBoardFrame(null);
    body.append(el('div', { class: 'sp-content-panel', text: 'Geen wereld geselecteerd. Ga terug naar de bibliotheek.' }));
   } else {
    // Same-origin iframe: hergebruikt de bestaande, ongewijzigde bordmotor (dobbelsteen, pionnen,
@@ -602,8 +666,8 @@ globalThis.TaalrouteSpelen = (() => {
     src: `Praatpad.html?kaart=${encodeURIComponent(map.id)}&embed=spelen`,
    });
    body.append(el('div', { class: 'sp-board-wrap' }, [frame]));
+   ctx.setBoardFrame(frame);
   }
-  const actionBar = GameActionBar({ preview: null, primary: null, challenge: null, context: [] });
   body.append(actionBar.node, ...actionBar.panels);
   return shell;
  }
@@ -612,13 +676,16 @@ globalThis.TaalrouteSpelen = (() => {
     App shell: bovenbalk, navigatie en router tussen de schermen hierboven.
     ========================================================================================== */
  function build() {
-  const state = loadState();
+  const state = AppContext.getState();
   const overlay = el('div', { id: 'sp-overlay', hidden: true, role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Spelen' });
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) overlay.dataset.motion = 'reduce';
 
+  // Prompt 3 §4: het niveau leeft nu in de centrale AppContext. Een wijziging via deze selector is
+  // uitsluitend de globale voorkeur; een al lopende sessie bewaart apart haar eigen levelAtStart.
   const levelSelect = el('select', { class: 'sp-level-select', 'aria-label': 'Niveau' }, LEVELS.map((lv) => el('option', { value: lv, text: lv, selected: lv === state.level ? '' : undefined })));
   levelSelect.value = state.level;
-  levelSelect.addEventListener('change', () => { state.level = levelSelect.value; saveState(state); });
+  levelSelect.addEventListener('change', () => { AppContext.setLevel(levelSelect.value); });
+  AppContext.subscribe((next) => { if (levelSelect.value !== next.level) levelSelect.value = next.level; });
 
   const nav = el('div', { class: 'sp-nav' }, [
    el('button', { type: 'button', 'aria-current': 'page', text: 'Spelen' }),
@@ -642,13 +709,16 @@ globalThis.TaalrouteSpelen = (() => {
   ]);
 
   const main = el('div', { class: 'sp-main' });
-  const modules = BASE_MODULES.slice();
+  let currentBoardFrame = null;
+  let currentWorldId = null;
+  let currentSession = null;
   const ctx = {
-   modules,
-   level: state.level,
    go: (id) => render(id),
    back: () => render('home'),
    openWorld: (mapId) => render('speelbord', { mapId }),
+   // Speelbord-scherm meldt hier zijn iframe (of null) aan, zodat de BoardAdapter er zonder DOM-
+   // scraping bij kan zonder dat het scherm zelf iets van build()'s interne state hoeft te kennen.
+   setBoardFrame: (frame) => { currentBoardFrame = frame || null; },
   };
 
   const SCREENS = {
@@ -661,14 +731,35 @@ globalThis.TaalrouteSpelen = (() => {
   };
   // Module-tegels linken (waar al een schermbasis bestaat) naar hun spelpagina.
   const MODULE_TARGET = { dobbelspellen: 'taalworp', 'woorden-en-zinnen': 'bouw-een-zin' };
+  const ROUTE_ACTIVITY = { taalworp: 'taalworp', 'bouw-een-zin': 'bouw-een-zin', verhaalworp: 'verhaalworp', speelbord: 'speelborden' };
   ctx.go = (id) => render(MODULE_TARGET[id] || id);
+  ctx.openWorld = (mapId) => { currentWorldId = mapId; render('speelbord', { mapId }); };
 
   let route = 'home';
   function render(next, params) {
    route = SCREENS[next] ? next : 'home';
+   if (route !== 'speelbord') currentBoardFrame = null;
    clear(main);
    main.append(SCREENS[route](params));
    overlay.dataset.route = route;
+   // Prompt 3 §3/§16: elke routewissel houdt de centrale AppContext bij (huidige pagina, module,
+   // actieve activiteit/wereld) — puur technisch bijhouden, geen navigatielogica in de activiteiten zelf.
+   AppContext.setPage(route);
+   const moduleForRoute = ModuleRegistry.list().find((m) => (MODULE_TARGET[m.id] || m.id) === route)?.id || null;
+   AppContext.setActiveModule(moduleForRoute);
+   const activityId = ROUTE_ACTIVITY[route] || null;
+   AppContext.setActiveActivity(activityId);
+   AppContext.setActiveWorld(route === 'speelbord' ? currentWorldId : null);
+   if (activityId) {
+    currentSession = SessionState.start({
+     activityId, worldId: route === 'speelbord' ? currentWorldId : null,
+     level: AppContext.getState().level, participationMode: AppContext.getState().participationMode,
+    });
+    AppContext.setSessionId(activityId + ':' + currentSession.startedAt);
+   } else {
+    currentSession = null;
+    AppContext.setSessionId(null);
+   }
   }
 
   overlay.append(topbar, main);
@@ -679,13 +770,44 @@ globalThis.TaalrouteSpelen = (() => {
 
   document.body.append(overlay);
 
+  /* Prompt 3 §13: dun contract rond de bestaande, ongewijzigde iframe-koppeling naar de speelbordmotor.
+     Expliciet gemarkeerd als legacy-compatibility-adapter (status). getSessionState leest de bestaande,
+     stabiele opslagconventie (dezelfde sleutel als DigiBoard.storageKey()) rechtstreeks — geen
+     DOM-scraping van de ingebedde pagina voor businesslogica. Functies die de bestaande motor nog geen
+     uitbreidingspunt voor biedt (taakopening/positiewijziging als events) blijven bewust `undefined` in
+     plaats van een nep-implementatie: feature-detection, geen herschrijving van de bestaande motor. */
+  const boardAdapter = Object.freeze({
+   status: 'legacy-iframe-adapter',
+   openWorld: (mapId) => ctx.openWorld(mapId),
+   closeWorld: () => ctx.go('speelborden'),
+   getWorldId: () => currentWorldId,
+   getSessionState: () => {
+    if (!currentWorldId) return null;
+    try {
+     const raw = localStorage.getItem(`taalroute-digiboard-les-${currentWorldId}-v1`);
+     return raw ? JSON.parse(raw) : null;
+    } catch { return null; }
+   },
+   resume: () => { if (currentWorldId) ctx.openWorld(currentWorldId); },
+   hasFrame: () => !!currentBoardFrame,
+   // Nog niet beschikbaar: de bestaande motor biedt hiervoor nog geen stabiel uitbreidingspunt.
+   openTask: undefined,
+   onTaskOpened: undefined,
+   onPositionChanged: undefined,
+  });
+
   return {
    open, close, overlay,
    get route() { return route; },
    go: (id) => ctx.go(id),
    openWorld: (mapId) => ctx.openWorld(mapId),
-   addModule: (mod) => { modules.push(mod); if (route === 'home') render('home'); },
-   __internal: { combineUniquePools, VERB_DECKS, VERB_DECKS_EXTRA, storySets, LEVELS },
+   addModule: (mod) => { ModuleRegistry.register(mod); if (route === 'home') render('home'); },
+   boardAdapter,
+   context: AppContext,
+   moduleRegistry: ModuleRegistry,
+   activityRegistry: ActivityRegistry,
+   get currentSession() { return currentSession; },
+   __internal: { combineUniquePools, VERB_DECKS, VERB_DECKS_EXTRA, storySets, LEVELS, GamePage },
   };
  }
 
