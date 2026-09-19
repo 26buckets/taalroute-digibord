@@ -52,23 +52,21 @@ assert(await p.locator('#sp-overlay .sp-content-panel', {hasText:'Extra uitdagin
 await p.locator('#sp-overlay .sp-action-bar >> text=Wisselen').click();
 assert(await p.locator('#sp-overlay .sp-content-panel', {hasText:'Wisselen: nog niet gebouwd.'}).count()>0);
 
-// Werkwoordstapels: afzonderlijk actief/inactief, meerdere tegelijk actief, dubbele records na combineren uniek.
-// Inactieve stapel toont "Klik om te activeren"; actieve stapel krijgt een duidelijke actieve rand (Prompt 1B §7).
-const deckButtons=p.locator('#sp-overlay .sp-deck-row .sp-deck');
-assert(((await deckButtons.nth(1).innerText())||'').toLowerCase().includes('klik om te activeren'));
-await deckButtons.nth(1).click();
-assert.equal(await deckButtons.nth(0).getAttribute('data-active'),'true');
-assert.equal(await deckButtons.nth(1).getAttribute('data-active'),'true');
-await deckButtons.nth(1).click();
-assert.equal(await deckButtons.nth(1).getAttribute('data-active'),'false');
+// Werkwoordstapels (nu de generieke Taalworp-setkiezer, SET 01): Basis/Werk/Reizen/Meer sets tegels
+// renderen; actieve rand op de standaard-actieve set (Prompt 1B §7). Gedetailleerd setgedrag
+// (single/combine-modus, resolver, sessieherstel) staat in tests/taalworp-sets.cjs.
+const deckButtons=p.locator('#sp-overlay .sp-deck-row .sp-deck:not(.sp-deck-more)');
+assert.equal(await deckButtons.count(),3,'snelle toegang toont Basis/Werk/Reizen als losse stapeltegels');
+assert.equal(await p.locator('#sp-overlay .sp-deck-row .sp-deck-more').count(),1,'Meer sets staat als vierde tegel in de snelle toegang');
+assert.equal(await deckButtons.nth(0).getAttribute('data-active'),'true','Basis is standaard actief');
 const uniqueCheck=await p.evaluate(()=>{
  const T=globalThis.TaalrouteSpelen.instance.__internal;
- const pools=[T.VERB_DECKS[0].records,T.VERB_DECKS[0].records];// zelfde stapel twee keer "actief"
- return T.combineUniquePools(pools).length===T.VERB_DECKS[0].records.length;
+ const pools=[[{id:'a'},{id:'b'}],[{id:'a'},{id:'c'}]];
+ return T.combineUniquePools(pools).length===3;
 });
 assert(uniqueCheck,'dubbele records na poolcombinatie moeten uniek blijven');
 
-// Meer stapels kan extra selecties tonen.
+// Meer sets kan extra selecties tonen.
 await p.locator('#sp-overlay .sp-deck-more').click();
 assert(await p.locator('#sp-overlay .sp-content-panel .sp-deck-row').count()>0);
 

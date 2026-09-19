@@ -285,13 +285,13 @@ globalThis.TaalrouteSpelen = (() => {
   return tile;
  }
 
- function MoreStacksTile({ extra, onOpen }) {
+ function MoreStacksTile({ extra, onOpen, label = 'Meer stapels' }) {
   const art = extra.length <= 1
    ? el('div', { class: 'sp-deck-art', html: icon('cards', 32) })
    : el('div', { class: 'sp-deck-art' }, [el('div', { class: 'sp-deck-more-stack' }, extra.slice(0, 3).map(() => el('span')))]);
   return el('button', { type: 'button', class: 'sp-deck sp-deck-more', onclick: onOpen }, [
    art,
-   el('div', { class: 'sp-deck-name', text: 'Meer stapels' }),
+   el('div', { class: 'sp-deck-name', text: label }),
    el('div', { class: 'sp-deck-hint', text: extra.length ? `${extra.length} extra` : 'Kies extra stapels' }),
   ]);
  }
@@ -308,42 +308,89 @@ globalThis.TaalrouteSpelen = (() => {
   return out;
  }
 
- function VerbDeckSelector({ decks, extraDecks = [], onChange }) {
-  const activeIds = new Set(decks.filter((d) => d.defaultActive).map((d) => d.id));
-  const wrap = el('div');
-  const row = el('div', { class: 'sp-deck-row' });
+ /* ==========================================================================================
+    Taalworp SET 01: generieke setkiezer/resolver-integratie. Werkt uitsluitend via
+    globalThis.TaalworpSetEngine (Lessen/taalworp-set-engine.js) — geen apart codepad per set, geen
+    onderwijsinhoud hier geschreven. Standaard is exact één set actief (single mode); combineren vereist
+    de expliciete "Combineren"-schakelaar. Een disabled/dynamische set doet niets bij een klik — nooit een
+    stille terugval naar Basis. */
+ function TaalworpSetSelector({ getState, onChange }) {
+  const engine = globalThis.TaalworpSetEngine;
+  const wrap = el('div', { class: 'sp-taalworp-sets' });
+  const quickRow = el('div', { class: 'sp-deck-row' });
+  const combineToggle = el('button', { type: 'button', class: 'sp-btn', 'aria-pressed': 'false', text: 'Combineren' });
   let modal = null;
-  function currentPools() {
-   const all = decks.concat(extraDecks);
-   return all.filter((d) => activeIds.has(d.id)).map((d) => d.records);
+
+  function resolve(id) { return engine.resolveSet(id, { lessonContext: AppContext.getState().lessonContext }); }
+  function isQuickAccessId(id) { return engine.getQuickAccess().some((s) => !s.action && s.id === id); }
+
+  function applyChange() {
+   const s = getState();
+   const result = s.selectionMode === 'combine' && s.activeSetIds.length > 1
+    ? engine.combineSets(s.activeSetIds, { lessonContext: AppContext.getState().lessonContext })
+    : resolve(s.activeSetIds[0]);
+   s.activeContentKind = result.contentKind;
+   s.activeRecordIds = result.recordIds;
+   onChange?.(result);
   }
-  function emit() { onChange?.(combineUniquePools(currentPools())); }
-  function toggle(id) {
-   if (activeIds.has(id)) activeIds.delete(id); else activeIds.add(id);
-   redraw(); emit();
+  function selectSingle(id) { getState().activeSetIds = [id]; applyChange(); redraw(); }
+  function toggleCombineMembership(id) {
+   const s = getState();
+   const i = s.activeSetIds.indexOf(id);
+   if (i >= 0) { if (s.activeSetIds.length > 1) s.activeSetIds.splice(i, 1); } else s.activeSetIds.push(id);
+   applyChange(); redraw();
+  }
+  function onTileClick(id) {
+   if (resolve(id).status !== 'ready') return; // disabled: geen actie, geen stille fallback
+   getState().selectionMode === 'combine' ? toggleCombineMembership(id) : selectSingle(id);
+  }
+  function toggleCombine() {
+   const s = getState();
+   if (s.selectionMode === 'single') s.selectionMode = 'combine';
+   else { s.selectionMode = 'single'; s.activeSetIds = s.activeSetIds.slice(0, 1); }
+   combineToggle.setAttribute('aria-pressed', String(s.selectionMode === 'combine'));
+   applyChange(); redraw();
+  }
+  combineToggle.addEventListener('click', toggleCombine);
+
+  function tileFor(set) {
+   const result = resolve(set.id);
+   const disabled = result.status !== 'ready';
+   const active = getState().activeSetIds.includes(set.id);
+   const tile = DeckTile({
+    id: set.id, name: set.label,
+    hint: disabled ? result.reason : `${result.recordIds.length} records`,
+    art: null, active, onToggle: () => onTileClick(set.id),
+   });
+   tile.toggleAttribute('disabled', disabled);
+   if (disabled) tile.setAttribute('aria-disabled', 'true');
+   return tile;
   }
   function redraw() {
-   clear(row);
-   for (const deck of decks) row.append(DeckTile({ ...deck, active: activeIds.has(deck.id), onToggle: toggle }));
-   for (const deck of extraDecks) if (activeIds.has(deck.id)) row.append(DeckTile({ ...deck, active: true, onToggle: toggle }));
-   row.append(MoreStacksTile({
-    extra: extraDecks,
-    onOpen: () => openMore(),
-   }));
+   clear(quickRow);
+   for (const set of engine.getQuickAccess()) {
+    if (set.action) { quickRow.append(MoreStacksTile({ extra: engine.listSets().filter((s) => !isQuickAccessId(s.id)), onOpen: openMore, label: set.label || 'Meer sets' })); continue; }
+    quickRow.append(tileFor(set));
+   }
   }
+  // Meer sets toont ALLE sets gegroepeerd op groupId, inclusief Basis/Werk/Reizen — snelle toegang is
+  // een extra, tweede toegangspunt naar exact dezelfde setId/recordIds, geen aparte inhoudsset. Een set
+  // die ook in de snelle toegang staat blijft dus ook hier, in zijn eigen groep, bereikbaar.
   function openMore() {
    if (modal) { modal.remove(); modal = null; return; }
-   modal = el('div', { class: 'sp-content-panel' }, [
-    el('div', { class: 'sp-deck-label', text: 'Meer stapels' }),
-    el('div', { class: 'sp-deck-row' }, extraDecks.map((deck) => DeckTile({ ...deck, active: activeIds.has(deck.id), onToggle: (id) => { toggle(id); } }))),
-   ]);
+   const sections = engine.getGroups().map((g) => {
+    const setsInGroup = engine.listSets().filter((s) => s.groupId === g.id);
+    if (!setsInGroup.length) return null;
+    return el('div', {}, [el('div', { class: 'sp-deck-label', text: g.label }), el('div', { class: 'sp-deck-row' }, setsInGroup.map((s) => tileFor(s)))]);
+   }).filter(Boolean);
+   modal = el('div', { class: 'sp-content-panel' }, [el('div', { class: 'sp-deck-label', text: 'Meer sets' }), ...sections]);
    wrap.append(modal);
   }
+
   redraw();
-  wrap.prepend(row);
-  emit();
-  wrap.getActiveIds = () => new Set(activeIds);
-  wrap.getPool = () => combineUniquePools(currentPools());
+  applyChange();
+  wrap.prepend(combineToggle, quickRow);
+  wrap.redraw = redraw;
   return wrap;
  }
 
@@ -377,26 +424,6 @@ globalThis.TaalrouteSpelen = (() => {
  // DEV FIXTURE — exact overgenomen uit de aangeleverde schermreferentie, geen zelfstandig geschreven inhoud.
  const TAALWORP_FIXTURE_FACE = { wie: 'wij', tijd: 'vtt', zinssoort: 'vraag', verbind1: 'maar', verbind2: 'omdat', werkwoordsvorm: 'pv' };
 
- // DEV FIXTURE — namen uit de aangeleverde referentie. Records zijn placeholders (id + naam), geen werkwoordenlijst.
- function fixtureRecords(prefix, count) {
-  return Array.from({ length: count }, (_, i) => ({ id: `${prefix}-${i}`, text: 'Content nog aan te leveren' }));
- }
- const VERB_DECKS = [
-  { id: 'basis', name: 'Basis', hint: 'veelgebruikt', defaultActive: true, records: fixtureRecords('basis', 12), art: '<div style="font-size:11px;color:#4b6577">Basis</div>' },
-  { id: 'scheidbaar', name: 'Scheidbaar', hint: 'Klik om te activeren', defaultActive: false, records: fixtureRecords('scheidbaar', 8) },
-  { id: 'wederkerend', name: 'Wederkerend', hint: 'Klik om te activeren', defaultActive: false, records: fixtureRecords('wederkerend', 6) },
-  { id: 'uitdaging', name: 'Uitdaging', hint: 'Klik om te activeren', defaultActive: false, records: fixtureRecords('uitdaging', 6) },
- ];
- // Voorlopige mogelijke stapelidentiteiten (type/fixture, geen ingevulde inhoud): onregelmatig, modaal, vaste combinaties, beweging en verandering, werk, sector, thema van de les.
- const VERB_DECKS_EXTRA = [
-  { id: 'onregelmatig', name: 'Onregelmatig', hint: 'Nog niet gevuld', records: [] },
-  { id: 'modaal', name: 'Modaal', hint: 'Nog niet gevuld', records: [] },
-  { id: 'vaste-combinaties', name: 'Vaste combinaties', hint: 'Nog niet gevuld', records: [] },
-  { id: 'beweging-verandering', name: 'Beweging en verandering', hint: 'Nog niet gevuld', records: [] },
-  { id: 'werk', name: 'Werk', hint: 'Nog niet gevuld', records: [] },
-  { id: 'sector', name: 'Sector', hint: 'Nog niet gevuld', records: [] },
-  { id: 'thema-les', name: 'Thema van de les', hint: 'Nog niet gevuld', records: [] },
- ];
 
  // Bouw een zin: DEV FIXTURE-woorden, letterlijk uit de aangeleverde referentie.
  const BUILD_WORDS = ['Morgen', 'gaan', 'wij', 'naar', 'de', 'markt'];
@@ -451,10 +478,10 @@ globalThis.TaalrouteSpelen = (() => {
 
  function screenTaalworp(ctx) {
   const { shell, body } = GamePageShell({
-   iconSvg: icon('dice', 28), name: 'Taalworp', description: 'Gooi de taalstenen, kies een werkwoord en maak taal.',
+   iconSvg: icon('dice', 28), name: 'Taalworp', description: 'Gooi de taalstenen, kies een set en maak taal.',
    contextBadges: [], explain: 'Content nog aan te leveren', onBack: ctx.back,
   });
-  const diceRow = el('div', { class: 'sp-dice-row' });
+  const diceRow = el('div', { class: 'sp-dice-row', 'data-play-slot': globalThis.TaalworpSetEngine.architecture.primaryPlayPosition.slotId });
   for (const type of TAALWORP_DICE_TYPES) {
    diceRow.append(el('div', { class: 'sp-dice' }, [
     el('div', { class: 'sp-dice-face', style: `background:${type.color}`, text: TAALWORP_FIXTURE_FACE[type.id] }),
@@ -462,15 +489,21 @@ globalThis.TaalrouteSpelen = (() => {
     type.sub ? el('div', { class: 'sp-dice-sub', text: type.sub }) : null,
    ]));
   }
-  const deckLabel = el('div', { class: 'sp-deck-label', text: `Kies je werkwoordstapels (${ctx.level})` });
-  const decks = VerbDeckSelector({ decks: VERB_DECKS, extraDecks: VERB_DECKS_EXTRA });
+  const deckLabel = el('div', { class: 'sp-deck-label', text: `Kies je set (${AppContext.getState().level})` });
+  const summary = el('div', { class: 'sp-fixture-note' });
+  function updateSummary(result) {
+   summary.textContent = result.status === 'ready'
+    ? `${result.recordIds.length} record(s) beschikbaar in de actieve pool.`
+    : (result.reason || 'Geen inhoud beschikbaar.');
+  }
+  const decks = TaalworpSetSelector({ getState: () => ctx.ensureTaalworpState(), onChange: updateSummary });
   const actionBar = GameActionBar({
    preview: null,
    primary: { label: 'Gooien', attrs: { html: icon('dice', 17) + ' Gooien' }, onClick: () => {} },
    challenge: null,
    context: [{ label: 'Wisselen', icon: 'refresh', panelText: 'Wisselen: nog niet gebouwd.' }],
   });
-  body.append(diceRow, deckLabel, decks, actionBar.node, ...actionBar.panels);
+  body.append(diceRow, deckLabel, decks, summary, actionBar.node, ...actionBar.panels);
   shell.__decks = decks;
   shell.__diceRow = diceRow;
   return shell;
@@ -712,6 +745,23 @@ globalThis.TaalrouteSpelen = (() => {
   let currentBoardFrame = null;
   let currentWorldId = null;
   let currentSession = null;
+  // Taalworp SET 01 §Sessieregels: leeft op build()-schaal, niet per renderbeurt — zo overleeft de
+  // actieve set een terugkeer binnen dezelfde Spelen-instantie (§ "Terugkeer binnen dezelfde sessie"),
+  // en begint alleen een echt nieuwe instantie (paginaherlaad) of een expliciete reset weer bij Basis.
+  let taalworpState = null;
+  function freshTaalworpState() {
+   const engine = globalThis.TaalworpSetEngine;
+   const defaultId = engine.defaultSetId;
+   const result = engine.resolveSet(defaultId);
+   return {
+    selectionMode: engine.selectionPolicy.defaultMode,
+    activeSetIds: [defaultId],
+    activeContentKind: result.contentKind,
+    activeRecordIds: result.recordIds,
+    primaryPlaySlotId: engine.architecture.primaryPlayPosition.slotId,
+    sessionId: null,
+   };
+  }
   const ctx = {
    go: (id) => render(id),
    back: () => render('home'),
@@ -719,6 +769,8 @@ globalThis.TaalrouteSpelen = (() => {
    // Speelbord-scherm meldt hier zijn iframe (of null) aan, zodat de BoardAdapter er zonder DOM-
    // scraping bij kan zonder dat het scherm zelf iets van build()'s interne state hoeft te kennen.
    setBoardFrame: (frame) => { currentBoardFrame = frame || null; },
+   ensureTaalworpState: () => { if (!taalworpState) taalworpState = freshTaalworpState(); return taalworpState; },
+   resetTaalworpState: () => { taalworpState = freshTaalworpState(); return taalworpState; },
   };
 
   const SCREENS = {
@@ -807,7 +859,9 @@ globalThis.TaalrouteSpelen = (() => {
    moduleRegistry: ModuleRegistry,
    activityRegistry: ActivityRegistry,
    get currentSession() { return currentSession; },
-   __internal: { combineUniquePools, VERB_DECKS, VERB_DECKS_EXTRA, storySets, LEVELS, GamePage },
+   get taalworpState() { return taalworpState; },
+   resetTaalworp: () => ctx.resetTaalworpState(),
+   __internal: { combineUniquePools, storySets, LEVELS, GamePage },
   };
  }
 

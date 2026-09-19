@@ -107,6 +107,10 @@
 /* Inactieve stapel toont een kaartachterkant. Geen toegeleverd kaartback-asset gevonden in Speelstuk-beelden/:
    tijdelijke neutrale streeppatroon-achterkant, te vervangen zodra een echt asset wordt aangeleverd (open item). */
 .sp-deck[data-active="false"] .sp-deck-art{background:repeating-linear-gradient(135deg,#eef1f4,#eef1f4 7px,#e3e9ee 7px,#e3e9ee 14px);}
+/* Taalworp SET 01: een dynamische/niet-beschikbare set toont zijn reden maar doet niets bij een klik. */
+.sp-deck[disabled]{opacity:.55;cursor:not-allowed;}
+.sp-taalworp-sets>.sp-btn{margin-bottom:10px;}
+.sp-taalworp-sets>.sp-btn[aria-pressed="true"]{background:var(--sp-blue);color:#fff;border-color:var(--sp-blue);}
 .sp-deck-name{font-size:13px;font-weight:700;}
 .sp-deck-hint{font-size:11px;color:var(--sp-ink-soft);}
 .sp-deck-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:999px;background:var(--sp-blue);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease;}
