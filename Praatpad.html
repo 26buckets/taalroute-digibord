@@ -892,7 +892,7 @@ globalThis.PraatpadDice=(()=>{
  const RAD=Math.PI/180;
  // Eén fysieke vorm voor alle dobbelstenen: duidelijke kubusvlakken met een brede, tangentiele afronding.
  // De grotere camerafstand beperkt perspectiefvervorming, zodat de steen vierkant blijft ogen.
- const ROUND_RADIUS=.36,CORE=1-ROUND_RADIUS,CAMERA=7.2;
+ const ROUND_RADIUS=.22,CORE=1-ROUND_RADIUS,CAMERA=8.4;
  const faces=[{value:1,n:[0,0,1],u:[1,0,0],v:[0,1,0]},
   {value:6,n:[0,0,-1],u:[-1,0,0],v:[0,1,0]},
   {value:3,n:[1,0,0],u:[0,0,-1],v:[0,1,0]},
@@ -909,13 +909,13 @@ globalThis.PraatpadDice=(()=>{
  const multiply=(a,b)=>Array.from({length:9},(_,i)=>{const r=i%3,c=Math.floor(i/3);return a[r]*b[c*3]+a[r+3]*b[c*3+1]+a[r+6]*b[c*3+2];});
  const vector=(m,p)=>[m[0]*p[0]+m[3]*p[1]+m[6]*p[2],m[1]*p[0]+m[4]*p[1]+m[7]*p[2],m[2]*p[0]+m[5]*p[1]+m[8]*p[2]];
  function rotation(axis,degrees){const c=Math.cos(degrees*RAD),s=Math.sin(degrees*RAD);return axis===0?[1,0,0,0,c,s,0,-s,c]:axis===1?[c,0,-s,0,1,0,s,0,c]:[c,s,0,-s,c,0,0,0,1];}
- const view=multiply(rotation(0,13),rotation(1,-17));
+ const view=multiply(rotation(0,10),rotation(1,-13));
  function model(angles,orientation=view){return multiply(orientation,multiply(rotation(2,angles[2]),multiply(rotation(1,angles[1]),rotation(0,angles[0]))));}
  function vertex(f,u,v){
   const p=f.n.map((n,i)=>n+u*f.u[i]+v*f.v[i]),core=p.map(n=>Math.max(-CORE,Math.min(CORE,n))),n=norm(p.map((x,i)=>x-core[i]));
   return [...core.map((x,i)=>x+ROUND_RADIUS*n[i]),...n,f.value];
  }
- function geometry(steps=32){
+ function geometry(steps=48){
   const out=[];for(const f of faces)for(let j=0;j<steps;j++)for(let i=0;i<steps;i++){
    const a=vertex(f,2*i/steps-1,2*j/steps-1),b=vertex(f,2*(i+1)/steps-1,2*j/steps-1),c=vertex(f,2*(i+1)/steps-1,2*(j+1)/steps-1),d=vertex(f,2*i/steps-1,2*(j+1)/steps-1);
    out.push(...a,...b,...c,...a,...c,...d);
@@ -925,7 +925,7 @@ globalThis.PraatpadDice=(()=>{
  uniform mat3 uModel;uniform vec2 uViewport;uniform float uLift;uniform float uScale;
  varying vec3 vPosition;varying vec3 vNormal;varying vec3 vWorld;varying float vFace;
  void main(){vec3 p=uModel*aPosition;float s=uScale;
- vec2 pixel=p.xy*(7.2/(7.2-p.z))*s+vec2(0.,uLift);
+ vec2 pixel=p.xy*(8.4/(8.4-p.z))*s+vec2(0.,uLift);
  gl_Position=vec4(pixel.x*2./uViewport.x,pixel.y*2./uViewport.y,-p.z*.1,1.);
  vPosition=aPosition;vNormal=aNormal;vWorld=p;vFace=aFace;}`;
  const fragmentShader=`precision highp float;uniform mat3 uModel;uniform sampler2D uPictures;uniform float uPictureMode;uniform vec3 uInkColour;
@@ -951,13 +951,13 @@ globalThis.PraatpadDice=(()=>{
  vec2 bowl=(uv-center)/.15;
  vec3 pipN=normalize(objectN-.28*(tangent*bowl.x+bitangent*bowl.y));
  vec3 n=normalize(uModel*mix(objectN,pipN,ink));
- vec3 light=normalize(vec3(-.55,.8,1.8));vec3 eye=normalize(vec3(0.,0.,7.2)-vWorld);
- float diffuse=max(0.,dot(n,light));float spec=pow(max(0.,dot(n,normalize(light+eye))),72.);
- // Rustiger licht voorkomt een optische snijlijn precies waar het vlak in de afgeronde hoek overgaat.
- vec3 white=vec3(.967,.975,.99)*(.88+.12*diffuse)+vec3(.10)*spec;
+ vec3 light=normalize(vec3(-.48,.72,2.1));vec3 eye=normalize(vec3(0.,0.,8.4)-vWorld);
+ float diffuse=max(0.,dot(n,light));float spec=pow(max(0.,dot(n,normalize(light+eye))),58.);
+ // Echte dobbelsteenlook: grotendeels vlakke zijden, zachte highlight en geen harde bevelrand.
+ vec3 white=vec3(.972,.978,.986)*(.91+.09*diffuse)+vec3(.065)*spec;
  float rim=smoothstep(.102,.146,d);
- vec3 blue=mix(uInkColour,uInkColour*.46,rim*.54)*(.84+.16*diffuse);
- blue+=vec3(.025)*pow(max(0.,dot(n,normalize(light+eye))),28.);
+ vec3 blue=mix(uInkColour,uInkColour*.58,rim*.42)*(.89+.11*diffuse);
+ blue+=vec3(.018)*pow(max(0.,dot(n,normalize(light+eye))),24.);
  if(uPictureMode>.5){
   float face=floor(vFace+.5);ink=mark(uv,face);
   blue=uInkColour;
@@ -979,7 +979,7 @@ globalThis.PraatpadDice=(()=>{
   return {kind:'webgl',destroy(){gl.getExtension('WEBGL_lose_context')?.loseContext();},draw(matrix,w,h,bounce,style='numbers',fullSize=false){gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniform1f(pictureMode,style==='verbs'?1:0);gl.uniform3f(inkColour,inkValue[0],inkValue[1],inkValue[2]);gl.uniformMatrix3fv(m,false,matrix);gl.uniform2f(viewport,w,h);gl.uniform1f(lift,bounce);gl.uniform1f(scale,fit(matrix,w,h,bounce,fill,fullSize));gl.drawArrays(gl.TRIANGLES,0,mesh.length/7);}};
  }
  function software(canvas,picturesSource=globalThis.PraatpadPictures,fill=.315,ink='#174d76'){
-  const ctx=canvas.getContext('2d'),mesh=geometry(24),light=norm([-.55,.8,1.8]);
+  const ctx=canvas.getContext('2d'),mesh=geometry(36),light=norm([-.48,.72,2.1]);
   const atlas=picturesSource?.atlas(),stamps=[];
   if(atlas)for(let i=0;i<6;i++){const stamp=document.createElement('canvas');stamp.width=stamp.height=256;const c=stamp.getContext('2d');c.drawImage(atlas,i*256,0,256,256,0,0,256,256);c.globalCompositeOperation='source-in';c.fillStyle=ink;c.fillRect(0,0,256,256);stamps.push(stamp);}
   function textureTriangle(image,source,dest){const [a,b,c]=source,[p,q,r]=dest;const det=(b[0]-a[0])*(c[1]-a[1])-(c[0]-a[0])*(b[1]-a[1]);if(!det)return;
@@ -997,7 +997,7 @@ globalThis.PraatpadDice=(()=>{
    const outline=triangles.flatMap(t=>t.points.map(project)).sort((a,b)=>a[0]-b[0]||a[1]-b[1]),cross=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
    const hull=points=>{const side=[];for(const p of points){while(side.length>1&&cross(side.at(-2),side.at(-1),p)<=0)side.pop();side.push(p);}return side;};
    const lower=hull(outline),upper=hull([...outline].reverse());lower.pop();upper.pop();const contour=lower.concat(upper);ctx.beginPath();contour.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fillStyle='#dfe2e8';ctx.strokeStyle='#dfe2e8';ctx.lineWidth=1.4;ctx.lineJoin='round';ctx.fill();ctx.stroke();
-   triangles.sort((a,b)=>a.z-b.z);for(const t of triangles){const p=t.points.map(project);ctx.beginPath();ctx.moveTo(...p[0]);ctx.lineTo(...p[1]);ctx.lineTo(...p[2]);ctx.closePath();const shade=.88+.12*((t.shade-.73)/.27);const c=Math.round(247*shade);ctx.fillStyle=`rgb(${c},${Math.min(255,c+2)},${Math.min(255,c+5)})`;ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=.28;ctx.fill();ctx.stroke();}
+   triangles.sort((a,b)=>a.z-b.z);for(const t of triangles){const p=t.points.map(project);ctx.beginPath();ctx.moveTo(...p[0]);ctx.lineTo(...p[1]);ctx.lineTo(...p[2]);ctx.closePath();const shade=.91+.09*((t.shade-.73)/.27);const c=Math.round(247*shade);ctx.fillStyle=`rgb(${c},${Math.min(255,c+2)},${Math.min(255,c+5)})`;ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=.14;ctx.fill();ctx.stroke();}
    for(const f of faces){const n=vector(matrix,f.n);if(n[2]<=1/5.8)continue;
     if(style==='verbs'&&stamps.length){
      const point=([x,y])=>project(vector(matrix,f.n.map((v,k)=>v+((x/256-.5)*1.38)*f.u[k]+((.5-y/256)*1.38)*f.v[k])));
@@ -1011,7 +1011,7 @@ globalThis.PraatpadDice=(()=>{
   }};
  }
  // Shared triangle vertices need measuring only once; avoid per-frame arrays for nine dice.
- const bounds=(()=>{const mesh=geometry(24),seen=new Set(),out=[];for(let i=0;i<mesh.length;i+=7){const key=mesh[i]+','+mesh[i+1]+','+mesh[i+2];if(!seen.has(key)){seen.add(key);out.push(mesh[i],mesh[i+1],mesh[i+2]);}}return new Float32Array(out);})();
+ const bounds=(()=>{const mesh=geometry(48),seen=new Set(),out=[];for(let i=0;i<mesh.length;i+=7){const key=mesh[i]+','+mesh[i+1]+','+mesh[i+2];if(!seen.has(key)){seen.add(key);out.push(mesh[i],mesh[i+1],mesh[i+2]);}}return new Float32Array(out);})();
  function fit(matrix,w,h,bounce,fill=.315,fullSize=false){let x=0,y=0;for(let i=0;i<bounds.length;i+=3){const a=bounds[i],b=bounds[i+1],c=bounds[i+2],px=matrix[0]*a+matrix[3]*b+matrix[6]*c,py=matrix[1]*a+matrix[4]*b+matrix[7]*c,pz=matrix[2]*a+matrix[5]*b+matrix[8]*c,q=CAMERA/(CAMERA-pz);x=Math.max(x,Math.abs(px*q));y=Math.max(y,Math.abs(py*q));}if(fullSize)return Math.max(1,(Math.min(w,h)-6)/(2*Math.max(x,y)));return Math.max(1,Math.min(Math.min(w,h)*fill,(w/2-7)/x,(h/2-7-Math.abs(bounce))/y));}
  function create(original,{pictures=globalThis.PraatpadPictures,fill=.315,front=false,ink='#174d76',onProgress=()=>{}}={}){
   const orientation=front?rotation(0,0):view;
