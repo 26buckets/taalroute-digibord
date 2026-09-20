@@ -1,9 +1,6 @@
 name: A2 B1 v2 CI
 
 on:
-  push:
-    branches:
-      - content/a2-b1-productiebank-v2-2026-09-20
   pull_request:
     branches:
       - main
@@ -28,6 +25,9 @@ jobs:
 
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+
+      - name: Set Chrome path
+        run: echo "CHROME_PATH=$(node -e \"const {chromium}=require('playwright');process.stdout.write(chromium.executablePath())\")" >> "$GITHUB_ENV"
 
       - name: Run full test suite
         run: npm test
