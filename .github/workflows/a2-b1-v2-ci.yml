@@ -30,6 +30,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run full test suite
-        env:
-          CHROME_PATH: /home/runner/.cache/ms-playwright/chromium-*/chrome-linux/chrome
         run: npm test
+
+      - name: Run A2 B1 v2 browser smoke
+        run: node tests/a2-b1-v2-smoke.cjs
