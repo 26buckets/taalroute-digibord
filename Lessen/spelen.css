@@ -88,12 +88,15 @@
 /* Niveauselector-context/badges */
 .sp-badge{font-size:12px;font-weight:600;color:var(--sp-ink-soft);background:#f1f5f8;border-radius:999px;padding:5px 10px;}
 
-/* Taaldobbelstenen (Taalworp): digitale stenen met beperkte diepte/schaduw, geen stippen, vaste kleur per soort. */
-.sp-dice-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:var(--sp-space-3);}
-.sp-dice{border-radius:16px;background:var(--sp-surface);border:1px solid var(--sp-line);padding:var(--sp-space-2);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;min-height:140px;}
-.sp-dice-face{width:68px;height:68px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;position:relative;background-image:linear-gradient(155deg,rgba(255,255,255,.3),rgba(255,255,255,0) 45%,rgba(0,0,0,.12));box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -8px 12px rgba(0,0,0,.16),0 6px 14px rgba(24,48,73,.16);}
+/* Taalworp gebruikt exact dezelfde afgeronde 3D kubus als het speelbord. Geen losse 2D voorvlakken meer. */
+.sp-dice-row{display:grid;grid-template-columns:repeat(3,minmax(112px,1fr));gap:var(--sp-space-3);align-items:start;}
+.sp-dice{padding:4px 8px 10px;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;min-height:142px;min-width:0;}
+.sp-dice-stage{width:104px;height:104px;position:relative;isolation:isolate;}
+.sp-dice-stage::after,.sp-story-die-stage::after{content:'';position:absolute;left:18%;right:18%;bottom:10%;height:10%;border-radius:50%;background:rgba(24,48,73,.13);filter:blur(6px);z-index:0;}
+.sp-physical-die{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:1;filter:drop-shadow(0 5px 4px rgba(24,48,73,.12));}
 .sp-dice-label{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--sp-ink-soft);text-transform:uppercase;}
-.sp-dice-sub{font-size:10px;color:var(--sp-ink-soft);margin-top:-6px;}
+.sp-dice-sub{font-size:10px;color:var(--sp-ink-soft);margin-top:-3px;}
+@media(max-width:720px){.sp-dice-row{grid-template-columns:repeat(2,minmax(112px,1fr));}.sp-dice-stage{width:94px;height:94px;}.sp-dice{min-height:132px;}}
 
 /* VerbDeckSelector / StoryDiceSetSelector: gedeelde stapel/set-tegels, gebouwd als echte kaartstapels. */
 .sp-deck-label{font-size:13px;font-weight:700;color:var(--sp-ink-soft);margin:0 0 8px;}
@@ -146,16 +149,17 @@
 .sp-result-status[data-status="new"]{background:#fff1e6;color:#b3591c;}
 .sp-result-status[data-status="seen"]{background:#eef1f4;color:var(--sp-ink-soft);}
 
-/* Verhaalworp */
+/* Verhaalworp: echte witte beeldstenen. Het woord staat los onder de kubus en nooit op het beeldvlak. */
 .sp-story-controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .sp-stepper{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--sp-line);border-radius:999px;padding:4px 6px;}
 .sp-stepper button{width:28px;height:28px;border-radius:999px;border:0;background:#f1f5f8;color:var(--sp-ink);font-size:16px;line-height:1;cursor:pointer;}
 .sp-stepper span{font-size:14px;font-weight:700;min-width:16px;text-align:center;}
-.sp-story-dice-row{display:flex;flex-wrap:wrap;gap:var(--sp-space-3);}
-.sp-story-die{width:88px;height:88px;border-radius:16px;border:1px solid var(--sp-line);background:var(--sp-surface);background-image:linear-gradient(155deg,rgba(255,255,255,.6),rgba(0,0,0,0) 45%);box-shadow:inset 0 -6px 10px rgba(24,48,73,.06),0 6px 14px rgba(24,48,73,.12);display:flex;align-items:center;justify-content:center;position:relative;}
-.sp-story-die svg{width:44px;height:44px;color:var(--sp-ink);}
-.sp-story-die[data-locked="true"]{border-color:#e08a2b;}
-.sp-story-die-lock{position:absolute;bottom:-8px;right:-8px;width:26px;height:26px;border-radius:999px;background:var(--sp-surface);border:1px solid var(--sp-line);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--sp-ink-soft);}
+.sp-story-dice-row{display:flex;flex-wrap:wrap;gap:18px 14px;align-items:flex-start;}
+.sp-story-die{width:104px;min-height:126px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;position:relative;padding:0 4px 6px;border:1px solid transparent;border-radius:18px;background:transparent;}
+.sp-story-die-stage{width:100px;height:100px;position:relative;isolation:isolate;}
+.sp-story-die-word{display:block;width:100%;min-height:18px;text-align:center;font-size:12px;font-weight:650;line-height:1.2;color:var(--sp-ink);overflow-wrap:anywhere;}
+.sp-story-die[data-locked="true"]{border-color:#e08a2b;background:#fffaf3;}
+.sp-story-die-lock{position:absolute;top:74px;right:0;width:28px;height:28px;border-radius:999px;background:var(--sp-surface);border:1px solid var(--sp-line);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--sp-ink-soft);z-index:3;box-shadow:0 2px 7px rgba(24,48,73,.1);}
 .sp-story-die-lock svg{width:13px;height:13px;}
 .sp-story-die[data-locked="true"] .sp-story-die-lock{color:#e08a2b;border-color:#e08a2b;}
 .sp-fixture-note{font-size:11px;color:var(--sp-ink-soft);font-style:italic;}

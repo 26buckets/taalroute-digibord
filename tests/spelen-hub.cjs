@@ -40,7 +40,9 @@ for(const [id,expectName] of [['taalworp','Taalworp'],['dobbelspellen','Taalworp
 await p.evaluate(()=>globalThis.TaalrouteSpelen.instance.go('taalworp'));
 await p.waitForSelector('#sp-overlay .sp-dice-row');
 assert.equal(await p.locator('#sp-overlay .sp-dice').count(),6);
-assert.equal(await p.locator('#sp-overlay .sp-dice-face circle').count(),0,'taaldobbelstenen mogen geen stippen tonen');
+assert.equal(await p.locator('#sp-overlay .sp-dice-face').count(),0,'Taalworp mag geen losse 2D dobbelsteenvoorvlakken meer gebruiken');
+assert.equal(await p.locator('#sp-overlay .sp-dice canvas.sp-physical-die').count(),6,'alle zes taalstenen gebruiken de gedeelde 3D renderer');
+await p.waitForFunction(()=>[...document.querySelectorAll('#sp-overlay .sp-dice canvas.sp-physical-die')].every(c=>c.dataset.renderer));
 assert.equal(await p.locator('#sp-overlay .sp-btn-primary').textContent(),'Gooien');
 assert.equal(await p.locator('#sp-overlay .sp-action-bar >> text=Voorbeeld').count(),1);
 assert.equal(await p.locator('#sp-overlay .sp-action-bar >> text=Extra uitdaging').count(),1);
@@ -96,8 +98,9 @@ assert(await p.locator('#sp-overlay .sp-content-panel', {hasText:'Bespreek samen
 await p.evaluate(()=>globalThis.TaalrouteSpelen.instance.go('verhaalworp'));
 await p.waitForSelector('#sp-overlay .sp-story-dice-row');
 assert.equal(await p.locator('#sp-overlay .sp-story-die').count(),6);
-assert.equal(await p.locator('#sp-overlay .sp-story-die circle').count(),0,'beelddobbelstenen mogen geen stippen tonen');
-assert(await p.locator('#sp-overlay .sp-story-die svg path').count()>0,'beelddobbelstenen moeten een echt beeld tonen');
+assert.equal(await p.locator('#sp-overlay .sp-story-die canvas.sp-physical-die').count(),6,'alle Verhaalworpstenen gebruiken de gedeelde 3D renderer');
+await p.waitForFunction(()=>[...document.querySelectorAll('#sp-overlay .sp-story-die canvas.sp-physical-die')].every(c=>c.dataset.renderer));
+assert(await p.locator('#sp-overlay .sp-story-die-word').filter({hasText:/\S/}).count()>0,'het beeldwoord hoort onder de fysieke steen zichtbaar te zijn');
 for(let i=0;i<8;i++)await p.locator('#sp-overlay .sp-stepper button').nth(1).click();
 assert.equal(await p.locator('#sp-overlay .sp-story-die').count(),9,'mag niet boven 9 dobbelstenen komen');
 for(let i=0;i<12;i++)await p.locator('#sp-overlay .sp-stepper button').first().click();
@@ -106,5 +109,5 @@ await p.locator('#sp-overlay .sp-story-die-lock').first().click();
 assert.equal(await p.locator('#sp-overlay .sp-story-die').first().getAttribute('data-locked'),'true');
 
 assert.deepEqual(errors,[]);
-console.log('PASS spelen-hub: modulegrid+gelijke tegels, niveaus, GamePageShell/Uitleg, GameActionBar met altijd-zichtbare Voorbeeld/Extra uitdaging, werkwoordstapels, Meer stapels, Bouw een zin/Resultaten-in-Live-paneel, Verhaalworp-beeldstenen/grenzen');
+console.log('PASS spelen-hub: modulegrid, Taalworp met gedeelde 3D stenen, GamePageShell, setkiezer, Bouw een zin, Verhaalworp met gedeelde 3D beeldstenen en grenzen');
 }finally{await b.close();server.close()}})().catch(e=>{console.error(e);process.exit(1)});
