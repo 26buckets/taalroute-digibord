@@ -432,7 +432,7 @@ globalThis.TaalrouteSpelen = (() => {
  // De overige setnamen zijn uitsluitend architectuur/fixture: nog geen eigen beeldpool, dus leeg totdat aangeleverd.
  function storySets() {
   const base = globalThis.PraatpadActions?.items || [];
-  const basisRecords = base.slice(0, 12).map((it) => ({ id: it.id, svg: pathsToSvg(it.paths) }));
+  const basisRecords = base.slice(0, 12).map((it) => ({ id: it.id, label: it.label, paths: it.paths, svg: pathsToSvg(it.paths) }));
   const names = ['Personen', 'Plaatsen', 'Voorwerpen', 'Acties', 'Werk', 'Reizen', 'Zorg', 'Techniek'];
   return [
    { id: 'basis', name: 'Basis', defaultActive: true, records: basisRecords, art: basisRecords[0]?.svg },
@@ -441,6 +441,46 @@ globalThis.TaalrouteSpelen = (() => {
  }
  function pathsToSvg(paths) {
   return `<svg viewBox="0 0 96 96" width="40" height="40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths.map((d) => `<path d="${d}"/>`).join('')}</svg>`;
+ }
+
+ // De nieuwe Spelen-schermen gebruiken dezelfde afgeronde 3D renderer als het speelbord.
+ // Een provider levert uitsluitend de markering van elk vlak. De kubusvorm, afronding en belichting
+ // blijven daardoor overal identiek.
+ function diceAtlas(drawFace) {
+  return { atlas() {
+   const canvas = document.createElement('canvas'); canvas.width = 1536; canvas.height = 256;
+   const x = canvas.getContext('2d'); x.fillStyle = '#fff'; x.strokeStyle = '#fff';
+   x.lineCap = 'round'; x.lineJoin = 'round';
+   for (let face = 0; face < 6; face++) {
+    x.save(); x.translate(face * 256, 0); drawFace(x, face); x.restore();
+   }
+   return canvas;
+  } };
+ }
+ function taalDieProvider(value) {
+  return diceAtlas((x, face) => {
+   if (face !== 0) return;
+   const text = String(value || '').toUpperCase();
+   let size = 70; x.font = `700 ${size}px Arial,sans-serif`;
+   while (size > 34 && x.measureText(text).width > 172) { size -= 3; x.font = `700 ${size}px Arial,sans-serif`; }
+   x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(text, 128, 130);
+  });
+ }
+ function storyDieProvider(records) {
+  return diceAtlas((x, face) => {
+   const record = records[face]; if (!record?.paths?.length) return;
+   x.save(); x.translate(0, 0); x.scale(256 / 96, 256 / 96); x.lineWidth = 4.6;
+   for (const d of record.paths) x.stroke(new Path2D(d));
+   x.restore();
+  });
+ }
+ function physicalDie({ provider, ink = '#174d76', value = 1, className = 'sp-dice-stage' }) {
+  const stage = el('div', { class: className });
+  const canvas = el('canvas', { class: 'sp-physical-die', 'aria-hidden': 'true' });
+  stage.append(canvas);
+  const view = globalThis.PraatpadDice?.create(canvas, { pictures: provider, fill: .43, ink });
+  view?.show(value, { style: 'verbs' });
+  return { stage, view };
  }
 
  /* ==========================================================================================
@@ -482,9 +522,13 @@ globalThis.TaalrouteSpelen = (() => {
    contextBadges: [], explain: 'Content nog aan te leveren', onBack: ctx.back,
   });
   const diceRow = el('div', { class: 'sp-dice-row', 'data-play-slot': globalThis.TaalworpSetEngine.architecture.primaryPlayPosition.slotId });
+  const diceViews = [];
   for (const type of TAALWORP_DICE_TYPES) {
-   diceRow.append(el('div', { class: 'sp-dice' }, [
-    el('div', { class: 'sp-dice-face', style: `background:${type.color}`, text: TAALWORP_FIXTURE_FACE[type.id] }),
+   const result = TAALWORP_FIXTURE_FACE[type.id];
+   const die = physicalDie({ provider: taalDieProvider(result), ink: type.color, value: 1 });
+   if (die.view) diceViews.push(die.view);
+   diceRow.append(el('div', { class: 'sp-dice', 'aria-label': `${type.label}: ${result}` }, [
+    die.stage,
     el('div', { class: 'sp-dice-label', text: type.label }),
     type.sub ? el('div', { class: 'sp-dice-sub', text: type.sub }) : null,
    ]));
@@ -506,6 +550,7 @@ globalThis.TaalrouteSpelen = (() => {
   body.append(diceRow, deckLabel, decks, summary, actionBar.node, ...actionBar.panels);
   shell.__decks = decks;
   shell.__diceRow = diceRow;
+  shell.__destroy = () => diceViews.forEach((view) => view.destroy());
   return shell;
  }
 
@@ -591,29 +636,39 @@ globalThis.TaalrouteSpelen = (() => {
    el('button', { type: 'button', 'aria-label': 'Meer dobbelstenen', text: '+', onclick: () => setCount(count + 1) }),
   ]);
   const dieRow = el('div', { class: 'sp-story-dice-row' });
-  let pool = [];
+  let pool = [], dieViews = [], outcomes = Array(9).fill(1);
+  function destroyDice() { dieViews.forEach((view) => view.destroy()); dieViews = []; }
   function setCount(n) {
    count = Math.max(3, Math.min(9, n));
    stepper.children[1].textContent = String(count);
    drawDice();
   }
   function drawDice() {
-   clear(dieRow);
+   destroyDice(); clear(dieRow);
    for (let i = 0; i < count; i++) {
-    const record = pool.length ? pool[i % pool.length] : null;
+    const faces = pool.length ? Array.from({ length: 6 }, (_, face) => pool[(i + face) % pool.length]) : [];
+    const value = Math.max(1, Math.min(6, outcomes[i] || 1));
+    const record = faces[value - 1] || faces[0] || null;
     const isLocked = locked.has(i);
-    const die = el('div', { class: 'sp-story-die', 'data-locked': String(isLocked) }, [
-     el('div', { html: record?.svg || icon('dice', 32) }),
+    const visual = physicalDie({ provider: storyDieProvider(faces), value, className: 'sp-story-die-stage' });
+    if (visual.view) dieViews.push(visual.view);
+    const die = el('div', { class: 'sp-story-die', 'data-locked': String(isLocked), 'aria-label': record?.label ? `Dobbelsteen ${i + 1}: ${record.label}` : `Dobbelsteen ${i + 1}` }, [
+     visual.stage,
+     el('span', { class: 'sp-story-die-word', text: record?.label || '' }),
      el('button', { type: 'button', class: 'sp-story-die-lock', 'aria-pressed': String(isLocked), 'aria-label': isLocked ? 'Losmaken' : 'Vastzetten', html: icon('lock', 13), onclick: () => { isLocked ? locked.delete(i) : locked.add(i); drawDice(); } }),
     ]);
     dieRow.append(die);
    }
   }
+  function rollStory() {
+   for (let i = 0; i < count; i++) if (!locked.has(i)) outcomes[i] = 1 + Math.floor(Math.random() * 6);
+   drawDice();
+  }
   const sets = StoryDiceSetSelector({ sets: storySets(), onChange: (p) => { pool = p; drawDice(); } });
   const note = el('div', { class: 'sp-fixture-note', text: '"Basis" gebruikt de bestaande beelddobbelstenen. Overige sets zijn nog niet gevuld.' });
   const actionBar = GameActionBar({
    preview: null,
-   primary: { label: 'Gooien', attrs: { html: icon('dice', 17) + ' Gooien' }, onClick: drawDice },
+   primary: { label: 'Gooien', attrs: { html: icon('dice', 17) + ' Gooien' }, onClick: rollStory },
    challenge: null,
    context: [{ label: 'Alles los', icon: 'refresh', onClick: () => { locked.clear(); drawDice(); } }],
   });
@@ -621,6 +676,7 @@ globalThis.TaalrouteSpelen = (() => {
   drawDice();
   shell.__stepper = stepper; shell.__dieRow = dieRow; shell.__sets = sets;
   shell.__setCount = setCount; shell.__getLocked = () => new Set(locked);
+  shell.__destroy = destroyDice;
   return shell;
  }
 
@@ -791,6 +847,7 @@ globalThis.TaalrouteSpelen = (() => {
   function render(next, params) {
    route = SCREENS[next] ? next : 'home';
    if (route !== 'speelbord') currentBoardFrame = null;
+   main.firstElementChild?.__destroy?.();
    clear(main);
    main.append(SCREENS[route](params));
    overlay.dataset.route = route;
