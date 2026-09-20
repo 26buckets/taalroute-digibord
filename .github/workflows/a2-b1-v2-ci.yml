@@ -1,6 +1,9 @@
 name: A2 B1 v2 CI
 
 on:
+  push:
+    branches:
+      - content/a2-b1-productiebank-v2-2026-09-20
   pull_request:
     branches:
       - main
