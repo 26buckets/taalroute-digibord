@@ -28,6 +28,11 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
+      - name: Provide legacy Mac Chrome path
+        run: |
+          sudo mkdir -p "/Applications/Google Chrome.app/Contents/MacOS"
+          sudo ln -sf "$CHROME_PATH" "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+
       - name: Run full test suite
         run: npm test
 
