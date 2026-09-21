@@ -11,3 +11,7 @@
 - Technische status: geïntegreerd en lokaal gevalideerd; externe browsertest en online verificatie volgen in de PR en taakoplevering.
 - Menselijke review: niet door deze taak uitgevoerd. Lespilot: niet uitgevoerd. Geen volledige menselijke luisterreview geclaimd.
 - Publicatie: door gebruiker opgedragen; pas na geslaagde controles samenvoegen en werkelijke website controleren. De gepubliceerde commit wordt in de taakoplevering vermeld.
+
+## Publicatie geblokkeerd in deze sessie
+
+De lokale release bevat ook main-commit `8e836c6` (C1-bank). Alle lokale controles zijn opnieuw geslaagd. De sessie is daarna beperkt tot lokale schrijftoegang zonder netwerkrechten voor de terminal; GitHub-schrijfopdrachten via de connector worden geweigerd met `MCP tool call requires approval, but approval policy is never`. Er is geen PR aangemaakt en geen wijziging naar main gepubliceerd door deze taak. De externe browsercontroles en publieke verificatie zijn nog niet uitgevoerd. Hervat vanuit branch `codex/tongbrekers-240-online` zodra GitHub-schrijf- en netwerktoegang zijn toegestaan; publiceer pas na de volledige controles.
