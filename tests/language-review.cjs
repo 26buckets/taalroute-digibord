@@ -42,7 +42,18 @@ for(const c of route2){
 assert.doesNotMatch(route2.map(c=>c.instruction+' '+c.input).join(' '),/wat is jouw huisnummer|wat is je huisnummer|wat is jouw exacte adres/i);
 for(let n=1;n<=10;n++){
  const cashier=get(3,'winkelen',n,'diamond');assert.match(cashier.input,/winkelmedewerker/i);assert.match(cashier.input,/afspraak|correctie|oplossing/i);assert.ok(cashier.instruction.trim()&&cashier.model.trim());
- const form=get(0,'kennismaken',n,'diamond');assert.match(form.input,/Formulier:/);assert.match(form.input,/Goed:/);
+}
+assert.match(get(0,'kennismaken',1,'diamond').input,/Sam.*Sami/);
+assert.equal(get(0,'kennismaken',1,'diamond').model,'Ik heet Sami, niet Sam.');
+assert.equal(get(0,'kennismaken',7,'diamond').model,'Donderdag, niet dinsdag.');
+const route0=b.cards.filter(c=>c.routeId==='route-0');
+assert.equal(new Set(route0.map(c=>c.instruction)).size,240);
+for(const c of route0){
+ assert.ok(c.instruction.split(/\s+/).length<=13,c.id);
+ assert.ok(c.model.split(/\s+/).length<=12,c.id);
+ assert.equal(c.version,2);
+ assert.match(c.support,/…/);
+ assert.doesNotMatch(c.instruction,/Wat is jouw huisnummer|exacte adres|Leg uit waarom|Noem twee redenen/i);
 }
 for(let n=6;n<=10;n++)assert.doesNotMatch(get(3,'in-de-les',n,'triangle').model,/eerst.*daarna.*keuze|eerst mijn|vijf minuten/);
 assert.equal(get(0,'in-de-les',10,'diamond').model,'Tot ziens!');
