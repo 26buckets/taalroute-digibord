@@ -11,3 +11,9 @@ De interface biedt een aparte keuze voor niveau, opbouw, soort en de overige bes
 De niveau-indeling is een didactisch aanbodadvies. AI-redactie en technische tests zijn uitgevoerd; menselijke beoordeling en lesproeven zijn niet uitgevoerd. Die status blijft zichtbaar en wordt niet als afgerond geregistreerd.
 
 Validatie: `npm test`, `npm run lint`, `npm run types`, `npm run test:activities`, `npm run test:banks:browser`, `npm run smoke`, `npm run test:tongue:browser`, `npm run test:taalmix:browser`, `npm run build` en `node tests/deployment.cjs`. De nieuwe browsercontrole doorloopt alle 240 kaarten en laadt alle 80 toegevoegde afbeeldingen. Publiceer uitsluitend `dist/` via de bestaande GitHub/Cloudflare-route.
+
+## Meenemen in de volgende GitHub-ronde
+
+Gebruik de voorbereide branch `codex/taalmix-compleet`. Deze bevat de volledige Taalmix-integratie (`5e8c74d`), de taalreview van alle 262 kaarten (`0c27ff3`) en het reeds toegevoegde importpakket voor de 240 tongbrekers (`20cd2c4`). De tongbrekerimport is voorbereide inhoud en vervangt nog niet de actieve tongbrekerbank. De actuele GitHub-basis tot en met `c34ef52` is samengevoegd, inclusief het inklapbare bordmenu en de fullscreen-correctie. De kaarten en hun 90 afbeeldingen zijn opgenomen in Git en in de productiebuild; de review is beschreven in `TAALMIX-TAALREVIEW.md`.
+
+De branch is lokaal voorbereid. Er is in deze voorbereidingsronde niet gepusht of live gepubliceerd. Neem de hele branch mee bij de volgende push en samenvoeging naar `main`; alleen een push van een andere branch neemt deze wijzigingen niet mee.

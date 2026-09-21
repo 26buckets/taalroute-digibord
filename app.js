@@ -52,6 +52,7 @@ function currentMode(){const s=settingsState();return ['class','groups','individ
 function goScreen(id){
  stopTongueAudio();
  if(id==='cards')return startCards(APP.cardKind||'conversation');
+ setBoardMenu(false);
  BoardViewport.disconnect();
  if(id==='collection')renderCollection();
  $$('.screen').forEach(x=>x.classList.remove('active'));$('#screen-'+id)?.classList.add('active');
@@ -59,6 +60,14 @@ function goScreen(id){
  syncLevelSelect(id==='game'&&APP.last?.type==='card');SmoothDice.mount();
 }
 function home(){goScreen('play');updateResume()}
+function setBoardMenu(open){
+ if(open)$('#boardOptions')?.classList.remove('open');
+ $('#appHeader').classList.toggle('board-menu-open',open);
+ $('#boardMenuToggle').setAttribute('aria-expanded',String(open));
+ $('#boardMenuToggle').textContent=open?'Sluit menu':'Menu';
+}
+$('#boardMenuToggle').onclick=()=>setBoardMenu($('#boardMenuToggle').getAttribute('aria-expanded')!=='true');
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#boardMenuToggle').getAttribute('aria-expanded')==='true'){setBoardMenu(false);$('#boardMenuToggle').focus()}});
 $('#collectionResume').onclick=()=>APP.last?resumeLast():home();
 $$('[data-home]').forEach(b=>b.onclick=home);$$('[data-category]').forEach(b=>b.onclick=()=>goScreen(b.dataset.category));$$('[data-open-main]').forEach(b=>b.onclick=()=>goScreen(b.dataset.openMain));$$('.navitem').forEach(b=>b.onclick=()=>goScreen(b.dataset.main==='play'?'play':b.dataset.main));
 
@@ -69,7 +78,9 @@ function syncFullscreen(){
  const active=!!document.fullscreenElement,button=$('#fullscreenBtn');
  button.setAttribute('aria-pressed',String(active));button.setAttribute('aria-label',active?'Volledig scherm verlaten':'Volledig scherm');button.title=button.getAttribute('aria-label');
 }
-$('#fullscreenBtn').onclick=async()=>{
+$('#fullscreenBtn').onclick=async e=>{
+ // Pointer activation returns Space to the game; keyboard activation keeps button focus.
+ if(e.detail>0)$('#fullscreenBtn').blur();
  try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}
  catch{toast('Volledig scherm is niet beschikbaar in deze browser. Gebruik de fullscreenfunctie van je browser.')}
  syncFullscreen();
@@ -142,7 +153,7 @@ function bindGameBar(primaryHandler){
  $$('[data-ghelp]').forEach(b=>b.onclick=()=>openGameDialog('Spelhulp',`<p>${esc(levelInstruction())}</p><p>Lees zo nodig voor. Geef eerst ruimte voor een eigen antwoord; bekijk daarna samen het voorbeeld.</p>`));
  $$('[data-grules]').forEach(b=>b.onclick=()=>openGameDialog('Spelregels',`<p>${esc(currentGameRules())}</p>`));
  $$('[data-goptions]').forEach(b=>b.onclick=()=>{
-  const panel=$('#boardOptions');if(panel){panel.classList.toggle('open');return}
+  const panel=$('#boardOptions');if(panel){setBoardMenu(false);panel.classList.toggle('open');return}
   openGameDialog('Spelopties',`<label class="option-row">Minder beweging <input id="gameMotion" type="checkbox" ${settingsState().reducedMotion?'checked':''}></label><label class="option-row">Geluid <input id="gameSound" type="checkbox" ${settingsState().soundEnabled!==false?'checked':''}></label><p>Het niveau kies je rechtsboven. De beschikbare sets en aantallen staan bij het spel.</p>`,()=>{$('#gameMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});$('#gameSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked})});
  });
  if(primaryHandler)$('#primaryGame')?.addEventListener('click',primaryHandler);
