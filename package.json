@@ -15,7 +15,8 @@
     "test:tongue:browser": "node tests/tongbrekers-browser.cjs",
     "sync:words": "node scripts/words-content.cjs --write",
     "test:wz:browser": "node tests/wz-browser.cjs",
-    "import:wordspel": "node scripts/import-wordspel.cjs --write && npm run sync:words"
+    "import:wordspel": "node scripts/import-wordspel.cjs --write && npm run sync:words",
+    "test:story:browser": "node tests/storydice-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",
