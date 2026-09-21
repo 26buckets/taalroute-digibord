@@ -1,5 +1,9 @@
 # DigiBoard
 
+## Bankbehoud vanaf 21 september 2026
+
+De vier gespreksroutes zijn v2 (960 kaarten); de Snelvraagbank v2 staat apart (240). Lees `Documentatie/Banken-v2/INTEGRATIE.md` vóór import, publicatie of vervanging door DigiBord Complete V01.24. De lokale V01.24 gebruikt andere paden en een andere app-shell. Kopieer die map nooit blind over deze repository. Behoud de actuele banken en de vastgelegde lokale hulp-/partnercorrecties. `npm run check:banks` moet slagen vóór iedere build/PR. Bronhashes alleen aanpassen na inhoudelijke controle; nooit automatisch uit de toevallig aanwezige data genereren. `scripts/sync-banks.cjs` werkt bestaande, gecontroleerde V01.24-bankkopieën bij zonder UI of andere spellen te vervangen. Alleen historische back-ups mogen oude banken houden. Een push/merge is geen opdracht om de website te publiceren.
+
 Dit is de gezamenlijke ontwikkelbasis voor Taalroute DigiBoard. Gebruik één toepassing en één instellingenmenu. Maak geen volledige kopieën van de app voor nieuwe kaarten.
 
 - `Praatpad.html` is de gezamenlijke ingang; `index.html` verwijst ernaar.

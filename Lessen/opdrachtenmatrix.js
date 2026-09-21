@@ -2,7 +2,7 @@ globalThis.DigiBoardMatrix=(()=>{
  'use strict';
  const B=DigiBoardMatrixContent,D=globalThis.DigiBoardDirectContent||{cards:[]},allCards=[...B.cards,...D.cards],byId=new Map(allCards.map(c=>[c.id,c])),buckets=new Map();
  const mode=settings=>['direct','mixed'].includes(settings.questionMode)?settings.questionMode:'conversation';
- const modeLabels={direct:'Directe vragen',conversation:'Met een gesprekspartner',mixed:'Mix van beide'};
+ const modeLabels={direct:'Snelvragen',conversation:'Met een gesprekspartner',mixed:'Mix van beide'};
  const allowed=(row,settings)=>mode(settings)==='mixed'||(row.exerciseMode==='direct')===(mode(settings)==='direct');
  const catalog=settings=>allCards.filter(c=>allowed(c,settings));
  const deck=(settings,shapeId)=>catalog(settings).filter(c=>c.routeId===route(settings).id&&c.shape===shapeId);

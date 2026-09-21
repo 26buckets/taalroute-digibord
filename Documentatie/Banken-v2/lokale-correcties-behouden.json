@@ -1,0 +1,3830 @@
+[
+  {
+    "id": "mx-2-kennismaken-01-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heet … / Ik … graag."
+  },
+  {
+    "id": "mx-2-kennismaken-01-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een naam en een activiteit die die graag doet; twee korte zinnen volstaan."
+  },
+  {
+    "id": "mx-2-kennismaken-01-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe heet je? / Wat doe je graag?"
+  },
+  {
+    "id": "mx-2-kennismaken-01-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de naam en een favoriete activiteit en laat ruimte voor antwoord."
+  },
+  {
+    "id": "mx-2-kennismaken-01-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: heel kort of iets uitgebreider voorstellen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-01-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen heel kort of iets uitgebreider voorstellen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-01-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn naam is … / Kunt u dat …?"
+  },
+  {
+    "id": "mx-2-kennismaken-01-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt de juiste naam en vraagt om aanpassing van de presentielijst."
+  },
+  {
+    "id": "mx-2-kennismaken-02-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik woon in … / Ik vind … prettig."
+  },
+  {
+    "id": "mx-2-kennismaken-02-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een woonplaats of buurt en één prettig kenmerk."
+  },
+  {
+    "id": "mx-2-kennismaken-02-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar woon je? / Wat vind je prettig aan …?"
+  },
+  {
+    "id": "mx-2-kennismaken-02-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de woonplek en een prettig kenmerk van de buurt, zonder exact adres te eisen."
+  },
+  {
+    "id": "mx-2-kennismaken-02-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: in een drukke of rustige buurt wonen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-02-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen in een drukke of rustige buurt wonen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-02-diamond",
+    "field": "partner",
+    "main": "Lees het juiste gegeven terug nadat je de fout hebt verbeterd.",
+    "local": "Bevestig welke nieuwe woonplaats je in het oefensysteem noteert. Gebruik geen echte persoonsgegevens als dat niet gewenst is."
+  },
+  {
+    "id": "mx-2-kennismaken-02-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik ben verhuisd naar … / Kunt u …?"
+  },
+  {
+    "id": "mx-2-kennismaken-02-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een nieuwe woonplaats en vraagt om wijziging in het systeem."
+  },
+  {
+    "id": "mx-2-kennismaken-03-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Vroeger woonde ik … / Nu woon ik …"
+  },
+  {
+    "id": "mx-2-kennismaken-03-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt begrijpelijk waar die vroeger en nu woont."
+  },
+  {
+    "id": "mx-2-kennismaken-03-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar woonde je vroeger? / En nu?"
+  },
+  {
+    "id": "mx-2-kennismaken-03-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de vroegere en de huidige woonplaats."
+  },
+  {
+    "id": "mx-2-kennismaken-03-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een bekende of nieuwe plek bezoeken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-03-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een bekende of nieuwe plek bezoeken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-03-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Hier staat …, maar nu woon ik … / Kunt u …?"
+  },
+  {
+    "id": "mx-2-kennismaken-03-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt de juiste woonplaats en vraagt de oude vermelding te corrigeren."
+  },
+  {
+    "id": "mx-2-kennismaken-04-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik spreek … / Nederlands gebruik ik als …"
+  },
+  {
+    "id": "mx-2-kennismaken-04-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt maximaal twee talen en één situatie waarin die Nederlands gebruikt."
+  },
+  {
+    "id": "mx-2-kennismaken-04-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke talen …? / Wanneer gebruik je …?"
+  },
+  {
+    "id": "mx-2-kennismaken-04-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar talen en een gebruikssituatie voor Nederlands en wacht op antwoord."
+  },
+  {
+    "id": "mx-2-kennismaken-04-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: met één vaste taalmaat of verschillende mensen oefenen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-04-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen met één vaste taalmaat of verschillende mensen oefenen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-04-diamond",
+    "field": "partner",
+    "main": "Lees het juiste gegeven terug nadat je de fout hebt verbeterd.",
+    "local": "Bevestig dat de berichttaal voortaan Nederlands is."
+  },
+  {
+    "id": "mx-2-kennismaken-04-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik wil berichten in … / Kunt u de taal …?"
+  },
+  {
+    "id": "mx-2-kennismaken-04-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om Nederlands als taal voor schoolberichten."
+  },
+  {
+    "id": "mx-2-kennismaken-05-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Overdag … ik meestal …"
+  },
+  {
+    "id": "mx-2-kennismaken-05-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vertelt begrijpelijk wat die overdag meestal doet."
+  },
+  {
+    "id": "mx-2-kennismaken-05-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat doe je meestal …? / Op welke dagen …?"
+  },
+  {
+    "id": "mx-2-kennismaken-05-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de gewone dagactiviteit en de lesdagen."
+  },
+  {
+    "id": "mx-2-kennismaken-05-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: 's ochtends of 's avonds les volgen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-05-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen 's ochtends of 's avonds les volgen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-05-diamond",
+    "field": "partner",
+    "main": "Lees het juiste gegeven terug nadat je de fout hebt verbeterd.",
+    "local": "Reageer op de voorgestelde andere lesdag en spreek één passende dag af."
+  },
+  {
+    "id": "mx-2-kennismaken-05-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Op … werk ik. Kan ik op … les krijgen?"
+  },
+  {
+    "id": "mx-2-kennismaken-05-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het probleem met de lesdag en stelt één andere dag voor."
+  },
+  {
+    "id": "mx-2-kennismaken-06-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Op mijn verjaardag / vrije dag … ik graag …"
+  },
+  {
+    "id": "mx-2-kennismaken-06-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft een voorkeur voor het vieren van een verjaardag of vrije dag."
+  },
+  {
+    "id": "mx-2-kennismaken-06-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe vier je …? / Met wie …?"
+  },
+  {
+    "id": "mx-2-kennismaken-06-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt hoe de ander iets viert en met wie."
+  },
+  {
+    "id": "mx-2-kennismaken-06-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: thuis of buiten de deur iets vieren. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-06-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen thuis of buiten de deur iets vieren en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-06-diamond",
+    "field": "partner",
+    "main": "Lees het juiste gegeven terug nadat je de fout hebt verbeterd.",
+    "local": "Reageer op de voorgestelde andere datum en bevestig jullie afspraak."
+  },
+  {
+    "id": "mx-2-kennismaken-06-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Op … kan ik niet. Kan de afspraak op …?"
+  },
+  {
+    "id": "mx-2-kennismaken-06-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om een andere afspraakdatum en noemt een mogelijke dag."
+  },
+  {
+    "id": "mx-2-kennismaken-07-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb les op … / Dat past wel / niet goed, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-07-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een lesdag en legt uit waarom die wel of minder goed past."
+  },
+  {
+    "id": "mx-2-kennismaken-07-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Op welke dag …? / Past die dag …?"
+  },
+  {
+    "id": "mx-2-kennismaken-07-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een lesdag en of die dag goed past."
+  },
+  {
+    "id": "mx-2-kennismaken-07-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: maandag of woensdag les volgen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-07-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen maandag of woensdag les volgen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-07-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Hier staat … / Mijn lesdag is … / Kunt u …?"
+  },
+  {
+    "id": "mx-2-kennismaken-07-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt de juiste lesdag en vraagt die te noteren."
+  },
+  {
+    "id": "mx-2-kennismaken-08-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Mijn les begint om … / Ik ga met … / lopend."
+  },
+  {
+    "id": "mx-2-kennismaken-08-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt de begintijd van de les en het gebruikte vervoer."
+  },
+  {
+    "id": "mx-2-kennismaken-08-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe laat begint …? / Hoe ga je …?"
+  },
+  {
+    "id": "mx-2-kennismaken-08-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de begintijd en het vervoer naar de les."
+  },
+  {
+    "id": "mx-2-kennismaken-08-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: om negen of tien uur beginnen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-08-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen om negen of tien uur beginnen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-08-diamond",
+    "field": "partner",
+    "main": "Lees het juiste gegeven terug nadat je de fout hebt verbeterd.",
+    "local": "Noem één duidelijke lestijd en bevestig dat dit de juiste tijd is."
+  },
+  {
+    "id": "mx-2-kennismaken-08-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Hier staat … / We hadden … afgesproken. Welke tijd …?"
+  },
+  {
+    "id": "mx-2-kennismaken-08-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt duidelijkheid over de juiste lestijd."
+  },
+  {
+    "id": "mx-2-kennismaken-09-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik kom vaak bij … / Daar … ik …"
+  },
+  {
+    "id": "mx-2-kennismaken-09-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een plek in de buurt en een reden om die te gebruiken."
+  },
+  {
+    "id": "mx-2-kennismaken-09-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke plek …? / Waarom …?"
+  },
+  {
+    "id": "mx-2-kennismaken-09-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een vaak gebruikte plek in de buurt en een reden, zonder exact adres te eisen."
+  },
+  {
+    "id": "mx-2-kennismaken-09-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: naar het park of de bibliotheek gaan. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-09-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen naar het park of de bibliotheek gaan en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-09-diamond",
+    "field": "partner",
+    "main": "Lees het juiste gegeven terug nadat je de fout hebt verbeterd.",
+    "local": "Wijs het juiste gebouw of lokaal aan waar vandaag les is."
+  },
+  {
+    "id": "mx-2-kennismaken-09-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik ben bij … / Waar moet ik vandaag …?"
+  },
+  {
+    "id": "mx-2-kennismaken-09-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de juiste leslocatie nadat die verkeerd is aangekomen."
+  },
+  {
+    "id": "mx-2-kennismaken-10-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "De school kan mij het beste … / Dat is prettig, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-10-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een manier om contact op te nemen en een bijpassende reden."
+  },
+  {
+    "id": "mx-2-kennismaken-10-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe wil je informatie krijgen? / Waarom …?"
+  },
+  {
+    "id": "mx-2-kennismaken-10-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de gewenste manier om schoolinformatie te krijgen en waarom die prettig is."
+  },
+  {
+    "id": "mx-2-kennismaken-10-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: telefoon of e-mail voor belangrijke informatie. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-kennismaken-10-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen telefoon of e-mail voor belangrijke informatie en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-kennismaken-10-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn nieuwe nummer is … / Kunt u dat …?"
+  },
+  {
+    "id": "mx-2-kennismaken-10-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker geeft een verzonnen nieuw nummer en vraagt het te wijzigen."
+  },
+  {
+    "id": "mx-2-spullen-01-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "In mijn tas zitten … / Ik gebruik hem als …"
+  },
+  {
+    "id": "mx-2-spullen-01-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt wat die meeneemt en wanneer die de tas gebruikt."
+  },
+  {
+    "id": "mx-2-spullen-01-square",
+    "field": "partner",
+    "main": "De tas ligt op de stoel. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de tas en wijs een plek aan waar de tas neergezet kan worden."
+  },
+  {
+    "id": "mx-2-spullen-01-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Van wie is …? / Waar kan ik … neerzetten?"
+  },
+  {
+    "id": "mx-2-spullen-01-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt van wie de tas is en waar die neergezet kan worden."
+  },
+  {
+    "id": "mx-2-spullen-01-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een kleine lichte tas of een grotere zware tas meenemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-01-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een kleine lichte tas of een grotere zware tas meenemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-01-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn tas is … / Mag ik … lenen? / Ik breng hem … terug."
+  },
+  {
+    "id": "mx-2-spullen-01-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt tijdelijk een tas te lenen en spreekt af wanneer die terugkomt."
+  },
+  {
+    "id": "mx-3-spullen-01-square",
+    "field": "partner",
+    "main": "De tas ligt op de stoel. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de tas en wijs een plek aan waar de tas neergezet kan worden."
+  },
+  {
+    "id": "mx-2-spullen-02-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik schrijf graag met … / Die gebruik ik voor …"
+  },
+  {
+    "id": "mx-2-spullen-02-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft een gewenste pen en waarvoor die wordt gebruikt."
+  },
+  {
+    "id": "mx-2-spullen-02-square",
+    "field": "partner",
+    "main": "De pen ligt op tafel. Geef daarna antwoord op de andere vragen.",
+    "local": "Vertel waar de reservepennen liggen. Zeg welke pen de ander mag gebruiken."
+  },
+  {
+    "id": "mx-2-spullen-02-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar liggen …? / Mag ik … gebruiken?"
+  },
+  {
+    "id": "mx-2-spullen-02-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de reservepennen en toestemming om er één te gebruiken."
+  },
+  {
+    "id": "mx-2-spullen-02-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een zwarte of blauwe pen gebruiken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-02-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een zwarte of blauwe pen gebruiken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-02-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een werkende pen aan. Bevestig een eventuele afspraak over teruggeven."
+  },
+  {
+    "id": "mx-2-spullen-02-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn pen doet het niet. Mag ik een …?"
+  },
+  {
+    "id": "mx-2-spullen-02-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt de kapotte pen en vraagt een andere om verder te schrijven."
+  },
+  {
+    "id": "mx-3-spullen-02-square",
+    "field": "partner",
+    "main": "De pen ligt op tafel. Geef daarna antwoord op de andere vragen.",
+    "local": "Vertel waar de reservepennen liggen en wijs aan welke pen voor bezoekers bedoeld is."
+  },
+  {
+    "id": "mx-3-spullen-02-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een werkende pen aan. Bevestig een eventuele afspraak over teruggeven."
+  },
+  {
+    "id": "mx-2-spullen-03-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Deze sleutel is voor … / Ik bewaar hem …"
+  },
+  {
+    "id": "mx-2-spullen-03-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het gebruik en de gewone bewaarplek van een sleutel."
+  },
+  {
+    "id": "mx-2-spullen-03-square",
+    "field": "partner",
+    "main": "De sleutel ligt in de tas. Geef daarna antwoord op de andere vragen.",
+    "local": "Wijs aan welke sleutel bij de buitendeur hoort. Vertel op verzoek waar die daarna teruggelegd kan worden."
+  },
+  {
+    "id": "mx-2-spullen-03-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke sleutel is voor …?"
+  },
+  {
+    "id": "mx-2-spullen-03-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt begrijpelijk welke sleutel bij de buitendeur hoort."
+  },
+  {
+    "id": "mx-2-spullen-03-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: de sleutel in de tas of jaszak bewaren. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-03-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen de sleutel in de tas of jaszak bewaren en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-03-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Zeg hoe je de ander kunt binnenlaten of waar die hulp kan krijgen."
+  },
+  {
+    "id": "mx-2-spullen-03-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik ben mijn sleutel … / Hoe kan ik …?"
+  },
+  {
+    "id": "mx-2-spullen-03-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt de vergeten sleutel en vraagt hoe die naar binnen kan."
+  },
+  {
+    "id": "mx-3-spullen-03-square",
+    "field": "partner",
+    "main": "De sleutel ligt in de tas. Geef daarna antwoord op de andere vragen.",
+    "local": "Wijs aan welke sleutel bij de buitendeur hoort. Vertel op verzoek waar die daarna teruggelegd kan worden."
+  },
+  {
+    "id": "mx-3-spullen-03-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Speel de buur met de reservesleutel. Spreek af waar en wanneer de ander die kan ophalen."
+  },
+  {
+    "id": "mx-2-spullen-04-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik lees / gebruik … / Dat boek is voor …"
+  },
+  {
+    "id": "mx-2-spullen-04-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een boek en waarvoor die het leest of gebruikt."
+  },
+  {
+    "id": "mx-2-spullen-04-square",
+    "field": "partner",
+    "main": "Het boek ligt op tafel. Geef daarna antwoord op de andere vragen.",
+    "local": "Vertel waar het boek ligt en wanneer de ander het kan lenen."
+  },
+  {
+    "id": "mx-2-spullen-04-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar ligt …? / Kan ik het vandaag …?"
+  },
+  {
+    "id": "mx-2-spullen-04-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de plek van het boek en of die het vandaag kan lenen."
+  },
+  {
+    "id": "mx-2-spullen-04-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een dun makkelijk boek of dikker moeilijker boek lezen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-04-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een dun makkelijk boek of dikker moeilijker boek lezen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-04-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik ben nog niet klaar. Mag ik het boek … langer houden?"
+  },
+  {
+    "id": "mx-2-spullen-04-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt één dag extra en spreekt een nieuwe inleverdag af."
+  },
+  {
+    "id": "mx-3-spullen-04-square",
+    "field": "partner",
+    "main": "Het boek ligt op tafel. Geef daarna antwoord op de andere vragen.",
+    "local": "Vertel waar het boek ligt en wanneer de ander het kan lenen."
+  },
+  {
+    "id": "mx-2-spullen-05-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Vandaag heb ik mijn telefoon gebruikt om …"
+  },
+  {
+    "id": "mx-2-spullen-05-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt één of twee manieren waarop die vandaag de telefoon gebruikte."
+  },
+  {
+    "id": "mx-2-spullen-05-square",
+    "field": "partner",
+    "main": "De telefoon ligt naast het boek. Geef daarna antwoord op de andere vragen.",
+    "local": "Zeg of de ander kort jouw telefoon mag gebruiken om te bellen."
+  },
+  {
+    "id": "mx-2-spullen-05-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Mag ik even …? / Ik moet …"
+  },
+  {
+    "id": "mx-2-spullen-05-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt toestemming voor één telefoontje en geeft een korte reden."
+  },
+  {
+    "id": "mx-2-spullen-05-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: batterij sparen of nu een route bekijken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-05-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen batterij sparen of nu een route bekijken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-05-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een oplader aan of laat de ander kort jouw telefoon gebruiken; laat de ander kiezen."
+  },
+  {
+    "id": "mx-2-spullen-05-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn telefoon is … / Kan ik …?"
+  },
+  {
+    "id": "mx-2-spullen-05-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om opladen of kort telefoongebruik om iemand te bereiken."
+  },
+  {
+    "id": "mx-3-spullen-05-square",
+    "field": "partner",
+    "main": "De telefoon ligt naast het boek. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de telefoon of zeg dat je het niet weet. Vertel waar gevonden voorwerpen worden bewaard."
+  },
+  {
+    "id": "mx-3-spullen-05-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Zeg of de ander één telefoontje mag doen met jouw telefoon. Bevestig dat je de telefoon daarna direct terugkrijgt."
+  },
+  {
+    "id": "mx-2-spullen-06-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik gebruik een … fles. Daarin neem ik … mee."
+  },
+  {
+    "id": "mx-2-spullen-06-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft een fles en wat die erin meeneemt."
+  },
+  {
+    "id": "mx-2-spullen-06-square",
+    "field": "partner",
+    "main": "De fles staat in de tas. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de fles op tafel. Zeg of en waar de ander die mag neerzetten."
+  },
+  {
+    "id": "mx-2-spullen-06-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Van wie is …? / Mag ik hem …?"
+  },
+  {
+    "id": "mx-2-spullen-06-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de eigenaar van de fles en toestemming om die te verplaatsen."
+  },
+  {
+    "id": "mx-2-spullen-06-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een kleine of grote fles meenemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-06-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een kleine of grote fles meenemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-06-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een andere fles of beker aan en bevestig een eventuele afspraak over teruggeven."
+  },
+  {
+    "id": "mx-2-spullen-06-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn fles … / Mag ik een andere …?"
+  },
+  {
+    "id": "mx-2-spullen-06-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt het lek en vraagt om een andere fles of beker."
+  },
+  {
+    "id": "mx-3-spullen-06-square",
+    "field": "partner",
+    "main": "De fles staat in de tas. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de fles op tafel. Zeg of en waar de ander die mag neerzetten."
+  },
+  {
+    "id": "mx-3-spullen-06-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een andere fles aan en bevestig een eventuele afspraak over teruggeven."
+  },
+  {
+    "id": "mx-2-spullen-07-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Vandaag draag ik … / Ik koos die jas, want …"
+  },
+  {
+    "id": "mx-2-spullen-07-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft de gekozen jas en geeft een reden voor de keuze."
+  },
+  {
+    "id": "mx-2-spullen-07-square",
+    "field": "partner",
+    "main": "De jas ligt op de stoel. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de jas en wijs de garderobe aan."
+  },
+  {
+    "id": "mx-2-spullen-07-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Van wie is …? / Waar is …?"
+  },
+  {
+    "id": "mx-2-spullen-07-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de eigenaar van de jas en de plek van de garderobe."
+  },
+  {
+    "id": "mx-2-spullen-07-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een warme jas of lichte regenjas dragen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-07-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een warme jas of lichte regenjas dragen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-07-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Wijs een plek aan waar de natte jas kan drogen."
+  },
+  {
+    "id": "mx-2-spullen-07-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn jas is … / Waar kan ik hem …?"
+  },
+  {
+    "id": "mx-2-spullen-07-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt een plek om de jas te laten drogen zonder de vloer nat te maken."
+  },
+  {
+    "id": "mx-3-spullen-07-square",
+    "field": "partner",
+    "main": "De jas ligt op de stoel. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de jas en wijs de garderobe aan."
+  },
+  {
+    "id": "mx-3-spullen-07-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Wijs een plek aan waar de natte jas kan drogen. Bied iets droogs aan waarmee de ander warm kan blijven."
+  },
+  {
+    "id": "mx-2-spullen-08-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik zit graag op een … stoel, want …"
+  },
+  {
+    "id": "mx-2-spullen-08-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft een prettige stoel en noemt een reden."
+  },
+  {
+    "id": "mx-2-spullen-08-square",
+    "field": "partner",
+    "main": "De stoel staat bij de tafel. Geef daarna antwoord op de andere vragen.",
+    "local": "Wijs een vrije stoel aan en zeg waar de ander kan zitten."
+  },
+  {
+    "id": "mx-2-spullen-08-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke stoel kan ik …?"
+  },
+  {
+    "id": "mx-2-spullen-08-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt welke stoel beschikbaar is om te gebruiken."
+  },
+  {
+    "id": "mx-2-spullen-08-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een hoge of lage stoel gebruiken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-08-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een hoge of lage stoel gebruiken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-08-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Wijs een andere, stevige stoel aan. Spreek af hoe de stoelen worden gewisseld; speel geen onveilige situatie na."
+  },
+  {
+    "id": "mx-2-spullen-08-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Deze stoel … / Mag ik een andere …?"
+  },
+  {
+    "id": "mx-2-spullen-08-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt dat de stoel wiebelt en vraagt een andere stoel."
+  },
+  {
+    "id": "mx-3-spullen-08-square",
+    "field": "partner",
+    "main": "De stoel staat bij de tafel. Geef daarna antwoord op de andere vragen.",
+    "local": "Wijs een vrije stoel aan en zeg waar de ander kan zitten."
+  },
+  {
+    "id": "mx-3-spullen-08-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Wijs een andere, stevige stoel aan. Spreek af hoe de stoelen worden gewisseld; speel geen onveilige situatie na."
+  },
+  {
+    "id": "mx-2-spullen-09-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik gebruik de tafel om …"
+  },
+  {
+    "id": "mx-2-spullen-09-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt één activiteit waarvoor die een tafel gebruikt."
+  },
+  {
+    "id": "mx-2-spullen-09-square",
+    "field": "partner",
+    "main": "De tafel staat bij het raam. Geef daarna antwoord op de andere vragen.",
+    "local": "Wijs een vrije tafel voor vier personen aan."
+  },
+  {
+    "id": "mx-2-spullen-09-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke tafel is …? / We zijn met …"
+  },
+  {
+    "id": "mx-2-spullen-09-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een vrije tafel voor de groep van vier."
+  },
+  {
+    "id": "mx-2-spullen-09-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een kleine tafel dichtbij of grote tafel verder weg gebruiken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-09-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een kleine tafel dichtbij of grote tafel verder weg gebruiken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-09-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een vrije tafel aan of spreek af hoe jullie van tafel wisselen."
+  },
+  {
+    "id": "mx-2-spullen-09-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Deze tafel is … / Kunnen we een andere …?"
+  },
+  {
+    "id": "mx-2-spullen-09-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt een andere tafel zodat de groep kan beginnen."
+  },
+  {
+    "id": "mx-3-spullen-09-square",
+    "field": "partner",
+    "main": "De tafel staat bij het raam. Geef daarna antwoord op de andere vragen.",
+    "local": "Wijs de gereserveerde tafel voor de groep aan en noem vanaf welke tijd die beschikbaar is."
+  },
+  {
+    "id": "mx-3-spullen-09-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied een vrije tafel aan of spreek af hoe jullie van tafel wisselen."
+  },
+  {
+    "id": "mx-2-spullen-10-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik gebruik een bril als … / Dan kan ik …"
+  },
+  {
+    "id": "mx-2-spullen-10-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt wanneer die een bril gebruikt en waarom; verzonnen informatie mag."
+  },
+  {
+    "id": "mx-2-spullen-10-square",
+    "field": "partner",
+    "main": "De bril ligt naast de tas. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de bril of zeg dat je het niet weet. Vertel waar gevonden spullen kunnen worden afgegeven."
+  },
+  {
+    "id": "mx-2-spullen-10-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Van wie is …? / Waar worden … bewaard?"
+  },
+  {
+    "id": "mx-2-spullen-10-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de eigenaar van de bril en de plek voor gevonden spullen."
+  },
+  {
+    "id": "mx-2-spullen-10-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: de bril pakken of dichterbij gaan zitten. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-spullen-10-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen de bril pakken of dichterbij gaan zitten en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-spullen-10-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied grotere tekst of een plek dichter bij het bord aan. Laat de ander kiezen wat helpt."
+  },
+  {
+    "id": "mx-2-spullen-10-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn bril is … / Kan ik …?"
+  },
+  {
+    "id": "mx-2-spullen-10-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het leesprobleem en vraagt om een oplossing, zoals grotere tekst of dichterbij zitten."
+  },
+  {
+    "id": "mx-3-spullen-10-square",
+    "field": "partner",
+    "main": "De bril ligt naast de tas. Geef daarna antwoord op de andere vragen.",
+    "local": "Noem een verzonnen eigenaar van de bril of zeg dat je het niet weet. Vertel waar gevonden spullen kunnen worden afgegeven."
+  },
+  {
+    "id": "mx-3-spullen-10-diamond",
+    "field": "partner",
+    "main": "Zeg of het voorgestelde moment past. Noem zo nodig een ander moment.",
+    "local": "Bied grotere tekst of een plek dichter bij het bord aan. Laat de ander kiezen wat helpt."
+  },
+  {
+    "id": "mx-2-dagelijks-01-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Gisteren heb ik … gegeten. 's Ochtends … / 's Avonds …"
+  },
+  {
+    "id": "mx-2-dagelijks-01-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt wat die gisteren op twee momenten van de dag at."
+  },
+  {
+    "id": "mx-2-dagelijks-01-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat heb je gisteren …? / Wat vond je …?"
+  },
+  {
+    "id": "mx-2-dagelijks-01-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt wat de ander gisteren at en wat die lekker vond."
+  },
+  {
+    "id": "mx-2-dagelijks-01-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: thuis snel eten of onderweg iets kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-01-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen thuis snel eten of onderweg iets kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-01-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Maandag kan niet. Kunnen we … lunchen?"
+  },
+  {
+    "id": "mx-2-dagelijks-01-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker stelt dinsdag voor om samen te lunchen en reageert op de ander."
+  },
+  {
+    "id": "mx-2-dagelijks-02-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Gisteren heb ik … gedronken. Bij … / Na …"
+  },
+  {
+    "id": "mx-2-dagelijks-02-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een drankje bij twee momenten van gisteren."
+  },
+  {
+    "id": "mx-2-dagelijks-02-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat drink je meestal? / En bij …?"
+  },
+  {
+    "id": "mx-2-dagelijks-02-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de gewone drankkeuze en de keuze bij het eten."
+  },
+  {
+    "id": "mx-2-dagelijks-02-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: water of thee drinken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-02-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen water of thee drinken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-02-diamond",
+    "field": "partner",
+    "main": "Zeg welk drankje je wilt.",
+    "local": "Zeg of de schone beker goed is nu er geen schone glazen zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-02-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Er zijn geen schone … / Is een … ook goed?"
+  },
+  {
+    "id": "mx-2-dagelijks-02-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of een schone beker goed is in plaats van een glas."
+  },
+  {
+    "id": "mx-2-dagelijks-03-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Gisteren heb ik … / Ik was …"
+  },
+  {
+    "id": "mx-2-dagelijks-03-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vertelt waar die gisteren werkte of welke activiteit die overdag deed."
+  },
+  {
+    "id": "mx-2-dagelijks-03-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar werk je …? / Hoe ga je …?"
+  },
+  {
+    "id": "mx-2-dagelijks-03-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de gewone werkplek en het vervoer erheen."
+  },
+  {
+    "id": "mx-2-dagelijks-03-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: thuis of op locatie werken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-03-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen thuis of op locatie werken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-03-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Reageer op de voorgestelde nieuwe begintijd voor morgen. Bevestig een tijd die past."
+  },
+  {
+    "id": "mx-2-dagelijks-03-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Kan ik morgen om … beginnen?"
+  },
+  {
+    "id": "mx-2-dagelijks-03-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker stelt een concrete latere begintijd voor morgen voor en vraagt of die past."
+  },
+  {
+    "id": "mx-3-dagelijks-03-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Zeg welk deel van de opdracht je kunt doen en wanneer jullie samen controleren. Houd rekening met de moeite met het tweede deel."
+  },
+  {
+    "id": "mx-2-dagelijks-04-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb … geoefend. Daarna kon / wist ik …"
+  },
+  {
+    "id": "mx-2-dagelijks-04-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt één oefening Nederlands van gisteren en één resultaat."
+  },
+  {
+    "id": "mx-2-dagelijks-04-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe oefen je …? / Wat werkt …?"
+  },
+  {
+    "id": "mx-2-dagelijks-04-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt hoe de ander buiten de les oefent en wat goed werkt."
+  },
+  {
+    "id": "mx-2-dagelijks-04-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: woorden oefenen of luisteren. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-04-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen woorden oefenen of luisteren en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-04-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Spreek af hoeveel van de beschikbare twintig minuten jullie samen oefenen. Bevestig de oefentijd."
+  },
+  {
+    "id": "mx-2-dagelijks-04-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "We hebben twintig minuten. Zullen we … minuten oefenen?"
+  },
+  {
+    "id": "mx-2-dagelijks-04-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker spreekt een oefenduur af die binnen de beschikbare twintig minuten past."
+  },
+  {
+    "id": "mx-3-dagelijks-04-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Zeg dat jij woorden wilt oefenen. Spreek samen een combinatie van woorden en spreken af en bepaal de duur."
+  },
+  {
+    "id": "mx-2-dagelijks-05-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb … gelezen. Het ging over …"
+  },
+  {
+    "id": "mx-2-dagelijks-05-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een onlangs gelezen tekst en het onderwerp ervan."
+  },
+  {
+    "id": "mx-2-dagelijks-05-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat lees je graag? / Wanneer …?"
+  },
+  {
+    "id": "mx-2-dagelijks-05-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een leesvoorkeur en het leesmoment."
+  },
+  {
+    "id": "mx-2-dagelijks-05-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een kort nieuwsbericht of een hoofdstuk lezen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-05-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een kort nieuwsbericht of een hoofdstuk lezen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-05-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Vraag welke zin onduidelijk is en leg die in eenvoudige woorden uit. Kies samen een fictief bericht voor de oefening."
+  },
+  {
+    "id": "mx-2-dagelijks-05-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Deze zin begrijp ik niet. Kun je … uitleggen?"
+  },
+  {
+    "id": "mx-2-dagelijks-05-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker wijst één onduidelijke zin aan en vraagt om uitleg."
+  },
+  {
+    "id": "mx-3-dagelijks-05-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Bespreek welke tekst voor jullie verschillende niveaus bruikbaar is. Spreek af wat jullie lezen en hoe lang."
+  },
+  {
+    "id": "mx-2-dagelijks-06-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb … gekookt. Eerst … Daarna …"
+  },
+  {
+    "id": "mx-2-dagelijks-06-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een gerecht en vertelt twee bereidingsstappen in volgorde."
+  },
+  {
+    "id": "mx-2-dagelijks-06-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat kook je graag? / Hoe lang duurt …?"
+  },
+  {
+    "id": "mx-2-dagelijks-06-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een kookvoorkeur en een geschatte bereidingstijd."
+  },
+  {
+    "id": "mx-2-dagelijks-06-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: nu snel of later uitgebreider koken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-06-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen nu snel of later uitgebreider koken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-06-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Zeg dat je een halfuur later komt. Spreek samen een nieuwe begintijd voor het koken af."
+  },
+  {
+    "id": "mx-2-dagelijks-06-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Je komt een halfuur later. Zullen we om … beginnen?"
+  },
+  {
+    "id": "mx-2-dagelijks-06-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker spreekt een nieuwe kooktijd af die rekening houdt met het halfuur vertraging."
+  },
+  {
+    "id": "mx-3-dagelijks-06-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Zeg wie boodschappen doet en bevestig een begintijd waarop de persoon die pas om halfzeven kan ook aanwezig is."
+  },
+  {
+    "id": "mx-2-dagelijks-07-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb naar / in … gewandeld, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-07-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt waar die gisteren wandelde en waarom die ging lopen."
+  },
+  {
+    "id": "mx-2-dagelijks-07-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar wandel je …? / Met wie …?"
+  },
+  {
+    "id": "mx-2-dagelijks-07-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een wandelplek en met wie de ander wandelt."
+  },
+  {
+    "id": "mx-2-dagelijks-07-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: lopen of de bus nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-07-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen lopen of de bus nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-07-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Reageer op het voorstel om later te wandelen of binnen af te spreken. Bevestig het nieuwe plan."
+  },
+  {
+    "id": "mx-2-dagelijks-07-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Het regent. Zullen we later … / binnen …?"
+  },
+  {
+    "id": "mx-2-dagelijks-07-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker stelt een ander plan voor het wandelen voor en stemt dit af met de ander."
+  },
+  {
+    "id": "mx-3-dagelijks-07-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Reageer op de voorgestelde tijd en plek om samen boodschappen te doen. Bevestig de afspraak."
+  },
+  {
+    "id": "mx-2-dagelijks-08-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik fiets als … / De laatste keer fietste ik naar …"
+  },
+  {
+    "id": "mx-2-dagelijks-08-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt wanneer die fietst en een laatste bestemming."
+  },
+  {
+    "id": "mx-2-dagelijks-08-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wanneer fiets je? / Wat doe je bij …?"
+  },
+  {
+    "id": "mx-2-dagelijks-08-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar fietsmomenten en een oplossing bij slecht weer."
+  },
+  {
+    "id": "mx-2-dagelijks-08-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: de fiets of bus nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-08-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen de fiets of bus nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-08-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Reageer op het bericht over de lekke band en bevestig de nieuwe aankomsttijd."
+  },
+  {
+    "id": "mx-2-dagelijks-08-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn band is lek. Ik kom om … / … minuten later."
+  },
+  {
+    "id": "mx-2-dagelijks-08-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt de lekke band en stelt een nieuwe aankomsttijd voor."
+  },
+  {
+    "id": "mx-3-dagelijks-08-diamond",
+    "field": "partner",
+    "main": "Zeg of je mee wilt doen. Gebruik de dagen uit de situatie.",
+    "local": "Zeg dat je langzamer fietst. Spreek een vertrekplan en tempo af waarmee jullie samen aankomen."
+  },
+  {
+    "id": "mx-2-dagelijks-09-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Gisteren ben ik om … gaan slapen, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-09-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een slaaptijd van gisteren en een reden."
+  },
+  {
+    "id": "mx-2-dagelijks-09-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe laat ga je …? / Wat helpt …?"
+  },
+  {
+    "id": "mx-2-dagelijks-09-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de gewone slaaptijd en wat de ander helpt slapen."
+  },
+  {
+    "id": "mx-2-dagelijks-09-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: nog televisie kijken of eerder slapen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-09-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen nog televisie kijken of eerder slapen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-09-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Bespreek op de hoogste route de koptelefoon.",
+    "local": "Reageer op het verzoek om minder lawaai. Zeg wat je zachter kunt zetten of veranderen."
+  },
+  {
+    "id": "mx-2-dagelijks-09-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mag het wat …? Ik wil graag …"
+  },
+  {
+    "id": "mx-2-dagelijks-09-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt beleefd om minder lawaai zodat die kan slapen."
+  },
+  {
+    "id": "mx-2-dagelijks-10-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Nu woon ik … / Vroeger …"
+  },
+  {
+    "id": "mx-2-dagelijks-10-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft de huidige woonsituatie en één verschil met vroeger."
+  },
+  {
+    "id": "mx-2-dagelijks-10-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Woon je in …? / Wat vind je …?"
+  },
+  {
+    "id": "mx-2-dagelijks-10-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar huis of flat en een prettig kenmerk, zonder exact adres te eisen."
+  },
+  {
+    "id": "mx-2-dagelijks-10-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: kleiner dichtbij winkels of groter verder weg wonen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-dagelijks-10-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen kleiner dichtbij winkels of groter verder weg wonen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-dagelijks-10-diamond",
+    "field": "partner",
+    "main": "Geef een verzonnen adres. Kies een tijd die past bij de situatie.",
+    "local": "Speel de medewerker. Vraag wat er niet werkt en spreek een fictief moment af waarop iemand kan komen kijken."
+  },
+  {
+    "id": "mx-2-dagelijks-10-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "De … werkt niet. Wanneer kan iemand …?"
+  },
+  {
+    "id": "mx-2-dagelijks-10-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt wat niet werkt en vraagt wanneer iemand kan komen kijken."
+  },
+  {
+    "id": "mx-2-winkelen-01-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik wil … brood, want …"
+  },
+  {
+    "id": "mx-2-winkelen-01-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een broodsoort en een reden voor de keuze."
+  },
+  {
+    "id": "mx-2-winkelen-01-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een verzonnen prijs voor het brood. Vertel of het brood gesneden kan worden."
+  },
+  {
+    "id": "mx-2-winkelen-01-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat kost …? / Kan het … worden?"
+  },
+  {
+    "id": "mx-2-winkelen-01-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de broodprijs en of het brood gesneden kan worden."
+  },
+  {
+    "id": "mx-2-winkelen-01-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: wit brood of volkorenbrood kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-01-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen wit brood of volkorenbrood kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-01-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Noem een vergelijkbaar brood als alternatief voor het uitverkochte brood."
+  },
+  {
+    "id": "mx-2-winkelen-01-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Dit brood is op. Heeft u iets …?"
+  },
+  {
+    "id": "mx-2-winkelen-01-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een vergelijkbaar brood nu de gewenste soort op is."
+  },
+  {
+    "id": "mx-3-winkelen-01-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een verzonnen prijs voor het brood. Vertel of het brood gesneden kan worden."
+  },
+  {
+    "id": "mx-3-winkelen-01-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Bied een vergelijkbaar brood aan of spreek af dat je morgen een brood apart houdt. Bevestig de gekozen oplossing."
+  },
+  {
+    "id": "mx-2-winkelen-02-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik koop … melk. Ik heb … nodig."
+  },
+  {
+    "id": "mx-2-winkelen-02-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een soort melk en een hoeveelheid."
+  },
+  {
+    "id": "mx-2-winkelen-02-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Vertel welk pak melk het langst houdbaar is en noem een verzonnen prijs."
+  },
+  {
+    "id": "mx-2-winkelen-02-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke melk is het langst …? / Wat kost …?"
+  },
+  {
+    "id": "mx-2-winkelen-02-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt welke melk het langst houdbaar is en wat een pak kost."
+  },
+  {
+    "id": "mx-2-winkelen-02-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een klein of groot pak melk kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-02-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een klein of groot pak melk kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-02-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Zeg dat je het lekkende pak melk kunt vervangen. Vraag zo nodig naar de bon en bevestig de vervanging."
+  },
+  {
+    "id": "mx-2-winkelen-02-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Dit pak … / Mag ik een nieuw …? Ik heb de …"
+  },
+  {
+    "id": "mx-2-winkelen-02-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt het lekkende pak melk en vraagt om vervanging."
+  },
+  {
+    "id": "mx-3-winkelen-02-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Vertel welke melk het langst houdbaar is en noem een verschil tussen twee soorten. Gebruik fictieve etiketten voor deze oefening."
+  },
+  {
+    "id": "mx-3-winkelen-02-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Zeg dat je het lekkende pak melk kunt vervangen. Vraag zo nodig naar de bon en bevestig de vervanging."
+  },
+  {
+    "id": "mx-2-winkelen-03-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik kies … appels. Ik wil er …"
+  },
+  {
+    "id": "mx-2-winkelen-03-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft welke appels die kiest en hoeveel die wil."
+  },
+  {
+    "id": "mx-2-winkelen-03-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een verzonnen kiloprijs voor de appels en wijs een zoete soort aan."
+  },
+  {
+    "id": "mx-2-winkelen-03-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat kosten … per kilo? / Welke soort is …?"
+  },
+  {
+    "id": "mx-2-winkelen-03-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de kiloprijs en een zoete appelsoort."
+  },
+  {
+    "id": "mx-2-winkelen-03-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: vier losse appels of een grote zak kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-03-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen vier losse appels of een grote zak kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-03-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Controleer in het rollenspel het prijskaartje en de bon. Zeg wat je aan de prijs kunt corrigeren."
+  },
+  {
+    "id": "mx-2-winkelen-03-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Op het schap staat …, maar op de bon … / Kunt u …?"
+  },
+  {
+    "id": "mx-2-winkelen-03-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker benoemt het prijsverschil en vraagt om controle."
+  },
+  {
+    "id": "mx-3-winkelen-03-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een verzonnen kiloprijs voor de appels en wijs een soort aan die geschikt is om mee te bakken."
+  },
+  {
+    "id": "mx-3-winkelen-03-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Controleer in het rollenspel het prijskaartje en de bon. Zeg wat je aan de prijs kunt corrigeren."
+  },
+  {
+    "id": "mx-2-winkelen-04-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik kies … bananen. Ik wil ze … eten."
+  },
+  {
+    "id": "mx-2-winkelen-04-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft de gekozen bananen en zegt wanneer die ze wil eten."
+  },
+  {
+    "id": "mx-2-winkelen-04-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Vertel welke bananen rijp zijn en of de ander een kleinere hoeveelheid mag nemen."
+  },
+  {
+    "id": "mx-2-winkelen-04-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke zijn …? / Kan ik een kleinere …?"
+  },
+  {
+    "id": "mx-2-winkelen-04-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar rijpe bananen en een kleinere hoeveelheid."
+  },
+  {
+    "id": "mx-2-winkelen-04-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: groene of rijpe bananen kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-04-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen groene of rijpe bananen kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-04-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Zeg of de ander de overtollige bananen kan terugleggen voordat die betaalt."
+  },
+  {
+    "id": "mx-2-winkelen-04-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik heb te veel … gepakt. Mag ik … terugleggen?"
+  },
+  {
+    "id": "mx-2-winkelen-04-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of een deel van de bananen voor betaling teruggelegd kan worden."
+  },
+  {
+    "id": "mx-3-winkelen-04-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Vertel welke bananen rijp zijn en of de ander een kleinere hoeveelheid mag nemen."
+  },
+  {
+    "id": "mx-3-winkelen-04-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Controleer in het rollenspel de bon en de ene tros bananen. Bevestig dat je de extra aangeslagen tros van de bon haalt."
+  },
+  {
+    "id": "mx-2-winkelen-05-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "De tomaten zijn voor … Ik heb … nodig."
+  },
+  {
+    "id": "mx-2-winkelen-05-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt waarvoor de tomaten zijn en hoeveel die nodig heeft."
+  },
+  {
+    "id": "mx-2-winkelen-05-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een soort tomaten die voor saus geschikt is en een verzonnen prijs."
+  },
+  {
+    "id": "mx-2-winkelen-05-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke tomaten zijn voor …? / Wat kosten …?"
+  },
+  {
+    "id": "mx-2-winkelen-05-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar tomaten voor saus en de prijs."
+  },
+  {
+    "id": "mx-2-winkelen-05-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: losse tomaten of een doos kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-05-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen losse tomaten of een doos kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-05-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Vraag zo nodig naar de bon en bied vervanging aan. Bevestig welke oplossing jullie kiezen."
+  },
+  {
+    "id": "mx-2-winkelen-05-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Deze tomaat is … / Kan ik … ruilen?"
+  },
+  {
+    "id": "mx-2-winkelen-05-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt de slechte tomaat en vraagt om ruilen; de bon is beschikbaar."
+  },
+  {
+    "id": "mx-3-winkelen-05-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Wijs tomaten aan die voor saus geschikt zijn en noem een verzonnen kiloprijs."
+  },
+  {
+    "id": "mx-3-winkelen-05-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Vraag zo nodig naar de bon en bied vervanging of geld terug aan. Bevestig welke oplossing jullie kiezen."
+  },
+  {
+    "id": "mx-2-winkelen-06-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik koop … kaas voor …"
+  },
+  {
+    "id": "mx-2-winkelen-06-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een kaassoort en voor wie die is."
+  },
+  {
+    "id": "mx-2-winkelen-06-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Wijs een milde kaas aan en noem een verzonnen prijs voor ongeveer 300 gram."
+  },
+  {
+    "id": "mx-2-winkelen-06-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke kaas is …? / Wat kost ongeveer … gram?"
+  },
+  {
+    "id": "mx-2-winkelen-06-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar milde kaas en de prijs voor ongeveer 300 gram."
+  },
+  {
+    "id": "mx-2-winkelen-06-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een klein stuk dure kaas of meer goedkope kaas kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-06-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een klein stuk dure kaas of meer goedkope kaas kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-06-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Vraag welke kaas de ander bedoelde en bied die soort aan voordat de ander betaalt."
+  },
+  {
+    "id": "mx-2-winkelen-06-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik bedoelde … kaas. Kan ik die krijgen?"
+  },
+  {
+    "id": "mx-2-winkelen-06-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt duidelijk welke kaas die bedoelde en vraagt om de juiste soort."
+  },
+  {
+    "id": "mx-3-winkelen-06-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Wijs een milde en een pittige kaas aan en noem een verzonnen prijs voor ongeveer 300 gram."
+  },
+  {
+    "id": "mx-3-winkelen-06-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Controleer samen het gewicht op het etiket en de bon. Bevestig hoe je de bon corrigeert."
+  },
+  {
+    "id": "mx-2-winkelen-07-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik koop … rijst voor … personen."
+  },
+  {
+    "id": "mx-2-winkelen-07-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een hoeveelheid rijst en het aantal eters."
+  },
+  {
+    "id": "mx-2-winkelen-07-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een fictieve kooktijd en prijs voor een pak rijst."
+  },
+  {
+    "id": "mx-2-winkelen-07-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe lang moet … koken? / Wat kost …?"
+  },
+  {
+    "id": "mx-2-winkelen-07-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de kooktijd van de rijst en de prijs van een pak."
+  },
+  {
+    "id": "mx-2-winkelen-07-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een klein of groot pak rijst kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-07-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een klein of groot pak rijst kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-07-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Zeg dat de ander de gescheurde zak rijst kan omwisselen voor een intacte verpakking voordat die betaalt."
+  },
+  {
+    "id": "mx-2-winkelen-07-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Deze zak is … / Mag ik een andere …?"
+  },
+  {
+    "id": "mx-2-winkelen-07-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker benoemt de gescheurde rijstzak en vraagt een andere verpakking voor betaling."
+  },
+  {
+    "id": "mx-3-winkelen-07-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Noem een fictieve kooktijd en beschrijf één verschil tussen de twee soorten rijst."
+  },
+  {
+    "id": "mx-3-winkelen-07-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Zeg dat de ander de gescheurde zak rijst kan omwisselen voor een intacte verpakking voordat die betaalt."
+  },
+  {
+    "id": "mx-2-winkelen-08-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik koop … eieren om …"
+  },
+  {
+    "id": "mx-2-winkelen-08-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het aantal eieren en waarvoor die ze koopt."
+  },
+  {
+    "id": "mx-2-winkelen-08-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Zeg hoeveel eieren in de doos zitten en noem een verzonnen prijs."
+  },
+  {
+    "id": "mx-2-winkelen-08-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoeveel zitten er …? / Wat kost …?"
+  },
+  {
+    "id": "mx-2-winkelen-08-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar het aantal eieren en de prijs van de doos."
+  },
+  {
+    "id": "mx-2-winkelen-08-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: zes of twaalf eieren kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-08-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen zes of twaalf eieren kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-08-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Bied een doos met hele eieren aan in plaats van de doos met twee kapotte eieren."
+  },
+  {
+    "id": "mx-2-winkelen-08-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Er zijn … eieren kapot. Mag ik …?"
+  },
+  {
+    "id": "mx-2-winkelen-08-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt twee kapotte eieren en vraagt een andere doos."
+  },
+  {
+    "id": "mx-3-winkelen-08-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Zeg hoeveel eieren in de doos zitten en welke maat ze hebben."
+  },
+  {
+    "id": "mx-3-winkelen-08-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Bied een doos met hele eieren aan in plaats van de doos met twee kapotte eieren."
+  },
+  {
+    "id": "mx-2-winkelen-09-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik koop … koffie. Ik drink die …"
+  },
+  {
+    "id": "mx-2-winkelen-09-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt de soort koffie en wanneer die die drinkt."
+  },
+  {
+    "id": "mx-2-winkelen-09-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Vertel of de koffie gemalen is en beschrijf de smaaksterkte. Gebruik verzonnen productinformatie voor deze oefening."
+  },
+  {
+    "id": "mx-2-winkelen-09-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Is de koffie …? / Hoe sterk is …?"
+  },
+  {
+    "id": "mx-2-winkelen-09-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of de koffie gemalen is en hoe sterk die smaakt."
+  },
+  {
+    "id": "mx-2-winkelen-09-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een bekend duurder of nieuw goedkoper koffiemerk kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-09-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een bekend duurder of nieuw goedkoper koffiemerk kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-09-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Controleer in het rollenspel of de verpakking nog dicht is. Spreek af hoe de gemalen koffie voor bonen wordt geruild."
+  },
+  {
+    "id": "mx-2-winkelen-09-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik heb gemalen …, maar ik wil … / Kan ik …?"
+  },
+  {
+    "id": "mx-2-winkelen-09-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt de ongeopende gemalen koffie voor bonen te ruilen."
+  },
+  {
+    "id": "mx-3-winkelen-09-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Vertel of de koffie gemalen is en beschrijf de smaaksterkte. Gebruik verzonnen productinformatie voor deze oefening."
+  },
+  {
+    "id": "mx-3-winkelen-09-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Controleer in het rollenspel of de verpakking nog dicht is. Spreek af hoe de gemalen koffie voor bonen wordt geruild."
+  },
+  {
+    "id": "mx-2-winkelen-10-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik koop … thee voor …"
+  },
+  {
+    "id": "mx-2-winkelen-10-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een soort thee en een moment of doel ervoor."
+  },
+  {
+    "id": "mx-2-winkelen-10-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Wijs een cafeïnevrije thee aan en noem een verzonnen prijs."
+  },
+  {
+    "id": "mx-2-winkelen-10-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke thee is zonder …? / Wat kost …?"
+  },
+  {
+    "id": "mx-2-winkelen-10-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar cafeïnevrije thee en de prijs van een doos."
+  },
+  {
+    "id": "mx-2-winkelen-10-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: theezakjes of losse thee kopen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-winkelen-10-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen theezakjes of losse thee kopen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-winkelen-10-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Vraag naar de ongeopende doos en de bon. Spreek af welke thee de ander ervoor krijgt."
+  },
+  {
+    "id": "mx-2-winkelen-10-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Dit is de verkeerde … / De doos is nog … / Kan ik …?"
+  },
+  {
+    "id": "mx-2-winkelen-10-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt de dichte doos thee te ruilen; de bon is beschikbaar."
+  },
+  {
+    "id": "mx-3-winkelen-10-square",
+    "field": "partner",
+    "main": "Noem een prijs. Bied bij een vervolgvraag een goedkoper product aan en leg het verschil uit.",
+    "local": "Wijs een cafeïnevrije thee aan en noem een fictieve trektijd."
+  },
+  {
+    "id": "mx-3-winkelen-10-diamond",
+    "field": "partner",
+    "main": "Reageer op het verzoek. Geef op de hoogste route aan hoe lang je de boodschappen kunt bewaren.",
+    "local": "Vraag naar de ongeopende doos en de bon. Spreek af welke thee de ander ervoor krijgt."
+  },
+  {
+    "id": "mx-2-onderweg-01-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga naar … / Ik ga met … / lopend."
+  },
+  {
+    "id": "mx-2-onderweg-01-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt de winkel als bestemming en een manier om er te komen."
+  },
+  {
+    "id": "mx-2-onderweg-01-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Bedenk een korte route naar de winkel. Geef op de vervolgvraag een passend detail, zoals een herkenningspunt."
+  },
+  {
+    "id": "mx-2-onderweg-01-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe kom ik bij …? / Moet ik bij … afslaan?"
+  },
+  {
+    "id": "mx-2-onderweg-01-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt een route naar de winkel en één extra routedetail."
+  },
+  {
+    "id": "mx-2-onderweg-01-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: naar de winkel lopen of de bus nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-01-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen naar de winkel lopen of de bus nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-01-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op de nieuwe ontmoetingsplek. Spreek samen één duidelijke plek af."
+  },
+  {
+    "id": "mx-2-onderweg-01-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "De winkel is dicht. Zullen we bij … afspreken?"
+  },
+  {
+    "id": "mx-2-onderweg-01-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker stelt een andere ontmoetingsplek voor nu de winkel dicht is."
+  },
+  {
+    "id": "mx-3-onderweg-01-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Bedenk een korte route naar de winkel. Geef op de vervolgvraag een passend detail, zoals een herkenningspunt."
+  },
+  {
+    "id": "mx-3-onderweg-01-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op de nieuwe ontmoetingsplek. Spreek samen één duidelijke plek af."
+  },
+  {
+    "id": "mx-2-onderweg-02-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga … naar school. Dat duurt ongeveer …"
+  },
+  {
+    "id": "mx-2-onderweg-02-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het vervoer naar school en een geschatte reisduur."
+  },
+  {
+    "id": "mx-2-onderweg-02-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Noem een fictieve bus naar school en de uitstaphalte."
+  },
+  {
+    "id": "mx-2-onderweg-02-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke bus gaat naar …? / Bij welke halte …?"
+  },
+  {
+    "id": "mx-2-onderweg-02-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt welke bus naar school gaat en waar die moet uitstappen."
+  },
+  {
+    "id": "mx-2-onderweg-02-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: naar school fietsen of de bus nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-02-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen naar school fietsen of de bus nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-02-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Speel de docent. Bevestig dat je weet hoeveel later de ander ongeveer komt."
+  },
+  {
+    "id": "mx-2-onderweg-02-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "De bus heeft … / Ik kom ongeveer … later."
+  },
+  {
+    "id": "mx-2-onderweg-02-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker informeert de docent over de vertraging en noemt hoeveel later die ongeveer komt."
+  },
+  {
+    "id": "mx-3-onderweg-02-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Noem een fictieve bus naar school en de uitstaphalte. Noem ook een geschatte reistijd."
+  },
+  {
+    "id": "mx-3-onderweg-02-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Speel de docent. Bespreek hoe de ander later kan aansluiten of de gemiste lesstof kan krijgen."
+  },
+  {
+    "id": "mx-2-onderweg-03-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga … naar de bibliotheek om …"
+  },
+  {
+    "id": "mx-2-onderweg-03-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het vervoer naar de bibliotheek en wat die daar wil doen."
+  },
+  {
+    "id": "mx-2-onderweg-03-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Wijs de ingang van de bibliotheek en een plek voor fietsen aan."
+  },
+  {
+    "id": "mx-2-onderweg-03-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar is de ingang? / Waar kan ik mijn fiets …?"
+  },
+  {
+    "id": "mx-2-onderweg-03-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de ingang van de bibliotheek en een plek voor de fiets."
+  },
+  {
+    "id": "mx-2-onderweg-03-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een kleine bibliotheek dichtbij of een grotere verder weg bezoeken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-03-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een kleine bibliotheek dichtbij of een grotere verder weg bezoeken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-03-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Speel de bibliotheekmedewerker. Noem een fictieve dag en openingstijd waarop het boek teruggebracht kan worden."
+  },
+  {
+    "id": "mx-2-onderweg-03-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "U sluit eerder. Wanneer kan ik het boek …?"
+  },
+  {
+    "id": "mx-2-onderweg-03-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt wanneer het boek wel teruggebracht kan worden."
+  },
+  {
+    "id": "mx-3-onderweg-03-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Wijs de ingang van de bibliotheek en een plek voor fietsen aan."
+  },
+  {
+    "id": "mx-3-onderweg-03-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Speel de bibliotheekmedewerker. Spreek een nieuwe inleverdag af omdat de ander door de staking niet kan komen."
+  },
+  {
+    "id": "mx-2-onderweg-04-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga … naar het station. Ik wil de trein naar / van … nemen."
+  },
+  {
+    "id": "mx-2-onderweg-04-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vertelt hoe die bij het station komt en welke trein die wil nemen."
+  },
+  {
+    "id": "mx-2-onderweg-04-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Noem een fictief vertrekspoor en een vertrektijd voor de trein."
+  },
+  {
+    "id": "mx-2-onderweg-04-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Van welk spoor …? / Hoe laat …?"
+  },
+  {
+    "id": "mx-2-onderweg-04-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar het vertrekspoor en de vertrektijd van de trein."
+  },
+  {
+    "id": "mx-2-onderweg-04-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een eerdere trein met overstap of latere directe trein nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-04-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een eerdere trein met overstap of latere directe trein nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-04-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op de vertraging. Bevestig een nieuwe tijd of spreek een andere oplossing af."
+  },
+  {
+    "id": "mx-2-onderweg-04-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn trein valt uit. Ik neem … / Ik ben er om …"
+  },
+  {
+    "id": "mx-2-onderweg-04-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt de uitgevallen trein en noemt een nieuwe aankomsttijd rekening houdend met twintig minuten later vertrek."
+  },
+  {
+    "id": "mx-3-onderweg-04-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Noem een fictief vertrekspoor. Zeg of de ander moet overstappen en, zo ja, waar."
+  },
+  {
+    "id": "mx-3-onderweg-04-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op de vertraging. Bevestig een nieuwe tijd of spreek een andere oplossing af."
+  },
+  {
+    "id": "mx-2-onderweg-05-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga … naar het park om …"
+  },
+  {
+    "id": "mx-2-onderweg-05-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt hoe die naar het park gaat en wat die daar wil doen."
+  },
+  {
+    "id": "mx-2-onderweg-05-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Wijs de ingang van het park aan en noem een geschatte looptijd."
+  },
+  {
+    "id": "mx-2-onderweg-05-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar is de ingang van …? / Hoe lang is het …?"
+  },
+  {
+    "id": "mx-2-onderweg-05-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de ingang van het park en de looptijd."
+  },
+  {
+    "id": "mx-2-onderweg-05-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: nu of later naar het park gaan. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-05-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen nu of later naar het park gaan en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-05-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op de voorgestelde droge ontmoetingsplek en bevestig waar jullie afspreken."
+  },
+  {
+    "id": "mx-2-onderweg-05-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Het regent hard. Zullen we in … afspreken?"
+  },
+  {
+    "id": "mx-2-onderweg-05-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker stelt een droge ontmoetingsplek voor in plaats van het park."
+  },
+  {
+    "id": "mx-3-onderweg-05-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Wijs de ingang van het park bij de vijver aan en noem een geschatte looptijd."
+  },
+  {
+    "id": "mx-3-onderweg-05-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op de voorgestelde droge ontmoetingsplek en bevestig waar jullie afspreken."
+  },
+  {
+    "id": "mx-2-onderweg-06-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga … naar de bakker. Ik wil … kopen."
+  },
+  {
+    "id": "mx-2-onderweg-06-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt het vervoer naar de bakker en wat die wil kopen."
+  },
+  {
+    "id": "mx-2-onderweg-06-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Bedenk waar de dichtstbijzijnde bakker is en noem een fictieve sluitingstijd."
+  },
+  {
+    "id": "mx-2-onderweg-06-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar is de dichtstbijzijnde …? / Hoe laat sluit …?"
+  },
+  {
+    "id": "mx-2-onderweg-06-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de dichtstbijzijnde bakker en de sluitingstijd."
+  },
+  {
+    "id": "mx-2-onderweg-06-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een bakker dichtbij die duurder is of verder weg die goedkoper is bezoeken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-06-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een bakker dichtbij die duurder is of verder weg die goedkoper is bezoeken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-06-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Zeg of je de broodbestelling kunt bewaren. Spreek af wanneer die opgehaald wordt."
+  },
+  {
+    "id": "mx-2-onderweg-06-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik kom later. Kunt u mijn … even bewaren?"
+  },
+  {
+    "id": "mx-2-onderweg-06-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of de bestelde broden kort bewaard kunnen worden."
+  },
+  {
+    "id": "mx-3-onderweg-06-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Bedenk waar de dichtstbijzijnde bakker is en noem een fictieve sluitingstijd."
+  },
+  {
+    "id": "mx-3-onderweg-06-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Zeg of je de broodbestelling kunt bewaren. Spreek af wanneer die opgehaald wordt."
+  },
+  {
+    "id": "mx-2-onderweg-07-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Na de supermarkt neem ik mijn boodschappen … mee."
+  },
+  {
+    "id": "mx-2-onderweg-07-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker legt begrijpelijk uit hoe de boodschappen thuiskomen."
+  },
+  {
+    "id": "mx-2-onderweg-07-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Beschrijf een korte looproute vanaf de supermarkt naar de bushalte."
+  },
+  {
+    "id": "mx-2-onderweg-07-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Hoe loop ik vanaf … naar …?"
+  },
+  {
+    "id": "mx-2-onderweg-07-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt begrijpelijk naar de route van de supermarkt naar de bushalte."
+  },
+  {
+    "id": "mx-2-onderweg-07-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: met de zware boodschappen lopen of de bus nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-07-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen met de zware boodschappen lopen of de bus nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-07-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Zeg of jullie samen een taxi kunnen nemen en bevestig de gezamenlijke richting."
+  },
+  {
+    "id": "mx-2-onderweg-07-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "De bus rijdt niet. Zullen we samen …?"
+  },
+  {
+    "id": "mx-2-onderweg-07-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of die met de ander een taxi kan delen omdat ze dezelfde kant op moeten."
+  },
+  {
+    "id": "mx-3-onderweg-07-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Beschrijf een looproute naar de supermarkt en zeg of de ander een drukke weg moet oversteken."
+  },
+  {
+    "id": "mx-3-onderweg-07-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Bespreek een haalbare manier om de ander en de zware boodschappen thuis te krijgen. Bevestig wie wat regelt."
+  },
+  {
+    "id": "mx-2-onderweg-08-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik ga … naar het zwembad. Ik zwem graag …"
+  },
+  {
+    "id": "mx-2-onderweg-08-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt hoe die bij het zwembad komt en een gewenst zwemmoment."
+  },
+  {
+    "id": "mx-2-onderweg-08-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Noem een fictieve bus naar het zwembad en de tijd van de laatste bus terug."
+  },
+  {
+    "id": "mx-2-onderweg-08-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke bus stopt bij …? / Hoe laat gaat de laatste …?"
+  },
+  {
+    "id": "mx-2-onderweg-08-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een bus naar het zwembad en de laatste terugrit."
+  },
+  {
+    "id": "mx-2-onderweg-08-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: vroeg alleen of later met een vriend zwemmen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-08-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen vroeg alleen of later met een vriend zwemmen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-08-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Bevestig dat morgenavond past en spreek een tijd af om te zwemmen."
+  },
+  {
+    "id": "mx-2-onderweg-08-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Het zwembad sluit eerder. Kunnen we … gaan?"
+  },
+  {
+    "id": "mx-2-onderweg-08-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker spreekt morgenavond af als nieuw zwemmoment."
+  },
+  {
+    "id": "mx-3-onderweg-08-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Noem een fictieve bus naar het zwembad en de tijd van de laatste bus terug."
+  },
+  {
+    "id": "mx-3-onderweg-08-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer als sportmaatje en spreek een nieuw moment af waarop jullie kunnen zwemmen."
+  },
+  {
+    "id": "mx-2-onderweg-09-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "We spreken om … bij … af. Ik ga er … naartoe."
+  },
+  {
+    "id": "mx-2-onderweg-09-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt duidelijk hoe die met iemand bij een café afspreekt."
+  },
+  {
+    "id": "mx-2-onderweg-09-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Geef een verzonnen adres van het café en noem een herkenningspunt in de buurt."
+  },
+  {
+    "id": "mx-2-onderweg-09-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat is het adres van …? / Wat ligt er dichtbij?"
+  },
+  {
+    "id": "mx-2-onderweg-09-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar het caféadres en een herkenningspunt."
+  },
+  {
+    "id": "mx-2-onderweg-09-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een café dichtbij of een rustiger café verder weg kiezen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-09-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een café dichtbij of een rustiger café verder weg kiezen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-09-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Reageer op het voorstel om elkaar bij het station te ontmoeten en bevestig de plek."
+  },
+  {
+    "id": "mx-2-onderweg-09-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik sta bij de andere vestiging. Zullen we bij … afspreken?"
+  },
+  {
+    "id": "mx-2-onderweg-09-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker stelt het station voor als gezamenlijke ontmoetingsplek."
+  },
+  {
+    "id": "mx-3-onderweg-09-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Geef een verzonnen adres van het café en noem een herkenningspunt in de buurt."
+  },
+  {
+    "id": "mx-3-onderweg-09-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Vertel bij welke cafévestiging je staat en spreek af waar jullie elkaar nu ontmoeten."
+  },
+  {
+    "id": "mx-2-onderweg-10-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Meestal ga ik … naar huis. Bij een omleiding …"
+  },
+  {
+    "id": "mx-2-onderweg-10-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker beschrijft de gewone thuisreis en wat die doet als de route verandert."
+  },
+  {
+    "id": "mx-2-onderweg-10-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Bedenk een eenvoudige omleidingsroute naar huis. Leg op verzoek uit waarom die makkelijk is."
+  },
+  {
+    "id": "mx-2-onderweg-10-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke route is nu …? / Er is een …"
+  },
+  {
+    "id": "mx-2-onderweg-10-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt welke route naar huis bij de omleiding het makkelijkst is."
+  },
+  {
+    "id": "mx-2-onderweg-10-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: laat op de avond een taxi of openbaar vervoer nemen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-onderweg-10-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen laat op de avond een taxi of openbaar vervoer nemen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-onderweg-10-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Speel de huisgenoot. Bevestig dat je weet dat de ander door de omleiding later thuis is."
+  },
+  {
+    "id": "mx-2-onderweg-10-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "De bus rijdt om. Ik ben ongeveer … later thuis."
+  },
+  {
+    "id": "mx-2-onderweg-10-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt de omleiding en hoeveel later die ongeveer thuis is."
+  },
+  {
+    "id": "mx-3-onderweg-10-square",
+    "field": "partner",
+    "main": "Bedenk een korte route en wijs de richting. Gebruik op de hoogste route een andere straat.",
+    "local": "Bedenk een eenvoudige omleidingsroute naar huis. Leg op verzoek uit waarom die makkelijk is."
+  },
+  {
+    "id": "mx-3-onderweg-10-diamond",
+    "field": "partner",
+    "main": "Zeg of je meegaat. Houd bij de hoogste routes rekening met de gegeven afspraak.",
+    "local": "Speel de huisgenoot. Spreek een andere halte of ontmoetingsplek af die bij de omleiding past."
+  },
+  {
+    "id": "mx-2-in-de-les-01-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb het … / Ik wil graag …"
+  },
+  {
+    "id": "mx-2-in-de-les-01-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker zegt of die het warm of koud heeft en wat die wil doen."
+  },
+  {
+    "id": "mx-2-in-de-les-01-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wat kan ik doen als … dicht moet blijven?"
+  },
+  {
+    "id": "mx-2-in-de-les-01-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om een oplossing voor de warmte terwijl het raam dicht blijft."
+  },
+  {
+    "id": "mx-2-in-de-les-01-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-01-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: de jas uitdoen of koeler gaan zitten. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-01-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen de jas uitdoen of koeler gaan zitten en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-01-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mag het raam …? Het is …"
+  },
+  {
+    "id": "mx-2-in-de-les-01-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of het raam even open kan en geeft de warmte als reden."
+  },
+  {
+    "id": "mx-3-in-de-les-01-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-02-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Als de deur dicht is, … ik …"
+  },
+  {
+    "id": "mx-2-in-de-les-02-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een eenvoudige oplossing voor de gesloten lokaaldeur."
+  },
+  {
+    "id": "mx-2-in-de-les-02-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar is de les vandaag?"
+  },
+  {
+    "id": "mx-2-in-de-les-02-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar de leslocatie nu de deur dicht is."
+  },
+  {
+    "id": "mx-2-in-de-les-02-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-02-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: bij de deur wachten of iemand bellen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-02-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen bij de deur wachten of iemand bellen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-02-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Kunt u de deur voor mij …?"
+  },
+  {
+    "id": "mx-2-in-de-les-02-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt iemand binnen om de deur te openen."
+  },
+  {
+    "id": "mx-3-in-de-les-02-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-03-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik kan de tekst niet goed zien. Dan …"
+  },
+  {
+    "id": "mx-2-in-de-les-03-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een oplossing om de tekst beter te kunnen zien."
+  },
+  {
+    "id": "mx-2-in-de-les-03-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar kan ik goed …?"
+  },
+  {
+    "id": "mx-2-in-de-les-03-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om een plek om te lezen nu de lamp kapot is."
+  },
+  {
+    "id": "mx-2-in-de-les-03-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-03-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: dichter bij het raam zitten of een grotere tekst gebruiken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-03-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen dichter bij het raam zitten of een grotere tekst gebruiken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-03-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik zie de letters niet goed. Kan ik een … tekst krijgen?"
+  },
+  {
+    "id": "mx-2-in-de-les-03-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om een grotere tekst vanwege de leesbaarheid."
+  },
+  {
+    "id": "mx-3-in-de-les-03-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-04-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik heb last van … / Dan … ik …"
+  },
+  {
+    "id": "mx-2-in-de-les-04-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een storend geluid en wat die dan doet."
+  },
+  {
+    "id": "mx-2-in-de-les-04-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar kan ik rustiger …?"
+  },
+  {
+    "id": "mx-2-in-de-les-04-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt om een rustigere zitplek omdat de uitleg niet hoorbaar is."
+  },
+  {
+    "id": "mx-2-in-de-les-04-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-04-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: dichter bij de docent of aan een rustigere tafel zitten. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-04-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen dichter bij de docent of aan een rustigere tafel zitten en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-04-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mag de muziek …? Ik kan … niet horen."
+  },
+  {
+    "id": "mx-2-in-de-les-04-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt de muziek zachter te zetten en geeft een reden."
+  },
+  {
+    "id": "mx-3-in-de-les-04-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-05-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Als ik het koud heb, …"
+  },
+  {
+    "id": "mx-2-in-de-les-05-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt één eenvoudige oplossing voor kou tijdens de les."
+  },
+  {
+    "id": "mx-2-in-de-les-05-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Is er een andere …?"
+  },
+  {
+    "id": "mx-2-in-de-les-05-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt naar een andere ruimte nu de verwarming niet werkt."
+  },
+  {
+    "id": "mx-2-in-de-les-05-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-05-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: de jas aanhouden of ergens anders zitten. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-05-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen de jas aanhouden of ergens anders zitten en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-05-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Het blijft koud. Kan iemand de verwarming …?"
+  },
+  {
+    "id": "mx-2-in-de-les-05-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt of de verwarming gecontroleerd kan worden."
+  },
+  {
+    "id": "mx-3-in-de-les-05-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-06-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Bij deze oefening zit / sta ik liever, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-06-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een voorkeur voor zitten of staan en één reden."
+  },
+  {
+    "id": "mx-2-in-de-les-06-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Welke stoel is …?"
+  },
+  {
+    "id": "mx-2-in-de-les-06-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt welke stoel vrij is."
+  },
+  {
+    "id": "mx-2-in-de-les-06-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-06-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: zitten of staan bij de spreekopdracht. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-06-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen zitten of staan bij de spreekopdracht en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-06-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Deze stoel zit niet prettig. Mag ik …?"
+  },
+  {
+    "id": "mx-2-in-de-les-06-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt toestemming om van stoel te wisselen."
+  },
+  {
+    "id": "mx-3-in-de-les-06-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-07-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik schrijf graag met …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-07-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker kiest pen of potlood en geeft een reden."
+  },
+  {
+    "id": "mx-2-in-de-les-07-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar kan ik een pen …?"
+  },
+  {
+    "id": "mx-2-in-de-les-07-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt waar die een pen kan krijgen."
+  },
+  {
+    "id": "mx-2-in-de-les-07-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-07-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een pen of potlood gebruiken. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-07-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een pen of potlood gebruiken en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-07-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mijn pen doet het niet. Mag ik … lenen?"
+  },
+  {
+    "id": "mx-2-in-de-les-07-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt een andere pen te lenen om verder te kunnen."
+  },
+  {
+    "id": "mx-3-in-de-les-07-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-08-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "In de pauze drink ik graag …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-08-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een drankje voor de pauze en een reden."
+  },
+  {
+    "id": "mx-2-in-de-les-08-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Waar kan ik water …?"
+  },
+  {
+    "id": "mx-2-in-de-les-08-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt waar die water kan halen."
+  },
+  {
+    "id": "mx-2-in-de-les-08-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-08-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: nu water halen of tot de pauze wachten. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-08-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen nu water halen of tot de pauze wachten en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-08-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mag ik even … halen? Ik ben … terug."
+  },
+  {
+    "id": "mx-2-in-de-les-08-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt toestemming om kort water te halen."
+  },
+  {
+    "id": "mx-3-in-de-les-08-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-09-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Ik lees graag …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-09-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt een gewenste leestekst voor de les en een reden."
+  },
+  {
+    "id": "mx-2-in-de-les-09-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wanneer is het boek weer …?"
+  },
+  {
+    "id": "mx-2-in-de-les-09-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt wanneer het boek weer beschikbaar is."
+  },
+  {
+    "id": "mx-2-in-de-les-09-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-09-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: een korte of langere tekst lezen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-09-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen een korte of langere tekst lezen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-09-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Mag ik dit boek tot … lenen? Ik breng het … terug."
+  },
+  {
+    "id": "mx-2-in-de-les-09-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt het boek tot morgen te lenen en maakt duidelijk dat die het daarna terugbrengt."
+  },
+  {
+    "id": "mx-3-in-de-les-09-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-10-circle",
+    "field": "support",
+    "main": "Eerst … Daarna … / Ik … omdat …",
+    "local": "Na de les … ik meestal …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-10-circle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker noemt één activiteit na de les en een reden."
+  },
+  {
+    "id": "mx-2-in-de-les-10-square",
+    "field": "support",
+    "main": "Wat …? / Waar …? / Wanneer …? / Welke …?",
+    "local": "Wanneer is de volgende …?"
+  },
+  {
+    "id": "mx-2-in-de-les-10-square",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker vraagt wanneer de volgende les is nu er morgen geen les is."
+  },
+  {
+    "id": "mx-2-in-de-les-10-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  },
+  {
+    "id": "mx-2-in-de-les-10-triangle",
+    "field": "support",
+    "main": "Ik kies …, omdat …",
+    "local": "De keuze is: naar huis gaan of nog samen oefenen. Begin met: Ik kies …, want …"
+  },
+  {
+    "id": "mx-2-in-de-les-10-triangle",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker maakt een keuze tussen naar huis gaan of nog samen oefenen en geeft één begrijpelijke reden die bij de situatie past. Beide keuzes kunnen goed zijn."
+  },
+  {
+    "id": "mx-2-in-de-les-10-diamond",
+    "field": "partner",
+    "main": "Neem afscheid. Geef op de hoogste route een korte thuisopdracht.",
+    "local": "Speel de docent. Bevestig de afmelding en noem één passende thuisoefening."
+  },
+  {
+    "id": "mx-2-in-de-les-10-diamond",
+    "field": "support",
+    "main": "Kunt u …? / Kunnen we …? / Mag ik …?",
+    "local": "Ik kan niet komen, want … / Wat kan ik thuis …?"
+  },
+  {
+    "id": "mx-2-in-de-les-10-diamond",
+    "field": "criterion",
+    "main": "De reactie behandelt de gevraagde stappen in begrijpelijke, samenhangende zinnen.",
+    "local": "De spreker meldt afwezigheid met een korte reden en vraagt naar een thuisoefening."
+  },
+  {
+    "id": "mx-3-in-de-les-10-triangle",
+    "field": "partner",
+    "main": "Reageer vanuit de keuze die voor jou in de situatie staat.",
+    "local": "Luister naar de keuze en de reden. Er ligt geen vaste keuze voor jou als partner vast."
+  }
+]
