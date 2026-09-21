@@ -95,7 +95,7 @@ function updateResume(){const t=$('#resumeText');t.textContent=APP.last?APP.last
 $('#resumeBtn').onclick=()=>{if(!APP.last)return toast('Start eerst een spel.');resumeLast()};
 function resumeLast(){
  const l=APP.last;if(!l)return;
- if(l.type==='board')startBoard(l.data.board); if(l.type==='taalworp')startTaalworp(l.data.setId||'SET_A2_BASIS'); if(l.type==='story')startStory(l.data.collection||'basis'); if(l.type==='card')startCards(l.data.kind||'conversation'); if(l.type==='word')startWords(l.data.kind||'build'); if(l.type==='activity')DigiActivities.start(l.data.kind);
+ if(l.type==='board')startBoard(l.data.board); if(l.type==='taalworp')startTaalworp(l.data.setId||'SET_A2_BASIS'); if(l.type==='story')startStory(l.data.collections||l.data.collection||'basis'); if(l.type==='card')startCards(l.data.kind||'conversation'); if(l.type==='word')startWords(l.data.kind||'build'); if(l.type==='activity')DigiActivities.start(l.data.kind);
 }
 updateResume();
 
@@ -435,7 +435,7 @@ function completeBoardTurn(board,route){
 
 
 /* Dobbelspellen */
-document.addEventListener('click',e=>{const b=e.target.closest('[data-dicegame]');if(!b||gameIsBusy())return;b.dataset.dicegame==='taalworp'?startTaalworp(APP.taalworpSet||'SET_A2_BASIS'):startStory(APP.storyCollection||'basis')});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-dicegame]');if(!b||gameIsBusy())return;b.dataset.dicegame==='taalworp'?startTaalworp(APP.taalworpSet||'SET_A2_BASIS'):startStory(APP.storyCollections||APP.storyCollection||'basis')});
 let twDiceState={};
 const TW_DICE_IDS=['WHO','TENSE','SENTENCE_TYPE','CONNECT_1','CONNECT_2','VERB_FORM'];
 function diceSidebar(kind,controls){return `<aside class="cardtypes dice-sidebar"><h3>Dobbelspellen</h3><nav aria-label="Kies een dobbelspel"><button class="typebtn ${kind==='taalworp'?'active':''}" data-dicegame="taalworp" aria-pressed="${kind==='taalworp'}">${gameIcon('verbs')}<span>Taalworp</span></button><button class="typebtn ${kind==='story'?'active':''}" data-dicegame="story" aria-pressed="${kind==='story'}">${gameIcon('story')}<span>Verhaalworp</span></button></nav><div class="dice-set-controls">${controls}</div></aside>`}
@@ -608,32 +608,39 @@ function showMoreSets(){
 }
 
 /* Verhaalworp */
-function storyIcons(collection=APP.storyCollection){const extra=story.collections.find(s=>s.id===collection)?.includeNumbers||[];return story.icons.filter(x=>x.collection===collection||extra.includes(x.number))}
-function storyCounts(collection){return [3,6,9].filter(n=>n<=storyIcons(collection).length)}
+function storyIcons(collection=APP.storyCollections||APP.storyCollection){const ids=[].concat(collection),extra=story.collections.filter(s=>ids.includes(s.id)).flatMap(s=>s.includeNumbers||[]);return story.icons.filter(x=>ids.includes(x.collection)||extra.includes(x.number))}
+function storyCounts(collection,held=[]){return [3,6,9].filter(n=>n<=new Set([...storyIcons(collection).map(x=>x.id),...held]).size)}
+function heldStoryIds(){return (APP.storyRoll||[]).filter((id,i)=>APP.storyLocks?.[i]&&story.icons.some(x=>x.id===id))}
 function startStory(collection){
  storyBusy=false;
  if(!story){toast('Verhaalworp-data ontbreekt in deze distributie.');return;}
- const set=story.collections.find(s=>s.id===collection&&s.status==='ready')||story.collections[0];collection=set.id;
- const counts=storyCounts(collection),count=counts.filter(n=>n<=(APP.storyCount||3)).at(-1)||3;
- if(APP.storyCollection!==collection||APP.storyCount!==count){APP.storyRoll=[];APP.storyLocks={};APP.storyEnabled={}}
+ const sets=story.collections.filter(s=>s.status==='ready'),requested=[].concat(collection);
+ collection=sets.filter(s=>requested.includes(s.id)).map(s=>s.id);if(!collection.length)collection=[sets[0].id];
+ const changed=JSON.stringify(APP.storyCollections||[APP.storyCollection])!==JSON.stringify(collection);
+ const held=heldStoryIds();
+ const counts=storyCounts(collection,held),count=counts.filter(n=>n<=(APP.storyCount||3)).at(-1)||3;
+ if(APP.storyCount!==count){APP.storyRoll=held;APP.storyLocks=Object.fromEntries(held.map((_,i)=>[i,true]));APP.storyEnabled={}}
+ if(changed)APP.storyEnabled={};
  APP.storyCount=count;
- APP.storyCollection=collection;APP.storyLocks??={};APP.storyEnabled??={};APP.storyCount??=3;
- setLast('story',`Verhaalworp · ${set.label}`,{collection});
+ APP.storyCollections=collection;APP.storyCollection=collection[0];APP.storyLocks??={};APP.storyEnabled??={};
+ const label=sets.filter(s=>collection.includes(s.id)).map(s=>s.label).join(' + ');
+ setLast('story',`Verhaalworp · ${label}`,{collections:collection});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell story-table-shell"><div class="game-work card-work">
  <div class="card-activity-heading"><div><h1>Verhaalworp <span>${esc(APP.level)}</span></h1><p>Gooi beeldstenen en vertel samen een verhaal.</p></div></div>
  <div class="dice-table-stage"><section class="story-stage"><header class="story-prompt"><div class="card-ribbon" style="--ribbon:#176b9a">${gameIcon('story')}<strong>Vertel een verhaal</strong><span class="card-counter" id="storyCounter"></span></div><div class="story-prompt-body"><p id="storyPromptCount">Gebruik de beelden op de voorkant van de stenen.</p></div></header><div class="storygrid count-${APP.storyCount}" id="storyGrid"></div><div class="storyhelp">${contextTools('story',{Help:{tip:'Hulp bij het verbinden van de actieve beelden.'},Example:{tip:'Een vertelopzet met jullie huidige beelden.'}})}<button class="smallbtn" id="storyFinish">Beurt afronden</button></div></section>
- ${diceSidebar('story',`<label class="dice-set-label" for="storySet">Beeldset · ${story.collections.filter(s=>s.status==='ready').length} sets</label><select class="dice-set-select" id="storySet">${story.collections.filter(s=>s.status==='ready').map(({id,label,count})=>`<option value="${id}" ${collection===id?'selected':''}>${esc(label)} · ${count} beelden</option>`).join('')}</select><span class="dice-set-label">Aantal stenen</span><div class="story-count-choices" role="group" aria-label="Aantal stenen">${counts.map(n=>`<button class="smallbtn ${APP.storyCount===n?'active':''}" data-storycount="${n}" aria-pressed="${APP.storyCount===n}">${n}</button>`).join('')}</div><button class="smallbtn" id="storySets">Over de beeldsets</button><div class="dice-table-tip"><strong>Zo speel je</strong><p>Het woord staat onder de steen. Grijze stenen doen niet mee. Klik op het slotje om een beeld vast te zetten of vrij te geven.</p></div>`)}
+ ${diceSidebar('story',`<span class="dice-set-label">Beeldsets mengen</span><details class="story-set-picker" id="storySet"><summary>${esc(label)}<small>${collection.length} ${collection.length===1?'set':'sets'} · ${storyIcons().length} beelden</small></summary><fieldset><legend>Kies één of meer sets</legend>${sets.map(({id,label,count})=>`<label><input type="checkbox" data-storyset value="${id}" ${collection.includes(id)?'checked':''}><span>${esc(label)}<small>${count} beelden</small></span></label>`).join('')}</fieldset><button class="smallbtn" id="applyStorySets">Selectie toepassen</button></details><span class="dice-set-label">Aantal stenen</span><div class="story-count-choices" role="group" aria-label="Aantal stenen">${counts.map(n=>`<button class="smallbtn ${APP.storyCount===n?'active':''}" data-storycount="${n}" aria-pressed="${APP.storyCount===n}">${n}</button>`).join('')}</div><button class="smallbtn" id="storySets">Over de beeldsets</button><div class="dice-table-tip"><strong>Zo speel je</strong><p>Het woord staat onder de steen. Grijze stenen doen niet mee. Vastgezette beelden blijven staan als je andere sets kiest.</p></div>`)}
  </div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame"><span class="roll-button-die">${softDie({value:5,front:false})}</span><span>GOOIEN</span></button>`)}</div>`;
  goScreen('game');bindGameBar(()=>rollStory(true));
  for(const key of ['Help','Example','Goals','Partner','More'])$('#story'+key).onclick=()=>showDiceContext('story',key);
- $('#storySet').onchange=e=>{if(!storyBusy)startStory(e.target.value);else e.target.value=APP.storyCollection};
+ $('#storySet').onchange=()=>{$('#applyStorySets').disabled=!$$('[data-storyset]:checked').length};
+ $('#applyStorySets').onclick=()=>{if(storyBusy)return;const selected=$$('[data-storyset]:checked').map(x=>x.value);if(!selected.length)return;rememberAction('beeldsets wijzigen');startStory(selected);$('#storySet summary').focus()};
  $$('[data-storycount]').forEach(b=>b.onclick=()=>{if(storyBusy)return;APP.storyCount=Number(b.dataset.storycount);APP.storyRoll=[];APP.storyLocks={};APP.storyEnabled={};save();startStory(collection)});
- $('#storySets').onclick=()=>openGameDialog('Beeldsets',`<p>Kies een beeldset aan de speeltafel. Er zijn ${story.icons.length} unieke beelden verdeeld over ${story.collections.filter(s=>s.status==='ready').length} sets. Hand en oor vind je zowel bij Dagelijks leven als bij Lichaamsdelen. Bij Familie kun je maximaal zes stenen gebruiken.</p>`);$('#storyFinish').onclick=()=>{if(storyBusy)return;completeTurn();APP.storyLocks={};APP.storyRoll=[];save();startStory(APP.storyCollection)};
- if(!APP.storyRoll?.length||APP.storyRoll.length!==APP.storyCount||APP.storyRoll.some(id=>!storyIcons().some(x=>x.id===id)))rollStory(false);else renderStory()
+ $('#storySets').onclick=()=>openGameDialog('Beeldsets',`<p>Vink één of meer beeldsets aan en kies Selectie toepassen. De vrije stenen gebruiken samen alle beelden uit je selectie. Vastgezette beelden blijven staan, ook als je hun set uitvinkt. Er zijn ${story.icons.length} unieke beelden verdeeld over ${story.collections.filter(s=>s.status==='ready').length} sets. Hand en oor vind je zowel bij Dagelijks leven als bij Lichaamsdelen. Met alleen Familie zijn er zes beelden; combineer met een andere set voor negen stenen.</p>`);$('#storyFinish').onclick=()=>{if(storyBusy)return;completeTurn();APP.storyLocks={};APP.storyRoll=[];save();startStory(APP.storyCollections)};
+ if(changed||!APP.storyRoll?.length||APP.storyRoll.length!==APP.storyCount||APP.storyRoll.some((id,i)=>!(APP.storyLocks[i]?story.icons:storyIcons()).some(x=>x.id===id)))rollStory(false);else renderStory()
 }
 function storyPool(){return storyIcons()}
 function renderStory(){
- const pool=storyPool(),byId=Object.fromEntries(pool.map(x=>[x.id,x])),roll=(APP.storyRoll||[]).map(id=>byId[id]).filter(Boolean),g=$('#storyGrid');if(!g)return;
+ const pool=storyPool(),byId=Object.fromEntries(story.icons.map(x=>[x.id,x])),roll=(APP.storyRoll||[]).map(id=>byId[id]).filter(Boolean),g=$('#storyGrid');if(!g)return;
  g.className=`storygrid count-${APP.storyCount||3}`;
  const active=roll.filter((_,i)=>APP.storyEnabled?.[i]!==false).length;
  $('#storyCounter').textContent=`${active} beelden`;$('#storyPromptCount').textContent=active?`Gebruik ${active===1?'dit beeld':`alle ${active} beelden`} in je verhaal. ${levelInstruction()}`:'Zet een steen aan om een verhaal te maken.';
@@ -644,11 +651,13 @@ function renderStory(){
 }
 let storyBusy=false;
 async function rollStory(animate=true){
- if(storyBusy)return;storyBusy=true;updateUndo();const mount=$('#storyGrid');try{
+ if(storyBusy)return;
+ if(APP.storyCount>storyCounts(APP.storyCollections,heldStoryIds()).at(-1)){startStory(APP.storyCollections);return}
+ storyBusy=true;updateUndo();const mount=$('#storyGrid');try{
  if(animate)playDiceSound();const g=$('#storyGrid');
  if(!mount?.isConnected)return;
  const pool=storyPool(),n=APP.storyCount||3,current=APP.storyRoll||[],locks=APP.storyLocks||{},used=new Set(),next=Array(n).fill(null);
- for(let i=0;i<n;i++){if((locks[i]||APP.storyEnabled?.[i]===false)&&pool.some(x=>x.id===current[i])){next[i]=current[i];used.add(current[i])}}
+ for(let i=0;i<n;i++){if((locks[i]?story.icons:APP.storyEnabled?.[i]===false?pool:[]).some(x=>x.id===current[i])&&!used.has(current[i])){next[i]=current[i];used.add(current[i])}}
  const available=pool.filter(x=>!used.has(x.id)).sort(()=>Math.random()-.5);
  let k=0;for(let i=0;i<n;i++){if(!next[i])next[i]=available[k++]?.id}
  APP.storyRoll=next;save();renderStory();if(animate&&!settingsState().reducedMotion&&!matchMedia('(prefers-reduced-motion: reduce)').matches){g.classList.add('rolling');await Promise.all([...g.querySelectorAll('.storydie:not(.locked):not(.inactive) .smooth-die-host')].map((host,i)=>SmoothDice.roll(host,600,i*30)))}g?.classList.remove('rolling');
