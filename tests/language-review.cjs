@@ -7,6 +7,23 @@ for(const c of b.cards){
  assert.ok(!/je getal staat|verzonnen land|duurdere versie is groter|mijn keuze doen|Volgend jaar wil ik ook brood|Waarom is het nu anders\?/i.test(c.instruction+' '+c.model),c.id);
  if(c.routeId==='route-0')assert.ok(c.instruction.split(/\s+/).length<=18,c.id+' beginner instruction too long');
 }
+const route1=b.cards.filter(c=>c.routeId==='route-1');
+assert.equal(route1.length,240);
+assert.equal(new Set(route1.map(c=>c.id)).size,240);
+assert.equal(new Set(route1.map(c=>c.instruction.trim().toLowerCase())).size,240);
+assert.equal(new Set(route1.map(c=>c.model.trim().toLowerCase())).size,240);
+for(const c of route1){
+ const words=s=>s.trim().split(/\s+/).length;
+ assert.ok(words(c.instruction)<=17,c.id+' A1-A1+ instruction too long');
+ assert.ok(words(c.input)<=14,c.id+' A1-A1+ context too long');
+ assert.ok(words(c.model)<=13,c.id+' A1-A1+ model too long');
+ assert.doesNotMatch(c.model,/\b(naar|met|de|het|een|om|van|in|te|bij|als|en|of)\.$/i,c.id+' truncated model');
+ if(c.shape==='circle')assert.match(c.instruction,/Vertel|Stel jezelf/);
+ if(c.shape==='square')assert.match(c.instruction,/Vraag|Hoe |Wat |Waar |Wanneer |Welke |Van wie/);
+ if(c.shape==='triangle')assert.match(c.instruction,/Kies/);
+ if(c.shape==='diamond')assert.match(c.instruction,/Vraag|Meld|Laat|Spreek|Stel|Bel|Zeg/i);
+}
+assert.doesNotMatch(route1.map(c=>c.instruction+' '+c.input).join(' '),/wat is jouw huisnummer|wat is je huisnummer|wat is jouw exacte adres/i);
 const route2=b.cards.filter(c=>c.routeId==='route-2');
 assert.equal(route2.length,240);
 assert.equal(new Set(route2.map(c=>c.id)).size,240);
