@@ -174,7 +174,8 @@ async function playDiceSound(){
   if(id==='original'){
    appAudioCtx ||= new (window.AudioContext||window.webkitAudioContext)();
    if(appAudioCtx.state!=='running')await appAudioCtx.resume();
-   const source=appAudioCtx.createBufferSource(),gain=appAudioCtx.createGain();source.buffer=appOriginalDiceBuffer(appAudioCtx);gain.gain.value=volume*.62;source.connect(gain);gain.connect(appAudioCtx.destination);source.start();
+   if(settingsState().soundEnabled===false)return;
+   const source=appAudioCtx.createBufferSource(),gain=appAudioCtx.createGain();source.buffer=appOriginalDiceBuffer(appAudioCtx);gain.gain.value=volume*.62;source.connect(gain);gain.connect(appAudioCtx.destination);source.start();appAudio={pause:()=>source.stop()};
   }else{
    const a=new Audio('assets/sounds/'+id+'.mp3');a.volume=volume;appAudio=a;await a.play();
   }
@@ -187,7 +188,7 @@ function appOriginalDiceBuffer(ctx){
  hits.forEach(([when,level],hit)=>{const start=Math.floor(when*ctx.sampleRate),pitch=1+(hit%4-.8)*.085;let low=0;for(let j=0;j<Math.min(Math.ceil(.072*ctx.sampleRate),samples.length-start);j++){const t=j/ctx.sampleRate,n=noise();low+=.38*(n-low);const attack=1-Math.exp(-t/.00045),body=Math.sin(2*Math.PI*620*pitch*t)*.44+Math.sin(2*Math.PI*1280*pitch*t)*.21+Math.sin(2*Math.PI*2240*pitch*t)*.08;samples[start+j]+=level*attack*(low*.55*Math.exp(-t/.0055)+body*Math.exp(-t/.012))*1.05}});
  appOriginalBuffers.set(ctx,buffer);return buffer
 }
-function boardTaskMode(){return ['direct','mixed'].includes(APP.questionMode)?APP.questionMode:'conversation'}
+function boardTaskMode(){return ['direct','conversation','mixed'].includes(APP.questionMode)?APP.questionMode:'direct'}
 function boardTaskCards(){return boardTaskMode()==='direct'?directBank.cards:boardTaskMode()==='mixed'?[...taskBank.cards,...directBank.cards]:taskBank.cards}
 function routeTask(pos,route){
  if(!taskBank)return {shape:'circle',title:'Vertel',instruction:'Vertel iets over deze situatie.',input:'Gebruik taal die bij je niveau past.',support:'Begin met één korte zin.',model:'Ik ben hier vandaag.'};
@@ -210,7 +211,7 @@ function shapeMeta(shape){return (taskBank?.shapes||[]).find(x=>x.id===shape)||{
 /* Speelborden */
 $$('[data-board]').forEach(b=>b.onclick=()=>startBoard(b.dataset.board));
 async function getRoute(id){return routeCache[id] || null}
-function settingsPatch(patch){const s=settingsState();Object.assign(s,patch);localStorage.setItem(SETTINGS_STORE,JSON.stringify(s));const board=$('.board-game');if(board)board.dataset.reducedMotion=String(!!s.reducedMotion);return s}
+function settingsPatch(patch){const s=settingsState();Object.assign(s,patch);localStorage.setItem(SETTINGS_STORE,JSON.stringify(s));const board=$('.board-game');if(board){board.dataset.reducedMotion=String(!!s.reducedMotion);board.dataset.dark=String(!!s.boardDark)}if(patch.soundEnabled===false){appAudio?.pause?.();appAudio=null}return s}
 function boardState(board,route){
  const ppl=participants(),s=APP.boardStates[board]||{};
  s.positions??={};s.finished??={};s.groupPositions??={};s.groupFinished??={};s.round??=1;
@@ -264,25 +265,31 @@ function softDie({color='#fffefa',word='',image='',value=null,words=[],images=[]
 }
 function cardBack(title='Kaarten',family=''){return `<img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute"><span class="card-set-title">${esc(title)}</span>${family?`<span class="card-family">${esc(family)}</span>`:''}`}
 function physicalDie(n=5){return `<div class="dice-cradle"><div class="dice-float"><div id="moveDie" class="physical-die sculpted-board-die" aria-label="Dobbelsteen ${n}">${softDie({value:n,front:false})}</div></div></div>`}
+function boardOptionInfo(label,description){
+ return `<span class="context-tool board-info" data-tip-label="${esc(label)}" data-tip="${esc(description)}"><button type="button" aria-label="Uitleg: ${esc(label)}"><span aria-hidden="true">ⓘ</span></button></span>`;
+}
+function boardOptionTitle(id,label,description){return `<span class="board-option-title"><label for="${id}">${label}</label>${boardOptionInfo(label,description)}</span>`}
 function startBoard(board){
  const route=routeCache[board];if(!route)return toast('Dit bord is niet beschikbaar.');
  const img=route.sourceAsset||`assets/boards/${board}.png`,s=boardState(board,route);boardBusy=false;
  boardActiveActor(board);setLast('board',`${route.label||board[0].toUpperCase()+board.slice(1)} · Speelbord`,{board});
  const taxi=route.alternativeRoutes?.[0];
- $('#gameMount').innerHTML=`<div class="game-shell board-game" data-board-fit="${settingsState().boardFit==='adaptive'?'adaptive':'fixed'}" data-reduced-motion="${!!settingsState().reducedMotion}" data-footer="${settingsState().boardFooter==='red'?'red':'blue'}"><div class="game-work"><div class="board-view" id="boardView">
+ $('#gameMount').innerHTML=`<div class="game-shell board-game" data-dark="${!!settingsState().boardDark}" data-board-fit="${settingsState().boardFit==='adaptive'?'adaptive':'fixed'}" data-reduced-motion="${!!settingsState().reducedMotion}" data-footer="${settingsState().boardFooter==='red'?'red':'blue'}"><div class="game-work"><div class="board-view" id="boardView">
  <div id="boardViewport"><svg id="boardMap" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Speelbord ${board}, ${route.nodes.length} posities"><g id="boardLayers"><image id="boardBackground" href="${img}" width="${route.sourceWidth}" height="${route.sourceHeight}" preserveAspectRatio="xMidYMid meet"/><g id="boardRoute">${boardRouteSvg(board,route)}</g><ellipse id="activeFieldMarker" rx="20" ry="8"/><g id="pawnLayer"></g>${taxi?'<g id="boardTaxi"><image href="assets/boards/watertaxi.png" x="-45" y="-43" width="90" height="60"/></g>':''}${boardOcclusionSvg(route,img)}</g></svg></div>
  <div class="board-hud"><strong>${esc(route.label||board[0].toUpperCase()+board.slice(1))}</strong><span>Ronde <b id="roundValue">${s.round}</b></span><span id="boardStatus">Spatie om te gooien</span></div>
  <aside class="board-options" id="boardOptions"><div class="board-options-head"><strong>Bordopties</strong><button id="closeBoardOptions" aria-label="Sluit bordopties">×</button></div>
- <fieldset class="footer-choices"><legend>Bordweergave</legend>${[['fixed','Groot houden'],['adaptive','Alles zichtbaar']].map(([value,label])=>`<label class="footer-choice"><input type="radio" name="boardFit" value="${value}" ${(settingsState().boardFit==='adaptive'?'adaptive':'fixed')===value?'checked':''}><span>${label}</span></label>`).join('')}<small>Groot houden: panelen schuiven over het bord. Alles zichtbaar: het bord past zich aan de vrije ruimte aan.</small></fieldset>
- <fieldset class="footer-choices"><legend>Gooiknop</legend>${[['blue','Blauw · dobbelsteen'],['red','Rood · ronde knop']].map(([value,label])=>`<label class="footer-choice"><input type="radio" name="boardFooter" value="${value}" ${(settingsState().boardFooter==='red'?'red':'blue')===value?'checked':''}><span class="footer-swatch ${value}" aria-hidden="true">⚄</span><span>${label}</span></label>`).join('')}</fieldset>
- <label>Spelmodus<select class="mode-select" id="modeSelect"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option></select></label>
- <label class="board-exercise-choice">Oefening<select class="mode-select" id="questionMode"><option value="conversation">Met een gesprekspartner · 240 kaarten</option><option value="direct">Snelvragen · 60 vragen</option><option value="mixed">Mix van beide · 300 kaarten</option></select></label>
- <button class="smallbtn" id="nextBoardTask">Andere opdracht</button>
- <label>Vaknummers<input type="checkbox" id="optNumbers" ${settingsState().showNumbers!==false?'checked':''}></label>
- ${taxi?`<label>Watertaxi<input type="checkbox" id="optConnections" ${settingsState().showConnections!==false?'checked':''}></label>`:''}
- <label>Minder beweging<input type="checkbox" id="optMotion" ${settingsState().reducedMotion?'checked':''}></label>
- <label>Bepaal de worp<select id="fixedRoll"><option value="0">Willekeurig</option>${[1,2,3,4,5,6].map(n=>`<option value="${n}">${n}</option>`).join('')}</select></label>
- <button class="smallbtn" id="restartBoard">Opnieuw beginnen</button></aside>
+ <div class="board-option-row board-exercise-choice">${boardOptionTitle('questionMode','Oefening',`Snelvragen: geef zelf antwoord op een korte vraag. Met gesprekspartner: voer samen een gesprek. Mix: beide soorten door elkaar. Voor het gekozen niveau zijn ${directBank.cards.filter(c=>c.routeId===selectedTaskRoute().id).length} snelvragen beschikbaar; de aangesloten snelvraagbank bevat ${directBank.cards.length} vragen in totaal.`)}<select class="mode-select" id="questionMode"><option value="direct">Snelvragen</option><option value="conversation">Met gesprekspartner</option><option value="mixed">Mix van beide</option></select></div>
+ <div class="board-option-row">${boardOptionTitle('modeSelect','Speelmodus','Klassikaal: de hele klas speelt met één pion. Individueel: iedere deelnemer heeft een eigen pion en beurt. Groepen: iedere groep speelt met één pion. Deelnemers en groepen stel je in via Menu → Instellingen.')}<select class="mode-select" id="modeSelect"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option></select></div>
+ <div class="board-option-row"><button class="smallbtn" id="nextBoardTask">Andere opdracht</button>${boardOptionInfo('Andere opdracht','Toon een andere opdracht voor het huidige vak, niveau en de gekozen oefening. De pion blijft staan.')}</div>
+ <fieldset class="footer-choices"><legend>Bordweergave</legend>${[['fixed','Groot houden','Het bord blijft groot als je een opdracht of de bordopties opent. Het paneel kan een deel van het bord bedekken.'],['adaptive','Alles zichtbaar','Het bord wordt kleiner als je een opdracht of de bordopties opent. Zo blijven het hele bord en het paneel naast elkaar zichtbaar.']].map(([value,label,tip])=>`<div class="board-choice-row"><label class="footer-choice"><input type="radio" name="boardFit" value="${value}" ${(settingsState().boardFit==='adaptive'?'adaptive':'fixed')===value?'checked':''}><span>${label}</span></label>${boardOptionInfo(label,tip)}</div>`).join('')}</fieldset>
+ <fieldset class="footer-choices"><legend>Gooiknop ${boardOptionInfo('Gooiknop','Kies de blauwe knop met dobbelsteen of de rode ronde knop. Beide gebruiken dezelfde worpen en spelregels.')}</legend>${[['blue','Blauw · dobbelsteen'],['red','Rood · ronde knop']].map(([value,label])=>`<label class="footer-choice"><input type="radio" name="boardFooter" value="${value}" ${(settingsState().boardFooter==='red'?'red':'blue')===value?'checked':''}><span class="footer-swatch ${value}" aria-hidden="true">⚄</span><span>${label}</span></label>`).join('')}</fieldset>
+ <div class="board-option-row">${boardOptionTitle('optNumbers','Vaknummers','Toon of verberg de nummers van de vakken op het speelbord. De route en de opdrachten blijven hetzelfde.')}<input type="checkbox" id="optNumbers" ${settingsState().showNumbers!==false?'checked':''}></div>
+ ${taxi?`<div class="board-option-row">${boardOptionTitle('optConnections','Watertaxi','Bied bij de steiger de keuze om de watertaxi als kortere route te nemen. Zet dit uit om alleen de hoofdweg te gebruiken.')}<input type="checkbox" id="optConnections" ${settingsState().showConnections!==false?'checked':''}></div>`:''}
+ <div class="board-option-row">${boardOptionTitle('optMotion','Minder beweging','Beperk de animaties van de dobbelsteen en pionnen. De worp en de spelregels blijven hetzelfde.')}<input type="checkbox" id="optMotion" ${settingsState().reducedMotion?'checked':''}></div>
+ <div class="board-option-row">${boardOptionTitle('optSound','Geluid','Zet de geluidseffecten van het spel aan of uit. Het gekozen geluid en het volume stel je in via Menu → Instellingen → Geluid.')}<input type="checkbox" id="optSound" ${settingsState().soundEnabled!==false?'checked':''}></div>
+ <div class="board-option-row">${boardOptionTitle('optDark','Donkere modus','Maak de achtergrond, knoppen en tekstpanelen rond het speelbord donkerder. De kleuren van de bordafbeelding blijven behouden.')}<input type="checkbox" id="optDark" ${settingsState().boardDark?'checked':''}></div>
+ <div class="board-option-row">${boardOptionTitle('fixedRoll','Bepaal de worp','Willekeurig: de dobbelsteen kiest een getal van 1 tot en met 6. Kies een vast getal om elke keer dat aantal stappen te zetten, bijvoorbeeld voor een demonstratie.')}<select id="fixedRoll"><option value="0">Willekeurig</option>${[1,2,3,4,5,6].map(n=>`<option value="${n}">${n}</option>`).join('')}</select></div>
+ <div class="board-option-row"><button class="smallbtn" id="restartBoard">Opnieuw beginnen</button>${boardOptionInfo('Opnieuw beginnen','Zet alle pionnen op dit bord terug naar de start. Je krijgt eerst een bevestigingsvraag.')}</div></aside>
  <div class="taxi-choice" id="taxiChoice" hidden><strong>Neem je de watertaxi?</strong><p>${taxi?`Wandel naar de steiger en vaar door naar vak ${taxi.toPosition}.`:''}</p><button class="primary" id="takeTaxi">Neem de watertaxi</button><button class="smallbtn" id="stayOnRoad">Blijf op de hoofdweg</button></div>
  <div class="task-drawer" id="taskDrawer"><div><div class="task-meta" id="taskMeta"></div><h2 id="taskTitle"></h2><p id="taskInput"></p>${contextTools('task')}</div><button class="donebtn" id="taskDone">Verder en gooien · spatie</button></div>
  </div></div>${gameBar(`<div class="board-dice-control">${physicalDie(s.lastRoll||5)}<button class="primary" id="primaryGame" title="Gooien · spatie">GOOIEN</button></div>`,true)}</div>`;
@@ -297,6 +304,8 @@ function startBoard(board){
  $('#optNumbers').onchange=e=>{settingsPatch({showNumbers:e.target.checked});$('#boardRoute').innerHTML=boardRouteSvg(board,route)};
  $('#optConnections')?.addEventListener('change',e=>settingsPatch({showConnections:e.target.checked}));
  $('#optMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});
+ $('#optSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked});
+ $('#optDark').onchange=e=>settingsPatch({boardDark:e.target.checked});
  $('#fixedRoll').value=String(APP.fixedRoll||0);$('#fixedRoll').onchange=e=>{APP.fixedRoll=Number(e.target.value);save()};
  $('#restartBoard').onclick=()=>openGameDialog('Opnieuw beginnen',`<p>Alle pionnen op dit bord gaan terug naar het eerste vak.</p><button class="primary" id="confirmRestart">Begin opnieuw</button>`,()=>{$('#confirmRestart').onclick=()=>{APP.boardStates[board]={};APP.turn.active=0;save();$('#gameDialog').close();startBoard(board)}});
  $('#stayOnRoad').onclick=()=>resolveTaxi(board,route,false);$('#takeTaxi').onclick=()=>resolveTaxi(board,route,true);

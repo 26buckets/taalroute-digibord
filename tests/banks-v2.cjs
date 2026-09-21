@@ -10,6 +10,37 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  const p=await b.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
  await p.goto('http://127.0.0.1:'+server.address().port+'/index.html');
+ // Fresh boards default to direct questions; settings and inline help preserve the game.
+ await p.evaluate(()=>startBoard('rotterdam'));
+ await p.getByRole('button',{name:'Bordopties',exact:true}).click();
+ assert.equal(await p.locator('#questionMode').inputValue(),'direct');
+ assert.deepEqual(await p.locator('#questionMode option').allTextContents(),['Snelvragen','Met gesprekspartner','Mix van beide']);
+ const optionState=await p.evaluate(()=>JSON.stringify(APP.boardStates));
+ await p.getByRole('button',{name:'Uitleg: Speelmodus',exact:true}).hover();
+ assert.match(await p.locator('#contextTooltip').innerText(),/Klassikaal:.*één pion/);
+ await p.keyboard.press('Escape');assert.equal(await p.locator('#contextTooltip').isVisible(),false);
+ await p.getByRole('button',{name:'Uitleg: Groot houden',exact:true}).focus();
+ assert.equal(await p.locator('#contextTooltip').isVisible(),true);
+ await p.locator('#optDark').check();await p.locator('#optSound').uncheck();
+ assert.equal(await p.locator('.board-game').getAttribute('data-dark'),'true');
+ await p.evaluate(()=>playDiceSound());assert.equal(await p.evaluate(()=>appAudio),null,'muted game creates no sound');
+ await p.locator('#optSound').check();await p.evaluate(()=>playDiceSound());
+ assert.equal(await p.evaluate(()=>!!appAudio),true,'enabled game plays its effect');
+ await p.locator('#optSound').uncheck();assert.equal(await p.evaluate(()=>appAudio),null,'muting stops the current sound');
+ assert.equal(await p.evaluate(()=>JSON.stringify(APP.boardStates)),optionState);
+ await p.reload();await p.evaluate(()=>resumeLast());await p.getByRole('button',{name:'Bordopties',exact:true}).click();
+ assert.equal(await p.locator('#optDark').isChecked(),true);assert.equal(await p.locator('#optSound').isChecked(),false);
+ await p.setViewportSize({width:390,height:844});
+ await p.getByRole('button',{name:'Uitleg: Donkere modus',exact:true}).click();
+ assert.equal(await p.locator('#contextTooltip').isVisible(),true,'tap opens explanation');
+ assert.equal(await p.locator('#contextTooltip').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight}),true);
+ await p.keyboard.press('Escape');
+ await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!!document.fullscreenElement);
+ await p.getByRole('button',{name:'Uitleg: Geluid',exact:true}).hover();
+ assert.equal(await p.locator('#contextTooltip').isVisible(),true,'help is visible in fullscreen');
+ await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!document.fullscreenElement);
+ await p.locator('#optDark').uncheck();await p.locator('#optSound').check();
+ await p.setViewportSize({width:1440,height:900});await p.locator('#closeBoardOptions').click();
  const report=await p.evaluate(()=>{
   settingsPatch({reducedMotion:true});startBoard('rotterdam');let count=0,cycles=0;
   const fail=m=>{throw Error(m)};
@@ -47,7 +78,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
   await p.getByRole('button',{name:'Bordopties',exact:true}).click();await p.locator('#questionMode').selectOption(mode);
   assert.deepEqual(await p.evaluate(()=>({positions:JSON.stringify(APP.boardStates.rotterdam.positions),groups:JSON.stringify(APP.boardStates.rotterdam.groupPositions),classPos:APP.boardStates.rotterdam.classPos,turn:JSON.stringify(APP.turn)})),before);
  }
- await p.locator('#boardMenuToggle').click();await p.locator('#levelSelect').selectOption('A1');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
+ await p.locator('#levelSelect').selectOption('A1');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
  // Check real UI selections and long help on small and large screens.
  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
  for(const [width,height]of [[1440,900],[1024,768],[390,844]]){
