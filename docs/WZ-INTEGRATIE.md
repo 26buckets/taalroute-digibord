@@ -6,7 +6,7 @@ De bestaande DigiBord-shell is behouden. De WZ-bank is aangesloten op dezelfde A
 
 ## 1. Onderzochte bronnen en bewijsgrens
 
-- Actuele GitHub-repository `26buckets/taalroute-digibord`, basiscommit `42e2b7721683511e7e3da2d1e1bbed27c291df13`.
+- Actuele GitHub-repository `26buckets/taalroute-digibord`, actuele basiscommit `f6df704` (inclusief de nieuwste Zwolle-routekleuren uit PR #17).
 - Actieve V01.24: `words-activity.js`, `app.js`, `index.html`, `new-activities.js`, gedeelde stijlen, opslag en tests.
 - Historisch Woordspel: tag `archive/pre-v0124-20260921`, commit `0aae53a943630ff573b1d9b42ecc69ea3014562b`; bestanden `Woordspel/woordspel-content.js`, `Woordspel/woordspel-table.js`, `Woordspel/woordspel.js`, `Praatpad.html` en `digiboard.js`.
 - [Google Drive-masterbank](https://docs.google.com/spreadsheets/d/14BWnJEpoph7EJoizneSZibl70gA1_ToQkjloXRAbnlw/edit): alle 680 rijen en 21 kolommen van `Masterbank!A1:U681`, plus Review 3, Advocaat van de duivel en Samenvatting.
@@ -20,9 +20,9 @@ Alle bronitems zijn gelezen en structureel gecontroleerd. Dit is AI-redactie plu
 |---|---|---|---|
 | Globale shell | Werkende navigatie, instellingen, deelnemers, beurtwisseling, Terug, fullscreen | Eigen Praatpad-host | Actieve shell behouden; oude host niet terugplaatsen |
 | Woorden en zinnen Activity Shell | Werkende kaartenstapel, actieve kaart, hulp, voorbeeld, oefenvormzijbalk | Eigen interface | Bestaande Activity Shell uitbreiden |
-| Bouw een zin | 30 kaarten: 10 hoofdzinnen, 10 andere start, 10 bijzinnen; tikken, slepen, toetsenbord, voorbeeldcontrole | 12 zinsdeelkaarten, 3 per A1/A2/B1/B2 | 30 kaarten exact behouden; dezelfde bouwer voor WZ-bouwstenen |
+| Bouw een zin | 30 kaarten: 10 hoofdzinnen, 10 andere start, 10 bijzinnen; tikken, slepen, toetsenbord, voorbeeldcontrole | 12 zinsdeelkaarten, 3 per A1/A2/B1/B2 | 30 kaarten exact behouden; dezelfde bouwer voor WZ en de 12 geïmporteerde historische kaarten |
 | Maak en verander | Uitgeschakelde tegel; `startWords` negeerde het gewenste subtype | Werkende vrije kaartentafel en 24 taakpresets | WZ Herstel/Verander nu speelbaar; vrije tafel vraagt afzonderlijke datamigratie |
-| Beschrijf en raad | Uitgeschakelde tegel | 16 woorden met elk 3 aanwijzingen en stapsgewijs onthullen | Niet gelijkstellen aan WZ Spreek. Inhoud en verborgen antwoord zijn andere requirements |
+| Beschrijf en raad | Uitgeschakelde tegel | 16 woorden met elk 3 aanwijzingen en stapsgewijs onthullen | 16 kaarten geïmporteerd; dezelfde shell, stapsgewijze aanwijzingen en expliciet onthullen; geen automatische score |
 | Combineer en beschrijf | Uitgeschakelde tegel | 5 zelfstandige naamwoorden, 7 eigenschappen, compatibiliteitslijsten en 24 taakpresets | Niet gelijkstellen aan WZ Transfer. Koppelingen en criteria behouden bij latere import |
 
 Het oude Woordspel bevat bovendien 6 onderwerpen, 13 werkwoorden met vervoegingen, 13 contextsets, 10 tijdsaanduidingen en 10 verbindingswoorden. De generator heeft al compatibiliteitsregels en slotjes. Hij is niet een lege placeholder, maar bevindt zich buiten de huidige runtime. Zijn niveaupresets A1–B2 zijn geen officieel gevalideerde woordniveaus.
@@ -42,7 +42,7 @@ Het oude Woordspel bevat bovendien 6 onderwerpen, 13 werkwoorden met vervoeginge
 | WZ_006_007 Niet of geen | 40 |
 | **Totaal** | **680** |
 
-Bouw 122, Kies 106, Herstel 106, Verander 144, Spreek 144, Transfer 58. **478 gesloten en 202 open**; niet 192 open zoals de Review 3 vermeldt. De appbron bevat daarnaast de 30 behouden kaarten: totaal 710 records, waarvan 680 WZ.
+Bouw 122, Kies 106, Herstel 106, Verander 144, Spreek 144, Transfer 58. **478 gesloten en 202 open**; niet 192 open zoals de Review 3 vermeldt. De appbron bevat daarnaast de 30 behouden kaarten: en de 28 geïmporteerde historische kaarten: totaal **738 records**, waarvan 680 WZ.
 
 ## 4. Inhoudelijke bevindingen en concrete reparaties
 
@@ -102,13 +102,14 @@ Deze punten worden niet afgedekt door de oude `PASS`-velden. De nieuwe reviewgeg
 | Veld | Betekenis |
 |---|---|
 | `id`, `goalId`, `goal` | Bestaand WZ-item-ID, taaldoel-ID en leesbare naam |
-| `type` | Bouw/Kies/Herstel/Verander/Spreek/Transfer |
+| `type` | Bouw/Kies/Herstel/Verander/Spreek/Transfer, plus Raad voor historische raadkaarten |
 | `level`, `band`, `context` | Bronroute A0 tot A1, moeilijkheidsband en inhoudelijke context |
 | `instruction`, `stimulus`, `tokens`, `options` | Expliciete inhoud; geen vrije recombinatie |
 | `answerType` | OPEN of GESLOTEN |
 | `answerModel`, `acceptedAnswers`, `correctOptionId` | Model, expliciet geaccepteerde varianten en juiste keuze-ID; open items hebben geen geaccepteerde exact-antwoorden |
 | `feedback` | Hint of bespreekcriterium |
 | `constructionIds`, `tags` | Behouden TLE-bronconstructies en inhoudelijke tags |
+| `legacyRef`, `tokenRoles`, `clues` | Herleidbare broncommit/-positie, behouden zinsdeelrollen en oorspronkelijke raadaanwijzingen |
 | `source`, `review` | Herkomst, oorspronkelijke reviewclaims, nieuwe redactiestatus, menselijke review/pilot/publicatie |
 
 De scorefunctie negeert uitsluitend hoofdletters, herhaalde witruimte, rechte/typografische apostroffen en afsluitende zinspunctuatie. Ze corrigeert geen woorden, verbuigingen of ontkenningen. Bij gesloten tekst betekent `correct`: past bij een expliciet antwoordmodel; `review`: andere formulering, docent beoordeelt. Dat is geen algemene Nederlandse grammaticacontrole en geen beheersingsscore.
@@ -119,23 +120,27 @@ De centrale JSON is vanaf deze wijziging de bewerkbare appbron. De Sheet is de h
 
 ## 7. Migratie van oud Woordspel zonder verlies
 
-**Nu uitgevoerd:** de 30 actieve kaarten zijn uit JavaScript naar de centrale bron gehaald. De oude array is vervangen door een selectie uit die bron; er is dus geen apart handmatig te onderhouden kopie. Een vastgelegde inhoudshash controleert dat alle oorspronkelijke velden behouden zijn. De historische tag, bestaande browseropslag en overige banken zijn onaangetast.
+**Uitgevoerd:** de 30 actieve kaarten én alle 12 historische Bouw-kaarten en 16 raadkaarten staan in `Lessen/woorden-zinnen.json`. Alle historische tekst, zinsdelen, zinsdeelrollen, toelichtingen, doelwoorden en aanwijzingen zijn overgenomen. De archiefbron is vastgezet op commit `0aae53a943630ff573b1d9b42ecc69ea3014562b`. Elk item bevat zijn bronpad en oorspronkelijke positie in `legacyRef`.
 
-**Volgende migratie, concreet in deze volgorde:**
+- IDs: `LEGACY_WS_BUILD_A1_01` t/m `LEGACY_WS_BUILD_B2_03` (drie per niveau) en `LEGACY_WS_GUESS_001` t/m `LEGACY_WS_GUESS_016`.
+- De importer maakt vóór schrijven een gedateerde back-up, voegt alleen ontbrekende IDs toe, weigert conflicterende lokale wijzigingen en schrijft via een tijdelijk bestand. Tweemaal uitgevoerd: 28 toegevoegd, daarna 0. Gebruik `npm run import:wordspel`; voor alleen vergelijken `node scripts/import-wordspel.cjs`. De vastgezette archiefcommit moet lokaal beschikbaar zijn; zo nodig eerst de bestaande archieftag ophalen. De app zelf leest het archief nooit.
+- De oorspronkelijke Bouw-doelen gewone hoofdzin en ja/nee-vraag gebruiken WZ_001 respectievelijk WZ_004. De overige tien structuren hebben eigen expliciete WS-doelen in dezelfde bron. Ze worden niet ten onrechte in de A0–A1-bank gedwongen. De historische collectie opent ook eerst het taaldoel; daarna volgt de oefenvorm.
+- Bouw gebruikt de bestaande bouwer, inclusief woordgroepen. Raad voegt binnen dezelfde shell alleen aanwijzingen en een verborgen doelwoord toe. Spreek, Transfer én Raad zijn ook in de gedeelde controlefunctie beschermd tegen exacte scoring.
+- Raad heeft standaard alle 16 kaarten; met het niveau kun je filteren op het oorspronkelijke `min`-niveau, nu opgeslagen als kaartniveau. Anders dan het oude spel mengt de expliciete niveaukeuze geen aangrenzend lager niveau bij. Alle oorspronkelijke `min`-waarden zijn bewaard; deze presets zijn niet opnieuw CEFR-gevalideerd.
+- Nieuwe historische voortgang (kaart, filter, bouwstenen, aanwijzingen en onthuld woord) gebruikt dezelfde versie-4-opslag en dezelfde Terug-functie als WZ. Bestaande WZ-opslag zonder de nieuwe optionele bronvelden blijft leesbaar.
+- **Oude Praatpad-voortgang is behouden, maar nog niet vertaald.** Er zijn geen oude browseropslagsleutels gelezen, vervangen of verwijderd. Deze import betreft de 28 contentkaarten, niet opgeslagen groepen/lessen uit een andere app of origin.
 
-1. Maak eerst een gedateerde export van de volledige oude lesopslag, inclusief `data.wordspel`, en van de nieuwe `taalroute-digibord-v020` en undo-opslag. De oude sleutels zijn `taalroute-praatpad-les-v2` en `taalroute-digiboard-les-<mapId>-v1`; behoud ook bestaande reserves. Oude en nieuwe origins zijn niet vanzelf onderling leesbaar: gebruik bij verschillende hosts een expliciete export/import.
-2. Lees het historische contentbestand en zijn compatibiliteitsdata. Maak een vaste migratiemanifest met bronpad, broncommit en oorspronkelijke index. Nieuwe IDs worden bijvoorbeeld `LEGACY_WS_BUILD_A1_01`, `LEGACY_WS_GUESS_001` en `LEGACY_WS_NOUN_001`. Een index uit de oude opslag wordt via die mapping vertaald; nooit stilzwijgend hernummeren.
-3. Importeer eerst de 12 statische Bouw-kaarten en 16 raadkaarten in **dezelfde** centrale bron. Wijs bestaande taaldoelen toe waar de doelhandeling klopt; laat niet-passende hogere doelen expliciet oningedeeld voor review. Dwing A2/B1/B2 niet in WZ_001–008.
-4. Gebruik voor Bouw dezelfde renderer. Voeg alleen voor raden een verborgen doelwoord en stapsgewijze aanwijzingen toe. “Beschrijf en raad” blijft een presentatie van centrale inhoud, geen nieuwe shell of aparte opslag.
-5. Breng de 5 naamwoorden, 7 eigenschappen en hun toegestane combinaties over als herbruikbare centrale data. De 24 combineerpresets leveren een open beschrijfopdracht met rubric. Combineer geen willekeurige bijvoeglijke naamwoorden en zelfstandige naamwoorden.
-6. Migreer pas daarna de vrije Maak en verander-tafel: 6 onderwerpen, 13 werkwoorden, vormen, contextregels en 24 taakpresets. Behoud de bestaande compatibiliteitsregels, waaronder scheidbare/wederkerige werkwoorden, tijd en verplichte aanvullingen. De oude generator kan alleen als afgebakende voorstel-/voorbeeldfunctie achter hetzelfde contentcontract worden hergebruikt. Hij mag geen tweede doelcatalogus, tweede inhoudsbank of automatische beoordelaar worden.
-7. Behoud de oude snapshot ongewijzigd naast de nieuwe ID-gebaseerde voortgang. Leg een migratieversie en resultaat vast. Een herhaalde import mag geen duplicaten aanmaken. Bij onbekende index, variant of gewijzigde bron: stop alleen die record, behoud het origineel en rapporteer de afwijking.
-8. Verifieer aantallen en inhoud, identieke kaartvolgorde, alle opgeslagen indexen, slotjes, geplaatste bouwstenen, hervatten en Terug. Verwijder niets na import; herstel blijft mogelijk vanaf de originele export. Verwijderde of vervangen inhoud krijgt later een alias/verwijzing, geen hergebruik van een ID.
+**Resterend migratiepad:**
 
-**Eerstvolgende technische stap:** laat deze patch op actuele `main` integreren na review en bouw vervolgens een kleine, idempotente importer voor de 12 historische Bouw- en 16 raadkaarten plus hun oude voortgang. De contentbron en rendergrens bestaan nu; een nieuwe app of grammatica-engine is daarvoor niet nodig. Voor publicatie moeten de genoemde inhoudelijke reviewpunten worden afgehandeld en de preview expliciet worden vrijgegeven.
+1. Implementeer export/import van oude lesopslag met voorafgaande export/back-up van zowel oude als huidige gegevens. De oude sleutels zijn `taalroute-praatpad-les-v2` en `taalroute-digiboard-les-<mapId>-v1`, plus reserves. Vertaal `data.wordspel` en oude indices via de nu aanwezige `legacyRef`; behoud originele snapshots. Weiger onbekende of gewijzigde records afzonderlijk, zonder data te wissen. Bij verschillende hosts is expliciete bestandsoverdracht nodig.
+2. Importeer daarna de 5 naamwoorden, 7 eigenschappen, toegestane combinaties en 24 combineerpresets als centrale data met open opdrachtcriteria. Willekeurige combinaties blijven uitgesloten.
+3. Breng vervolgens de vrije Maak en verander-tafel over: 6 onderwerpen, 13 werkwoorden, vervoegingen, contextregels en 24 taakpresets. Hergebruik de compatibiliteitsregels. De oude generator wordt hoogstens een afgebakende voorstel-/voorbeeldfunctie achter hetzelfde contract, geen tweede bank of grammaticabeoordelaar.
+4. Test vertaling van indices, slotjes, geplaatste bouwstenen, hervatten, Terug en herhaalde import met echte geëxporteerde lesbestanden. De import wist de bron nooit.
+
+**Eerstvolgende technische stap na code-review en integratie in main:** een importer voor daadwerkelijk geëxporteerde oude lesvoortgang, met behoud van origin/snapshot en vertaling naar de nu vaste kaart-IDs. Inhoudelijke docentreview en lespilot blijven nodig voordat deze docentpreview wordt vrijgegeven. Publicatie is niet uitgevoerd.
 
 ## 8. Verificatie
 
-De definitieve testresultaten en eventuele beperkingen staan in het bijgeleverde opleververslag. Kerncontroles zijn: schema en alle 680 IDs, bron-/bundelpariteit, alle 680 renders, negen taaldoelen via echte bediening, zes vormen, open beoordelingsguard, gesloten antwoorden, filters, hervatten/Terug, behoud van bestaande data en 30 kaartteksten, toetsenbord/tik en desktop/tablet/smal scherm. Daarnaast draait de bestaande appregressie voor de andere banken en spellen.
+De definitieve testresultaten en eventuele beperkingen staan in het bijgeleverde opleververslag. Kerncontroles zijn: schema en alle 680 IDs, bron-/bundelpariteit, alle 680 renders, negen taaldoelen via echte bediening, zes WZ-vormen plus Raad, alle 28 historische renders, open beoordelingsguard, gesloten antwoorden, filters, hervatten/Terug, behoud van bestaande data en 30 kaartteksten, toetsenbord/tik en desktop/tablet/smal scherm. Daarnaast draait de bestaande appregressie voor de andere banken en spellen.
 
 De bestaande `npm run types` controleert alleen `board-viewport.js`; dit is geen claim dat de nieuwe JavaScript volledig statisch getypeerd is. De nieuwe logica wordt door lint, uitvoerbare inhoudstests en browsertests gecontroleerd.

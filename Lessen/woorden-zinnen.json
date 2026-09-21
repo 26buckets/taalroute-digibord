@@ -26911,6 +26911,1306 @@
       "hint": "Wat doen we eerst? Wat gebeurt daarna?",
       "variation": "Vertel wat jullie nog meer doen voordat jullie vertrekken.",
       "prefix": "We controleren het adres"
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_A1_01",
+      "goalId": "WZ_001",
+      "goal": "Gewone hoofdzin",
+      "level": "A1",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Maak een zin die begint met “Ik”.",
+      "stimulus": "",
+      "tokens": [
+        "Ik",
+        "drink",
+        "koffie."
+      ],
+      "tokenRoles": [
+        "Subject",
+        "Persoonsvorm",
+        "Rest"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Ik drink koffie.",
+      "acceptedAnswers": [
+        "Ik drink koffie."
+      ],
+      "feedback": "In deze zin staat de persoonsvorm na het subject.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "A1",
+        "index": 0
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_A1_02",
+      "goalId": "WZ_004",
+      "goal": "Ja nee vraag",
+      "level": "A1",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Maak een vraag die begint met “Drink”.",
+      "stimulus": "",
+      "tokens": [
+        "Drink",
+        "jij",
+        "koffie?"
+      ],
+      "tokenRoles": [
+        "Persoonsvorm",
+        "Subject",
+        "Rest"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Drink jij koffie?",
+      "acceptedAnswers": [
+        "Drink jij koffie?"
+      ],
+      "feedback": "In deze vraag staat de persoonsvorm voor het subject. Bij “jij” vervalt hier de -t.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "A1",
+        "index": 1
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_A1_03",
+      "goalId": "WS_INVERSIE",
+      "goal": "Een andere start",
+      "level": "A1",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Vandaag”.",
+      "stimulus": "",
+      "tokens": [
+        "Vandaag",
+        "werk",
+        "ik",
+        "thuis."
+      ],
+      "tokenRoles": [
+        "Tijd",
+        "Persoonsvorm",
+        "Subject",
+        "Rest"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Vandaag werk ik thuis.",
+      "acceptedAnswers": [
+        "Vandaag werk ik thuis."
+      ],
+      "feedback": "De tijd staat vooraan. De persoonsvorm blijft op de tweede zinsplaats.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "A1",
+        "index": 2
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_A2_01",
+      "goalId": "WS_SCHEIDBAAR",
+      "goal": "Scheidbare werkwoorden",
+      "level": "A2",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Morgen”.",
+      "stimulus": "",
+      "tokens": [
+        "Morgen",
+        "neem",
+        "ik",
+        "een tas",
+        "mee."
+      ],
+      "tokenRoles": [
+        "Tijd",
+        "Persoonsvorm",
+        "Subject",
+        "Rest",
+        "Los deel"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Morgen neem ik een tas mee.",
+      "acceptedAnswers": [
+        "Morgen neem ik een tas mee."
+      ],
+      "feedback": "“Meenemen” staat hier uit elkaar. De tijd komt vooraan en de persoonsvorm op de tweede zinsplaats.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "A2",
+        "index": 0
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_A2_02",
+      "goalId": "WS_VOLTOOID",
+      "goal": "Voltooide tijd",
+      "level": "A2",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Maak een zin die begint met “Wij”.",
+      "stimulus": "",
+      "tokens": [
+        "Wij",
+        "hebben",
+        "de keuken",
+        "schoongemaakt."
+      ],
+      "tokenRoles": [
+        "Subject",
+        "Persoonsvorm",
+        "Rest",
+        "Werkwoord"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Wij hebben de keuken schoongemaakt.",
+      "acceptedAnswers": [
+        "Wij hebben de keuken schoongemaakt."
+      ],
+      "feedback": "“Hebben” is de persoonsvorm. “Schoongemaakt” is het voltooid deelwoord.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "A2",
+        "index": 1
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_A2_03",
+      "goalId": "WS_WEDERKERIG",
+      "goal": "Wederkerige werkwoorden",
+      "level": "A2",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Maak een zin die begint met “Zij”.",
+      "stimulus": "",
+      "tokens": [
+        "Zij",
+        "meldt",
+        "zich",
+        "voor de cursus",
+        "aan."
+      ],
+      "tokenRoles": [
+        "Subject",
+        "Persoonsvorm",
+        "Wederkerig",
+        "Rest",
+        "Los deel"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Zij meldt zich voor de cursus aan.",
+      "acceptedAnswers": [
+        "Zij meldt zich voor de cursus aan."
+      ],
+      "feedback": "“Zich aanmelden” is wederkerig én scheidbaar. In deze zin verwijst “zich” naar “zij”.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "A2",
+        "index": 2
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_B1_01",
+      "goalId": "WS_OMDAT",
+      "goal": "Een reden met omdat",
+      "level": "B1",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Ik blijf thuis,”.",
+      "stimulus": "",
+      "tokens": [
+        "Ik blijf thuis,",
+        "omdat",
+        "ik",
+        "me",
+        "niet lekker",
+        "voel."
+      ],
+      "tokenRoles": [
+        "Hoofdzin",
+        "Verbinding",
+        "Subject",
+        "Wederkerig",
+        "Rest",
+        "Persoonsvorm"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Ik blijf thuis, omdat ik me niet lekker voel.",
+      "acceptedAnswers": [
+        "Ik blijf thuis, omdat ik me niet lekker voel."
+      ],
+      "feedback": "Na “omdat” volgt een bijzin. “Voel” staat hier achteraan.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "B1",
+        "index": 0
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_B1_02",
+      "goalId": "WS_ALS",
+      "goal": "Een voorwaarde met als",
+      "level": "B1",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Als”.",
+      "stimulus": "",
+      "tokens": [
+        "Als",
+        "het",
+        "regent,",
+        "neem",
+        "ik",
+        "een paraplu",
+        "mee."
+      ],
+      "tokenRoles": [
+        "Verbinding",
+        "Subject",
+        "Persoonsvorm",
+        "Persoonsvorm",
+        "Subject",
+        "Rest",
+        "Los deel"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Als het regent, neem ik een paraplu mee.",
+      "acceptedAnswers": [
+        "Als het regent, neem ik een paraplu mee."
+      ],
+      "feedback": "De vooropgeplaatste bijzin wordt gevolgd door de persoonsvorm van de hoofdzin: “neem ik”.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "B1",
+        "index": 1
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_B1_03",
+      "goalId": "WS_DAT",
+      "goal": "Een bijzin met dat",
+      "level": "B1",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Ik denk”.",
+      "stimulus": "",
+      "tokens": [
+        "Ik denk",
+        "dat",
+        "wij",
+        "de afspraak",
+        "moeten",
+        "verzetten."
+      ],
+      "tokenRoles": [
+        "Hoofdzin",
+        "Verbinding",
+        "Subject",
+        "Rest",
+        "Persoonsvorm",
+        "Werkwoord"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Ik denk dat wij de afspraak moeten verzetten.",
+      "acceptedAnswers": [
+        "Ik denk dat wij de afspraak moeten verzetten."
+      ],
+      "feedback": "In deze bijzin staan “moeten verzetten” bij elkaar. Bespreek het verschil met “Wij moeten de afspraak verzetten”.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "B1",
+        "index": 2
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_B2_01",
+      "goalId": "WS_INDIRECT",
+      "goal": "Een indirecte vraag",
+      "level": "B2",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Ik vraag me af”.",
+      "stimulus": "",
+      "tokens": [
+        "Ik vraag me af",
+        "waarom",
+        "de afspraak",
+        "is",
+        "uitgesteld."
+      ],
+      "tokenRoles": [
+        "Hoofdzin",
+        "Vraagwoord",
+        "Subject",
+        "Persoonsvorm",
+        "Werkwoord"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Ik vraag me af waarom de afspraak is uitgesteld.",
+      "acceptedAnswers": [
+        "Ik vraag me af waarom de afspraak is uitgesteld."
+      ],
+      "feedback": "Dit is een indirecte vraag. Ook “… waarom de afspraak uitgesteld is” is mogelijk. Het voorbeeld toont één geldige volgorde.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "B2",
+        "index": 0
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_B2_02",
+      "goalId": "WS_HOEWEL",
+      "goal": "Een tegenstelling met hoewel",
+      "level": "B2",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Hoewel”.",
+      "stimulus": "",
+      "tokens": [
+        "Hoewel",
+        "de uitleg",
+        "duidelijk",
+        "was,",
+        "hadden",
+        "de deelnemers",
+        "nog vragen."
+      ],
+      "tokenRoles": [
+        "Verbinding",
+        "Subject",
+        "Rest",
+        "Persoonsvorm",
+        "Persoonsvorm",
+        "Subject",
+        "Rest"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Hoewel de uitleg duidelijk was, hadden de deelnemers nog vragen.",
+      "acceptedAnswers": [
+        "Hoewel de uitleg duidelijk was, hadden de deelnemers nog vragen."
+      ],
+      "feedback": "“Hoewel” drukt een tegenstelling uit. Na de vooropgeplaatste bijzin volgt de persoonsvorm van de hoofdzin.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "B2",
+        "index": 1
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_BUILD_B2_03",
+      "goalId": "WS_ONWERKELIJK",
+      "goal": "Een onwerkelijke voorwaarde",
+      "level": "B2",
+      "context": "Zinsbouw",
+      "type": "Bouw",
+      "instruction": "Begin met “Als”.",
+      "stimulus": "",
+      "tokens": [
+        "Als",
+        "de levering",
+        "op tijd",
+        "was gekomen,",
+        "hadden",
+        "we",
+        "kunnen beginnen."
+      ],
+      "tokenRoles": [
+        "Verbinding",
+        "Subject",
+        "Rest",
+        "Werkwoorden",
+        "Persoonsvorm",
+        "Subject",
+        "Werkwoorden"
+      ],
+      "answerType": "GESLOTEN",
+      "answerModel": "Als de levering op tijd was gekomen, hadden we kunnen beginnen.",
+      "acceptedAnswers": [
+        "Als de levering op tijd was gekomen, hadden we kunnen beginnen."
+      ],
+      "feedback": "De twee werkwoordgroepen horen bij verschillende zinsdelen. Bespreek ook “… op tijd gekomen was”.",
+      "tags": [
+        "historisch",
+        "zinsdelen"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "build",
+        "level": "B2",
+        "index": 2
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_001",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A1",
+      "minimumLevelIndex": 0,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je kunt dit in je zak bewaren.",
+        "Je gebruikt dit bij een deur.",
+        "Hiermee maak je een slot open."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "de sleutel",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 0,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_002",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A1",
+      "minimumLevelIndex": 0,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Hiermee kun je naar de winkel gaan.",
+        "Je zit erop en beweegt je benen.",
+        "Het heeft meestal twee wielen."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "de fiets",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 1,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_003",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A2",
+      "minimumLevelIndex": 1,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je gebruikt dit om te plannen.",
+        "Er staan dagen en tijden in.",
+        "Hierin noteer je je afspraken."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "de agenda",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 2,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_004",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A2",
+      "minimumLevelIndex": 1,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit helpt een groep om te plannen.",
+        "Je ziet wanneer iemand les of werk heeft.",
+        "Het wordt soms elke week aangepast."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "het rooster",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 3,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_005",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B1",
+      "minimumLevelIndex": 2,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit helpt wanneer je iets nog niet kunt gebruiken.",
+        "Je vindt er uitleg in over de bediening.",
+        "Er staan vaak stappen en afbeeldingen in."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "de handleiding",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 4,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_006",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B1",
+      "minimumLevelIndex": 2,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Hier doen meestal meerdere mensen aan mee.",
+        "Je bespreekt samen wat er moet gebeuren.",
+        "Het doel is vaak om afspraken te maken."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "het overleg",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 5,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_007",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B2",
+      "minimumLevelIndex": 3,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit bepaalt of iets kan doorgaan.",
+        "Bij een overeenkomst moet je hieraan voldoen.",
+        "Je kunt het vaak formuleren met “als”."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "de voorwaarde",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 6,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_008",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B2",
+      "minimumLevelIndex": 3,
+      "context": "Voorwerpen en begrippen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit kan een meningsverschil helpen oplossen.",
+        "Beide partijen krijgen een deel van wat ze willen.",
+        "Iedereen geeft ook iets toe."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "het compromis",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 7,
+        "category": "objects"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_009",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A1",
+      "minimumLevelIndex": 0,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je kunt dit over een tas zeggen.",
+        "Je hebt moeite om hem op te tillen.",
+        "Het is het tegenovergestelde van licht."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "zwaar",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 8,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_010",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A1",
+      "minimumLevelIndex": 0,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je kunt dit over een plek zeggen.",
+        "Er is weinig lawaai of drukte.",
+        "Het is het tegenovergestelde van onrustig."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "rustig",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 9,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_011",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A2",
+      "minimumLevelIndex": 1,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je kunt dit over een voorwerp zeggen.",
+        "Het helpt je om iets gemakkelijk te doen.",
+        "Het is praktisch in het gebruik."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "handig",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 10,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_012",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "A2",
+      "minimumLevelIndex": 1,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit zegt iets over hoe iemand zich voelt.",
+        "Het resultaat is goed genoeg voor deze persoon.",
+        "Er is op dat moment niets te klagen."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "tevreden",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 11,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_013",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B1",
+      "minimumLevelIndex": 2,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit is een positieve eigenschap.",
+        "Iemand doet wat hij heeft beloofd.",
+        "Je kunt op deze persoon rekenen."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "betrouwbaar",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 12,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_014",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B1",
+      "minimumLevelIndex": 2,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Dit zeg je wanneer iets goed past.",
+        "Het kan over een persoon of een voorwerp gaan.",
+        "Het voldoet aan wat er voor een bepaalde taak nodig is."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "geschikt",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 13,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_015",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B2",
+      "minimumLevelIndex": 3,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je kunt dit over twee berichten zeggen.",
+        "Ze kunnen niet allebei op dezelfde manier waar zijn.",
+        "De ene uitspraak spreekt de andere tegen."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "tegenstrijdig",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 14,
+        "category": "qualities"
+      }
+    },
+    {
+      "source": "PRAATPAD_WORDS",
+      "band": null,
+      "options": [],
+      "correctOptionId": null,
+      "constructionIds": [],
+      "review": {
+        "editorial": "import_preserved",
+        "human": "pending",
+        "pilot": "pending",
+        "publication": "preview"
+      },
+      "id": "LEGACY_WS_GUESS_016",
+      "goalId": "WS_OMSCHRIJVEN",
+      "goal": "Omschrijven en herkennen",
+      "level": "B2",
+      "minimumLevelIndex": 3,
+      "context": "Eigenschappen",
+      "type": "Raad",
+      "instruction": "Luister naar de aanwijzingen. Welk woord zoeken we?",
+      "stimulus": "",
+      "clues": [
+        "Je kunt dit over een besluit zeggen.",
+        "Het kan later nog veranderen.",
+        "Het is nog niet definitief."
+      ],
+      "answerType": "OPEN",
+      "answerModel": "voorlopig",
+      "acceptedAnswers": [],
+      "feedback": "Bespreek welke aanwijzingen bij jullie woord passen. Geef daarna zelf een omschrijving.",
+      "tags": [
+        "historisch",
+        "raadsels"
+      ],
+      "legacyRef": {
+        "sourceCommit": "0aae53a943630ff573b1d9b42ecc69ea3014562b",
+        "sourcePath": "Woordspel/woordspel-content.js",
+        "kind": "guess",
+        "index": 15,
+        "category": "qualities"
+      }
     }
   ]
 }

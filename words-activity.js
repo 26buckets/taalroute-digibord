@@ -224,27 +224,33 @@ function bindSentenceBuilder() {
 // WZ uses the same shell, turn controls, feedback and token builder as the retained cards.
 const WZ_TYPES = ['Bouw','Kies','Herstel','Verander','Spreek','Transfer'];
 const WZ_ITEMS = WORD_CONTENT.items.filter(item => item.source === 'WZ_BATCH_001');
+const WORD_ITEMS = WORD_CONTENT.items.filter(item => item.source !== 'V0124_WORD_CARDS');
+const WORD_TYPES = [...WZ_TYPES, 'Raad'];
+const HISTORICAL_GOALS = [...new Map(WORD_ITEMS.filter(i=>i.source==='PRAATPAD_WORDS').map(i=>[i.goalId,i.goal])).entries()];
 const WZ_GOALS = [...new Map(WZ_ITEMS.map(item => [item.goalId, item.goal])).entries()];
-function wordItem(state = wordRound) { return WZ_ITEMS.find(item => item.id === state?.itemId); }
-function wzPool({goalId, type, band, context = ''}) {
- return WZ_ITEMS.filter(item => item.goalId === goalId && (!type || item.type === type) && (!band || item.band === band) && (!context || item.context === context));
+function wordItem(state = wordRound) { return WORD_ITEMS.find(item => item.id === state?.itemId); }
+function wzPool({goalId, type, band, context = '', source = 'WZ_BATCH_001', level = ''}) {
+ return WORD_ITEMS.filter(item => item.source === source && item.goalId === goalId && (!type || item.type === type) && (!band || item.band === band) && (!context || item.context === context) && (!level || item.level === level));
 }
 function shuffledWords(values) {
  const out = [...values];
  for (let i = out.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1)); [out[i], out[j]] = [out[j], out[i]];}
  return out;
 }
-function newWZRound({goalId = 'WZ_001', type = 'Bouw', band = 1, context = '', round = 1} = {}) {
- const pool = wzPool({goalId,type,band,context});
+function newWZRound({goalId = 'WZ_001', type = 'Bouw', band = 1, context = '', round = 1, source = 'WZ_BATCH_001', level = ''} = {}) {
+ const pool = wzPool({goalId,type,band,context,source,level});
  if (!pool.length) throw new Error('Geen oefeningen voor deze selectie.');
  const item = pool[(round - 1) % pool.length];
  const bankOrder = shuffledWords((item.tokens || []).map((_, i) => i));
  if (bankOrder.length > 1 && bankOrder.every((id, i) => id === i)) bankOrder.push(bankOrder.shift());
- return {version:4,goalId,type,band,context,round,itemId:item.id,bankOrder,optionOrder:shuffledWords(item.options.map(o=>o.id)),selected:[],response:'',choice:null,status:'initial',checked:false,feedback:'',support:null,arranging:false,moveId:null};
+ return {version:4,source,level,clueCount:1,revealed:false,goalId,type,band,context,round,itemId:item.id,bankOrder,optionOrder:shuffledWords(item.options.map(o=>o.id)),selected:[],response:'',choice:null,status:'initial',checked:false,feedback:'',support:null,arranging:false,moveId:null};
 }
 function validWZRound(state) {
- if (!state || state.version !== 4 || !Number.isInteger(state.round) || state.round < 1 || ![0,1,2,3].includes(state.band) || !WZ_TYPES.includes(state.type) || typeof state.context !== 'string') return false;
+ if (!state || state.version !== 4 || !Number.isInteger(state.round) || state.round < 1 || ![0,1,2,3].includes(state.band) || !WORD_TYPES.includes(state.type) || typeof state.context !== 'string') return false;
+ if (state.source !== undefined && !['WZ_BATCH_001','PRAATPAD_WORDS'].includes(state.source)) return false;
+ if (state.level !== undefined && !['','A1','A2','B1','B2'].includes(state.level)) return false;
  const pool = wzPool(state), item = wordItem(state);
+ if (item?.type === 'Raad' && (!Number.isInteger(state.clueCount) || state.clueCount < 1 || state.clueCount > item.clues.length || typeof state.revealed !== 'boolean')) return false;
  if (!pool.length || pool[(state.round - 1) % pool.length]?.id !== item?.id) return false;
  const validOrder = (values, expected) => Array.isArray(values) && values.length === expected.length && new Set(values).size === expected.length && values.every(v=>expected.includes(v));
  return validOrder(state.bankOrder,(item.tokens || []).map((_,i)=>i)) && validOrder(state.optionOrder,item.options.map(o=>o.id)) && Array.isArray(state.selected) && new Set(state.selected).size === state.selected.length && state.selected.every(id=>state.bankOrder.includes(id)) && typeof state.response === 'string' && state.response.length <= 1000 && (state.choice === null || item.options.some(o=>o.id===state.choice));
@@ -253,24 +259,28 @@ function persistWZ() {APP.wzRound = structuredClone(wordRound); save();}
 function normalizeWordAnswer(value) {return String(value).normalize('NFC').toLocaleLowerCase('nl').replace(/[‘’]/g,"'").replace(/\s+/g,' ').trim().replace(/[.!?]+$/,'').trim();}
 function assessWordAnswer(item, response) {
  // Guard the actual type too: malformed metadata must never score open speech.
- if (item.answerType === 'OPEN' || ['Spreek','Transfer'].includes(item.type)) return 'unassessed';
+ if (item.answerType === 'OPEN' || ['Spreek','Transfer','Raad'].includes(item.type)) return 'unassessed';
  if (item.type === 'Kies') return item.options.some(o=>o.id===response) ? response === item.correctOptionId ? 'correct' : 'incorrect' : 'incomplete';
  if (!normalizeWordAnswer(response)) return 'incomplete';
  return item.acceptedAnswers.some(answer=>normalizeWordAnswer(answer)===normalizeWordAnswer(response)) ? 'correct' : 'review';
 }
-function selectWZGoal(goalId) {
- const goalItems = WZ_ITEMS.filter(i=>i.goalId===goalId);
+function selectWZGoal(goalId, source = 'WZ_BATCH_001') {
+ const goalItems = WORD_ITEMS.filter(i=>i.source===source&&i.goalId===goalId);
  if (!goalItems.length) return;
- wordRound = newWZRound({goalId,band:Math.min(...goalItems.map(i=>i.band))}); startWords('wz');
+ wordRound = newWZRound({goalId,source,type:goalItems[0].type,band:source==='WZ_BATCH_001'?Math.min(...goalItems.map(i=>i.band)):0}); startWords('wz');
 }
 function WZNavigation() {
- const state = wordRound;
+ const state = wordRound, historical = state.source === 'PRAATPAD_WORDS';
  const option = (value,label,selected) => `<option value="${esc(value)}" ${selected ? 'selected' : ''}>${esc(label)}</option>`;
  const contexts = [...new Set(wzPool({...state,type:'',context:''}).map(i=>i.context))].sort();
- return `<aside class="cardtypes activity-navigation wz-navigation"><label>Taaldoel<select id="wzGoal">${WZ_GOALS.map(([id,label])=>option(id,label,id===state.goalId)).join('')}</select></label><label>Moeilijkheid<select id="wzBand">${[[1,'1 · Instap met docent'],[2,'2 · Verder oefenen'],[3,'3 · Later in A1'],[0,'Alle banden']].filter(([band])=>!band || wzPool({...state,type:'',context:'',band}).length).map(([band,label])=>option(band,label,band===state.band)).join('')}</select></label><h3>Oefenvorm</h3><nav aria-label="Oefenvormen">${WZ_TYPES.map(type=>{const count=wzPool({...state,type}).length;return `<button class="typebtn ${type===state.type?'active':''}" data-wz-type="${type}" ${count?'':'disabled'} ${type===state.type?'aria-current="page"':''}><span>${type}<small>${count} oefeningen</small></span></button>`}).join('')}</nav><label>Context<select id="wzContext">${option('','Alle contexten',!state.context)}${contexts.map(c=>option(c,c,c===state.context)).join('')}</select></label><button class="smallbtn" id="wzGoalsBack">Alle taaldoelen</button></aside>`;
+ const levels = [...new Set(wzPool({...state,type:'',context:'',level:''}).map(i=>i.level))];
+ const difficulty = historical ? `<label>Niveau uit het archief<select id="wzLevel">${option('','Alle niveaus',!state.level)}${levels.map(level=>option(level,level,level===state.level)).join('')}</select></label>` : `<label>Moeilijkheid<select id="wzBand">${[[1,'1 · Instap met docent'],[2,'2 · Verder oefenen'],[3,'3 · Later in A1'],[0,'Alle banden']].filter(([band])=>!band || wzPool({...state,type:'',context:'',band}).length).map(([band,label])=>option(band,label,band===state.band)).join('')}</select></label>`;
+ const types = historical ? WORD_TYPES.filter(type=>wzPool({...state,type,context:'',level:''}).length) : WZ_TYPES;
+ return `<aside class="cardtypes activity-navigation wz-navigation"><label>Taaldoel<select id="wzGoal">${(historical?HISTORICAL_GOALS:WZ_GOALS).map(([id,label])=>option(id,label,id===state.goalId)).join('')}</select></label>${difficulty}<h3>Oefenvorm</h3><nav aria-label="Oefenvormen">${types.map(type=>{const count=wzPool({...state,type}).length;return `<button class="typebtn ${type===state.type?'active':''}" data-wz-type="${type}" ${count?'':'disabled'} ${type===state.type?'aria-current="page"':''}><span>${type}<small>${count} oefeningen</small></span></button>`}).join('')}</nav><label>Context<select id="wzContext">${option('','Alle contexten',!state.context)}${contexts.map(c=>option(c,c,c===state.context)).join('')}</select></label><button class="smallbtn" id="wzGoalsBack">Alle taaldoelen</button></aside>`;
 }
 function WZWorkspace(item) {
  if (item.type === 'Bouw') return SentenceBuilderExercise();
+ if (item.type === 'Raad') return '<ol id="wordClues" aria-label="Aanwijzingen" aria-live="polite"></ol><button class="smallbtn" id="wordClue">Volgende aanwijzing</button><p id="wordTarget" role="status" hidden></p><p>Raad samen. Geef daarna zelf een omschrijving.</p>';
  const stimulus = item.stimulus ? `<p class="wz-stimulus">${esc(item.stimulus)}</p>` : '';
  if (item.type === 'Kies') return `${stimulus}<div class="wz-options" role="group" aria-label="Kies je antwoord">${wordRound.optionOrder.map(id=>{const o=item.options.find(o=>o.id===id);return `<button class="smallbtn" data-wz-option="${o.id}" aria-pressed="${wordRound.choice===o.id}">${esc(o.text)}</button>`}).join('')}</div>`;
  if (item.answerType === 'OPEN') return `${stimulus}<p class="wz-open">Zeg je antwoord. Luister naar elkaar.</p><p>Bespreek samen: ${esc(item.feedback)}</p><p class="word-gesture-hint">Verschillende antwoorden zijn mogelijk. De docent beoordeelt het antwoord.</p>`;
@@ -282,21 +292,22 @@ function startWZ() {
  const item = wordItem(), pool = wzPool(wordRound);
  APP.wordKind = 'wz'; persistWZ();
  setLast('word', `${item.goal} · ${item.type}`, {kind:'wz',goalId:item.goalId,itemId:item.id});
- $('#gameMount').innerHTML = WordsAndSentencesActivityShell({active:item.type,name:item.type,title:item.goal,instruction:item.instruction,workspace:WZWorkspace(item),structure:`${item.id} · Band ${item.band} · ${item.context}`,counter:`${(wordRound.round-1)%pool.length+1} / ${pool.length}`,total:pool.length,navigation:WZNavigation()});
+ $('#gameMount').innerHTML = WordsAndSentencesActivityShell({active:item.type,name:item.type,title:item.goal,instruction:item.instruction,workspace:WZWorkspace(item),structure:`${item.source==='PRAATPAD_WORDS'?'Historische kaart · '+item.level:'Band '+item.band} · ${item.context}`,counter:`${(wordRound.round-1)%pool.length+1} / ${pool.length}`,total:pool.length,navigation:WZNavigation()});
  goScreen('game');bindGameBar(nextWordCard);
- $('[data-ghelp]').onclick=()=>openGameDialog('Spelhulp','<p>Kies een taaldoel en een moeilijkheidsband. De docent kan de opdracht voorlezen en voordoen. Bij Spreek en Transfer bespreek je het antwoord samen; daar is geen automatische beoordeling.</p>');
+ $('[data-ghelp]').onclick=()=>openGameDialog('Spelhulp','<p>Kies eerst een taaldoel en daarna een oefenvorm. De docent kan de opdracht voorlezen en voordoen. Bij Raad toon je de aanwijzingen één voor één; met het oog onthul je het woord. Bij Spreek, Transfer en Raad is er geen automatische beoordeling.</p>');
  $('#wordDeck').onclick = () => {rememberAction('volgende kaart');nextWordCard();};
- $('#wzGoal').onchange = event => {rememberAction('taaldoel wisselen'); selectWZGoal(event.target.value);};
+ $('#wzGoal').onchange = event => {rememberAction('taaldoel wisselen'); selectWZGoal(event.target.value,wordRound.source);};
  const filter = patch => {
   const focused = document.activeElement;
   const focusSelector = focused?.dataset.wzType ? `[data-wz-type="${focused.dataset.wzType}"]` : focused?.id ? '#'+CSS.escape(focused.id) : null;
   rememberAction('oefening kiezen');
   const selection = {...wordRound,...patch,round:1};
-  if (!wzPool(selection).length) selection.type = WZ_TYPES.find(type=>wzPool({...selection,type}).length);
+  if (!wzPool(selection).length) selection.type = WORD_TYPES.find(type=>wzPool({...selection,type}).length);
   wordRound = newWZRound(selection);startWZ();
   if(focusSelector)$(focusSelector)?.focus({preventScroll:true});
  };
- $('#wzBand').onchange = event => filter({band:Number(event.target.value),context:''});
+ if ($('#wzBand')) $('#wzBand').onchange = event => filter({band:Number(event.target.value),context:''});
+ if ($('#wzLevel')) $('#wzLevel').onchange = event => filter({level:event.target.value,context:''});
  $('#wzContext').onchange = event => filter({context:event.target.value});
  $$('[data-wz-type]').forEach(button=>button.onclick=()=>filter({type:button.dataset.wzType}));
  $('#wzGoalsBack').onclick = () => goScreen('words');
@@ -315,21 +326,38 @@ function startWZ() {
   });
   const input = $('#wzResponse');
   if(input){input.onfocus=()=>rememberAction('zin schrijven');input.oninput=()=>{wordRound.response=input.value;wordRound.feedback='';wordRound.checked=false;wordRound.status='initial';renderWZFeedback();};}
+  if (item.type==='Raad') {
+   $('#wordClue').onclick=()=>showWZSupport('help');
+   $('#wordExample').setAttribute('aria-controls','wordTarget');
+  }
   renderWZFeedback();
  }
  for(const key of ['Goals','Partner','More'])$('#word'+key).onclick=()=>{
-  const sections={Goals:[['Doel',item.goal],['Waar let je op?',item.feedback]],Partner:[['Samen bespreken',item.answerType==='OPEN'?'Luister naar de bedoeling en naar de zin. Geef ruimte voor een ander passend antwoord.':'Vergelijk de gekozen zin met het antwoordmodel. Bespreek een andere geldige formulering.']],More:[['Verder oefenen','Oefen hetzelfde taaldoel ook met Spreek of Transfer. Deze vormen hebben open antwoorden.'],['Docentpreview','Taal- en didactiekreview door een docent en een lespilot staan nog open.']]};
+  const sections={Goals:[['Doel',item.goal],['Waar let je op?',item.feedback]],Partner:[['Samen bespreken',item.answerType==='OPEN'?'Luister naar de bedoeling en naar de zin. Geef ruimte voor een ander passend antwoord.':'Vergelijk de gekozen zin met het antwoordmodel. Bespreek een andere geldige formulering.']],More:[['Verder oefenen',item.source==='PRAATPAD_WORDS'?'Zeg een eigen zin of geef zelf aanwijzingen. Bespreek het antwoord samen.':'Oefen hetzelfde taaldoel ook met Spreek of Transfer. Deze vormen hebben open antwoorden.'],['Docentpreview','Taal- en didactiekreview door een docent en een lespilot staan nog open.']]};
   openGameDialog({Goals:'Doel en rollen',Partner:'Voor de gesprekspartner',More:'Meer bij deze oefening'}[key],sections[key].map(([h,t])=>`<h3>${esc(h)}</h3><p>${esc(t)}</p>`).join(''));
  };
 }
 function renderWZFeedback() {
+ const item=wordItem();
+ if (item.type==='Raad') {
+  $('#wordClues').innerHTML=item.clues.slice(0,wordRound.clueCount).map(clue=>`<li>${esc(clue)}</li>`).join('');
+  $('#wordClue').disabled=wordRound.clueCount>=item.clues.length;
+  $('#wordTarget').hidden=!wordRound.revealed;
+  $('#wordTarget').textContent=wordRound.revealed?'Het woord: '+item.answerModel:'';
+  $('#wordExample').setAttribute('aria-label',wordRound.revealed?'Verberg het woord':'Onthul het woord');
+  const exampleTool=$('#wordExample').closest('.context-tool');
+  exampleTool.dataset.tipLabel=wordRound.revealed?'Verberg het woord':'Onthul het woord';
+  exampleTool.dataset.tip='Bekijk het gezochte woord na het raden. Bespreek daarna de aanwijzingen.';
+  $('#wordHint').setAttribute('aria-controls','wordClues');
+  $('#wordHint').closest('.context-tool').dataset.tip='Toon de volgende aanwijzing. Het gezochte woord blijft verborgen.';
+ }
  const box=$('#wordFeedback');box.textContent=wordRound.feedback;box.hidden=!wordRound.feedback;box.classList.toggle('open',!!wordRound.feedback);box.dataset.status=wordRound.status;
- $('#wordHint').setAttribute('aria-expanded',String(wordRound.support==='help'));
- $('#wordExample').setAttribute('aria-expanded',String(wordRound.support==='example'));persistWZ();
+ $('#wordHint').setAttribute('aria-expanded',String(item.type==='Raad'?wordRound.clueCount>1:wordRound.support==='help'));
+ $('#wordExample').setAttribute('aria-expanded',String(item.type==='Raad'?wordRound.revealed:wordRound.support==='example'));persistWZ();
 }
 function checkWZ() {
  const item=wordItem();
- if (item.answerType==='OPEN' || ['Spreek','Transfer'].includes(item.type)) return;
+ if (item.answerType==='OPEN' || ['Spreek','Transfer','Raad'].includes(item.type)) return;
  rememberAction('antwoord controleren');
  const response=item.type==='Kies'?wordRound.choice:item.type==='Bouw'?wordRound.selected.map(id=>item.tokens[id]).join(' '):wordRound.response;
  wordRound.status=item.type==='Bouw'&&wordRound.selected.length!==item.tokens.length?'incomplete':assessWordAnswer(item,response);
@@ -343,12 +371,23 @@ function checkWZ() {
 }
 function showWZSupport(kind) {
  rememberAction(kind==='help'?'hulp bekijken':'voorbeeld bekijken');
- const item=wordItem();wordRound.support=wordRound.support===kind?null:kind;
+ const item=wordItem();
+ if(item.type==='Raad'){
+  if(kind==='example')wordRound.revealed=!wordRound.revealed;
+  else wordRound.clueCount=Math.min(item.clues.length,wordRound.clueCount+1);
+  wordRound.feedback='';wordRound.support=kind;renderWZFeedback();return;
+ }
+ wordRound.support=wordRound.support===kind?null:kind;
  wordRound.feedback=!wordRound.support?'':kind==='help'?item.feedback:item.answerType==='OPEN'?'Open antwoord. Bespreek samen: '+item.feedback:'Een mogelijke zin: '+item.answerModel;
  if(item.type==='Bouw')renderSentenceBuilder();else renderWZFeedback();
 }
 function renderWordGoals() {
  const mount = $('#wordGoalTiles');if(!mount)return;
  mount.innerHTML=WZ_GOALS.map(([id,label])=>`<button class="tile" data-wz-goal="${id}"><div class="tile-body"><span class="status">${id} · ${WZ_ITEMS.filter(i=>i.goalId===id).length} oefeningen</span><h3>${esc(label)}</h3><p>A0–A1 · kies daarna de oefenvorm</p></div></button>`).join('');
+ const archive=$('#wordArchiveGoals');
+ if(archive){
+  archive.innerHTML=HISTORICAL_GOALS.map(([id,label])=>`<button class="tile" data-word-archive="${id}"><div class="tile-body"><h3>${esc(label)}</h3><p>${WORD_ITEMS.filter(i=>i.source==='PRAATPAD_WORDS'&&i.goalId===id).length} historische kaarten</p></div></button>`).join('');
+  archive.querySelectorAll('[data-word-archive]').forEach(button=>button.onclick=()=>selectWZGoal(button.dataset.wordArchive,'PRAATPAD_WORDS'));
+ }
  mount.querySelectorAll('[data-wz-goal]').forEach(button=>button.onclick=()=>selectWZGoal(button.dataset.wzGoal));
 }
