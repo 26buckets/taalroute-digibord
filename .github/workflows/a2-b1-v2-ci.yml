@@ -13,6 +13,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        half: [0, 1]
     env:
       CHROME_PATH: /home/runner/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome
     steps:
@@ -39,10 +43,22 @@ jobs:
           sudo ln -sf "$CHROME_PATH" "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
       - name: Run full test suite
-        run: npm test
+        run: |
+          node <<'JS'
+          const {execSync} = require('node:child_process');
+          const tests = require('./package.json').scripts.test.split(' && ');
+          const half = Math.ceil(tests.length / 2);
+          const start = ${{ matrix.half }} * half;
+          for (const test of tests.slice(start, start + half)) {
+            console.log('Running:', test);
+            execSync(test, {stdio: 'inherit'});
+          }
+          JS
 
       - name: Run A2 B1 v2 browser smoke
+        if: matrix.half == 1
         run: node tests/a2-b1-v2-smoke.cjs
 
       - name: Alle banken en routes in de browser
+        if: matrix.half == 1
         run: node tests/banks-v2-smoke.cjs
