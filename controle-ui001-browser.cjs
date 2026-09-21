@@ -5,7 +5,7 @@ const base=process.env.UI001_URL || 'http://127.0.0.1:8764/outputs/Taalroute-Dig
 const out=process.env.UI001_OUTPUT_DIR || 'test-results/woordkaarten/';fs.mkdirSync(out,{recursive:true});
 (async()=>{
  const browser=await chromium.launch({channel:'chrome',headless:true});const errors=[];
- const open=async(width=1366,height=768,touch=false)=>{const context=await browser.newContext({viewport:{width,height},hasTouch:touch});const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(base);await p.locator('[data-category="words"]').click();await p.locator('[data-wordgame="build"]').click();return p;};
+ const open=async(width=1366,height=768,touch=false)=>{const context=await browser.newContext({viewport:{width,height},hasTouch:touch});const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto(base);await p.locator('[data-category="words"]').click();await p.locator('.word-legacy summary').click();await p.locator('[data-wordgame="build"]').click();return p;};
  const p=await open();
  const wait=async()=>p.waitForFunction(()=>!wordBusy);
  const state=async()=>p.evaluate(()=>JSON.parse(JSON.stringify(wordRound)));
@@ -92,6 +92,6 @@ const out=process.env.UI001_OUTPUT_DIR || 'test-results/woordkaarten/';fs.mkdirS
  // Shared footer matches the actual cards screen at the same viewport.
  const footerStyle=async()=>p.locator('.gamebar').evaluate(el=>{const s=getComputedStyle(el),b=getComputedStyle(el.querySelector('#primaryGame'));return[s.background,s.gridTemplateColumns,b.height,b.borderRadius,b.fontSize]});
  const wordFooter=await footerStyle();await p.goto(base);await p.locator('[data-category="cards"]').click();assert.deepEqual(await footerStyle(),wordFooter);await p.locator('#primaryGame').click();await p.waitForFunction(()=>!cardBusy);
- for(const [category,selector,expected]of[['boards','[data-board="rotterdam"]','#boardMap'],['boards','[data-board="zwolle"]','#boardMap'],['dice','[data-dicegame="taalworp"]','#languageStage'],['dice','[data-dicegame="verhaalworp"]','.story-stage']]){await p.goto(base);await p.locator(`[data-category="${category}"]`).click();await p.locator(selector).first().click();await p.locator(expected).waitFor({state:'visible'});}
+ for(const [category,selector,expected]of[['boards','[data-board="rotterdam"]','#boardMap'],['boards','[data-board="zwolle"]','#boardMap'],['dice','[data-dicegame="taalworp"]','#languageStage'],['dice','[data-dicegame="verhaalworp"]','.story-stage']]){await p.goto(base);await p.locator(`[data-category="${category}"]`).click();await p.locator(selector+':visible').first().click();await p.locator(expected).waitFor({state:'visible'});}
  assert.deepEqual(errors,[]);console.log('PASS: exact card-footer styles, existing games smoke, no browser errors.');await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

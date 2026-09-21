@@ -3,220 +3,13 @@ const WORD_EXERCISES = [
  ['build', 'Bouw een zin', 'Woorden ordenen'], ['make', 'Maak en verander', 'Een zin aanpassen'],
  ['guess', 'Beschrijf en raad', 'Omschrijven en raden'], ['combine', 'Combineer en beschrijf', 'Begrippen verbinden']
 ];
-const WORD_CARDS = [
- {
-  "structure": "Hoofdzin",
-  "answer": "Mijn zus leest een boek in de tuin.",
-  "hint": "Wie leest? Begin daarmee.",
-  "variation": "Maak een zin over iets wat jij leest.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "De afspraak bij de huisarts is om tien uur.",
-  "hint": "Begin met “De afspraak bij de huisarts”.",
-  "variation": "Verander het tijdstip van de afspraak.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "Ik koop groente op de markt.",
-  "hint": "Wat doe ik? Zet dat na “Ik”.",
-  "variation": "Vertel wat jij op de markt koopt.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "De kinderen spelen buiten.",
-  "hint": "Wie spelen er? Zet daarna wat zij doen.",
-  "variation": "Verander de plaats waar de kinderen spelen.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "Mijn broer werkt in een winkel.",
-  "hint": "Begin met “Mijn broer”. Wat doet hij?",
-  "variation": "Maak de zin over iemand die jij kent.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "Wij eten samen aan tafel.",
-  "hint": "Begin met “Wij”. Zoek daarna het werkwoord.",
-  "variation": "Vertel waar jij meestal eet.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "De bus stopt bij het station.",
-  "hint": "Wat stopt er? Begin daarmee.",
-  "variation": "Verander de plaats waar de bus stopt.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "Sara belt haar moeder.",
-  "hint": "Wie belt wie? Begin met “Sara”.",
-  "variation": "Vertel wie jij weleens belt.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "De buurman maakt zijn fiets schoon.",
-  "hint": "“Schoonmaken” wordt hier “maakt … schoon”.",
-  "variation": "Vertel wat jij schoonmaakt.",
-  "prefix": ""
- },
- {
-  "structure": "Hoofdzin",
-  "answer": "Ik wil Nederlands leren.",
-  "hint": "Na “Ik” komt “wil”. “Leren” staat achteraan.",
-  "variation": "Vertel wat jij nog wilt leren.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Morgen ga ik met de trein naar Rotterdam.",
-  "hint": "Begin met “Morgen”. Daarna komt “ga”.",
-  "variation": "Begin dezelfde zin met “Ik”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Vandaag koopt mijn buurman brood bij de bakker.",
-  "hint": "Na “Vandaag” komt “koopt”. Wie koopt het brood?",
-  "variation": "Begin dezelfde zin met “Mijn buurman”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Na het werk drinken wij samen koffie.",
-  "hint": "“Na het werk” hoort bij elkaar. Daarna komt “drinken”.",
-  "variation": "Vertel wat jullie na het werk doen.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Wij gaan zaterdag met de bus naar school.",
-  "hint": "Bouw de zin eerst met “Wij”. Probeer daarna “Zaterdag”.",
-  "variation": "Begin dezelfde zin met “Zaterdag”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Om acht uur begint de les.",
-  "hint": "Houd “Om acht uur” bij elkaar. Daarna komt “begint”.",
-  "variation": "Begin dezelfde zin met “De les”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "In de keuken maakt Amir soep.",
-  "hint": "Begin met de plaats. Daarna komt “maakt”.",
-  "variation": "Begin dezelfde zin met “Amir”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Op maandag sport ik met mijn vriendin.",
-  "hint": "Na “Op maandag” komt “sport”.",
-  "variation": "Vertel wat jij op maandag doet.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Vanavond kijken we naar een film.",
-  "hint": "Begin met “Vanavond”. Waar komt “we”?",
-  "variation": "Begin dezelfde zin met “We”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Bij de bushalte wacht een vrouw.",
-  "hint": "Begin met “Bij de bushalte”. Wat gebeurt daar?",
-  "variation": "Begin dezelfde zin met “Een vrouw”.",
-  "prefix": ""
- },
- {
-  "structure": "Andere start",
-  "answer": "Na de les doe ik boodschappen.",
-  "hint": "Begin met “Na de les”. Daarna komt “doe”.",
-  "variation": "Vertel wat jij na de les doet.",
-  "prefix": ""
- },
- {
-  "structure": "Bijzin",
-  "answer": "Ik neem een paraplu mee, omdat het regent.",
-  "hint": "“Omdat” geeft de reden. Daarna: “het regent”.",
-  "variation": "Bedenk een andere reden om een paraplu mee te nemen.",
-  "prefix": "Ik neem een paraplu mee,"
- },
- {
-  "structure": "Bijzin",
-  "answer": "Sara gaat vroeg naar bed, omdat ze morgen werkt.",
-  "hint": "Zet “werkt” achteraan in de bijzin.",
-  "variation": "Bedenk een andere reden waarom Sara vroeg naar bed gaat.",
-  "prefix": "Sara gaat vroeg naar bed,"
- },
- {
-  "structure": "Bijzin",
-  "answer": "Ik denk dat de winkel open is.",
-  "hint": "Na “dat” komt de mededeling. “Is” staat achteraan.",
-  "variation": "Maak een eigen zin die begint met “Ik denk dat”.",
-  "prefix": "Ik denk"
- },
- {
-  "structure": "Bijzin",
-  "answer": "De docent zegt dat de les om negen uur begint.",
-  "hint": "Zet “begint” achteraan in het deel met “dat”.",
-  "variation": "Verander het tijdstip waarop de les begint.",
-  "prefix": "De docent zegt"
- },
- {
-  "structure": "Bijzin",
-  "answer": "We gaan wandelen als het droog is.",
-  "hint": "Het deel met “als” eindigt op “is”.",
-  "variation": "Vertel wat jullie doen als het regent.",
-  "prefix": "We gaan wandelen"
- },
- {
-  "structure": "Bijzin",
-  "answer": "Ik bel je als ik thuis ben.",
-  "hint": "Na “als” komt “ik”. “Ben” staat achteraan.",
-  "variation": "Vertel wanneer jij iemand belt.",
-  "prefix": "Ik bel je"
- },
- {
-  "structure": "Bijzin",
-  "answer": "Amir kookt terwijl zijn dochter de tafel dekt.",
-  "hint": "Wat gebeurt tegelijk? Eindig met “dekt”.",
-  "variation": "Bedenk twee andere dingen die tegelijk gebeuren.",
-  "prefix": "Amir kookt"
- },
- {
-  "structure": "Bijzin",
-  "answer": "Ik luister naar muziek terwijl ik de afwas doe.",
-  "hint": "Het deel met “terwijl” eindigt op “doe”.",
-  "variation": "Vertel wat jij doet terwijl je naar muziek luistert.",
-  "prefix": "Ik luister naar muziek"
- },
- {
-  "structure": "Bijzin",
-  "answer": "Ik ontbijt voordat ik naar mijn werk ga.",
-  "hint": "Eindig het deel met “voordat” met “ga”.",
-  "variation": "Vertel wat jij doet voordat je naar buiten gaat.",
-  "prefix": "Ik ontbijt"
- },
- {
-  "structure": "Bijzin",
-  "answer": "We controleren het adres voordat we vertrekken.",
-  "hint": "Wat doen we eerst? Wat gebeurt daarna?",
-  "variation": "Vertel wat jullie nog meer doen voordat jullie vertrekken.",
-  "prefix": "We controleren het adres"
- }
-];
+const WORD_CARDS = WORD_CONTENT.items.filter(item => item.source === 'V0124_WORD_CARDS').map(item => ({...item, answer: item.answerModel}));
 let wordRound = null, wordBusy = false;
 function sentenceContent(state = wordRound) {
+ if (state.version === 4) {
+  const item = wordItem(state);
+  return {...item, answer: item.answerModel, prefix: '', words: item.tokens || [], order: (item.tokens || []).map((_, id) => id), structure: item.goal, hint: item.feedback, variation: 'Gebruik de zin in een gesprek.'};
+ }
  const card = WORD_CARDS[(state.round - 1) % WORD_CARDS.length];
  const prefix = state.wholeSentence ? '' : card.prefix;
  const words = card.answer.slice(prefix.length).trim().split(' ');
@@ -225,16 +18,16 @@ function sentenceContent(state = wordRound) {
 function ExerciseNavigation(active) {
  return `<aside class="cardtypes activity-navigation"><h3>Oefenvormen</h3><nav aria-label="Oefenvormen">${WORD_EXERCISES.map(([id, label, description], i) => `<button class="typebtn ${id === active ? 'active' : ''}" ${id === active ? 'aria-current="page"' : 'disabled'}>${gameIcon(['verbs','spelling','conversation','puzzles'][i])}<span>${label}<small>${description}${id !== 'build' ? ' · Binnenkort' : ''}</small></span></button>`).join('')}</nav></aside>`;
 }
-function ActivityHeader() {
- return `<div class="card-activity-heading"><div><h1>Woorden &amp; zinnen <span>${WORD_CARDS.length} kaarten</span></h1><p>Overleg samen. Zeg je zin. Luister naar elkaar.</p></div></div>`;
+function ActivityHeader(total = WORD_CARDS.length) {
+ return `<div class="card-activity-heading"><div><h1>Woorden &amp; zinnen <span>${total} kaarten</span></h1><p>${wordRound?.version === 4 ? 'Docentpreview · ' : ''}Overleg samen. Zeg je zin. Luister naar elkaar.</p></div></div>`;
 }
 function FeedbackPanel() {
  return '<div class="supportbox activity-feedback" id="wordFeedback" role="status" aria-live="polite" aria-atomic="true" hidden></div>';
 }
-function WordsAndSentencesActivityShell({active, name, title, instruction, workspace, counter, structure, color = '#176b9a'}) {
+function WordsAndSentencesActivityShell({active, name, title, instruction, workspace, counter, structure, navigation = ExerciseNavigation(active), total = WORD_CARDS.length, color = '#176b9a'}) {
  const cardColor = safeColor(color);
- const cover = playCardBack(name, 'Woorden & zinnen', 'verbs', `${WORD_CARDS.length} kaarten`, cardColor).replace(gameIcon('verbs'), '<span class="word-deck-symbol" aria-hidden="true">Aa</span>');
- return `<div class="game-shell card-table-shell words-activity" style="--ribbon:${cardColor}"><div class="game-work card-work">${ActivityHeader()}<div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="wordDeck" aria-label="Volgende woordenkaart trekken">${cover}</button></div><div class="game-card-motion"><article class="active-card" aria-label="${esc(name)}"><div class="card-ribbon">${gameIcon('verbs')}<strong>${esc(name)}</strong><span class="card-counter">${esc(counter)}</span></div><div class="card-content"><p class="word-structure">${esc(structure)}</p><h2>${esc(title)}</h2><p class="card-instruction">${esc(instruction)}</p><div class="activity-workspace">${workspace}</div>${FeedbackPanel()}<div class="word-mode-actions"><button class="smallbtn" id="wordCheck" hidden>Controleren</button><button class="smallbtn" id="wordArrange" aria-controls="sentenceBuilder" aria-expanded="false">${gameIcon('spelling')}<span>Leg de zin</span></button></div></div>${contextTools('word',{Help:{id:'wordHint',controls:'wordFeedback'},Example:{controls:'wordFeedback'}})}</article></div>${ExerciseNavigation(active)}</div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
+ const cover = playCardBack(name, 'Woorden & zinnen', 'verbs', `${total} kaarten`, cardColor).replace(gameIcon('verbs'), '<span class="word-deck-symbol" aria-hidden="true">Aa</span>');
+ return `<div class="game-shell card-table-shell words-activity" style="--ribbon:${cardColor}"><div class="game-work card-work">${ActivityHeader(total)}<div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="wordDeck" aria-label="Volgende woordenkaart trekken">${cover}</button></div><div class="game-card-motion"><article class="active-card" aria-label="${esc(name)}"><div class="card-ribbon">${gameIcon('verbs')}<strong>${esc(name)}</strong><span class="card-counter">${esc(counter)}</span></div><div class="card-content"><p class="word-structure">${esc(structure)}</p><h2>${esc(title)}</h2><p class="card-instruction">${esc(instruction)}</p><div class="activity-workspace">${workspace}</div>${FeedbackPanel()}<div class="word-mode-actions"><button class="smallbtn" id="wordCheck" hidden>Controleren</button><button class="smallbtn" id="wordArrange" aria-controls="sentenceBuilder" aria-expanded="false">${gameIcon('spelling')}<span>Leg de zin</span></button></div></div>${contextTools('word',{Help:{id:'wordHint',controls:'wordFeedback'},Example:{controls:'wordFeedback'}})}</article></div>${navigation}</div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
 }
 function SentenceCanvas() {
  return '<div class="sentence-canvas" id="sentence" role="group" aria-label="Jouw zin" data-drop-zone="sentence"></div>';
@@ -267,7 +60,10 @@ function moveSentenceWord(state, id, destination, index = state.selected.length)
  state.feedback = ''; state.support = null;
  return true;
 }
-function startWords() {
+function startWords(kind) {
+ if (kind === 'wz' || (!kind && wordRound?.version === 4)) return startWZ();
+ if (['make','guess','combine'].includes(kind)) return goScreen('words');
+ if (wordRound?.version === 4) wordRound = null;
  APP.wordKind = 'build'; wordRound ??= newSentenceRound();
  setLast('word', 'Bouw een zin · Woorden en zinnen', {kind: 'build'});
  $('#gameMount').innerHTML = WordsAndSentencesActivityShell({active: 'build', name: 'Bouw een zin', title: 'Maak samen een goede zin', instruction: 'Gebruik alle woorden. Zeg jullie zin hardop.', workspace: SentenceBuilderExercise(), structure: sentenceContent().structure, counter: `${(wordRound.round - 1) % WORD_CARDS.length + 1} / ${WORD_CARDS.length}`});
@@ -294,7 +90,7 @@ async function nextWordCard() {
  if (wordBusy) return;
  wordBusy = true;
  try {
-  completeTurn(); wordRound = newSentenceRound(wordRound.round + 1); startWords();
+  completeTurn(); wordRound = wordRound.version === 4 ? newWZRound({...wordRound, round: wordRound.round + 1}) : newSentenceRound(wordRound.round + 1); startWords();
   const card = $('.words-activity .game-card-motion'), shell = card.closest('.game-shell');
   shell.setAttribute('aria-busy', 'true');
   const controls = [...shell.querySelectorAll('button,select')].map(b => [b, b.disabled]);
@@ -305,13 +101,14 @@ async function nextWordCard() {
 }
 function renderSentenceBuilder(focusId) {
  const {words, prefix} = sentenceContent();
- $('#wordWholeRow').hidden = !WORD_CARDS[(wordRound.round - 1) % WORD_CARDS.length].prefix;
+ const isWZ = wordRound.version === 4;
+ $('#wordWholeRow').hidden = isWZ || !WORD_CARDS[(wordRound.round - 1) % WORD_CARDS.length].prefix;
  $('#wordWhole').checked = !!wordRound.wholeSentence;
  $('#wordLead').hidden = !prefix; $('#wordLead').textContent = prefix;
- $('.words-activity .card-instruction').textContent = prefix ? 'Maak de zin af. Gebruik alle losse woorden.' : 'Gebruik alle woorden. Zeg jullie zin hardop.';
+ $('.words-activity .card-instruction').textContent = isWZ ? wordItem().instruction : prefix ? 'Maak de zin af. Gebruik alle losse woorden.' : 'Gebruik alle woorden. Zeg jullie zin hardop.';
  $('#wordSpeaking').hidden = !!wordRound.arranging;
  $('.words-activity .card-content h2').hidden = !!wordRound.arranging;
- $('.words-activity .card-instruction').hidden = !!wordRound.arranging;
+ $('.words-activity .card-instruction').hidden = !isWZ && !!wordRound.arranging;
  $('#sentenceBuilder').hidden = !wordRound.arranging;
  $('#wordArrange').setAttribute('aria-expanded', String(!!wordRound.arranging));
  $('#wordArrange span').textContent = wordRound.arranging ? 'Spreken' : 'Leg de zin';
@@ -335,6 +132,7 @@ function renderSentenceBuilder(focusId) {
  feedback.classList.toggle('open', !!wordRound.feedback); feedback.dataset.status = wordRound.status;
  $('#wordHint').setAttribute('aria-expanded', String(wordRound.support === 'help'));
  $('#wordExample').setAttribute('aria-expanded', String(wordRound.support === 'example'));
+ if (isWZ) persistWZ();
  if (focusId !== undefined) $(`[data-token="${focusId}"]`)?.focus({preventScroll: true});
 }
 function moveWord(id, destination, index) {
@@ -344,6 +142,7 @@ function moveWord(id, destination, index) {
  if (!settingsState().reducedMotion && !matchMedia('(prefers-reduced-motion: reduce)').matches) $(`[data-token="${id}"]`)?.animate([{opacity: .45, transform: 'translateY(4px)'}, {opacity: 1, transform: 'none'}], {duration: 140, easing: 'ease-out'});
 }
 function checkSentence() {
+ if (wordRound.version === 4) return checkWZ();
  rememberAction('antwoord controleren'); wordRound.checked = true; wordRound.support = 'check';
  const {words, order, answer} = sentenceContent();
  const correct = wordRound.selected.join(',') === order.join(',');
@@ -352,6 +151,7 @@ function checkSentence() {
  renderSentenceBuilder(); $('#wordFeedback').scrollIntoView({block: 'nearest'});
 }
 function showWordSupport(kind) {
+ if (wordRound.version === 4) return showWZSupport(kind);
  rememberAction(kind === 'help' ? 'hulp bekijken' : 'voorbeeld bekijken');
  const {answer, hint, variation} = sentenceContent();
  wordRound.support = wordRound.support === kind ? null : kind;
@@ -419,4 +219,136 @@ function bindSentenceBuilder() {
  };
  workspace.onpointercancel = cancel;
  workspace.onlostpointercapture = event => {if (event.target === workspace) cancel();};
+}
+
+// WZ uses the same shell, turn controls, feedback and token builder as the retained cards.
+const WZ_TYPES = ['Bouw','Kies','Herstel','Verander','Spreek','Transfer'];
+const WZ_ITEMS = WORD_CONTENT.items.filter(item => item.source === 'WZ_BATCH_001');
+const WZ_GOALS = [...new Map(WZ_ITEMS.map(item => [item.goalId, item.goal])).entries()];
+function wordItem(state = wordRound) { return WZ_ITEMS.find(item => item.id === state?.itemId); }
+function wzPool({goalId, type, band, context = ''}) {
+ return WZ_ITEMS.filter(item => item.goalId === goalId && (!type || item.type === type) && (!band || item.band === band) && (!context || item.context === context));
+}
+function shuffledWords(values) {
+ const out = [...values];
+ for (let i = out.length - 1; i > 0; i--) {const j = Math.floor(Math.random() * (i + 1)); [out[i], out[j]] = [out[j], out[i]];}
+ return out;
+}
+function newWZRound({goalId = 'WZ_001', type = 'Bouw', band = 1, context = '', round = 1} = {}) {
+ const pool = wzPool({goalId,type,band,context});
+ if (!pool.length) throw new Error('Geen oefeningen voor deze selectie.');
+ const item = pool[(round - 1) % pool.length];
+ const bankOrder = shuffledWords((item.tokens || []).map((_, i) => i));
+ if (bankOrder.length > 1 && bankOrder.every((id, i) => id === i)) bankOrder.push(bankOrder.shift());
+ return {version:4,goalId,type,band,context,round,itemId:item.id,bankOrder,optionOrder:shuffledWords(item.options.map(o=>o.id)),selected:[],response:'',choice:null,status:'initial',checked:false,feedback:'',support:null,arranging:false,moveId:null};
+}
+function validWZRound(state) {
+ if (!state || state.version !== 4 || !Number.isInteger(state.round) || state.round < 1 || ![0,1,2,3].includes(state.band) || !WZ_TYPES.includes(state.type) || typeof state.context !== 'string') return false;
+ const pool = wzPool(state), item = wordItem(state);
+ if (!pool.length || pool[(state.round - 1) % pool.length]?.id !== item?.id) return false;
+ const validOrder = (values, expected) => Array.isArray(values) && values.length === expected.length && new Set(values).size === expected.length && values.every(v=>expected.includes(v));
+ return validOrder(state.bankOrder,(item.tokens || []).map((_,i)=>i)) && validOrder(state.optionOrder,item.options.map(o=>o.id)) && Array.isArray(state.selected) && new Set(state.selected).size === state.selected.length && state.selected.every(id=>state.bankOrder.includes(id)) && typeof state.response === 'string' && state.response.length <= 1000 && (state.choice === null || item.options.some(o=>o.id===state.choice));
+}
+function persistWZ() {APP.wzRound = structuredClone(wordRound); save();}
+function normalizeWordAnswer(value) {return String(value).normalize('NFC').toLocaleLowerCase('nl').replace(/[‘’]/g,"'").replace(/\s+/g,' ').trim().replace(/[.!?]+$/,'').trim();}
+function assessWordAnswer(item, response) {
+ // Guard the actual type too: malformed metadata must never score open speech.
+ if (item.answerType === 'OPEN' || ['Spreek','Transfer'].includes(item.type)) return 'unassessed';
+ if (item.type === 'Kies') return item.options.some(o=>o.id===response) ? response === item.correctOptionId ? 'correct' : 'incorrect' : 'incomplete';
+ if (!normalizeWordAnswer(response)) return 'incomplete';
+ return item.acceptedAnswers.some(answer=>normalizeWordAnswer(answer)===normalizeWordAnswer(response)) ? 'correct' : 'review';
+}
+function selectWZGoal(goalId) {
+ const goalItems = WZ_ITEMS.filter(i=>i.goalId===goalId);
+ if (!goalItems.length) return;
+ wordRound = newWZRound({goalId,band:Math.min(...goalItems.map(i=>i.band))}); startWords('wz');
+}
+function WZNavigation() {
+ const state = wordRound;
+ const option = (value,label,selected) => `<option value="${esc(value)}" ${selected ? 'selected' : ''}>${esc(label)}</option>`;
+ const contexts = [...new Set(wzPool({...state,type:'',context:''}).map(i=>i.context))].sort();
+ return `<aside class="cardtypes activity-navigation wz-navigation"><label>Taaldoel<select id="wzGoal">${WZ_GOALS.map(([id,label])=>option(id,label,id===state.goalId)).join('')}</select></label><label>Moeilijkheid<select id="wzBand">${[[1,'1 · Instap met docent'],[2,'2 · Verder oefenen'],[3,'3 · Later in A1'],[0,'Alle banden']].filter(([band])=>!band || wzPool({...state,type:'',context:'',band}).length).map(([band,label])=>option(band,label,band===state.band)).join('')}</select></label><h3>Oefenvorm</h3><nav aria-label="Oefenvormen">${WZ_TYPES.map(type=>{const count=wzPool({...state,type}).length;return `<button class="typebtn ${type===state.type?'active':''}" data-wz-type="${type}" ${count?'':'disabled'} ${type===state.type?'aria-current="page"':''}><span>${type}<small>${count} oefeningen</small></span></button>`}).join('')}</nav><label>Context<select id="wzContext">${option('','Alle contexten',!state.context)}${contexts.map(c=>option(c,c,c===state.context)).join('')}</select></label><button class="smallbtn" id="wzGoalsBack">Alle taaldoelen</button></aside>`;
+}
+function WZWorkspace(item) {
+ if (item.type === 'Bouw') return SentenceBuilderExercise();
+ const stimulus = item.stimulus ? `<p class="wz-stimulus">${esc(item.stimulus)}</p>` : '';
+ if (item.type === 'Kies') return `${stimulus}<div class="wz-options" role="group" aria-label="Kies je antwoord">${wordRound.optionOrder.map(id=>{const o=item.options.find(o=>o.id===id);return `<button class="smallbtn" data-wz-option="${o.id}" aria-pressed="${wordRound.choice===o.id}">${esc(o.text)}</button>`}).join('')}</div>`;
+ if (item.answerType === 'OPEN') return `${stimulus}<p class="wz-open">Zeg je antwoord. Luister naar elkaar.</p><p>Bespreek samen: ${esc(item.feedback)}</p><p class="word-gesture-hint">Verschillende antwoorden zijn mogelijk. De docent beoordeelt het antwoord.</p>`;
+ return `${stimulus}<label class="wz-response-label" for="wzResponse">Jouw zin</label><textarea id="wzResponse" rows="2" maxlength="1000" spellcheck="false">${esc(wordRound.response)}</textarea>`;
+}
+function startWZ() {
+ if (wordRound?.version !== 4) wordRound = validWZRound(APP.wzRound) ? structuredClone(APP.wzRound) : newWZRound();
+ if (!validWZRound(wordRound)) wordRound = newWZRound();
+ const item = wordItem(), pool = wzPool(wordRound);
+ APP.wordKind = 'wz'; persistWZ();
+ setLast('word', `${item.goal} · ${item.type}`, {kind:'wz',goalId:item.goalId,itemId:item.id});
+ $('#gameMount').innerHTML = WordsAndSentencesActivityShell({active:item.type,name:item.type,title:item.goal,instruction:item.instruction,workspace:WZWorkspace(item),structure:`${item.id} · Band ${item.band} · ${item.context}`,counter:`${(wordRound.round-1)%pool.length+1} / ${pool.length}`,total:pool.length,navigation:WZNavigation()});
+ goScreen('game');bindGameBar(nextWordCard);
+ $('[data-ghelp]').onclick=()=>openGameDialog('Spelhulp','<p>Kies een taaldoel en een moeilijkheidsband. De docent kan de opdracht voorlezen en voordoen. Bij Spreek en Transfer bespreek je het antwoord samen; daar is geen automatische beoordeling.</p>');
+ $('#wordDeck').onclick = () => {rememberAction('volgende kaart');nextWordCard();};
+ $('#wzGoal').onchange = event => {rememberAction('taaldoel wisselen'); selectWZGoal(event.target.value);};
+ const filter = patch => {
+  const focused = document.activeElement;
+  const focusSelector = focused?.dataset.wzType ? `[data-wz-type="${focused.dataset.wzType}"]` : focused?.id ? '#'+CSS.escape(focused.id) : null;
+  rememberAction('oefening kiezen');
+  const selection = {...wordRound,...patch,round:1};
+  if (!wzPool(selection).length) selection.type = WZ_TYPES.find(type=>wzPool({...selection,type}).length);
+  wordRound = newWZRound(selection);startWZ();
+  if(focusSelector)$(focusSelector)?.focus({preventScroll:true});
+ };
+ $('#wzBand').onchange = event => filter({band:Number(event.target.value),context:''});
+ $('#wzContext').onchange = event => filter({context:event.target.value});
+ $$('[data-wz-type]').forEach(button=>button.onclick=()=>filter({type:button.dataset.wzType}));
+ $('#wzGoalsBack').onclick = () => goScreen('words');
+ $('#wordArrange').hidden = item.type !== 'Bouw';
+ $('#wordHint').onclick = () => showWZSupport('help');
+ $('#wordExample').onclick = () => showWZSupport('example');
+ if (item.type === 'Bouw') {
+  bindSentenceBuilder();renderSentenceBuilder();
+  $('#wordArrange').onclick = () => {rememberAction('oefenvorm wisselen');wordRound.arranging=!wordRound.arranging;wordRound.feedback='';wordRound.support=null;renderSentenceBuilder();};
+ } else {
+  $('#wordCheck').hidden = item.answerType === 'OPEN';
+  $('#wordCheck').onclick = checkWZ;
+  $$('[data-wz-option]').forEach(button=>button.onclick=()=>{
+   rememberAction('antwoord kiezen');wordRound.choice=button.dataset.wzOption;wordRound.feedback='';wordRound.checked=false;wordRound.status='initial';
+   $$('[data-wz-option]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderWZFeedback();
+  });
+  const input = $('#wzResponse');
+  if(input){input.onfocus=()=>rememberAction('zin schrijven');input.oninput=()=>{wordRound.response=input.value;wordRound.feedback='';wordRound.checked=false;wordRound.status='initial';renderWZFeedback();};}
+  renderWZFeedback();
+ }
+ for(const key of ['Goals','Partner','More'])$('#word'+key).onclick=()=>{
+  const sections={Goals:[['Doel',item.goal],['Waar let je op?',item.feedback]],Partner:[['Samen bespreken',item.answerType==='OPEN'?'Luister naar de bedoeling en naar de zin. Geef ruimte voor een ander passend antwoord.':'Vergelijk de gekozen zin met het antwoordmodel. Bespreek een andere geldige formulering.']],More:[['Verder oefenen','Oefen hetzelfde taaldoel ook met Spreek of Transfer. Deze vormen hebben open antwoorden.'],['Docentpreview','Taal- en didactiekreview door een docent en een lespilot staan nog open.']]};
+  openGameDialog({Goals:'Doel en rollen',Partner:'Voor de gesprekspartner',More:'Meer bij deze oefening'}[key],sections[key].map(([h,t])=>`<h3>${esc(h)}</h3><p>${esc(t)}</p>`).join(''));
+ };
+}
+function renderWZFeedback() {
+ const box=$('#wordFeedback');box.textContent=wordRound.feedback;box.hidden=!wordRound.feedback;box.classList.toggle('open',!!wordRound.feedback);box.dataset.status=wordRound.status;
+ $('#wordHint').setAttribute('aria-expanded',String(wordRound.support==='help'));
+ $('#wordExample').setAttribute('aria-expanded',String(wordRound.support==='example'));persistWZ();
+}
+function checkWZ() {
+ const item=wordItem();
+ if (item.answerType==='OPEN' || ['Spreek','Transfer'].includes(item.type)) return;
+ rememberAction('antwoord controleren');
+ const response=item.type==='Kies'?wordRound.choice:item.type==='Bouw'?wordRound.selected.map(id=>item.tokens[id]).join(' '):wordRound.response;
+ wordRound.status=item.type==='Bouw'&&wordRound.selected.length!==item.tokens.length?'incomplete':assessWordAnswer(item,response);
+ wordRound.checked=true;wordRound.support='check';
+ const model=` Voorbeeld: ${item.answerModel}`;
+ wordRound.feedback={correct:'Goed gedaan.'+model,incorrect:item.feedback+model,incomplete:item.type==='Bouw'?'Gebruik alle bouwstenen.':'Geef eerst een antwoord.',review:'Dit antwoord wijkt af van het model. Bespreek of het ook past. '+item.feedback+model}[wordRound.status];
+ // A repair task always follows the error sentence with a correct model after checking.
+ if(item.type==='Herstel'&&wordRound.status==='incomplete')wordRound.feedback+=model;
+ if(item.type==='Bouw')renderSentenceBuilder();else renderWZFeedback();
+ $('#wordFeedback').scrollIntoView({block:'nearest'});
+}
+function showWZSupport(kind) {
+ rememberAction(kind==='help'?'hulp bekijken':'voorbeeld bekijken');
+ const item=wordItem();wordRound.support=wordRound.support===kind?null:kind;
+ wordRound.feedback=!wordRound.support?'':kind==='help'?item.feedback:item.answerType==='OPEN'?'Open antwoord. Bespreek samen: '+item.feedback:'Een mogelijke zin: '+item.answerModel;
+ if(item.type==='Bouw')renderSentenceBuilder();else renderWZFeedback();
+}
+function renderWordGoals() {
+ const mount = $('#wordGoalTiles');if(!mount)return;
+ mount.innerHTML=WZ_GOALS.map(([id,label])=>`<button class="tile" data-wz-goal="${id}"><div class="tile-body"><span class="status">${id} · ${WZ_ITEMS.filter(i=>i.goalId===id).length} oefeningen</span><h3>${esc(label)}</h3><p>A0–A1 · kies daarna de oefenvorm</p></div></button>`).join('');
+ mount.querySelectorAll('[data-wz-goal]').forEach(button=>button.onclick=()=>selectWZGoal(button.dataset.wzGoal));
 }

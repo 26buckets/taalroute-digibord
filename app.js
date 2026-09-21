@@ -32,7 +32,7 @@ function undoLastAction(){
  if(!group.steps.length)undoHistory.pop();else group.closed=false;APP=structuredClone(snap.app);twDiceState=structuredClone(snap.dice);
  settingsPatch({pawnMode:snap.mode,route:selectedTaskRoute().label});$('#levelSelect').value=APP.level;
  resumeLast();
- if(snap.word){wordRound=snap.word.round?.version===3&&Array.isArray(snap.word.round.selected)?structuredClone(snap.word.round):newSentenceRound();startWords('build')}
+ if(snap.word){wordRound=validWZRound(snap.word.round)?structuredClone(snap.word.round):snap.word.round?.version===3&&Array.isArray(snap.word.round.selected)?structuredClone(snap.word.round):newSentenceRound();startWords(wordRound.version===4?'wz':'build')}
  if($('#cardSupport')){const box=$('#cardSupport');box.classList.toggle('open',!!snap.support);box.dataset.section=snap.supportSection||'help';$('#cardHelp')?.setAttribute('aria-expanded',!!snap.support&&box.dataset.section==='help');$('#cardExample')?.setAttribute('aria-expanded',!!snap.support&&box.dataset.section==='example')}
  save();storeUndo();toast('Hersteld: '+snap.label);
 }
@@ -154,7 +154,7 @@ function bindGameBar(primaryHandler){
  $$('[data-grules]').forEach(b=>b.onclick=()=>openGameDialog('Spelregels',`<p>${esc(currentGameRules())}</p>`));
  $$('[data-goptions]').forEach(b=>b.onclick=()=>{
   const panel=$('#boardOptions');if(panel){setBoardMenu(false);panel.classList.toggle('open');return}
-  openGameDialog('Spelopties',`<label class="option-row">Minder beweging <input id="gameMotion" type="checkbox" ${settingsState().reducedMotion?'checked':''}></label><label class="option-row">Geluid <input id="gameSound" type="checkbox" ${settingsState().soundEnabled!==false?'checked':''}></label><p>Het niveau kies je rechtsboven. De beschikbare sets en aantallen staan bij het spel.</p>`,()=>{$('#gameMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});$('#gameSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked})});
+  openGameDialog('Spelopties',`<label class="option-row">Minder beweging <input id="gameMotion" type="checkbox" ${settingsState().reducedMotion?'checked':''}></label><label class="option-row">Geluid <input id="gameSound" type="checkbox" ${settingsState().soundEnabled!==false?'checked':''}></label><p>${APP.last?.type==='word'&&APP.last.data.kind==='wz'?'De moeilijkheid kies je bij het taaldoel.':'Het niveau kies je rechtsboven.'} De beschikbare sets en aantallen staan bij het spel.</p>`,()=>{$('#gameMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});$('#gameSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked})});
  });
  if(primaryHandler)$('#primaryGame')?.addEventListener('click',primaryHandler);
 }
@@ -753,6 +753,7 @@ function startCards(kind){
 }
 
 /* Woorden en zinnen */
+renderWordGoals();
 $$('[data-wordgame]').forEach(b=>b.onclick=()=>startWords(b.dataset.wordgame));
 /* Lessen */
 $('[data-start-work]').onclick=()=>{if(!tw)return toast('Taalworp wordt geladen.');startTaalworp('SET_A2_WERK')};
@@ -837,6 +838,7 @@ function openGameDialog(title,body,bind){
 }
 function currentGameRules(){
  const type=APP.last?.type;
+ if(type==='word'&&APP.last.data.kind==='wz')return 'Kies eerst het taaldoel, daarna moeilijkheid en oefenvorm. Bouw met de aangeboden delen, kies een antwoord of schrijf een gewijzigde zin. Controleren vergelijkt gesloten antwoorden met het model. Andere formuleringen bespreek je met de docent. Spreek en Transfer zijn open: er is geen automatische score. Volgende kaart wisselt de beurt.';
  if(type==='board')return 'Gooi en volg de weg. Voer de opdracht bij je aankomstvak uit. Hulp en Voorbeeld ondersteunen de docent. De eerste spatie gooit en opent de opdracht. De volgende spatie sluit de opdracht, rondt de beurt af en gooit meteen voor de volgende speler. Terug herstelt de vorige opdracht en pionstanden. Bij de steiger mag je kiezen voor de watertaxi. Wie aankomt bij het laatste vak, rondt nog één opdracht af. Als iedereen binnen is, begint een nieuwe ronde.';
  if(type==='taalworp')return 'Trek een werkwoordkaart en gooi de taalstenen. Maak een zin die aan de actieve voorwaarden voldoet. Klik op een steen om hem aan of uit te zetten. Met het slotje zet je een waarde vast of geef je deze vrij. Het voorbeeld gebruikt de huidige worp. Rond de beurt af voordat de volgende speler speelt.';
  if(type==='story')return 'Gooi drie, zes of negen beeldstenen. Vertel een samenhangend verhaal met alle beelden. Klik op een steen om hem aan of uit te zetten. Uitgeschakelde stenen zijn grijs en rollen niet mee. Gebruik het slotje om een actief beeld vast te houden of vrij te geven. Rond je beurt af met de knop onder de beelden.';
@@ -845,7 +847,7 @@ function currentGameRules(){
  return 'Overleg met je maatje en maak met alle woorden een zin. Eén zegt de zin, de ander luistert en helpt. Voorbeeld toont een mogelijke uitwerking. Leg de zin opent woordtegels om zelf te tikken of slepen; controleren kan daar op de kaart. Volgende kaart geeft een nieuwe opdracht aan de volgende deelnemer.';
 }
 function refreshCurrentGame(){if($('#screen-game').classList.contains('active'))resumeLast()}
-function syncLevelSelect(cards){const select=$('#levelSelect');select.dataset.tongue=String(cards&&APP.cardKind==='tongue');if(cards&&APP.cardKind==='tongue'){select.dataset.routes='false';select.setAttribute('aria-label','Niveau tongbrekers');select.innerHTML=RUNTIME.tongueBank.levels.map(l=>`<option value="${l}">t/m ${l}</option>`).join('');select.value=tongueLevel();return}select.dataset.routes=String(cards);select.setAttribute('aria-label',cards?'Taalroute':'Niveau');select.innerHTML=cards?`<option value="all">Alle routes</option>${CARD_ROUTES.map(r=>`<option value="${r.id}">${esc(r.label)}</option>`).join('')}`:LEVELS.map(l=>`<option>${l}</option>`).join('');select.value=cards?activeCardRoute():APP.level}
+function syncLevelSelect(cards){const select=$('#levelSelect');const wz=APP.last?.type==='word'&&APP.last.data.kind==='wz'&&$('#screen-game').classList.contains('active');select.disabled=wz;if(wz){select.dataset.routes='false';select.dataset.tongue='false';select.setAttribute('aria-label','Woorden en zinnen: A0 tot A1; kies de moeilijkheid bij het taaldoel');select.innerHTML='<option>A0–A1</option>';return}select.dataset.tongue=String(cards&&APP.cardKind==='tongue');if(cards&&APP.cardKind==='tongue'){select.dataset.routes='false';select.setAttribute('aria-label','Niveau tongbrekers');select.innerHTML=RUNTIME.tongueBank.levels.map(l=>`<option value="${l}">t/m ${l}</option>`).join('');select.value=tongueLevel();return}select.dataset.routes=String(cards);select.setAttribute('aria-label',cards?'Taalroute':'Niveau');select.innerHTML=cards?`<option value="all">Alle routes</option>${CARD_ROUTES.map(r=>`<option value="${r.id}">${esc(r.label)}</option>`).join('')}`:LEVELS.map(l=>`<option>${l}</option>`).join('');select.value=cards?activeCardRoute():APP.level}
 syncLevelSelect(false);
 $('#levelSelect').onchange=e=>{
  if(e.target.dataset.tongue==='true'){rememberAction('tongbrekerniveau kiezen');APP.tongueLevel=e.target.value;APP.cardIndex=0;save();startTongue();return}

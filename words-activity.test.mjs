@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 const context = vm.createContext({});
+vm.runInContext(fs.readFileSync(new URL('./words-content.js', import.meta.url), 'utf8'), context);
 vm.runInContext(fs.readFileSync(new URL('./words-activity.js', import.meta.url), 'utf8'), context);
 const run = code => vm.runInContext(code, context);
 run('var state = newSentenceRound()');
