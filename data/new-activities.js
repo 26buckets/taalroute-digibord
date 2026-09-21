@@ -92,6 +92,8 @@ window.DIGIBORD_ACTIVITIES = {
   ],
   "pictureSets": [
     {
+      "id": "daily-life-01",
+      "forms": ["memory", "koppelen"],
       "title": "Elke dag",
       "words": [
         "bus",
@@ -101,6 +103,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-02",
+      "forms": ["memory", "koppelen"],
       "title": "Plekken in de buurt",
       "words": [
         "school",
@@ -110,6 +114,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-03",
+      "forms": ["memory", "koppelen"],
       "title": "Mensen ontmoeten",
       "words": [
         "vrouw",
@@ -119,6 +125,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-04",
+      "forms": ["memory", "koppelen"],
       "title": "Met het openbaar vervoer",
       "words": [
         "station",
@@ -128,6 +136,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-05",
+      "forms": ["memory", "koppelen"],
       "title": "Boodschappen meenemen",
       "words": [
         "boodschappentas",
@@ -137,6 +147,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-06",
+      "forms": ["memory", "koppelen"],
       "title": "In de keuken",
       "words": [
         "keuken",
@@ -146,6 +158,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-07",
+      "forms": ["memory", "koppelen"],
       "title": "In de les",
       "words": [
         "boek",
@@ -155,6 +169,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-08",
+      "forms": ["memory", "koppelen"],
       "title": "Bij de zorgverlener",
       "words": [
         "thermometer",
@@ -164,6 +180,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-09",
+      "forms": ["memory", "koppelen"],
       "title": "Sporten",
       "words": [
         "zwemmen",
@@ -173,6 +191,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-10",
+      "forms": ["memory", "koppelen"],
       "title": "Het weer",
       "words": [
         "zon",
@@ -182,6 +202,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-11",
+      "forms": ["memory", "koppelen"],
       "title": "Kleren aantrekken",
       "words": [
         "jas",
@@ -191,6 +213,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-12",
+      "forms": ["memory", "koppelen"],
       "title": "Een bezoek ontvangen",
       "words": [
         "deurbel",
@@ -200,6 +224,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-13",
+      "forms": ["memory", "koppelen"],
       "title": "Op reis",
       "words": [
         "koffer",
@@ -209,6 +235,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-14",
+      "forms": ["memory", "koppelen"],
       "title": "In de badkamer",
       "words": [
         "douche",
@@ -218,6 +246,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-15",
+      "forms": ["memory", "koppelen"],
       "title": "Het huis schoonmaken",
       "words": [
         "stofzuiger",
@@ -227,6 +257,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-16",
+      "forms": ["memory", "koppelen"],
       "title": "Een feest",
       "words": [
         "cadeau",
@@ -236,6 +268,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-17",
+      "forms": ["memory", "koppelen"],
       "title": "In de winkel betalen",
       "words": [
         "portemonnee",
@@ -245,6 +279,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-18",
+      "forms": ["memory", "koppelen"],
       "title": "Het verkeer",
       "words": [
         "verkeerslicht",
@@ -254,6 +290,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-19",
+      "forms": ["memory", "koppelen"],
       "title": "Een maaltijd bereiden",
       "words": [
         "koken",
@@ -263,6 +301,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-20",
+      "forms": ["memory", "koppelen"],
       "title": "Een pakket bezorgen",
       "words": [
         "bezorger",
@@ -272,6 +312,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-21",
+      "forms": ["memory", "koppelen"],
       "title": "Buiten met het gezin",
       "words": [
         "gezin",
@@ -281,6 +323,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-22",
+      "forms": ["memory", "koppelen"],
       "title": "De ochtend",
       "words": [
         "wakker worden",
@@ -290,6 +334,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-23",
+      "forms": ["memory", "koppelen"],
       "title": "Samen praten",
       "words": [
         "spreken",
@@ -299,6 +345,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-24",
+      "forms": ["memory", "koppelen"],
       "title": "Iets maken",
       "words": [
         "timmeren",
@@ -308,6 +356,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-25",
+      "forms": ["memory", "koppelen"],
       "title": "Creatief bezig zijn",
       "words": [
         "tekenen",
@@ -317,6 +367,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-26",
+      "forms": ["memory", "koppelen"],
       "title": "Hulp bij bewegen",
       "words": [
         "rollator",
@@ -326,6 +378,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-27",
+      "forms": ["memory", "koppelen"],
       "title": "Naar de winkel",
       "words": [
         "supermarkt",
@@ -335,6 +389,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-28",
+      "forms": ["memory", "koppelen"],
       "title": "Een vrije middag",
       "words": [
         "park",
@@ -344,6 +400,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-29",
+      "forms": ["memory", "koppelen"],
       "title": "Een lunch",
       "words": [
         "brood",
@@ -353,6 +411,8 @@ window.DIGIBORD_ACTIVITIES = {
       ]
     },
     {
+      "id": "daily-life-30",
+      "forms": ["memory", "koppelen"],
       "title": "Acties met voorwerpen",
       "words": [
         "openen",

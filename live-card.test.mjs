@@ -69,7 +69,7 @@ try{
     assert.equal(await page.locator('#screen-'+screen).isVisible(),true,category);
     await page.locator('.navitem[data-main="play"]').click();
   }
-  await page.locator('[data-category="workforms"]').click();await page.locator('[data-activity="memory"]').click();await page.locator('[data-main="play"]').click();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.new-activity .card-ribbon strong').innerText(),'Memory');await page.locator('[data-main="play"]').click();
+  await page.locator('#screen-play [data-category="workforms"]').click();await page.locator('#workformDecks [data-activity="memory"]').click();await page.locator('[data-main="play"]').click();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.new-activity .card-ribbon strong').innerText(),'Memory');await page.locator('[data-main="play"]').click();
   await page.locator('#levelSelect').focus();
   for(let i=0;i<12;i++){
     await page.keyboard.press('Tab');

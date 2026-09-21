@@ -15,3 +15,10 @@ unique(c.quiz.map(q=>q.question),'quiz questions');for(const q of c.quiz){assert
 for(const category of new Set(c.quiz.map(q=>q.category)))assert.deepEqual(c.quiz.filter(q=>q.category===category).map(q=>q.points),[100,200,300]);
 unique(c.riddles.map(r=>r.word),'riddle answers');for(const r of c.riddles){assert.equal(r.clues.length,3);unique(r.clues,r.word);assert.equal(r.word,r.word.toLocaleLowerCase('nl'))}
 console.log('PASS: 30 unique variants in every content bank, valid images, complete sorting groups, sequences, quiz answers and riddle clues.');
+
+const assets=require('../assets/activities/sources.json'),crypto=require('node:crypto');
+assert.deepEqual(assets.map(f=>f.name),['DRAAIWIEL','MEMORY','KOPPELEN','SORTEREN','RANGSCHIKKEN','CATEGORIEENQUIZ','RAAD_HET_WOORD','MEER_ACTIVITEITEN'].map((name,i)=>`DIGIBORD_ACT_${name}_VOLWASSEN_FINAL_${i===5?'v02':'v01'}.png`));
+for(const file of assets){const bytes=fs.readFileSync(path.join(root,'assets/activities',file.name));assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),file.sha256)}
+unique(c.pictureSets.map(s=>s.id),'stable set IDs');
+for(const set of c.pictureSets)assert.deepEqual(set.forms,['memory','koppelen']);
+console.log('PASS: eight exact final PNGs unchanged, quiz v02, thirty shared content sets.');
