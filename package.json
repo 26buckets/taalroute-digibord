@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
     "types": "tsc --allowJs --checkJs --noEmit --target ES2022 --lib ES2022,DOM board-viewport.js",
-    "test": "node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/zwolle-route.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs",
+    "test": "node scripts/words-content.cjs && node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/zwolle-route.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/words-content.cjs && node tests/wordspel-import.cjs",
     "smoke": "node tests/board-browser.cjs",
     "build": "node scripts/build.cjs",
     "test:words:browser": "node controle-ui001-browser.cjs",
@@ -13,6 +13,9 @@
     "check:banks": "node scripts/check-banks.cjs",
     "test:banks:browser": "node tests/banks-v2.cjs",
     "test:tongue:browser": "node tests/tongbrekers-browser.cjs",
+    "sync:words": "node scripts/words-content.cjs --write",
+    "test:wz:browser": "node tests/wz-browser.cjs",
+    "import:wordspel": "node scripts/import-wordspel.cjs --write && npm run sync:words",
     "test:story:browser": "node tests/storydice-browser.cjs"
   },
   "devDependencies": {

@@ -65,7 +65,7 @@ const {chromium}=require('playwright');
   const library=async()=>{await page.locator('[data-main="play"]').click();await page.locator('#screen-play [data-category="workforms"]').click();await page.locator('[data-activities-library]').click()};
   await library();
   const routes=await page.locator('#activityLibrary [data-library-card],#activityLibrary [data-library-board],#activityLibrary [data-library-word],#activityLibrary [data-dicegame],#activityLibrary [data-library-cabinet]').evaluateAll(bs=>bs.map(b=>[...b.attributes].filter(a=>a.name.startsWith('data-')).map(a=>[a.name,a.value])[0]));
-  for(const [attr,value] of routes){await library();await page.locator(`#activityLibrary [${attr}="${value}"]`).click();assert.equal(await page.locator(attr==='data-library-cabinet'?'#screen-collection':'#screen-game').isVisible(),true,attr+' '+value)}
+  for(const [attr,value] of routes){await library();await page.locator(`#activityLibrary [${attr}="${value}"]`).click();assert.equal(await page.locator(attr==='data-library-cabinet'?'#screen-collection':attr==='data-library-word'?'#screen-words':'#screen-game').isVisible(),true,attr+' '+value)}
   for(const width of [1440,1024,768,390,320]){await page.setViewportSize({width,height:900});await library();assert.ok(await page.locator('#screen-activities').evaluate(e=>e.scrollWidth<=e.clientWidth),'library overflow '+width)}
   assert.deepEqual(errors,[]);console.log('PASS: all seven games completed; wrong answers, undo, custom input validation/escaping, resume, six viewports 320–1920, fullscreen, existing routes and no browser errors.');
  }finally{await browser.close()}
