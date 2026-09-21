@@ -3,6 +3,7 @@
   "assets/boards/zwolle.png": "0bab57d83d2e151cddc57068e87a81ba812495c36805cf2838b275e98767ed5b",
   "assets/boards/watertaxi.png": "8db4ddc3f00f67038fbaa39ef7c2e09a9639b87070e037c3d73ecade5544ff27",
   "data/rotterdam-route.json": "348131248e069f5be8f91c25937a15c0ec56ccf2d5142c9a456f881f2b24d816",
-  "data/zwolle-route.json": "c6bbc356bd24fa22a36b8efceca188a0271f4058fbca8794f03ac208f8ecd6d9",
-  "data-bundle.js": "782d4e6098a08bc7636342aae7331c76ef2edf6e46c9fff112f2cf8197388b64"
+  "data/zwolle-route.json": "8da80382b38132b554e5a2397a6368abbbebe35fde6741fc919dddac3ba49875",
+  "data-bundle.js": "88dc7d0861238a4f1dc44850302c9c5caccc785e45886ee65ae768788ebaeb53",
+  "assets/boards/zwolle-route-v4.png": "81790ec524ca36e0b87fb01101615477a8a567ef546cc106888fdacf29f87285"
 }
