@@ -1,7 +1,0 @@
-PASS roll 3 through passage and continue, undo onderwater-koraalroute 14→15
-PASS roll 3 through passage and continue, undo jungle-watervalroute 20→21
-PASS roll 3 through passage and continue, undo woestijn-oaseroute 11→12
-PASS roll 3 through passage and continue, undo kasteel-poortroute 23→24
-PASS roll 3 through passage and continue, undo bergdorp-kabelroute 14→15
-PASS roll 3 through passage and continue, undo jungle-watervalroute 12→13
-PASS roll 3 through passage and continue, undo kasteel-poortroute 3→4

@@ -15,8 +15,11 @@ if(native){
  const ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'data-bundle.js'),'utf8'),ctx);
  assert.deepEqual(JSON.parse(JSON.stringify(ctx.window.DIGIBORD_DATA.taskBank)),banks[0],'Losse gespreksbank en runtime verschillen');
  assert.deepEqual(JSON.parse(JSON.stringify(ctx.window.DIGIBORD_DATA.directBank)),banks[1],'Losse Snelvraagbank en runtime verschillen');
-}else{
+}
+if(fs.existsSync(path.join(root,'Lessen/opdrachtenmatrix.json'))){
  for(const [i,name]of ['opdrachtenmatrix','directe-vragen'].entries()){
+  const canonical=JSON.parse(fs.readFileSync(path.join(root,'Lessen',name+'.json')));
+  assert.deepEqual(canonical,banks[i],'Canonieke bron en actieve bank verschillen');
   const ctx={};vm.runInNewContext(fs.readFileSync(path.join(root,'Lessen',name+'-data.js'),'utf8'),ctx);
   assert.deepEqual(JSON.parse(JSON.stringify(ctx[i?'DigiBoardDirectContent':'DigiBoardMatrixContent'])),banks[i]);
  }

@@ -1,0 +1,207 @@
+{
+  "label": "Deventer (legacy testfixture)",
+  "sourceAsset": "tests/fixtures/deventer.png",
+  "sourceWidth": 1672,
+  "sourceHeight": 941,
+  "startPosition": 0,
+  "finishPosition": 27,
+  "overlayMode": "painted",
+  "nodes": [
+    {
+      "id": 0,
+      "x": 138,
+      "y": 816,
+      "shape": "circle",
+      "kind": "start"
+    },
+    {
+      "id": 1,
+      "x": 246,
+      "y": 781,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 2,
+      "x": 299,
+      "y": 753,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 3,
+      "x": 348,
+      "y": 730,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 4,
+      "x": 389,
+      "y": 700,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 5,
+      "x": 425,
+      "y": 666,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 6,
+      "x": 474,
+      "y": 641,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 7,
+      "x": 518,
+      "y": 621,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 8,
+      "x": 563,
+      "y": 603,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 9,
+      "x": 1007,
+      "y": 434,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 10,
+      "x": 1013,
+      "y": 414,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 11,
+      "x": 1019,
+      "y": 394,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 12,
+      "x": 1032,
+      "y": 374,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 13,
+      "x": 1035,
+      "y": 355,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 14,
+      "x": 1045,
+      "y": 341,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 15,
+      "x": 896,
+      "y": 316,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 16,
+      "x": 896,
+      "y": 327,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 17,
+      "x": 905,
+      "y": 340,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 18,
+      "x": 922,
+      "y": 348,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 19,
+      "x": 1324,
+      "y": 413,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 20,
+      "x": 1397,
+      "y": 406,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 21,
+      "x": 1435,
+      "y": 392,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 22,
+      "x": 1465,
+      "y": 376,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 23,
+      "x": 1490,
+      "y": 359,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 24,
+      "x": 1458,
+      "y": 343,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 25,
+      "x": 1443,
+      "y": 326,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 26,
+      "x": 1445,
+      "y": 311,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 27,
+      "x": 1535,
+      "y": 326,
+      "shape": "circle",
+      "kind": "finish"
+    }
+  ]
+}

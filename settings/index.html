@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Taalroute DigiBord · V01.10 Instellingen</title>
+<link rel="stylesheet" href="settings.css">
+<style>
+body.embedded .topbar{display:none}
+body.embedded .app{grid-template-rows:minmax(0,1fr)}
+body.embedded .settings-shell{padding:10px 14px 14px}
+body.embedded .settings-card{max-width:1380px}
+</style></head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="wordmark">TAALROUTE<span class="tri">▶</span></div><div class="brand-divider"></div><div class="product">DigiBord</div></div>
+  <div class="saved-state"><span class="dot"></span>Bewaard op dit apparaat</div>
+</header>
+
+<main class="settings-shell">
+<section class="settings-card">
+  <div class="settings-head">
+    <div class="settings-head-left"><h1>Instellingen</h1><span class="settings-context">DigiBord V01.10</span></div>
+    <button class="back-btn" data-tip="Terug naar het spel"><svg class="lucide"><use href="#i-arrow-left"/></svg> Terug naar het spel</button>
+  </div>
+
+  <div class="settings-layout">
+    <aside class="nav">
+      <div class="nav-scroll">
+        <div class="nav-group">Les</div>
+        <button class="nav-btn" data-page="lesson"><svg class="lucide"><use href="#i-map"/></svg>Kaart en oefening</button>
+        <button class="nav-btn" data-page="other"><svg class="lucide"><use href="#i-shapes"/></svg>Andere spelvormen</button>
+
+        <div class="nav-group">Groep</div>
+        <button class="nav-btn" data-page="people"><svg class="lucide"><use href="#i-users"/></svg>Namen en pionnen</button>
+        <button class="nav-btn" data-page="saved"><svg class="lucide"><use href="#i-users-round"/></svg>Bewaarde groepen</button>
+
+        <div class="nav-group">Inhoud</div>
+        <button class="nav-btn" data-page="tasks"><svg class="lucide"><use href="#i-library"/></svg>Actuele opdrachtenbank</button>
+        <button class="nav-btn" data-page="didactic"><svg class="lucide"><use href="#i-graduation"/></svg>Didactische uitleg</button>
+        <button class="nav-btn" data-page="print"><svg class="lucide"><use href="#i-printer"/></svg>Lessen en printen</button>
+
+        <div class="nav-group">Weergave</div>
+        <button class="nav-btn" data-page="display"><svg class="lucide"><use href="#i-monitor"/></svg>Beeld en beweging</button>
+        <button class="nav-btn" data-page="sound"><svg class="lucide"><use href="#i-volume"/></svg>Geluid</button>
+
+        <div class="nav-group">Lesbeheer</div>
+        <button class="nav-btn" data-page="backup"><svg class="lucide"><use href="#i-archive"/></svg>Reservekopie en herstel</button>
+        <button class="nav-btn" data-page="finish"><svg class="lucide"><use href="#i-flag"/></svg>Les afronden</button>
+      </div>
+    </aside>
+
+    <div class="content-wrap"><div class="content">
+
+      <section class="page" data-page="lesson">
+        <div class="page-header">
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-map"/></svg></span><div><h2>Kaart en oefening</h2><p class="page-lead">Stel alleen in wat de les nodig heeft. Werkvorm en pionindeling blijven bewust gescheiden.</p></div></div>
+          <span class="page-meta">Lesinstellingen</span>
+        </div>
+
+        <div class="section"><div class="section-head"><div><h3>Speelwereld en taalroute</h3><p>De kaart en het opdrachtniveau staan los van de pionstand.</p></div></div><div class="section-body grid2">
+          <div class="field"><label>Speelwereld</label><select class="select" id="boardSelect"><option>Rotterdam</option><option>Amsterdam</option><option>Utrecht</option><option>Zwolle</option><option>Bos</option><option>Polder</option></select></div>
+          <div class="field"><label>Niveauroute</label><select class="select" id="routeSelect"><option>A0 → A1</option><option>A1 → A1+</option><option>A1 → A2</option><option>A2 → B1</option><option>B1 → B2</option><option>B2 → C1</option><option>C1 → C2</option></select></div>
+        </div></div>
+
+        <div class="section"><div class="section-head"><div><h3>Werkvorm</h3><p>Wie bereidt voor, spreekt en reageert?</p></div></div><div class="section-body mode-cards">
+          <button class="mode-card" data-workmode="individual"><strong>Individueel</strong><span>Iedere cursist maakt een eigen antwoord.</span></button>
+          <button class="mode-card" data-workmode="classSpeaker"><strong>Klassikaal · één spreker</strong><span>Iedereen bereidt voor. Eén naam spreekt.</span></button>
+          <button class="mode-card" data-workmode="groups"><strong>Groepen</strong><span>Groepen bereiden en voeren de opdracht samen uit.</span></button>
+        </div></div>
+
+        <div class="section"><div class="section-head"><div><h3>Pionindeling</h3><p>Wie heeft op het speelbord een eigen positie?</p></div></div><div class="section-body mode-cards">
+          <button class="mode-card" data-pawnmode="class"><strong>Klassikaal</strong><span>Één gezamenlijke pion.</span></button>
+          <button class="mode-card" data-pawnmode="groups"><strong>Groepen</strong><span>Één pion per groep.</span></button>
+          <button class="mode-card" data-pawnmode="individual"><strong>Individueel</strong><span>Eigen pion per deelnemer.</span></button>
+        </div></div>
+      </section>
+
+      <section class="page" data-page="other">
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-shapes"/></svg></span><div><h2>Andere spelvormen</h2><p class="page-lead">Start een andere activiteit met dezelfde lescontext.</p></div></div></div>
+        <div class="grid3">
+          <button class="mode-card" data-familylaunch="Dobbelspellen"><strong>Dobbelspellen</strong><span>Taalworp en Verhaalworp.</span></button>
+          <button class="mode-card" data-familylaunch="Kaartspellen"><strong>Kaartspellen</strong><span>Situatie, praten, kiezen en doen.</span></button>
+          <button class="mode-card" data-familylaunch="Woorden en zinnen"><strong>Woorden en zinnen</strong><span>Bouwen, ordenen en controleren.</span></button>
+        </div>
+      </section>
+
+      <section class="page wide" data-page="people">
+        <div class="page-header">
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-users"/></svg></span><div><h2>Namen en pionnen</h2><p class="page-lead">Maak de deelnemerslijst in enkele seconden klaar. Pionkleur en nummer zorgen samen voor herkenning.</p></div></div>
+        </div>
+
+        <div class="quick-setup">
+          <span class="label">Snel instellen</span>
+          <select class="count-select" id="participantPreset" aria-label="Aantal deelnemers">
+            <option value="">Aantal deelnemers</option><option>5</option><option>8</option><option>10</option><option>12</option><option>15</option><option>20</option><option>25</option><option>30</option><option value="custom">Anders...</option>
+          </select>
+          <span class="tool-separator"></span>
+          <button class="icon-action primary-icon" id="addParticipant" data-tip="Deelnemer toevoegen" aria-label="Deelnemer toevoegen"><svg class="lucide"><use href="#i-user-plus"/></svg></button>
+          <button class="icon-action" id="allPresent" data-tip="Alles aanwezig" aria-label="Alles aanwezig"><svg class="lucide"><use href="#i-user-check"/></svg></button>
+          <button class="icon-action" id="allAbsent" data-tip="Alles afwezig" aria-label="Alles afwezig"><svg class="lucide"><use href="#i-user-x"/></svg></button>
+        </div>
+
+        <div class="participants-toolbar"><div class="participants-count"><strong id="participantCount">0</strong><span>deelnemers in deze les</span></div></div>
+
+        <div class="group-controls" id="groupControls">
+          <div class="top"><div><h3>Groepen indelen</h3><div class="helptext">Alleen actief wanneer de pionindeling of werkvorm Groepen gebruikt.</div></div>
+            <select class="count-select" id="groupCount" style="min-width:115px"><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option></select>
+          </div>
+          <div class="row"><button class="seg" id="balanceGroups">Evenwichtig verdelen</button><button class="seg" id="randomGroups">Willekeurig verdelen</button><span class="helptext">Daarna kun je per deelnemer handmatig bijstellen.</span></div>
+        </div>
+
+        <div class="participant-list" id="participantList"></div>
+        <div class="section cardish soft" style="margin-top:14px"><div class="section-body"><p class="helptext">Deelnemers krijgen een kleur en een uniek pionnummer. Daardoor kunnen kleuren bij grote groepen veilig worden hergebruikt.</p></div></div>
+      </section>
+
+      <section class="page wide" data-page="saved">
+        <div class="page-header">
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-users-round"/></svg></span><div><h2>Bewaarde groepen</h2><p class="page-lead">Zie direct wie in een groep zit voordat je hem gebruikt.</p></div></div>
+          <button class="secondary" id="saveCurrentGroup"><svg class="lucide"><use href="#i-save"/></svg>Huidige groep bewaren</button>
+        </div>
+        <div class="saved-grid" id="savedGrid"></div>
+      </section>
+
+      <section class="page wide" data-page="tasks">
+        <div class="page-header">
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-library"/></svg></span><div><h2>Actuele opdrachtenbank</h2><p class="page-lead">960 opdrachten zijn de inhoud, niet de navigatie. Kies de ingang die past bij hoe je lesgeeft.</p></div></div>
+          <span class="page-meta">960 opdrachten</span>
+        </div>
+
+        <div class="bank-tabs">
+          <button class="bank-tab active" data-banktab="method">Mijn methode</button>
+          <button class="bank-tab" data-banktab="didactic">Didactisch zoeken</button>
+          <button class="bank-tab" data-banktab="free">Vrij zoeken</button>
+        </div>
+
+        <div class="bank-panel active" data-bankpanel="method">
+          <div class="method-grid" id="methodGrid"></div>
+          <div id="methodBrowser"></div>
+        </div>
+
+        <div class="bank-panel" data-bankpanel="didactic">
+          <div class="section cardish soft"><div class="section-body grid3">
+            <div class="field"><label>Familie</label><select class="select" id="didFamily"><option>Alle families</option><option>Verwoorden</option><option>In gesprek</option><option>Kiezen en redeneren</option><option>Samen regelen</option><option>Relatie en houding</option><option>Begrijpen en doorgeven</option></select></div>
+            <div class="field"><label>Route</label><select class="select" id="didRoute"><option>A0 → A1</option><option>A1 → A1+</option><option selected>A1 → A2</option><option>A2 → B1</option></select></div>
+            <div class="field"><label>Werkvorm</label><select class="select" id="didWork"><option>Alle werkvormen</option><option>Individueel</option><option>Tweetallen</option><option>Groepen</option><option>Klassikaal</option></select></div>
+          </div></div>
+          <div id="didacticResults"></div>
+        </div>
+
+        <div class="bank-panel" data-bankpanel="free">
+          <div class="section cardish soft"><div class="section-body grid2">
+            <div class="field"><label>Zoeken</label><input class="input" id="freeSearch" placeholder="Bijvoorbeeld: huisarts, werk, afspraak"></div>
+            <div class="field"><label>Onderwerp</label><select class="select" id="freeTopic"><option>Alle onderwerpen</option><option>Kennismaken</option><option>Wonen</option><option>Gezondheid</option><option>Werk</option><option>Onderweg</option><option>Winkelen</option></select></div>
+          </div></div>
+          <div id="freeResults"></div>
+        </div>
+      </section>
+
+      <section class="page wide" data-page="didactic">
+        <div class="page-header">
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-graduation"/></svg></span><div><h2>Didactische uitleg</h2><p class="page-lead">Van communicatieve familie naar taalhandeling, route en concrete opdracht.</p></div></div>
+          <span class="page-meta">6 families · 48 handelingen</span>
+        </div>
+        <div class="didactic-layout">
+          <div class="didactic-column"><div class="didactic-column-head"><strong>1. Familie</strong><span>Communicatieve functie</span></div><div class="didactic-list" id="familyList"></div></div>
+          <div class="didactic-column"><div class="didactic-column-head"><strong>2. Handeling</strong><span>Acht per familie</span></div><div class="didactic-list" id="actionList"></div></div>
+          <div class="didactic-column"><div class="didactic-column-head"><strong>3. Uitwerking</strong><span>Kies één route tegelijk</span></div><div class="didactic-detail" id="didacticDetail"></div></div>
+        </div>
+      </section>
+
+      <section class="page" data-page="print">
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-printer"/></svg></span><div><h2>Lessen en printen</h2><p class="page-lead">Maak een compacte docentversie of print materiaal voor parallel werken.</p></div></div></div>
+        <div class="section cardish"><div class="section-body"><button class="secondary" id="printLesson"><svg class="lucide"><use href="#i-printer"/></svg>Print instellingenoverzicht</button></div></div>
+      </section>
+
+      <section class="page" data-page="display">
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-monitor"/></svg></span><div><h2>Beeld en beweging</h2><p class="page-lead">Visuele voorkeuren veranderen nooit opdracht, bestemming of beurt.</p></div></div></div>
+        <div class="section"><div class="section-head"><div><h3>Kaartbeweging in de hele app</h3></div></div><div class="section-body"><label for="cardAnimation">Kaartanimatie</label><select id="cardAnimation" style="display:block;width:100%;max-width:420px;margin:12px 0;padding:12px;font:inherit;border:1px solid #cad9e3;border-radius:10px"><option value="draw">Afpakken en draaien (standaard)</option><option value="slide">Schuiven</option><option value="turn">Omklappen</option></select><p class="helptext">Geldt voor Taalworp, alle kaartspellen en de kaartenkast. Je keuze wordt automatisch bewaard. Minder beweging laat de kaart direct verschijnen.</p></div></div>
+        <div class="section"><div class="section-head"><div><h3>Beweging</h3></div></div><div class="section-body"><div class="row" style="justify-content:space-between"><span>Minder beweging</span><button class="switch" id="motionToggle"></button></div></div></div>
+        <div class="section"><div class="section-head"><div><h3>Speelbord</h3></div></div><div class="section-body"><div class="row" style="justify-content:space-between"><span>Vaknummers</span><button class="switch" id="numbersToggle"></button></div><div class="row" style="justify-content:space-between;margin-top:8px"><span>Speciale verbindingen</span><button class="switch" id="connectionsToggle"></button></div></div></div>
+        <div class="section"><div class="section-head"><div><h3>Icoonstijl</h3></div></div><div class="section-body row"><button class="seg" data-iconstyle="line">Lijn</button><button class="seg" data-iconstyle="filled">Lijn met vlakken</button></div></div>
+      </section>
+
+      <section class="page" data-page="sound">
+        <div class="page-header">
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-volume"/></svg></span><div><h2>Geluid</h2><p class="page-lead">Compact vergelijken. Origineel blijft bovenaan.</p></div></div>
+          <div class="row"><span class="helptext">Geluidseffecten</span><button class="switch" id="soundEnabled"></button></div>
+        </div>
+        <div class="sound-compact" id="soundRows"></div>
+        <div class="volume-row"><span class="helptext">Volume</span><input class="range" type="range" min="0" max="100" id="volume"><span class="helptext" id="volumeValue"></span></div>
+      </section>
+
+      <section class="page" data-page="backup">
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-archive"/></svg></span><div><h2>Reservekopie en herstel</h2><p class="page-lead">Bewaar groepen, deelnemers en instellingen als één bestand.</p></div></div></div>
+        <div class="section cardish"><div class="section-body row"><button class="secondary" id="backupDownload"><svg class="lucide"><use href="#i-download"/></svg>Reservekopie downloaden</button><label class="secondary" style="cursor:pointer"><svg class="lucide"><use href="#i-upload"/></svg>Reservekopie herstellen<input type="file" id="backupRestore" accept=".json" style="display:none"></label></div></div>
+        <div class="section"><div class="section-body"><button class="danger" id="resetSettings">Herstel standaardinstellingen</button></div></div>
+      </section>
+
+      <section class="page" data-page="finish">
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-flag"/></svg></span><div><h2>Les afronden</h2><p class="page-lead">Een docent kan de les op ieder moment afsluiten. Dit staat los van FINISH op het bord.</p></div></div></div>
+        <div class="section cardish"><div class="section-body"><button class="danger" id="finishLesson">Les bewust afronden</button></div></div>
+      </section>
+
+    </div></div>
+  </div>
+</section>
+</main>
+</div>
+
+<div class="color-pop"><div class="swatches"></div></div>
+<div class="tooltip" id="tooltip"></div>
+<div class="toast" id="toast"></div>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden">
+<defs>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></symbol>
+  <symbol id="i-shapes" viewBox="0 0 24 24"><path d="M12 3 3 20h18z"/><circle cx="17" cy="6" r="3"/><rect x="3" y="3" width="5" height="5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></symbol>
+  <symbol id="i-users-round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M7 21v-2a5 5 0 0 1 10 0v2"/><circle cx="5" cy="11" r="2"/><circle cx="19" cy="11" r="2"/></symbol>
+  <symbol id="i-library" viewBox="0 0 24 24"><path d="m16 6 4 14M12 6v14M8 8v12M4 4v16"/><path d="M2 20h20"/></symbol>
+  <symbol id="i-graduation" viewBox="0 0 24 24"><path d="m3 10 9-5 9 5-9 5z"/><path d="M7 12v4c3 2 7 2 10 0v-4"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a9 9 0 0 1 0 12"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M9 13h6"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 22V4"/><path d="M5 4h12l-2 4 2 4H5"/></symbol>
+  <symbol id="i-user-plus" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></symbol>
+  <symbol id="i-user-check" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="m17 11 2 2 4-4"/></symbol>
+  <symbol id="i-user-x" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="m18 8 5 5M23 8l-5 5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v5M14 11v5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8M7 3v5h8"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 21V9"/><path d="m7 14 5-5 5 5"/><path d="M5 3h14"/></symbol>
+</defs>
+</svg>
+
+<script src="settings.js?v=0115-final"></script>
+<script>
+if(window.parent!==window){document.body.classList.add('embedded')}
+document.querySelector('.back-btn')?.addEventListener('click',()=> {
+  if(window.parent!==window) window.parent.postMessage({type:'taalroute-close-settings'},'*');
+});
+</script></body>
+</html>

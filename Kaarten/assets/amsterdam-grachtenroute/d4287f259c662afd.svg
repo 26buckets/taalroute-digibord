@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" role="img" aria-labelledby="title-t06"><title id="title-t06">Twee stoelen met een open oefenboek op tafel</title><defs><linearGradient id="paper-t06" x2="0" y2="1"><stop stop-color="#fffef9"/><stop offset="1" stop-color="#eee5d5"/></linearGradient></defs><ellipse cx="100" cy="132" rx="61" ry="6" fill="#25445B" opacity=".09"/><g stroke="#25445B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-<rect x="24" y="64" width="29" height="33" rx="8" fill="#3285B2"/><rect x="147" y="64" width="29" height="33" rx="8" fill="#C77351"/>
-<path d="M28 98v33M49 98v33M151 98v33M172 98v33"/>
-<path d="M57 93h86v10H57z" fill="#B99F77"/><path d="M68 103v29M132 103v29"/>
-<path d="M100 71Q81 62 61 68v23q21-5 39 5 18-10 39-5V68q-20-6-39 3z" fill="#FFFCF5"/><path d="M100 71v25M72 76l17 2M111 78l17-2" stroke="#6C8A94"/>
-<path d="M51 28h40v20H69l-12 9v-9h-6z" fill="#E7EEF1"/><path d="M110 36h39v20h-7v9l-12-9h-20z" fill="#F1DED3"/></g></svg>

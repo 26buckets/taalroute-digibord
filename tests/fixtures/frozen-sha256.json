@@ -1,0 +1,8 @@
+{
+  "assets/boards/rotterdam.png": "e93c06b1413037069c24bcdc6b41075ce254a1b728376c503728f86f8cf41e6f",
+  "assets/boards/zwolle.png": "0bab57d83d2e151cddc57068e87a81ba812495c36805cf2838b275e98767ed5b",
+  "assets/boards/watertaxi.png": "8db4ddc3f00f67038fbaa39ef7c2e09a9639b87070e037c3d73ecade5544ff27",
+  "data/rotterdam-route.json": "348131248e069f5be8f91c25937a15c0ec56ccf2d5142c9a456f881f2b24d816",
+  "data/zwolle-route.json": "c6bbc356bd24fa22a36b8efceca188a0271f4058fbca8794f03ac208f8ecd6d9",
+  "data-bundle.js": "782d4e6098a08bc7636342aae7331c76ef2edf6e46c9fff112f2cf8197388b64"
+}

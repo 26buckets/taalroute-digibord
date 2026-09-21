@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/lucide-icons/lucide",
+  "commit": "951813ce76a859d4d8b145366972cbb237147a4e",
+  "icons": {
+    "verbs": "list-checks",
+    "spelling": "pencil-line",
+    "puzzles": "puzzle",
+    "tongue": "mic",
+    "idioms": "quote",
+    "conversation": "message-circle",
+    "mission": "target",
+    "story": "book-open",
+    "bulb": "lightbulb",
+    "eye": "eye",
+    "more": "ellipsis",
+    "cards": "gallery-vertical-end",
+    "people": "users",
+    "help": "circle-question-mark",
+    "rules": "book-open-text",
+    "options": "sliders-horizontal",
+    "undo": "undo-2",
+    "settings": "settings",
+    "lock": "lock-keyhole",
+    "unlock": "lock-keyhole-open"
+  }
+}

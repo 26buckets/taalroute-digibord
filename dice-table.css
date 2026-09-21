@@ -1,0 +1,173 @@
+/* Both dice games use the card table, with a stable right-hand set selector. */
+.dice-table-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,300px);gap:clamp(22px,3vw,55px);flex:1;min-height:0;padding:22px 3.5% 30px 5.5%;align-items:start}
+.dice-table-shell .dice-sidebar{width:100%;max-height:100%;overflow:auto}
+.dice-set-controls{border-top:1px solid #dedbd6;margin-top:16px;padding-top:16px;display:flex;flex-direction:column;gap:10px}
+.dice-set-label{display:block;font-size:13px;font-weight:750;color:#183c68;margin-top:3px}
+.dice-set-select{width:100%;min-height:44px;border:1px solid #cad6e2;background:#fffdfa;border-radius:10px;padding:9px;color:#15365c;font-size:13px}
+.dice-set-description,.dice-table-tip p{font-size:13px;color:#375571;line-height:1.5;margin:0}
+.dice-set-controls>.smallbtn{width:100%;margin:0;color:#12396c}
+.dice-table-tip{border-top:1px solid #e1ddd7;padding-top:14px;margin-top:3px}.dice-table-tip strong{font-size:14px;display:block;margin-bottom:6px}
+/* Language dice and the assignment sit beside one another. */
+.dice-table-shell .taalworp-page{display:block;height:100%;min-height:0;background:none;padding:0}
+.dice-table-shell .tw-tabletop{height:100%;min-height:0;background:none;overflow:visible}
+.dice-table-shell .table-playfield{display:grid;width:100%;max-width:none;height:100%;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:clamp(18px,2vw,36px);padding:0}
+.language-tray{display:flex;flex-direction:column;height:100%;min-height:0;gap:14px}
+.language-tray-heading{display:flex;align-items:center;gap:20px;flex:none;padding:0 10px;color:#12396c;min-height:86px}
+.language-tray-heading h2{font-size:clamp(20px,1.8vw,28px);margin:0 0 6px}.language-tray-heading p{font-size:14px;line-height:1.45;margin:0}
+.dice-table-shell .verb-deck{position:relative;flex:none;width:62px;height:84px;min-height:0;transform:rotate(-7deg);border-radius:10px;box-shadow:0 3px 0 #d4cabc,0 6px 0 #fffaf2,0 9px 0 #b6aa9a,0 13px 10px #54392230}
+.dice-table-shell .verb-deck .card-back-design{border:3px solid #fffdfa;border-radius:10px;padding:6px;gap:6px}
+.dice-table-shell .verb-deck .card-brand{width:94%;margin:0}.dice-table-shell .verb-deck .card-set-title{font-size:9px!important;line-height:1.1}.dice-table-shell .verb-deck .card-family{display:none}
+.dice-table-shell .language-stage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:10px 6px;padding:0;min-height:0;flex:1;container-type:size;--cube-size:clamp(60px,calc(50cqh - 63px),180px)}
+.dice-table-shell .langdie:nth-child(n){grid-area:auto}.dice-table-shell .langdie{display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;min-height:0;gap:3px}
+.dice-table-shell .langlabel{text-align:center;font-size:11px;line-height:1.2;min-height:24px;display:grid;place-items:center;margin:0}
+.dice-table-shell .tw-cube{height:var(--cube-size);width:var(--cube-size);max-width:100%;flex:none}
+.dice-table-shell .tw-cube-body{scale:1!important}
+.dice-table-shell .verbcard{grid-area:1/2;width:100%;height:100%;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) 48px;gap:16px;padding:0;align-self:stretch;position:relative}
+.dice-table-shell .verbmain{grid-area:1/1;width:100%;height:100%;min-height:0;align-self:stretch}
+.dice-table-shell .verb-front{height:100%;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:left;padding:clamp(18px,2vw,30px);overflow:auto;border-radius:20px;border:1px solid white;border-top:6px solid #d89921;background:#fffdf6;box-shadow:0 3px 0 #dbd3c3,0 6px 0 #bbb2a3,0 9px 0 #eee6d8,0 12px 12px #503b2c28}
+.dice-table-shell .verb-front>*{flex-shrink:0}.dice-table-shell .verb-front>small{font-size:10px;letter-spacing:1.2px;color:#956519}
+.dice-table-shell .verb-front h2{font-size:clamp(18px,1.5vw,24px);font-weight:500;margin:10px 0 2px;color:#173f67}
+.dice-table-shell .verbmain #verbValue{font-size:clamp(28px,2.8vw,46px);line-height:1.1;margin:2px 0 10px;letter-spacing:-.6px;overflow-wrap:anywhere}
+.dice-table-shell #verbHint{font-size:15px;line-height:1.4;color:#587082}
+.dice-table-shell .verbcard .tw-result{font-size:clamp(17px,1.35vw,23px);max-height:none;width:100%;border:0;background:none;padding:0;margin:20px 0 0;overflow:visible}
+.sentence-recipe{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.sentence-recipe li{padding-left:13px;border-left:4px solid #a5b5c4;line-height:1.4}.sentence-recipe strong{display:block;font-size:13px;letter-spacing:.4px;color:#526981;margin-bottom:3px}.sentence-recipe span{display:block;color:#12396c}
+.sentence-recipe .recipe-WHO{border-color:#058fe1}.sentence-recipe .recipe-TENSE{border-color:#e43735}.sentence-recipe .recipe-SENTENCE_TYPE{border-color:#1ba25c}.sentence-recipe .recipe-CONNECT_1{border-color:#df9f08}.sentence-recipe .recipe-CONNECT_2{border-color:#a34de2}
+.dice-table-shell .say-it{font-size:14px;margin:20px 0 0;color:#80641f}
+.dice-table-shell .verbcard .round-actions{grid-area:2/1;display:flex;flex-direction:row;flex-wrap:nowrap;gap:7px;padding:0;border:0;background:none;box-shadow:none}
+.dice-table-shell .round-actions .smallbtn{min-width:0;flex:1;white-space:normal;height:48px;min-height:48px;border-radius:12px;font-size:12px;padding:5px;color:#12396c;background:#fffdfa;border-color:#dedbd6}
+.dice-table-shell .card-tools-label{display:none}
+.dice-table-shell .verbcard .example-text{top:0;bottom:64px;left:0;right:0;width:100%;max-height:none;overflow:auto;border-radius:20px;margin:0;display:grid;align-content:center;padding:26px!important;font-size:22px;background:#edf5ff}.dice-table-shell .verbcard .example-text[hidden]{display:none}
+.dice-table-shell .verb-back.card-back-design{border:6px solid #fffdfa;border-radius:20px;padding:20px;gap:15px}.dice-table-shell .verb-back .card-brand{width:38%;margin:0}.dice-table-shell .verb-back .card-set-title{font-size:22px!important}
+/* Story dice live on one readable, layered play card. */
+.dice-table-shell .story-stage{height:100%;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:12px;padding:clamp(18px,2vw,28px);background:#fffdf8;border:1px solid white;border-radius:22px;box-shadow:0 3px 0 #dbd3c3,0 6px 0 #bbb2a3,0 9px 0 #eee6d8,0 12px 15px #503b2c28;color:#12396c;container-type:size}
+.dice-table-shell .story-prompt{display:block;position:static;height:auto;min-height:0;padding:0;border:0;box-shadow:none;background:none;width:auto;flex:none}
+.story-prompt small{font-size:10px;letter-spacing:1.2px;color:#526e85}.story-prompt h2{font-size:clamp(22px,2vw,32px);line-height:1.2;margin:6px 0 8px;letter-spacing:-.5px}.story-prompt p{font-size:15px;line-height:1.4;margin:0;color:#4b637b}
+.dice-table-shell .storygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:100%;padding:0;align-content:space-evenly;justify-items:center;min-height:0;gap:8px;container-type:size}
+.dice-table-shell .storygrid.count-3{--story-size:clamp(90px,calc(100cqh - 61px),270px)}
+.dice-table-shell .storygrid.count-6{--story-size:clamp(55px,calc(50cqh - 61px),190px)}
+.dice-table-shell .storygrid.count-9{grid-template-columns:repeat(10,minmax(0,1fr));--story-size:clamp(56px,calc(50cqh - 48px),170px)}
+.dice-table-shell .storygrid .story-tile,.dice-table-shell .storygrid.count-9 .story-tile:nth-child(n){grid-area:auto;grid-column:auto;grid-row:auto;min-width:0;gap:3px}
+.dice-table-shell .storygrid.count-9 .story-tile:nth-child(n){grid-column:span 2}.dice-table-shell .storygrid.count-9 .story-tile:nth-child(6){grid-column:2 / span 2}
+.dice-table-shell .storygrid .storydie{width:var(--story-size);height:var(--story-size);max-width:100%;padding:0}
+.dice-table-shell .story-word{font-size:16px;font-weight:650;line-height:20px;color:#12396c;max-width:100%;overflow-wrap:anywhere;text-align:center}
+.dice-table-shell .story-tile .lockbtn,.dice-table-shell .langdie .lockbtn{height:27px;min-height:27px;font-size:12px;padding:3px 15px;border-radius:14px;border:1px solid #d8d5d0;color:#12396c;background:#fffdfa}
+.dice-table-shell .lockbtn.locked{background:#dfeeff;border-color:#72afe6}
+.dice-table-shell .storygrid.count-9 .story-word{font-size:13px;line-height:16px}.dice-table-shell .storygrid.count-9 .lockbtn{height:23px;min-height:23px;font-size:11px;padding:3px 12px}
+.dice-table-shell .storyhelp{background:none;border:0;border-top:1px solid #e6dfd3;border-radius:0;box-shadow:none;padding:14px 0 0;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#12396c}
+.story-steps{display:flex;gap:clamp(15px,3vw,45px);margin:0;padding:0;list-style:none}.story-steps strong{display:block;font-size:13px;margin-bottom:4px}.story-steps span{font-size:13px;color:#587082}.dice-table-shell .storyhelp .smallbtn{flex:none;margin:0}
+.dice-table-shell .storysets{display:block}.dice-table-shell .storysets .typebtn{justify-content:space-between}.dice-table-shell .storysets small{font-size:12px}
+.story-count-choices{display:flex;gap:7px}.story-count-choices .smallbtn{flex:1;margin:0}.story-count-choices .active{background:#e8f2ff;border-color:#99c4f3}
+/* Shared roll button and actual rounded geometry, including the board die. */
+.dice-table-shell .table-roll{height:58px;width:260px;border-radius:16px;font-size:20px;gap:9px}.dice-table-shell .roll-button-die{width:50px;height:50px;flex-shrink:0}
+.dice-table-shell .game-action svg,.dice-table-shell .undo-action b{border:0;border-radius:0;padding:0;background:none;width:24px;height:24px}.dice-table-shell .undo-action b{font-size:27px}
+.smooth-die-host{position:relative;display:block;perspective:none;filter:drop-shadow(0 5px 5px #20314922)}
+.smooth-die{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+.dice-load-error{display:grid;place-items:center;background:#fffdfa;border:1px solid #ccc;border-radius:15px;color:#153e61;text-align:center}
+.inactive .smooth-die{filter:grayscale(1)}
+@media(max-width:1200px){.dice-table-stage{grid-template-columns:minmax(0,1fr) 250px;padding-inline:24px;gap:24px}.dice-table-shell .table-roll{width:225px}.language-tray-heading{gap:13px;padding:0}.language-tray-heading p{font-size:12px}.dice-table-shell .verb-front{padding:18px}.sentence-recipe{gap:10px}.dice-table-shell .verbcard .tw-result{font-size:15px}}
+@media(max-height:780px) and (min-width:851px){.language-tray-heading{min-height:70px}.dice-table-shell .verb-deck{width:49px;height:66px}.dice-table-shell .language-stage{--cube-size:clamp(65px,calc(50cqh - 59px),125px)}.dice-table-shell .verbmain #verbValue{font-size:29px}.dice-table-shell .verb-front{padding:17px 19px}.dice-table-shell .verbcard .tw-result{font-size:14px;margin-top:14px}.sentence-recipe{gap:11px}.dice-table-shell .say-it{margin-top:14px}.story-prompt h2{font-size:23px}.story-prompt p{font-size:13px}.dice-table-shell .story-stage{padding:16px 20px;gap:8px}.dice-table-shell .storyhelp{padding-top:10px;gap:10px}.story-steps{gap:18px}.story-steps span{font-size:11px}.dice-table-shell .storygrid.count-9{--story-size:clamp(52px,calc(50cqh - 48px),120px)}.dice-table-shell .storygrid.count-9 .story-word{font-size:11px;line-height:13px}.dice-table-shell .storygrid.count-9 .lockbtn{height:21px;min-height:21px;font-size:10px}}
+@media(max-width:1000px) and (min-width:851px){.dice-table-shell .table-playfield{gap:15px;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}.language-tray-heading h2{font-size:18px}.language-tray-heading p{font-size:11px}.dice-table-shell .langlabel{font-size:9px}.dice-table-shell .round-actions .smallbtn{font-size:10px}.dice-table-shell .verbcard .tw-result{font-size:13px}.story-steps{gap:10px}.dice-table-shell .storyhelp .smallbtn{font-size:11px;padding:7px}}
+@media(max-width:850px){.dice-table-stage{grid-template-columns:minmax(0,1fr);min-height:900px;flex:none;padding:20px 24px 30px;gap:30px}.dice-table-shell .taalworp-page{height:540px}.dice-table-shell .dice-sidebar{max-height:none;grid-column:auto;grid-row:auto}.dice-table-shell .dice-sidebar nav{display:flex;flex-direction:row}.dice-table-shell .dice-sidebar nav .typebtn{flex:1}.dice-table-shell .story-stage{height:650px}.dice-table-shell .storygrid.count-3{--story-size:clamp(90px,21vw,210px)}.dice-table-shell .table-roll{width:235px}.dice-table-shell .storyhelp{flex-wrap:wrap}.dice-table-shell .langlabel{font-size:10px}}
+@media(max-width:560px){.dice-table-stage{padding-inline:16px}.dice-table-shell .taalworp-page{height:960px}.dice-table-shell .table-playfield{grid-template-columns:minmax(0,1fr);grid-template-rows:420px minmax(0,1fr);gap:25px}.dice-table-shell .verbcard{grid-area:2/1}.dice-table-shell .language-stage{--cube-size:100px}.dice-table-shell .story-stage{height:680px;padding:16px}.dice-table-shell .storygrid.count-3{--story-size:clamp(80px,21vw,125px)}.dice-table-shell .storygrid.count-6{--story-size:clamp(65px,21vw,125px)}.dice-table-shell .storygrid.count-9{grid-template-columns:repeat(3,minmax(0,1fr));--story-size:clamp(58px,21vw,95px)}.dice-table-shell .storygrid.count-9 .story-tile:nth-child(n){grid-column:auto}.dice-table-shell .story-word{font-size:13px}.story-steps{gap:14px}.story-steps span{font-size:11px}.dice-table-shell .table-roll{width:178px}}
+/* The renderer owns the roll; an old CSS wobble must not move it a second time. */
+.dice-table-shell .storygrid.rolling .storydie{animation:none}
+/* V01.21: the card-game surface, with a separate draw area beside the dice. */
+.language-tray{gap:0;background:#fffdfa;border:1px solid white;border-radius:22px;overflow:hidden;box-shadow:0 3px 0 #dfd9cf,0 6px 0 #bdb6aa,0 9px 0 #ebe4d9,0 13px 14px #533b2b35}
+.dice-table-shell .card-ribbon{min-height:64px;padding:16px 20px;gap:10px}.dice-table-shell .card-ribbon>strong{font-size:22px}
+.language-tray-heading{min-height:0;padding:16px 20px;display:block}.language-tray-heading p{font-size:14px}
+.dice-table-shell .language-stage{padding:0 14px 18px;--cube-size:clamp(54px,calc(50cqh - 62px),170px)}
+.dice-table-shell .verbcard{grid-template-rows:82px minmax(0,1fr) 48px;gap:16px;overflow:clip;overflow-clip-margin:14px;isolation:isolate}
+.verb-deck-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 16px 6px 0;color:#12396c}.verb-deck-row strong{display:block;font-size:18px}.verb-deck-row span:not(.card-back-design){font-size:12px}.verb-deck-row>div>span{display:block;margin-top:6px}
+.dice-table-shell .verb-deck{width:54px;height:72px;transform:rotate(6deg);opacity:1!important}.dice-table-shell .verb-deck .card-brand{width:70%}
+.dice-table-shell .verbmain{grid-area:2/1}.dice-table-shell .verbcard .round-actions{grid-area:3/1}
+.dice-table-shell .verb-front{padding:0;border:1px solid white;background:#fffdfa;overflow:hidden}
+.verb-assignment{padding:20px 24px;min-height:0;overflow:auto;flex:1!important;flex-shrink:1!important;display:flex;flex-direction:column}
+.dice-table-shell .verb-front h2{font-size:16px;margin:0 0 6px}.dice-table-shell .verbmain #verbValue{color:#176b9a;font-size:clamp(28px,2.5vw,42px)}
+.dice-table-shell .verbcard .tw-result{background:#f0edf6;padding:16px;border-radius:14px;font-size:17px;margin-top:18px}
+.sentence-recipe{gap:12px}.sentence-recipe strong{font-size:12px}.dice-table-shell .say-it{margin-top:16px}
+.dice-table-shell .verbcard .example-text{top:98px}
+.dice-table-shell .story-stage{padding:0;gap:0;overflow:hidden;background:#fffdfa}
+.story-prompt-body{padding:18px 24px 8px}.story-prompt h2{font-size:24px;margin:0 0 6px;color:#176b9a}
+.dice-table-shell .storygrid{padding:12px 24px}
+.dice-table-shell .storyhelp{margin:0 24px 20px;padding:15px 0 0}
+@media(max-height:780px) and (min-width:851px){.dice-table-shell .card-ribbon{min-height:52px;padding:12px 16px}.dice-table-shell .card-ribbon>strong{font-size:19px}.dice-table-shell .verbcard{grid-template-rows:67px minmax(0,1fr) 44px;gap:12px}.dice-table-shell .verb-deck{width:44px;height:59px}.verb-assignment{padding:16px}.dice-table-shell .verbcard .tw-result{font-size:14px;padding:12px;margin-top:12px}.dice-table-shell .verbcard .example-text{top:79px}.language-tray-heading{padding:12px 16px}.story-prompt-body{padding:12px 20px 4px}.dice-table-shell .storyhelp{margin:0 20px 14px}.dice-table-shell .round-actions .smallbtn{height:44px;min-height:44px}}
+@media(max-width:1000px){.dice-table-shell .card-ribbon{padding:13px;gap:8px}.dice-table-shell .card-ribbon>strong{font-size:18px}.dice-table-shell .card-ribbon>.game-icon{width:24px;height:24px}.dice-table-shell .card-counter{font-size:11px}.verb-assignment{padding:16px}.dice-table-shell .verbcard .tw-result{font-size:14px}.verb-deck-row strong{font-size:16px}}
+@media(max-width:560px){.dice-table-shell .taalworp-page{height:1060px}.dice-table-shell .table-playfield{grid-template-rows:440px minmax(0,1fr)}.dice-table-shell .story-stage{padding:0}.dice-table-shell .storygrid{padding:10px}.story-prompt-body{padding:16px}.dice-table-shell .storyhelp{margin:0 16px 16px}}
+
+.dice-table-shell .verbcard{grid-template-rows:82px minmax(0,1fr)}
+.dice-table-shell .verb-front .round-actions{padding:14px 16px 16px;margin:0;border-top:1px solid #dedbd6;flex:none}
+.dice-table-shell .verbcard .example-text{bottom:0}
+@media(max-height:780px) and (min-width:851px){.dice-table-shell .verbcard{grid-template-rows:67px minmax(0,1fr)}.dice-table-shell .verb-front .round-actions{padding:10px 12px 12px}}
+
+/* Keep square picture dice separated even when the play card narrows. */
+.dice-table-shell .storygrid.count-3{--story-size:min(270px,calc(100cqh - 61px),calc(33.33cqw - 24px))}
+.dice-table-shell .storygrid.count-6{--story-size:min(190px,calc(50cqh - 61px),calc(33.33cqw - 24px))}
+.dice-table-shell .storygrid.count-9{--story-size:min(170px,calc(50cqh - 48px),calc(20cqw - 22px))}
+@media(max-width:560px){.dice-table-shell .storygrid.count-9{--story-size:min(95px,calc(33.33cqw - 18px))}}
+/* Let pictures use the available table width and reclaim redundant heading space. */
+.dice-table-shell .story-prompt-body{padding:12px 24px 4px}
+.dice-table-shell .storygrid{padding:8px 16px;gap:10px;align-items:center;align-content:center}
+.dice-table-shell .storygrid.count-6{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:minmax(0,1fr);--story-size:min(250px,calc(100cqh - 55px),calc(16.667cqw - 10px))}
+.dice-table-shell .storygrid.count-9{grid-template-rows:repeat(2,minmax(0,1fr));--story-size:min(250px,calc(50cqh - 39px),calc(20cqw - 14px))}
+.dice-table-shell .storygrid.count-9 .story-word{font-size:14px;line-height:17px}
+.dice-table-shell .storyhelp{margin-bottom:14px;padding-top:10px}
+.dice-table-shell .story-steps li{display:flex;align-items:center;gap:7px}.dice-table-shell .story-steps strong{margin:0}
+/* Each visible stack is a set; the selected stack draws the next verb card. */
+.verb-shelf{min-width:0;min-height:0;display:flex;flex-direction:column;gap:4px}
+.verb-shelf-heading{display:flex;align-items:center;justify-content:space-between;color:#12396c;font-size:15px}
+.verb-shelf-heading>div{display:flex;gap:5px}.verb-shelf-heading .smallbtn{min-height:28px;height:28px;padding:0;width:32px;margin:0}
+.verb-set-row{position:relative;display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;padding:4px 8px 14px;min-height:0;scroll-snap-type:x proximity}
+.dice-table-shell .verb-set-deck{display:block;flex:0 0 88px;width:88px;max-width:none;margin:0;transform:none;padding:0;scroll-snap-align:start;border-radius:10px;opacity:1!important}
+.dice-table-shell .verb-set-deck:hover{transform:translateY(-2px)}
+.dice-table-shell .verb-set-deck .play-card-back{width:100%;border-radius:10px;box-shadow:0 2px 0 #cbc5bb,0 4px 0 #f4f0e6,0 6px 0 #c6bfb3,0 8px 0 #ede7dd,0 10px 0 #bbb1a3,0 12px 9px #4c2b2433}
+.dice-table-shell .verb-set-deck .play-card-back>strong{font-size:11px}
+.dice-table-shell .verb-set-deck .play-card-back .card-family{display:none}
+.dice-table-shell .verb-set-deck .play-card-back{grid-template-rows:auto auto minmax(0,1fr) auto}
+.dice-table-shell .verb-set-deck .play-card-back .deck-count{font-size:9px;padding:3px 5px}
+.verb-set-action{display:block;font-size:10px;line-height:15px;margin-top:13px;color:#254968;font-weight:650;white-space:nowrap}
+.dice-table-shell .verb-set-deck.selected .play-card-back{outline:2px solid #1383e8;outline-offset:2px}.verb-set-deck.selected .verb-set-action{color:#0865b3}
+@media(max-width:1100px){.dice-table-shell .storygrid.count-6{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));--story-size:min(250px,calc(50cqh - 48px),calc(33.33cqw - 16px))}.dice-table-shell .story-steps li{display:block}}
+@media(max-width:850px){.dice-table-shell .taalworp-page{height:640px}}
+@media(max-width:560px){.dice-table-shell .taalworp-page{height:1180px}.dice-table-shell .storygrid.count-9{grid-template-rows:repeat(3,minmax(0,1fr));--story-size:min(130px,calc(33.33cqh - 42px),calc(33.33cqw - 14px))}.dice-table-shell .storygrid.count-9 .story-word{font-size:12px}}
+
+/* Sets belong with the sidebar controls, keeping the assignment at its full height. */
+.dice-table-shell .verbcard{grid-template-rows:minmax(0,1fr);overflow:visible;clip-path:inset(-24px -450px -24px -14px);z-index:2}
+.dice-table-shell .verbmain{grid-area:1/1}
+.dice-table-shell .verbcard .example-text{top:0}
+.dice-table-shell .verb-shelf{flex:none}
+.dice-table-shell .verb-set-deck{flex-basis:126px;width:126px}
+.dice-table-shell .verb-set-deck .play-card-back>strong{font-size:13px}
+.dice-table-shell .verb-set-row{min-height:227px}
+.dice-table-shell .dice-sidebar .dice-table-tip{font-size:12px}
+
+.dice-table-shell .verb-set-deck .play-card-back>strong{hyphens:auto}
+/* Hold controls sit beside the face, independently from the on/off die button. */
+.dice-table-shell .die-control{position:relative;flex:none;line-height:0;width:var(--cube-size);height:var(--cube-size);max-width:100%}
+.dice-table-shell .story-tile .die-control{width:var(--story-size);height:var(--story-size)}
+.dice-table-shell .langdie .corner-lock,.dice-table-shell .story-tile .corner-lock{position:absolute;z-index:3;right:-4px;top:-4px;display:grid;place-items:center;width:34px;height:34px;min-height:34px;padding:6px;border-radius:50%;background:#fffdfa;border:1px solid #bdcad5;box-shadow:0 2px 5px #18334824;color:#365b78;cursor:pointer}
+.dice-table-shell .corner-lock[hidden]{display:none}
+.dice-table-shell .corner-lock .game-icon{width:20px;height:20px;stroke-width:1.8;fill:none;stroke:currentColor}
+.dice-table-shell .corner-lock.locked{color:#fff;background:#176b9a;border-color:#176b9a;box-shadow:0 2px 5px #18334830}
+.dice-table-shell .corner-lock:focus-visible,.card-hold:focus-visible{outline:3px solid #1297ff;outline-offset:3px}
+.dice-table-shell .corner-lock:hover{border-color:#1683ef}
+.dice-table-shell .card-hold{flex:none;display:grid;place-items:center;width:36px;height:36px;min-height:36px;padding:7px;border:1px solid #ffffff80;border-radius:50%;background:#ffffff18;color:#fff;cursor:pointer}
+.dice-table-shell .card-hold .game-icon{width:21px;height:21px;stroke:currentColor;fill:none}
+.dice-table-shell .card-hold[aria-pressed=true]{background:#fff;color:#176b9a}
+/* Freed label space is used for the pictures, retaining their captions. */
+.dice-table-shell .language-stage{--cube-size:clamp(60px,calc(50cqh - 36px),180px)}
+.dice-table-shell .storygrid.count-3{--story-size:min(285px,calc(100cqh - 30px),calc(33.33cqw - 24px))}
+.dice-table-shell .storygrid.count-6{--story-size:min(260px,calc(100cqh - 30px),calc(16.667cqw - 10px))}
+.dice-table-shell .storygrid.count-9{--story-size:min(260px,calc(50cqh - 25px),calc(20cqw - 14px))}
+@media(max-width:1100px){.dice-table-shell .storygrid.count-6{--story-size:min(250px,calc(50cqh - 30px),calc(33.33cqw - 16px))}}
+@media(max-width:560px){.dice-table-shell .storygrid.count-9{--story-size:min(140px,calc(33.33cqh - 26px),calc(33.33cqw - 14px))}}
+.dice-table-shell .langdie .corner-lock,.dice-table-shell .story-tile .corner-lock{min-width:34px;max-width:34px;box-sizing:border-box}
+.dice-table-shell .language-stage{--cube-size:min(180px,calc(50cqh - 36px),calc(33.33cqw - 12px))}
+.dice-table-shell .storygrid .story-tile .corner-lock{width:34px;min-width:34px;max-width:34px;height:34px;min-height:34px;padding:6px;border-radius:50%}
+
+/* Two complete stacks fit side by side; original set order and drawing action stay intact. */
+.dice-table-shell .verb-set-deck{flex:0 0 min(146px,calc((100% - 18px)/2));width:min(146px,calc((100% - 18px)/2));min-width:100px}
+.verb-set-group{display:block;text-align:left;font-size:11px;font-weight:700;color:#466481;line-height:22px;margin-bottom:4px}
+.dice-table-shell .verb-set-row{align-items:flex-start;min-height:0;padding-top:5px;padding-bottom:14px}
+.dice-table-shell .round-actions .smallbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.dice-table-shell .round-actions .game-icon{width:20px;height:20px}
