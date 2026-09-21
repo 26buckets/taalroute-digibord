@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
     "types": "tsc --allowJs --checkJs --noEmit --target ES2022 --lib ES2022,DOM board-viewport.js",
-    "test": "node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/rebussen.cjs && node tests/taalmix.cjs",
+    "test": "node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/rebussen.cjs && node tests/taalmix.cjs && node scripts/c1-bank.cjs",
     "smoke": "node tests/board-browser.cjs",
     "build": "node scripts/build.cjs",
     "test:words:browser": "node controle-ui001-browser.cjs",
@@ -13,7 +13,8 @@
     "check:banks": "node scripts/check-banks.cjs",
     "test:banks:browser": "node tests/banks-v2.cjs",
     "test:tongue:browser": "node tests/tongbrekers-browser.cjs",
-    "test:taalmix:browser": "node tests/taalmix-browser.cjs"
+    "test:taalmix:browser": "node tests/taalmix-browser.cjs",
+    "test:c1:browser": "node tests/c1-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",
