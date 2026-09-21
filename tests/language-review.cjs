@@ -7,17 +7,28 @@ for(const c of b.cards){
  assert.ok(!/je getal staat|verzonnen land|duurdere versie is groter|mijn keuze doen|Volgend jaar wil ik ook brood|Waarom is het nu anders\?/i.test(c.instruction+' '+c.model),c.id);
  if(c.routeId==='route-0')assert.ok(c.instruction.split(/\s+/).length<=18,c.id+' beginner instruction too long');
 }
+const route2=b.cards.filter(c=>c.routeId==='route-2');
+assert.equal(route2.length,240);
+assert.equal(new Set(route2.map(c=>c.id)).size,240);
+assert.equal(new Set(route2.map(c=>c.instruction.trim().toLowerCase())).size,240);
+assert.equal(new Set(route2.map(c=>c.model.trim().toLowerCase())).size,240);
+for(const c of route2){
+ const words=s=>s.trim().split(/\s+/).length;
+ assert.ok(words(c.instruction)<=18,c.id+' A1-A2 instruction too long');
+ assert.ok(words(c.input)<=13,c.id+' A1-A2 context too long');
+ assert.ok(words(c.model)<=17,c.id+' A1-A2 model too long');
+ if(c.shape==='circle')assert.match(c.instruction,/Vertel|Stel jezelf/);
+ if(c.shape==='square'){assert.match(c.instruction,/Vraag|Hoe |Wat |Waar |Wanneer |Welke |Van wie/);assert.doesNotMatch(c.instruction,/Vertel daarna/i);}
+ if(c.shape==='triangle')assert.match(c.instruction,/Kies/);
+ if(c.shape==='diamond')assert.match(c.instruction,/Vraag|Meld|Laat|Spreek|Stel|Bel|Zeg/i);
+}
+assert.doesNotMatch(route2.map(c=>c.instruction+' '+c.input).join(' '),/wat is jouw huisnummer|wat is je huisnummer|wat is jouw exacte adres/i);
 for(let n=1;n<=10;n++){
  const cashier=get(3,'winkelen',n,'diamond');assert.match(cashier.input,/winkelmedewerker/i);assert.match(cashier.input,/afspraak|correctie|oplossing/i);assert.ok(cashier.instruction.trim()&&cashier.model.trim());
- const price=get(2,'winkelen',n,'triangle');const costs=[...price.input.matchAll(/voor (\d+) euro/g)].map(m=>+m[1]);assert.equal(costs.length,2);assert.ok(costs[0]<costs[1]);assert.match(price.input,/hoeveelheid is gelijk/);
- const late=get(2,'onderweg',n,'diamond');assert.match(late.input,/14\.00 uur/);assert.match(late.input,/tien minuten/);assert.match(late.model,/tien over twee/);
  const form=get(0,'kennismaken',n,'diamond');assert.match(form.input,/Formulier:/);assert.match(form.input,/Goed:/);
- if(n!==4)assert.doesNotMatch(get(2,'spullen',n,'circle').model,/Ik gebruik het om/);
 }
 for(let n=6;n<=10;n++)assert.doesNotMatch(get(3,'in-de-les',n,'triangle').model,/eerst.*daarna.*keuze|eerst mijn|vijf minuten/);
 assert.equal(get(0,'in-de-les',10,'diamond').model,'Tot ziens!');
-assert.match(get(2,'in-de-les',10,'diamond').input,/maandag om 9\.00/);
-assert.match(get(2,'in-de-les',10,'diamond').model,/maandag om negen/);
 assert.match(get(0,'dagelijks',2,'diamond').model,/Wil je ook water/);
 assert.notEqual(get(0,'in-de-les',1,'square').model,get(0,'in-de-les',1,'diamond').model);
 // Independently specified finite forms and participles for all 24 verbs.
