@@ -12,7 +12,8 @@
     "test:activities": "node tests/activity-content.cjs && node tests/landing-activities.cjs",
     "check:banks": "node scripts/check-banks.cjs",
     "test:banks:browser": "node tests/banks-v2.cjs",
-    "test:tongue:browser": "node tests/tongbrekers-browser.cjs"
+    "test:tongue:browser": "node tests/tongbrekers-browser.cjs",
+    "test:story:browser": "node tests/storydice-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",
