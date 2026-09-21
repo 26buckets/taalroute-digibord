@@ -1,5 +1,5 @@
 // Explicit, offline-only synchronization; never replaces UI or other game data.
-const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{execFileSync}=require('node:child_process');
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),{execFileSync}=require('node:child_process'),{createHash}=require('node:crypto');
 const root=path.resolve(__dirname,'..'),target=process.argv[2];
 assert.ok(target,'Gebruik: node scripts/sync-banks.cjs /pad/naar/lokale-app');
 const dest=path.resolve(target);assert.notEqual(dest,root);
@@ -12,9 +12,13 @@ const data=ctx.window.DIGIBORD_DATA;
 const files=[['Lessen/opdrachtenmatrix.json','data/opdrachtenbank.json','taskBank'],['Lessen/directe-vragen.json','data/snelvragen.json','directBank']];
 const backup=path.join(dest,'bank-backups',new Date().toISOString().replace(/[:.]/g,'-'));
 fs.mkdirSync(backup,{recursive:true});
-for(const file of ['banken-manifest.json','data-bundle.js',...files.map(x=>x[1])]){const to=path.join(backup,file);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(path.join(dest,file),to);}
+const frozen='tests/fixtures/frozen-sha256.json';
+for(const file of ['banken-manifest.json','data-bundle.js','index.html',...(fs.existsSync(path.join(dest,frozen))?[frozen]:[]),...files.map(x=>x[1])]){const to=path.join(backup,file);fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(path.join(dest,file),to);}
 for(const [source,file,key]of files){const raw=fs.readFileSync(path.join(root,source));data[key]=JSON.parse(raw);fs.writeFileSync(path.join(dest,file),raw);}
 fs.writeFileSync(path.join(dest,'data-bundle.js'),'window.DIGIBORD_DATA = '+JSON.stringify(data)+';\n');
 fs.copyFileSync(path.join(root,'Documentatie/Banken-v2/manifest.json'),path.join(dest,'banken-manifest.json'));
+const bundleHash=createHash('sha256').update(fs.readFileSync(path.join(dest,'data-bundle.js'))).digest('hex');
+if(fs.existsSync(path.join(dest,frozen))){const hashes=JSON.parse(fs.readFileSync(path.join(dest,frozen)));hashes['data-bundle.js']=bundleHash;fs.writeFileSync(path.join(dest,frozen),JSON.stringify(hashes,null,2)+'\n');}
+const index=path.join(dest,'index.html');fs.writeFileSync(index,fs.readFileSync(index,'utf8').replace(/data-bundle\.js(?:\?v=[^"\s]+)?/,`data-bundle.js?v=${bundleHash.slice(0,12)}`));
 execFileSync(process.execPath,[check,dest],{stdio:'inherit'});
 console.log('Banken gesynchroniseerd; UI en overige spelgegevens behouden. Bouw de lokale app opnieuw voor dist/ en ZIP.');
