@@ -321,9 +321,9 @@ function renderBoardPawns(board,route,override){
   const at=override&&a.id===active?.id?override:route.nodes[Math.min(route.finishPosition,a.pos)];
   const offset=override&&a.id===active?.id?0:(j-(arr.length-1)/2)*9;
   const scale=.58+.5*at.y/route.sourceHeight;
-  return `<g data-actor="${esc(a.id)}" class="map-pawn ${a.id===active?.id?'active':''}" transform="translate(${at.x+offset} ${at.y}) scale(${scale})" ${override?.onWater&&a.id===active?.id?'visibility="hidden"':''}><title>${esc(a.name)}, vak ${a.pos}</title>${pawnShape(a.color)}</g>`;
+  return `<g data-actor="${esc(a.id)}" class="map-pawn ${a.id===active?.id?'active':''}" transform="translate(${at.x+offset} ${at.y}) scale(${scale})" ${(override?.onWater||override?.underground)&&a.id===active?.id?'visibility="hidden"':''}><title>${esc(a.name)}, vak ${a.pos}</title>${pawnShape(a.color)}</g>`;
  })).join('');
- if(active){const at=override||route.nodes[Math.min(route.finishPosition,active.pos)];$('#activeFieldMarker').setAttribute('cx',at.x);$('#activeFieldMarker').setAttribute('cy',at.y);$('#activeFieldMarker').style.visibility=override?.onWater?'hidden':'visible'}
+ if(active){const at=override||route.nodes[Math.min(route.finishPosition,active.pos)];$('#activeFieldMarker').setAttribute('cx',at.x);$('#activeFieldMarker').setAttribute('cy',at.y);$('#activeFieldMarker').style.visibility=override?.onWater||override?.underground?'hidden':'visible'}
  if($('#roundValue'))$('#roundValue').textContent=APP.boardStates[board].round;
 }
 function setTaxiPoint(route,arrived=false,point){
@@ -356,15 +356,19 @@ function showBoardTask(board,route){
  $('#taskDrawer').classList.add('open');$('.board-game').classList.add('task-open');$('#primaryGame').textContent='VERDER';$('#primaryGame').title='Beurt afronden en opnieuw gooien · spatie';
  $('#boardStatus').textContent='Spatie: opdracht sluiten en volgende worp.';
 }
+function boardWalkPoints(route,from,to){
+ return route.nodes.slice(from,to+1).flatMap((n,i)=>[...(i?route.nodes[from+i-1].pathToNext||[]:[]),[n.x,n.y]]);
+}
 async function animateBoardPath(board,route,points,onWater=false,taxiOnly=false){
  const mount=$('#boardMap'),reduced=settingsState().reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(reduced){if(!mount?.isConnected)return false;const p=points.at(-1);if(!taxiOnly)renderBoardPawns(board,route,{x:p[0],y:p[1],onWater});if(onWater)setTaxiPoint(route,false,p);return true}
  for(let i=1;i<points.length;i++){
-  const a=points[i-1],b=points[i],duration=Math.max(100,Math.hypot(b[0]-a[0],b[1]-a[1])/220*1000);let started;
+  // A third coordinate marks the hidden journey between two tunnel portals.
+  const a=points[i-1],b=points[i],underground=b[2]===true,duration=underground?600:Math.max(100,Math.hypot(b[0]-a[0],b[1]-a[1])/220*1000);let started;
   const alive=await new Promise(resolve=>{function frame(now){
    if(!mount.isConnected||!$('#screen-game').classList.contains('active'))return resolve(false);
    started??=now;const t=Math.min(1,(now-started)/duration),p=[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];
-   if(!taxiOnly)renderBoardPawns(board,route,{x:p[0],y:p[1],onWater});if(onWater)setTaxiPoint(route,false,p);
+   if(!taxiOnly)renderBoardPawns(board,route,{x:p[0],y:p[1],onWater,underground});if(onWater)setTaxiPoint(route,false,p);
    if(t<1)requestAnimationFrame(frame);else resolve(true)
   }requestAnimationFrame(frame)});if(!alive)return false;
  }return true;
@@ -376,7 +380,7 @@ async function rollBoard(board,route){
   playDiceSound();const value=APP.fixedRoll||1+Math.floor(Math.random()*6);s.lastRoll=value;
   const die=$('#moveDie');die.innerHTML=softDie({value,front:false});die.setAttribute('aria-label','Dobbelsteen '+value);die.classList.add('roll');
   SmoothDice.mount();if(!settingsState().reducedMotion&&!matchMedia('(prefers-reduced-motion: reduce)').matches)await SmoothDice.roll(die.querySelector('.smooth-die-host'),780);else await wait(30);if(!mount.isConnected||!$('#screen-game').classList.contains('active'))return;die.classList.remove('roll');
-  const target=Math.min(route.finishPosition,actor.pos+value),points=route.nodes.slice(actor.pos,target+1).map(n=>[n.x,n.y]);
+  const target=Math.min(route.finishPosition,actor.pos+value),points=boardWalkPoints(route,actor.pos,target);
   $('#boardStatus').textContent=`${actor.name} gooit ${value}`;
   if(!await animateBoardPath(board,route,points))return;
   setBoardPos(s,mode,actor.id,target);s.pending={mode,actorId:actor.id,position:target};save();renderBoardPawns(board,route);

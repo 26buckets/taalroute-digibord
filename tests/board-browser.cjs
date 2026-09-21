@@ -145,6 +145,34 @@ async function check(page, label) {
   await page.evaluate(()=>startBoard('rotterdam'));
   assert.equal(await page.locator('.board-game').getAttribute('data-board-fit'),'adaptive','choice persists');
   await page.evaluate(()=>{delete APP.boardStates.rotterdam.pending;save();});
+  // Traverse the complete corrected Zwolle route, then exercise the real tunnel animation.
+  await page.evaluate(async()=>{
+    settingsPatch({pawnMode:'class',reducedMotion:true,showNumbers:true});APP.fixedRoll=1;
+    APP.boardStates.zwolle={classPos:0};startBoard('zwolle');
+    for(let i=1;i<=41;i++){
+      await boardAction('zwolle',routeCache.zwolle);
+      if(APP.boardStates.zwolle.classPos!==i||APP.boardStates.zwolle.pending.position!==i)throw Error('Zwolle stops at wrong task '+i);
+    }
+    save();
+  });
+  await page.reload();await page.evaluate(()=>startBoard('zwolle'));
+  assert.equal(await page.evaluate(()=>APP.boardStates.zwolle.classPos),41,'finish persists after reload');
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.evaluate(()=>{
+    settingsPatch({reducedMotion:false,boardFit:'fixed'});APP.fixedRoll=1;
+    APP.boardStates.zwolle.classPos=30;delete APP.boardStates.zwolle.pending;startBoard('zwolle');
+    window.zwolleTunnelRun=rollBoard('zwolle',routeCache.zwolle);
+  });
+  await page.waitForFunction(()=>document.querySelector('.map-pawn.active')?.getAttribute('visibility')==='hidden');
+  assert.equal(await page.locator('#activeFieldMarker').evaluate(el=>getComputedStyle(el).visibility),'hidden','tunnel also hides active marker');
+  await page.evaluate(()=>window.zwolleTunnelRun);
+  assert.equal(await page.evaluate(()=>APP.boardStates.zwolle.classPos),31,'tunnel exits at wooden bridge');
+  assert.equal(await page.locator('.map-pawn.active').getAttribute('visibility'),null,'pawn reappears at wooden bridge');
+  assert.equal(await page.locator('#taskDrawer').evaluate(el=>el.classList.contains('open')),true,'task appears only after emergence');
+  await page.evaluate(()=>{settingsPatch({reducedMotion:true});delete APP.boardStates.zwolle.pending;APP.boardStates.zwolle.classPos=0;APP.fixedRoll=null;startBoard('zwolle');});
+  await page.screenshot({path:path.join(results,'zwolle-route-v4.png')});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.evaluate(()=>settingsPatch({pawnMode:'individual',boardFit:'adaptive'}));
   if (process.env.BUILD_SMOKE) {
     await page.evaluate(()=>startBoard('rotterdam'));await check(page,'built Rotterdam');
     await page.evaluate(()=>startBoard('zwolle'));await check(page,'built Zwolle');
