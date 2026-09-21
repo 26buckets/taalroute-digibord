@@ -1,4 +1,4 @@
-const {reveal}=require('./ui-controls.cjs');
+const {control}=require('./ui-controls.cjs');
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs');
 (async()=>{
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
@@ -42,8 +42,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
       const visibleText=await p.locator('#pp-task').textContent();
       const model=await p.evaluate(id=>DigiBoardMatrix.byId.get(id).model,id);
       assert.ok(!visibleText.includes(model),'Model vooraf zichtbaar bij '+id);
-      await reveal(p);
-      await p.locator('#pp-help').click();
+      await control(p,'#pp-help','click');
       assert.equal((await p.locator('.db-support-example').textContent()).trim(),model.trim());
       await p.keyboard.press('Escape');
     }
