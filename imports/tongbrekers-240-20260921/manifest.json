@@ -1,7 +1,7 @@
 {
   "packageId": "tongbrekers-240-20260921",
-  "status": "ready_for_integration",
-  "activated": false,
+  "status": "integrated_pending_publication",
+  "activated": true,
   "source": {
     "url": "https://docs.google.com/document/d/1an4zsAiWIlaSmouU5mlXv1h2B4BVH19UtUMX8nI1QKY/edit",
     "title": "Taalroute Tongbrekers Definitieve Bank 2026 09 21",
@@ -26,7 +26,7 @@
     "required": 0
   },
   "bankSha256": "179a3f01c247d51539d3c5d45722f4ed482ffdef0a799e919989e1539448771d",
-  "technicalValidation": "source_renderer_all_240_audio_files_and_preview_playback_verified",
+  "technicalValidation": "local_source_runtime_audio_filters_regressions_build_passed; browser_CI_pending",
   "humanReview": "not_verified_by_this_task",
   "lessonTrial": "not_performed_by_this_task",
   "publication": "not_published_by_this_task",

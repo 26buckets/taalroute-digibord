@@ -1,4 +1,4 @@
-# Tongbrekers — 240 kaarten klaar voor inbouw
+# Tongbrekers — 240 kaarten aangesloten
 
 Bron: [Taalroute Tongbrekers Definitieve Bank 2026 09 21](https://docs.google.com/document/d/1an4zsAiWIlaSmouU5mlXv1h2B4BVH19UtUMX8nI1QKY/edit), bijgewerkt 21 september 2026 14:14:55 UTC. `source.txt` bewaart de volledige opgehaalde tekst, alleen regeleinden zijn genormaliseerd. Kaartteksten, klankvallen en moeilijkheden zijn letterlijk uit deze bron overgenomen.
 
@@ -12,11 +12,13 @@ Bron: [Taalroute Tongbrekers Definitieve Bank 2026 09 21](https://docs.google.co
 
 De hogere bank wordt één keer opgeslagen, niet viermaal gekopieerd. De niveau-indeling is volgens de bron een praktische redactionele inschatting, geen officiële ERK-classificatie. Het bestaande filter **t/m niveau** geeft met deze bank 60, 120, 180 en vervolgens 240 kaarten bij B1–C2. Dat is cumulatief; iedere afzonderlijke brongroep bevat 60 kaarten.
 
-## Status en volgende push
+## Integratiestatus
 
-Het pakket is voorbereid en technisch gevalideerd, maar niet aangesloten op de actieve app. De huidige 161 bronrecords/142 speelbare tongbrekers worden in deze opdracht niet vervangen. Dit pakket vervangt bij latere inbouw de volledige Tongbrekers-bank; voeg niet 240 kaarten aan de bestaande 142 toe.
+De volledige bank is aangesloten op `data/tongbrekers.json`, de geladen JS-bundle en de audiomatrix: 240 kaarten en 240 opnames. De 94 eerdere opnames zijn exact behouden; de 146 aanvullingen zijn voltooid. Geen kaarttekst is gewijzigd. De vorige 161 records/142 speelbare kaarten zijn veilig bewaard in `before-activation-20260921/`, met hashes en broncommit.
 
-Deze map is onderdeel van Git en gaat mee zodra de commit wordt gepusht. Dezelfde pakketcommit wordt ook opgenomen op de al voorbereide publicatietak `codex/taalmix-compleet`. De map `imports/` wordt niet door de productiebuild gepubliceerd of automatisch geladen. De eerstvolgende push uploadt dus het importpakket naar GitHub; spelen met de nieuwe bank vereist de hieronder beschreven aansluiting.
+Opgeslagen Tongbrekers-posities worden op kaart-ID overgezet, rekening houdend met het eerdere filter. Valt de oude kaart buiten de nieuwe selectie, dan verschijnt een melding en start de selectie bij de eerste kaart. Groepen, bordstanden en overige instellingen worden niet gewijzigd. De kleine migratiebundle bevat alleen oude IDs, niveaus en moeilijkheid, geen oude kaartteksten of oude applicatie.
+
+Lokale inhouds-, audio-, filter-, regressie-, lint-, type- en buildcontroles zijn geslaagd. De complete browsercontroles draaien vóór samenvoegen via GitHub Actions; de publicatie volgt via main. `imports/` en de back-up komen niet in de online build. Zie `INTEGRATIEVERSLAG.md` en de bijbehorende PR voor de werkelijk uitgevoerde controles en publicatiestatus.
 
 ## Bestanden
 
