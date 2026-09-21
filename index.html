@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="taalworp-table.css?v=0124">
 <link rel="stylesheet" href="card-table.css?v=0124-tongue-88">
 <link rel="stylesheet" href="dice-table.css?v=0124-story-mix">
-<link rel="stylesheet" href="words-activity.css?v=0124-wordcards-30">
+<link rel="stylesheet" href="words-activity.css?v=wz001">
 <link rel="stylesheet" href="landing-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="new-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="context-tools.css?v=0124-context">
@@ -125,13 +125,12 @@
 </section>
 
 <section class="screen category" id="screen-words">
-  <div class="category-head"><div><h1>Woorden en zinnen</h1><p>Bouw een goede zin. De andere oefenvormen volgen later.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
-  <div class="tiles">
-    <button class="tile" data-wordgame="build"><div class="tile-img" style="background-image:url('assets/landing/woorden-zinnen.png')"></div><div class="tile-body"><span class="status">Werkend</span><h3>Bouw een zin</h3><p>30 kaarten: hoofdzinnen, een andere start en bijzinnen.</p></div></button>
-    <button class="tile" data-wordgame="make" disabled><div class="tile-img" style="background:linear-gradient(135deg,#dff4ea,#eff7ff)"></div><div class="tile-body"><span class="status">Binnenkort</span><h3>Maak en verander</h3><p>Verander een bestaande zin met een korte opdracht.</p></div></button>
-    <button class="tile" data-wordgame="guess" disabled><div class="tile-img" style="background:linear-gradient(135deg,#f7f0da,#eaf5ff)"></div><div class="tile-body"><span class="status">Binnenkort</span><h3>Beschrijf en raad</h3><p>Omschrijf iets zonder het te noemen. De anderen raden.</p></div></button>
-    <button class="tile" data-wordgame="combine" disabled><div class="tile-img" style="background:linear-gradient(135deg,#eae5fb,#e7f5ed)"></div><div class="tile-body"><span class="status">Binnenkort</span><h3>Combineer en beschrijf</h3><p>Verbind beelden of begrippen in een eigen beschrijving.</p></div></button>
-  </div>
+  <div class="category-head"><div><h1>Woorden en zinnen</h1><p>Kies eerst je taaldoel. Kies daarna hoe je wilt oefenen.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <p class="word-preview-note">WZ A0–A1 · 680 oefeningen voor docentpreview. Begin bij Instap; bespreek open antwoorden samen.</p>
+  <div class="tiles" id="wordGoalTiles"></div>
+  <details class="word-legacy"><summary>Bestaande woordkaarten en vervolgvormen</summary><p>De 30 bestaande kaarten blijven beschikbaar, inclusief een andere start en bijzinnen. Het niveau van deze collectie wordt apart beoordeeld.</p>
+  <button class="smallbtn" data-wordgame="build">Bouw een zin · 30 bestaande kaarten</button>
+  <p>Maak en verander gebruikt in de nieuwe bank Herstel en Verander. Hieronder staan ook 12 historische Bouw-kaarten en 16 raadkaarten uit Woordspel. Kies eerst het taaldoel. De oorspronkelijke niveaus A1–B2 zijn behouden; een nieuwe docentreview staat nog open. De vrije opdrachten voor Maak en verander en Combineer en beschrijf volgen apart.</p><div class="tiles" id="wordArchiveGoals"></div></details>
 </section>
 
 <section class="screen" id="screen-game"><div id="gameMount" style="position:absolute;inset:0"></div></section>
@@ -171,7 +170,8 @@
 <script src="data/tongbrekers.js?v=0124-tongue-a1-a2-60"></script>
 <script src="dice-textures.js?v=0124-verhaalworp-320"></script><script src="smooth-dice-renderer.js?v=0124"></script><script src="smooth-dice.js?v=0124"></script>
 <script src="context-tools.js?v=0124-board-options"></script>
-<script src="words-activity.js?v=0124-context"></script>
+<script src="words-content.js?v=wz001"></script>
+<script src="words-activity.js?v=wz001"></script>
 <script src="curriculum.js?v=alfa-abc"></script>
 <script src="board-viewport.js?v=0124-board-focus"></script>
 <script src="app.js?v=0124-story-mix"></script>

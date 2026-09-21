@@ -1,0 +1,1227 @@
+[
+  {
+    "id": "WZ_001_V01",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “soep” door “vanavond”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V02",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “een kaartje” door “brood”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V03",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “morgen” door “naar school”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V04",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “Rotterdam” door “Delft”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V05",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “school” door “dokter”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V06",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “met de kinderen” door “buiten”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V07",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “rustig” door “Nederlands”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V08",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “koffie” door “thee”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V09",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “contant” door “met de pin”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V10",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “boek” door “bericht”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V11",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “elke dag” door “Nederlands”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V12",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “het werk” door “school”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V13",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “om negen uur” door “morgen”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V14",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “morgen” door “vandaag”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V15",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “samen” door “brood”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V16",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “muziek” door “de docent”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V17",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “een afspraak” door “de opdracht”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_001_V18",
+    "field": "Instructie",
+    "before": "Verander alleen het laatste deel.",
+    "after": "Vervang “thuis” door “soep”.",
+    "reason": "Gesloten opdracht benoemt de vereiste vervanging."
+  },
+  {
+    "id": "WZ_002_K01",
+    "field": "Optie C",
+    "before": "komen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K02",
+    "field": "Optie C",
+    "before": "maken",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K03",
+    "field": "Optie C",
+    "before": "wonen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K04",
+    "field": "Optie C",
+    "before": "drinken",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K05",
+    "field": "Optie C",
+    "before": "fietsen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K06",
+    "field": "Optie C",
+    "before": "luisteren",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K07",
+    "field": "Optie C",
+    "before": "gaan",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K08",
+    "field": "Optie C",
+    "before": "praten",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K08",
+    "field": "Stimulus",
+    "before": "Mijn buurman ... met mijn buurman.",
+    "after": "Mijn buurman ... met de docent.",
+    "reason": "Voorkom dat de buurman zonder context met zichzelf praat."
+  },
+  {
+    "id": "WZ_002_K08",
+    "field": "Antwoordmodel",
+    "before": "Mijn buurman praat met mijn buurman.",
+    "after": "Mijn buurman praat met de docent.",
+    "reason": "Voorkom dat de buurman zonder context met zichzelf praat."
+  },
+  {
+    "id": "WZ_002_K09",
+    "field": "Optie C",
+    "before": "leren",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K10",
+    "field": "Optie C",
+    "before": "eten",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K11",
+    "field": "Optie C",
+    "before": "kopen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_K12",
+    "field": "Optie C",
+    "before": "spelen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_002_H09",
+    "field": "Stimulus",
+    "before": "De kinderen speelt met de kinderen.",
+    "after": "De kinderen speelt in het park.",
+    "reason": "Voorkom onduidelijke herhaling van dezelfde groep kinderen."
+  },
+  {
+    "id": "WZ_002_H09",
+    "field": "Antwoordmodel",
+    "before": "De kinderen spelen met de kinderen.",
+    "after": "De kinderen spelen in het park.",
+    "reason": "Voorkom onduidelijke herhaling van dezelfde groep kinderen."
+  },
+  {
+    "id": "WZ_002_V17",
+    "field": "Instructie",
+    "before": "Gebruik de kinderen.",
+    "after": "Gebruik de cursisten.",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_002_V17",
+    "field": "Stimulus",
+    "before": "Het kind werkt in een winkel.",
+    "after": "De cursist werkt in een winkel.",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_002_V17",
+    "field": "Antwoordmodel",
+    "before": "De kinderen werken in een winkel.",
+    "after": "De cursisten werken in een winkel.",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_002_S01",
+    "field": "Instructie",
+    "before": "Maak dezelfde zin met ik en wij.",
+    "after": "Vertel wat je drinkt. Maak eerst een zin met ik en daarna met wij.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_002_S02",
+    "field": "Instructie",
+    "before": "Maak dezelfde zin met hij en wij.",
+    "after": "Vertel waar iemand woont. Maak eerst een zin met hij en daarna met wij.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_002_S04",
+    "field": "Instructie",
+    "before": "Maak daarna dezelfde zin met meerdere cursisten.",
+    "after": "Vertel wat meerdere cursisten in de les doen.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_002_S06",
+    "field": "Instructie",
+    "before": "Maak dezelfde zin met mijn collega's.",
+    "after": "Vertel wat mijn collega’s vandaag doen.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_002_S08",
+    "field": "Instructie",
+    "before": "Maak dezelfde zin met de kinderen.",
+    "after": "Vertel wat de kinderen in het park doen.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_002_S10",
+    "field": "Instructie",
+    "before": "Maak dezelfde zin met de docenten.",
+    "after": "Vertel wat de docenten op school doen.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_002_S12",
+    "field": "Instructie",
+    "before": "Maak dezelfde zin met Fatima en Amir.",
+    "after": "Vertel wat Fatima en Amir thuis doen.",
+    "reason": "Kaart moet zelfstandig bruikbaar zijn, zonder een niet meegeleverde vorige zin."
+  },
+  {
+    "id": "WZ_003_B02",
+    "field": "Stimulus",
+    "before": "de kinderen | fietsen | naar het werk",
+    "after": "de kinderen | fietsen | naar school",
+    "reason": "Passender alledaagse context voor kinderen."
+  },
+  {
+    "id": "WZ_003_B02",
+    "field": "Antwoordmodel",
+    "before": "De kinderen fietsen naar het werk.",
+    "after": "De kinderen fietsen naar school.",
+    "reason": "Passender alledaagse context voor kinderen."
+  },
+  {
+    "id": "WZ_003_K01",
+    "field": "Optie C",
+    "before": "spelen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K02",
+    "field": "Optie C",
+    "before": "gaan",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K03",
+    "field": "Optie C",
+    "before": "maken",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K04",
+    "field": "Optie C",
+    "before": "werken",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K05",
+    "field": "Optie C",
+    "before": "leren",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K06",
+    "field": "Optie C",
+    "before": "drinken",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K07",
+    "field": "Optie C",
+    "before": "bellen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K08",
+    "field": "Optie C",
+    "before": "kopen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K09",
+    "field": "Optie C",
+    "before": "luisteren",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K10",
+    "field": "Optie C",
+    "before": "komen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K11",
+    "field": "Optie C",
+    "before": "lezen",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_K12",
+    "field": "Optie C",
+    "before": "praten",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_003_H12",
+    "field": "Instructie",
+    "before": "Maak de zin goed.",
+    "after": "Maak de zin goed. Zij is hier één vrouw.",
+    "reason": "Zij eten is correct meervoud; enkelvoud expliciet maken."
+  },
+  {
+    "id": "WZ_003_V01",
+    "field": "Instructie",
+    "before": "Gebruik de cursist.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V01",
+    "field": "Antwoordmodel",
+    "before": "De cursist belt vanmiddag.",
+    "after": "Wij bellen vanmiddag.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V02",
+    "field": "Instructie",
+    "before": "Gebruik de kinderen.",
+    "after": "Gebruik hij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V02",
+    "field": "Antwoordmodel",
+    "before": "De kinderen kopen brood.",
+    "after": "Hij koopt brood.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V03",
+    "field": "Instructie",
+    "before": "Gebruik Sara en Amir.",
+    "after": "Gebruik ik. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V03",
+    "field": "Antwoordmodel",
+    "before": "Sara en Amir luisteren naar de docent.",
+    "after": "Ik luister naar de docent.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V04",
+    "field": "Instructie",
+    "before": "Gebruik zij.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V04",
+    "field": "Antwoordmodel",
+    "before": "Zij komt naar de les.",
+    "after": "Wij komen naar de les.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V05",
+    "field": "Instructie",
+    "before": "Gebruik de cursist.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V05",
+    "field": "Antwoordmodel",
+    "before": "De cursist leest thuis.",
+    "after": "Wij lezen thuis.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V06",
+    "field": "Instructie",
+    "before": "Gebruik de kinderen.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V06",
+    "field": "Antwoordmodel",
+    "before": "De kinderen praten met de docent.",
+    "after": "Wij praten met de docent.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V07",
+    "field": "Instructie",
+    "before": "Gebruik Sara en Amir.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V07",
+    "field": "Antwoordmodel",
+    "before": "Sara en Amir wonen hier.",
+    "after": "Wij wonen hier.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V08",
+    "field": "Instructie",
+    "before": "Gebruik zij.",
+    "after": "Gebruik hij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V08",
+    "field": "Antwoordmodel",
+    "before": "Zij kookt thuis.",
+    "after": "Hij kookt thuis.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V09",
+    "field": "Instructie",
+    "before": "Gebruik de cursist.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V09",
+    "field": "Antwoordmodel",
+    "before": "De cursist eet samen.",
+    "after": "Wij eten samen.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V10",
+    "field": "Instructie",
+    "before": "Gebruik de kinderen.",
+    "after": "Gebruik ik. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V10",
+    "field": "Antwoordmodel",
+    "before": "De kinderen fietsen naar het werk.",
+    "after": "Ik fiets naar het werk.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V11",
+    "field": "Instructie",
+    "before": "Gebruik Sara en Amir.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V11",
+    "field": "Antwoordmodel",
+    "before": "Sara en Amir betalen contant.",
+    "after": "Wij betalen contant.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V12",
+    "field": "Instructie",
+    "before": "Gebruik zij.",
+    "after": "Gebruik wij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V12",
+    "field": "Antwoordmodel",
+    "before": "Zij speelt met de kinderen.",
+    "after": "Wij spelen met de kinderen.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V13",
+    "field": "Instructie",
+    "before": "Gebruik de cursist.",
+    "after": "Gebruik ik. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V13",
+    "field": "Antwoordmodel",
+    "before": "De cursist gaat morgen.",
+    "after": "Ik ga morgen.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V14",
+    "field": "Instructie",
+    "before": "Gebruik de kinderen.",
+    "after": "Gebruik hij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V14",
+    "field": "Antwoordmodel",
+    "before": "De kinderen maken het eten.",
+    "after": "Hij maakt het eten.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V15",
+    "field": "Instructie",
+    "before": "Gebruik Sara en Amir.",
+    "after": "Gebruik ik. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V15",
+    "field": "Antwoordmodel",
+    "before": "Sara en Amir werken in een winkel.",
+    "after": "Ik werk in een winkel.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V16",
+    "field": "Instructie",
+    "before": "Gebruik zij.",
+    "after": "Gebruik hij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V16",
+    "field": "Antwoordmodel",
+    "before": "Zij leert op school.",
+    "after": "Hij leert op school.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V17",
+    "field": "Instructie",
+    "before": "Gebruik de cursist.",
+    "after": "Gebruik ik. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V17",
+    "field": "Antwoordmodel",
+    "before": "De cursist drinkt bij het eten.",
+    "after": "Ik drink bij het eten.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_V18",
+    "field": "Instructie",
+    "before": "Gebruik de kinderen.",
+    "after": "Gebruik hij. Verander ook het werkwoord.",
+    "reason": "Werkwoordsvorm moet daadwerkelijk veranderen; geen nultransformatie of ambigu zij."
+  },
+  {
+    "id": "WZ_003_V18",
+    "field": "Antwoordmodel",
+    "before": "De kinderen bellen de dokter.",
+    "after": "Hij belt de dokter.",
+    "reason": "Antwoord afgestemd op expliciete persoonsverandering."
+  },
+  {
+    "id": "WZ_003_S13",
+    "field": "Instructie",
+    "before": "Maak een zin over vrije tijd.",
+    "after": "Vertel wat je in je vrije tijd leest. Gebruik lezen.",
+    "reason": "Exacte doublure met WZ_001 vervangen door expliciete werkwoordproductie."
+  },
+  {
+    "id": "WZ_003_S14",
+    "field": "Instructie",
+    "before": "Maak een zin over je buurt.",
+    "after": "Vertel waar iemand in je buurt woont. Gebruik wonen.",
+    "reason": "Exacte doublure met WZ_001 vervangen door expliciete werkwoordproductie."
+  },
+  {
+    "id": "WZ_003_S15",
+    "field": "Instructie",
+    "before": "Maak een zin over je familie.",
+    "after": "Vertel wat iemand uit je familie kookt. Gebruik koken.",
+    "reason": "Exacte doublure met WZ_001 vervangen door expliciete werkwoordproductie."
+  },
+  {
+    "id": "WZ_003_S17",
+    "field": "Instructie",
+    "before": "Maak een zin over vervoer.",
+    "after": "Vertel wie er naar school fietst. Gebruik fietsen.",
+    "reason": "Exacte doublure met WZ_001 vervangen door expliciete werkwoordproductie."
+  },
+  {
+    "id": "WZ_004_B04",
+    "field": "Stimulus",
+    "before": "werkt | het kind | in een winkel",
+    "after": "werkt | de cursist | in een winkel",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_004_B04",
+    "field": "Antwoordmodel",
+    "before": "Werkt het kind in een winkel?",
+    "after": "Werkt de cursist in een winkel?",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_004_K01",
+    "field": "Optie B",
+    "before": "Werkt Fatima morgen?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K01",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K02",
+    "field": "Optie B",
+    "before": "Drinken de cursisten bij het eten?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K02",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K03",
+    "field": "Optie B",
+    "before": "Koopt het kind brood?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K03",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K04",
+    "field": "Optie B",
+    "before": "Komen de docenten om negen uur?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K04",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K05",
+    "field": "Optie B",
+    "before": "Praten Sara en Amir Nederlands?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K05",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K06",
+    "field": "Optie B",
+    "before": "Kookt hij voor de familie?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K06",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K07",
+    "field": "Optie B",
+    "before": "Fietsen jullie naar het werk?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K07",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K08",
+    "field": "Optie B",
+    "before": "Speelt de cursist voetbal?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K08",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K09",
+    "field": "Optie B",
+    "before": "Maken mijn buren de opdracht?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K09",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K10",
+    "field": "Optie B",
+    "before": "Leert de docent elke dag?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K10",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K11",
+    "field": "Optie B",
+    "before": "Bellen mijn collega's de dokter?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K11",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_004_K12",
+    "field": "Optie B",
+    "before": "Luistert u naar de docent?",
+    "after": "",
+    "reason": "Dubbele antwoordoptie verwijderd; twee betekenisvolle opties volstaan."
+  },
+  {
+    "id": "WZ_004_K12",
+    "field": "Instructie",
+    "before": "Kies de standaardvraag.",
+    "after": "Kies de vraag die met het werkwoord begint.",
+    "reason": "Een intonatievraag is niet per definitie fout; toets expliciet inversie."
+  },
+  {
+    "id": "WZ_005_B07",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_B08",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_B09",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_K01",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K02",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K03",
+    "field": "Moeilijkheid",
+    "before": "1",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_K03",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K04",
+    "field": "Moeilijkheid",
+    "before": "1",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_K04",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K05",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_K05",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K06",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K07",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K08",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K09",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K10",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K11",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_K12",
+    "field": "Instructie",
+    "before": "Kies de goede vraag.",
+    "after": "Kies de vraag met een vraagwoord.",
+    "reason": "Afleider met intonatievraag kan geldig zijn; gevraagd vraagtype expliciet."
+  },
+  {
+    "id": "WZ_005_H01",
+    "field": "Moeilijkheid",
+    "before": "1",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_V07",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_V08",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_V09",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_S02",
+    "field": "Moeilijkheid",
+    "before": "1",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_S04",
+    "field": "Moeilijkheid",
+    "before": "1",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_S05",
+    "field": "Moeilijkheid",
+    "before": "1",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_005_S11",
+    "field": "Moeilijkheid",
+    "before": "2",
+    "after": "3",
+    "reason": "Bovenkant A1 volgens de eigen bronafspraak; niet bij instap tonen."
+  },
+  {
+    "id": "WZ_007_K01",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K02",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K03",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K04",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K05",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K06",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K07",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K08",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K09",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K10",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K11",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_007_K12",
+    "field": "Instructie",
+    "before": "Kies de goede zin.",
+    "after": "Kies de ontkennende zin met geen.",
+    "reason": "Een bevestigende zin was ook grammaticaal goed; doelhandeling verduidelijkt."
+  },
+  {
+    "id": "WZ_008_B11",
+    "field": "Stimulus",
+    "before": "het kind | mag | morgen | werken",
+    "after": "de cursist | mag | morgen | werken",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_008_B11",
+    "field": "Antwoordmodel",
+    "before": "Het kind mag morgen werken.",
+    "after": "De cursist mag morgen werken.",
+    "reason": "Volwassen werkcontext."
+  },
+  {
+    "id": "WZ_008_K01",
+    "field": "Optie C",
+    "before": "Hij wil naar school gaan.",
+    "after": "Hij wil naar school gaat.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K02",
+    "field": "Optie C",
+    "before": "Jullie moeten hier wachtt.",
+    "after": "Jullie moeten hier wacht.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K03",
+    "field": "Optie C",
+    "before": "De cursist mag een afspraak makt.",
+    "after": "De cursist mag een afspraak maakt.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K04",
+    "field": "Optie C",
+    "before": "Mijn buren kunnen met de pin betalt.",
+    "after": "Mijn buren kunnen met de pin betaalt.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K07",
+    "field": "Optie C",
+    "before": "Jij mag thuis blijvt.",
+    "after": "Jij mag thuis blijft.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K08",
+    "field": "Optie C",
+    "before": "Zij kan soep kokt.",
+    "after": "Zij kan soep kookt.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K10",
+    "field": "Optie C",
+    "before": "De cursisten moeten de bus nemt.",
+    "after": "De cursisten moeten de bus neemt.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K11",
+    "field": "Optie C",
+    "before": "Het kind mag brood kopt.",
+    "after": "Het kind mag brood koopt.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_K12",
+    "field": "Optie C",
+    "before": "De docenten kunnen de opdracht makt.",
+    "after": "De docenten kunnen de opdracht maakt.",
+    "reason": "Afleider gebruikt bestaande persoonsvorm, geen kunstmatige spelfout of correct duplicaat."
+  },
+  {
+    "id": "WZ_008_S12",
+    "field": "Instructie",
+    "before": "Vertel wat je goed kunt.",
+    "after": "Vertel iets wat iemand uit je groep goed kan.",
+    "reason": "Schijnvariatie met S01 verminderen door perspectiefwisseling."
+  }
+]
