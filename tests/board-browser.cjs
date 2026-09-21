@@ -95,9 +95,21 @@ async function check(page, label) {
     assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),state,'navigation preserves game state');
   }
   await page.setViewportSize({width:1920,height:1080});await settle(page);
+  await page.evaluate(()=>{APP.fixedRoll=1;save();});
   await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!!document.fullscreenElement);
   assert.equal(await page.locator('#fullscreenBtn').getAttribute('aria-pressed'),'true');
+  // Space after a pointer click must roll, not reactivate the fullscreen button.
+  for(const position of [1,2]){
+    await page.keyboard.press('Space');await settle(page);
+    assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true,'Space keeps fullscreen after clicking its button');
+    await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer').classList.contains('open'));
+    assert.equal(await page.evaluate(()=>APP.boardStates.rotterdam.classPos),position,'each Space rolls exactly once');
+  }
   await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!document.fullscreenElement);
+  // Deliberate keyboard activation retains native button behavior and focus.
+  await page.locator('#fullscreenBtn').press('Space');await page.waitForFunction(()=>!!document.fullscreenElement);
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'fullscreenBtn');
+  await page.locator('#fullscreenBtn').press('Space');await page.waitForFunction(()=>!document.fullscreenElement);
   await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#boardMenuToggle').isVisible(),false);
   assert.equal(await page.locator('#levelSelect').isVisible(),true,'normal header returns outside boards');
   await page.evaluate(()=>startBoard('rotterdam'));await settle(page);
