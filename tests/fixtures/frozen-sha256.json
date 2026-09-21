@@ -3,7 +3,8 @@
   "assets/boards/zwolle.png": "0bab57d83d2e151cddc57068e87a81ba812495c36805cf2838b275e98767ed5b",
   "assets/boards/watertaxi.png": "8db4ddc3f00f67038fbaa39ef7c2e09a9639b87070e037c3d73ecade5544ff27",
   "data/rotterdam-route.json": "348131248e069f5be8f91c25937a15c0ec56ccf2d5142c9a456f881f2b24d816",
-  "data/zwolle-route.json": "2800e52fb5ea5b7a5eabe8e093a0538c682abe16ce60ba8c5cbfcd7f3f8ea977",
-  "data-bundle.js": "dbf1b3cf6c24cd9eb68614e7efc43140ae4bc4eb6a76f0ec98b1233e3340a521",
-  "assets/boards/zwolle-route-v4.png": "81790ec524ca36e0b87fb01101615477a8a567ef546cc106888fdacf29f87285"
+  "data/zwolle-route.json": "a8fbb282e094b1f1f63648a8b41aa07b185e5d398a4bb7bbef7fd4501befbf20",
+  "data-bundle.js": "67a9ace508b2f0122c724aaa296922a877b9b2742f3da5ab3cf5821851c9aa27",
+  "assets/boards/zwolle-route-v4.png": "81790ec524ca36e0b87fb01101615477a8a567ef546cc106888fdacf29f87285",
+  "assets/boards/zwolle-speelweg-v5.png": "3d3c3164828a6d594f0836e9d896e5d442367d7e23264f4fb52947682a9aae5a"
 }
