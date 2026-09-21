@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "style": "FINALE optie 3",
   "collections": [
     {
@@ -24,7 +24,47 @@
       "id": "werk",
       "label": "Werk",
       "count": 54,
-      "status": "preparing"
+      "status": "ready"
+    },
+    {
+      "id": "familie",
+      "label": "Familie",
+      "count": 6,
+      "status": "ready"
+    },
+    {
+      "id": "gevoelens",
+      "label": "Gevoelens",
+      "count": 12,
+      "status": "ready"
+    },
+    {
+      "id": "lichaam",
+      "label": "Lichaamsdelen",
+      "count": 18,
+      "status": "ready",
+      "includeNumbers": [
+        143,
+        144
+      ]
+    },
+    {
+      "id": "beroepen",
+      "label": "Beroepen",
+      "count": 12,
+      "status": "ready"
+    },
+    {
+      "id": "aanvullingen",
+      "label": "Dagelijkse aanvullingen",
+      "count": 54,
+      "status": "ready"
+    },
+    {
+      "id": "extra-acties",
+      "label": "Extra acties",
+      "count": 22,
+      "status": "ready"
     }
   ],
   "icons": [
@@ -1035,6 +1075,1243 @@
       "number": 144,
       "label": "oor",
       "file": "assets/storydice/dagelijks/144-oor.png"
+    },
+    {
+      "id": "werk-145",
+      "collection": "werk",
+      "number": 145,
+      "label": "veiligheidshelm",
+      "file": "assets/storydice/werk/145-veiligheidshelm.png"
+    },
+    {
+      "id": "werk-146",
+      "collection": "werk",
+      "number": 146,
+      "label": "veiligheidsvest",
+      "file": "assets/storydice/werk/146-veiligheidsvest.png"
+    },
+    {
+      "id": "werk-147",
+      "collection": "werk",
+      "number": 147,
+      "label": "veiligheidsbril",
+      "file": "assets/storydice/werk/147-veiligheidsbril.png"
+    },
+    {
+      "id": "werk-148",
+      "collection": "werk",
+      "number": 148,
+      "label": "werkhandschoenen",
+      "file": "assets/storydice/werk/148-werkhandschoenen.png"
+    },
+    {
+      "id": "werk-149",
+      "collection": "werk",
+      "number": 149,
+      "label": "veiligheidslaarzen",
+      "file": "assets/storydice/werk/149-veiligheidslaarzen.png"
+    },
+    {
+      "id": "werk-150",
+      "collection": "werk",
+      "number": 150,
+      "label": "brandblusser",
+      "file": "assets/storydice/werk/150-brandblusser.png"
+    },
+    {
+      "id": "werk-151",
+      "collection": "werk",
+      "number": 151,
+      "label": "hamer",
+      "file": "assets/storydice/werk/151-hamer.png"
+    },
+    {
+      "id": "werk-152",
+      "collection": "werk",
+      "number": 152,
+      "label": "schroevendraaier",
+      "file": "assets/storydice/werk/152-schroevendraaier.png"
+    },
+    {
+      "id": "werk-153",
+      "collection": "werk",
+      "number": 153,
+      "label": "moersleutel",
+      "file": "assets/storydice/werk/153-moersleutel.png"
+    },
+    {
+      "id": "werk-154",
+      "collection": "werk",
+      "number": 154,
+      "label": "boormachine",
+      "file": "assets/storydice/werk/154-boormachine.png"
+    },
+    {
+      "id": "werk-155",
+      "collection": "werk",
+      "number": 155,
+      "label": "zaag",
+      "file": "assets/storydice/werk/155-zaag.png"
+    },
+    {
+      "id": "werk-156",
+      "collection": "werk",
+      "number": 156,
+      "label": "ladder",
+      "file": "assets/storydice/werk/156-ladder.png"
+    },
+    {
+      "id": "werk-157",
+      "collection": "werk",
+      "number": 157,
+      "label": "klembord",
+      "file": "assets/storydice/werk/157-klembord.png"
+    },
+    {
+      "id": "werk-158",
+      "collection": "werk",
+      "number": 158,
+      "label": "naamkaart",
+      "file": "assets/storydice/werk/158-naamkaart.png"
+    },
+    {
+      "id": "werk-159",
+      "collection": "werk",
+      "number": 159,
+      "label": "headset",
+      "file": "assets/storydice/werk/159-headset.png"
+    },
+    {
+      "id": "werk-160",
+      "collection": "werk",
+      "number": 160,
+      "label": "kassa",
+      "file": "assets/storydice/werk/160-kassa.png"
+    },
+    {
+      "id": "werk-161",
+      "collection": "werk",
+      "number": 161,
+      "label": "scanner",
+      "file": "assets/storydice/werk/161-scanner.png"
+    },
+    {
+      "id": "werk-162",
+      "collection": "werk",
+      "number": 162,
+      "label": "palletwagen",
+      "file": "assets/storydice/werk/162-palletwagen.png"
+    },
+    {
+      "id": "werk-163",
+      "collection": "werk",
+      "number": 163,
+      "label": "werkplaats",
+      "file": "assets/storydice/werk/163-werkplaats.png"
+    },
+    {
+      "id": "werk-164",
+      "collection": "werk",
+      "number": 164,
+      "label": "magazijn",
+      "file": "assets/storydice/werk/164-magazijn.png"
+    },
+    {
+      "id": "werk-165",
+      "collection": "werk",
+      "number": 165,
+      "label": "bouwplaats",
+      "file": "assets/storydice/werk/165-bouwplaats.png"
+    },
+    {
+      "id": "werk-166",
+      "collection": "werk",
+      "number": 166,
+      "label": "kas",
+      "file": "assets/storydice/werk/166-kas.png"
+    },
+    {
+      "id": "werk-167",
+      "collection": "werk",
+      "number": 167,
+      "label": "kapsalon",
+      "file": "assets/storydice/werk/167-kapsalon.png"
+    },
+    {
+      "id": "werk-168",
+      "collection": "werk",
+      "number": 168,
+      "label": "receptie",
+      "file": "assets/storydice/werk/168-receptie.png"
+    },
+    {
+      "id": "werk-169",
+      "collection": "werk",
+      "number": 169,
+      "label": "schroef",
+      "file": "assets/storydice/werk/169-schroef.png"
+    },
+    {
+      "id": "werk-170",
+      "collection": "werk",
+      "number": 170,
+      "label": "spijker",
+      "file": "assets/storydice/werk/170-spijker.png"
+    },
+    {
+      "id": "werk-171",
+      "collection": "werk",
+      "number": 171,
+      "label": "plank",
+      "file": "assets/storydice/werk/171-plank.png"
+    },
+    {
+      "id": "werk-172",
+      "collection": "werk",
+      "number": 172,
+      "label": "verfpot",
+      "file": "assets/storydice/werk/172-verfpot.png"
+    },
+    {
+      "id": "werk-173",
+      "collection": "werk",
+      "number": 173,
+      "label": "kabel",
+      "file": "assets/storydice/werk/173-kabel.png"
+    },
+    {
+      "id": "werk-174",
+      "collection": "werk",
+      "number": 174,
+      "label": "plakbandrol",
+      "file": "assets/storydice/werk/174-plakbandrol.png"
+    },
+    {
+      "id": "werk-175",
+      "collection": "werk",
+      "number": 175,
+      "label": "schaar",
+      "file": "assets/storydice/werk/175-schaar.png"
+    },
+    {
+      "id": "werk-176",
+      "collection": "werk",
+      "number": 176,
+      "label": "naaimachine",
+      "file": "assets/storydice/werk/176-naaimachine.png"
+    },
+    {
+      "id": "werk-177",
+      "collection": "werk",
+      "number": 177,
+      "label": "dienblad",
+      "file": "assets/storydice/werk/177-dienblad.png"
+    },
+    {
+      "id": "werk-178",
+      "collection": "werk",
+      "number": 178,
+      "label": "pan",
+      "file": "assets/storydice/werk/178-pan.png"
+    },
+    {
+      "id": "werk-179",
+      "collection": "werk",
+      "number": 179,
+      "label": "emmer",
+      "file": "assets/storydice/werk/179-emmer.png"
+    },
+    {
+      "id": "werk-180",
+      "collection": "werk",
+      "number": 180,
+      "label": "bezem",
+      "file": "assets/storydice/werk/180-bezem.png"
+    },
+    {
+      "id": "werk-181",
+      "collection": "werk",
+      "number": 181,
+      "label": "sorteren",
+      "file": "assets/storydice/werk/181-sorteren.png"
+    },
+    {
+      "id": "werk-182",
+      "collection": "werk",
+      "number": 182,
+      "label": "inpakken",
+      "file": "assets/storydice/werk/182-inpakken.png"
+    },
+    {
+      "id": "werk-183",
+      "collection": "werk",
+      "number": 183,
+      "label": "uitpakken",
+      "file": "assets/storydice/werk/183-uitpakken.png"
+    },
+    {
+      "id": "werk-184",
+      "collection": "werk",
+      "number": 184,
+      "label": "stapelen",
+      "file": "assets/storydice/werk/184-stapelen.png"
+    },
+    {
+      "id": "werk-185",
+      "collection": "werk",
+      "number": 185,
+      "label": "wegen",
+      "file": "assets/storydice/werk/185-wegen.png"
+    },
+    {
+      "id": "werk-186",
+      "collection": "werk",
+      "number": 186,
+      "label": "scannen",
+      "file": "assets/storydice/werk/186-scannen.png"
+    },
+    {
+      "id": "werk-187",
+      "collection": "werk",
+      "number": 187,
+      "label": "vegen",
+      "file": "assets/storydice/werk/187-vegen.png"
+    },
+    {
+      "id": "werk-188",
+      "collection": "werk",
+      "number": 188,
+      "label": "dweilen",
+      "file": "assets/storydice/werk/188-dweilen.png"
+    },
+    {
+      "id": "werk-189",
+      "collection": "werk",
+      "number": 189,
+      "label": "stofzuigen",
+      "file": "assets/storydice/werk/189-stofzuigen.png"
+    },
+    {
+      "id": "werk-190",
+      "collection": "werk",
+      "number": 190,
+      "label": "ramen wassen",
+      "file": "assets/storydice/werk/190-ramen-wassen.png"
+    },
+    {
+      "id": "werk-191",
+      "collection": "werk",
+      "number": 191,
+      "label": "strijken",
+      "file": "assets/storydice/werk/191-strijken.png"
+    },
+    {
+      "id": "werk-192",
+      "collection": "werk",
+      "number": 192,
+      "label": "vouwen",
+      "file": "assets/storydice/werk/192-vouwen.png"
+    },
+    {
+      "id": "werk-193",
+      "collection": "werk",
+      "number": 193,
+      "label": "boren",
+      "file": "assets/storydice/werk/193-boren.png"
+    },
+    {
+      "id": "werk-194",
+      "collection": "werk",
+      "number": 194,
+      "label": "zagen",
+      "file": "assets/storydice/werk/194-zagen.png"
+    },
+    {
+      "id": "werk-195",
+      "collection": "werk",
+      "number": 195,
+      "label": "schilderen",
+      "file": "assets/storydice/werk/195-schilderen.png"
+    },
+    {
+      "id": "werk-196",
+      "collection": "werk",
+      "number": 196,
+      "label": "schroeven",
+      "file": "assets/storydice/werk/196-schroeven.png"
+    },
+    {
+      "id": "werk-197",
+      "collection": "werk",
+      "number": 197,
+      "label": "harken",
+      "file": "assets/storydice/werk/197-harken.png"
+    },
+    {
+      "id": "werk-198",
+      "collection": "werk",
+      "number": 198,
+      "label": "planten",
+      "file": "assets/storydice/werk/198-planten.png"
+    },
+    {
+      "id": "familie-199",
+      "collection": "familie",
+      "number": 199,
+      "label": "moeder",
+      "file": "assets/storydice/familie/199-moeder.png"
+    },
+    {
+      "id": "familie-200",
+      "collection": "familie",
+      "number": 200,
+      "label": "vader",
+      "file": "assets/storydice/familie/200-vader.png"
+    },
+    {
+      "id": "familie-201",
+      "collection": "familie",
+      "number": 201,
+      "label": "oma",
+      "file": "assets/storydice/familie/201-oma.png"
+    },
+    {
+      "id": "familie-202",
+      "collection": "familie",
+      "number": 202,
+      "label": "opa",
+      "file": "assets/storydice/familie/202-opa.png"
+    },
+    {
+      "id": "familie-203",
+      "collection": "familie",
+      "number": 203,
+      "label": "zoon",
+      "file": "assets/storydice/familie/203-zoon.png"
+    },
+    {
+      "id": "familie-204",
+      "collection": "familie",
+      "number": 204,
+      "label": "dochter",
+      "file": "assets/storydice/familie/204-dochter.png"
+    },
+    {
+      "id": "gevoelens-205",
+      "collection": "gevoelens",
+      "number": 205,
+      "label": "blij",
+      "file": "assets/storydice/gevoelens/205-blij.png"
+    },
+    {
+      "id": "gevoelens-206",
+      "collection": "gevoelens",
+      "number": 206,
+      "label": "verdrietig",
+      "file": "assets/storydice/gevoelens/206-verdrietig.png"
+    },
+    {
+      "id": "gevoelens-207",
+      "collection": "gevoelens",
+      "number": 207,
+      "label": "boos",
+      "file": "assets/storydice/gevoelens/207-boos.png"
+    },
+    {
+      "id": "gevoelens-208",
+      "collection": "gevoelens",
+      "number": 208,
+      "label": "bang",
+      "file": "assets/storydice/gevoelens/208-bang.png"
+    },
+    {
+      "id": "gevoelens-209",
+      "collection": "gevoelens",
+      "number": 209,
+      "label": "verrast",
+      "file": "assets/storydice/gevoelens/209-verrast.png"
+    },
+    {
+      "id": "gevoelens-210",
+      "collection": "gevoelens",
+      "number": 210,
+      "label": "trots",
+      "file": "assets/storydice/gevoelens/210-trots.png"
+    },
+    {
+      "id": "gevoelens-211",
+      "collection": "gevoelens",
+      "number": 211,
+      "label": "verlegen",
+      "file": "assets/storydice/gevoelens/211-verlegen.png"
+    },
+    {
+      "id": "gevoelens-212",
+      "collection": "gevoelens",
+      "number": 212,
+      "label": "bezorgd",
+      "file": "assets/storydice/gevoelens/212-bezorgd.png"
+    },
+    {
+      "id": "gevoelens-213",
+      "collection": "gevoelens",
+      "number": 213,
+      "label": "moe",
+      "file": "assets/storydice/gevoelens/213-moe.png"
+    },
+    {
+      "id": "gevoelens-214",
+      "collection": "gevoelens",
+      "number": 214,
+      "label": "rustig",
+      "file": "assets/storydice/gevoelens/214-rustig.png"
+    },
+    {
+      "id": "gevoelens-215",
+      "collection": "gevoelens",
+      "number": 215,
+      "label": "eenzaam",
+      "file": "assets/storydice/gevoelens/215-eenzaam.png"
+    },
+    {
+      "id": "gevoelens-216",
+      "collection": "gevoelens",
+      "number": 216,
+      "label": "verliefd",
+      "file": "assets/storydice/gevoelens/216-verliefd.png"
+    },
+    {
+      "id": "lichaam-217",
+      "collection": "lichaam",
+      "number": 217,
+      "label": "hoofd",
+      "file": "assets/storydice/lichaam/217-hoofd.png"
+    },
+    {
+      "id": "lichaam-218",
+      "collection": "lichaam",
+      "number": 218,
+      "label": "oog",
+      "file": "assets/storydice/lichaam/218-oog.png"
+    },
+    {
+      "id": "lichaam-219",
+      "collection": "lichaam",
+      "number": 219,
+      "label": "neus",
+      "file": "assets/storydice/lichaam/219-neus.png"
+    },
+    {
+      "id": "lichaam-220",
+      "collection": "lichaam",
+      "number": 220,
+      "label": "mond",
+      "file": "assets/storydice/lichaam/220-mond.png"
+    },
+    {
+      "id": "lichaam-221",
+      "collection": "lichaam",
+      "number": 221,
+      "label": "tand",
+      "file": "assets/storydice/lichaam/221-tand.png"
+    },
+    {
+      "id": "lichaam-222",
+      "collection": "lichaam",
+      "number": 222,
+      "label": "nek",
+      "file": "assets/storydice/lichaam/222-nek.png"
+    },
+    {
+      "id": "lichaam-223",
+      "collection": "lichaam",
+      "number": 223,
+      "label": "schouder",
+      "file": "assets/storydice/lichaam/223-schouder.png"
+    },
+    {
+      "id": "lichaam-224",
+      "collection": "lichaam",
+      "number": 224,
+      "label": "arm",
+      "file": "assets/storydice/lichaam/224-arm.png"
+    },
+    {
+      "id": "lichaam-225",
+      "collection": "lichaam",
+      "number": 225,
+      "label": "elleboog",
+      "file": "assets/storydice/lichaam/225-elleboog.png"
+    },
+    {
+      "id": "lichaam-226",
+      "collection": "lichaam",
+      "number": 226,
+      "label": "vinger",
+      "file": "assets/storydice/lichaam/226-vinger.png"
+    },
+    {
+      "id": "lichaam-227",
+      "collection": "lichaam",
+      "number": 227,
+      "label": "buik",
+      "file": "assets/storydice/lichaam/227-buik.png"
+    },
+    {
+      "id": "lichaam-228",
+      "collection": "lichaam",
+      "number": 228,
+      "label": "rug",
+      "file": "assets/storydice/lichaam/228-rug.png"
+    },
+    {
+      "id": "lichaam-229",
+      "collection": "lichaam",
+      "number": 229,
+      "label": "been",
+      "file": "assets/storydice/lichaam/229-been.png"
+    },
+    {
+      "id": "lichaam-230",
+      "collection": "lichaam",
+      "number": 230,
+      "label": "knie",
+      "file": "assets/storydice/lichaam/230-knie.png"
+    },
+    {
+      "id": "lichaam-231",
+      "collection": "lichaam",
+      "number": 231,
+      "label": "voet",
+      "file": "assets/storydice/lichaam/231-voet.png"
+    },
+    {
+      "id": "lichaam-232",
+      "collection": "lichaam",
+      "number": 232,
+      "label": "teen",
+      "file": "assets/storydice/lichaam/232-teen.png"
+    },
+    {
+      "id": "beroepen-233",
+      "collection": "beroepen",
+      "number": 233,
+      "label": "bakker",
+      "file": "assets/storydice/beroepen/233-bakker.png"
+    },
+    {
+      "id": "beroepen-234",
+      "collection": "beroepen",
+      "number": 234,
+      "label": "kok",
+      "file": "assets/storydice/beroepen/234-kok.png"
+    },
+    {
+      "id": "beroepen-235",
+      "collection": "beroepen",
+      "number": 235,
+      "label": "kapper",
+      "file": "assets/storydice/beroepen/235-kapper.png"
+    },
+    {
+      "id": "beroepen-236",
+      "collection": "beroepen",
+      "number": 236,
+      "label": "verpleegkundige",
+      "file": "assets/storydice/beroepen/236-verpleegkundige.png"
+    },
+    {
+      "id": "beroepen-237",
+      "collection": "beroepen",
+      "number": 237,
+      "label": "tandarts",
+      "file": "assets/storydice/beroepen/237-tandarts.png"
+    },
+    {
+      "id": "beroepen-238",
+      "collection": "beroepen",
+      "number": 238,
+      "label": "monteur",
+      "file": "assets/storydice/beroepen/238-monteur.png"
+    },
+    {
+      "id": "beroepen-239",
+      "collection": "beroepen",
+      "number": 239,
+      "label": "timmerman",
+      "file": "assets/storydice/beroepen/239-timmerman.png"
+    },
+    {
+      "id": "beroepen-240",
+      "collection": "beroepen",
+      "number": 240,
+      "label": "hovenier",
+      "file": "assets/storydice/beroepen/240-hovenier.png"
+    },
+    {
+      "id": "beroepen-241",
+      "collection": "beroepen",
+      "number": 241,
+      "label": "schoonmaker",
+      "file": "assets/storydice/beroepen/241-schoonmaker.png"
+    },
+    {
+      "id": "beroepen-242",
+      "collection": "beroepen",
+      "number": 242,
+      "label": "brandweermens",
+      "file": "assets/storydice/beroepen/242-brandweermens.png"
+    },
+    {
+      "id": "beroepen-243",
+      "collection": "beroepen",
+      "number": 243,
+      "label": "politieagent",
+      "file": "assets/storydice/beroepen/243-politieagent.png"
+    },
+    {
+      "id": "beroepen-244",
+      "collection": "beroepen",
+      "number": 244,
+      "label": "buschauffeur",
+      "file": "assets/storydice/beroepen/244-buschauffeur.png"
+    },
+    {
+      "id": "aanvullingen-245",
+      "collection": "aanvullingen",
+      "number": 245,
+      "label": "zitten",
+      "file": "assets/storydice/aanvullingen/245-zitten.png"
+    },
+    {
+      "id": "aanvullingen-246",
+      "collection": "aanvullingen",
+      "number": 246,
+      "label": "staan",
+      "file": "assets/storydice/aanvullingen/246-staan.png"
+    },
+    {
+      "id": "aanvullingen-247",
+      "collection": "aanvullingen",
+      "number": 247,
+      "label": "liggen",
+      "file": "assets/storydice/aanvullingen/247-liggen.png"
+    },
+    {
+      "id": "aanvullingen-248",
+      "collection": "aanvullingen",
+      "number": 248,
+      "label": "douchen",
+      "file": "assets/storydice/aanvullingen/248-douchen.png"
+    },
+    {
+      "id": "aanvullingen-249",
+      "collection": "aanvullingen",
+      "number": 249,
+      "label": "tandenpoetsen",
+      "file": "assets/storydice/aanvullingen/249-tandenpoetsen.png"
+    },
+    {
+      "id": "aanvullingen-250",
+      "collection": "aanvullingen",
+      "number": 250,
+      "label": "haren kammen",
+      "file": "assets/storydice/aanvullingen/250-haren-kammen.png"
+    },
+    {
+      "id": "aanvullingen-251",
+      "collection": "aanvullingen",
+      "number": 251,
+      "label": "uittrekken",
+      "file": "assets/storydice/aanvullingen/251-uittrekken.png"
+    },
+    {
+      "id": "aanvullingen-252",
+      "collection": "aanvullingen",
+      "number": 252,
+      "label": "ophangen",
+      "file": "assets/storydice/aanvullingen/252-ophangen.png"
+    },
+    {
+      "id": "aanvullingen-253",
+      "collection": "aanvullingen",
+      "number": 253,
+      "label": "opruimen",
+      "file": "assets/storydice/aanvullingen/253-opruimen.png"
+    },
+    {
+      "id": "aanvullingen-254",
+      "collection": "aanvullingen",
+      "number": 254,
+      "label": "inschenken",
+      "file": "assets/storydice/aanvullingen/254-inschenken.png"
+    },
+    {
+      "id": "aanvullingen-255",
+      "collection": "aanvullingen",
+      "number": 255,
+      "label": "roeren",
+      "file": "assets/storydice/aanvullingen/255-roeren.png"
+    },
+    {
+      "id": "aanvullingen-256",
+      "collection": "aanvullingen",
+      "number": 256,
+      "label": "schillen",
+      "file": "assets/storydice/aanvullingen/256-schillen.png"
+    },
+    {
+      "id": "aanvullingen-257",
+      "collection": "aanvullingen",
+      "number": 257,
+      "label": "oversteken",
+      "file": "assets/storydice/aanvullingen/257-oversteken.png"
+    },
+    {
+      "id": "aanvullingen-258",
+      "collection": "aanvullingen",
+      "number": 258,
+      "label": "wachten",
+      "file": "assets/storydice/aanvullingen/258-wachten.png"
+    },
+    {
+      "id": "aanvullingen-259",
+      "collection": "aanvullingen",
+      "number": 259,
+      "label": "passen",
+      "file": "assets/storydice/aanvullingen/259-passen.png"
+    },
+    {
+      "id": "aanvullingen-260",
+      "collection": "aanvullingen",
+      "number": 260,
+      "label": "teruggeven",
+      "file": "assets/storydice/aanvullingen/260-teruggeven.png"
+    },
+    {
+      "id": "aanvullingen-261",
+      "collection": "aanvullingen",
+      "number": 261,
+      "label": "neerzetten",
+      "file": "assets/storydice/aanvullingen/261-neerzetten.png"
+    },
+    {
+      "id": "aanvullingen-262",
+      "collection": "aanvullingen",
+      "number": 262,
+      "label": "neerleggen",
+      "file": "assets/storydice/aanvullingen/262-neerleggen.png"
+    },
+    {
+      "id": "aanvullingen-263",
+      "collection": "aanvullingen",
+      "number": 263,
+      "label": "hoesten",
+      "file": "assets/storydice/aanvullingen/263-hoesten.png"
+    },
+    {
+      "id": "aanvullingen-264",
+      "collection": "aanvullingen",
+      "number": 264,
+      "label": "niezen",
+      "file": "assets/storydice/aanvullingen/264-niezen.png"
+    },
+    {
+      "id": "aanvullingen-265",
+      "collection": "aanvullingen",
+      "number": 265,
+      "label": "neus snuiten",
+      "file": "assets/storydice/aanvullingen/265-neus-snuiten.png"
+    },
+    {
+      "id": "aanvullingen-266",
+      "collection": "aanvullingen",
+      "number": 266,
+      "label": "pil innemen",
+      "file": "assets/storydice/aanvullingen/266-pil-innemen.png"
+    },
+    {
+      "id": "aanvullingen-267",
+      "collection": "aanvullingen",
+      "number": 267,
+      "label": "gooien",
+      "file": "assets/storydice/aanvullingen/267-gooien.png"
+    },
+    {
+      "id": "aanvullingen-268",
+      "collection": "aanvullingen",
+      "number": 268,
+      "label": "was doen",
+      "file": "assets/storydice/aanvullingen/268-was-doen.png"
+    },
+    {
+      "id": "aanvullingen-269",
+      "collection": "aanvullingen",
+      "number": 269,
+      "label": "deur",
+      "file": "assets/storydice/aanvullingen/269-deur.png"
+    },
+    {
+      "id": "aanvullingen-270",
+      "collection": "aanvullingen",
+      "number": 270,
+      "label": "raam",
+      "file": "assets/storydice/aanvullingen/270-raam.png"
+    },
+    {
+      "id": "aanvullingen-271",
+      "collection": "aanvullingen",
+      "number": 271,
+      "label": "kast",
+      "file": "assets/storydice/aanvullingen/271-kast.png"
+    },
+    {
+      "id": "aanvullingen-272",
+      "collection": "aanvullingen",
+      "number": 272,
+      "label": "bank",
+      "file": "assets/storydice/aanvullingen/272-bank.png"
+    },
+    {
+      "id": "aanvullingen-273",
+      "collection": "aanvullingen",
+      "number": 273,
+      "label": "lamp",
+      "file": "assets/storydice/aanvullingen/273-lamp.png"
+    },
+    {
+      "id": "aanvullingen-274",
+      "collection": "aanvullingen",
+      "number": 274,
+      "label": "toilet",
+      "file": "assets/storydice/aanvullingen/274-toilet.png"
+    },
+    {
+      "id": "aanvullingen-275",
+      "collection": "aanvullingen",
+      "number": 275,
+      "label": "lepel",
+      "file": "assets/storydice/aanvullingen/275-lepel.png"
+    },
+    {
+      "id": "aanvullingen-276",
+      "collection": "aanvullingen",
+      "number": 276,
+      "label": "vork",
+      "file": "assets/storydice/aanvullingen/276-vork.png"
+    },
+    {
+      "id": "aanvullingen-277",
+      "collection": "aanvullingen",
+      "number": 277,
+      "label": "mes",
+      "file": "assets/storydice/aanvullingen/277-mes.png"
+    },
+    {
+      "id": "aanvullingen-278",
+      "collection": "aanvullingen",
+      "number": 278,
+      "label": "kom",
+      "file": "assets/storydice/aanvullingen/278-kom.png"
+    },
+    {
+      "id": "aanvullingen-279",
+      "collection": "aanvullingen",
+      "number": 279,
+      "label": "handdoek",
+      "file": "assets/storydice/aanvullingen/279-handdoek.png"
+    },
+    {
+      "id": "aanvullingen-280",
+      "collection": "aanvullingen",
+      "number": 280,
+      "label": "zeep",
+      "file": "assets/storydice/aanvullingen/280-zeep.png"
+    },
+    {
+      "id": "aanvullingen-281",
+      "collection": "aanvullingen",
+      "number": 281,
+      "label": "trui",
+      "file": "assets/storydice/aanvullingen/281-trui.png"
+    },
+    {
+      "id": "aanvullingen-282",
+      "collection": "aanvullingen",
+      "number": 282,
+      "label": "sok",
+      "file": "assets/storydice/aanvullingen/282-sok.png"
+    },
+    {
+      "id": "aanvullingen-283",
+      "collection": "aanvullingen",
+      "number": 283,
+      "label": "rok",
+      "file": "assets/storydice/aanvullingen/283-rok.png"
+    },
+    {
+      "id": "aanvullingen-284",
+      "collection": "aanvullingen",
+      "number": 284,
+      "label": "jurk",
+      "file": "assets/storydice/aanvullingen/284-jurk.png"
+    },
+    {
+      "id": "aanvullingen-285",
+      "collection": "aanvullingen",
+      "number": 285,
+      "label": "pet",
+      "file": "assets/storydice/aanvullingen/285-pet.png"
+    },
+    {
+      "id": "aanvullingen-286",
+      "collection": "aanvullingen",
+      "number": 286,
+      "label": "spiegel",
+      "file": "assets/storydice/aanvullingen/286-spiegel.png"
+    },
+    {
+      "id": "aanvullingen-287",
+      "collection": "aanvullingen",
+      "number": 287,
+      "label": "banaan",
+      "file": "assets/storydice/aanvullingen/287-banaan.png"
+    },
+    {
+      "id": "aanvullingen-288",
+      "collection": "aanvullingen",
+      "number": 288,
+      "label": "tomaat",
+      "file": "assets/storydice/aanvullingen/288-tomaat.png"
+    },
+    {
+      "id": "aanvullingen-289",
+      "collection": "aanvullingen",
+      "number": 289,
+      "label": "aardappel",
+      "file": "assets/storydice/aanvullingen/289-aardappel.png"
+    },
+    {
+      "id": "aanvullingen-290",
+      "collection": "aanvullingen",
+      "number": 290,
+      "label": "kaas",
+      "file": "assets/storydice/aanvullingen/290-kaas.png"
+    },
+    {
+      "id": "aanvullingen-291",
+      "collection": "aanvullingen",
+      "number": 291,
+      "label": "rijst",
+      "file": "assets/storydice/aanvullingen/291-rijst.png"
+    },
+    {
+      "id": "aanvullingen-292",
+      "collection": "aanvullingen",
+      "number": 292,
+      "label": "vis",
+      "file": "assets/storydice/aanvullingen/292-vis.png"
+    },
+    {
+      "id": "aanvullingen-293",
+      "collection": "aanvullingen",
+      "number": 293,
+      "label": "water",
+      "file": "assets/storydice/aanvullingen/293-water.png"
+    },
+    {
+      "id": "aanvullingen-294",
+      "collection": "aanvullingen",
+      "number": 294,
+      "label": "koffie",
+      "file": "assets/storydice/aanvullingen/294-koffie.png"
+    },
+    {
+      "id": "aanvullingen-295",
+      "collection": "aanvullingen",
+      "number": 295,
+      "label": "thee",
+      "file": "assets/storydice/aanvullingen/295-thee.png"
+    },
+    {
+      "id": "aanvullingen-296",
+      "collection": "aanvullingen",
+      "number": 296,
+      "label": "winkelmandje",
+      "file": "assets/storydice/aanvullingen/296-winkelmandje.png"
+    },
+    {
+      "id": "aanvullingen-297",
+      "collection": "aanvullingen",
+      "number": 297,
+      "label": "winkelwagen",
+      "file": "assets/storydice/aanvullingen/297-winkelwagen.png"
+    },
+    {
+      "id": "aanvullingen-298",
+      "collection": "aanvullingen",
+      "number": 298,
+      "label": "boodschappenlijst",
+      "file": "assets/storydice/aanvullingen/298-boodschappenlijst.png"
+    },
+    {
+      "id": "extra-acties-299",
+      "collection": "extra-acties",
+      "number": 299,
+      "label": "kijken",
+      "file": "assets/storydice/extra-acties/299-kijken.png"
+    },
+    {
+      "id": "extra-acties-300",
+      "collection": "extra-acties",
+      "number": 300,
+      "label": "aanzetten",
+      "file": "assets/storydice/extra-acties/300-aanzetten.png"
+    },
+    {
+      "id": "extra-acties-301",
+      "collection": "extra-acties",
+      "number": 301,
+      "label": "uitzetten",
+      "file": "assets/storydice/extra-acties/301-uitzetten.png"
+    },
+    {
+      "id": "extra-acties-302",
+      "collection": "extra-acties",
+      "number": 302,
+      "label": "aanbellen",
+      "file": "assets/storydice/extra-acties/302-aanbellen.png"
+    },
+    {
+      "id": "extra-acties-303",
+      "collection": "extra-acties",
+      "number": 303,
+      "label": "kloppen",
+      "file": "assets/storydice/extra-acties/303-kloppen.png"
+    },
+    {
+      "id": "extra-acties-304",
+      "collection": "extra-acties",
+      "number": 304,
+      "label": "weggooien",
+      "file": "assets/storydice/extra-acties/304-weggooien.png"
+    },
+    {
+      "id": "extra-acties-305",
+      "collection": "extra-acties",
+      "number": 305,
+      "label": "afdrogen",
+      "file": "assets/storydice/extra-acties/305-afdrogen.png"
+    },
+    {
+      "id": "extra-acties-306",
+      "collection": "extra-acties",
+      "number": 306,
+      "label": "smeren",
+      "file": "assets/storydice/extra-acties/306-smeren.png"
+    },
+    {
+      "id": "extra-acties-307",
+      "collection": "extra-acties",
+      "number": 307,
+      "label": "tellen",
+      "file": "assets/storydice/extra-acties/307-tellen.png"
+    },
+    {
+      "id": "extra-acties-308",
+      "collection": "extra-acties",
+      "number": 308,
+      "label": "pinnen",
+      "file": "assets/storydice/extra-acties/308-pinnen.png"
+    },
+    {
+      "id": "extra-acties-309",
+      "collection": "extra-acties",
+      "number": 309,
+      "label": "opladen",
+      "file": "assets/storydice/extra-acties/309-opladen.png"
+    },
+    {
+      "id": "extra-acties-310",
+      "collection": "extra-acties",
+      "number": 310,
+      "label": "versturen",
+      "file": "assets/storydice/extra-acties/310-versturen.png"
+    },
+    {
+      "id": "extra-acties-311",
+      "collection": "extra-acties",
+      "number": 311,
+      "label": "springen",
+      "file": "assets/storydice/extra-acties/311-springen.png"
+    },
+    {
+      "id": "extra-acties-312",
+      "collection": "extra-acties",
+      "number": 312,
+      "label": "klimmen",
+      "file": "assets/storydice/extra-acties/312-klimmen.png"
+    },
+    {
+      "id": "extra-acties-313",
+      "collection": "extra-acties",
+      "number": 313,
+      "label": "knippen",
+      "file": "assets/storydice/extra-acties/313-knippen.png"
+    },
+    {
+      "id": "extra-acties-314",
+      "collection": "extra-acties",
+      "number": 314,
+      "label": "plakken",
+      "file": "assets/storydice/extra-acties/314-plakken.png"
+    },
+    {
+      "id": "extra-acties-315",
+      "collection": "extra-acties",
+      "number": 315,
+      "label": "binnenkomen",
+      "file": "assets/storydice/extra-acties/315-binnenkomen.png"
+    },
+    {
+      "id": "extra-acties-316",
+      "collection": "extra-acties",
+      "number": 316,
+      "label": "weggaan",
+      "file": "assets/storydice/extra-acties/316-weggaan.png"
+    },
+    {
+      "id": "extra-acties-317",
+      "collection": "extra-acties",
+      "number": 317,
+      "label": "ruiken",
+      "file": "assets/storydice/extra-acties/317-ruiken.png"
+    },
+    {
+      "id": "extra-acties-318",
+      "collection": "extra-acties",
+      "number": 318,
+      "label": "samenwerken",
+      "file": "assets/storydice/extra-acties/318-samenwerken.png"
+    },
+    {
+      "id": "extra-acties-319",
+      "collection": "extra-acties",
+      "number": 319,
+      "label": "formulier invullen",
+      "file": "assets/storydice/extra-acties/319-formulier-invullen.png"
+    },
+    {
+      "id": "extra-acties-320",
+      "collection": "extra-acties",
+      "number": 320,
+      "label": "ondertekenen",
+      "file": "assets/storydice/extra-acties/320-ondertekenen.png"
     }
-  ]
+  ],
+  "source": {
+    "url": "https://drive.google.com/drive/folders/1wDX2xZID6YvIMXjgIt5a7Gh2lTb-216f",
+    "approvedDate": "2026-09-20",
+    "uniqueImages": 320
+  }
 }

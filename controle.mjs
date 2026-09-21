@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('.',import.meta.url)),source=fs.readFileSync(root+'app.js','utf8');
-const data=JSON.parse(JSON.stringify(vm.runInNewContext(fs.readFileSync(root+'data-bundle.js','utf8')+fs.readFileSync(root+'data/tongbrekers.js','utf8')+'\nwindow.DIGIBORD_DATA',{window:{}})));
+const data=JSON.parse(JSON.stringify(vm.runInNewContext(fs.readFileSync(root+'data-bundle.js','utf8')+fs.readFileSync(root+'data/storydice.js','utf8')+fs.readFileSync(root+'data/tongbrekers.js','utf8')+'\nwindow.DIGIBORD_DATA',{window:{}})));
 const ctx=vm.createContext({});
 vm.runInContext(source.slice(source.indexOf('function taalworpExample('),source.indexOf('let languageBusy=')),ctx);
 const m=data.taalworpManifest;
@@ -27,8 +27,13 @@ const taxi=r.alternativeRoutes[0];assert.equal(taxi.fromPosition,8);assert.equal
 assert.deepEqual(taxi.segments[0].points[0],[r.nodes[8].x,r.nodes[8].y]);assert.deepEqual(taxi.segments[2].points.at(-1),[r.nodes[40].x,r.nodes[40].y]);
 for(const icon of data.storydice.icons)assert.ok(fs.existsSync(root+icon.file),icon.file);
 for(const set of Object.values(data.taalworpSets.sets))for(const id of set.recordIds)assert.ok(m.verbs[id],id);
-assert.equal(data.storydice.icons.length,144);
-console.log(`PASS: ${examples} example combinations without missing forms; separable verbs, reflexives and auxiliaries; 52 positions; taxi 8 → 40; matching JSON/bundle; all 144 image assets and all set references.`);
+assert.equal(data.storydice.icons.length,320);
+assert.deepEqual(data.storydice,JSON.parse(fs.readFileSync(root+'data/storydice.json')));
+assert.equal(new Set(data.storydice.icons.map(x=>x.id)).size,320);
+assert.equal(new Set(data.storydice.icons.map(x=>x.number)).size,320);
+assert.equal(data.storydice.collections.length,10);
+for(const set of data.storydice.collections)assert.equal(data.storydice.icons.filter(x=>x.collection===set.id||set.includeNumbers?.includes(x.number)).length,set.count,set.id);
+console.log(`PASS: ${examples} example combinations without missing forms; separable verbs, reflexives and auxiliaries; 52 positions; taxi 8 → 40; matching JSON/bundle; all 320 image assets and all set references.`);
 
 // Finished players are skipped, progress is separate per mode, and a completed round resets.
 const tc=vm.createContext({mode:'individual',players:[{id:'p1',name:'Laila'},{id:'p2',name:'Daan'}],APP:{turn:{active:0},boardStates:{r:{positions:{p1:51,p2:20},finished:{},groupPositions:{g1:51,g2:20},groupFinished:{},classPos:51,round:1}}},save(){},toast(){}});
@@ -89,13 +94,14 @@ console.log('PASS: five retained turns, ten separate roll/completion undos, pers
 vm.runInContext("for(let i=0;i<12;i++){rememberAction('worp',true);APP.counter++}",uc);
 assert.equal(vm.runInContext('undoHistory.length',uc),1);assert.equal(vm.runInContext('undoHistory[0].steps.length',uc),12);
 const cabinetContext=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',window:{DIGIBORD_DATA:data},tw:{sets:data.taalworpSets,manifest:m},story:data.storydice,taskBank:data.taskBank,APP:{level:'A2'}});
+vm.runInContext(source.slice(source.indexOf('function storyIcons('),source.indexOf('function startStory(')),cabinetContext);
 vm.runInContext(source.slice(source.indexOf('function collectionItems()'),source.indexOf('function cabinetCover(')),cabinetContext);
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function cardActivityHeader(')),cabinetContext);
 vm.runInContext(source.match(/function selectedTaskRoute\(\)\{[^\n]+/)[0],cabinetContext);
 const cabinet=vm.runInContext('collectionItems()',cabinetContext);
-assert.equal(cabinet.length,69);assert.equal(cabinet.filter(x=>x.type==='verbs').length,23);assert.equal(new Set(cabinet.map(x=>x.type+':'+x.id)).size,69);
+assert.equal(cabinet.length,76);assert.equal(cabinet.filter(x=>x.type==='verbs').length,23);assert.equal(new Set(cabinet.map(x=>x.type+':'+x.id)).size,76);
 for(const item of cabinet.filter(x=>x.image))assert.ok(fs.existsSync(root+item.image));
-console.log('PASS: repeated rolls remain in one turn; 69 unique cabinet entries (34 playable, 35 Drive sources) and real cover assets.');
+console.log('PASS: repeated rolls remain in one turn; 76 unique cabinet entries (41 playable, 35 Drive sources) and real cover assets.');
 
 for(const item of cabinet.filter(x=>x.type!=='source')){
  cabinetContext.item=item;const info=vm.runInContext('cabinetSetInfo(item.type,item.id)',cabinetContext);
@@ -105,7 +111,7 @@ for(const item of cabinet.filter(x=>x.type!=='source')){
 const motions=['draw','slide','turn'].map(id=>{cabinetContext.effect=id;return vm.runInContext('cabinetMotion(effect)',cabinetContext)});
 assert.equal(new Set(motions.map(m=>JSON.stringify(m.frames))).size,3);
 for(const motion of motions)assert.ok(motion.duration>=600&&motion.duration<=1000);
-console.log('PASS: all 34 set details contain real examples; three distinct cabinet animation previews.');
+console.log('PASS: all 41 set details contain real examples; three distinct cabinet animation previews.');
 
 ac.effect='draw';vm.runInContext("function settingsState(){return {reducedMotion:reduced,cardAnimation:effect}}",ac);
 for(const [effect,duration] of [['draw',950],['slide',650],['turn',800],['invalid',950]]){
@@ -238,7 +244,7 @@ assert.deepEqual(Array.from(smooth.faces,f=>f.value).sort(),[1,2,3,4,5,6]);
 assert.ok(source.includes('SmoothDice.markup({color,word,image,value,words,images,topIcon,front})'));
 const textures=vm.runInNewContext(fs.readFileSync(root+'dice-textures.js','utf8')+'\nwindow.DICE_TEXTURES',{window:{}});
 for(const icon of data.storydice.icons)assert.ok(textures[icon.file]?.startsWith('data:image/png;base64,'),icon.file);
-console.log('PASS: rounded 48-segment geometry, six faces, unit normals, bounded solid and all 144 offline textures.');
+console.log('PASS: rounded 48-segment geometry, six faces, unit normals, bounded solid and all 320 offline textures.');
 
 // The visible assignment must explain the actual roll, including ambiguous “zij”.
 const instructionContext=vm.createContext({});

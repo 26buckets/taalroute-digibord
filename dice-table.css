@@ -171,3 +171,14 @@
 .dice-table-shell .verb-set-row{align-items:flex-start;min-height:0;padding-top:5px;padding-bottom:14px}
 .dice-table-shell .round-actions .smallbtn{display:inline-flex;align-items:center;justify-content:center;gap:7px}
 .dice-table-shell .round-actions .game-icon{width:20px;height:20px}
+
+/* Native disclosure and checkboxes work with touch and keyboard, without modifier keys. */
+.story-set-picker{border:1px solid #cad6e2;border-radius:10px;background:#fffdfa;color:#15365c;font-size:13px}
+.story-set-picker summary{padding:12px;cursor:pointer;font-weight:700;overflow-wrap:anywhere}
+.story-set-picker small{display:block;font-size:12px;font-weight:400;color:#466481;margin-top:3px}
+.story-set-picker fieldset{border:0;margin:0;padding:4px 10px;max-height:250px;overflow:auto}
+.story-set-picker legend{padding:0 2px;font-size:12px}
+.story-set-picker label{display:flex;align-items:center;gap:10px;min-height:44px;padding:5px 2px;cursor:pointer}
+.story-set-picker input{width:18px;height:18px;flex:none;accent-color:#237e85}
+.story-set-picker .smallbtn{width:calc(100% - 20px);margin:10px}
+.story-set-picker summary:focus-visible,.story-set-picker input:focus-visible{outline:3px solid #1297ff;outline-offset:2px}
