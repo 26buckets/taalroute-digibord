@@ -35,7 +35,7 @@ function installContextTooltips() {
  document.addEventListener('pointerover',e=>{const el=e.target.closest('.context-tool');if(el)show(el);else if(tip.contains(e.target))clearTimeout(timer);else if(!anchor?.contains(document.activeElement))hide()});
  document.addEventListener('pointerout',e=>{if(anchor&&!anchor.contains(e.relatedTarget)&&!tip.contains(e.relatedTarget))timer=setTimeout(()=>{if(!anchor?.contains(document.activeElement))hide()},120)});
  document.addEventListener('focusin',e=>{const el=e.target.closest('.context-tool');if(el)show(el);else hide()});
- document.addEventListener('click',hide);
+ document.addEventListener('click',e=>{const info=e.target.closest('.board-info');if(info)show(info);else hide()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
  document.addEventListener('scroll',hide,true);window.addEventListener('resize',hide);
 }
