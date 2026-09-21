@@ -16,7 +16,7 @@
 <body>
 <div id="app">
 <header id="appHeader">
-  <div class="brand"><img class="header-brand-logo" src="assets/brand/taalroute.svg" alt="Taalroute"><div class="brand-sep"></div><div class="product">DigiBord <span class="beta-label">Bèta</span></div></div>
+  <div class="brand"><img class="header-brand-logo" src="assets/brand/taalroute.svg" alt="Taalroute"><div class="brand-sep"></div><div class="product">DigiBord</div></div>
   <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
   <div class="header-actions">
     <button class="curriculum-context" id="curriculumContext" type="button" popovertarget="curriculumPanel" aria-controls="curriculumPanel" aria-expanded="false" aria-label="Curriculum bekijken" title="Curriculum bekijken"><svg class="ui-icon curriculum-book-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg><span class="curriculum-button-label">Curriculum</span><svg class="curriculum-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -126,11 +126,11 @@
 
 <section class="screen category" id="screen-words">
   <div class="category-head"><div><h1>Woorden en zinnen</h1><p>Kies eerst je taaldoel. Kies daarna hoe je wilt oefenen.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
-  <p class="word-preview-note">WZ A0–A1 · 680 oefeningen voor docentpreview. Begin bij Instap; bespreek open antwoorden samen.</p>
+  <p class="word-preview-note">680 oefeningen voor A0–A1. Kies een taaldoel en oefen samen.</p>
   <div class="tiles" id="wordGoalTiles"></div>
-  <details class="word-legacy"><summary>Bestaande woordkaarten en vervolgvormen</summary><p>De 30 bestaande kaarten blijven beschikbaar, inclusief een andere start en bijzinnen. Het niveau van deze collectie wordt apart beoordeeld.</p>
-  <button class="smallbtn" data-wordgame="build">Bouw een zin · 30 bestaande kaarten</button>
-  <p>Maak en verander gebruikt in de nieuwe bank Herstel en Verander. Hieronder staan ook 12 historische Bouw-kaarten en 16 raadkaarten uit Woordspel. Kies eerst het taaldoel. De oorspronkelijke niveaus A1–B2 zijn behouden; een nieuwe docentreview staat nog open. De vrije opdrachten voor Maak en verander en Combineer en beschrijf volgen apart.</p><div class="tiles" id="wordArchiveGoals"></div></details>
+  <details class="word-legacy"><summary>Meer woordkaarten</summary><p>Oefen met 30 zinnen, een andere zinsstart en bijzinnen.</p>
+  <button class="smallbtn" data-wordgame="build">Bouw een zin · 30 kaarten</button>
+  <p>Kies een taaldoel en oefen met 12 zinsbouwkaarten en 16 raadkaarten op niveau A1–B2.</p><div class="tiles" id="wordArchiveGoals"></div></details>
 </section>
 
 <section class="screen" id="screen-game"><div id="gameMount" style="position:absolute;inset:0"></div></section>
@@ -172,11 +172,11 @@
 <script src="dice-textures.js?v=0124-verhaalworp-320"></script><script src="smooth-dice-renderer.js?v=0124"></script><script src="smooth-dice.js?v=0124"></script>
 <script src="context-tools.js?v=0124-board-options"></script>
 <script src="words-content.js?v=wz001"></script>
-<script src="words-activity.js?v=wz001"></script>
+<script src="words-activity.js?v=plain-language"></script>
 <script src="curriculum.js?v=alfa-abc"></script>
 <script src="board-viewport.js?v=0124-board-focus"></script>
 <script src="data/tongbrekers-migration.js?v=0124-tongue-240-audio"></script>
-<script src="app.js?v=readable-cards-level"></script>
+<script src="app.js?v=plain-language-settings"></script>
 <script src="data/new-activities.js?v=0124-photo-activities"></script>
 <script src="new-activities.js?v=0124-photo-activities"></script>
 </body></html>

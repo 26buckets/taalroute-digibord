@@ -54,7 +54,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    await page.locator('#primaryGame').click();assert.ok(await page.locator('#cardAttempt').isVisible());
   }
   await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),'C2');
-  await page.locator('#settingsBtn').click();assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
+  await page.locator('#settingsBtn').click();await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open'));assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
   await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();await page.waitForFunction(()=>!document.querySelector('#settingsOverlay').classList.contains('open'));assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),states);
   for(const [width,height] of [[1920,1080],[1440,900],[1024,768],[768,1024],[390,844],[320,568]]){
