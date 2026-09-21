@@ -98,25 +98,12 @@
 .rebus-enlarged{margin-top:16px}.rebus-enlarged .rebus-image{max-height:70dvh}
 .detail-text-cards .rebus-image{margin:12px 0}
 /* Tongbrekers: the existing table, with one large sentence and compact filters. */
-.tongue-table .card-activity-heading{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.tongue-filters{display:flex;flex-wrap:wrap;gap:10px;font-size:14px;color:#14345b}
-.tongue-filters label{display:flex;align-items:center;gap:6px}
-.tongue-filters select{min-height:44px;max-width:145px;padding:8px;border:1px solid #9b866f;border-radius:10px;background:#fffdfa;color:inherit;font:inherit}
-.tongue-table .cards-stage{grid-template-columns:minmax(110px,.45fr) minmax(340px,2fr) minmax(190px,.65fr);gap:24px;padding-inline:3.5%}
 .tongue-table .tongue-content{justify-content:safe center;text-align:center;padding:clamp(20px,3vw,48px)}
 .tongue-table .tongue-text{font-size:clamp(30px,3.8vw,66px);font-weight:700;line-height:1.25;overflow-wrap:anywhere;text-wrap:balance}
 .tongue-table .tongue-long{font-size:clamp(27px,2.8vw,46px)}
-.tongue-actions{display:flex;justify-content:center;padding:12px 20px 20px;flex-shrink:0}
-.tongue-actions .smallbtn{min-height:44px;padding:10px 24px}
-@media(max-width:850px){.tongue-table .cards-stage{grid-template-columns:1fr;padding:12px 16px;gap:16px;overflow:auto;display:block}.tongue-table .deckpanel{display:none}.tongue-table .game-card-motion{height:auto;min-height:240px;margin-bottom:22px}.tongue-table .active-card{height:auto;min-height:240px}.tongue-table .cardtypes{margin-top:20px}.tongue-table .card-activity-heading{padding:12px 16px}.tongue-table .tongue-text{font-size:32px}.tongue-table .tongue-long{font-size:27px}}
 
-.c1-filters{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:12px}
-.c1-filters label{display:grid;gap:4px;font-size:.85rem;font-weight:600;max-width:100%}
-.c1-filters select{font:inherit;padding:7px;border:1px solid #c8c3bb;border-radius:8px;background:#fff;color:#243749;max-width:100%}
 /* Frozen C1 cards reuse the table, typography and animation settings. */
-.c1-table .cards-stage{grid-template-columns:minmax(110px,.45fr) minmax(340px,2fr) minmax(190px,.65fr);gap:24px;padding-inline:3.5%}
 .c1-table .c1-content{display:block;overflow-wrap:anywhere}
-.c1-table .card-ribbon{flex-wrap:wrap;gap:8px}
 .c1-choices{margin-top:20px}
 .c1-choices h3{font-size:clamp(18px,1.6vw,24px);line-height:1.4}
 .c1-choices button{display:block;width:100%;min-height:48px;margin:10px 0;padding:12px 16px;text-align:left;white-space:normal;line-height:1.45;font-size:clamp(16px,1.3vw,20px)}
@@ -125,5 +112,44 @@
 #c1Feedback:not(:empty){margin-top:20px;padding:16px;border:1px solid #b7cfe0;border-radius:12px;background:#edf5ff}
 #c1Feedback h3{margin:16px 0 6px;font-size:18px}
 #c1Feedback>strong{display:block;font-size:22px;margin-bottom:10px}
-#c1Previous{align-self:end;min-height:44px}
-@media(max-width:850px){.c1-table .cards-stage{display:block;padding:12px 16px}.c1-table .deckpanel{display:none}.c1-table .game-card-motion,.c1-table .active-card{height:auto;max-height:none;min-height:0}.c1-table .cardtypes{margin-top:24px}.c1-table .card-activity-heading{padding:12px 16px}.c1-table .c1-content{overflow:visible}}
+
+/* One fixed table for every card family; only the content and controls vary. */
+.card-table-shell .card-activity-heading{display:flex;height:84px;min-height:84px;padding:12px 3.5%;gap:0;overflow:hidden}
+.card-table-shell .card-activity-heading h1{display:flex;align-items:center;flex-wrap:nowrap;width:100%;margin:0;font-size:clamp(22px,2.2vw,36px);line-height:1.15;gap:16px}
+.card-table-shell .card-activity-heading h1 span{flex:none;font-size:14px}
+.card-table-shell .cards-stage{display:grid;flex:1;min-height:0;grid-template-columns:minmax(110px,.45fr) minmax(340px,2fr) minmax(190px,.65fr);grid-template-rows:minmax(0,1fr);gap:24px;padding:16px 3.5% 28px;align-items:stretch}
+.card-table-shell .deckpanel{display:grid;align-self:center}
+.card-table-shell .game-card-motion,.card-table-shell .active-card{height:100%;min-height:0;max-height:100%}
+.card-table-shell .card-ribbon{height:76px;min-height:76px;padding:12px 22px;gap:12px;flex-wrap:nowrap}
+.card-table-shell .card-ribbon>strong{font-size:clamp(18px,1.7vw,25px);line-height:1.2;min-width:0}
+.card-table-shell .card-ribbon .card-counter{flex:none}
+.card-table-shell .card-content{flex:1;min-height:0;overflow:auto;padding:22px 28px}
+.card-table-shell .card-controls{display:flex;align-items:center;flex:0 0 86px;height:86px;padding:12px 20px;border-top:1px solid #dddce0;background:#fffdfa}
+.card-controls>.context-tools{width:100%;margin:0;padding:0;border:0}
+.card-control-row{display:flex;align-items:end;justify-content:center;gap:12px;width:100%;min-width:0}
+.card-filter{display:grid;gap:4px;flex:1;min-width:0;max-width:350px;font-size:13px;font-weight:600;color:#14345b}
+.card-filter select{width:100%;min-width:0;min-height:44px;font:inherit;padding:8px;border:1px solid #b8c5d0;border-radius:12px;background:#fffdfa;color:#14345b}
+.card-control-row>.smallbtn{height:44px;min-width:44px;flex:none;padding:8px 16px;border:1px solid #d7dfe7;border-radius:13px;background:#fffdfa;color:#12396c}
+.card-control-row>.card-control-icon{padding:10px}
+.card-control-icon .game-icon{width:23px;height:23px}
+.card-table-shell .right-actions{display:grid;grid-template-columns:repeat(4,76px);gap:8px;justify-content:end}
+.card-table-shell .right-actions>[data-goptions]{grid-column:4}
+@media(max-width:1200px){.card-table-shell .right-actions{grid-template-columns:repeat(4,58px);gap:5px}}
+@media(max-width:850px){
+ .card-table-shell .card-work{overflow:auto}
+ .card-table-shell .card-activity-heading{height:112px;min-height:112px;padding:12px 16px}
+ .card-table-shell .card-activity-heading h1{font-size:24px;gap:12px}
+ .card-table-shell .card-activity-heading h1 span{font-size:12px;padding:6px}
+ .card-table-shell .cards-stage{flex:none;grid-template-columns:minmax(0,1fr);grid-template-rows:max(360px,calc(100dvh - 348px)) auto;gap:24px;padding:0 16px 24px;overflow:visible}
+ .card-table-shell .deckpanel{display:none}
+ .card-table-shell .cardtypes{grid-column:1;grid-row:2;margin:0;max-height:none}
+ .card-table-shell .card-ribbon{height:88px;min-height:88px;padding:10px 18px}
+ .card-table-shell .card-content{padding:18px 20px}
+ .card-table-shell .card-controls{padding:12px;flex-basis:86px;height:86px}
+ .card-control-row{gap:8px}
+ .card-table-shell .right-actions{grid-template-columns:repeat(4,100px);gap:10px;justify-content:center}
+ .tongue-table .tongue-text{font-size:32px}.tongue-table .tongue-long{font-size:27px}
+}
+@media(max-width:560px){.card-table-shell .right-actions{grid-template-columns:repeat(4,72px);gap:5px}.card-table-shell .card-ribbon>strong{font-size:18px}}
+
+#app:has(.card-table-shell)>header #levelSelect{width:95px}
