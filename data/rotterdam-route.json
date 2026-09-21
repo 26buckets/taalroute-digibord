@@ -1,0 +1,769 @@
+{
+  "schemaVersion": 4,
+  "worldId": "rotterdam-willems-erasmus",
+  "boardId": "rotterdam-painted-v015",
+  "sourceAsset": "assets/boards/rotterdam.png",
+  "sourceWidth": 1831,
+  "sourceHeight": 859,
+  "startPosition": 0,
+  "taskNodeCount": 50,
+  "finishPosition": 51,
+  "nodes": [
+    {
+      "id": 0,
+      "x": 171,
+      "y": 787,
+      "shape": "circle",
+      "kind": "start"
+    },
+    {
+      "id": 1,
+      "x": 245,
+      "y": 765,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 2,
+      "x": 310,
+      "y": 741,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 3,
+      "x": 350,
+      "y": 701,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 4,
+      "x": 358,
+      "y": 650,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 5,
+      "x": 394,
+      "y": 611,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 6,
+      "x": 454,
+      "y": 582,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 7,
+      "x": 514,
+      "y": 550,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 8,
+      "x": 558,
+      "y": 515,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 9,
+      "x": 586,
+      "y": 476,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 10,
+      "x": 589,
+      "y": 437,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 11,
+      "x": 565,
+      "y": 398,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 12,
+      "x": 521,
+      "y": 367,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 13,
+      "x": 491,
+      "y": 349,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 14,
+      "x": 489,
+      "y": 325,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 15,
+      "x": 509,
+      "y": 299,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 16,
+      "x": 547,
+      "y": 278,
+      "shape": "triangle",
+      "kind": "task"
+    },
+    {
+      "id": 17,
+      "x": 605,
+      "y": 262,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 18,
+      "x": 647,
+      "y": 255,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 19,
+      "x": 706,
+      "y": 266,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 20,
+      "x": 735,
+      "y": 282,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 21,
+      "x": 766,
+      "y": 300,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 22,
+      "x": 807,
+      "y": 319,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 23,
+      "x": 853,
+      "y": 337,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 24,
+      "x": 900,
+      "y": 348,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 25,
+      "x": 957,
+      "y": 353,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 26,
+      "x": 1009,
+      "y": 346,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 27,
+      "x": 1039,
+      "y": 326,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 28,
+      "x": 1058,
+      "y": 304,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 29,
+      "x": 1080,
+      "y": 284,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 30,
+      "x": 1129,
+      "y": 286,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 31,
+      "x": 1166,
+      "y": 304,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 32,
+      "x": 1207,
+      "y": 323,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 33,
+      "x": 1254,
+      "y": 343,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 34,
+      "x": 1305,
+      "y": 367,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 35,
+      "x": 1346,
+      "y": 387,
+      "shape": "triangle",
+      "kind": "task"
+    },
+    {
+      "id": 36,
+      "x": 1395,
+      "y": 407,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 37,
+      "x": 1439,
+      "y": 429,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 38,
+      "x": 1486,
+      "y": 453,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 39,
+      "x": 1558,
+      "y": 487,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 40,
+      "x": 1608,
+      "y": 500,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 41,
+      "x": 1622,
+      "y": 467,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 42,
+      "x": 1605,
+      "y": 436,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 43,
+      "x": 1610,
+      "y": 399,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 44,
+      "x": 1659,
+      "y": 376,
+      "shape": "triangle",
+      "kind": "task"
+    },
+    {
+      "id": 45,
+      "x": 1721,
+      "y": 358,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 46,
+      "x": 1751,
+      "y": 332,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 47,
+      "x": 1745,
+      "y": 301,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 48,
+      "x": 1749,
+      "y": 271,
+      "shape": "diamond",
+      "kind": "task"
+    },
+    {
+      "id": 49,
+      "x": 1770,
+      "y": 244,
+      "shape": "circle",
+      "kind": "task"
+    },
+    {
+      "id": 50,
+      "x": 1776,
+      "y": 220,
+      "shape": "square",
+      "kind": "task"
+    },
+    {
+      "id": 51,
+      "x": 1747,
+      "y": 205,
+      "shape": "circle",
+      "kind": "finish"
+    }
+  ],
+  "legacyConnections": [],
+  "shapeCycle": [
+    {
+      "shape": "circle",
+      "color": "#176b9a"
+    },
+    {
+      "shape": "square",
+      "color": "#a44932"
+    },
+    {
+      "shape": "triangle",
+      "color": "#407354"
+    },
+    {
+      "shape": "diamond",
+      "color": "#8a6426"
+    }
+  ],
+  "overlayMode": "painted",
+  "showRouteLine": false,
+  "occlusionPolygons": [
+    {
+      "id": "willems-front-west",
+      "label": "Willemsbrug voorste rode pijler west",
+      "points": [
+        [
+          531,
+          137
+        ],
+        [
+          548,
+          143
+        ],
+        [
+          578,
+          309
+        ],
+        [
+          560,
+          314
+        ],
+        [
+          542,
+          215
+        ]
+      ]
+    },
+    {
+      "id": "willems-front-east",
+      "label": "Willemsbrug voorste rode pijler oost",
+      "points": [
+        [
+          644,
+          155
+        ],
+        [
+          655,
+          159
+        ],
+        [
+          661,
+          180
+        ],
+        [
+          668,
+          213
+        ],
+        [
+          678,
+          264
+        ],
+        [
+          685,
+          264
+        ],
+        [
+          688,
+          267
+        ],
+        [
+          679,
+          289
+        ],
+        [
+          675,
+          289
+        ],
+        [
+          675,
+          301
+        ],
+        [
+          658,
+          297
+        ],
+        [
+          658,
+          264
+        ],
+        [
+          654,
+          226
+        ],
+        [
+          649,
+          190
+        ]
+      ]
+    },
+    {
+      "id": "erasmus-front-leg",
+      "label": "Erasmusbrug voorste witte pyloon",
+      "points": [
+        [
+          1309,
+          178
+        ],
+        [
+          1318,
+          181
+        ],
+        [
+          1320,
+          247
+        ],
+        [
+          1314,
+          274
+        ],
+        [
+          1308,
+          298
+        ],
+        [
+          1298,
+          341
+        ],
+        [
+          1290,
+          372
+        ],
+        [
+          1278,
+          404
+        ],
+        [
+          1258,
+          401
+        ],
+        [
+          1265,
+          373
+        ],
+        [
+          1273,
+          341
+        ],
+        [
+          1285,
+          301
+        ],
+        [
+          1296,
+          259
+        ],
+        [
+          1305,
+          210
+        ]
+      ]
+    },
+    {
+      "id": "erasmus-rear-leg",
+      "label": "Erasmusbrug rechter poot",
+      "points": [
+        [
+          1314,
+          268
+        ],
+        [
+          1320,
+          270
+        ],
+        [
+          1342,
+          365
+        ],
+        [
+          1331,
+          362
+        ],
+        [
+          1324,
+          326
+        ],
+        [
+          1318,
+          294
+        ]
+      ]
+    }
+  ],
+  "rules": {
+    "connectionResolution": "optional taxi after landing; walking, sailing, walking, then one task",
+    "taskTrigger": "final destination only",
+    "turnAdvance": "after task completion",
+    "modeProgress": "separate per mode"
+  },
+  "alternativeRoutes": [
+    {
+      "id": "watertaxi-8-40",
+      "label": "Watertaxi",
+      "optional": true,
+      "fromPosition": 8,
+      "toPosition": 40,
+      "departureDock": [
+        809,
+        718
+      ],
+      "arrivalDock": [
+        1191,
+        729
+      ],
+      "segments": [
+        {
+          "mode": "walk",
+          "points": [
+            [
+              558,
+              515
+            ],
+            [
+              584,
+              503
+            ],
+            [
+              602,
+              522
+            ],
+            [
+              620,
+              549
+            ],
+            [
+              628,
+              577
+            ],
+            [
+              643,
+              601
+            ],
+            [
+              673,
+              623
+            ],
+            [
+              705,
+              641
+            ],
+            [
+              718,
+              660
+            ],
+            [
+              743,
+              684
+            ],
+            [
+              780,
+              708
+            ],
+            [
+              809,
+              718
+            ]
+          ]
+        },
+        {
+          "mode": "boat",
+          "points": [
+            [
+              858,
+              742
+            ],
+            [
+              900,
+              757
+            ],
+            [
+              976,
+              763
+            ],
+            [
+              1050,
+              756
+            ],
+            [
+              1110,
+              747
+            ],
+            [
+              1158,
+              740
+            ]
+          ]
+        },
+        {
+          "mode": "walk",
+          "points": [
+            [
+              1191,
+              729
+            ],
+            [
+              1220,
+              729
+            ],
+            [
+              1254,
+              728
+            ],
+            [
+              1272,
+              714
+            ],
+            [
+              1300,
+              702
+            ],
+            [
+              1340,
+              693
+            ],
+            [
+              1380,
+              685
+            ],
+            [
+              1420,
+              674
+            ],
+            [
+              1467,
+              658
+            ],
+            [
+              1510,
+              660
+            ],
+            [
+              1560,
+              671
+            ],
+            [
+              1600,
+              670
+            ],
+            [
+              1640,
+              654
+            ],
+            [
+              1670,
+              629
+            ],
+            [
+              1688,
+              596
+            ],
+            [
+              1683,
+              565
+            ],
+            [
+              1663,
+              542
+            ],
+            [
+              1626,
+              517
+            ],
+            [
+              1608,
+              500
+            ]
+          ]
+        }
+      ],
+      "taskTrigger": "after arrival at 40"
+    }
+  ]
+}

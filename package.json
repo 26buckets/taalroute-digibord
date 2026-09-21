@@ -1,16 +1,22 @@
 {
   "name": "taalroute-digibord",
-  "version": "1.0.0",
+  "version": "1.24.0",
   "private": true,
-  "description": "Een DigiBoard-app voor speelkaarten, verhalen met beelden en zinnenbouw.",
   "scripts": {
-    "start": "node server.cjs",
-    "test": "node scripts/check-banks.cjs && node tests/library-categories.cjs && node tests/new-world-rest-depth.cjs && node tests/nederland-route-logica.cjs && node tests/nederland-migration.cjs && node tests/nederland-worlds.cjs && node tests/nederland-ui.cjs && node tests/nederland-motion.cjs && node tests/nederland-larger-roll.cjs && node tests/nederland-cancel.cjs && node tests/spreektijd-worlds.cjs && node tests/eight-worlds.cjs && node tests/route-passages.cjs && node tests/new-worlds.cjs && node tests/map-cache.cjs && node tests/forest-tree.cjs && node tests/card-view.cjs && node tests/task-surface.cjs && node tests/focus-controls.cjs && node tests/appmenu.cjs && node tests/board-tools.cjs && node tests/matrix.cjs && node tests/stable-layout.cjs && node tests/map-scale.cjs && node tests/quick-lesson-ui.cjs && node tests/direct-questions.cjs && node tests/direct-questions-ui.cjs && node tests/integration.cjs && node tests/map-family.cjs && node tests/learning.cjs && node tests/learning-context.cjs && node tests/leerroutes.cjs && node tests/spatial.cjs && node tests/controls.cjs && node tests/audio.cjs && node tests/sentence-matrix-ui.cjs && node tests/sound-menu.cjs && node tests/layers.cjs",
-    "build:matrix": "node scripts/build-matrix.cjs",
-    "test:nederland": "node tests/nederland-route-logica.cjs && node tests/nederland-migration.cjs && node tests/nederland-worlds.cjs && node tests/nederland-ui.cjs && node tests/nederland-motion.cjs && node tests/nederland-larger-roll.cjs && node tests/nederland-cancel.cjs",
-    "check:banks": "node scripts/check-banks.cjs"
+    "lint": "eslint context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
+    "types": "tsc --allowJs --checkJs --noEmit --target ES2022 --lib ES2022,DOM board-viewport.js",
+    "test": "node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs",
+    "smoke": "node tests/board-browser.cjs",
+    "build": "node scripts/build.cjs",
+    "test:words:browser": "node controle-ui001-browser.cjs",
+    "test:activities": "node tests/activity-content.cjs && node tests/landing-activities.cjs",
+    "check:banks": "node scripts/check-banks.cjs",
+    "test:banks:browser": "node tests/banks-v2.cjs",
+    "test:tongue:browser": "node tests/tongbrekers-browser.cjs"
   },
   "devDependencies": {
+    "eslint": "9.39.4",
+    "typescript": "5.9.3",
     "playwright": "1.62.1"
   }
 }

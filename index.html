@@ -1,1 +1,178 @@
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>Taalroute DigiBoard</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><script>location.replace('Praatpad.html'+location.search+location.hash);</script><meta http-equiv="refresh" content="0;url=Praatpad.html"></head><body><a href="Praatpad.html">Open DigiBoard</a></body></html>
+<!doctype html>
+<html lang="nl">
+<head>
+<link rel="icon" type="image/svg+xml" sizes="any" href="assets/brand/favicon.svg?v=0124">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Taalroute DigiBord V01.24</title><link rel="stylesheet" href="app.css?v=0124-curriculum-menu">
+<link rel="stylesheet" href="kaartenkast.css">
+<link rel="stylesheet" href="taalworp-table.css?v=0124">
+<link rel="stylesheet" href="card-table.css?v=0124-tongue-88">
+<link rel="stylesheet" href="dice-table.css?v=0124">
+<link rel="stylesheet" href="words-activity.css?v=0124-wordcards-30">
+<link rel="stylesheet" href="landing-activities.css?v=0124-compact-choices">
+<link rel="stylesheet" href="new-activities.css?v=0124-content30">
+<link rel="stylesheet" href="context-tools.css?v=0124-context">
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="brand"><img class="header-brand-logo" src="assets/brand/taalroute.svg" alt="Taalroute"><div class="brand-sep"></div><div class="product">DigiBord <span class="beta-label">Bèta</span></div></div>
+  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
+  <div class="header-actions">
+    <button class="curriculum-context" id="curriculumContext" type="button" popovertarget="curriculumPanel" aria-controls="curriculumPanel" aria-expanded="false" aria-label="Curriculum bekijken" title="Curriculum bekijken"><svg class="ui-icon curriculum-book-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg><span class="curriculum-button-label">Curriculum</span><svg class="curriculum-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <label class="level-pill"><span class="sr-only">Niveau</span><select id="levelSelect" aria-label="Niveau"><option>Alpha A</option><option>Alpha B</option><option>Alpha C</option><option>A0</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
+    <button class="gear" id="fullscreenBtn" title="Volledig scherm" aria-label="Volledig scherm" aria-pressed="false"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="expand-icon" d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/><path class="collapse-icon" d="M3 8h5V3m13 5h-5V3M8 21v-5H3m13 5v-5h5"/></svg></button>
+    <button class="gear" id="settingsBtn" title="Instellingen" aria-label="Instellingen"><svg class="game-icon lucide-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+  <circle cx="12" cy="12" r="3" /></svg></button>
+  </div>
+</header>
+<div class="stage" id="stage">
+
+<section class="screen active landing" id="screen-play">
+  <div class="landing-inner">
+    <div class="hero">
+      <h1>Kies je spel</h1>
+      <p>Samen met taal aan de slag.</p>
+      <div class="scribble">Taal opent<br>de wereld!</div>
+    </div>
+
+    <div class="gamecards">
+      <button class="gamecard" data-category="boards" style="--c:#176b9a">
+        <div class="photo" style="background-image:url('assets/landing/speelborden.png')"></div>
+        <div class="wash"></div>
+        <div class="copy"><div class="cat-icon"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></div><h2>Speelborden</h2><p>Spelen en leren<br>in echte situaties.</p></div>
+        <span class="arrowbubble"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+      </button>
+      <button class="gamecard" data-category="dice" style="--c:#cc7416">
+        <div class="photo" style="background-image:url('assets/landing/dobbelspellen.png')"></div>
+        <div class="wash"></div>
+        <div class="copy"><div class="cat-icon"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.2"/><circle cx="16" cy="16" r="1.2"/><circle cx="8" cy="16" r="1.2"/><circle cx="16" cy="8" r="1.2"/><circle cx="12" cy="12" r="1.2"/></svg></div><h2>Dobbelspellen</h2><p>Gooi, combineer<br>en maak taal.</p></div>
+        <span class="arrowbubble"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+      </button>
+      <button class="gamecard" data-category="cards" style="--c:#552795">
+        <div class="photo" style="background-image:url('assets/landing/kaartspellen.png')"></div>
+        <div class="wash"></div>
+        <div class="copy"><div class="cat-icon"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="11" height="16" rx="2" transform="rotate(-8 11.5 11)"/><rect x="9" y="5" width="11" height="16" rx="2" transform="rotate(7 14.5 13)"/></svg></div><h2>Kaartspellen</h2><p>Praat, denk en<br>oefen met kaarten.</p></div>
+        <span class="arrowbubble"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+      </button>
+      <button class="gamecard" data-category="words" style="--c:#1f8058">
+        <div class="photo" style="background-image:url('assets/landing/woorden-zinnen.png')"></div>
+        <div class="wash"></div>
+        <div class="copy"><div class="cat-icon"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V7a2 2 0 0 1 2-2h5"/><path d="M8 17h7"/><path d="m8 13 3-8 3 8"/><path d="M16 10h4v9h-4z"/></svg></div><h2>Woorden en zinnen</h2><p>Bouw, orden<br>en ontdek taal.</p></div>
+        <span class="arrowbubble"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+      </button>
+      <button class="gamecard gamecard-workforms" data-category="workforms" style="--c:#916023">
+        <div class="photo" style="background-image:url('assets/landing/nieuwe-activiteiten.png')"></div>
+        <div class="wash"></div>
+        <div class="copy"><div class="cat-icon"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l7 5M12 12l-8 4M12 12l7-6"/></svg></div><h2>Meer manieren om te oefenen</h2><p>Draai, sorteer,<br>quiz en ontdek.</p><span class="status">Nieuw</span></div>
+        <span class="arrowbubble"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></span>
+      </button>
+      <button class="gamecard gamecard-live" type="button" disabled aria-labelledby="live-title" aria-describedby="live-subtitle live-status" style="--c:#48545f">
+        <div class="photo" style="background-image:url('assets/landing/live.png')" aria-hidden="true"></div>
+        <div class="wash" aria-hidden="true"></div>
+        <div class="copy"><div class="cat-icon"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5M8 21h8"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><path d="M7 12h10"/></svg></div><h2 id="live-title">Live</h2><p id="live-subtitle">Iedereen doet mee</p><span class="status" id="live-status">Binnenkort</span></div>
+      </button>
+    </div>
+
+    <div class="landing-bottom">
+      <button class="resume" id="resumeBtn">
+        <div class="bigicon"><svg class="bottom-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6l4 2"/></svg></div>
+        <div><strong>Verder waar je was</strong><small id="resumeText">Taalworp – Werkwoorden – A2</small></div>
+        <div class="chev"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div>
+      </button>
+      <a class="landing-shortcut shortcut-oppad" href="https://oppad.taalroute.nl" target="_blank" rel="noopener noreferrer" aria-label="Taalroute Op Pad (opent in een nieuw tabblad)"><img src="assets/landing/taalroute-oppad-app.png" width="52" height="52" alt=""><span><strong>Taalroute Op Pad</strong><small>Taal oefenen onderweg</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+      <a class="landing-shortcut shortcut-missies" href="https://missies.taalroute.nl" target="_blank" rel="noopener noreferrer" aria-label="Taalroute Missies (opent in een nieuw tabblad)"><img src="assets/landing/taalroute-missies-app.png" width="52" height="52" alt=""><span><strong>Taalroute Missies</strong><small>Ga op avontuur · A2, B1 en B2</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="screen card-table-shell" id="screen-workforms">
+  <div class="card-work">
+    <div class="card-activity-heading"><div><h1>Meer manieren om te oefenen</h1><p>Kies een activiteit en speel samen met taal.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+    <div class="new-workforms">
+      <div class="workforms-toolbar"><label class="card-route-label" for="workformWorld">Werkvormwereld<select id="workformWorld"><option value="">Alle werkvormen</option><option>Draaien en kiezen</option><option>Sorteren en koppelen</option><option>Quiz en competitie</option><option>Raden en ontdekken</option><option>Missies en gesprekken</option></select></label><p>Kies in het spel zelf je onderwerp of set.</p></div>
+      <div class="workforms-decks" id="workformDecks"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen category" id="screen-boards">
+  <div class="category-head"><div><h1>Speelborden</h1><p>Kies een wereld. Volg de route, gooi de dobbelsteen en maak samen taal.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="tiles">
+    <button class="tile" data-board="rotterdam"><div class="tile-img" style="background-image:url('assets/boards/rotterdam.png')"></div><div class="tile-body"><span class="status">Speelbaar · 52 posities</span><h3>Rotterdam</h3><p>Volg de gekleurde weg over beide bruggen of neem de watertaxi.</p></div></button>
+    <button class="tile" data-board="zwolle"><div class="tile-img" style="background-image:url('assets/boards/zwolle.png')"></div><div class="tile-body"><span class="status">Speelbaar · 42 posities</span><h3>Zwolle</h3><p>Route over de brug, door de stadspoort en achter de kerk, met dieptewerking in de wereld.</p></div></button>
+  </div>
+</section>
+
+<section class="screen category" id="screen-dice">
+  <div class="category-head"><div><h1>Dobbelspellen</h1><p>Gooi taalstenen of beeldstenen en maak er een zin of verhaal van.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="tiles">
+    <button class="tile" data-dicegame="taalworp"><div class="tile-img" style="background-image:url('assets/landing/dobbelspellen.png')"></div><div class="tile-body"><span class="status">Speelbaar · 23 sets</span><h3>Taalworp</h3><p>Combineer werkwoordkaarten met gekleurde taalstenen. Kies je set aan de speeltafel.</p></div></button>
+    <button class="tile" data-dicegame="verhaalworp"><div class="tile-img" style="background:linear-gradient(135deg,#fff3d9,#e6f3ff)"></div><div class="tile-body"><span class="status">Speelbaar · 144 beeldstenen</span><h3>Verhaalworp</h3><p>Gebruik Basis, Acties en Dagelijks leven met drie, zes of negen beelden.</p></div></button>
+  </div>
+</section>
+
+<section class="screen category" id="screen-cards">
+  <div class="category-head"><div><h1>Kaartspellen</h1><p>Kies een kaart, vertel en reageer op elkaar.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="tiles">
+    <button class="tile" data-cardgame="conversation"><div class="tile-img" style="background-image:url('assets/landing/kaartspellen.png')"></div><div class="tile-body"><span class="status">Werkend</span><h3>Gespreksstarters</h3><p>Praat, luister en reageer met kaarten uit de bestaande opdrachtenbank.</p></div></button>
+    <button class="tile" data-cardgame="mission"><div class="tile-img" style="background:linear-gradient(135deg,#dcecff,#f4eaff)"></div><div class="tile-body"><span class="status">Werkend</span><h3>Spreekmissies</h3><p>Praktische taalopdrachten met een concrete uitkomst.</p></div></button>
+    <button class="tile" data-cardgame="story"><div class="tile-img" style="background:linear-gradient(135deg,#fff0da,#efe6ff)"></div><div class="tile-body"><span class="status">Speelbaar</span><h3>Verhaalkaarten</h3><p>Trek drie beeldkaarten en verbind ze tot een verhaal.</p></div></button>
+  </div>
+</section>
+
+<section class="screen category" id="screen-words">
+  <div class="category-head"><div><h1>Woorden en zinnen</h1><p>Bouw een goede zin. De andere oefenvormen volgen later.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="tiles">
+    <button class="tile" data-wordgame="build"><div class="tile-img" style="background-image:url('assets/landing/woorden-zinnen.png')"></div><div class="tile-body"><span class="status">Werkend</span><h3>Bouw een zin</h3><p>30 kaarten: hoofdzinnen, een andere start en bijzinnen.</p></div></button>
+    <button class="tile" data-wordgame="make" disabled><div class="tile-img" style="background:linear-gradient(135deg,#dff4ea,#eff7ff)"></div><div class="tile-body"><span class="status">Binnenkort</span><h3>Maak en verander</h3><p>Verander een bestaande zin met een korte opdracht.</p></div></button>
+    <button class="tile" data-wordgame="guess" disabled><div class="tile-img" style="background:linear-gradient(135deg,#f7f0da,#eaf5ff)"></div><div class="tile-body"><span class="status">Binnenkort</span><h3>Beschrijf en raad</h3><p>Omschrijf iets zonder het te noemen. De anderen raden.</p></div></button>
+    <button class="tile" data-wordgame="combine" disabled><div class="tile-img" style="background:linear-gradient(135deg,#eae5fb,#e7f5ed)"></div><div class="tile-body"><span class="status">Binnenkort</span><h3>Combineer en beschrijf</h3><p>Verbind beelden of begrippen in een eigen beschrijving.</p></div></button>
+  </div>
+</section>
+
+<section class="screen" id="screen-game"><div id="gameMount" style="position:absolute;inset:0"></div></section>
+
+<section class="screen simple-page" id="screen-lessons">
+  <h1>Lessen</h1><p>Start vanuit je lescontext en laat DigiBord direct de passende inhoud tonen.</p>
+  <div class="simple-grid">
+    <div class="simple-card"><h3>💼 Thema 3 Werk</h3><p>Huidige lescontext. Taalworp kan direct naar de set Werk springen.</p><button class="smallbtn" data-start-work>Open Taalworp · Werk</button></div>
+    <div class="simple-card"><h3>Actuele opdrachtenbank</h3><p>Methoderoute, didactisch zoeken en vrij zoeken staan in Instellingen.</p><button class="smallbtn" data-open-settings>Open inhoud</button></div>
+    <div class="simple-card"><h3>Didactische uitleg</h3><p>Zes families, 48 taalhandelingen en route-uitwerking.</p><button class="smallbtn" data-open-settings>Open didactiek</button></div>
+  </div>
+</section>
+
+<section class="screen simple-page" id="screen-mycollection"><h1>Mijn collectie</h1><p>Je bewaarde voortgang en groepen.</p><div class="simple-grid"><div class="simple-card"><h3>Verder spelen</h3><p>Ga verder met je laatst gespeelde spel.</p><button class="smallbtn" id="collectionResume">Hervat mijn spel</button></div><div class="simple-card"><h3>Mijn groepen</h3><p>Beheer de deelnemers en je bewaarde groepen.</p><button class="smallbtn" data-open-settings>Open instellingen</button></div></div></section>
+<section class="screen simple-page" id="screen-collection">
+  <h1>Kaartenkast</h1><p>Je spellen, taalsets en deelnemers bij elkaar.</p>
+  <div class="simple-grid">
+    <div class="simple-card"><h3>⭐ Favoriete spellen</h3><p><button class="smallbtn" data-board="rotterdam">Rotterdam</button> <button class="smallbtn" data-dicegame="taalworp">Taalworp</button> <button class="smallbtn" data-dicegame="verhaalworp">Verhaalworp</button></p></div>
+    <div class="simple-card"><h3>👥 Bewaarde groepen</h3><p>Beheer deelnemers en groepen vanuit de nieuwe Settings laag.</p><button class="smallbtn" data-open-settings>Open groepen</button></div>
+    <div class="simple-card"><h3>📚 Taalsets</h3><p>Kies uit 23 werkwoordsets in Taalworp.</p><button class="smallbtn" data-dicegame="taalworp">Bekijk taalsets</button></div>
+  </div>
+</section>
+
+</div></div>
+<section id="curriculumPanel" class="curriculum-panel" popover="auto" aria-labelledby="curriculumHeading">
+  <div class="curriculum-panel-heading"><h2 id="curriculumHeading">Taalroute curriculum</h2><button type="button" class="curriculum-close" popovertarget="curriculumPanel" popovertargetaction="hide" aria-label="Curriculum sluiten">×</button></div>
+  <p class="curriculum-intro">Bekijk de thema’s per boek. Activiteiten zijn hier nog niet beschikbaar.</p>
+  <label for="curriculumBook">Boek of Alfa-niveau</label>
+  <select id="curriculumBook" autofocus></select>
+  <div aria-live="polite" aria-atomic="true"><p id="curriculumStatus" class="curriculum-status"></p><p id="curriculumNote" class="curriculum-note"></p></div>
+  <ol id="curriculumThemes" class="curriculum-themes"></ol>
+</section>
+<div class="settings-overlay" id="settingsOverlay"><iframe class="settings-frame" src="settings/index.html"></iframe></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><dialog id="gameDialog"><div class="dialog-head"><h2 id="dialogTitle"></h2><button id="dialogClose" aria-label="Sluiten">×</button></div><div id="dialogBody"></div></dialog>
+<script src="data-bundle.js?v=0124-tongue-88"></script>
+<script src="data/tongbrekers.js?v=0124-tongue-a1-a2-60"></script>
+<script src="dice-textures.js"></script><script src="smooth-dice-renderer.js?v=0124"></script><script src="smooth-dice.js?v=0124"></script>
+<script src="context-tools.js?v=0124-context"></script>
+<script src="words-activity.js?v=0124-context"></script>
+<script src="curriculum.js?v=alfa-abc"></script>
+<script src="board-viewport.js?v=0124-board-fit"></script>
+<script src="app.js?v=0124-tongue-a1-30"></script>
+<script src="data/new-activities.js?v=0124-compact-choices"></script>
+<script src="new-activities.js?v=0124-compact-choices"></script>
+</body></html>

@@ -1,0 +1,82 @@
+/* New landing content only: game shells and fullscreen sizing stay unchanged. */
+#screen-play .landing-inner{grid-template-rows:auto auto auto;align-content:start}
+.gamecard-workforms .status{margin-top:12px;font-size:12px}
+@media(min-width:1800px){#screen-play .gamecards{grid-template-columns:repeat(6,minmax(0,1fr))}}
+
+/* Compact shared row: resume and the two companion apps. */
+#screen-play .landing-bottom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#screen-play .landing-bottom>*{min-width:0;height:76px;border-radius:13px;box-shadow:0 8px 22px #14304514}
+#screen-play .resume{grid-template-columns:44px minmax(0,1fr) 24px;padding:10px 16px;gap:10px}
+#screen-play .resume strong,.landing-shortcut strong{font-size:16px;line-height:1.25}
+#screen-play .resume small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.landing-shortcut{display:grid;grid-template-columns:52px minmax(0,1fr) 20px;gap:14px;align-items:center;padding:10px 16px;color:#fff;text-decoration:none;transition:filter .15s}
+.landing-shortcut:hover{filter:brightness(1.1)}
+.landing-shortcut img{display:block;width:52px;height:52px;border-radius:12px}
+.landing-shortcut strong,.landing-shortcut small{display:block}
+.landing-shortcut small{font-size:12px;line-height:1.4;margin-top:4px;color:#dbeeff}
+.shortcut-oppad{background:linear-gradient(120deg,#124b91,#1376ba)}
+.shortcut-missies{background:radial-gradient(ellipse at top right,#23576a,transparent 75%),#082a36}
+.shortcut-missies small{color:#d7e6e9}
+.shortcut-arrow{font-size:22px;color:#e5f3ff}
+@media(min-width:1200px){
+ #screen-play .landing-inner{height:100%;min-height:600px;grid-template-rows:auto minmax(300px,1fr) 76px}
+ #screen-play .gamecards{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:minmax(0,1fr)}
+ #screen-play .gamecard{min-height:0;aspect-ratio:auto}
+ #screen-play .gamecard .copy{left:18px;right:44px}
+ #screen-play .gamecard h2{font-size:clamp(18px,1.25vw,24px)}
+ #screen-play .gamecard p{font-size:clamp(13px,.9vw,17px)}
+}
+@media(min-width:900px) and (max-width:1199px){
+ #screen-play .landing-inner{height:100%;min-height:760px;grid-template-rows:auto minmax(500px,1fr) 76px;gap:14px}
+ #screen-play .gamecards{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px}
+ #screen-play .gamecard{min-height:0;aspect-ratio:auto}
+ #screen-play .gamecard h2{font-size:18px}
+ #screen-play .gamecard .copy{bottom:16px}
+ #screen-play .gamecard .wash{inset:20% 0 0}
+ #screen-play .gamecard-workforms .cat-icon{display:none}
+}
+@media(max-width:1199px){
+ #screen-play .landing-bottom{gap:10px}
+ #screen-play .resume{grid-template-columns:32px minmax(0,1fr) 20px;gap:8px;padding:10px}
+ #screen-play .resume .bigicon,#screen-play .resume .bottom-icon{width:30px;height:30px}
+ .shortcut-arrow{display:none}
+ .landing-shortcut{grid-template-columns:42px minmax(0,1fr);gap:10px;padding:10px}
+ .landing-shortcut img{width:42px;height:42px}
+ #screen-play .resume strong,.landing-shortcut strong{font-size:14px}
+ .landing-shortcut small{font-size:11px}
+}
+@media(max-width:650px){
+ #screen-play .landing-bottom{gap:8px}
+ #screen-play .landing-bottom>*{height:auto;min-height:110px;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:10px 6px;text-align:center}
+ #screen-play .resume strong,.landing-shortcut strong{font-size:12px}
+ #screen-play .resume small,.landing-shortcut small{display:none}
+ .landing-shortcut img{width:36px;height:36px}
+}
+
+@media(max-width:650px){#screen-play .resume{position:relative}#screen-play .resume .chev{position:absolute;right:4px;top:14px}#screen-play .resume .chev-icon{width:18px;height:18px}}
+
+/* Reuse the card table and its production deck covers for the activity shelf. */
+#screen-workforms>.card-work{height:100%;overflow:auto}
+#screen-workforms .card-activity-heading{display:flex;justify-content:space-between;gap:20px}
+#screen-workforms [data-home]{flex-shrink:0}
+#screen-workforms .new-workforms{padding:0 5.5% 44px}
+.workforms-toolbar{display:flex;align-items:end;gap:24px;margin:8px 0 30px}
+.workforms-toolbar p{font-size:15px;color:#173a55;margin:0 0 10px}
+.workforms-decks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+#screen-workforms .activity-entry{display:grid;grid-template-columns:72px minmax(0,1fr);gap:20px;align-items:center;border:1px solid #fff;background:#fffdf9ed;padding:16px;min-width:0;color:var(--navy);text-align:left;border-radius:16px;box-shadow:0 5px 14px #533b2b15}
+#screen-workforms .activity-entry[hidden]{display:none}
+#screen-workforms .activity-entry:hover{background:#fffdf9;box-shadow:0 8px 20px #533b2b25}
+#screen-workforms .activity-entry:focus-visible{outline:3px solid #0874e6;outline-offset:4px}
+#screen-workforms .activity-summary{display:block;min-width:0}
+#screen-workforms .activity-title{display:block;font-size:20px;line-height:1.2;margin-bottom:6px;overflow-wrap:anywhere}
+#screen-workforms .activity-count{display:block;font-size:13px;color:#52677f;margin-bottom:10px}
+#screen-workforms .activity-description{display:block;font-size:14px;line-height:1.45}
+#screen-workforms .activity-start{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;color:#0757b1;margin-top:12px}
+#screen-play .landing-bottom :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(min-width:1700px){#screen-workforms .new-workforms{max-width:1660px;width:100%;margin:0 auto}.workforms-decks{gap:20px}}
+@media(max-width:1199px){.workforms-decks{grid-template-columns:repeat(2,minmax(0,1fr))}.workforms-toolbar{gap:16px}#screen-workforms .activity-entry{gap:16px}}
+@media(max-width:850px){#screen-workforms .activity-entry{grid-template-columns:58px minmax(0,1fr);gap:14px;padding:14px}#screen-workforms .activity-title{font-size:18px}.workforms-toolbar{align-items:start;flex-direction:column;gap:10px}.workforms-toolbar .card-route-label{width:100%}}
+@media(max-width:560px){#screen-workforms .card-activity-heading{align-items:start;flex-direction:column}.workforms-decks{grid-template-columns:1fr;gap:14px}#screen-workforms .new-workforms{padding:0 16px 30px}#screen-workforms .activity-entry{grid-template-columns:58px minmax(0,1fr)}}
+
+#screen-workforms .activity-symbol{display:grid;place-items:center;width:100%;aspect-ratio:.82;background:linear-gradient(140deg,var(--deck-color),color-mix(in srgb,var(--deck-color),black 20%));border:5px solid #fffdf8;border-radius:12px;color:#fff;box-shadow:0 3px 0 #d4cab9,0 6px 0 #f3eadb,0 8px 10px #49372522}
+#screen-workforms .activity-symbol .game-icon{width:32px;height:32px;padding:0;stroke:currentColor;flex:none}

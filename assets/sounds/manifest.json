@@ -1,0 +1,32 @@
+[
+  {
+    "id": "original",
+    "label": "Origineel",
+    "duration": 1.045,
+    "description": "Het oorspronkelijke DigiBord rolgeluid. Helder, ritmisch en herkenbaar."
+  },
+  {
+    "id": "felt",
+    "label": "Zacht op vilt",
+    "duration": 1.2,
+    "description": "Rustiger en zachter. Geschikt voor een stille lesomgeving."
+  },
+  {
+    "id": "wood",
+    "label": "Klassiek op hout",
+    "duration": 1.35,
+    "description": "Een duidelijk klassiek dobbelsteengeluid met houten resonantie."
+  },
+  {
+    "id": "cup",
+    "label": "Dobbelbeker en rollen",
+    "duration": 1.65,
+    "description": "Langere beweging met een hoorbare beker en uitrol."
+  },
+  {
+    "id": "board",
+    "label": "Licht op het spelbord",
+    "duration": 1.05,
+    "description": "Kort en licht. Minder nadrukkelijk tijdens klassikaal gebruik."
+  }
+]

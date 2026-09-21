@@ -1,9 +1,8 @@
 node_modules/
-tests/artifacts/
+dist/
 .DS_Store
-*.log
-
+test-results/
+tests/artifacts/
+bank-backups/
 .wrangler/
-
-# Local diagnostics and temporary screenshots
-work/
+*.log

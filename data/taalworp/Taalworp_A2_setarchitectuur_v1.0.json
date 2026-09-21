@@ -1,0 +1,72 @@
+{
+  "architectureId": "TAALWORP_SET_ARCHITECTURE_V1",
+  "version": "1.0",
+  "generatedOn": "2026-09-19",
+  "primaryPlayPosition": {
+    "slotId": "PLAY_SLOT_PRIMARY",
+    "fixed": true,
+    "contentRole": "activeSetPool"
+  },
+  "quickAccess": {
+    "slot1": "SET_A2_BASIS",
+    "slot2": "SET_A2_WERK",
+    "slot3": "SET_A2_REIZEN",
+    "slot4": "ACTION_MORE_SETS",
+    "basisAlwaysFirst": true,
+    "basisAlwaysVisible": true,
+    "basisExpandedPlacement": "more_sets"
+  },
+  "groups": [
+    {
+      "id": "SETGRP_START",
+      "label": "Begin",
+      "order": 1,
+      "description": "Veilige startsets. Basis staat altijd als eerste keuze."
+    },
+    {
+      "id": "SETGRP_DAILY",
+      "label": "Dagelijks leven",
+      "order": 2,
+      "description": "Dagelijkse situaties, wonen, gezondheid, winkelen en vrije tijd."
+    },
+    {
+      "id": "SETGRP_FUNCTION",
+      "label": "Communicatie en functioneren",
+      "order": 3,
+      "description": "Communicatie, afspraken, administratie, school en praktische techniek."
+    },
+    {
+      "id": "SETGRP_PRACTICE",
+      "label": "Praktijk",
+      "order": 4,
+      "description": "Grote functionele contextsets zoals Werk en Reizen."
+    },
+    {
+      "id": "SETGRP_GRAMMAR",
+      "label": "Taalvorm",
+      "order": 5,
+      "description": "Grammaticale selecties en vaste constructiepatronen."
+    },
+    {
+      "id": "SETGRP_CONTEXT",
+      "label": "Lescontext",
+      "order": 6,
+      "description": "Dynamische selecties vanuit les, sector of docentkeuze."
+    }
+  ],
+  "registryRef": "Taalworp_A2_setregister_v1.0.json",
+  "rules": [
+    "De setkiezer wordt generiek uit het setregister gerenderd.",
+    "Geen set krijgt een eigen hardcoded UI pad.",
+    "Basis staat altijd op de eerste snelle positie.",
+    "Werk staat op de tweede snelle positie.",
+    "Reizen en onderweg staat op de derde snelle positie.",
+    "Meer sets opent alle overige sets gegroepeerd volgens groupId.",
+    "Standaard is exact één set actief.",
+    "Combineren vereist expliciete activatie.",
+    "Bij combineren worden recordIds verenigd en daarna gededupliceerd.",
+    "Overlap verhoogt nooit de trekkans.",
+    "Dynamische sets worden alleen actief wanneer hun resolver geldige inhoud oplevert.",
+    "Een lege of ontbrekende set valt nooit stil terug op Basis."
+  ]
+}

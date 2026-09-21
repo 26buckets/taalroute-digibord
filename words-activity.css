@@ -1,0 +1,53 @@
+/* Use the existing card table, card, navigation, tools and footer styles. */
+.words-activity .cards-stage{grid-template-columns:minmax(150px,.6fr) minmax(0,1.65fr) minmax(215px,.7fr);gap:28px}
+.words-activity .active-card{height:100%}
+.words-activity .activity-navigation button:disabled{opacity:.5;cursor:default}
+.words-activity .activity-navigation .typebtn{min-height:48px}
+.words-activity .word-deck-symbol{font-size:22cqi;font-weight:750;line-height:1}
+.words-activity .activity-workspace{min-width:0}
+.words-activity .spoken-words,.words-activity #wordBank{display:flex;gap:8px;flex-wrap:wrap;align-content:start}
+.words-activity .sentence-word{min-height:48px;padding:9px 13px;border:1px solid var(--line);border-radius:11px;background:#fffdfa;color:var(--navy);font-size:clamp(21px,1.6vw,28px);font-weight:650;max-width:100%;overflow-wrap:anywhere}
+.words-activity .spoken-words .sentence-word{display:flex;align-items:center;background:#eef5fc;border-color:#d7e6f2}
+.words-activity button.sentence-word{touch-action:none;user-select:none;cursor:pointer}
+.words-activity .word-talk-steps{list-style:none;counter-reset:talk;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.words-activity .word-talk-steps li{counter-increment:talk;display:flex;align-items:center;gap:8px;font-size:14px;line-height:1.4}
+.words-activity .word-talk-steps li:before{content:counter(talk);flex-shrink:0;border-radius:50%;background:#e8f2ff;color:var(--ribbon);width:24px;height:24px;display:grid;place-items:center;font-size:13px;font-weight:700}
+.words-activity .word-talk-steps strong{color:var(--navy)}
+.words-activity .sentence-canvas{min-height:110px;margin:12px 0;padding:14px;background:#eef5fc;border-radius:14px;display:flex;flex-wrap:wrap;gap:8px;align-content:center;outline:2px solid transparent}
+.words-activity .sentence-empty,.words-activity .bank-empty{font-size:16px;color:var(--muted)}
+.words-activity .word-bank h3{font-size:15px;margin:12px 0 8px;color:var(--muted)}
+.words-activity #wordBank{padding:2px;min-height:52px;border-radius:10px;outline:2px solid transparent}
+.words-activity .sentence-actions{display:flex;gap:8px;margin-top:16px}
+.words-activity .sentence-actions .smallbtn,.words-activity .sentence-tools .smallbtn{min-height:44px;min-width:44px}
+.words-activity .sentence-tools{margin-top:16px;color:#3d596d;font-size:14px}
+.words-activity .sentence-tools summary{cursor:pointer;min-height:44px;padding:10px 0}
+.words-activity .sentence-tools>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.words-activity .sentence-tools select{min-height:44px;max-width:160px;border:1px solid var(--line);border-radius:9px;padding:6px;color:var(--ink);background:#fffdfa}
+.words-activity .card-tools #wordArrange{flex:1.4}
+.words-activity .activity-feedback{white-space:normal;line-height:1.5}
+.words-activity .sentence-word.is-dragging{opacity:.4}
+.words-activity .drop-target{outline-color:var(--blue)!important;background:#eaf5ff}
+#screen-words .tile:disabled{opacity:.55;cursor:default}
+@media(max-width:1100px) and (min-width:851px){.words-activity .cards-stage{grid-template-columns:130px minmax(0,1fr) 205px;gap:18px}.words-activity .card-tools{margin-inline:16px}.words-activity .card-tools .smallbtn{font-size:12px;gap:4px}.words-activity .card-tools .game-icon{width:18px}}
+@media(max-width:850px){.words-activity .cards-stage{grid-template-columns:120px minmax(0,1fr);gap:22px}.words-activity .game-card-motion{height:auto;min-height:510px}.words-activity .active-card{height:auto;min-height:510px;max-height:none}.words-activity .card-content{overflow:visible}.words-activity .card-tools{margin-inline:16px}.words-activity .card-tools .smallbtn{font-size:13px;gap:4px}.words-activity .card-tools .game-icon{width:20px}}
+@media(max-width:560px){.words-activity .cards-stage{grid-template-columns:minmax(0,1fr)}.words-activity .card-tools .smallbtn{font-size:12px}.words-activity .sentence-word{font-size:21px}}
+
+/* Keep the speaking round readable without operating a scroll pane on desktop. */
+.words-activity .card-instruction{font-size:clamp(18px,1.3vw,22px);font-weight:500;line-height:1.4;margin-bottom:12px}
+.words-activity .word-gesture-hint{font-size:14px}
+.words-activity .sentence-canvas{min-height:76px;padding:10px}
+@media(max-width:1100px){.words-activity .word-talk-steps{gap:8px}.words-activity .word-talk-steps li{font-size:13px}}
+
+.words-activity .card-tools [hidden]{display:none!important}
+.words-activity:has(#sentenceBuilder:not([hidden])) .card-tools #wordArrange{flex:1}
+.words-activity #wordCheck{white-space:normal}
+
+.words-activity .card-activity-heading h1,.words-activity .active-card h2{color:var(--ribbon)}
+
+/* Card families share the deck colour; clause support stays inside the card. */
+.words-activity .card-content .word-structure{color:var(--ribbon);font-size:13px;font-weight:700;margin:0 0 5px}
+.words-activity .word-whole-option{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;cursor:pointer;margin-bottom:8px}
+.words-activity .word-whole-option input{width:20px;height:20px;accent-color:var(--ribbon)}
+.words-activity .word-lead{font-size:clamp(21px,1.6vw,28px);font-weight:650;margin:0 0 12px}
+.words-activity .word-whole-option[hidden],.words-activity .word-lead[hidden]{display:none}
+.words-activity .activity-navigation small{white-space:normal;line-height:1.4}

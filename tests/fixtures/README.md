@@ -1,0 +1,1 @@
+Deventer is alleen een regressiefixture, geen nieuwe kaart in de V01.24-kiezer. Beeld byte-identiek en ankers ongewijzigd overgenomen uit 26buckets/taalroute-digibord, commit 7b6597a, Kaarten/nederland-deventer.js. Broncoördinaten 1672×941 volgens Kaarten/nederland-werelden.js. Deze proef valideert viewerpassing, niet de oude tunnel-/pont-runtime.

@@ -1,0 +1,1040 @@
+{
+  "version": "1.0",
+  "style": "FINALE optie 3",
+  "collections": [
+    {
+      "id": "basis",
+      "label": "Basis",
+      "count": 54,
+      "status": "ready"
+    },
+    {
+      "id": "acties",
+      "label": "Acties",
+      "count": 54,
+      "status": "ready"
+    },
+    {
+      "id": "dagelijks",
+      "label": "Dagelijks leven",
+      "count": 36,
+      "status": "ready"
+    },
+    {
+      "id": "werk",
+      "label": "Werk",
+      "count": 54,
+      "status": "preparing"
+    }
+  ],
+  "icons": [
+    {
+      "id": "basis-001",
+      "collection": "basis",
+      "number": 1,
+      "label": "vrouw",
+      "file": "assets/storydice/basis/01-vrouw.png"
+    },
+    {
+      "id": "basis-002",
+      "collection": "basis",
+      "number": 2,
+      "label": "man",
+      "file": "assets/storydice/basis/02-man.png"
+    },
+    {
+      "id": "basis-003",
+      "collection": "basis",
+      "number": 3,
+      "label": "kind",
+      "file": "assets/storydice/basis/03-kind.png"
+    },
+    {
+      "id": "basis-004",
+      "collection": "basis",
+      "number": 4,
+      "label": "baby",
+      "file": "assets/storydice/basis/04-baby.png"
+    },
+    {
+      "id": "basis-005",
+      "collection": "basis",
+      "number": 5,
+      "label": "verkoper",
+      "file": "assets/storydice/basis/05-verkoper.png"
+    },
+    {
+      "id": "basis-006",
+      "collection": "basis",
+      "number": 6,
+      "label": "gezin",
+      "file": "assets/storydice/basis/06-gezin.png"
+    },
+    {
+      "id": "basis-007",
+      "collection": "basis",
+      "number": 7,
+      "label": "docent",
+      "file": "assets/storydice/basis/07-docent.png"
+    },
+    {
+      "id": "basis-008",
+      "collection": "basis",
+      "number": 8,
+      "label": "bus",
+      "file": "assets/storydice/basis/08-bus.png"
+    },
+    {
+      "id": "basis-009",
+      "collection": "basis",
+      "number": 9,
+      "label": "trein",
+      "file": "assets/storydice/basis/09-trein.png"
+    },
+    {
+      "id": "basis-010",
+      "collection": "basis",
+      "number": 10,
+      "label": "arts",
+      "file": "assets/storydice/basis/10-arts.png"
+    },
+    {
+      "id": "basis-011",
+      "collection": "basis",
+      "number": 11,
+      "label": "klok",
+      "file": "assets/storydice/basis/11-klok.png"
+    },
+    {
+      "id": "basis-012",
+      "collection": "basis",
+      "number": 12,
+      "label": "bezorger",
+      "file": "assets/storydice/basis/12-bezorger.png"
+    },
+    {
+      "id": "basis-013",
+      "collection": "basis",
+      "number": 13,
+      "label": "huis",
+      "file": "assets/storydice/basis/13-huis.png"
+    },
+    {
+      "id": "basis-014",
+      "collection": "basis",
+      "number": 14,
+      "label": "markt",
+      "file": "assets/storydice/basis/14-markt.png"
+    },
+    {
+      "id": "basis-015",
+      "collection": "basis",
+      "number": 15,
+      "label": "kledingwinkel",
+      "file": "assets/storydice/basis/15-kledingwinkel.png"
+    },
+    {
+      "id": "basis-016",
+      "collection": "basis",
+      "number": 16,
+      "label": "supermarkt",
+      "file": "assets/storydice/basis/16-supermarkt.png"
+    },
+    {
+      "id": "basis-017",
+      "collection": "basis",
+      "number": 17,
+      "label": "bakkerij",
+      "file": "assets/storydice/basis/17-bakkerij.png"
+    },
+    {
+      "id": "basis-018",
+      "collection": "basis",
+      "number": 18,
+      "label": "restaurant",
+      "file": "assets/storydice/basis/18-restaurant.png"
+    },
+    {
+      "id": "basis-019",
+      "collection": "basis",
+      "number": 19,
+      "label": "speeltuin",
+      "file": "assets/storydice/basis/19-speeltuin.png"
+    },
+    {
+      "id": "basis-020",
+      "collection": "basis",
+      "number": 20,
+      "label": "school",
+      "file": "assets/storydice/basis/20-school.png"
+    },
+    {
+      "id": "basis-021",
+      "collection": "basis",
+      "number": 21,
+      "label": "bibliotheek",
+      "file": "assets/storydice/basis/21-bibliotheek.png"
+    },
+    {
+      "id": "basis-022",
+      "collection": "basis",
+      "number": 22,
+      "label": "keuken",
+      "file": "assets/storydice/basis/22-keuken.png"
+    },
+    {
+      "id": "basis-023",
+      "collection": "basis",
+      "number": 23,
+      "label": "ziekenhuis",
+      "file": "assets/storydice/basis/23-ziekenhuis.png"
+    },
+    {
+      "id": "basis-024",
+      "collection": "basis",
+      "number": 24,
+      "label": "apotheek",
+      "file": "assets/storydice/basis/24-apotheek.png"
+    },
+    {
+      "id": "basis-025",
+      "collection": "basis",
+      "number": 25,
+      "label": "station",
+      "file": "assets/storydice/basis/25-station.png"
+    },
+    {
+      "id": "basis-026",
+      "collection": "basis",
+      "number": 26,
+      "label": "bushalte",
+      "file": "assets/storydice/basis/26-bushalte.png"
+    },
+    {
+      "id": "basis-027",
+      "collection": "basis",
+      "number": 27,
+      "label": "park",
+      "file": "assets/storydice/basis/27-park.png"
+    },
+    {
+      "id": "basis-028",
+      "collection": "basis",
+      "number": 28,
+      "label": "straat",
+      "file": "assets/storydice/basis/28-straat.png"
+    },
+    {
+      "id": "basis-029",
+      "collection": "basis",
+      "number": 29,
+      "label": "zwembad",
+      "file": "assets/storydice/basis/29-zwembad.png"
+    },
+    {
+      "id": "basis-030",
+      "collection": "basis",
+      "number": 30,
+      "label": "badkamer",
+      "file": "assets/storydice/basis/30-badkamer.png"
+    },
+    {
+      "id": "basis-031",
+      "collection": "basis",
+      "number": 31,
+      "label": "sleutel",
+      "file": "assets/storydice/basis/31-sleutel.png"
+    },
+    {
+      "id": "basis-032",
+      "collection": "basis",
+      "number": 32,
+      "label": "tas",
+      "file": "assets/storydice/basis/32-tas.png"
+    },
+    {
+      "id": "basis-033",
+      "collection": "basis",
+      "number": 33,
+      "label": "telefoon",
+      "file": "assets/storydice/basis/33-telefoon.png"
+    },
+    {
+      "id": "basis-034",
+      "collection": "basis",
+      "number": 34,
+      "label": "fiets",
+      "file": "assets/storydice/basis/34-fiets.png"
+    },
+    {
+      "id": "basis-035",
+      "collection": "basis",
+      "number": 35,
+      "label": "portemonnee",
+      "file": "assets/storydice/basis/35-portemonnee.png"
+    },
+    {
+      "id": "basis-036",
+      "collection": "basis",
+      "number": 36,
+      "label": "geld",
+      "file": "assets/storydice/basis/36-geld.png"
+    },
+    {
+      "id": "basis-037",
+      "collection": "basis",
+      "number": 37,
+      "label": "boodschappentas",
+      "file": "assets/storydice/basis/37-boodschappentas.png"
+    },
+    {
+      "id": "basis-038",
+      "collection": "basis",
+      "number": 38,
+      "label": "appel",
+      "file": "assets/storydice/basis/38-appel.png"
+    },
+    {
+      "id": "basis-039",
+      "collection": "basis",
+      "number": 39,
+      "label": "brood",
+      "file": "assets/storydice/basis/39-brood.png"
+    },
+    {
+      "id": "basis-040",
+      "collection": "basis",
+      "number": 40,
+      "label": "fles",
+      "file": "assets/storydice/basis/40-fles.png"
+    },
+    {
+      "id": "basis-041",
+      "collection": "basis",
+      "number": 41,
+      "label": "beker",
+      "file": "assets/storydice/basis/41-beker.png"
+    },
+    {
+      "id": "basis-042",
+      "collection": "basis",
+      "number": 42,
+      "label": "bord",
+      "file": "assets/storydice/basis/42-bord.png"
+    },
+    {
+      "id": "basis-043",
+      "collection": "basis",
+      "number": 43,
+      "label": "boek",
+      "file": "assets/storydice/basis/43-boek.png"
+    },
+    {
+      "id": "basis-044",
+      "collection": "basis",
+      "number": 44,
+      "label": "pen",
+      "file": "assets/storydice/basis/44-pen.png"
+    },
+    {
+      "id": "basis-045",
+      "collection": "basis",
+      "number": 45,
+      "label": "agenda",
+      "file": "assets/storydice/basis/45-agenda.png"
+    },
+    {
+      "id": "basis-046",
+      "collection": "basis",
+      "number": 46,
+      "label": "computer",
+      "file": "assets/storydice/basis/46-computer.png"
+    },
+    {
+      "id": "basis-047",
+      "collection": "basis",
+      "number": 47,
+      "label": "kaartje",
+      "file": "assets/storydice/basis/47-kaartje.png"
+    },
+    {
+      "id": "basis-048",
+      "collection": "basis",
+      "number": 48,
+      "label": "koffer",
+      "file": "assets/storydice/basis/48-koffer.png"
+    },
+    {
+      "id": "basis-049",
+      "collection": "basis",
+      "number": 49,
+      "label": "pakket",
+      "file": "assets/storydice/basis/49-pakket.png"
+    },
+    {
+      "id": "basis-050",
+      "collection": "basis",
+      "number": 50,
+      "label": "medicijn",
+      "file": "assets/storydice/basis/50-medicijn.png"
+    },
+    {
+      "id": "basis-051",
+      "collection": "basis",
+      "number": 51,
+      "label": "thermometer",
+      "file": "assets/storydice/basis/51-thermometer.png"
+    },
+    {
+      "id": "basis-052",
+      "collection": "basis",
+      "number": 52,
+      "label": "bal",
+      "file": "assets/storydice/basis/52-bal.png"
+    },
+    {
+      "id": "basis-053",
+      "collection": "basis",
+      "number": 53,
+      "label": "stoel",
+      "file": "assets/storydice/basis/53-stoel.png"
+    },
+    {
+      "id": "basis-054",
+      "collection": "basis",
+      "number": 54,
+      "label": "tafel",
+      "file": "assets/storydice/basis/54-tafel.png"
+    },
+    {
+      "id": "acties-055",
+      "collection": "acties",
+      "number": 55,
+      "label": "wakker worden",
+      "file": "assets/storydice/acties/055-wakker-worden.png"
+    },
+    {
+      "id": "acties-056",
+      "collection": "acties",
+      "number": 56,
+      "label": "opstaan",
+      "file": "assets/storydice/acties/056-opstaan.png"
+    },
+    {
+      "id": "acties-057",
+      "collection": "acties",
+      "number": 57,
+      "label": "zich wassen",
+      "file": "assets/storydice/acties/057-zich-wassen.png"
+    },
+    {
+      "id": "acties-058",
+      "collection": "acties",
+      "number": 58,
+      "label": "zich aankleden",
+      "file": "assets/storydice/acties/058-zich-aankleden.png"
+    },
+    {
+      "id": "acties-059",
+      "collection": "acties",
+      "number": 59,
+      "label": "eten",
+      "file": "assets/storydice/acties/059-eten.png"
+    },
+    {
+      "id": "acties-060",
+      "collection": "acties",
+      "number": 60,
+      "label": "drinken",
+      "file": "assets/storydice/acties/060-drinken.png"
+    },
+    {
+      "id": "acties-061",
+      "collection": "acties",
+      "number": 61,
+      "label": "koken",
+      "file": "assets/storydice/acties/061-koken.png"
+    },
+    {
+      "id": "acties-062",
+      "collection": "acties",
+      "number": 62,
+      "label": "bakken",
+      "file": "assets/storydice/acties/062-bakken.png"
+    },
+    {
+      "id": "acties-063",
+      "collection": "acties",
+      "number": 63,
+      "label": "snijden",
+      "file": "assets/storydice/acties/063-snijden.png"
+    },
+    {
+      "id": "acties-064",
+      "collection": "acties",
+      "number": 64,
+      "label": "afwassen",
+      "file": "assets/storydice/acties/064-afwassen.png"
+    },
+    {
+      "id": "acties-065",
+      "collection": "acties",
+      "number": 65,
+      "label": "schoonmaken",
+      "file": "assets/storydice/acties/065-schoonmaken.png"
+    },
+    {
+      "id": "acties-066",
+      "collection": "acties",
+      "number": 66,
+      "label": "slapen",
+      "file": "assets/storydice/acties/066-slapen.png"
+    },
+    {
+      "id": "acties-067",
+      "collection": "acties",
+      "number": 67,
+      "label": "lopen",
+      "file": "assets/storydice/acties/067-lopen.png"
+    },
+    {
+      "id": "acties-068",
+      "collection": "acties",
+      "number": 68,
+      "label": "rennen",
+      "file": "assets/storydice/acties/068-rennen.png"
+    },
+    {
+      "id": "acties-069",
+      "collection": "acties",
+      "number": 69,
+      "label": "fietsen",
+      "file": "assets/storydice/acties/069-fietsen.png"
+    },
+    {
+      "id": "acties-070",
+      "collection": "acties",
+      "number": 70,
+      "label": "autorijden",
+      "file": "assets/storydice/acties/070-autorijden.png"
+    },
+    {
+      "id": "acties-071",
+      "collection": "acties",
+      "number": 71,
+      "label": "instappen",
+      "file": "assets/storydice/acties/071-instappen.png"
+    },
+    {
+      "id": "acties-072",
+      "collection": "acties",
+      "number": 72,
+      "label": "uitstappen",
+      "file": "assets/storydice/acties/072-uitstappen.png"
+    },
+    {
+      "id": "acties-073",
+      "collection": "acties",
+      "number": 73,
+      "label": "lezen",
+      "file": "assets/storydice/acties/073-lezen.png"
+    },
+    {
+      "id": "acties-074",
+      "collection": "acties",
+      "number": 74,
+      "label": "schrijven",
+      "file": "assets/storydice/acties/074-schrijven.png"
+    },
+    {
+      "id": "acties-075",
+      "collection": "acties",
+      "number": 75,
+      "label": "luisteren",
+      "file": "assets/storydice/acties/075-luisteren.png"
+    },
+    {
+      "id": "acties-076",
+      "collection": "acties",
+      "number": 76,
+      "label": "spreken",
+      "file": "assets/storydice/acties/076-spreken.png"
+    },
+    {
+      "id": "acties-077",
+      "collection": "acties",
+      "number": 77,
+      "label": "aanwijzen",
+      "file": "assets/storydice/acties/077-aanwijzen.png"
+    },
+    {
+      "id": "acties-078",
+      "collection": "acties",
+      "number": 78,
+      "label": "voordoen",
+      "file": "assets/storydice/acties/078-voordoen.png"
+    },
+    {
+      "id": "acties-079",
+      "collection": "acties",
+      "number": 79,
+      "label": "bellen",
+      "file": "assets/storydice/acties/079-bellen.png"
+    },
+    {
+      "id": "acties-080",
+      "collection": "acties",
+      "number": 80,
+      "label": "een hand geven",
+      "file": "assets/storydice/acties/080-een-hand-geven.png"
+    },
+    {
+      "id": "acties-081",
+      "collection": "acties",
+      "number": 81,
+      "label": "zwaaien",
+      "file": "assets/storydice/acties/081-zwaaien.png"
+    },
+    {
+      "id": "acties-082",
+      "collection": "acties",
+      "number": 82,
+      "label": "samen dragen",
+      "file": "assets/storydice/acties/082-samen-dragen.png"
+    },
+    {
+      "id": "acties-083",
+      "collection": "acties",
+      "number": 83,
+      "label": "geven",
+      "file": "assets/storydice/acties/083-geven.png"
+    },
+    {
+      "id": "acties-084",
+      "collection": "acties",
+      "number": 84,
+      "label": "klappen",
+      "file": "assets/storydice/acties/084-klappen.png"
+    },
+    {
+      "id": "acties-085",
+      "collection": "acties",
+      "number": 85,
+      "label": "pakken",
+      "file": "assets/storydice/acties/085-pakken.png"
+    },
+    {
+      "id": "acties-086",
+      "collection": "acties",
+      "number": 86,
+      "label": "kopen",
+      "file": "assets/storydice/acties/086-kopen.png"
+    },
+    {
+      "id": "acties-087",
+      "collection": "acties",
+      "number": 87,
+      "label": "betalen",
+      "file": "assets/storydice/acties/087-betalen.png"
+    },
+    {
+      "id": "acties-088",
+      "collection": "acties",
+      "number": 88,
+      "label": "zoeken",
+      "file": "assets/storydice/acties/088-zoeken.png"
+    },
+    {
+      "id": "acties-089",
+      "collection": "acties",
+      "number": 89,
+      "label": "dragen",
+      "file": "assets/storydice/acties/089-dragen.png"
+    },
+    {
+      "id": "acties-090",
+      "collection": "acties",
+      "number": 90,
+      "label": "tillen",
+      "file": "assets/storydice/acties/090-tillen.png"
+    },
+    {
+      "id": "acties-091",
+      "collection": "acties",
+      "number": 91,
+      "label": "timmeren",
+      "file": "assets/storydice/acties/091-timmeren.png"
+    },
+    {
+      "id": "acties-092",
+      "collection": "acties",
+      "number": 92,
+      "label": "bouwen",
+      "file": "assets/storydice/acties/092-bouwen.png"
+    },
+    {
+      "id": "acties-093",
+      "collection": "acties",
+      "number": 93,
+      "label": "repareren",
+      "file": "assets/storydice/acties/093-repareren.png"
+    },
+    {
+      "id": "acties-094",
+      "collection": "acties",
+      "number": 94,
+      "label": "typen",
+      "file": "assets/storydice/acties/094-typen.png"
+    },
+    {
+      "id": "acties-095",
+      "collection": "acties",
+      "number": 95,
+      "label": "meten",
+      "file": "assets/storydice/acties/095-meten.png"
+    },
+    {
+      "id": "acties-096",
+      "collection": "acties",
+      "number": 96,
+      "label": "bezorgen",
+      "file": "assets/storydice/acties/096-bezorgen.png"
+    },
+    {
+      "id": "acties-097",
+      "collection": "acties",
+      "number": 97,
+      "label": "zwemmen",
+      "file": "assets/storydice/acties/097-zwemmen.png"
+    },
+    {
+      "id": "acties-098",
+      "collection": "acties",
+      "number": 98,
+      "label": "dansen",
+      "file": "assets/storydice/acties/098-dansen.png"
+    },
+    {
+      "id": "acties-099",
+      "collection": "acties",
+      "number": 99,
+      "label": "zingen",
+      "file": "assets/storydice/acties/099-zingen.png"
+    },
+    {
+      "id": "acties-100",
+      "collection": "acties",
+      "number": 100,
+      "label": "tekenen",
+      "file": "assets/storydice/acties/100-tekenen.png"
+    },
+    {
+      "id": "acties-101",
+      "collection": "acties",
+      "number": 101,
+      "label": "fotograferen",
+      "file": "assets/storydice/acties/101-fotograferen.png"
+    },
+    {
+      "id": "acties-102",
+      "collection": "acties",
+      "number": 102,
+      "label": "voetballen",
+      "file": "assets/storydice/acties/102-voetballen.png"
+    },
+    {
+      "id": "acties-103",
+      "collection": "acties",
+      "number": 103,
+      "label": "openen",
+      "file": "assets/storydice/acties/103-openen.png"
+    },
+    {
+      "id": "acties-104",
+      "collection": "acties",
+      "number": 104,
+      "label": "sluiten",
+      "file": "assets/storydice/acties/104-sluiten.png"
+    },
+    {
+      "id": "acties-105",
+      "collection": "acties",
+      "number": 105,
+      "label": "vallen",
+      "file": "assets/storydice/acties/105-vallen.png"
+    },
+    {
+      "id": "acties-106",
+      "collection": "acties",
+      "number": 106,
+      "label": "vangen",
+      "file": "assets/storydice/acties/106-vangen.png"
+    },
+    {
+      "id": "acties-107",
+      "collection": "acties",
+      "number": 107,
+      "label": "duwen",
+      "file": "assets/storydice/acties/107-duwen.png"
+    },
+    {
+      "id": "acties-108",
+      "collection": "acties",
+      "number": 108,
+      "label": "trekken",
+      "file": "assets/storydice/acties/108-trekken.png"
+    },
+    {
+      "id": "dagelijks-109",
+      "collection": "dagelijks",
+      "number": 109,
+      "label": "kinderwagen",
+      "file": "assets/storydice/dagelijks/109-kinderwagen.png"
+    },
+    {
+      "id": "dagelijks-110",
+      "collection": "dagelijks",
+      "number": 110,
+      "label": "rollator",
+      "file": "assets/storydice/dagelijks/110-rollator.png"
+    },
+    {
+      "id": "dagelijks-111",
+      "collection": "dagelijks",
+      "number": 111,
+      "label": "bril",
+      "file": "assets/storydice/dagelijks/111-bril.png"
+    },
+    {
+      "id": "dagelijks-112",
+      "collection": "dagelijks",
+      "number": 112,
+      "label": "cadeau",
+      "file": "assets/storydice/dagelijks/112-cadeau.png"
+    },
+    {
+      "id": "dagelijks-113",
+      "collection": "dagelijks",
+      "number": 113,
+      "label": "taart",
+      "file": "assets/storydice/dagelijks/113-taart.png"
+    },
+    {
+      "id": "dagelijks-114",
+      "collection": "dagelijks",
+      "number": 114,
+      "label": "deurbel",
+      "file": "assets/storydice/dagelijks/114-deurbel.png"
+    },
+    {
+      "id": "dagelijks-115",
+      "collection": "dagelijks",
+      "number": 115,
+      "label": "bed",
+      "file": "assets/storydice/dagelijks/115-bed.png"
+    },
+    {
+      "id": "dagelijks-116",
+      "collection": "dagelijks",
+      "number": 116,
+      "label": "douche",
+      "file": "assets/storydice/dagelijks/116-douche.png"
+    },
+    {
+      "id": "dagelijks-117",
+      "collection": "dagelijks",
+      "number": 117,
+      "label": "wasmachine",
+      "file": "assets/storydice/dagelijks/117-wasmachine.png"
+    },
+    {
+      "id": "dagelijks-118",
+      "collection": "dagelijks",
+      "number": 118,
+      "label": "koelkast",
+      "file": "assets/storydice/dagelijks/118-koelkast.png"
+    },
+    {
+      "id": "dagelijks-119",
+      "collection": "dagelijks",
+      "number": 119,
+      "label": "stofzuiger",
+      "file": "assets/storydice/dagelijks/119-stofzuiger.png"
+    },
+    {
+      "id": "dagelijks-120",
+      "collection": "dagelijks",
+      "number": 120,
+      "label": "afvalbak",
+      "file": "assets/storydice/dagelijks/120-afvalbak.png"
+    },
+    {
+      "id": "dagelijks-121",
+      "collection": "dagelijks",
+      "number": 121,
+      "label": "jas",
+      "file": "assets/storydice/dagelijks/121-jas.png"
+    },
+    {
+      "id": "dagelijks-122",
+      "collection": "dagelijks",
+      "number": 122,
+      "label": "schoenen",
+      "file": "assets/storydice/dagelijks/122-schoenen.png"
+    },
+    {
+      "id": "dagelijks-123",
+      "collection": "dagelijks",
+      "number": 123,
+      "label": "broek",
+      "file": "assets/storydice/dagelijks/123-broek.png"
+    },
+    {
+      "id": "dagelijks-124",
+      "collection": "dagelijks",
+      "number": 124,
+      "label": "ei",
+      "file": "assets/storydice/dagelijks/124-ei.png"
+    },
+    {
+      "id": "dagelijks-125",
+      "collection": "dagelijks",
+      "number": 125,
+      "label": "melk",
+      "file": "assets/storydice/dagelijks/125-melk.png"
+    },
+    {
+      "id": "dagelijks-126",
+      "collection": "dagelijks",
+      "number": 126,
+      "label": "wortel",
+      "file": "assets/storydice/dagelijks/126-wortel.png"
+    },
+    {
+      "id": "dagelijks-127",
+      "collection": "dagelijks",
+      "number": 127,
+      "label": "auto",
+      "file": "assets/storydice/dagelijks/127-auto.png"
+    },
+    {
+      "id": "dagelijks-128",
+      "collection": "dagelijks",
+      "number": 128,
+      "label": "verkeerslicht",
+      "file": "assets/storydice/dagelijks/128-verkeerslicht.png"
+    },
+    {
+      "id": "dagelijks-129",
+      "collection": "dagelijks",
+      "number": 129,
+      "label": "zebrapad",
+      "file": "assets/storydice/dagelijks/129-zebrapad.png"
+    },
+    {
+      "id": "dagelijks-130",
+      "collection": "dagelijks",
+      "number": 130,
+      "label": "paraplu",
+      "file": "assets/storydice/dagelijks/130-paraplu.png"
+    },
+    {
+      "id": "dagelijks-131",
+      "collection": "dagelijks",
+      "number": 131,
+      "label": "plattegrond",
+      "file": "assets/storydice/dagelijks/131-plattegrond.png"
+    },
+    {
+      "id": "dagelijks-132",
+      "collection": "dagelijks",
+      "number": 132,
+      "label": "betaalpas",
+      "file": "assets/storydice/dagelijks/132-betaalpas.png"
+    },
+    {
+      "id": "dagelijks-133",
+      "collection": "dagelijks",
+      "number": 133,
+      "label": "zon",
+      "file": "assets/storydice/dagelijks/133-zon.png"
+    },
+    {
+      "id": "dagelijks-134",
+      "collection": "dagelijks",
+      "number": 134,
+      "label": "regen",
+      "file": "assets/storydice/dagelijks/134-regen.png"
+    },
+    {
+      "id": "dagelijks-135",
+      "collection": "dagelijks",
+      "number": 135,
+      "label": "sneeuw",
+      "file": "assets/storydice/dagelijks/135-sneeuw.png"
+    },
+    {
+      "id": "dagelijks-136",
+      "collection": "dagelijks",
+      "number": 136,
+      "label": "wolk",
+      "file": "assets/storydice/dagelijks/136-wolk.png"
+    },
+    {
+      "id": "dagelijks-137",
+      "collection": "dagelijks",
+      "number": 137,
+      "label": "wind",
+      "file": "assets/storydice/dagelijks/137-wind.png"
+    },
+    {
+      "id": "dagelijks-138",
+      "collection": "dagelijks",
+      "number": 138,
+      "label": "maan",
+      "file": "assets/storydice/dagelijks/138-maan.png"
+    },
+    {
+      "id": "dagelijks-139",
+      "collection": "dagelijks",
+      "number": 139,
+      "label": "tandenborstel",
+      "file": "assets/storydice/dagelijks/139-tandenborstel.png"
+    },
+    {
+      "id": "dagelijks-140",
+      "collection": "dagelijks",
+      "number": 140,
+      "label": "pleister",
+      "file": "assets/storydice/dagelijks/140-pleister.png"
+    },
+    {
+      "id": "dagelijks-141",
+      "collection": "dagelijks",
+      "number": 141,
+      "label": "verband",
+      "file": "assets/storydice/dagelijks/141-verband.png"
+    },
+    {
+      "id": "dagelijks-142",
+      "collection": "dagelijks",
+      "number": 142,
+      "label": "krukken",
+      "file": "assets/storydice/dagelijks/142-krukken.png"
+    },
+    {
+      "id": "dagelijks-143",
+      "collection": "dagelijks",
+      "number": 143,
+      "label": "hand",
+      "file": "assets/storydice/dagelijks/143-hand.png"
+    },
+    {
+      "id": "dagelijks-144",
+      "collection": "dagelijks",
+      "number": 144,
+      "label": "oor",
+      "file": "assets/storydice/dagelijks/144-oor.png"
+    }
+  ]
+}

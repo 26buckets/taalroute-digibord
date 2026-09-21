@@ -1,0 +1,75 @@
+/* Only the new workspaces; the existing card table supplies the visual system. */
+.new-activity .cards-stage{grid-template-columns:minmax(120px,.45fr) minmax(0,1.8fr) minmax(210px,.65fr);gap:24px}
+.new-activity .card-content{padding:22px;overflow:auto}
+.new-activity .na-workspace{min-width:0}
+.new-activity .card-content .na-feedback{min-height:28px;font-size:16px;line-height:1.5;margin:14px 0 0;color:#17517a;font-weight:600}
+.new-activity .card-content .na-progress{font-size:14px;margin:14px 0;color:#52677f}
+.new-activity .card-tools{margin:0 20px 18px;padding-top:12px}
+.new-activity .na-choice{border:1px solid #d5dcdF;border-radius:12px;background:#fffdfa;color:var(--navy);padding:12px;font-size:clamp(16px,1.3vw,22px);line-height:1.4;min-height:48px;max-width:100%;overflow-wrap:anywhere;box-shadow:0 3px 0 #dfd9cf;touch-action:manipulation}
+.new-activity .na-choice:hover:not(:disabled){background:#eef5fc;border-color:#83b6f0}
+.new-activity .na-choice:disabled{cursor:default;opacity:.65}
+.new-activity .na-choice[aria-pressed=true],.new-activity .na-choice[data-correct]{border:2px solid #39765c;background:#edf6f1;opacity:1}
+.new-activity .na-memory{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.new-activity .na-memory .na-choice{padding:10px;min-height:130px;display:grid;place-items:center;gap:8px;font-size:15px}
+.new-activity .na-memory [data-face=back]{background:linear-gradient(145deg,#3f7f68,#214f42);color:white;border:5px solid #fffdfa;box-shadow:0 3px 0 #cbc5bb,0 6px 0 #e3dacd}
+.new-activity .na-memory [data-face=front]{opacity:1}
+.new-activity .na-choice img{display:block;max-width:100%;width:84px;height:84px;object-fit:contain;margin:auto}
+.new-activity .na-choice .na-card-logo{width:90%;height:auto;max-height:40px}
+.new-activity .na-pairs{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.new-activity .na-pairs>div{display:grid;gap:12px;grid-template-rows:repeat(4,minmax(76px,1fr))}
+.new-activity .na-pairs .na-choice{display:flex;align-items:center;justify-content:center;gap:8px}
+.new-activity .na-pairs img{height:65px;width:65px;margin:0}
+.new-activity .na-pairs span{font-size:12px}
+.new-activity .card-content .na-word{display:block;font-size:clamp(26px,3vw,46px);font-weight:750;text-align:center;margin:22px 0;padding:20px 10px;background:#f1f6fa;border-radius:14px;overflow-wrap:anywhere}
+.new-activity .na-options{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.new-activity .na-options>*{flex:1;min-width:100px}
+.new-activity .na-sort-result{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.new-activity .na-sort-result section{border:1px solid var(--line);padding:12px;border-radius:10px;background:#f4f8f5}
+.new-activity .na-sort-result h3{font-size:16px;margin:0 0 8px}
+.new-activity .na-sort-result p{font-size:15px}
+.new-activity .na-sequence{padding-left:26px;display:grid;gap:10px;margin:0 0 16px}
+.new-activity .na-sequence:empty{display:none}
+.new-activity .na-sequence .na-choice{width:100%;text-align:left;background:#eaf4fd}
+.new-activity .na-step-bank{display:grid;gap:10px}
+.new-activity .na-step-bank .na-choice{text-align:left}
+.new-activity .card-content .na-empty{font-size:16px;margin-bottom:14px}
+.new-activity .na-scoreboard{display:flex;gap:12px;margin-bottom:22px}
+.new-activity .na-scoreboard button{flex:1;font-size:15px}
+.new-activity .na-scoreboard strong{display:block;font-size:28px}
+.new-activity .na-quiz-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.new-activity .na-quiz-board h3{min-height:42px;text-align:center;font-size:16px;margin:0 0 8px;display:grid;place-items:center}
+.new-activity .na-quiz-board .na-choice{display:block;width:100%;margin-bottom:12px;background:#f0eaf7;color:#552795;min-height:70px;font-weight:700}
+.new-activity .na-quiz-options{display:grid;grid-template-columns:1fr}
+.new-activity .na-quiz-options .na-choice{text-align:left}
+.new-activity .na-clues{padding-left:25px;display:grid;gap:14px;font-size:clamp(18px,1.5vw,25px);line-height:1.5;margin:0 0 22px}
+.new-activity #na-guess-form label{display:block;margin:16px 0 8px;font-size:16px}
+.new-activity #na-guess-form small{font-size:13px}
+.new-activity .na-guess-input{display:flex;gap:8px}
+.new-activity .na-guess-input input{width:100%;min-width:0;min-height:48px;border:1px solid #9bb7ca;border-radius:10px;padding:10px;font-size:18px;color:var(--ink);background:#fff}
+.new-activity .na-guess-input button{height:auto;min-height:48px}
+.new-activity .na-wheel-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:center}
+.new-activity .na-wheel-frame{position:relative;margin:12px auto;width:100%;max-width:270px}
+.new-activity .na-wheel{width:100%;aspect-ratio:1;border:9px solid #e5c599;border-radius:50%;box-shadow:0 6px 0 #b19a7e,0 12px 20px #49372533;position:relative;transition:transform .85s cubic-bezier(.15,.65,.15,1)}
+.new-activity .na-wheel b{position:absolute;transform:translate(-50%,-50%);font-size:clamp(16px,2vw,27px);color:#fff;text-shadow:0 1px 2px #0008}
+.new-activity .na-hub{position:absolute;left:42%;top:42%;width:16%;height:16%;background:#fffdfa;border:5px solid #173a55;border-radius:50%;box-shadow:0 3px 6px #0004}
+.new-activity .na-pointer{position:absolute;top:-3px;left:calc(50% - 12px);z-index:2;border-left:12px solid transparent;border-right:12px solid transparent;border-top:30px solid #173a55;filter:drop-shadow(0 2px 2px #0004)}
+.new-activity .na-wheel-result h2{font-size:clamp(23px,2vw,32px)}
+.new-activity .na-wheel-result p{font-size:15px}
+.new-activity .na-wheel-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;padding-left:22px;font-size:14px;line-height:1.4;margin:20px 0}
+#na-wheel-form textarea{display:block;width:100%;margin:8px 0;padding:12px;border:1px solid #9bb7ca;border-radius:10px;font:inherit;color:var(--ink)}
+.new-activity .cardtypes .typebtn{min-height:44px}
+@media(max-width:1100px){.new-activity .cards-stage{grid-template-columns:110px minmax(0,1fr) 190px;gap:16px;padding-inline:20px}.new-activity .card-content{padding:18px}.new-activity .na-memory{gap:8px}.new-activity .na-memory .na-choice{min-height:115px;padding:6px;font-size:13px}.new-activity .na-choice img{height:62px;width:62px}.new-activity .na-wheel-layout{grid-template-columns:1fr}.new-activity .na-wheel-frame{max-width:210px}.new-activity .na-wheel-result{text-align:center}}
+@media(max-width:850px){.new-activity .cards-stage{grid-template-columns:110px minmax(0,1fr);gap:18px}.new-activity .game-card-motion{height:auto;min-height:500px}.new-activity .active-card{height:auto;min-height:500px}.new-activity .card-content{overflow:visible}.new-activity .cardtypes{grid-column:1/-1}.new-activity .na-wheel-layout{grid-template-columns:1fr 1fr}.new-activity .card-table-tip{display:block}}
+@media(max-width:560px){.new-activity .cards-stage{grid-template-columns:minmax(0,1fr);padding-inline:14px}.new-activity .na-memory{grid-template-columns:repeat(2,minmax(0,1fr))}.new-activity .na-pairs{gap:10px}.new-activity .na-pairs .na-choice{flex-direction:column;font-size:16px}.new-activity .na-pairs>div{grid-template-rows:repeat(4,110px)}.new-activity .na-wheel-layout{grid-template-columns:1fr}.new-activity .na-wheel-legend{grid-template-columns:1fr}.new-activity .na-quiz-board{gap:7px}.new-activity .na-quiz-board h3{font-size:13px}.new-activity .na-quiz-board .na-choice{font-size:14px;padding:6px}.new-activity .na-sort-result{grid-template-columns:1fr}.new-activity .card-ribbon{gap:10px;padding:15px}.new-activity .card-ribbon>strong{font-size:19px}.new-activity .card-counter{font-size:12px}}
+
+.new-activity .na-workspace .smallbtn{min-height:44px;height:auto}
+.new-activity .na-memory{max-width:720px;margin-inline:auto}
+.new-activity .na-memory .na-choice{aspect-ratio:.85}
+.new-activity .na-memory [data-face=back]:hover:not(:disabled){background:linear-gradient(145deg,#4c8d77,#2b604f);border-color:#fffdfa}
+.new-activity .game-action .game-icon{padding:0;border:0;flex-shrink:0}
+@media(max-width:560px){.new-activity .gamebar .turnzone{flex-direction:column;align-items:stretch;gap:3px}.new-activity .gamebar .mode-select{height:30px;min-height:30px;padding-inline:5px;font-size:11px}.new-activity .gamebar .chip{height:28px;min-height:28px;font-size:10px;max-width:100%}.new-activity .gamebar .chip:not(.active){display:none}.new-activity .gamebar .game-action{flex-direction:column;font-size:10px;gap:3px;min-width:0;flex:1;max-width:85px}}
+
+.new-activity .card-activity-heading{display:flex;justify-content:space-between;align-items:start}
+.new-activity .na-set-picker{flex:0 1 330px;min-width:0}
+.new-activity .na-set-picker select{width:100%;min-width:0;min-height:44px}
+@media(max-width:850px){.new-activity .na-set-picker{flex-basis:100%}}

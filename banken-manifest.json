@@ -1,0 +1,19 @@
+{
+  "revision": "banken-v2-20260921",
+  "baseCommit": "7a738865cadb151622721241de816f690a655d9b",
+  "localCorrectionsPreserved": 638,
+  "banks": [
+    {
+      "file": "Lessen/opdrachtenmatrix.json",
+      "revision": "a0-a1-productiebank-v2-review3-go",
+      "cards": 960,
+      "sha256": "9e91fe701aed65bb92d266a90ee7326be4e532da7e574cfc4b2aa410cf97fa56"
+    },
+    {
+      "file": "Lessen/directe-vragen.json",
+      "revision": "snelvraagbank-v2-review3-go",
+      "cards": 240,
+      "sha256": "56274da7bea9ecabff268bea5ab25824287bbf30bd997e82e51f39d33bad1484"
+    }
+  ]
+}
