@@ -207,7 +207,7 @@ console.log('PASS: matching self-contained 320-card production bundle, unique co
 
 // Card category and legacy deep link skip the cabinet screen.
 const navigationCalls=[];
-const navCtx=vm.createContext({APP:{},startCards:kind=>navigationCalls.push(kind),SmoothDice:{mount(){}},renderCollection:()=>{throw Error('Unexpected cabinet screen')}});
+const navCtx=vm.createContext({stopTongueAudio(){},APP:{},startCards:kind=>navigationCalls.push(kind),SmoothDice:{mount(){}},renderCollection:()=>{throw Error('Unexpected cabinet screen')}});
 vm.runInContext(source.slice(source.indexOf('function goScreen('),source.indexOf('function home(')),navCtx);
 vm.runInContext("goScreen('cards')",navCtx);
 navCtx.APP.cardKind='verbs';vm.runInContext("goScreen('cards')",navCtx);

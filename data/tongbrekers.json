@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "source": "Tongbrekers opschonen · definitieve indeling van de oorspronkelijke 88 · 2026-09-21; aangevuld met 73 originele tongbrekers op verzoek van gebruiker: 60 eigen A1 en 60 eigen A2",
   "levels": [
     "A0",
@@ -17,7 +17,11 @@
       "text": "Zeven schone Schotse schaatsers schaatsen een scheve schaats in Scheveningen.",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-001.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-002",
@@ -25,7 +29,11 @@
       "text": "Ruud Rups raspt rap rode ronde radijsjes.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-002.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-003",
@@ -33,7 +41,11 @@
       "text": "Wat Wil wil wil Wil wel weten.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-003.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-004",
@@ -41,7 +53,11 @@
       "text": "De prins spreekt slecht Spaans.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-004.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-005",
@@ -49,7 +65,11 @@
       "text": "Voor was was was was was is.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-005.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-006",
@@ -57,7 +77,11 @@
       "text": "Boterklontje boterklontje boterklontje.",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-006.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-007",
@@ -65,7 +89,11 @@
       "text": "De knecht van Klaas de knappe kapper knipt en kapt nog knapper dan Klaas de knappe kapper knippen en kappen kan.",
       "entryLevel": "B2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-007.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-008",
@@ -73,7 +101,11 @@
       "text": "Die dikke domoren drammen door!",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-008.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-009",
@@ -81,7 +113,11 @@
       "text": "Een pet met een platte klep is een platte kleppet.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-009.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-010",
@@ -89,7 +125,11 @@
       "text": "Pieter Peeters plant petieterige peterselieplantjes in pimpelpaarse peperpotjes.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-010.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-011",
@@ -97,7 +137,11 @@
       "text": "Moeder sneed zeven scheve sneden brood.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-011.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-012",
@@ -105,7 +149,11 @@
       "text": "Max mixt de whisky met de whiskymixer.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-012.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-013",
@@ -113,7 +161,11 @@
       "text": "De kat krabt de krullen van de trap.",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-013.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-014",
@@ -121,7 +173,11 @@
       "text": "Jeukt jouw jeukende neus ook zo als mijn jeukende neus jeukt?",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-014.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-015",
@@ -129,7 +185,11 @@
       "text": "Wie weet waar Willem Wevers witte wollen winterwanten wis en waarachtig werkelijk waren?",
       "entryLevel": "B2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-015.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-016",
@@ -137,7 +197,11 @@
       "text": "Frits vindt visfrietjes vreselijk vies.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-016.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-017",
@@ -145,7 +209,11 @@
       "text": "Als jouw teckel mijn teckel tackelt, tackelt mijn teckel jouw teckel terug.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-017.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-018",
@@ -153,7 +221,11 @@
       "text": "Drie droge doeken.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-018.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-019",
@@ -161,7 +233,11 @@
       "text": "Ik zag haar haar kammen met haar haarkam.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-019.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-020",
@@ -169,7 +245,11 @@
       "text": "Ping en Pong speelden pingpong. Ping pingpongde de pingpongbal naar Pong en Pong pingpongde de pingpongbal naar Ping.",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-020.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-021",
@@ -177,7 +257,11 @@
       "text": "De knecht snijdt recht en de meid snijdt scheef.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-021.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-022",
@@ -185,7 +269,11 @@
       "text": "Ik schrijf scheef in mijn schrift.",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-022.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-023",
@@ -193,7 +281,11 @@
       "text": "Klare knipt de krullenkop kaal.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-023.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-024",
@@ -201,7 +293,11 @@
       "text": "Zij zei dat zij zei dat zij zei dat zij wat zei.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-024.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-025",
@@ -209,7 +305,11 @@
       "text": "Die schaar knipt knap stroef.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-025.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-026",
@@ -217,7 +317,11 @@
       "text": "Bakker Bas bakt de bolle broodjes bruin.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-026.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-027",
@@ -225,7 +329,11 @@
       "text": "Bedek het bed met het dekbed.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-027.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-028",
@@ -233,7 +341,11 @@
       "text": "Duizend dames drinken dagelijks druivensap.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-028.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-029",
@@ -241,7 +353,11 @@
       "text": "Er zit knoepoek in de zak van mijn broekzakbroek.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-029.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-030",
@@ -249,7 +365,11 @@
       "text": "Als apen elkaar naapen, apen apen apen na.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-030.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-031",
@@ -257,7 +377,11 @@
       "text": "Papa pakt de blauwe platte bakpan.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-031.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-032",
@@ -265,7 +389,11 @@
       "text": "De kapster kapt de krullenbol op de kruk.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-032.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-033",
@@ -273,7 +401,11 @@
       "text": "Leentje leerde Lotje lopen langs de lange lindelaan, maar toen Lotje niet wou lopen, liet Leentje Lotje staan.",
       "entryLevel": "B2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-033.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-034",
@@ -281,7 +413,11 @@
       "text": "Thijs snijdt de schijfjes steeds scheef!",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-034.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-035",
@@ -289,7 +425,11 @@
       "text": "De poes kotst in de postzak.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-035.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-036",
@@ -297,7 +437,11 @@
       "text": "De koetsier poetst de koets van de postkoets met de poetsdoek.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-036.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-037",
@@ -305,7 +449,11 @@
       "text": "Ik bak een plak bakbloedworst.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-037.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-038",
@@ -313,7 +461,11 @@
       "text": "Ik denk dat dat dat dat daar staat die moet zijn.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-038.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-039",
@@ -321,7 +473,11 @@
       "text": "Frans zei tegen Frans in het Frans: “Is Frans in het Frans Frans?” “Nee,” zei Frans tegen Frans in het Frans. “Frans in het Frans is niet Frans, Frans in het Frans is François.”",
       "entryLevel": "C1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-039.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-040",
@@ -329,7 +485,11 @@
       "text": "Zou me zo een zorg zijn, zou mijn zusje Sientje zeggen als ze zaterdags ’s avonds zonder zakcentjes zou zitten.",
       "entryLevel": "C2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-040.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-041",
@@ -337,7 +497,11 @@
       "text": "Als een potvis in de pispot pist heb je een pispot vol met potvispis.",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-041.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-042",
@@ -345,7 +509,11 @@
       "text": "Als achter vliegen vliegen vliegen vliegen vliegen vliegen achterna.",
       "entryLevel": "B2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-042.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-043",
@@ -353,7 +521,11 @@
       "text": "De herbergier van de herberg hier herbergt hier de herbergier van de herberg daar.",
       "entryLevel": "B2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-043.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-044",
@@ -361,7 +533,11 @@
       "text": "Drie dove domme dromedarissen.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-044.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-045",
@@ -369,7 +545,11 @@
       "text": "Als kakkerlakken in kattenbakken kakken kan je kattenbakken vol met kakkerlakkak pakken.",
       "entryLevel": "C1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-045.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-046",
@@ -377,7 +557,11 @@
       "text": "Mijn zeven zeven zeven zeven keer beter dan jouw zeven zeven!",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-046.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-047",
@@ -385,7 +569,11 @@
       "text": "Ik ga mijn kersenpittenkussentje pakken.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-047.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-048",
@@ -393,7 +581,11 @@
       "text": "Zeven zware zwemmers zwemmen zwoele zomerse zondagen zomaar zonder zwembroek in de zwarte zee.",
       "entryLevel": "B2",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-048.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-049",
@@ -401,7 +593,11 @@
       "text": "Pim pakt papier.",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-049.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-050",
@@ -425,7 +621,11 @@
       "text": "Tess telt twee tassen.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-052.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-053",
@@ -433,7 +633,11 @@
       "text": "Kiki kiest kleine kopjes.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-053.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-054",
@@ -441,7 +645,11 @@
       "text": "Roos roert de rijst.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-054.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-055",
@@ -449,7 +657,11 @@
       "text": "Koen koopt koek, maar de koek kruimelt.",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-055.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-056",
@@ -457,7 +669,11 @@
       "text": "Mila mengt melk met munt.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-056.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-057",
@@ -465,7 +681,11 @@
       "text": "In de stille straat staan twee stoelen.",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-057.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-058",
@@ -473,7 +693,11 @@
       "text": "Vera vult de volle vuilnisbak niet verder.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-058.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-059",
@@ -481,7 +705,11 @@
       "text": "Bij de trap staan drie tassen met dikke touwen.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-059.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-060",
@@ -489,7 +717,11 @@
       "text": "De buur brengt bruine borden naar de bovenste plank.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-060.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-061",
@@ -497,7 +729,11 @@
       "text": "Frans fietst vroeg naar de fruitmarkt.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-061.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-062",
@@ -505,7 +741,11 @@
       "text": "Zes zachte zakken zitten stevig in dezelfde tas.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-062.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-063",
@@ -513,7 +753,11 @@
       "text": "Korte kratten kraken als Karim ze kantelt.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-063.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-064",
@@ -521,7 +765,11 @@
       "text": "Saar schuift smalle schalen naast de schone schaal.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-064.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-065",
@@ -529,7 +777,11 @@
       "text": "De beheerder brengt de brede banken morgen binnen.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-065.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-066",
@@ -545,7 +797,11 @@
       "text": "Bram brengt de bruine borden binnen; de brede bak blijft buiten.",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-067.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-068",
@@ -553,7 +809,11 @@
       "text": "Lena legt de lange lijst later links neer.",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-068.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-069",
@@ -561,7 +821,11 @@
       "text": "Sara zet zes glazen klaar.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-069.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-070",
@@ -569,7 +833,11 @@
       "text": "Peter pakt de post bij de deur.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-070.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-071",
@@ -577,7 +845,11 @@
       "text": "De bus stopt straks bij station Zuid.",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-071.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-072",
@@ -585,7 +857,11 @@
       "text": "Morgen breng ik brood en beleg mee.",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-072.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-073",
@@ -722,7 +998,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-089.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-090",
@@ -731,7 +1011,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-090.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-091",
@@ -740,7 +1024,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-091.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-092",
@@ -749,7 +1037,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-092.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-093",
@@ -758,7 +1050,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-093.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-094",
@@ -767,7 +1063,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-094.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-095",
@@ -776,7 +1076,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21"
+      "source": "Originele A1-uitbreiding op verzoek van gebruiker · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-095.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-096",
@@ -785,7 +1089,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-096.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-097",
@@ -794,7 +1102,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-097.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-098",
@@ -803,7 +1115,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-098.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-099",
@@ -812,7 +1128,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-099.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-100",
@@ -821,7 +1141,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-100.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-101",
@@ -830,7 +1154,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-101.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-102",
@@ -839,7 +1167,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-102.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-103",
@@ -848,7 +1180,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-103.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-104",
@@ -857,7 +1193,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-104.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-105",
@@ -866,7 +1206,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-105.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-106",
@@ -875,7 +1219,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-106.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-107",
@@ -884,7 +1232,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-107.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-108",
@@ -893,7 +1245,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-108.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-109",
@@ -902,7 +1258,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-109.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-110",
@@ -911,7 +1271,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-110.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-111",
@@ -920,7 +1284,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-111.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-112",
@@ -929,7 +1297,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-112.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-113",
@@ -938,7 +1310,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-113.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-114",
@@ -947,7 +1323,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-114.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-115",
@@ -956,7 +1336,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-115.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-116",
@@ -965,7 +1349,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-116.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-117",
@@ -974,7 +1362,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-117.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-118",
@@ -983,7 +1375,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-118.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-119",
@@ -992,7 +1388,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-119.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-120",
@@ -1001,7 +1401,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-120.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-121",
@@ -1010,7 +1414,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-121.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-122",
@@ -1019,7 +1427,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-122.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-123",
@@ -1028,7 +1440,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-123.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-124",
@@ -1037,7 +1453,11 @@
       "entryLevel": "A1",
       "difficulty": 2,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-124.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-125",
@@ -1046,7 +1466,11 @@
       "entryLevel": "A1",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-125.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-126",
@@ -1055,7 +1479,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-126.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-127",
@@ -1064,7 +1492,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-127.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-128",
@@ -1073,7 +1505,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-128.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-129",
@@ -1082,7 +1518,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-129.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-130",
@@ -1091,7 +1531,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-130.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-131",
@@ -1100,7 +1544,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-131.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-132",
@@ -1109,7 +1557,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-132.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-133",
@@ -1118,7 +1570,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-133.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-134",
@@ -1127,7 +1583,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-134.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-135",
@@ -1136,7 +1596,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-135.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-136",
@@ -1145,7 +1609,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-136.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-137",
@@ -1154,7 +1622,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-137.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-138",
@@ -1163,7 +1635,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-138.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-139",
@@ -1172,7 +1648,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-139.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-140",
@@ -1181,7 +1661,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-140.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-141",
@@ -1190,7 +1674,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-141.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-142",
@@ -1199,7 +1687,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-142.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-143",
@@ -1208,7 +1700,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-143.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-144",
@@ -1217,7 +1713,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-144.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-145",
@@ -1226,7 +1726,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-145.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-146",
@@ -1235,7 +1739,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-146.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-147",
@@ -1244,7 +1752,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-147.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-148",
@@ -1253,7 +1765,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-148.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-149",
@@ -1262,7 +1778,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-149.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-150",
@@ -1271,7 +1791,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-150.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-151",
@@ -1280,7 +1804,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-151.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-152",
@@ -1289,7 +1817,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-152.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-153",
@@ -1298,7 +1830,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-153.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-154",
@@ -1307,7 +1843,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-154.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-155",
@@ -1316,7 +1856,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-155.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-156",
@@ -1325,7 +1869,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-156.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-157",
@@ -1334,7 +1882,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-157.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-158",
@@ -1343,7 +1895,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-158.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-159",
@@ -1352,7 +1908,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-159.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-160",
@@ -1361,7 +1921,11 @@
       "entryLevel": "A2",
       "difficulty": 3,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-160.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-161",
@@ -1370,7 +1934,11 @@
       "entryLevel": "A2",
       "difficulty": 4,
       "type": "tongbreker",
-      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21"
+      "source": "Originele uitbreiding naar 60 A1 en 60 A2 · 2026-09-21",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-161.mp3",
+        "voice": "Rick"
+      }
     }
   ]
 }

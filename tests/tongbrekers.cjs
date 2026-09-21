@@ -33,3 +33,29 @@ for(let i=0;i<142;i++){ctx.APP.cardIndex=i;vm.runInContext('startTongue()',ctx);
 assert.equal(vm.runInContext("cardsFor('tongue',true).length",ctx),142);
 for(const family of runtime.cardGames.families.filter(f=>f.id!=='tongue'))for(const route of runtime.cardGames.routeDefinitions){ctx.APP.cardRoute=route.id;ctx.kind=family.id;assert.deepEqual(Array.from(vm.runInContext('cardsFor(kind)',ctx),c=>c.id),Array.from(family.cards.filter(c=>c.routeId===route.id),c=>c.id))}
 console.log('PASS: exact 88 classifications; 142 playable/19 retained; 60 A1 and 60 A2 records; all 28 filter combinations, all 142 texts, empty selections and seven unchanged card families.');
+
+// Every playable record must point to its own bundled audio; retained sentences stay silent.
+const audioManifest=JSON.parse(read('data/tongbrekers-audio.json'));
+assert.equal(audioManifest.recordings.length,142);
+for(const c of bank.cards){
+ if(c.type!=='tongbreker'){assert.equal(c.audio,undefined);continue}
+ assert.equal(c.audio.src,`assets/audio/tongbrekers/${c.id.toLowerCase()}.mp3`);
+ assert.ok(['Rick','Jennifer','Roland'].includes(c.audio.voice));
+ const info=audioManifest.recordings.find(r=>r.id===c.id);assert.ok(info);assert.equal(info.text,c.text);
+ const bytes=fs.readFileSync(path.join(root,c.audio.src));assert.ok(bytes.length>1000);
+ assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'),info.sha256);
+}
+(async()=>{
+ const players=[],messages=[];let rejectPlay=false,release;
+ ctx.Audio=function(src){this.src=src;this.currentTime=1;this.paused=false;this.pause=()=>{this.paused=true};this.play=()=>rejectPlay?Promise.reject(new Error('load failed')):new Promise(resolve=>{release=resolve});players.push(this)};
+ ctx.toast=m=>messages.push(m);
+ const card=bank.cards.find(c=>c.type==='tongbreker'),button={isConnected:true,textContent:'Voorlezen'};
+ ctx.card=card;ctx.button=button;
+ let playing=vm.runInContext('readTongue(card,button)',ctx);release();await playing;
+ assert.equal(players[0].src,card.audio.src);assert.equal(button.textContent,'Nog een keer');
+ playing=vm.runInContext('readTongue(card,button)',ctx);assert.equal(players[0].paused,true);assert.equal(players[0].currentTime,0);
+ vm.runInContext('stopTongueAudio()',ctx);release();await playing;assert.equal(players[1].paused,true);
+ const staleError=players[1].onerror;rejectPlay=true;await vm.runInContext('readTongue(card,button)',ctx);
+ assert.equal(button.textContent,'Voorlezen');assert.equal(messages.length,1);staleError();assert.equal(messages.length,1);
+ console.log('PASS: 142 exact audio mappings and file hashes; repeat, cancellation, stale callbacks and playback failure.');
+})().catch(e=>{console.error(e);process.exitCode=1});
