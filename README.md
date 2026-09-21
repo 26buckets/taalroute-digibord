@@ -12,6 +12,12 @@ Serveer `dist/` met een lokale webserver. De app heeft geen externe runtime-afha
 
 960 gespreksopdrachten en 240 aparte Snelvragen. `npm run check:banks` vergelijkt de canonieke JSON en browserbundles in `Lessen/` met de actieve losse data en ingebouwde runtime. Zie BANKEN-V2-INTEGRATIE.md. Tongbrekers heeft een eigen bank: 161 bronrecords, waarvan 142 speelbare tongbrekers en 19 bewaarde uitspraakzinnen.
 
+## Taalworp
+
+Werkwoordsets kiezen en mengen via hetzelfde aanvinkmenu als Verhaalworp. Drie onderdelen: Basis (blauw, twee sets), Taalvorm (paars, vijf sets) en Thema’s (groen, zestien sets). Selectie toepassen maakt één voorraad zonder dubbele werkwoord-ID’s. Nieuwe werkwoordkaart trekt alleen een kaart; Gooien gebruikt ook de vrije taalstenen. Vastgezette kaarten en stenen blijven staan bij setwissels. De mix blijft bewaard bij hervatten; oude enkelvoudige selecties blijven werken.
+
+`npm run test:taalworp:browser` controleert mengen, groepering, slotjes over setgrenzen, hervatten, Terug, oude opgeslagen spellen, kaart trekken, voorbeeld en schermformaten.
+
 ## Verhaalworp
 
 320 unieke goedgekeurde beelden in tien speelbare sets: Basis (54), Acties (54), Dagelijks leven (36), Werk (54), Familie (6), Gevoelens (12), Lichaamsdelen (18), Beroepen (12), Dagelijkse aanvullingen (54) en Extra acties (22). Hand en oor zijn gedeeld met Lichaamsdelen; er zijn 322 setplaatsen, geen 322 verschillende beelden. De tien aanvullende acties zijn bij Extra acties ondergebracht. Vink één of meer sets aan en pas de selectie toe om hun beelden te mengen. Gedeelde beelden tellen één keer mee. Vastgezette beelden blijven bewaard bij een andere selectie, ook als hun set wordt uitgezet; vrije stenen komen uit de nieuwe selectie. Familie alleen ondersteunt drie of zes stenen; gemengde sets ook negen. Bestaande opgeslagen enkelvoudige selecties blijven werken.

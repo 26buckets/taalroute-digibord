@@ -17,7 +17,8 @@
     "test:wz:browser": "node tests/wz-browser.cjs",
     "import:wordspel": "node scripts/import-wordspel.cjs --write && npm run sync:words",
     "test:story:browser": "node tests/storydice-browser.cjs",
-    "test:c1:browser": "node tests/c1-browser.cjs"
+    "test:c1:browser": "node tests/c1-browser.cjs",
+    "test:taalworp:browser": "node tests/taalworp-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",

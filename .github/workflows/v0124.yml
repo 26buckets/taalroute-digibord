@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
       - run: npm test && npm run lint && npm run types && npm run build && node tests/deployment.cjs
       - run: npx playwright install --with-deps chrome
-      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser
+      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser
         env:
           CHROME_PATH: /opt/google/chrome/chrome
           BUILD_SMOKE: '1'

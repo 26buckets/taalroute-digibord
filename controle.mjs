@@ -54,7 +54,7 @@ const stage={isConnected:true,closest:()=>page,querySelector:()=>({animate})};
 const card={style:{},animate,getBoundingClientRect:()=>({left:500,top:400,width:300})};
 const ac=vm.createContext({Promise,Math,APP:{verbLocked:false,currentVerb:'a'},reduced:false,draws:0,TW_DICE_IDS:['WHO','TENSE','CONNECT_1'],
  twDiceState:{WHO:{active:true,locked:true,value:{label:'ik'}},TENSE:{active:true,locked:false,value:{label:'nu'}},CONNECT_1:{active:false,locked:false,value:{label:'en'}}},
- tw:{manifest:{diceFamilies:{TENSE:{values:[{label:'nu'},{label:'verleden'}]}}}},
+ tw:{manifest:{verbs:{a:{id:'a'},b:{id:'b'}},diceFamilies:{TENSE:{values:[{label:'nu'},{label:'verleden'}]}}}},
  $(selector){return {'#languageStage':stage,'#primaryGame':primary,'#activeVerbCard':card,'#drawVerb':deck}[selector]},
  SmoothDice:{roll:()=>animate([],{duration:700}).finished},updateUndo(){},renderLanguageDice(){},renderVerbCard(){},playDiceSound(){},matchMedia:()=>({matches:false})});
 vm.runInContext("let languageBusy=false;function settingsState(){return {reducedMotion:reduced}}function currentVerbPool(){return [{id:'a'},{id:'b'}]}function drawVerb(){draws++;APP.currentVerb=APP.currentVerb==='a'?'b':'a'}",ac);
@@ -305,13 +305,21 @@ vm.runInContext('syncLevelSelect(false)',menuCtx);assert.equal(levelMenu.value,'
 assert.ok(!source.includes('id="cardRoute"'));
 console.log('PASS: single route selector retains R1, R2 and all seven production routes; ordinary levels restored outside cards.');
 
-// Every ready verb set gets a cover; exactly the active one draws rather than changes sets.
-const shelfCtx=vm.createContext({esc:s=>String(s??''),gameIcon:()=>'<svg></svg>'});
-vm.runInContext(source.slice(source.indexOf('function playCardBack('),source.indexOf('function cardDeck(')),shelfCtx);
-vm.runInContext(source.slice(source.indexOf('function verbSetShelf('),source.indexOf('function startTaalworp(')),shelfCtx);
-shelfCtx.sets=Object.values(data.taalworpSets.sets).filter(s=>s.availabilityStatus==='ready');
-for(const set of shelfCtx.sets){shelfCtx.setId=set.id;const html=vm.runInContext('verbSetShelf(sets,setId)',shelfCtx);assert.equal((html.match(/id="drawVerb"/g)||[]).length,1);assert.equal((html.match(/class="play-card-back"/g)||[]).length,23);assert.equal((html.match(/data-verbset=/g)||[]).length,22);assert.ok(html.includes(set.recordIds.length+' kaarten'));}
-console.log('PASS: all 23 verb-set covers, a unique active draw stack, and 22 alternative set actions.');
+// All ready sets are selectable once, grouped into Basis, Taalvorm and Thema’s.
+const setCtx=vm.createContext({esc:s=>String(s??''),APP:{},tw:{sets:data.taalworpSets,manifest:m}});
+vm.runInContext(source.slice(source.indexOf('function currentVerbPool('),source.indexOf('function taalworpExample(')),setCtx);
+vm.runInContext(source.slice(source.indexOf('function verbSetMenu('),source.indexOf('function startTaalworp(')),setCtx);
+setCtx.sets=Object.values(data.taalworpSets.sets).filter(s=>s.availabilityStatus==='ready');
+for(const set of setCtx.sets){
+ setCtx.APP.taalworpSets=[set.id];setCtx.selected=[set.id];
+ const html=vm.runInContext('verbSetMenu(sets,selected)',setCtx);
+ assert.equal((html.match(/data-verbset /g)||[]).length,23);assert.equal((html.match(/ checked/g)||[]).length,1);
+ assert.equal((html.match(/data-verbgroup=/g)||[]).length,3);
+ assert.equal(vm.runInContext('currentVerbPool().length',setCtx),set.recordIds.length);
+}
+setCtx.APP.taalworpSets=setCtx.sets.map(s=>s.id);
+assert.equal(vm.runInContext('currentVerbPool().length',setCtx),new Set(setCtx.sets.flatMap(s=>s.recordIds)).size);
+console.log('PASS: all 23 verb sets, three labelled groups, single selections and a deduplicated full mix.');
 
 // Three states: active/free, active/held and off. A lock cannot activate an off die.
 const toggleDie={dataset:{die:'WHO'}},toggleLock={dataset:{lock:'WHO'}},toggleStage={innerHTML:''};
