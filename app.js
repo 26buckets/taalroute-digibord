@@ -245,7 +245,7 @@ function boardActiveActor(board){
 }
 function boardRouteSvg(board,route){
  const numbers=settingsState().showNumbers!==false;
- if(route.overlayMode==='painted')return route.nodes.map(n=>`<text class="painted-number" x="${n.x}" y="${n.y}" ${numbers?'':'visibility="hidden"'}>${n.id}</text>`).join('');
+ if(route.overlayMode==='painted')return route.nodes.map(n=>`<text class="painted-number" x="${n.x}" y="${n.y}" ${numbers&&n.showNumber!==false?'':'visibility="hidden"'}>${n.id}</text>`).join('');
  return route.nodes.map(n=>`<g transform="translate(${n.x} ${n.y})"><circle r="15" fill="${shapeMeta(n.shape).color}" stroke="white" stroke-width="2"/><text class="painted-number" y="1">${numbers?n.id:shapeMeta(n.shape).symbol}</text></g>`).join('');
 }
 function boardOcclusionSvg(route,img){

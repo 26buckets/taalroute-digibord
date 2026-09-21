@@ -156,6 +156,8 @@ async function check(page, label) {
     save();
   });
   await page.reload();await page.evaluate(()=>startBoard('zwolle'));
+  assert.equal(await page.locator('#boardRoute>text:not([visibility="hidden"])').count(),40,'only task fields numbered; START and FINISH stay readable');
+  assert.equal(await page.locator('#boardRoute circle').count(),0,'Zwolle uses painted road fields like Rotterdam, without floating badges');
   assert.equal(await page.evaluate(()=>APP.boardStates.zwolle.classPos),41,'finish persists after reload');
   await page.emulateMedia({reducedMotion:'no-preference'});
   await page.evaluate(()=>{
