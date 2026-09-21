@@ -368,3 +368,19 @@ header{background:rgba(255,255,255,.985);border-bottom:1px solid #dfe7ed;display
 @media(max-width:374px){#app>header .header-brand-logo{width:50px}#app>header .mainnav .navitem{padding:8px 0}}
 
 .board-options .board-exercise-choice{display:flex;flex-direction:column;align-items:stretch;gap:6px;height:auto;padding:8px 0}.board-exercise-choice #questionMode{width:100%;min-width:0;max-width:none;flex:none;min-height:44px;font-size:14px}
+
+/* Playing a board gives the map the header's space; the gamebar is unchanged. */
+#boardMenuToggle{display:none}
+#app:has(#screen-game.active .board-game){grid-template-rows:minmax(0,1fr)}
+#app:has(#screen-game.active .board-game)>header{position:absolute;top:12px;right:12px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;padding:4px 8px;max-width:calc(100% - 24px);height:auto;border:1px solid var(--line);border-radius:12px}
+#app:has(#screen-game.active .board-game)>header .brand{display:none}
+#app:has(#screen-game.active .board-game)>header .mainnav{display:flex;height:auto;gap:8px}
+#app:has(#screen-game.active .board-game)>header .navitem{min-height:44px;height:auto}
+#app:has(#screen-game.active .board-game)>header .header-actions{flex-wrap:wrap;justify-content:flex-end;gap:6px}
+#app:has(#screen-game.active .board-game)>header #boardMenuToggle{display:block;min-height:44px}
+#app:has(#screen-game.active .board-game)>header .gear{width:44px;height:44px}
+#app:has(#screen-game.active .board-game)>header:not(.board-menu-open) .navitem:not([data-main=play]),
+#app:has(#screen-game.active .board-game)>header:not(.board-menu-open) .header-actions>:not(#fullscreenBtn):not(#boardMenuToggle){display:none}
+#app:has(#screen-game.active .board-game)>header button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.board-game .board-options{top:76px;max-height:calc(100% - 88px);overflow:auto}
+@media(max-width:650px){.board-game .board-hud{top:76px}}
