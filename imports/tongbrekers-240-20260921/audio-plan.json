@@ -1,0 +1,1394 @@
+{
+  "reuseExactText": 94,
+  "recordingRequired": 146,
+  "items": [
+    {
+      "id": "TR-TONGUE-049",
+      "text": "Pim pakt papier.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-049.mp3",
+      "sha256": "d29e35ad7be222bdd65f5df136b8d4a079f180baf42c297c62d4c42c99d3a24d"
+    },
+    {
+      "id": "TR-TONGUE-105",
+      "text": "Nat net, net nat.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-105.mp3",
+      "sha256": "d0f154c82c21c80099feb9ad6e12fcfc25b8fccd13bfe6499a655997323fb525"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-003",
+      "text": "Pak pap, pak sap.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-004",
+      "text": "Kop, kip, kop, kip.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-005",
+      "text": "Kan in pan, pan in kan.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-006",
+      "text": "Pak de pan, pak de pen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-007",
+      "text": "Vis of vies, vies of vis.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-008",
+      "text": "Baan, been, boon, been, baan.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-009",
+      "text": "Bep belt Bob.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-010",
+      "text": "Piet pakt patat.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-011",
+      "text": "Saar snijdt sla.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-012",
+      "text": "Sien ziet zee.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-013",
+      "text": "Wim wast wol.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-014",
+      "text": "Jas in tas, tas met jas.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-015",
+      "text": "Bas wast was.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-016",
+      "text": "Kop op kop op kop.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-017",
+      "text": "Pak, pik, pak, pik.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-018",
+      "text": "Tik op tak, tak op tik.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-019",
+      "text": "Pap plakt, pak plakt.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-020",
+      "text": "Bus bij bos, bos bij bus.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-021",
+      "text": "Natte noten, nette noten.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-022",
+      "text": "Twee tenen tikken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-023",
+      "text": "Zes zakken, zes sokken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-024",
+      "text": "Volle vellen vallen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-025",
+      "text": "Losse lussen, losse lassen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-026",
+      "text": "Rode rits, rare rits.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-027",
+      "text": "Kom maar, kam maar.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-028",
+      "text": "Pak de kop, pak de kan.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-029",
+      "text": "Dikke sokken zakken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-030",
+      "text": "Rode rollen rollen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-031",
+      "text": "Kat tikt tak.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-032",
+      "text": "Kip pikt pit.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-033",
+      "text": "Kees kiest kaas.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-034",
+      "text": "Koos kiest koek.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-035",
+      "text": "Fien vindt vis.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-036",
+      "text": "Tien tenen tikken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-037",
+      "text": "Zes zussen zingen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-038",
+      "text": "Zeven zussen zoeken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-039",
+      "text": "Kleine klokken klinken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-040",
+      "text": "Platte planten plakken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-124",
+      "text": "Lange lepels liggen links.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-124.mp3",
+      "sha256": "bc2709dfab5b67569ed2de8c55a234157923af2c1abb9514b712f492da72b2b5"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-042",
+      "text": "Schone schoenen schuiven.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-018",
+      "text": "Drie droge doeken.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-018.mp3",
+      "sha256": "6192e10cfcf189d4ae6f17819022e0520121981919b79bdbfd3b33fac2142c39"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-044",
+      "text": "Twee trage treinen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-045",
+      "text": "Vier vieze vazen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-046",
+      "text": "Vijf volle vellen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-047",
+      "text": "Zwarte zak, zachte zak.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-048",
+      "text": "Dikke tak, dunne tak.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-107",
+      "text": "Rood haar, raar haar.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-107.mp3",
+      "sha256": "c48dbf3006932b67825da8f93b6ff0d605ecc691d06995c9ef691663e20ff7c0"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-050",
+      "text": "Kat krabt krat.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-051",
+      "text": "Krab krabt krat.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-052",
+      "text": "Broer brengt brood.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-053",
+      "text": "Blauwe bril, bruine bril.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-054",
+      "text": "Rode roos, rare roos.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-055",
+      "text": "Korte krul, kromme krul.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-056",
+      "text": "Strakke straat, stroeve straat.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-057",
+      "text": "Knappe knieën knikken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-058",
+      "text": "Flinke fles valt.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-059",
+      "text": "Slappe sla slaapt.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-060",
+      "text": "Drie dikke druppels.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-004",
+      "text": "De prins spreekt slecht Spaans.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-004.mp3",
+      "sha256": "7f30851cfbba1c1a61ce77f8e9d7ae35e54030a3a64b7e93979785dc9b08370a"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-002",
+      "text": "Boterklontje, boterklontje, boterklontje.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-003",
+      "text": "Die dikke domoren drammen door.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-013",
+      "text": "De kat krabt de krullen van de trap.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-013.mp3",
+      "sha256": "b794fb3bdcb2112e734c369c7909572b0049adb0860a93d908a38b14397e8822"
+    },
+    {
+      "id": "TR-TONGUE-016",
+      "text": "Frits vindt visfrietjes vreselijk vies.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-016.mp3",
+      "sha256": "a0b81350684dbf47c03c8c331982d2ac63067d10fdb818f0972d081c560ed90c"
+    },
+    {
+      "id": "TR-TONGUE-022",
+      "text": "Ik schrijf scheef in mijn schrift.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-022.mp3",
+      "sha256": "25ee063353024ae9f1ae1d495d9ac79330f9512ac4109177db7e3bb55ef27906"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-007",
+      "text": "Bakker Bas bakt bolle broodjes bruin.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-027",
+      "text": "Bedek het bed met het dekbed.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-027.mp3",
+      "sha256": "f35967556f4a3e91c60d0ba224f0f3f7b39e1ba1fe1b2c94bc9ce49c2dcb8d23"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-009",
+      "text": "Papa pakt de platte bakpan.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-044",
+      "text": "Drie dove domme dromedarissen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-044.mp3",
+      "sha256": "024c062bb4f9c4446cda8cd360d68db6dce09c58c459edd802e7f04acb7ebd2e"
+    },
+    {
+      "id": "TR-TONGUE-055",
+      "text": "Koen koopt koek, maar de koek kruimelt.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-055.mp3",
+      "sha256": "e48ca335f09ead30ad318db6748190d3af6f14c5136fdd1723f683971f0ceb36"
+    },
+    {
+      "id": "TR-TONGUE-057",
+      "text": "In de stille straat staan twee stoelen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-057.mp3",
+      "sha256": "11d4e3b1194ddfd6bc1c5e987d966adcd606c5e5c3689c1d7c09d283b338c7da"
+    },
+    {
+      "id": "TR-TONGUE-061",
+      "text": "Frans fietst vroeg naar de fruitmarkt.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-061.mp3",
+      "sha256": "8d6749c052732c5e63a018ca2cd0832c4e57fbc899dbdba6ab215b9eb7291d02"
+    },
+    {
+      "id": "TR-TONGUE-089",
+      "text": "Pak de kop, pak de kan, pak de pan.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-089.mp3",
+      "sha256": "36dd083ca10041ff59f13b16578445c3f47d8474fb5df336e9ee6cc242d2d09a"
+    },
+    {
+      "id": "TR-TONGUE-092",
+      "text": "Twee katten tikken tegen tien takken.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-092.mp3",
+      "sha256": "a9bb84f0ca4642628a0b87df32873b8071a603de935f78c7265fea9773493a23"
+    },
+    {
+      "id": "TR-TONGUE-094",
+      "text": "De kok kookt kool in een kleine kookpan.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-094.mp3",
+      "sha256": "1eeb55bbc0311602c131b2dac0ef2c8d036be11d5eedff755f2d0396bc7b5ab1"
+    },
+    {
+      "id": "TR-TONGUE-095",
+      "text": "Zes zussen zoeken zeven sokken.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-095.mp3",
+      "sha256": "5c74f60ce967bb4a55a457c2a9061427dfcf57de27df348e0a053fb49852a624"
+    },
+    {
+      "id": "TR-TONGUE-096",
+      "text": "Knappe kappers knippen korte krullen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-096.mp3",
+      "sha256": "2d1f4a9a9554f6b9f38adc4854b473adef577423d210fc12f050bee0e988c3eb"
+    },
+    {
+      "id": "TR-TONGUE-097",
+      "text": "Kees kiest kaas, Koos kiest koek.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-097.mp3",
+      "sha256": "3311ed292ce4a36da30ddd8a7859450a0479e8147358f184751ab9aaae1b635b"
+    },
+    {
+      "id": "TR-TONGUE-098",
+      "text": "Piet poetst de pot, de pot poetst Piet.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-098.mp3",
+      "sha256": "4df638e640085c22d33cc06cf97b0bc987dd90108efcfdc70ecbcfdae407d124"
+    },
+    {
+      "id": "TR-TONGUE-099",
+      "text": "Bert botst, Bart bukt, Bert bukt, Bart botst.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-099.mp3",
+      "sha256": "93829b9f21b2e7966d2392295804d656a944e6e16bef3aa395046789992b6b8a"
+    },
+    {
+      "id": "TR-TONGUE-100",
+      "text": "Grote groene glazen glimmen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-100.mp3",
+      "sha256": "4bb72b968185c61d4d75e5ad74bb8bbd5362ef24489bc98c2beb38dc841f17bc"
+    },
+    {
+      "id": "TR-TONGUE-101",
+      "text": "Vijf vuile vorken vallen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-101.mp3",
+      "sha256": "2e273ca355122d8c4b95bc2d6df4cf5e63f80fddbad5a2fa86e519cc198c713e"
+    },
+    {
+      "id": "TR-TONGUE-102",
+      "text": "Vis in de fles, vlees in de tas.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-102.mp3",
+      "sha256": "1fc829c8e7a7c2d5a98455871f89b49dbb614a53200c260253b0e74a797aeaa9"
+    },
+    {
+      "id": "TR-TONGUE-103",
+      "text": "De tas past pas naast de kast.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-103.mp3",
+      "sha256": "bce5c6a0bb917deefd449fb7a345b89f7bb78b1f29ee081cf22974326520d102"
+    },
+    {
+      "id": "TR-TONGUE-104",
+      "text": "Sam wast zes vieze vazen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-104.mp3",
+      "sha256": "e8d3181fc40f3334e714be3e9ecd8d198c3f7d6a4bf52b2c51a6534fad2897f3"
+    },
+    {
+      "id": "TR-TONGUE-106",
+      "text": "Tante Tine telt tien tanden.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-106.mp3",
+      "sha256": "fad36c8bd02c064f13298fa2242906e766f94772e4f335b792ded8ce449c1bb9"
+    },
+    {
+      "id": "TR-TONGUE-109",
+      "text": "Negen natte neuzen niezen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-109.mp3",
+      "sha256": "aad6150f749d7b575904eea4b24b4e92f4cec37208481e8e89fe90e088feef53"
+    },
+    {
+      "id": "TR-TONGUE-111",
+      "text": "Zeven zakken zout zakken weg.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-111.mp3",
+      "sha256": "6636dc968b248d138aa0a8f9dac6e622dc2a0cb9d90bc6749366f009d0d6a02c"
+    },
+    {
+      "id": "TR-TONGUE-112",
+      "text": "Zes messen missen één mes.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-112.mp3",
+      "sha256": "096b6618ddba665836177e1a7f11f47353b588f3b619540bf87d8102bf265420"
+    },
+    {
+      "id": "TR-TONGUE-115",
+      "text": "De kip pikt, de kikker kijkt.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-115.mp3",
+      "sha256": "b01bb75bb6d58afefe2bb95eb9ec7aac1bb3e391bd0f95f2e20c8bf3654de08b"
+    },
+    {
+      "id": "TR-TONGUE-117",
+      "text": "Drie trage treinen trillen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-117.mp3",
+      "sha256": "67dfcd775766668aeee269626a977a824ab3c8fc6e1dfc47fcf1e457cf670456"
+    },
+    {
+      "id": "TR-TONGUE-119",
+      "text": "Een paar paarse paarden.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-119.mp3",
+      "sha256": "a513129804a036323dedd81dfb0e871c0627407a1b3a4ccc17a7eb2083512245"
+    },
+    {
+      "id": "TR-TONGUE-122",
+      "text": "De draad draait drie keer.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-122.mp3",
+      "sha256": "8979233bbf4d0c5d935a94c6b6154199a2a23c0b181abeca650bf7d05ed9a739"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-035",
+      "text": "Gijs giet geel sap.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-036",
+      "text": "Schoon schort, scheef schort.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-037",
+      "text": "De slome slak sleept sla.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-038",
+      "text": "Bram brengt breed brood.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-039",
+      "text": "Fien vouwt vijf vellen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-040",
+      "text": "Tom trekt twee tassen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-041",
+      "text": "Saar schuift zes schalen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-042",
+      "text": "Karel kraakt krokante crackers.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-043",
+      "text": "De kleine kraan kraakt.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-044",
+      "text": "Roos rolt rode rollen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-045",
+      "text": "De grijze gans graast graag.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-046",
+      "text": "Drie broers brengen brood.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-047",
+      "text": "Vera veegt vijf vieze vegen weg.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-048",
+      "text": "De post past pas in de postbus.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-049",
+      "text": "Een platte plaat plakt.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-050",
+      "text": "De blauwe blouse blijft blauw.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-051",
+      "text": "Kleine krabben kruipen krom.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-052",
+      "text": "Vier frisse frieten frituren.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-053",
+      "text": "De snelle slager snijdt sla.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-054",
+      "text": "Zes zachte zolen zakken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-055",
+      "text": "De groene groenteboer grijnst.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-056",
+      "text": "Truus trekt drie truien.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-057",
+      "text": "De brede brug breekt bijna.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-058",
+      "text": "Twee stoere stieren staren.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-059",
+      "text": "De schoen schuift schuin.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-060",
+      "text": "Drie glazen glijden glad.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-002",
+      "text": "Ruud Rups raspt rap rode ronde radijsjes.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-002.mp3",
+      "sha256": "272a3599e6dcefe844713157c6b6ba95e84654096bf180e53ddc4b20c42448ff"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-002",
+      "text": "Wat Wil wil, wil Wil wel weten.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-009",
+      "text": "Een pet met een platte klep is een platte kleppet.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-009.mp3",
+      "sha256": "7101966cdcfadedfc4ecbf16a3657394015b34569281ff7c99f2108762198964"
+    },
+    {
+      "id": "TR-TONGUE-011",
+      "text": "Moeder sneed zeven scheve sneden brood.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-011.mp3",
+      "sha256": "4d638c5c1397298233eec6d04ac83b50c3a54e8d77ed90edbdfa4c6a68a19d9c"
+    },
+    {
+      "id": "TR-TONGUE-012",
+      "text": "Max mixt de whisky met de whiskymixer.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-012.mp3",
+      "sha256": "eaa2fc0cb221c5cbce8b10e21e4c0808ca22c5fd21ff1871b9c4fc0d2240caa9"
+    },
+    {
+      "id": "TR-TONGUE-019",
+      "text": "Ik zag haar haar kammen met haar haarkam.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-019.mp3",
+      "sha256": "e764708c9ce6d8d6e9e44d50ef92add157e3698ed2138422c290cfb4551c1ef4"
+    },
+    {
+      "id": "TR-TONGUE-021",
+      "text": "De knecht snijdt recht en de meid snijdt scheef.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-021.mp3",
+      "sha256": "76c27be44d2e70a98ae2265529f2c5d11afbf869008b74ec944773062799cd24"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-008",
+      "text": "Klara knipt de krullenkop kaal.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-009",
+      "text": "Zij zei dat zij zei dat zij wat zei.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-025",
+      "text": "Die schaar knipt knap stroef.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-025.mp3",
+      "sha256": "7afb59d0a501027b492edfea15451a6ba0cc6cea121bdde138f28215beb647e7"
+    },
+    {
+      "id": "TR-TONGUE-028",
+      "text": "Duizend dames drinken dagelijks druivensap.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-028.mp3",
+      "sha256": "a7ea1e1ed147111dc95bfea98066eb60a1dda6af6833d5eedcd14881acb63148"
+    },
+    {
+      "id": "TR-TONGUE-032",
+      "text": "De kapster kapt de krullenbol op de kruk.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-032.mp3",
+      "sha256": "ab82ac23c61051e938cc7752cf52c7286a88544af3e9951110b80d9a2ea5a65c"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-013",
+      "text": "Thijs snijdt de schijfjes steeds scheef.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-035",
+      "text": "De poes kotst in de postzak.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-035.mp3",
+      "sha256": "3fab9e1dbe93d550bd509384c5e268a552f7364fbb38c5fd4b55a521116ce3a0"
+    },
+    {
+      "id": "TR-TONGUE-037",
+      "text": "Ik bak een plak bakbloedworst.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-037.mp3",
+      "sha256": "d3bb5fde0553abde4f950fe0e55f2fc9bf1506009ea57d96256f6a0d2e0e692b"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-016",
+      "text": "Ik pak mijn kersenpittenkussentje.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-017",
+      "text": "Vera vult vijf volle vuilnisvaten.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-018",
+      "text": "De buur brengt bruine borden naar boven.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-062",
+      "text": "Zes zachte zakken zitten stevig in dezelfde tas.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-062.mp3",
+      "sha256": "9ef88b3ad81336a9991222daaff7ea4f18f599d305e84cafe29deb17defc60d3"
+    },
+    {
+      "id": "TR-TONGUE-063",
+      "text": "Korte kratten kraken als Karim ze kantelt.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-063.mp3",
+      "sha256": "8fdf039add1d477cb7ff07b0dc9bcbf11339a850e6416cd4c05473ecd9643172"
+    },
+    {
+      "id": "TR-TONGUE-064",
+      "text": "Saar schuift smalle schalen naast de schone schaal.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-064.mp3",
+      "sha256": "3da761330cc4a9fe4c3a57dcfe450f587965d2c6646965ef0f879d3654fd3793"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-022",
+      "text": "Bram brengt bruine borden binnen, de brede bak blijft buiten.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-126",
+      "text": "De schipper schuift de scheve schotel achter de schone schuur.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-126.mp3",
+      "sha256": "f585e4367e58813ae0a95896c56ac6d77b109325c8e2f71daa82692787ef8c3a"
+    },
+    {
+      "id": "TR-TONGUE-127",
+      "text": "Twee strenge stratenmakers stapelen stenen naast een smalle straat.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-127.mp3",
+      "sha256": "c87800d229e1df3c47cb1fb8bb8161a88ff8ba3865b02487968a71602f9481a4"
+    },
+    {
+      "id": "TR-TONGUE-128",
+      "text": "De postbode stopt de post pas in de pas geverfde postbus.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-128.mp3",
+      "sha256": "2e9db06c508b28c84cd5095f4b7f21df6aec36d2bc0d50a8dd4bf31f69b57921"
+    },
+    {
+      "id": "TR-TONGUE-129",
+      "text": "De kapper knipt krullen, maar de krullen klitten aan zijn kleren.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-129.mp3",
+      "sha256": "fd4894c5ce8ba03ecb8378cb774d8a2d0ef3612af1e7edbe65c53039198d5cfc"
+    },
+    {
+      "id": "TR-TONGUE-130",
+      "text": "Wie de rits van de rok rukt, rukt de rok van de rits.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-130.mp3",
+      "sha256": "a1af08214da382ee590999fa1325a06a375ba90cdf849c3922ebe797d08c59fb"
+    },
+    {
+      "id": "TR-TONGUE-131",
+      "text": "De plakker plakt platte plaatjes op een plakkerige plastic plaat.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-131.mp3",
+      "sha256": "935c983198063385fc314993b75b705531c8efa304c3d8f7f565a36a239c4d78"
+    },
+    {
+      "id": "TR-TONGUE-132",
+      "text": "Trage trams trillen terwijl drie treinen langs het station razen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-132.mp3",
+      "sha256": "9d2c5cb014332ae0f93d84ec487ae1c0ef1fd1433ad47bc023f73047d6ea26a5"
+    },
+    {
+      "id": "TR-TONGUE-133",
+      "text": "De korte kurk klemt in de kromme hals van de kruik.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-133.mp3",
+      "sha256": "764f0374d60d6def495d21149740ec263b5e018dc3ad3dd7040e8655069bbb50"
+    },
+    {
+      "id": "TR-TONGUE-134",
+      "text": "De drukke drukker drukt drie dikke druppels drukinkt op papier.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-134.mp3",
+      "sha256": "29457dbe22777d7225120814e043ff6a9ba499083aa476f07bb960f033854eee"
+    },
+    {
+      "id": "TR-TONGUE-135",
+      "text": "Een scheve schroef schroef je scheef in een scheve schutting.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-135.mp3",
+      "sha256": "23db93b6a09a658bd6eff3691eff47598030bcbda08b4ad268eb91cea2eac5f1"
+    },
+    {
+      "id": "TR-TONGUE-136",
+      "text": "De grote grijze grasmaaier graast graag door het groene gras.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-136.mp3",
+      "sha256": "421e0e8dcc0b45e686d420f994fb8cd661100ed0b4ae2db0cce05ed8dbf7e0ec"
+    },
+    {
+      "id": "TR-TONGUE-137",
+      "text": "Vera verft vijf fietsen, Fien verft vier vieze vazen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-137.mp3",
+      "sha256": "45da0d4ce82c8144e16635d2535878adf9bc5b0495e160494128fcfb156e6464"
+    },
+    {
+      "id": "TR-TONGUE-138",
+      "text": "Zwarte zwanen zwaaien zwijgend naar zeven zware zwemmers.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-138.mp3",
+      "sha256": "da8980768db3d097b063f6548985ac5d1d2040a78494e98c84179adeced8ca90"
+    },
+    {
+      "id": "TR-TONGUE-139",
+      "text": "De kok klopt koude room terwijl de kopjes in de kast klapperen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-139.mp3",
+      "sha256": "cd2d8f5262181a3babac1b92de03b60e7e4e141b53c352a93c5f1c9586db5643"
+    },
+    {
+      "id": "TR-TONGUE-141",
+      "text": "Tussen twee dikke takken tikken tien takjes tegen elkaar.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-141.mp3",
+      "sha256": "521aa5399f674b116af1e9067601b156ad100a90b4d9d0ff1d3f75d40dea75cf"
+    },
+    {
+      "id": "TR-TONGUE-142",
+      "text": "Als de bus de brug mist, mist de brug de bus niet.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-142.mp3",
+      "sha256": "9fb11892b28104c0036188e0b6fc4bcff66af9f4f3a928264db0b3d0067ed777"
+    },
+    {
+      "id": "TR-TONGUE-143",
+      "text": "De breiende buurvrouw breit bruine broeken voor haar broer.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-143.mp3",
+      "sha256": "dbf0bfcf6495300b023faf5cb07619b87cdf4a2fdcca923de5f61db1aaea5158"
+    },
+    {
+      "id": "TR-TONGUE-144",
+      "text": "De boze bezorger bezorgt zes bezems zonder bezorgbon.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-144.mp3",
+      "sha256": "4ca7c04ef8234e8b1ac723e5b71cf299d891912bed73d19c89e7c82b6b129b47"
+    },
+    {
+      "id": "TR-TONGUE-145",
+      "text": "Kleine kinderen kraken krokante koekjes naast een krakende kachel.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-145.mp3",
+      "sha256": "998a5a63bfa7bec75bd986b28622645e0ecf831aa4f31fb5d7ac2a4c252c6dc6"
+    },
+    {
+      "id": "TR-TONGUE-146",
+      "text": "De volle vuilniswagen vervoert vijf vuilnisvaten vol vuil.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-146.mp3",
+      "sha256": "217aeebb0f20f217e41bfa5be850a3fedf8a3628616f9534be3403ea3492e029"
+    },
+    {
+      "id": "TR-TONGUE-147",
+      "text": "Drie slome slakken slapen tussen slappe slabladeren.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-147.mp3",
+      "sha256": "cf057bde7bad3da4e50acd1c19a9c90143cc591efdc4cccec91d61fc6b54a227"
+    },
+    {
+      "id": "TR-TONGUE-148",
+      "text": "Willem wast witte was, terwijl Wilma wollen wanten wast.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-148.mp3",
+      "sha256": "d9b7be974a781e7e398515b75a846ed9b84dc82e2b405e713dc967d80c951bab"
+    },
+    {
+      "id": "TR-TONGUE-150",
+      "text": "De scheidsrechter schreeuwt schor terwijl de spelers scheef schieten.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-150.mp3",
+      "sha256": "30ba4b750a4cc67885cfa482e54b763c6dac8c2a17f0c8e82a87555f4e8d0ef5"
+    },
+    {
+      "id": "TR-TONGUE-151",
+      "text": "Een strook stof schuift steeds tussen de stoffen stoelen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-151.mp3",
+      "sha256": "81469e71ad95dd293420b8ef3f44dd837eeb3546d52e7d6931c3c5b38f519e64"
+    },
+    {
+      "id": "TR-TONGUE-152",
+      "text": "De timmerman timmert tien traptreden tegen de trap.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-152.mp3",
+      "sha256": "ddca259172cb045e4bccca69a84fff934ad39e0381a0649994e9a5df4aacd4b6"
+    },
+    {
+      "id": "TR-TONGUE-153",
+      "text": "Met een kromme kam kamt Karim de korte krullen van Kim.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-153.mp3",
+      "sha256": "fc07f3eaa0fedcfa36e316aa1241bb78474cc1375aa6865b53feacbc76f98552"
+    },
+    {
+      "id": "TR-TONGUE-154",
+      "text": "De slager snijdt slordig slappe plakjes van een slingerende worst.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-154.mp3",
+      "sha256": "3786c3f3d826d00c6d6e7d81cfabb75fa89b2bd77106fa5cb694403fd70c7f0a"
+    },
+    {
+      "id": "TR-TONGUE-155",
+      "text": "Rond de ronde rotonde rijden drie rode ronkende auto's.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-155.mp3",
+      "sha256": "8259eced6c3c9242d9c864c258f64eaa93a7ca675a33753f4b3f7db1e4919090"
+    },
+    {
+      "id": "TR-TONGUE-156",
+      "text": "Vier vrolijke verhuizers verhuizen vijf volle vriezers.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-156.mp3",
+      "sha256": "e9a672dc2fa5711b07d9f05224e07e4b195c142b247acbe8bbf15bb9bc40ebb1"
+    },
+    {
+      "id": "TR-TONGUE-157",
+      "text": "De winkelier wisselt wisselgeld, maar wil weinig wisselen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-157.mp3",
+      "sha256": "14a19622a832b23a6b9e26c93d90d9951e7e3a1e6d3cb89190234d94c7dfaccb"
+    },
+    {
+      "id": "TR-TONGUE-158",
+      "text": "Gladde glazen glijden langs de glanzende glazen deur.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-158.mp3",
+      "sha256": "8bbd882037319073cd59e6a5d8eae7130980a0eca3756676276aa2dddbd0998f"
+    },
+    {
+      "id": "TR-TONGUE-159",
+      "text": "Zes zussen zagen zeven zagen naast zes zakken zand.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-159.mp3",
+      "sha256": "176d700408c004f849073512f5584fc67e60981bd8cd979b60709ec9d52a626d"
+    },
+    {
+      "id": "TR-TONGUE-161",
+      "text": "Netty legt het natte net net naast het nette net.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-161.mp3",
+      "sha256": "4a071bec8e0a80cb4a76bc6251be4a298766f98f0a08e239cb0e5ebb11c558dd"
+    },
+    {
+      "id": "TR-TONGUE-036",
+      "text": "De koetsier poetst de koets van de postkoets met de poetsdoek.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-036.mp3",
+      "sha256": "bd2071f3e5c457b6927db0ad2b41cad7160b7636a47ffbbf3970665bf0aabeca"
+    },
+    {
+      "id": "TR-TONGUE-030",
+      "text": "Als apen elkaar naapen, apen apen apen na.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-030.mp3",
+      "sha256": "351344fe12c76ccd5a74a3baae1f77db28183e43b6e7ba1695bf5d0d2d97ec69"
+    },
+    {
+      "id": "TR-TONGUE-014",
+      "text": "Jeukt jouw jeukende neus ook zo als mijn jeukende neus jeukt?",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-014.mp3",
+      "sha256": "54f7e7e8582f98549020607e08fd562b9ccd448ae2d078e67ea81fd9b2040bbd"
+    },
+    {
+      "id": "TR-TONGUE-017",
+      "text": "Als jouw teckel mijn teckel tackelt, tackelt mijn teckel jouw teckel terug.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-017.mp3",
+      "sha256": "750fd8a788fe5fff4d6ca1e782f2b47aa8bacce71f7c68720dd2450a87c8a254"
+    },
+    {
+      "id": "TR-TONGUE-005",
+      "text": "Voor was was was was was is.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-005.mp3",
+      "sha256": "4485b52c2f76e1f4fbbbf142e757fcf5d467cced254c20bf9dc27248cdd67bdc"
+    },
+    {
+      "id": "TR-TONGUE-001",
+      "text": "Zeven schone Schotse schaatsers schaatsen een scheve schaats in Scheveningen.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-001.mp3",
+      "sha256": "8364e507990e7dfeed11326e655b56ea9b457fb6dc241974b6723ddbbf048c36"
+    },
+    {
+      "id": "TR-TONGUE-010",
+      "text": "Pieter Peeters plant petieterige peterselieplantjes in pimpelpaarse peperpotjes.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-010.mp3",
+      "sha256": "f8f55a6a3eb8af9d2fb8db0e121291ddaa173f6636e3dbc55bd435ca9ca169a3"
+    },
+    {
+      "id": "TR-TONGUE-020",
+      "text": "Ping en Pong speelden pingpong. Ping pingpongde de pingpongbal naar Pong en Pong pingpongde de pingpongbal naar Ping.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-020.mp3",
+      "sha256": "a220feb306408980452917abb930116f15b79c5e82b05c8d480799d73ea687e8"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-004",
+      "text": "Als een potvis in de pispot pist, heb je een pispot vol potvispis.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-005",
+      "text": "Mijn zeven zeven zeven zeven keer beter dan jouw zeven zeven.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-007",
+      "text": "De knecht van Klaas de knappe kapper knipt en kapt nog knapper dan Klaas de knappe kapper knippen en kappen kan.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-007.mp3",
+      "sha256": "c3e4585134952f7ce88445792bfda86ea6fc0fcd0a1d151f08494b1dc4be914e"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-007",
+      "text": "Wie weet waar Willem Wevers witte wollen winterwanten werkelijk waren?",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-033",
+      "text": "Leentje leerde Lotje lopen langs de lange lindelaan, maar toen Lotje niet wou lopen, liet Leentje Lotje staan.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-033.mp3",
+      "sha256": "c5579687048986f755d98783ace1f060a327fadb17d632e63c95e70894c95eb6"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-009",
+      "text": "Als achter vliegen vliegen vliegen, vliegen vliegen vliegen achterna.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-043",
+      "text": "De herbergier van de herberg hier herbergt hier de herbergier van de herberg daar.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-043.mp3",
+      "sha256": "5cbce89e293fce9eb23764afb5e99768ee3272a8a73727ed7b842d1141036e4d"
+    },
+    {
+      "id": "TR-TONGUE-048",
+      "text": "Zeven zware zwemmers zwemmen zwoele zomerse zondagen zomaar zonder zwembroek in de zwarte zee.",
+      "status": "reuse_exact_text",
+      "src": "assets/audio/tongbrekers/tr-tongue-048.mp3",
+      "sha256": "67464ed4623dcdf4d41f06b6f19e921cd46b114cd0f2fbc84d7f24dea66fcb0f"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-012",
+      "text": "Frans zei tegen Frans in het Frans: is Frans in het Frans Frans? Nee, Frans in het Frans is François.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-013",
+      "text": "Als kakkerlakken in kattenbakken kakken, kun je kattenbakken vol kakkerlakkak pakken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-014",
+      "text": "Ik denk dat dat dat dat daar staat, dat dat dat moet zijn.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-015",
+      "text": "Wie een scheur scheef dichtnaait, naait de scheve scheur scheef dicht.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-016",
+      "text": "De stratenmaker straat de straat, maar straat de straat steeds schever.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-017",
+      "text": "Een kromme kurkentrekker trekt de kurk krom uit de kruik.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-018",
+      "text": "De kleermaker knipt kleine knoopsgaten in kleren met knellende knopen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-019",
+      "text": "In de drukke drukkerij drukt Dries drie proefdrukken met drukfouten.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-020",
+      "text": "Wie de klos losklopt, klopt de losse klos los van de plank.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-021",
+      "text": "De buurvrouw breit breed, maar haar broer breit bredere breisels.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-022",
+      "text": "De klep van de klepkar klapt dicht tegen de klepperende klapdeur.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-023",
+      "text": "De trein trekt traag drie treinstellen door de treinwasstraat.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-024",
+      "text": "De kok klopt klontjes uit de saus, maar de saus klontert koppig door.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-025",
+      "text": "Als de slotenmaker het slot sluit, sluit het slot de slotenmaker buiten.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-026",
+      "text": "De schilder schuurt de schuurdeur schoon voordat hij de schuurdeur schildert.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-027",
+      "text": "De blikken deksels blinken tussen de blikken met blikjes.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-028",
+      "text": "De tandarts telt tien tanden, maar telt twee tanden twee keer.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-029",
+      "text": "De verhuizer verhuist de vriezer voorbij de vastgelopen verhuiswagen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-030",
+      "text": "Wie zijn sokken in zakken stopt, stopt soms zakken tussen zijn sokken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-031",
+      "text": "De broodrooster roostert droog brood, maar droog brood roostert droger.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-032",
+      "text": "Als de schroevendraaier de schroef scheef draait, draait de scheve schroef scheef terug.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-033",
+      "text": "Pakt de pakjespakker het pakket verkeerd in, dan pakt de pakketbezorger het pakket weer uit.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-034",
+      "text": "De stadsdichter dicht over dichte stadspoorten, maar dicht de dichtstbijzijnde poort niet dicht.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-035",
+      "text": "Wie een scheepsschroef schoon schrobt, schrobt scheepsschroefschilfers uit de schroefschacht.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-036",
+      "text": "De knoflookkweker knoopt knoflookstrengen vast aan knoestige knoflookrekken.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-037",
+      "text": "Wie een kromme kromming recht probeert te trekken, trekt de rechte kant soms krommer dan de kromming.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-038",
+      "text": "Wie plakband op plakband plakt, plakt het plakband vast aan het plakband dat al geplakt zat.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-039",
+      "text": "De heggenschaar snijdt scherper sinds de scherenslijper de scheve schaar langs zijn slijpsteen schoof.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-040",
+      "text": "De klapstoel klapt dicht zodra de klapstoelverkoper de dichtgeklapte klapstoel openklapt.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-041",
+      "text": "De sluiswachter sluit de sluis zodra de laatste slome sleepboot langs de sluisdeur schuift.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-042",
+      "text": "De schilder schildert de schilder die de schilder schildert, terwijl die schilder hem terugschildert.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-043",
+      "text": "De letterzetter zet de letters recht, maar zet de rechtgezette letters telkens in de verkeerde lettervolgorde.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-044",
+      "text": "Hoe strakker de strikkenstrikker de strikken strikt, hoe stroever de strakgestrikte strikken straks schuiven.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-045",
+      "text": "De trompettist trachtte drie treurige trompettrillers te trillen, tot de trombonist drie trillers terugtrilde.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-046",
+      "text": "Niet de knoop die de knoper knoopte, maar de knoop die hij daarna knoopte, knoopte de knopenstreng vast.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-047",
+      "text": "Schat de schade aan de schaatsen, maar schat de schade aan de schaatsenslijper niet te schraal.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-048",
+      "text": "Waar de warrelwind wollige wolken wegwervelt, wapperen verweerde wimpels wild.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-049",
+      "text": "De prins prees precies de preischotel die de preikok presenteerde.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-050",
+      "text": "De poelier plukte plots pluizige pluimen uit een pluimveekussen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-051",
+      "text": "Hoe langer de lome lepelaar langs de leliebladeren laveerde, hoe losser de leliebladeren lagen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-052",
+      "text": "Proef de prikkelende pruimenpuree, prevelde de prinses.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-053",
+      "text": "De trage truffelzoeker struikelde tussen drie struikwortels en trof drie vertrapte truffels.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-054",
+      "text": "Voor de voorste voorzetwand stond voorheen een voorzetwand die vroeger voorste voorzetwand was.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-055",
+      "text": "De zeepzieder zag zes zussen zorgvuldig zeezout zeven.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-056",
+      "text": "De scharenslijper schatte scherp hoeveel scharen scherper sneden na het slijpen.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-057",
+      "text": "Wie het weerbericht weer weerlegt met het weer van gisteren, weerlegt weer wat het weerbericht voorspelde.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-058",
+      "text": "De postzegelplakker plakte postzegels op postzegelpakketten, terwijl de verzamelaar ze er prompt weer af pulkte.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-059",
+      "text": "De scheepsschroefschacht schuurde schuin langs het scheepsschot, zodat de scheepsschadecontroleur schrok.",
+      "status": "recording_required"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-060",
+      "text": "Wie twijfelt of de twijfelaar twijfelt aan zijn twijfel, twijfelt misschien aan de twijfel waaraan hij zelf niet meer twijfelt.",
+      "status": "recording_required"
+    }
+  ]
+}

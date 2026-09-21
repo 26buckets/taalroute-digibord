@@ -1,0 +1,1006 @@
+﻿TAALROUTE TONGBREKERS DEFINITIEVE BANK
+
+
+Versie 2026 09 21
+
+
+Doel
+Deze bank bevat uitsluitend tongbrekers en korte tongbrekende woordcombinaties. Gewone uitspraakzinnen, losse klankoefeningen, doublures, kunstmatige woorden en zwakke opvullers zijn niet opgenomen.
+
+
+Opbouw
+A0: 60 unieke tongbrekers
+A1: 60 unieke tongbrekers
+A2: 60 unieke tongbrekers
+B1 tot en met C2: 60 gedeelde hogere tongbrekers
+
+
+De niveauaanduidingen zijn praktische redactionele inschattingen en geen officiële ERK classificaties.
+
+
+Bronbasis
+De bestaande conceptbank van 420 items en de gepubliceerde bank van 142 items zijn gebruikt als bronmateriaal. Alleen inhoudelijk sterke items zijn behouden of herwerkt.
+
+
+A0
+
+
+01. Pim pakt papier.
+Klankval: p en p, korte a en ie. Moeilijkheid: 1/5.
+
+
+02. Nat net, net nat.
+Klankval: a en e wisselen in nat en net. Moeilijkheid: 1/5.
+
+
+03. Pak pap, pak sap.
+Klankval: p, k en s in korte woorden. Moeilijkheid: 1/5.
+
+
+04. Kop, kip, kop, kip.
+Klankval: o en i wisselen tussen k en p. Moeilijkheid: 1/5.
+
+
+05. Kan in pan, pan in kan.
+Klankval: k en p wisselen rond an. Moeilijkheid: 1/5.
+
+
+06. Pak de pan, pak de pen.
+Klankval: pan en pen, a en e. Moeilijkheid: 1/5.
+
+
+07. Vis of vies, vies of vis.
+Klankval: korte i en lange ie. Moeilijkheid: 1/5.
+
+
+08. Baan, been, boon, been, baan.
+Klankval: aa, ee en oo met b en n. Moeilijkheid: 1/5.
+
+
+09. Bep belt Bob.
+Klankval: b, p en b rond korte klinkers. Moeilijkheid: 1/5.
+
+
+10. Piet pakt patat.
+Klankval: p met ie, a en aa. Moeilijkheid: 1/5.
+
+
+11. Saar snijdt sla.
+Klankval: s, sn en sl. Moeilijkheid: 2/5.
+
+
+12. Sien ziet zee.
+Klankval: s en z met ie en ee. Moeilijkheid: 1/5.
+
+
+13. Wim wast wol.
+Klankval: w met i, a en o. Moeilijkheid: 1/5.
+
+
+14. Jas in tas, tas met jas.
+Klankval: j en t rond as. Moeilijkheid: 1/5.
+
+
+15. Bas wast was.
+Klankval: b en w rond as. Moeilijkheid: 1/5.
+
+
+16. Kop op kop op kop.
+Klankval: k en p met herhaalde overgang. Moeilijkheid: 1/5.
+
+
+17. Pak, pik, pak, pik.
+Klankval: a en i tussen p en k. Moeilijkheid: 1/5.
+
+
+18. Tik op tak, tak op tik.
+Klankval: i en a tussen t en k. Moeilijkheid: 1/5.
+
+
+19. Pap plakt, pak plakt.
+Klankval: p, pl en k. Moeilijkheid: 2/5.
+
+
+20. Bus bij bos, bos bij bus.
+Klankval: u en o rond b en s. Moeilijkheid: 1/5.
+
+
+21. Natte noten, nette noten.
+Klankval: a en e met n en t. Moeilijkheid: 2/5.
+
+
+22. Twee tenen tikken.
+Klankval: tw, t en korte i. Moeilijkheid: 2/5.
+
+
+23. Zes zakken, zes sokken.
+Klankval: z, s en a, o. Moeilijkheid: 2/5.
+
+
+24. Volle vellen vallen.
+Klankval: v met o, e en a. Moeilijkheid: 2/5.
+
+
+25. Losse lussen, losse lassen.
+Klankval: l en s met o, u en a. Moeilijkheid: 2/5.
+
+
+26. Rode rits, rare rits.
+Klankval: r met o, a en i. Moeilijkheid: 2/5.
+
+
+27. Kom maar, kam maar.
+Klankval: o en a na k. Moeilijkheid: 1/5.
+
+
+28. Pak de kop, pak de kan.
+Klankval: k, p en klinkerwisseling. Moeilijkheid: 1/5.
+
+
+29. Dikke sokken zakken.
+Klankval: k en z, o en a. Moeilijkheid: 2/5.
+
+
+30. Rode rollen rollen.
+Klankval: r en rollende r combinaties. Moeilijkheid: 2/5.
+
+
+31. Kat tikt tak.
+Klankval: k en t wisselen snel. Moeilijkheid: 1/5.
+
+
+32. Kip pikt pit.
+Klankval: k, p en t rond korte i. Moeilijkheid: 1/5.
+
+
+33. Kees kiest kaas.
+Klankval: k met ee, ie en aa. Moeilijkheid: 2/5.
+
+
+34. Koos kiest koek.
+Klankval: k met oo, ie en oe. Moeilijkheid: 2/5.
+
+
+35. Fien vindt vis.
+Klankval: f en v met ie en i. Moeilijkheid: 2/5.
+
+
+36. Tien tenen tikken.
+Klankval: t met ie, ee en i. Moeilijkheid: 2/5.
+
+
+37. Zes zussen zingen.
+Klankval: z en s met u en i. Moeilijkheid: 2/5.
+
+
+38. Zeven zussen zoeken.
+Klankval: z en s met ee, u en oe. Moeilijkheid: 2/5.
+
+
+39. Kleine klokken klinken.
+Klankval: kl met ei, o en i. Moeilijkheid: 2/5.
+
+
+40. Platte planten plakken.
+Klankval: pl met t, nt en k. Moeilijkheid: 2/5.
+
+
+41. Lange lepels liggen links.
+Klankval: l met a, e en i. Moeilijkheid: 2/5.
+
+
+42. Schone schoenen schuiven.
+Klankval: sch en sjachtige overgangen. Moeilijkheid: 2/5.
+
+
+43. Drie droge doeken.
+Klankval: dr met ie, oo en oe. Moeilijkheid: 2/5.
+
+
+44. Twee trage treinen.
+Klankval: tw, tr en t. Moeilijkheid: 2/5.
+
+
+45. Vier vieze vazen.
+Klankval: v met ie, ie en aa. Moeilijkheid: 2/5.
+
+
+46. Vijf volle vellen.
+Klankval: v en f met ij, o en e. Moeilijkheid: 2/5.
+
+
+47. Zwarte zak, zachte zak.
+Klankval: zw, z en zachte ch. Moeilijkheid: 2/5.
+
+
+48. Dikke tak, dunne tak.
+Klankval: d, t en k met i, a en u. Moeilijkheid: 2/5.
+
+
+49. Rood haar, raar haar.
+Klankval: oo en aa met r en h. Moeilijkheid: 2/5.
+
+
+50. Kat krabt krat.
+Klankval: k, kr en bt. Moeilijkheid: 2/5.
+
+
+51. Krab krabt krat.
+Klankval: kr, b, bt en t. Moeilijkheid: 2/5.
+
+
+52. Broer brengt brood.
+Klankval: br met oe, e en oo. Moeilijkheid: 2/5.
+
+
+53. Blauwe bril, bruine bril.
+Klankval: bl en br. Moeilijkheid: 2/5.
+
+
+54. Rode roos, rare roos.
+Klankval: r met oo en aa. Moeilijkheid: 2/5.
+
+
+55. Korte krul, kromme krul.
+Klankval: kr met o en u. Moeilijkheid: 2/5.
+
+
+56. Strakke straat, stroeve straat.
+Klankval: str met a, aa en oe. Moeilijkheid: 2/5.
+
+
+57. Knappe knieën knikken.
+Klankval: kn met a, ie en i. Moeilijkheid: 2/5.
+
+
+58. Flinke fles valt.
+Klankval: fl en v. Moeilijkheid: 2/5.
+
+
+59. Slappe sla slaapt.
+Klankval: sl met a en aa. Moeilijkheid: 2/5.
+
+
+60. Drie dikke druppels.
+Klankval: dr met ie, i en u. Moeilijkheid: 2/5.
+
+
+A1
+
+
+01. De prins spreekt slecht Spaans.
+Klankval: spr, sl en sp. Moeilijkheid: 3/5.
+
+
+02. Boterklontje, boterklontje, boterklontje.
+Klankval: tr, kl en ntj in één woord. Moeilijkheid: 3/5.
+
+
+03. Die dikke domoren drammen door.
+Klankval: d en dr. Moeilijkheid: 2/5.
+
+
+04. De kat krabt de krullen van de trap.
+Klankval: kr en tr. Moeilijkheid: 3/5.
+
+
+05. Frits vindt visfrietjes vreselijk vies.
+Klankval: fr, v en vr. Moeilijkheid: 3/5.
+
+
+06. Ik schrijf scheef in mijn schrift.
+Klankval: schr en sch. Moeilijkheid: 3/5.
+
+
+07. Bakker Bas bakt bolle broodjes bruin.
+Klankval: b, br en kt. Moeilijkheid: 2/5.
+
+
+08. Bedek het bed met het dekbed.
+Klankval: bed en dek wisselen. Moeilijkheid: 2/5.
+
+
+09. Papa pakt de platte bakpan.
+Klankval: p, pl en bp. Moeilijkheid: 2/5.
+
+
+10. Drie dove domme dromedarissen.
+Klankval: dr en d. Moeilijkheid: 2/5.
+
+
+11. Koen koopt koek, maar de koek kruimelt.
+Klankval: k en kr met oe. Moeilijkheid: 3/5.
+
+
+12. In de stille straat staan twee stoelen.
+Klankval: st en str. Moeilijkheid: 3/5.
+
+
+13. Frans fietst vroeg naar de fruitmarkt.
+Klankval: fr en f. Moeilijkheid: 2/5.
+
+
+14. Pak de kop, pak de kan, pak de pan.
+Klankval: k en p wisselen. Moeilijkheid: 3/5.
+
+
+15. Twee katten tikken tegen tien takken.
+Klankval: t en k. Moeilijkheid: 3/5.
+
+
+16. De kok kookt kool in een kleine kookpan.
+Klankval: k met oo en ei. Moeilijkheid: 3/5.
+
+
+17. Zes zussen zoeken zeven sokken.
+Klankval: z en s. Moeilijkheid: 2/5.
+
+
+18. Knappe kappers knippen korte krullen.
+Klankval: kn, k en kr. Moeilijkheid: 3/5.
+
+
+19. Kees kiest kaas, Koos kiest koek.
+Klankval: k met meerdere klinkers. Moeilijkheid: 3/5.
+
+
+20. Piet poetst de pot, de pot poetst Piet.
+Klankval: p, t en oe. Moeilijkheid: 3/5.
+
+
+21. Bert botst, Bart bukt, Bert bukt, Bart botst.
+Klankval: b, t en k met naamwisseling. Moeilijkheid: 3/5.
+
+
+22. Grote groene glazen glimmen.
+Klankval: gr en gl. Moeilijkheid: 3/5.
+
+
+23. Vijf vuile vorken vallen.
+Klankval: v en f. Moeilijkheid: 2/5.
+
+
+24. Vis in de fles, vlees in de tas.
+Klankval: v, fl en vl. Moeilijkheid: 3/5.
+
+
+25. De tas past pas naast de kast.
+Klankval: t, p, s en st. Moeilijkheid: 3/5.
+
+
+26. Sam wast zes vieze vazen.
+Klankval: s, z en v. Moeilijkheid: 3/5.
+
+
+27. Tante Tine telt tien tanden.
+Klankval: t met a, ie en e. Moeilijkheid: 2/5.
+
+
+28. Negen natte neuzen niezen.
+Klankval: n met a, eu en ie. Moeilijkheid: 3/5.
+
+
+29. Zeven zakken zout zakken weg.
+Klankval: z en k. Moeilijkheid: 3/5.
+
+
+30. Zes messen missen één mes.
+Klankval: m, s en i, e. Moeilijkheid: 3/5.
+
+
+31. De kip pikt, de kikker kijkt.
+Klankval: k, p en kt. Moeilijkheid: 3/5.
+
+
+32. Drie trage treinen trillen.
+Klankval: dr en tr. Moeilijkheid: 3/5.
+
+
+33. Een paar paarse paarden.
+Klankval: p en r. Moeilijkheid: 2/5.
+
+
+34. De draad draait drie keer.
+Klankval: dr en d. Moeilijkheid: 3/5.
+
+
+35. Gijs giet geel sap.
+Klankval: g, j en ie. Moeilijkheid: 2/5.
+
+
+36. Schoon schort, scheef schort.
+Klankval: sch en rt. Moeilijkheid: 3/5.
+
+
+37. De slome slak sleept sla.
+Klankval: sl en s. Moeilijkheid: 3/5.
+
+
+38. Bram brengt breed brood.
+Klankval: br en b. Moeilijkheid: 3/5.
+
+
+39. Fien vouwt vijf vellen.
+Klankval: f en v. Moeilijkheid: 2/5.
+
+
+40. Tom trekt twee tassen.
+Klankval: t, tr en tw. Moeilijkheid: 2/5.
+
+
+41. Saar schuift zes schalen.
+Klankval: s, sch en z. Moeilijkheid: 3/5.
+
+
+42. Karel kraakt krokante crackers.
+Klankval: kr en k. Moeilijkheid: 3/5.
+
+
+43. De kleine kraan kraakt.
+Klankval: kl en kr. Moeilijkheid: 3/5.
+
+
+44. Roos rolt rode rollen.
+Klankval: r en rl. Moeilijkheid: 3/5.
+
+
+45. De grijze gans graast graag.
+Klankval: gr en g. Moeilijkheid: 3/5.
+
+
+46. Drie broers brengen brood.
+Klankval: dr en br. Moeilijkheid: 3/5.
+
+
+47. Vera veegt vijf vieze vegen weg.
+Klankval: v en f. Moeilijkheid: 3/5.
+
+
+48. De post past pas in de postbus.
+Klankval: p, st en s. Moeilijkheid: 3/5.
+
+
+49. Een platte plaat plakt.
+Klankval: pl en t, kt. Moeilijkheid: 3/5.
+
+
+50. De blauwe blouse blijft blauw.
+Klankval: bl en b. Moeilijkheid: 3/5.
+
+
+51. Kleine krabben kruipen krom.
+Klankval: kl, kr en kr. Moeilijkheid: 3/5.
+
+
+52. Vier frisse frieten frituren.
+Klankval: fr en f. Moeilijkheid: 3/5.
+
+
+53. De snelle slager snijdt sla.
+Klankval: sn en sl. Moeilijkheid: 3/5.
+
+
+54. Zes zachte zolen zakken.
+Klankval: z en s. Moeilijkheid: 3/5.
+
+
+55. De groene groenteboer grijnst.
+Klankval: gr en g. Moeilijkheid: 3/5.
+
+
+56. Truus trekt drie truien.
+Klankval: tr en dr. Moeilijkheid: 3/5.
+
+
+57. De brede brug breekt bijna.
+Klankval: br en b. Moeilijkheid: 3/5.
+
+
+58. Twee stoere stieren staren.
+Klankval: st en t. Moeilijkheid: 3/5.
+
+
+59. De schoen schuift schuin.
+Klankval: sch en ui. Moeilijkheid: 3/5.
+
+
+60. Drie glazen glijden glad.
+Klankval: gl en dr. Moeilijkheid: 3/5.
+
+
+A2
+
+
+01. Ruud Rups raspt rap rode ronde radijsjes.
+Klankval: r en rsprongen. Moeilijkheid: 3/5.
+
+
+02. Wat Wil wil, wil Wil wel weten.
+Klankval: wil en wel wisselen. Moeilijkheid: 3/5.
+
+
+03. Een pet met een platte klep is een platte kleppet.
+Klankval: pl, kl en pet, klep. Moeilijkheid: 4/5.
+
+
+04. Moeder sneed zeven scheve sneden brood.
+Klankval: sn, sch en z. Moeilijkheid: 3/5.
+
+
+05. Max mixt de whisky met de whiskymixer.
+Klankval: ks, xt en sk. Moeilijkheid: 4/5.
+
+
+06. Ik zag haar haar kammen met haar haarkam.
+Klankval: haar herhalen met woordgrenzen. Moeilijkheid: 3/5.
+
+
+07. De knecht snijdt recht en de meid snijdt scheef.
+Klankval: kn, sn, cht en sch. Moeilijkheid: 4/5.
+
+
+08. Klara knipt de krullenkop kaal.
+Klankval: kl, kn en kr. Moeilijkheid: 3/5.
+
+
+09. Zij zei dat zij zei dat zij wat zei.
+Klankval: zij en zei wisselen. Moeilijkheid: 4/5.
+
+
+10. Die schaar knipt knap stroef.
+Klankval: sch, kn en str. Moeilijkheid: 3/5.
+
+
+11. Duizend dames drinken dagelijks druivensap.
+Klankval: d en dr. Moeilijkheid: 3/5.
+
+
+12. De kapster kapt de krullenbol op de kruk.
+Klankval: k, kr en kt. Moeilijkheid: 3/5.
+
+
+13. Thijs snijdt de schijfjes steeds scheef.
+Klankval: sn, sch en st. Moeilijkheid: 4/5.
+
+
+14. De poes kotst in de postzak.
+Klankval: poes, post en kotst. Moeilijkheid: 3/5.
+
+
+15. Ik bak een plak bakbloedworst.
+Klankval: bak, plak en bl. Moeilijkheid: 4/5.
+
+
+16. Ik pak mijn kersenpittenkussentje.
+Klankval: k, p en samengestelde klanken. Moeilijkheid: 4/5.
+
+
+17. Vera vult vijf volle vuilnisvaten.
+Klankval: v en f. Moeilijkheid: 3/5.
+
+
+18. De buur brengt bruine borden naar boven.
+Klankval: b en br. Moeilijkheid: 3/5.
+
+
+19. Zes zachte zakken zitten stevig in dezelfde tas.
+Klankval: z, s en st. Moeilijkheid: 4/5.
+
+
+20. Korte kratten kraken als Karim ze kantelt.
+Klankval: kr en k. Moeilijkheid: 4/5.
+
+
+21. Saar schuift smalle schalen naast de schone schaal.
+Klankval: s, sch en sm. Moeilijkheid: 4/5.
+
+
+22. Bram brengt bruine borden binnen, de brede bak blijft buiten.
+Klankval: br, b en bl. Moeilijkheid: 4/5.
+
+
+23. De schipper schuift de scheve schotel achter de schone schuur.
+Klankval: sch herhalen met klinkerwissels. Moeilijkheid: 4/5.
+
+
+24. Twee strenge stratenmakers stapelen stenen naast een smalle straat.
+Klankval: str, st en sm. Moeilijkheid: 4/5.
+
+
+25. De postbode stopt de post pas in de pas geverfde postbus.
+Klankval: post, pas en st. Moeilijkheid: 4/5.
+
+
+26. De kapper knipt krullen, maar de krullen klitten aan zijn kleren.
+Klankval: k, kn, kr en kl. Moeilijkheid: 4/5.
+
+
+27. Wie de rits van de rok rukt, rukt de rok van de rits.
+Klankval: r, rk en ts. Moeilijkheid: 4/5.
+
+
+28. De plakker plakt platte plaatjes op een plakkerige plastic plaat.
+Klankval: pl en klankherhaling. Moeilijkheid: 4/5.
+
+
+29. Trage trams trillen terwijl drie treinen langs het station razen.
+Klankval: tr en dr. Moeilijkheid: 4/5.
+
+
+30. De korte kurk klemt in de kromme hals van de kruik.
+Klankval: k, kr en kl. Moeilijkheid: 4/5.
+
+
+31. De drukke drukker drukt drie dikke druppels drukinkt op papier.
+Klankval: dr en dk. Moeilijkheid: 4/5.
+
+
+32. Een scheve schroef schroef je scheef in een scheve schutting.
+Klankval: schr en sch. Moeilijkheid: 4/5.
+
+
+33. De grote grijze grasmaaier graast graag door het groene gras.
+Klankval: gr en g. Moeilijkheid: 4/5.
+
+
+34. Vera verft vijf fietsen, Fien verft vier vieze vazen.
+Klankval: v en f. Moeilijkheid: 4/5.
+
+
+35. Zwarte zwanen zwaaien zwijgend naar zeven zware zwemmers.
+Klankval: zw, z en zwa. Moeilijkheid: 4/5.
+
+
+36. De kok klopt koude room terwijl de kopjes in de kast klapperen.
+Klankval: k en kl. Moeilijkheid: 4/5.
+
+
+37. Tussen twee dikke takken tikken tien takjes tegen elkaar.
+Klankval: t en tk. Moeilijkheid: 4/5.
+
+
+38. Als de bus de brug mist, mist de brug de bus niet.
+Klankval: bus, brug en mist. Moeilijkheid: 3/5.
+
+
+39. De breiende buurvrouw breit bruine broeken voor haar broer.
+Klankval: br en b. Moeilijkheid: 4/5.
+
+
+40. De boze bezorger bezorgt zes bezems zonder bezorgbon.
+Klankval: b, bez en z. Moeilijkheid: 4/5.
+
+
+41. Kleine kinderen kraken krokante koekjes naast een krakende kachel.
+Klankval: k en kr. Moeilijkheid: 4/5.
+
+
+42. De volle vuilniswagen vervoert vijf vuilnisvaten vol vuil.
+Klankval: v en f. Moeilijkheid: 4/5.
+
+
+43. Drie slome slakken slapen tussen slappe slabladeren.
+Klankval: sl en dr. Moeilijkheid: 4/5.
+
+
+44. Willem wast witte was, terwijl Wilma wollen wanten wast.
+Klankval: w met klinkerwissels. Moeilijkheid: 4/5.
+
+
+45. De scheidsrechter schreeuwt schor terwijl de spelers scheef schieten.
+Klankval: schr, sch en sp. Moeilijkheid: 4/5.
+
+
+46. Een strook stof schuift steeds tussen de stoffen stoelen.
+Klankval: str, st en sch. Moeilijkheid: 4/5.
+
+
+47. De timmerman timmert tien traptreden tegen de trap.
+Klankval: t en tr. Moeilijkheid: 4/5.
+
+
+48. Met een kromme kam kamt Karim de korte krullen van Kim.
+Klankval: k en kr. Moeilijkheid: 4/5.
+
+
+49. De slager snijdt slordig slappe plakjes van een slingerende worst.
+Klankval: sl en sn. Moeilijkheid: 4/5.
+
+
+50. Rond de ronde rotonde rijden drie rode ronkende auto's.
+Klankval: r en dr. Moeilijkheid: 4/5.
+
+
+51. Vier vrolijke verhuizers verhuizen vijf volle vriezers.
+Klankval: v, vr en f. Moeilijkheid: 4/5.
+
+
+52. De winkelier wisselt wisselgeld, maar wil weinig wisselen.
+Klankval: w en wissel. Moeilijkheid: 4/5.
+
+
+53. Gladde glazen glijden langs de glanzende glazen deur.
+Klankval: gl en g. Moeilijkheid: 4/5.
+
+
+54. Zes zussen zagen zeven zagen naast zes zakken zand.
+Klankval: z en s. Moeilijkheid: 4/5.
+
+
+55. Netty legt het natte net net naast het nette net.
+Klankval: nat, net en nette. Moeilijkheid: 4/5.
+
+
+56. De koetsier poetst de koets van de postkoets met de poetsdoek.
+Klankval: koets, poets en post. Moeilijkheid: 4/5.
+
+
+57. Als apen elkaar naapen, apen apen apen na.
+Klankval: apen en naapen met woordgrenzen. Moeilijkheid: 4/5.
+
+
+58. Jeukt jouw jeukende neus ook zo als mijn jeukende neus jeukt?
+Klankval: j, eu en jeuk. Moeilijkheid: 4/5.
+
+
+59. Als jouw teckel mijn teckel tackelt, tackelt mijn teckel jouw teckel terug.
+Klankval: teckel en tackelt. Moeilijkheid: 4/5.
+
+
+60. Voor was was was was was is.
+Klankval: was met verschillende functies. Moeilijkheid: 4/5.
+
+
+B1 TOT EN MET C2
+
+
+Deze 60 tongbrekers vormen één gedeelde hogere bank. Ze zijn inzetbaar vanaf B1. Docenten kunnen binnen B1, B2, C1 en C2 selecteren op moeilijkheid, tempo en gewenste uitspraakuitdaging.
+
+
+01. Zeven schone Schotse schaatsers schaatsen een scheve schaats in Scheveningen.
+Klankval: sch, schaats en scheef. Moeilijkheid: 5/5.
+
+
+02. Pieter Peeters plant petieterige peterselieplantjes in pimpelpaarse peperpotjes.
+Klankval: p, pt en pl. Moeilijkheid: 5/5.
+
+
+03. Ping en Pong speelden pingpong. Ping pingpongde de pingpongbal naar Pong en Pong pingpongde de pingpongbal naar Ping.
+Klankval: ping, pong en pingpong. Moeilijkheid: 5/5.
+
+
+04. Als een potvis in de pispot pist, heb je een pispot vol potvispis.
+Klankval: potvis, pispot en pis. Moeilijkheid: 5/5.
+
+
+05. Mijn zeven zeven zeven zeven keer beter dan jouw zeven zeven.
+Klankval: zeven als telwoord en werkwoord. Moeilijkheid: 5/5.
+
+
+06. De knecht van Klaas de knappe kapper knipt en kapt nog knapper dan Klaas de knappe kapper knippen en kappen kan.
+Klankval: kn, kl, kap en knip. Moeilijkheid: 5/5.
+
+
+07. Wie weet waar Willem Wevers witte wollen winterwanten werkelijk waren?
+Klankval: w met snelle woordgrenzen. Moeilijkheid: 5/5.
+
+
+08. Leentje leerde Lotje lopen langs de lange lindelaan, maar toen Lotje niet wou lopen, liet Leentje Lotje staan.
+Klankval: l en lange l reeksen. Moeilijkheid: 5/5.
+
+
+09. Als achter vliegen vliegen vliegen, vliegen vliegen vliegen achterna.
+Klankval: vliegen als naamwoord en werkwoord. Moeilijkheid: 5/5.
+
+
+10. De herbergier van de herberg hier herbergt hier de herbergier van de herberg daar.
+Klankval: herberg, hier en herbergt. Moeilijkheid: 5/5.
+
+
+11. Zeven zware zwemmers zwemmen zwoele zomerse zondagen zomaar zonder zwembroek in de zwarte zee.
+Klankval: z, zw en zom. Moeilijkheid: 5/5.
+
+
+12. Frans zei tegen Frans in het Frans: is Frans in het Frans Frans? Nee, Frans in het Frans is François.
+Klankval: Frans herhalen met betekeniswissel. Moeilijkheid: 5/5.
+
+
+13. Als kakkerlakken in kattenbakken kakken, kun je kattenbakken vol kakkerlakkak pakken.
+Klankval: kak, kat en pak. Moeilijkheid: 5/5.
+
+
+14. Ik denk dat dat dat dat daar staat, dat dat dat moet zijn.
+Klankval: dat met verschillende functies. Moeilijkheid: 5/5.
+
+
+15. Wie een scheur scheef dichtnaait, naait de scheve scheur scheef dicht.
+Klankval: sch, scheur en scheef. Moeilijkheid: 4/5.
+
+
+16. De stratenmaker straat de straat, maar straat de straat steeds schever.
+Klankval: straat als naamwoord en werkwoord. Moeilijkheid: 4/5.
+
+
+17. Een kromme kurkentrekker trekt de kurk krom uit de kruik.
+Klankval: kr, kurk en krom. Moeilijkheid: 4/5.
+
+
+18. De kleermaker knipt kleine knoopsgaten in kleren met knellende knopen.
+Klankval: kl en kn. Moeilijkheid: 4/5.
+
+
+19. In de drukke drukkerij drukt Dries drie proefdrukken met drukfouten.
+Klankval: dr, druk en proefdruk. Moeilijkheid: 4/5.
+
+
+20. Wie de klos losklopt, klopt de losse klos los van de plank.
+Klankval: klos, los en klopt. Moeilijkheid: 4/5.
+
+
+21. De buurvrouw breit breed, maar haar broer breit bredere breisels.
+Klankval: br en brei. Moeilijkheid: 4/5.
+
+
+22. De klep van de klepkar klapt dicht tegen de klepperende klapdeur.
+Klankval: klep, klap en kl. Moeilijkheid: 5/5.
+
+
+23. De trein trekt traag drie treinstellen door de treinwasstraat.
+Klankval: tr en trein. Moeilijkheid: 4/5.
+
+
+24. De kok klopt klontjes uit de saus, maar de saus klontert koppig door.
+Klankval: kl, k en klont. Moeilijkheid: 4/5.
+
+
+25. Als de slotenmaker het slot sluit, sluit het slot de slotenmaker buiten.
+Klankval: slot, sluit en sloten. Moeilijkheid: 4/5.
+
+
+26. De schilder schuurt de schuurdeur schoon voordat hij de schuurdeur schildert.
+Klankval: schu, schuur en schilder. Moeilijkheid: 4/5.
+
+
+27. De blikken deksels blinken tussen de blikken met blikjes.
+Klankval: blik, blink en blikken. Moeilijkheid: 4/5.
+
+
+28. De tandarts telt tien tanden, maar telt twee tanden twee keer.
+Klankval: t en tand. Moeilijkheid: 4/5.
+
+
+29. De verhuizer verhuist de vriezer voorbij de vastgelopen verhuiswagen.
+Klankval: v en vr. Moeilijkheid: 4/5.
+
+
+30. Wie zijn sokken in zakken stopt, stopt soms zakken tussen zijn sokken.
+Klankval: sok, zak en stopt. Moeilijkheid: 4/5.
+
+
+31. De broodrooster roostert droog brood, maar droog brood roostert droger.
+Klankval: brood, rooster en droog. Moeilijkheid: 4/5.
+
+
+32. Als de schroevendraaier de schroef scheef draait, draait de scheve schroef scheef terug.
+Klankval: schr, sch en dr. Moeilijkheid: 5/5.
+
+
+33. Pakt de pakjespakker het pakket verkeerd in, dan pakt de pakketbezorger het pakket weer uit.
+Klankval: pak, pakket en pakjes. Moeilijkheid: 5/5.
+
+
+34. De stadsdichter dicht over dichte stadspoorten, maar dicht de dichtstbijzijnde poort niet dicht.
+Klankval: dicht in meerdere functies. Moeilijkheid: 5/5.
+
+
+35. Wie een scheepsschroef schoon schrobt, schrobt scheepsschroefschilfers uit de schroefschacht.
+Klankval: sch, schr en schroef. Moeilijkheid: 5/5.
+
+
+36. De knoflookkweker knoopt knoflookstrengen vast aan knoestige knoflookrekken.
+Klankval: kn en knof. Moeilijkheid: 5/5.
+
+
+37. Wie een kromme kromming recht probeert te trekken, trekt de rechte kant soms krommer dan de kromming.
+Klankval: krom, recht en trekt. Moeilijkheid: 5/5.
+
+
+38. Wie plakband op plakband plakt, plakt het plakband vast aan het plakband dat al geplakt zat.
+Klankval: plak en plakt. Moeilijkheid: 5/5.
+
+
+39. De heggenschaar snijdt scherper sinds de scherenslijper de scheve schaar langs zijn slijpsteen schoof.
+Klankval: sch, scher en sl. Moeilijkheid: 5/5.
+
+
+40. De klapstoel klapt dicht zodra de klapstoelverkoper de dichtgeklapte klapstoel openklapt.
+Klankval: klap en kl. Moeilijkheid: 5/5.
+
+
+41. De sluiswachter sluit de sluis zodra de laatste slome sleepboot langs de sluisdeur schuift.
+Klankval: sl, sluis en sluit. Moeilijkheid: 5/5.
+
+
+42. De schilder schildert de schilder die de schilder schildert, terwijl die schilder hem terugschildert.
+Klankval: schilder als persoon en werkwoord. Moeilijkheid: 5/5.
+
+
+43. De letterzetter zet de letters recht, maar zet de rechtgezette letters telkens in de verkeerde lettervolgorde.
+Klankval: zet, letter en rechtgezet. Moeilijkheid: 4/5.
+
+
+44. Hoe strakker de strikkenstrikker de strikken strikt, hoe stroever de strakgestrikte strikken straks schuiven.
+Klankval: strik, strak en str. Moeilijkheid: 5/5.
+
+
+45. De trompettist trachtte drie treurige trompettrillers te trillen, tot de trombonist drie trillers terugtrilde.
+Klankval: tr en trom. Moeilijkheid: 5/5.
+
+
+46. Niet de knoop die de knoper knoopte, maar de knoop die hij daarna knoopte, knoopte de knopenstreng vast.
+Klankval: knoop en kn. Moeilijkheid: 5/5.
+
+
+47. Schat de schade aan de schaatsen, maar schat de schade aan de schaatsenslijper niet te schraal.
+Klankval: sch, scha en schaats. Moeilijkheid: 5/5.
+
+
+48. Waar de warrelwind wollige wolken wegwervelt, wapperen verweerde wimpels wild.
+Klankval: w in lange reeks. Moeilijkheid: 5/5.
+
+
+49. De prins prees precies de preischotel die de preikok presenteerde.
+Klankval: pr en prei. Moeilijkheid: 5/5.
+
+
+50. De poelier plukte plots pluizige pluimen uit een pluimveekussen.
+Klankval: pl en plu. Moeilijkheid: 5/5.
+
+
+51. Hoe langer de lome lepelaar langs de leliebladeren laveerde, hoe losser de leliebladeren lagen.
+Klankval: l in lange reeks. Moeilijkheid: 5/5.
+
+
+52. Proef de prikkelende pruimenpuree, prevelde de prinses.
+Klankval: pr en pru. Moeilijkheid: 5/5.
+
+
+53. De trage truffelzoeker struikelde tussen drie struikwortels en trof drie vertrapte truffels.
+Klankval: tr, str en truf. Moeilijkheid: 5/5.
+
+
+54. Voor de voorste voorzetwand stond voorheen een voorzetwand die vroeger voorste voorzetwand was.
+Klankval: voor in verschillende samenstellingen. Moeilijkheid: 5/5.
+
+
+55. De zeepzieder zag zes zussen zorgvuldig zeezout zeven.
+Klankval: z, ze en zee. Moeilijkheid: 5/5.
+
+
+56. De scharenslijper schatte scherp hoeveel scharen scherper sneden na het slijpen.
+Klankval: sch, scherp en slijp. Moeilijkheid: 5/5.
+
+
+57. Wie het weerbericht weer weerlegt met het weer van gisteren, weerlegt weer wat het weerbericht voorspelde.
+Klankval: weer met meerdere betekenissen. Moeilijkheid: 5/5.
+
+
+58. De postzegelplakker plakte postzegels op postzegelpakketten, terwijl de verzamelaar ze er prompt weer af pulkte.
+Klankval: postzegel, plak en pak. Moeilijkheid: 5/5.
+
+
+59. De scheepsschroefschacht schuurde schuin langs het scheepsschot, zodat de scheepsschadecontroleur schrok.
+Klankval: sch, schr en scheeps. Moeilijkheid: 5/5.
+
+
+60. Wie twijfelt of de twijfelaar twijfelt aan zijn twijfel, twijfelt misschien aan de twijfel waaraan hij zelf niet meer twijfelt.
+Klankval: twijfel in verschillende functies. Moeilijkheid: 5/5.
+
+
+REDACTIONELE STATUS
+
+
+Deze versie bevat 240 unieke tongbrekers. De bank is inhoudelijk opnieuw geselecteerd en niet simpelweg overgenomen uit de eerdere 420 conceptitems. Zwakke gewone uitspraakzinnen en geforceerde opvullers zijn buiten deze definitieve bank gehouden.
+
+
+Einde van de bank.

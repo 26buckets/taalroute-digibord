@@ -1,0 +1,29 @@
+{
+  "packageId": "tongbrekers-240-20260921",
+  "status": "ready_for_integration",
+  "activated": false,
+  "source": {
+    "url": "https://docs.google.com/document/d/1an4zsAiWIlaSmouU5mlXv1h2B4BVH19UtUMX8nI1QKY/edit",
+    "title": "Taalroute Tongbrekers Definitieve Bank 2026 09 21",
+    "modifiedTime": "2026-09-21T14:14:55.144Z",
+    "snapshot": "source.txt",
+    "snapshotSha256": "d72a05e3b1c33f03fe4d507e2496acdfb6529245dadc8789dec1de3bbbfba912",
+    "normalization": "Only line endings normalized to LF; card wording preserved."
+  },
+  "counts": {
+    "total": 240,
+    "A0": 60,
+    "A1": 60,
+    "A2": 60,
+    "B1-C2": 60
+  },
+  "audio": {
+    "reusable": 94,
+    "required": 146
+  },
+  "bankSha256": "079c2effc50d3e0303c91eaf1255143addcd7977eb78d4714e071ed965ee13c8",
+  "technicalValidation": "validated_against_source_and_existing_renderer",
+  "humanReview": "not_verified_by_this_task",
+  "lessonTrial": "not_performed_by_this_task",
+  "publication": "not_published_by_this_task"
+}
