@@ -713,7 +713,7 @@ function startC1(){
  const list=cardsFor(bank.id);APP.cardKind=bank.id;APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
  const c=list[APP.cardIndex],state=cardRound(c),counter=`${APP.cardIndex+1} van ${list.length}`;
  setLast('card',bank.title+' · C1',{kind:bank.id});
- renderCardTable(bank.id,counter,`<div class="card-ribbon" style="--ribbon:${bank.color}"><strong>${esc(bank.title)}</strong><span class="card-counter">${counter}</span></div><div class="card-content c1-content" data-card-id="${esc(c.id)}"><div class="c1-context"><h2>${esc(c.expression)}</h2><div class="card-situation"><div><strong>Situatie</strong><p>${esc(c.situation)}</p></div></div><button class="smallbtn c1-review" id="c1Review" ${state.choice?'':'hidden'}>Bekijk vraag</button></div><div class="c1-answer"><div class="c1-choices" role="group" aria-labelledby="c1Question"><h3 id="c1Question">${esc(c.question)}</h3>${c.options.map(o=>`<button class="smallbtn" data-c1-choice="${o.id}" aria-pressed="${state.choice===o.id}" ${state.choice?'disabled':''}>${o.id}. ${esc(o.text)}</button>`).join('')}</div><section id="c1Feedback" role="status" aria-live="polite" aria-atomic="true">${c1Feedback(c,state.choice)}</section></div></div>`);
+ renderCardTable(bank.id,counter,`<div class="card-ribbon" style="--ribbon:${bank.color}"><strong>${esc(bank.title)}</strong><span class="card-counter">${counter}</span></div><div class="card-content c1-content" data-card-id="${esc(c.id)}"><div class="c1-context"><h2>${esc(c.expression)}</h2><div class="card-situation"><div><strong>Situatie</strong><p>${esc(c.situation)}</p></div></div><button class="smallbtn c1-review" id="c1Review" ${state.choice?'':'hidden'}>Bekijk vraag</button></div><div class="c1-answer"><div class="c1-choices" role="group" aria-labelledby="c1Question"><h3 id="c1Question">${esc(c.question)}</h3>${c.options.map(o=>`<button class="smallbtn" data-c1-choice="${o.id}" aria-pressed="${state.choice===o.id}" ${state.choice?'disabled':''}>${o.id}. ${esc(o.text)}</button>`).join('')}</div><section id="c1Feedback" tabindex="-1" role="status" aria-live="polite" aria-atomic="true">${c1Feedback(c,state.choice)}</section></div></div>`);
 }
 function currentCard(){return cardsFor(APP.cardKind)[APP.cardIndex||0]}
 function cardRound(c){if(APP.cardRound?.id!==c.id||APP.cardRound?.bankRevision!==RUNTIME.cardGames.source)APP.cardRound={id:c.id,bankRevision:RUNTIME.cardGames.source,attempted:false,predictionReady:false,revealed:false};return APP.cardRound}
@@ -746,7 +746,7 @@ function bindCards(kind){
    if(state.choice||cardBusy)return;
    rememberAction('antwoord kiezen');state.choice=button.dataset.c1Choice;save();
    $$('[data-c1-choice]').forEach(b=>{b.disabled=true;b.setAttribute('aria-pressed',String(b===button))});
-   $('#c1Feedback').innerHTML=c1Feedback(c,state.choice);$('#c1Review').hidden=false;
+   $('#c1Feedback').innerHTML=c1Feedback(c,state.choice);$('#c1Review').hidden=false;$('#c1Feedback').focus({preventScroll:true});
 
   });
   return;
