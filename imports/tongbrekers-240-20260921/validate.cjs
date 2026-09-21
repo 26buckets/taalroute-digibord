@@ -11,7 +11,7 @@ for(let i=1;i<sections.length;i+=2){
 }
 const data={window:{DIGIBORD_DATA:{retained:true}}};vm.runInNewContext(read('tongbrekers-240.js'),data);assert.equal(data.window.DIGIBORD_DATA.retained,true);assert.deepEqual(JSON.parse(JSON.stringify(data.window.DIGIBORD_DATA.tongueBank)),bank);
 assert.equal(migration.retainedIds.length,94);assert.equal(migration.newIds.length,146);assert.deepEqual(new Set([...migration.retainedIds,...migration.newIds]),new Set(bank.cards.map(c=>c.id)));
-const existingAudio=JSON.parse(fs.readFileSync(path.join(root,'data/tongbrekers-audio.json'),'utf8')).recordings;
+const existingAudio=JSON.parse(fs.readFileSync(path.join(__dirname,'before-activation-20260921/tongbrekers-audio.json'),'utf8')).recordings;
 assert.equal(audio.items.length,240);assert.equal(new Set(audio.items.map(c=>c.id)).size,240);
 const completeAudio=json('tongbrekers-audio-240.json');assert.equal(hash(read('tongbrekers-audio-240.json')),manifest.audioManifestSha256);
 assert.equal(completeAudio.recordings.length,240);assert.equal(new Set(completeAudio.recordings.map(r=>r.id)).size,240);assert.equal(new Set(completeAudio.recordings.map(r=>r.sha256)).size,240);
@@ -21,7 +21,7 @@ for(const c of bank.cards){
  else assert.ok(['generated_for_240','recovered_existing_history'].includes(plan.status));
 }
 assert.equal(audio.items.filter(x=>x.status==='reuse_exact_text').length,94);assert.equal(audio.items.filter(x=>x.status==='generated_for_240').length,140);assert.equal(audio.items.filter(x=>x.status==='recovered_existing_history').length,6);assert.equal(audio.recordingRequired,0);
-// Use the existing filter and rendering functions without activating this bank in the app.
+// Validate the full source package with the production filter and renderer.
 const app=fs.readFileSync(path.join(root,'app.js'),'utf8');let rendered='';
 const ctx=vm.createContext({RUNTIME:{tongueBank:bank},CARD_GAMES:[],APP:{level:'A2'},$$:()=>[],esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>{rendered=html}});
 vm.runInContext(app.slice(app.indexOf('function cardsFor('),app.indexOf('function cardActivityHeader(')),ctx);
@@ -31,4 +31,4 @@ for(const [level,total] of Object.entries({A0:60,A1:120,A2:180,B1:240,B2:240,C1:
 }
 ctx.APP.tongueLevel='C2';ctx.APP.tongueDifficulty='';
 for(let n=0;n<240;n++){ctx.APP.cardIndex=n;vm.runInContext('startTongue()',ctx);assert.ok(rendered.includes(bank.cards[n].text))}
-console.log('PASS: 240 unique source-identical cards; four groups of 60; bundle parity; 240 verified audio links / original 94 preserved / 146 completed; all 28 filters and 240 existing-renderer outputs. Package remains inactive.');
+console.log('PASS: 240 unique source-identical cards; four groups of 60; bundle parity; 240 verified audio links / original 94 preserved / 146 completed; all 28 filters and 240 existing-renderer outputs. Source package verified.');
