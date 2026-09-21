@@ -7,16 +7,18 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const b=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
  try{
- const p=await b.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
+ const p=await b.newPage({viewport:{width:1440,height:900},reducedMotion:'no-preference'}),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
  await p.goto('http://127.0.0.1:'+server.address().port+'/index.html');
  // Fresh boards default to direct questions; settings and inline help preserve the game.
  await p.evaluate(()=>startBoard('rotterdam'));
  await p.getByRole('button',{name:'Bordopties',exact:true}).click();
+ assert.equal(await p.locator('#questionMode').count(),1);
+ assert.equal(await p.locator('#modeSelect').count(),1);
  assert.equal(await p.locator('#questionMode').inputValue(),'direct');
  assert.deepEqual(await p.locator('#questionMode option').allTextContents(),['Snelvragen','Met gesprekspartner','Mix van beide']);
  const optionState=await p.evaluate(()=>JSON.stringify(APP.boardStates));
- await p.getByRole('button',{name:'Uitleg: Speelmodus',exact:true}).hover();
+ await p.getByRole('button',{name:'Uitleg: Spelvorm',exact:true}).hover();
  assert.match(await p.locator('#contextTooltip').innerText(),/Klassikaal:.*één pion/);
  await p.keyboard.press('Escape');assert.equal(await p.locator('#contextTooltip').isVisible(),false);
  await p.getByRole('button',{name:'Uitleg: Groot houden',exact:true}).focus();
@@ -31,6 +33,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  await p.reload();await p.evaluate(()=>resumeLast());await p.getByRole('button',{name:'Bordopties',exact:true}).click();
  assert.equal(await p.locator('#optDark').isChecked(),true);assert.equal(await p.locator('#optSound').isChecked(),false);
  await p.setViewportSize({width:390,height:844});
+ assert.ok(await p.locator('#boardOptions').evaluate(el=>el.scrollWidth<=el.clientWidth+1),'compact options do not overflow horizontally');
  await p.getByRole('button',{name:'Uitleg: Donkere modus',exact:true}).click();
  assert.equal(await p.locator('#contextTooltip').isVisible(),true,'tap opens explanation');
  assert.equal(await p.locator('#contextTooltip').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight}),true);
@@ -41,6 +44,25 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!document.fullscreenElement);
  await p.locator('#optDark').uncheck();await p.locator('#optSound').check();
  await p.setViewportSize({width:1440,height:900});await p.locator('#closeBoardOptions').click();
+ // New sessions start with quick questions; an explicit choice remains authoritative.
+ await p.evaluate(()=>{settingsPatch({boardFooter:'red',reducedMotion:false});startBoard('rotterdam')});
+ assert.equal(await p.locator('#questionMode').inputValue(),'direct');
+ assert.deepEqual(await p.locator('#questionMode option').evaluateAll(options=>options.map(o=>o.value)),['direct','conversation','mixed']);
+ await p.getByRole('button',{name:'Bordopties',exact:true}).click();
+ assert.equal(await p.evaluate(()=>$('#questionMode').getBoundingClientRect().bottom<$('#modeSelect').getBoundingClientRect().top),true);
+ await p.waitForFunction(()=>document.querySelector('#moveDie canvas')?.width===128);
+ assert.deepEqual(await p.locator('#moveDie canvas').evaluate(c=>({value:c.dataset.value,width:c.width,height:c.height})),{value:'5',width:128,height:120});
+ assert.equal(await p.locator('.dice-float').evaluate(el=>getComputedStyle(el).animationName),'none');
+ await p.locator('#fixedRoll').selectOption('1');await p.locator('#closeBoardOptions').click();
+ await p.locator('#primaryGame').click();await p.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer').classList.contains('open'));
+ assert.deepEqual(await p.locator('#moveDie canvas').evaluate(c=>({value:c.dataset.value,width:c.width,height:c.height,rolling:c.dataset.rolling})),{value:'1',width:128,height:120,rolling:'false'});
+ await p.getByRole('button',{name:'Bordopties',exact:true}).click();
+ await p.locator('[name="boardFooter"][value="blue"]').check();
+ await p.waitForFunction(()=>{const c=document.querySelector('#moveDie canvas');return c.width===c.clientWidth*2&&c.height===c.clientHeight*2});
+ await p.locator('#questionMode').selectOption('conversation');
+ await p.reload();await p.evaluate(()=>resumeLast());
+ assert.equal(await p.locator('#questionMode').inputValue(),'conversation');
+ await p.emulateMedia({reducedMotion:'reduce'});
  const report=await p.evaluate(()=>{
   settingsPatch({reducedMotion:true});startBoard('rotterdam');let count=0,cycles=0;
   const fail=m=>{throw Error(m)};
