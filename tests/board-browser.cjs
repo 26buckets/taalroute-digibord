@@ -88,6 +88,8 @@ async function check(page, label) {
     assert.equal(size.top,0,'board uses header space');assert.equal(size.footerHeight,size.expectedFooter,'footer height unchanged');
     assert.equal(size.viewportTop,8,'label does not reserve a row');assert.equal(size.viewportHeight,size.height-16);
     assert.ok(size.fits,'board header controls fit '+width);
+    assert.equal(await page.locator('#levelSelect').isVisible(),true,'level stays visible with menu closed');
+    assert.equal(await page.locator('#levelSelect').evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.height>=44}),true);
     const before=await boardRect();const state=await page.evaluate(()=>JSON.stringify(APP.boardStates));
     await page.locator('#boardMenuToggle').click();assert.equal(await page.locator('#levelSelect').isVisible(),true);
     assert.equal(await boardRect(),before,'opening navigation does not shrink the board');
@@ -104,6 +106,14 @@ async function check(page, label) {
     assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true,'Space keeps fullscreen after clicking its button');
     await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer').classList.contains('open'));
     assert.equal(await page.evaluate(()=>APP.boardStates.rotterdam.classPos),position,'each Space rolls exactly once');
+  }
+  const positions=await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions));
+  for(const level of ['B1','Alpha A']){
+    await page.locator('#levelSelect').selectOption(level);
+    assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true,'level change keeps fullscreen');
+    assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');
+    assert.equal(await page.locator('#levelSelect').isVisible(),true);
+    assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions)),positions);
   }
   await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!document.fullscreenElement);
   // Deliberate keyboard activation retains native button behavior and focus.
