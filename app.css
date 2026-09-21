@@ -411,6 +411,6 @@ header{background:rgba(255,255,255,.985);border-bottom:1px solid #dfe7ed;display
 .board-game[data-dark=true] :is(.board-info button,.context-tool button){color:#c3e3ff}
 .board-game[data-dark=true] .context-tools button{background:#263f54;border-color:#526b80}
 .board-game[data-dark=true] .board-info button:hover{background:#263f54}
-body:has(#screen-game.active .board-game[data-dark=true]) :is(#appHeader,#gameDialog,.context-tooltip,.curriculum-panel){background:#1b3042;color:#edf3f8;border-color:#526b80;color-scheme:dark}
-body:has(#screen-game.active .board-game[data-dark=true]) :is(#appHeader button,#appHeader .level-pill,#appHeader select,#gameDialog .dialog-head button,.curriculum-panel button,.curriculum-panel select){background:#263f54;color:#edf3f8}
-body:has(#screen-game.active .board-game[data-dark=true]) .context-tooltip strong{color:#edf3f8}
+html:has(#screen-game.active .board-game[data-dark=true]) :is(#appHeader,#gameDialog,.context-tooltip,.curriculum-panel){background:#1b3042;color:#edf3f8;border-color:#526b80;color-scheme:dark}
+html:has(#screen-game.active .board-game[data-dark=true]) :is(#appHeader button,#appHeader .level-pill,#appHeader select,#gameDialog .dialog-head button,.curriculum-panel button,.curriculum-panel select){background:#263f54;color:#edf3f8}
+html:has(#screen-game.active .board-game[data-dark=true]) .context-tooltip strong{color:#edf3f8}

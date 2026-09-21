@@ -36,8 +36,10 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  assert.equal(await p.locator('#contextTooltip').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight}),true);
  await p.keyboard.press('Escape');
  await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!!document.fullscreenElement);
- await p.getByRole('button',{name:'Uitleg: Geluid',exact:true}).hover();
+ await p.getByRole('button',{name:'Uitleg: Geluid',exact:true}).click();
+ assert.equal(await p.evaluate(()=>!!document.fullscreenElement),true,'opening explanation keeps fullscreen');
  assert.equal(await p.locator('#contextTooltip').isVisible(),true,'help is visible in fullscreen');
+ assert.equal(await p.locator('#contextTooltip').evaluate(el=>getComputedStyle(el).backgroundColor),await p.locator('#boardOptions').evaluate(el=>getComputedStyle(el).backgroundColor),'fullscreen explanation uses the dark palette');
  await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!document.fullscreenElement);
  await p.locator('#optDark').uncheck();await p.locator('#optSound').check();
  await p.setViewportSize({width:1440,height:900});await p.locator('#closeBoardOptions').click();
