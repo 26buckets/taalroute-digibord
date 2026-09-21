@@ -78,7 +78,9 @@ function syncFullscreen(){
  const active=!!document.fullscreenElement,button=$('#fullscreenBtn');
  button.setAttribute('aria-pressed',String(active));button.setAttribute('aria-label',active?'Volledig scherm verlaten':'Volledig scherm');button.title=button.getAttribute('aria-label');
 }
-$('#fullscreenBtn').onclick=async()=>{
+$('#fullscreenBtn').onclick=async e=>{
+ // Pointer activation returns Space to the game; keyboard activation keeps button focus.
+ if(e.detail>0)$('#fullscreenBtn').blur();
  try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen()}
  catch{toast('Volledig scherm is niet beschikbaar in deze browser. Gebruik de fullscreenfunctie van je browser.')}
  syncFullscreen();
