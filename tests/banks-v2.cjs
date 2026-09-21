@@ -38,6 +38,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!!document.fullscreenElement);
  await p.getByRole('button',{name:'Uitleg: Geluid',exact:true}).hover();
  assert.equal(await p.locator('#contextTooltip').isVisible(),true,'help is visible in fullscreen');
+ assert.equal(await p.locator('#contextTooltip').evaluate(el=>getComputedStyle(el).backgroundColor),await p.locator('#boardOptions').evaluate(el=>getComputedStyle(el).backgroundColor),'fullscreen explanation uses the dark palette');
  await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!document.fullscreenElement);
  await p.locator('#optDark').uncheck();await p.locator('#optSound').check();
  await p.setViewportSize({width:1440,height:900});await p.locator('#closeBoardOptions').click();
