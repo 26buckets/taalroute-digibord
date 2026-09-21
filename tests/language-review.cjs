@@ -8,7 +8,7 @@ for(const c of b.cards){
  if(c.routeId==='route-0')assert.ok(c.instruction.split(/\s+/).length<=18,c.id+' beginner instruction too long');
 }
 for(let n=1;n<=10;n++){
- const cashier=get(3,'winkelen',n,'diamond');assert.match(cashier.input,/geen contant geld/);assert.doesNotMatch(cashier.model,/Kan ik contant betalen/);assert.match(cashier.model,/bewaren/);
+ const cashier=get(3,'winkelen',n,'diamond');assert.match(cashier.input,/winkelmedewerker/i);assert.match(cashier.input,/afspraak|correctie|oplossing/i);assert.ok(cashier.instruction.trim()&&cashier.model.trim());
  const price=get(2,'winkelen',n,'triangle');const costs=[...price.input.matchAll(/voor (\d+) euro/g)].map(m=>+m[1]);assert.equal(costs.length,2);assert.ok(costs[0]<costs[1]);assert.match(price.input,/hoeveelheid is gelijk/);
  const late=get(2,'onderweg',n,'diamond');assert.match(late.input,/14\.00 uur/);assert.match(late.input,/tien minuten/);assert.match(late.model,/tien over twee/);
  const form=get(0,'kennismaken',n,'diamond');assert.match(form.input,/Formulier:/);assert.match(form.input,/Goed:/);

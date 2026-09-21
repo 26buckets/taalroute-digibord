@@ -1,0 +1,28 @@
+name: A2 B1 final gate
+
+on:
+  push:
+    branches:
+      - content/a2-b1-productiebank-v2-2026-09-20
+  workflow_dispatch:
+
+jobs:
+  final:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CHROME_PATH: /home/runner/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Matrix en taalregressies
+        run: node tests/matrix.cjs
+      - name: A2 B1 vier vormen browser smoke
+        run: node tests/a2-b1-v2-smoke.cjs
