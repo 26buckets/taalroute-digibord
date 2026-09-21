@@ -19,7 +19,8 @@
     "test:story:browser": "node tests/storydice-browser.cjs",
     "test:c1:browser": "node tests/c1-browser.cjs",
     "test:taalworp:browser": "node tests/taalworp-browser.cjs",
-    "test:cards:browser": "node tests/card-layout-browser.cjs"
+    "test:cards:browser": "node tests/card-layout-browser.cjs && node tests/card-reading-browser.cjs",
+    "test:level:browser": "node tests/shared-level-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",

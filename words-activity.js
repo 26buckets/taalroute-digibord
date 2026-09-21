@@ -333,7 +333,7 @@ function startWZ() {
   renderWZFeedback();
  }
  for(const key of ['Goals','Partner','More'])$('#word'+key).onclick=()=>{
-  const sections={Goals:[['Doel',item.goal],['Waar let je op?',item.feedback]],Partner:[['Samen bespreken',item.answerType==='OPEN'?'Luister naar de bedoeling en naar de zin. Geef ruimte voor een ander passend antwoord.':'Vergelijk de gekozen zin met het antwoordmodel. Bespreek een andere geldige formulering.']],More:[['Verder oefenen',item.source==='PRAATPAD_WORDS'?'Zeg een eigen zin of geef zelf aanwijzingen. Bespreek het antwoord samen.':'Oefen hetzelfde taaldoel ook met Spreek of Transfer. Deze vormen hebben open antwoorden.'],['Docentpreview','Taal- en didactiekreview door een docent en een lespilot staan nog open.']]};
+  const sections={Goals:[['Doel',item.goal],['Waar let je op?',item.feedback]],Partner:[['Samen bespreken',item.answerType==='OPEN'?'Luister naar de bedoeling en naar de zin. Geef ruimte voor een ander passend antwoord.':'Vergelijk de gekozen zin met het antwoordmodel. Bespreek een andere geldige formulering.']],More:[['Verder oefenen',item.source==='PRAATPAD_WORDS'?'Zeg een eigen zin of geef zelf aanwijzingen. Bespreek het antwoord samen.':'Oefen hetzelfde taaldoel ook met Spreek of Transfer. Deze vormen hebben open antwoorden.']]};
   openGameDialog({Goals:'Doel en rollen',Partner:'Voor de gesprekspartner',More:'Meer bij deze oefening'}[key],sections[key].map(([h,t])=>`<h3>${esc(h)}</h3><p>${esc(t)}</p>`).join(''));
  };
 }

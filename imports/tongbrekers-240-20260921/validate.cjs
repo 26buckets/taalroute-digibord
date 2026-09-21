@@ -26,9 +26,9 @@ const app=fs.readFileSync(path.join(root,'app.js'),'utf8');let rendered='';
 const ctx=vm.createContext({RUNTIME:{tongueBank:bank},CARD_GAMES:[],APP:{level:'A2'},$$:()=>[],esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>{rendered=html}});
 vm.runInContext(app.slice(app.indexOf('function cardsFor('),app.indexOf('function cardActivityHeader(')),ctx);
 for(const [level,total] of Object.entries({A0:60,A1:120,A2:180,B1:240,B2:240,C1:240,C2:240})){
- ctx.APP.tongueLevel=level;ctx.APP.tongueDifficulty='';assert.equal(vm.runInContext("cardsFor('tongue').length",ctx),total);
+ ctx.APP.level=level;ctx.APP.tongueDifficulty='';assert.equal(vm.runInContext("cardsFor('tongue').length",ctx),total);
  for(const difficulty of ['','easy','medium','hard']){ctx.APP.tongueDifficulty=difficulty;const expected=bank.cards.filter(c=>bank.levels.indexOf(c.entryLevel)<=bank.levels.indexOf(level)&&(!difficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[difficulty])));assert.deepEqual(Array.from(vm.runInContext("cardsFor('tongue')",ctx),c=>c.id),expected.map(c=>c.id));ctx.APP.cardIndex=999;vm.runInContext('startTongue()',ctx);assert.ok(!/undefined|NaN/.test(rendered))}
 }
-ctx.APP.tongueLevel='C2';ctx.APP.tongueDifficulty='';
+ctx.APP.level='C2';ctx.APP.tongueDifficulty='';
 for(let n=0;n<240;n++){ctx.APP.cardIndex=n;vm.runInContext('startTongue()',ctx);assert.ok(rendered.includes(bank.cards[n].text))}
 console.log('PASS: 240 unique source-identical cards; four groups of 60; bundle parity; 240 verified audio links / original 94 preserved / 146 completed; all 28 filters and 240 existing-renderer outputs. Source package verified.');

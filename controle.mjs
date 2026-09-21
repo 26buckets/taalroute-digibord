@@ -263,7 +263,7 @@ vm.runInContext(source.slice(source.indexOf('function defaultCardRoute('),source
 for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
  tableCtx.APP.cardRoute='all';
  for(let i=0;i<family.cards.length;i++){
-  tableCtx.APP.cardIndex=i;tableCtx.kind=family.id;
+  tableCtx.APP.level={R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[family.cards[i].routeId];tableCtx.APP.cardIndex=family.cards.filter(c=>c.routeId===family.cards[i].routeId).findIndex(c=>c.id===family.cards[i].id);tableCtx.kind=family.id;
   vm.runInContext('startCards(kind)',tableCtx);
   const c=family.cards[i],html=tableMount.innerHTML;
   const visible=c.visualRebus?[c.visualRebus.title,c.visualRebus.instruction,c.visualRebus.explanation,...c.visualRebus.context]:[c.title,c.instruction,c.situation];
@@ -280,30 +280,29 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
   assert.equal(/\bdisabled\b/.test(html.match(/<button[^>]*id="cardExample"[^>]*>/)[0]),c.model.showWhen!=='before_during_after_attempt',c.id+' model timing');
  }
  for(const route of data.cardGames.routeDefinitions){
-  tableCtx.APP.cardRoute=route.id;tableCtx.kind=family.id;
+  tableCtx.APP.level={R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[route.id];tableCtx.kind=family.id;
   const selected=vm.runInContext('cardsFor(kind)',tableCtx);
   assert.ok(selected.length);assert.ok(selected.every(c=>c.routeId===route.id));
  }
 }
 tableCtx.APP.cardRoute='all';tableCtx.kind='conversation';
-assert.equal(vm.runInContext('cardsFor(kind).length',tableCtx),40);
+assert.equal(vm.runInContext('cardsFor(kind,true).length',tableCtx),40);
 // A genuinely empty route never receives cards from another route.
 const emptyFamily={id:'empty',cards:[data.cardGames.families[0].cards[0]]};
-tableCtx.CARD_GAMES.push(emptyFamily);tableCtx.APP.cardRoute='R6';
+tableCtx.CARD_GAMES.push(emptyFamily);tableCtx.APP.level='C1';
 assert.equal(vm.runInContext("cardsFor('empty').length",tableCtx),0);
 tableCtx.CARD_GAMES.pop();
 console.log('PASS: all 280 other records render correctly, including ten illustrated rebuses; seven exact routes; all 40 conversation cards; no empty-route substitution.');
 
-// One shared selector exposes every production route, then restores levels outside card games.
+// The header keeps the same level and options in and outside card games.
 const levelMenu={dataset:{},setAttribute(){}};
 const menuCtx=vm.createContext({$:()=>levelMenu,APP:{level:'A2',cardRoute:'R2'},CARD_ROUTES:data.cardGames.routeDefinitions,LEVELS:['Alpha A','Alpha B','Alpha C','A0','A1','A2','B1','B2','C1','C2'],esc:s=>s,activeCardRoute:()=>menuCtx.APP.cardRoute});
-vm.runInContext(source.slice(source.indexOf('function syncLevelSelect('),source.indexOf('\nsyncLevelSelect(false);')),menuCtx);
+vm.runInContext(source.slice(source.indexOf('function syncLevelSelect('),source.indexOf('\nfunction resetLevelContent(')),menuCtx);
 vm.runInContext('syncLevelSelect(true)',menuCtx);
-assert.equal(levelMenu.value,'R2');assert.equal((levelMenu.innerHTML.match(/<option/g)||[]).length,8);
-for(const r of data.cardGames.routeDefinitions)assert.ok(levelMenu.innerHTML.includes(`value="${r.id}">${r.label}`));
+assert.equal(levelMenu.value,'A2');assert.equal((levelMenu.innerHTML.match(/<option/g)||[]).length,menuCtx.LEVELS.length);
 vm.runInContext('syncLevelSelect(false)',menuCtx);assert.equal(levelMenu.value,'A2');assert.equal(levelMenu.dataset.routes,'false');assert.ok(levelMenu.innerHTML.includes('Alpha A'));
 assert.ok(!source.includes('id="cardRoute"'));
-console.log('PASS: single route selector retains R1, R2 and all seven production routes; ordinary levels restored outside cards.');
+console.log('PASS: shared level selector remains unchanged inside and outside card games; all seven routes remain reachable.');
 
 // All ready sets are selectable once, grouped into Basis, Taalvorm and Thema’s.
 const setCtx=vm.createContext({esc:s=>String(s??''),APP:{},tw:{sets:data.taalworpSets,manifest:m}});
@@ -350,7 +349,7 @@ assert.equal(boardNodes['#taskTitle'].textContent,updatedTask.instruction);
 assert.ok(boardNodes['#taskSupport'].innerHTML.includes(updatedTask.partner));
 vm.runInContext("showBoardSupport('model')",importCtx);
 assert.ok(boardNodes['#taskSupport'].innerHTML.includes(updatedTask.criterion));
-tableCtx.APP.cardKind='conversation';tableCtx.APP.cardRoute='R2';tableCtx.APP.cardIndex=0;tableCtx.APP.cardBankRevision='data/kaartenkast_180.json';tableCtx.APP.cardRound={id:'TR-CONVERSATION-P002-007-R2',attempted:true};
+tableCtx.APP.cardKind='conversation';tableCtx.APP.level='A1+';tableCtx.APP.cardRoute='R2';tableCtx.APP.cardIndex=0;tableCtx.APP.cardBankRevision='data/kaartenkast_180.json';tableCtx.APP.cardRound={id:'TR-CONVERSATION-P002-007-R2',attempted:true};
 vm.runInContext(source.slice(source.indexOf('// Keep the selected record'),source.indexOf('function defaultCardRoute(')),tableCtx);
 assert.equal(vm.runInContext('currentCard().id',tableCtx),'TR-CONVERSATION-P002-007-R2');
 assert.equal(vm.runInContext('cardRound(currentCard()).attempted',tableCtx),false);

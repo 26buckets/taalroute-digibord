@@ -50,7 +50,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#levelSelect').selectOption('C2');
   const states=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   for(const kind of ['mission','conversation','verbs','spelling','puzzles','idioms','story']){
-   await page.locator('[data-ctype="'+kind+'"]').click();assert.equal(await page.locator('#cardHelp').count(),1);assert.equal(await page.locator('#levelSelect').getAttribute('data-routes'),'true');
+   await page.locator('[data-ctype="'+kind+'"]').click();assert.equal(await page.locator('#cardHelp').count(),1);assert.equal(await page.locator('#levelSelect').getAttribute('data-routes'),'false');
    await page.locator('#primaryGame').click();assert.ok(await page.locator('#cardAttempt').isVisible());
   }
   await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),'C2');

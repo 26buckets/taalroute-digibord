@@ -62,7 +62,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  for(const goal of await page.locator('[data-word-archive]').evaluateAll(bs=>bs.map(b=>b.dataset.wordArchive))){
   await page.locator(`[data-word-archive="${goal}"]`).click();
   assert.equal(await page.evaluate(()=>wordItem().source),'PRAATPAD_WORDS');
-  assert.equal(await page.locator('#levelSelect').innerText(),await page.evaluate(()=>wordItem().level));
+  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>APP.level));
   await page.locator('#wzGoalsBack').click();
  }
  await page.locator('[data-word-archive="WS_OMSCHRIJVEN"]').click();
@@ -87,7 +87,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  for(const level of ['A1','A2','B1','B2']){
   await page.locator('#wzLevel').selectOption(level);
   assert.equal(await page.evaluate(()=>wordItem().level),level);
-  assert.equal(await page.locator('#levelSelect').innerText(),level);
+  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>APP.level));
  }
  assert.equal(await page.evaluate(()=>{
   const cards=WORD_ITEMS.filter(i=>i.source==='PRAATPAD_WORDS');
