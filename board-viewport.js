@@ -23,7 +23,6 @@ const BoardViewport = (() => {
     const shell = /** @type {HTMLElement} */ (view.closest('.board-game'));
     const task = /** @type {HTMLElement} */ (view.querySelector('#taskDrawer'));
     const options = /** @type {HTMLElement} */ (view.querySelector('#boardOptions'));
-    const hud = /** @type {HTMLElement} */ (view.querySelector('.board-hud'));
     const cradle = /** @type {HTMLElement} */ (shell.querySelector('.dice-cradle'));
     svg.setAttribute('viewBox', `0 0 ${WIDTH} ${HEIGHT}`);
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
@@ -33,7 +32,7 @@ const BoardViewport = (() => {
       frame = 0;
       if (!view.isConnected) return;
       const box = view.getBoundingClientRect();
-      const top = Math.max(0, hud.offsetTop + hud.offsetHeight) + MARGIN;
+      const top = MARGIN; // The board label floats over the map without reserving a full row.
       const adaptive = shell.dataset.boardFit === 'adaptive';
       const right = adaptive && options.classList.contains('open') ? box.width - options.offsetLeft + MARGIN : MARGIN;
       // In adaptive mode reserve panels; otherwise keep the board stable beneath them.
@@ -47,7 +46,7 @@ const BoardViewport = (() => {
     }
     function schedule() { if (!frame) frame = requestAnimationFrame(fit); }
     const resize = new ResizeObserver(schedule);
-    [view, task, options, hud, cradle].forEach(el => resize.observe(el));
+    [view, task, options, cradle].forEach(el => resize.observe(el));
     const state = new MutationObserver(schedule);
     [shell, task, options].forEach(el => state.observe(el, {attributes: true, attributeFilter: ['class', 'data-footer', 'data-board-fit']}));
     window.addEventListener('resize', schedule);

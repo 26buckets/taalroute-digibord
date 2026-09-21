@@ -75,8 +75,36 @@ async function check(page, label) {
   // Default overlay mode keeps board size and position when panels open.
   await page.evaluate(()=>{settingsPatch({reducedMotion:true});startBoard('rotterdam');});
   const boardRect = () => page.locator('#boardBackground').evaluate(el => JSON.stringify(el.getBoundingClientRect()));
+  // The collapsed header and board label reserve no rows; footer dimensions stay intact.
+  for(const [width,height] of [[1920,1080],[1920,887],[1440,900],[1024,768],[768,1024],[390,844]]){
+    await page.setViewportSize({width,height});await settle(page);
+    const size=await page.evaluate(()=>{
+      const board=document.querySelector('#boardView').getBoundingClientRect();
+      const viewport=document.querySelector('#boardViewport').getBoundingClientRect();
+      const footer=document.querySelector('.board-game .gamebar').getBoundingClientRect();
+      const controls=[...document.querySelectorAll('#appHeader button')].filter(e=>e.getClientRects().length).map(e=>e.getBoundingClientRect());
+      return {top:board.top,height:board.height,viewportTop:viewport.top,viewportHeight:viewport.height,footerHeight:footer.height,expectedFooter:parseFloat(getComputedStyle(document.querySelector('.board-game')).getPropertyValue('--gamebar')),fits:controls.every(r=>r.left>=0&&r.right<=innerWidth&&r.height>=44)};
+    });
+    assert.equal(size.top,0,'board uses header space');assert.equal(size.footerHeight,size.expectedFooter,'footer height unchanged');
+    assert.equal(size.viewportTop,8,'label does not reserve a row');assert.equal(size.viewportHeight,size.height-16);
+    assert.ok(size.fits,'board header controls fit '+width);
+    const before=await boardRect();const state=await page.evaluate(()=>JSON.stringify(APP.boardStates));
+    await page.locator('#boardMenuToggle').click();assert.equal(await page.locator('#levelSelect').isVisible(),true);
+    assert.equal(await boardRect(),before,'opening navigation does not shrink the board');
+    await page.keyboard.press('Escape');assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');
+    assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),state,'navigation preserves game state');
+  }
+  await page.setViewportSize({width:1920,height:1080});await settle(page);
+  await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!!document.fullscreenElement);
+  assert.equal(await page.locator('#fullscreenBtn').getAttribute('aria-pressed'),'true');
+  await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!document.fullscreenElement);
+  await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#boardMenuToggle').isVisible(),false);
+  assert.equal(await page.locator('#levelSelect').isVisible(),true,'normal header returns outside boards');
+  await page.evaluate(()=>startBoard('rotterdam'));await settle(page);
   const fixedRect = await boardRect();
+  await page.locator('#boardMenuToggle').click();
   await page.getByRole('button',{name:'Bordopties',exact:true}).click();
+  assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false','options close the navigation menu');
   await page.waitForTimeout(250);
   assert.equal(await boardRect(),fixedRect,'options must not shrink the default board');
   await page.locator('#closeBoardOptions').click();

@@ -47,7 +47,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
   await p.getByRole('button',{name:'Bordopties',exact:true}).click();await p.locator('#questionMode').selectOption(mode);
   assert.deepEqual(await p.evaluate(()=>({positions:JSON.stringify(APP.boardStates.rotterdam.positions),groups:JSON.stringify(APP.boardStates.rotterdam.groupPositions),classPos:APP.boardStates.rotterdam.classPos,turn:JSON.stringify(APP.turn)})),before);
  }
- await p.locator('#levelSelect').selectOption('A1');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
+ await p.locator('#boardMenuToggle').click();await p.locator('#levelSelect').selectOption('A1');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
  // Check real UI selections and long help on small and large screens.
  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
  for(const [width,height]of [[1440,900],[1024,768],[390,844]]){
