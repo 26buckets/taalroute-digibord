@@ -13,7 +13,8 @@
     "check:banks": "node scripts/check-banks.cjs",
     "test:banks:browser": "node tests/banks-v2.cjs",
     "test:tongue:browser": "node tests/tongbrekers-browser.cjs",
-    "test:story:browser": "node tests/storydice-browser.cjs"
+    "test:story:browser": "node tests/storydice-browser.cjs",
+    "test:level:browser": "node tests/global-level.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",

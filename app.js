@@ -1,8 +1,10 @@
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const STORE='taalroute-digibord-v020', SETTINGS_STORE='taalroute-poc0141-settings';
+const LEVELS=['Alpha A','Alpha B','Alpha C','A0','A1','A1+','A2','B1','B2','C1','C2'];
 let APP={last:null,level:'A2',boardStates:{rotterdam:{},zwolle:{}},turn:{mode:'individual',active:0},sound:true,storyCount:3};
 try{APP={...APP,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch{}
+if(!LEVELS.includes(APP.level))APP.level='A2';
 function save(){try{localStorage.setItem(STORE,JSON.stringify(APP))}catch{toast('Bewaren is niet beschikbaar in deze browser.')}}
 function esc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function safeColor(value){return /^#[0-9a-f]{3,8}$/i.test(value)?value:'#2389e8'}
@@ -29,7 +31,9 @@ function rememberAction(label){
 function undoLastAction(){
  if(gameIsBusy())return toast('De beweging wordt eerst afgerond.');
  const group=undoHistory.at(-1),snap=group?.steps.pop();if(!snap)return;
- if(!group.steps.length)undoHistory.pop();else group.closed=false;APP=structuredClone(snap.app);twDiceState=structuredClone(snap.dice);
+ const level=APP.level;
+ if(!group.steps.length)undoHistory.pop();else group.closed=false;APP={...structuredClone(snap.app),level};twDiceState=structuredClone(snap.dice);
+ if(snap.app.level!==level)resetLevelContent();
  settingsPatch({pawnMode:snap.mode,route:selectedTaskRoute().label});$('#levelSelect').value=APP.level;
  resumeLast();
  if(snap.word){wordRound=snap.word.round?.version===3&&Array.isArray(snap.word.round.selected)?structuredClone(snap.word.round):newSentenceRound();startWords('build')}
@@ -72,9 +76,8 @@ $('#collectionResume').onclick=()=>APP.last?resumeLast():home();
 $('#collectionStorySets').onclick=()=>openCabinet('story');
 $$('[data-home]').forEach(b=>b.onclick=home);$$('[data-category]').forEach(b=>b.onclick=()=>goScreen(b.dataset.category));$$('[data-open-main]').forEach(b=>b.onclick=()=>goScreen(b.dataset.openMain));$$('.navitem').forEach(b=>b.onclick=()=>goScreen(b.dataset.main==='play'?'play':b.dataset.main));
 
-let settingsRouteAtOpen;
-function openSettings(){settingsRouteAtOpen=settingsState().route;$('#settingsOverlay iframe').src='settings/index.html';$('#settingsOverlay').classList.add('open')}
-function closeSettings(){const selected=settingsState().route;if(selected&&selected!==settingsRouteAtOpen){APP.level=taskBank.routes.find(r=>r.label===selected)?.legacyLevel||APP.level;APP.cardRoute=CARD_ROUTES.find(r=>r.label.replaceAll(' ','')===selected.replaceAll(' ',''))?.id;APP.cardIndex=0;delete APP.cardRound;$('#levelSelect').value=APP.level;twDiceState={};if(APP.last?.type==='board'){const pending=APP.boardStates[APP.last.data.board].pending;if(pending)delete pending.task}save()}$('#settingsOverlay').classList.remove('open');refreshCurrentGame()}
+function openSettings(){settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label});$('#settingsOverlay iframe').src='settings/index.html';$('#settingsOverlay').classList.add('open')}
+function closeSettings(){$('#settingsOverlay').classList.remove('open');syncLevelSelect();refreshCurrentGame()}
 function syncFullscreen(){
  const active=!!document.fullscreenElement,button=$('#fullscreenBtn');
  button.setAttribute('aria-pressed',String(active));button.setAttribute('aria-label',active?'Volledig scherm verlaten':'Volledig scherm');button.title=button.getAttribute('aria-label');
@@ -529,7 +532,7 @@ function taalworpExample(v,values){
 }
 let languageBusy=false;
 function initTwDice(){
- if(!tw)return;const low=APP.level.startsWith('Alpha')||['A0','A1'].includes(APP.level),high=['B1','B2','C1','C2'].includes(APP.level);
+ if(!tw)return;const low=APP.level.startsWith('Alpha')||['A0','A1','A1+'].includes(APP.level),high=['B1','B2','C1','C2'].includes(APP.level);
  TW_DICE_IDS.forEach(id=>{if(!twDiceState[id])twDiceState[id]={active:id==='WHO'||(!low&&id==='TENSE')||(high&&['SENTENCE_TYPE','CONNECT_1'].includes(id)),locked:false,value:tw.manifest.diceFamilies[id].values[0]}})
 }
 function rollTaalworp(){return playTaalworp(false)}
@@ -664,11 +667,12 @@ if(APP.cardBankRevision!==RUNTIME.cardGames.source){
  if(index>=0)APP.cardIndex=index;
  delete APP.cardRound;APP.cardBankRevision=RUNTIME.cardGames.source;save();
 }
-function defaultCardRoute(){return /^Alpha|^A0/.test(APP.level)?'R0':({A1:'R1',A2:'R3',B1:'R4',B2:'R5',C1:'R6',C2:'R6'}[APP.level]||'R0')}
-function activeCardRoute(){return APP.cardRoute==='all'||CARD_ROUTES.some(r=>r.id===APP.cardRoute)?APP.cardRoute:defaultCardRoute()}
+function defaultCardRoute(){return /^Alpha|^A0/.test(APP.level)?'R0':({A1:'R1','A1+':'R2',A2:'R3',B1:'R4',B2:'R5',C1:'R6',C2:'R6'}[APP.level]||'R0')}
+function activeCardRoute(){return defaultCardRoute()}
 function cardsFor(kind,all=false){if(kind==='tongue'){const bank=RUNTIME.tongueBank;return bank.cards.filter(c=>c.type==='tongbreker'&&(all||(bank.levels.indexOf(c.entryLevel)<=bank.levels.indexOf(tongueLevel())&&(!APP.tongueDifficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[APP.tongueDifficulty]??true)))))}const list=CARD_GAMES.find(x=>x.id===kind)?.cards||[];return all||activeCardRoute()==='all'?list:list.filter(c=>c.routeId===activeCardRoute())}
-function tongueLevel(){return RUNTIME.tongueBank.levels.includes(APP.tongueLevel)?APP.tongueLevel:RUNTIME.tongueBank.levels.includes(APP.level)?APP.level:'A0'}
-function tongueFilters(){return `<div class="tongue-filters"><label>Niveau <select id="tongueLevel">${RUNTIME.tongueBank.levels.map(l=>`<option value="${l}" ${tongueLevel()===l?'selected':''}>t/m ${l}</option>`).join('')}</select></label><label>Moeilijkheid <select id="tongueDifficulty">${[['','Alles'],['easy','Makkelijk'],['medium','Gemiddeld'],['hard','Lastig']].map(([v,label])=>`<option value="${v}" ${(APP.tongueDifficulty||'')===v?'selected':''}>${label}</option>`).join('')}</select></label></div>`}
+function tongueLevel(){return RUNTIME.tongueBank.levels.includes(APP.level)?APP.level:APP.level==='A1+'?'A1':'A0'}
+function tongueFilters(){return `<div class="tongue-filters"><label>Moeilijkheid <select id="tongueDifficulty">${[['','Alles'],['easy','Makkelijk'],['medium','Gemiddeld'],['hard','Lastig']].map(([v,label])=>`<option value="${v}" ${(APP.tongueDifficulty||'')===v?'selected':''}>${label}</option>`).join('')}</select></label></div>`}
+
 let tongueAudio=null;
 function stopTongueAudio(){
  const previous=tongueAudio;tongueAudio=null;
@@ -712,7 +716,7 @@ function bindCards(kind){
  $('#cardDeck').onclick=nextCard;
  if(kind==='tongue'){
   $('#primaryGame').disabled=$('#cardDeck').disabled=!c;
-  for(const key of ['tongueLevel','tongueDifficulty'])$('#'+key).onchange=e=>{rememberAction('tongbrekerfilter kiezen');APP[key]=e.target.value;APP.cardIndex=0;delete APP.cardRound;save();startTongue()};
+  $('#tongueDifficulty').onchange=e=>{rememberAction('tongbrekerfilter kiezen');APP.tongueDifficulty=e.target.value;APP.cardIndex=0;delete APP.cardRound;save();startTongue()};
   const read=$('#tongueRead');read.disabled=!c?.audio?.src;
   read.onclick=()=>readTongue(c,read);
   return;
@@ -833,9 +837,9 @@ function renderCollection(){
  section.querySelectorAll('[data-cabinet]').forEach(b=>b.onclick=()=>{type=b.dataset.cabinet;cabinetType=type;section.querySelectorAll('[data-cabinet]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b))});filter()});$('#cabinetSearch').oninput=()=>{cabinetQuery=$('#cabinetSearch').value;filter()};section.querySelectorAll('[data-cabinet]').forEach(x=>{x.classList.toggle('active',x.dataset.cabinet===type);x.setAttribute('aria-pressed',String(x.dataset.cabinet===type))});filter();
 }
 /* Shared classroom controls */
-const LEVELS=['Alpha A','Alpha B','Alpha C','A0','A1','A2','B1','B2','C1','C2'];
-function selectedTaskRoute(){return taskBank.routes[APP.level.startsWith('Alpha')||APP.level==='A0'?0:APP.level==='A1'?1:APP.level==='A2'?2:3]}
-function levelInstruction(){return APP.level.startsWith('Alpha')?'Wijs aan en zeg het woord. De docent kan voorlezen.':APP.level==='A0'?'Gebruik een woord of een korte vaste zin.':APP.level==='A1'?'Maak een korte zin.':APP.level==='A2'?'Vertel in enkele zinnen en geef een reden.':APP.level==='B1'?'Leg je antwoord uit en stel een vervolgvraag.':APP.level==='B2'?'Onderbouw je antwoord en bespreek een tegenargument.':APP.level==='C1'?'Nuanceer je standpunt en pas je register aan je gesprekspartner aan.':'Formuleer precies, bespreek impliciete aannames en herformuleer voor een ander publiek.'}
+
+function selectedTaskRoute(){return taskBank.routes[APP.level.startsWith('Alpha')||APP.level==='A0'?0:APP.level==='A1'?1:['A1+','A2'].includes(APP.level)?2:3]}
+function levelInstruction(){return APP.level.startsWith('Alpha')?'Wijs aan en zeg het woord. De docent kan voorlezen.':APP.level==='A0'?'Gebruik een woord of een korte vaste zin.':APP.level==='A1'?'Maak een korte zin.':APP.level==='A1+'?'Maak enkele korte zinnen en voeg een detail toe.':APP.level==='A2'?'Vertel in enkele zinnen en geef een reden.':APP.level==='B1'?'Leg je antwoord uit en stel een vervolgvraag.':APP.level==='B2'?'Onderbouw je antwoord en bespreek een tegenargument.':APP.level==='C1'?'Nuanceer je standpunt en pas je register aan je gesprekspartner aan.':'Formuleer precies, bespreek impliciete aannames en herformuleer voor een ander publiek.'}
 function adaptTask(c){return{...c,input:[c.input,levelInstruction()].filter(Boolean).join(' ')}}
 function openGameDialog(title,body,bind){
  const dlg=$('#gameDialog');$('#dialogTitle').textContent=title;$('#dialogBody').innerHTML=body;
@@ -851,15 +855,19 @@ function currentGameRules(){
  return 'Overleg met je maatje en maak met alle woorden een zin. Eén zegt de zin, de ander luistert en helpt. Voorbeeld toont een mogelijke uitwerking. Leg de zin opent woordtegels om zelf te tikken of slepen; controleren kan daar op de kaart. Volgende kaart geeft een nieuwe opdracht aan de volgende deelnemer.';
 }
 function refreshCurrentGame(){if($('#screen-game').classList.contains('active'))resumeLast()}
-function syncLevelSelect(cards){const select=$('#levelSelect');select.dataset.tongue=String(cards&&APP.cardKind==='tongue');if(cards&&APP.cardKind==='tongue'){select.dataset.routes='false';select.setAttribute('aria-label','Niveau tongbrekers');select.innerHTML=RUNTIME.tongueBank.levels.map(l=>`<option value="${l}">t/m ${l}</option>`).join('');select.value=tongueLevel();return}select.dataset.routes=String(cards);select.setAttribute('aria-label',cards?'Taalroute':'Niveau');select.innerHTML=cards?`<option value="all">Alle routes</option>${CARD_ROUTES.map(r=>`<option value="${r.id}">${esc(r.label)}</option>`).join('')}`:LEVELS.map(l=>`<option>${l}</option>`).join('');select.value=cards?activeCardRoute():APP.level}
+function syncLevelSelect(){const select=$('#levelSelect');select.dataset.tongue='false';select.dataset.routes='false';select.setAttribute('aria-label','Niveau');select.innerHTML=LEVELS.map(l=>`<option>${l}</option>`).join('');select.value=APP.level}
+function resetLevelContent(){
+ delete APP.cardRoute;delete APP.tongueLevel;APP.cardIndex=0;delete APP.cardRound;twDiceState={};
+ for(const state of Object.values(APP.boardStates))if(state.pending)delete state.pending.task;
+}
+function selectLevel(level){
+ if(!LEVELS.includes(level))return;
+ if(APP.level!==level){APP.level=level;resetLevelContent()}
+ settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label});save();syncLevelSelect();refreshCurrentGame();
+ if($('#screen-collection').classList.contains('active'))renderCollection();
+}
 syncLevelSelect(false);
-$('#levelSelect').onchange=e=>{
- if(e.target.dataset.tongue==='true'){rememberAction('tongbrekerniveau kiezen');APP.tongueLevel=e.target.value;APP.cardIndex=0;save();startTongue();return}
- if(e.target.dataset.routes==='true'){rememberAction('taalroute kiezen');APP.cardRoute=e.target.value;APP.cardIndex=0;delete APP.cardRound;startCards(APP.cardKind);save();return}
- APP.level=e.target.value;delete APP.cardRoute;APP.cardIndex=0;delete APP.cardRound;settingsPatch({route:selectedTaskRoute().label});save();twDiceState={};
- if(APP.last?.type==='board'){const s=APP.boardStates[APP.last.data.board];if(s.pending)delete s.pending.task}
- refreshCurrentGame();
-};
+$('#levelSelect').onchange=e=>selectLevel(e.target.value);
 $('#dialogClose').onclick=()=>$('#gameDialog').close();
 
 window.addEventListener('keydown',e=>{

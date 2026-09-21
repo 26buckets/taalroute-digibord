@@ -16,10 +16,10 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   await page.goto('file://'+path.join(served,'index.html'));
   await page.locator('[data-main="play"]').click();await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="tongue"]').click();
-  await page.locator('#tongueLevel').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('C2');
   assert.equal(await page.locator('.card-activity-heading h1 span').innerText(),'142 kaarten');
   assert.equal(await page.locator('#cardHelp,#cardGoals,#cardPartner,#cardSetInfo,#cardSupport,#cardAttempt,[data-ghelp],[data-grules]').count(),0);
-  await page.locator('#tongueLevel').selectOption('A1');assert.equal(await page.locator('.card-counter').innerText(),'1 van 61');await page.locator('#tongueLevel').selectOption('A2');assert.equal(await page.locator('.card-counter').innerText(),'1 van 121');await page.locator('#tongueLevel').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('A1');assert.equal(await page.locator('.card-counter').innerText(),'1 van 61');await page.locator('#levelSelect').selectOption('A2');assert.equal(await page.locator('.card-counter').innerText(),'1 van 121');await page.locator('#levelSelect').selectOption('C2');
   const initial=await page.locator('.tongue-text').innerText();await page.locator('#tongueRead').click();await page.locator('#tongueRead').click();
   const initialAudio=await page.evaluate(()=>currentCard().audio.src);
   assert.deepEqual(await page.evaluate(()=>window.spoken),[initialAudio,initialAudio]);
@@ -30,14 +30,14 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   assert.ok((await page.locator('#toast').innerText()).includes('De opname kan niet'));
   await page.evaluate(()=>{window.audioFailed=false});await page.locator('#tongueRead').click();
   const cancelled=await page.evaluate(()=>window.cancelled);
-  await page.locator('#tongueLevel').selectOption('A1');assert.ok(await page.evaluate(()=>window.cancelled)>cancelled);
-  await page.locator('#tongueLevel').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('A1');assert.ok(await page.evaluate(()=>window.cancelled)>cancelled);
+  await page.locator('#levelSelect').selectOption('C2');
   const seen=new Set();
   for(let i=0;i<142;i++){seen.add(await page.locator('.tongue-content').getAttribute('data-card-id'));await page.locator('#primaryGame').click()}
   assert.equal(seen.size,142);assert.equal(await page.locator('.tongue-text').innerText(),initial);
   await page.locator('#primaryGame').click();await page.locator('#undoAction').click();assert.equal(await page.locator('.tongue-text').innerText(),initial);
   for(const level of ['A0','A1','A2','B1','B2','C1','C2'])for(const difficulty of ['','easy','medium','hard']){
-   await page.locator('#tongueLevel').selectOption(level);await page.locator('#tongueDifficulty').selectOption(difficulty);
+   await page.locator('#levelSelect').selectOption(level);await page.locator('#tongueDifficulty').selectOption(difficulty);
    assert.equal(await page.locator('#levelSelect').inputValue(),level);
    const expected=await page.evaluate(()=>cardsFor('tongue').length);
    assert.equal(await page.locator('.card-counter').innerText(),expected?'1 van '+expected:'0 kaarten');
@@ -47,13 +47,13 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   }
   await page.locator('#tongueDifficulty').selectOption('');await page.locator('#levelSelect').selectOption('A0');assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
   await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
-  await page.locator('#tongueLevel').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('C2');
   const states=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   for(const kind of ['mission','conversation','verbs','spelling','puzzles','idioms','story']){
-   await page.locator('[data-ctype="'+kind+'"]').click();assert.equal(await page.locator('#cardHelp').count(),1);assert.equal(await page.locator('#levelSelect').getAttribute('data-routes'),'true');
+   await page.locator('[data-ctype="'+kind+'"]').click();assert.equal(await page.locator('#cardHelp').count(),1);assert.equal(await page.locator('#levelSelect').getAttribute('data-routes'),'false');
    await page.locator('#primaryGame').click();assert.ok(await page.locator('#cardAttempt').isVisible());
   }
-  await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#tongueLevel').inputValue(),'C2');
+  await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),'C2');
   await page.locator('#settingsBtn').click();assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
   await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();await page.waitForFunction(()=>!document.querySelector('#settingsOverlay').classList.contains('open'));assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),states);
