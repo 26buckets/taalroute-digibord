@@ -35,4 +35,20 @@ for(const c of mix){
  if(c.visualRebus){assert.equal(c.taalmix.kind,'Rebus');assert.ok(Number.isInteger(c.taalmix.puzzleLoad));assert.ok(fs.existsSync(path.join(root,c.visualRebus.src)));assert.ok(c.model.text.includes('Betekenis:'));assert.ok(c.visualRebus.driveUrl.startsWith('https://drive.google.com/'));}
  else {assert.equal(c.taalmix.puzzleLoad,null);assert.ok(c.model.text.length>c.title.length+30);}
 }
-console.log('PASS: 240 complete Taalmix cards, 60 per level, 20 per stage, 80 mapped images, 22 preserved cards, all level/stage/type filters, empty selections and truthful review status.');
+for(const c of family.cards){
+ assert.equal(c.editorialReview.humanReview,'not_performed');
+ assert.equal(c.input,c.situation);assert.equal(c.support,c.help.items.join(' '));
+ assert.equal(c.retry,c.followUp.instruction);
+ assert.ok(!/[?!]\./.test([c.instruction,c.situation,c.support,c.model.text].join(' ')),c.id);
+ if(c.visualRebus)assert.equal(c.visualRebus.instruction,c.instruction);
+ if(c.taalmix&&c.visualRebus){
+  assert.ok(!c.support.includes('→'),`${c.id}: hulp verklapt tussenuitkomst`);
+  assert.ok(c.visualRebus.explanation.includes('='),`${c.id}: volledige letterketen ontbreekt`);
+ }
+}
+const reviewed=id=>family.cards.find(c=>c.id===id);
+assert.ok(reviewed('N-A1-U01').visualRebus.explanation.includes('KOE + L + KAST'));
+assert.ok(reviewed('TR-MIX-B2-16').model.text.includes('extra uur'));
+assert.ok(!reviewed('TR-MIX-B2-16').model.text.includes('bon'));
+assert.ok(reviewed('TR-IDIOMS-P001-014-R3').situation.includes('petten'));
+console.log('PASS: 240 complete Taalmix cards, 60 per level, 20 per stage, 80 mapped images, 22 retained cards, all filters, and 262 consistent editorial reviews with truthful human-review status.');
