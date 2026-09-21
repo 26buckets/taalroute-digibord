@@ -18,12 +18,17 @@
     "B1-C2": 60
   },
   "audio": {
-    "reusable": 94,
-    "required": 146
+    "retained": 94,
+    "additionalCompleted": 146,
+    "recoveredFromHistory": 6,
+    "newlyGenerated": 140,
+    "totalLinked": 240,
+    "required": 0
   },
-  "bankSha256": "079c2effc50d3e0303c91eaf1255143addcd7977eb78d4714e071ed965ee13c8",
-  "technicalValidation": "validated_against_source_and_existing_renderer",
+  "bankSha256": "179a3f01c247d51539d3c5d45722f4ed482ffdef0a799e919989e1539448771d",
+  "technicalValidation": "source_renderer_all_240_audio_files_and_preview_playback_verified",
   "humanReview": "not_verified_by_this_task",
   "lessonTrial": "not_performed_by_this_task",
-  "publication": "not_published_by_this_task"
+  "publication": "not_published_by_this_task",
+  "audioManifestSha256": "9fded34b28400cfc6835ae421b4baf578b1e31097a8208d9d1218ebe7866011f"
 }

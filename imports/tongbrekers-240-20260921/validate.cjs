@@ -13,8 +13,14 @@ const data={window:{DIGIBORD_DATA:{retained:true}}};vm.runInNewContext(read('ton
 assert.equal(migration.retainedIds.length,94);assert.equal(migration.newIds.length,146);assert.deepEqual(new Set([...migration.retainedIds,...migration.newIds]),new Set(bank.cards.map(c=>c.id)));
 const existingAudio=JSON.parse(fs.readFileSync(path.join(root,'data/tongbrekers-audio.json'),'utf8')).recordings;
 assert.equal(audio.items.length,240);assert.equal(new Set(audio.items.map(c=>c.id)).size,240);
-for(const c of bank.cards){const plan=audio.items.find(a=>a.id===c.id);assert.equal(plan.text,c.text);if(c.audio){const old=existingAudio.find(a=>a.id===c.id);assert.ok(old);assert.equal(old.text,c.text);assert.equal(plan.status,'reuse_exact_text');assert.equal(c.audio.src,plan.src);assert.equal(hash(fs.readFileSync(path.join(root,plan.src))),plan.sha256);assert.equal(old.sha256,plan.sha256)}else assert.equal(plan.status,'recording_required')}
-assert.equal(audio.items.filter(x=>x.status==='reuse_exact_text').length,94);assert.equal(audio.items.filter(x=>x.status==='recording_required').length,146);
+const completeAudio=json('tongbrekers-audio-240.json');assert.equal(hash(read('tongbrekers-audio-240.json')),manifest.audioManifestSha256);
+assert.equal(completeAudio.recordings.length,240);assert.equal(new Set(completeAudio.recordings.map(r=>r.id)).size,240);assert.equal(new Set(completeAudio.recordings.map(r=>r.sha256)).size,240);
+for(const c of bank.cards){
+ const plan=audio.items.find(a=>a.id===c.id),record=completeAudio.recordings.find(a=>a.id===c.id);assert.ok(record);assert.equal(plan.text,c.text);assert.equal(record.text,c.text);assert.equal(c.audio.src,plan.src);assert.equal(c.audio.src,record.src);assert.equal(c.audio.voice,record.voice);assert.equal(hash(fs.readFileSync(path.join(root,plan.src))),plan.sha256);assert.equal(record.sha256,plan.sha256);assert.ok(record.durationSeconds>0.5&&record.truePeakDbTP<0);
+ if(migration.retainedIds.includes(c.id)){const old=existingAudio.find(a=>a.id===c.id);assert.ok(old);assert.equal(old.text,c.text);assert.equal(plan.status,'reuse_exact_text');assert.equal(old.sha256,plan.sha256);assert.equal(old.src,c.audio.src)}
+ else assert.ok(['generated_for_240','recovered_existing_history'].includes(plan.status));
+}
+assert.equal(audio.items.filter(x=>x.status==='reuse_exact_text').length,94);assert.equal(audio.items.filter(x=>x.status==='generated_for_240').length,140);assert.equal(audio.items.filter(x=>x.status==='recovered_existing_history').length,6);assert.equal(audio.recordingRequired,0);
 // Use the existing filter and rendering functions without activating this bank in the app.
 const app=fs.readFileSync(path.join(root,'app.js'),'utf8');let rendered='';
 const ctx=vm.createContext({RUNTIME:{tongueBank:bank},CARD_GAMES:[],APP:{level:'A2'},$$:()=>[],esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>{rendered=html}});
@@ -25,4 +31,4 @@ for(const [level,total] of Object.entries({A0:60,A1:120,A2:180,B1:240,B2:240,C1:
 }
 ctx.APP.tongueLevel='C2';ctx.APP.tongueDifficulty='';
 for(let n=0;n<240;n++){ctx.APP.cardIndex=n;vm.runInContext('startTongue()',ctx);assert.ok(rendered.includes(bank.cards[n].text))}
-console.log('PASS: 240 unique source-identical cards; four groups of 60; bundle parity; 94 verified audio reuses / 146 required recordings; all 28 filters and 240 existing-renderer outputs. Package remains inactive.');
+console.log('PASS: 240 unique source-identical cards; four groups of 60; bundle parity; 240 verified audio links / original 94 preserved / 146 completed; all 28 filters and 240 existing-renderer outputs. Package remains inactive.');

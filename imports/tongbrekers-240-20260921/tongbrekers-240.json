@@ -50,7 +50,11 @@
       "soundFocus": "p, k en s in korte woorden",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-003.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-004",
@@ -61,7 +65,11 @@
       "soundFocus": "o en i wisselen tussen k en p",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-004.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-005",
@@ -72,7 +80,11 @@
       "soundFocus": "k en p wisselen rond an",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-005.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-006",
@@ -83,7 +95,11 @@
       "soundFocus": "pan en pen, a en e",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-006.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-007",
@@ -94,7 +110,11 @@
       "soundFocus": "korte i en lange ie",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-007.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-008",
@@ -105,7 +125,11 @@
       "soundFocus": "aa, ee en oo met b en n",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-008.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-009",
@@ -116,7 +140,11 @@
       "soundFocus": "b, p en b rond korte klinkers",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-009.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-010",
@@ -127,7 +155,11 @@
       "soundFocus": "p met ie, a en aa",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-010.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-011",
@@ -138,7 +170,11 @@
       "soundFocus": "s, sn en sl",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-011.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-012",
@@ -149,7 +185,11 @@
       "soundFocus": "s en z met ie en ee",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-012.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-013",
@@ -160,7 +200,11 @@
       "soundFocus": "w met i, a en o",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-013.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-014",
@@ -171,7 +215,11 @@
       "soundFocus": "j en t rond as",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-014.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-015",
@@ -182,7 +230,11 @@
       "soundFocus": "b en w rond as",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-015.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-016",
@@ -193,7 +245,11 @@
       "soundFocus": "k en p met herhaalde overgang",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-016.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-017",
@@ -204,7 +260,11 @@
       "soundFocus": "a en i tussen p en k",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-017.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-018",
@@ -215,7 +275,11 @@
       "soundFocus": "i en a tussen t en k",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-018.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-019",
@@ -226,7 +290,11 @@
       "soundFocus": "p, pl en k",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-019.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-020",
@@ -237,7 +305,11 @@
       "soundFocus": "u en o rond b en s",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-020.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-021",
@@ -248,7 +320,11 @@
       "soundFocus": "a en e met n en t",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-021.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-022",
@@ -259,7 +335,11 @@
       "soundFocus": "tw, t en korte i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-022.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-023",
@@ -270,7 +350,11 @@
       "soundFocus": "z, s en a, o",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-023.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-024",
@@ -281,7 +365,11 @@
       "soundFocus": "v met o, e en a",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-024.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-025",
@@ -292,7 +380,11 @@
       "soundFocus": "l en s met o, u en a",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-025.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-026",
@@ -303,7 +395,11 @@
       "soundFocus": "r met o, a en i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-026.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-027",
@@ -314,7 +410,11 @@
       "soundFocus": "o en a na k",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-027.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-028",
@@ -325,7 +425,11 @@
       "soundFocus": "k, p en klinkerwisseling",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-028.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-029",
@@ -336,7 +440,11 @@
       "soundFocus": "k en z, o en a",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-029.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-030",
@@ -347,7 +455,11 @@
       "soundFocus": "r en rollende r combinaties",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-030.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-031",
@@ -358,7 +470,11 @@
       "soundFocus": "k en t wisselen snel",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-031.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-032",
@@ -369,7 +485,11 @@
       "soundFocus": "k, p en t rond korte i",
       "entryLevel": "A0",
       "difficulty": 1,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-032.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-033",
@@ -380,7 +500,11 @@
       "soundFocus": "k met ee, ie en aa",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-033.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-034",
@@ -391,7 +515,11 @@
       "soundFocus": "k met oo, ie en oe",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-034.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-035",
@@ -402,7 +530,11 @@
       "soundFocus": "f en v met ie en i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-035.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-036",
@@ -413,7 +545,11 @@
       "soundFocus": "t met ie, ee en i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-036.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-037",
@@ -424,7 +560,11 @@
       "soundFocus": "z en s met u en i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-037.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-038",
@@ -435,7 +575,11 @@
       "soundFocus": "z en s met ee, u en oe",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-038.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-039",
@@ -446,7 +590,11 @@
       "soundFocus": "kl met ei, o en i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-039.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-040",
@@ -457,7 +605,11 @@
       "soundFocus": "pl met t, nt en k",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-040.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-124",
@@ -483,7 +635,11 @@
       "soundFocus": "sch en sjachtige overgangen",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-042.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-018",
@@ -509,7 +665,11 @@
       "soundFocus": "tw, tr en t",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-044.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-045",
@@ -520,7 +680,11 @@
       "soundFocus": "v met ie, ie en aa",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-045.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-046",
@@ -531,7 +695,11 @@
       "soundFocus": "v en f met ij, o en e",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-046.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-047",
@@ -542,7 +710,11 @@
       "soundFocus": "zw, z en zachte ch",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-047.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-048",
@@ -553,7 +725,11 @@
       "soundFocus": "d, t en k met i, a en u",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-048.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-107",
@@ -579,7 +755,11 @@
       "soundFocus": "k, kr en bt",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-050.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-051",
@@ -590,7 +770,11 @@
       "soundFocus": "kr, b, bt en t",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-051.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-052",
@@ -601,7 +785,11 @@
       "soundFocus": "br met oe, e en oo",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-052.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-053",
@@ -612,7 +800,11 @@
       "soundFocus": "bl en br",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-053.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-054",
@@ -623,7 +815,11 @@
       "soundFocus": "r met oo en aa",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-054.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-055",
@@ -634,7 +830,11 @@
       "soundFocus": "kr met o en u",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-055.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-056",
@@ -645,7 +845,11 @@
       "soundFocus": "str met a, aa en oe",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-056.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-057",
@@ -656,7 +860,11 @@
       "soundFocus": "kn met a, ie en i",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-057.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-058",
@@ -667,7 +875,11 @@
       "soundFocus": "fl en v",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-058.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-059",
@@ -678,7 +890,11 @@
       "soundFocus": "sl met a en aa",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-059.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A0-060",
@@ -689,7 +905,11 @@
       "soundFocus": "dr met ie, i en u",
       "entryLevel": "A0",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a0-060.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-004",
@@ -715,7 +935,11 @@
       "soundFocus": "tr, kl en ntj in één woord",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-002.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-003",
@@ -726,7 +950,11 @@
       "soundFocus": "d en dr",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-003.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-013",
@@ -782,7 +1010,11 @@
       "soundFocus": "b, br en kt",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-007.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-027",
@@ -808,7 +1040,11 @@
       "soundFocus": "p, pl en bp",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-009.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-044",
@@ -1194,7 +1430,11 @@
       "soundFocus": "g, j en ie",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-035.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-036",
@@ -1205,7 +1445,11 @@
       "soundFocus": "sch en rt",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-036.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-037",
@@ -1216,7 +1460,11 @@
       "soundFocus": "sl en s",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-037.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-038",
@@ -1227,7 +1475,11 @@
       "soundFocus": "br en b",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-038.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-039",
@@ -1238,7 +1490,11 @@
       "soundFocus": "f en v",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-039.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-040",
@@ -1249,7 +1505,11 @@
       "soundFocus": "t, tr en tw",
       "entryLevel": "A1",
       "difficulty": 2,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-040.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-041",
@@ -1260,7 +1520,11 @@
       "soundFocus": "s, sch en z",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-041.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-042",
@@ -1271,7 +1535,11 @@
       "soundFocus": "kr en k",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-042.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-043",
@@ -1282,7 +1550,11 @@
       "soundFocus": "kl en kr",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-043.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-044",
@@ -1293,7 +1565,11 @@
       "soundFocus": "r en rl",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-044.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-045",
@@ -1304,7 +1580,11 @@
       "soundFocus": "gr en g",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-045.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-046",
@@ -1315,7 +1595,11 @@
       "soundFocus": "dr en br",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-046.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-047",
@@ -1326,7 +1610,11 @@
       "soundFocus": "v en f",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-047.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-048",
@@ -1337,7 +1625,11 @@
       "soundFocus": "p, st en s",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-048.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-049",
@@ -1348,7 +1640,11 @@
       "soundFocus": "pl en t, kt",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-049.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-050",
@@ -1359,7 +1655,11 @@
       "soundFocus": "bl en b",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-050.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-051",
@@ -1370,7 +1670,11 @@
       "soundFocus": "kl, kr en kr",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-051.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-052",
@@ -1381,7 +1685,11 @@
       "soundFocus": "fr en f",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-052.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-053",
@@ -1392,7 +1700,11 @@
       "soundFocus": "sn en sl",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-053.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-054",
@@ -1403,7 +1715,11 @@
       "soundFocus": "z en s",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-054.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-055",
@@ -1414,7 +1730,11 @@
       "soundFocus": "gr en g",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-055.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-056",
@@ -1425,7 +1745,11 @@
       "soundFocus": "tr en dr",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-056.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-057",
@@ -1436,7 +1760,11 @@
       "soundFocus": "br en b",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-057.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-058",
@@ -1447,7 +1775,11 @@
       "soundFocus": "st en t",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-058.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-059",
@@ -1458,7 +1790,11 @@
       "soundFocus": "sch en ui",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-059.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A1-060",
@@ -1469,7 +1805,11 @@
       "soundFocus": "gl en dr",
       "entryLevel": "A1",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a1-060.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-002",
@@ -1495,7 +1835,11 @@
       "soundFocus": "wil en wel wisselen",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-002.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-009",
@@ -1581,7 +1925,11 @@
       "soundFocus": "kl, kn en kr",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-008.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A2-009",
@@ -1592,7 +1940,11 @@
       "soundFocus": "zij en zei wisselen",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-009.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-025",
@@ -1648,7 +2000,11 @@
       "soundFocus": "sn, sch en st",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-013.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-035",
@@ -1689,7 +2045,11 @@
       "soundFocus": "k, p en samengestelde klanken",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-016.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A2-017",
@@ -1700,7 +2060,11 @@
       "soundFocus": "v en f",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-017.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-A2-018",
@@ -1711,7 +2075,11 @@
       "soundFocus": "b en br",
       "entryLevel": "A2",
       "difficulty": 3,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-018.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-062",
@@ -1767,7 +2135,11 @@
       "soundFocus": "br, b en bl",
       "entryLevel": "A2",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-a2-022.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-126",
@@ -2393,7 +2765,11 @@
       "soundFocus": "potvis, pispot en pis",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-004.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-005",
@@ -2404,7 +2780,11 @@
       "soundFocus": "zeven als telwoord en werkwoord",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-005.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-007",
@@ -2430,7 +2810,11 @@
       "soundFocus": "w met snelle woordgrenzen",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-007.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-033",
@@ -2456,7 +2840,11 @@
       "soundFocus": "vliegen als naamwoord en werkwoord",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-009.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-043",
@@ -2497,7 +2885,11 @@
       "soundFocus": "Frans herhalen met betekeniswissel",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-012.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-013",
@@ -2508,7 +2900,11 @@
       "soundFocus": "kak, kat en pak",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-013.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-014",
@@ -2519,7 +2915,11 @@
       "soundFocus": "dat met verschillende functies",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-014.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-015",
@@ -2530,7 +2930,11 @@
       "soundFocus": "sch, scheur en scheef",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-015.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-016",
@@ -2541,7 +2945,11 @@
       "soundFocus": "straat als naamwoord en werkwoord",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-016.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-017",
@@ -2552,7 +2960,11 @@
       "soundFocus": "kr, kurk en krom",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-017.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-018",
@@ -2563,7 +2975,11 @@
       "soundFocus": "kl en kn",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-018.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-019",
@@ -2574,7 +2990,11 @@
       "soundFocus": "dr, druk en proefdruk",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-019.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-020",
@@ -2585,7 +3005,11 @@
       "soundFocus": "klos, los en klopt",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-020.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-021",
@@ -2596,7 +3020,11 @@
       "soundFocus": "br en brei",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-021.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-022",
@@ -2607,7 +3035,11 @@
       "soundFocus": "klep, klap en kl",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-022.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-023",
@@ -2618,7 +3050,11 @@
       "soundFocus": "tr en trein",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-023.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-024",
@@ -2629,7 +3065,11 @@
       "soundFocus": "kl, k en klont",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-024.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-025",
@@ -2640,7 +3080,11 @@
       "soundFocus": "slot, sluit en sloten",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-025.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-026",
@@ -2651,7 +3095,11 @@
       "soundFocus": "schu, schuur en schilder",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-026.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-027",
@@ -2662,7 +3110,11 @@
       "soundFocus": "blik, blink en blikken",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-027.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-028",
@@ -2673,7 +3125,11 @@
       "soundFocus": "t en tand",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-028.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-029",
@@ -2684,7 +3140,11 @@
       "soundFocus": "v en vr",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-029.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-030",
@@ -2695,7 +3155,11 @@
       "soundFocus": "sok, zak en stopt",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-030.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-031",
@@ -2706,7 +3170,11 @@
       "soundFocus": "brood, rooster en droog",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-031.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-032",
@@ -2717,7 +3185,11 @@
       "soundFocus": "schr, sch en dr",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-032.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-033",
@@ -2728,7 +3200,11 @@
       "soundFocus": "pak, pakket en pakjes",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-033.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-034",
@@ -2739,7 +3215,11 @@
       "soundFocus": "dicht in meerdere functies",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-034.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-035",
@@ -2750,7 +3230,11 @@
       "soundFocus": "sch, schr en schroef",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-035.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-036",
@@ -2761,7 +3245,11 @@
       "soundFocus": "kn en knof",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-036.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-037",
@@ -2772,7 +3260,11 @@
       "soundFocus": "krom, recht en trekt",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-037.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-038",
@@ -2783,7 +3275,11 @@
       "soundFocus": "plak en plakt",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-038.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-039",
@@ -2794,7 +3290,11 @@
       "soundFocus": "sch, scher en sl",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-039.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-040",
@@ -2805,7 +3305,11 @@
       "soundFocus": "klap en kl",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-040.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-041",
@@ -2816,7 +3320,11 @@
       "soundFocus": "sl, sluis en sluit",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-041.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-042",
@@ -2827,7 +3335,11 @@
       "soundFocus": "schilder als persoon en werkwoord",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-042.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-043",
@@ -2838,7 +3350,11 @@
       "soundFocus": "zet, letter en rechtgezet",
       "entryLevel": "B1",
       "difficulty": 4,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-043.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-044",
@@ -2849,7 +3365,11 @@
       "soundFocus": "strik, strak en str",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-044.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-045",
@@ -2860,7 +3380,11 @@
       "soundFocus": "tr en trom",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-045.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-046",
@@ -2871,7 +3395,11 @@
       "soundFocus": "knoop en kn",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-046.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-047",
@@ -2882,7 +3410,11 @@
       "soundFocus": "sch, scha en schaats",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-047.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-048",
@@ -2893,7 +3425,11 @@
       "soundFocus": "w in lange reeks",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-048.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-049",
@@ -2904,7 +3440,11 @@
       "soundFocus": "pr en prei",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-049.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-050",
@@ -2915,7 +3455,11 @@
       "soundFocus": "pl en plu",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-050.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-051",
@@ -2926,7 +3470,11 @@
       "soundFocus": "l in lange reeks",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-051.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-052",
@@ -2937,7 +3485,11 @@
       "soundFocus": "pr en pru",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-052.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-053",
@@ -2948,7 +3500,11 @@
       "soundFocus": "tr, str en truf",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-053.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-054",
@@ -2959,7 +3515,11 @@
       "soundFocus": "voor in verschillende samenstellingen",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-054.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-055",
@@ -2970,7 +3530,11 @@
       "soundFocus": "z, ze en zee",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-055.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-056",
@@ -2981,7 +3545,11 @@
       "soundFocus": "sch, scherp en slijp",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-056.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-057",
@@ -2992,7 +3560,11 @@
       "soundFocus": "weer met meerdere betekenissen",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-057.mp3",
+        "voice": "Roland"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-058",
@@ -3003,7 +3575,11 @@
       "soundFocus": "postzegel, plak en pak",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-058.mp3",
+        "voice": "Rick"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-059",
@@ -3014,7 +3590,11 @@
       "soundFocus": "sch, schr en scheeps",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-059.mp3",
+        "voice": "Jennifer"
+      }
     },
     {
       "id": "TR-TONGUE-D240-B1-C2-060",
@@ -3025,7 +3605,11 @@
       "soundFocus": "twijfel in verschillende functies",
       "entryLevel": "B1",
       "difficulty": 5,
-      "type": "tongbreker"
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-d240-b1-c2-060.mp3",
+        "voice": "Roland"
+      }
     }
   ]
 }
