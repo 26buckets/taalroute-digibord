@@ -9,14 +9,10 @@ for(const [id,count] of [['Rotterdam-havenroute',40],['amsterdam-grachtenroute',
 }
 await p.goto(base+'?kaart=Rotterdam-havenroute');
 async function section(selector){
- await p.evaluate(selector=>{
-   document.getElementById('pp-settings-button').click();
-   document.querySelector(selector).click();
- },selector);
- await p.waitForFunction(selector=>{
-   const nav=document.querySelector(selector),panel=nav&&document.getElementById(nav.getAttribute('aria-controls'));
-   return nav?.getAttribute('aria-pressed')==='true'&&panel&&!panel.hidden;
- },selector);
+ await p.locator('#pp-settings-button').click();
+ const nav=p.locator(selector);
+ if(await nav.isVisible())await nav.click();else await p.evaluate(selector=>document.querySelector(selector)?.click(),selector);
+ await p.waitForFunction(selector=>document.querySelector(selector)?.getAttribute('aria-pressed')==='true',selector);
 }
 async function form(v){await section('#pp-nav-dice');await p.locator('#pp-dice-style').selectOption(v);await p.locator('#pp-settings-close').click();}
 async function state(){return p.evaluate(()=>JSON.parse(localStorage.getItem(DigiBoard.storageKey())));}
