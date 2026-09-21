@@ -1,5 +1,4 @@
 /* Only the new workspaces; the existing card table supplies the visual system. */
-.new-activity .cards-stage{grid-template-columns:minmax(120px,.45fr) minmax(0,1.8fr) minmax(210px,.65fr);gap:24px}
 .new-activity .card-content{padding:22px;overflow:auto}
 .new-activity .na-workspace{min-width:0}
 .new-activity .card-content .na-feedback{min-height:28px;font-size:16px;line-height:1.5;margin:14px 0 0;color:#17517a;font-weight:600}
@@ -57,10 +56,9 @@
 .new-activity .na-wheel-result p{font-size:15px}
 .new-activity .na-wheel-legend{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;padding-left:22px;font-size:14px;line-height:1.4;margin:20px 0}
 #na-wheel-form textarea{display:block;width:100%;margin:8px 0;padding:12px;border:1px solid #9bb7ca;border-radius:10px;font:inherit;color:var(--ink)}
-.new-activity .cardtypes .typebtn{min-height:44px}
-@media(max-width:1100px){.new-activity .cards-stage{grid-template-columns:110px minmax(0,1fr) 190px;gap:16px;padding-inline:20px}.new-activity .card-content{padding:18px}.new-activity .na-memory{gap:8px}.new-activity .na-memory .na-choice{min-height:115px;padding:6px;font-size:13px}.new-activity .na-choice img{height:62px;width:62px}.new-activity .na-wheel-layout{grid-template-columns:1fr}.new-activity .na-wheel-frame{max-width:210px}.new-activity .na-wheel-result{text-align:center}}
-@media(max-width:850px){.new-activity .cards-stage{grid-template-columns:110px minmax(0,1fr);gap:18px}.new-activity .game-card-motion{height:auto;min-height:500px}.new-activity .active-card{height:auto;min-height:500px}.new-activity .card-content{overflow:visible}.new-activity .cardtypes{grid-column:1/-1}.new-activity .na-wheel-layout{grid-template-columns:1fr 1fr}.new-activity .card-table-tip{display:block}}
-@media(max-width:560px){.new-activity .cards-stage{grid-template-columns:minmax(0,1fr);padding-inline:14px}.new-activity .na-memory{grid-template-columns:repeat(2,minmax(0,1fr))}.new-activity .na-pairs{gap:10px}.new-activity .na-pairs .na-choice{flex-direction:column;font-size:16px}.new-activity .na-pairs>div{grid-template-rows:repeat(4,110px)}.new-activity .na-wheel-layout{grid-template-columns:1fr}.new-activity .na-wheel-legend{grid-template-columns:1fr}.new-activity .na-quiz-board{gap:7px}.new-activity .na-quiz-board h3{font-size:13px}.new-activity .na-quiz-board .na-choice{font-size:14px;padding:6px}.new-activity .na-sort-result{grid-template-columns:1fr}.new-activity .card-ribbon{gap:10px;padding:15px}.new-activity .card-ribbon>strong{font-size:19px}.new-activity .card-counter{font-size:12px}}
+@media(max-width:1100px){.new-activity .card-content{padding:18px}.new-activity .na-memory{gap:8px}.new-activity .na-memory .na-choice{min-height:115px;padding:6px;font-size:13px}.new-activity .na-choice img{height:62px;width:62px}.new-activity .na-wheel-layout{grid-template-columns:1fr}.new-activity .na-wheel-frame{max-width:210px}.new-activity .na-wheel-result{text-align:center}}
+@media(max-width:850px){.new-activity .na-wheel-layout{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.new-activity .na-memory{grid-template-columns:repeat(2,minmax(0,1fr))}.new-activity .na-pairs{gap:10px}.new-activity .na-pairs .na-choice{flex-direction:column;font-size:16px}.new-activity .na-pairs>div{grid-template-rows:repeat(4,110px)}.new-activity .na-wheel-layout{grid-template-columns:1fr}.new-activity .na-wheel-legend{grid-template-columns:1fr}.new-activity .na-quiz-board{gap:7px}.new-activity .na-quiz-board h3{font-size:13px}.new-activity .na-quiz-board .na-choice{font-size:14px;padding:6px}.new-activity .na-sort-result{grid-template-columns:1fr}.new-activity .card-ribbon{gap:10px;padding:15px}.new-activity .card-ribbon>strong{font-size:19px}.new-activity .card-counter{font-size:12px}}
 
 .new-activity .na-workspace .smallbtn{min-height:44px;height:auto}
 .new-activity .na-memory{max-width:720px;margin-inline:auto}
@@ -69,7 +67,41 @@
 .new-activity .game-action .game-icon{padding:0;border:0;flex-shrink:0}
 @media(max-width:560px){.new-activity .gamebar .turnzone{flex-direction:column;align-items:stretch;gap:3px}.new-activity .gamebar .mode-select{height:30px;min-height:30px;padding-inline:5px;font-size:11px}.new-activity .gamebar .chip{height:28px;min-height:28px;font-size:10px;max-width:100%}.new-activity .gamebar .chip:not(.active){display:none}.new-activity .gamebar .game-action{flex-direction:column;font-size:10px;gap:3px;min-width:0;flex:1;max-width:85px}}
 
-.new-activity .card-activity-heading{display:flex;justify-content:space-between;align-items:start}
-.new-activity .na-set-picker{flex:0 1 330px;min-width:0}
+/* One shared workspace; its width follows the activity, not a decorative deck. */
+.new-activity{--activity-width:960px}
+.new-activity[data-workspace=wide]{--activity-width:1440px}
+.new-activity .card-work{overflow:hidden}
+.new-activity .card-activity-heading{display:flex;justify-content:space-between;align-items:center;width:min(100%,var(--activity-width));margin-inline:auto;padding:16px 24px;gap:20px}
+.new-activity .card-activity-heading h1{font-size:clamp(24px,2vw,32px)}
+.new-activity .card-activity-heading p{font-size:16px}
+.new-activity .na-back{margin-bottom:10px;min-height:44px}
+.new-activity .na-set-picker{flex:0 1 300px;min-width:0}
 .new-activity .na-set-picker select{width:100%;min-width:0;min-height:44px}
-@media(max-width:850px){.new-activity .na-set-picker{flex-basis:100%}}
+.new-activity .cards-stage{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:0;min-height:0;width:min(100%,var(--activity-width));margin-inline:auto;padding:0 24px 24px}
+.new-activity .game-card-motion,.new-activity .active-card{height:100%;min-height:0;max-height:100%}
+.new-activity .card-ribbon{min-height:58px;padding:12px 24px}
+.new-activity .card-ribbon>strong{font-size:22px}
+.new-activity .card-content{overflow:auto;padding:20px 28px}
+.new-activity .card-content .na-level{font-size:14px;line-height:1.4;color:#52677f;margin:18px 0 0}
+.new-activity .na-memory{max-width:850px}
+.new-activity .na-memory .na-choice{aspect-ratio:auto;min-height:clamp(115px,17vh,190px)}
+.new-activity .na-quiz-board{grid-template-columns:repeat(5,minmax(0,1fr))}
+.new-activity .na-quiz-board .na-choice{min-height:48px;margin-bottom:8px}
+.new-activity .na-scoreboard{margin-bottom:16px}
+.new-activity .na-pairs{max-width:960px;margin-inline:auto}
+@media(max-width:850px){
+ .new-activity .card-work{overflow:auto}
+ .new-activity .card-activity-heading{flex-wrap:wrap;padding:16px}
+ .new-activity .na-set-picker{flex-basis:100%}
+ .new-activity .cards-stage{flex:none;padding:0 16px 24px;grid-template-rows:auto}
+ .new-activity .game-card-motion,.new-activity .active-card{height:auto;min-height:0;max-height:none}
+ .new-activity .card-content{overflow:visible;padding:20px}
+ .new-activity .na-quiz-board{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ .new-activity .cards-stage{padding-inline:12px}
+ .new-activity .card-content{padding:16px}
+ .new-activity .card-ribbon{padding:12px;gap:10px}
+ .new-activity .card-ribbon>strong{font-size:19px}
+ .new-activity .active-card>.card-tools{margin-inline:12px}
+}

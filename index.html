@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="card-table.css?v=0124-tongue-88">
 <link rel="stylesheet" href="dice-table.css?v=0124">
 <link rel="stylesheet" href="words-activity.css?v=0124-wordcards-30">
-<link rel="stylesheet" href="landing-activities.css?v=0124-compact-choices">
-<link rel="stylesheet" href="new-activities.css?v=0124-content30">
+<link rel="stylesheet" href="landing-activities.css?v=0124-photo-activities">
+<link rel="stylesheet" href="new-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="context-tools.css?v=0124-context">
 </head>
 <body>
@@ -88,14 +88,14 @@
   </div>
 </section>
 
-<section class="screen card-table-shell" id="screen-workforms">
-  <div class="card-work">
-    <div class="card-activity-heading"><div><h1>Meer manieren om te oefenen</h1><p>Kies een activiteit en speel samen met taal.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
-    <div class="new-workforms">
-      <div class="workforms-toolbar"><label class="card-route-label" for="workformWorld">Werkvormwereld<select id="workformWorld"><option value="">Alle werkvormen</option><option>Draaien en kiezen</option><option>Sorteren en koppelen</option><option>Quiz en competitie</option><option>Raden en ontdekken</option><option>Missies en gesprekken</option></select></label><p>Kies in het spel zelf je onderwerp of set.</p></div>
-      <div class="workforms-decks" id="workformDecks"></div>
-    </div>
-  </div>
+<section class="screen category activity-catalog" id="screen-workforms">
+  <div class="category-head"><div><h1>Meer manieren om te oefenen</h1></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="new-workforms" id="workformDecks"></div>
+</section>
+
+<section class="screen category activity-catalog" id="screen-activities">
+  <div class="category-head"><div><h1>Meer activiteiten</h1><p>Alle werkvormen en gedeelde activiteitensets.</p></div><button class="smallbtn" data-category="workforms">← Activiteiten</button></div>
+  <div id="activityLibrary"></div>
 </section>
 
 <section class="screen category" id="screen-boards">
@@ -173,6 +173,6 @@
 <script src="curriculum.js?v=alfa-abc"></script>
 <script src="board-viewport.js?v=0124-board-fit"></script>
 <script src="app.js?v=0124-tongue-a1-30"></script>
-<script src="data/new-activities.js?v=0124-compact-choices"></script>
-<script src="new-activities.js?v=0124-compact-choices"></script>
+<script src="data/new-activities.js?v=0124-photo-activities"></script>
+<script src="new-activities.js?v=0124-photo-activities"></script>
 </body></html>

@@ -55,7 +55,7 @@ function goScreen(id){
  BoardViewport.disconnect();
  if(id==='collection')renderCollection();
  $$('.screen').forEach(x=>x.classList.remove('active'));$('#screen-'+id)?.classList.add('active');
- $$('.navitem').forEach(n=>n.classList.toggle('active',(id==='play'||['boards','dice','cards','words','workforms','game','collection'].includes(id))?n.dataset.main==='play':n.dataset.main===id));
+ $$('.navitem').forEach(n=>n.classList.toggle('active',(id==='play'||['boards','dice','cards','words','workforms','activities','game','collection'].includes(id))?n.dataset.main==='play':n.dataset.main===id));
  syncLevelSelect(id==='game'&&APP.last?.type==='card');SmoothDice.mount();
 }
 function home(){goScreen('play');updateResume()}

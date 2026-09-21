@@ -20,9 +20,12 @@ window.DigiActivities = (() => {
   if(id==='draaiwiel'){const offset=(round%content.wheelTitles.length)*6;s.options=content.wheel.slice(offset,offset+6)}
   return s;
  }
- function start(id){
+ function start(id,setId){
   if(!content.games.some(g=>g[0]===id))return;
-  clearTimeout(timer);kind=id;state=rounds[id]??=fresh(id);state.busy=false;histories[id]??=[];
+  const setIndex=setId===undefined?-1:content.pictureSets.findIndex(s=>s.id===setId&&s.forms.includes(id));
+  if(setId!==undefined&&setIndex<0)return;
+  clearTimeout(timer);kind=id;state=setIndex<0?(rounds[id]??=fresh(id)):(rounds[id]=fresh(id,setIndex));state.busy=false;
+  if(setIndex>=0)histories[id]=[];else histories[id]??=[];
   setLast('activity',game()[1],{kind});render();goScreen('game');
  }
  function checkpoint(){histories[kind].push({state:structuredClone(state),turn:structuredClone(APP.turn)});histories[kind]=histories[kind].slice(-20)}
@@ -80,7 +83,7 @@ window.DigiActivities = (() => {
   const [,title,world,icon,color,intro]=game(),[label,disabled]=primary();
   let footer=gameBar(`<button class="primary card-next-primary" id="primaryGame" ${disabled?'disabled':''}>${gameIcon(kind==='draaiwiel'?'mission':'cards')}<span>${label}</span></button>`).replace('id="undoAction"','id="activityUndo"');
   if(kind==='categorieenquiz')footer=footer.replace(/<div class="turnzone">.*?<\/div>(?=<div class="primary-slot">)/,`<div class="turnzone"><div class="chip active">Team ${state.team+1}</div><div class="chip">${state.scores[state.team]} punten</div></div>`);
-  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell new-activity" style="--ribbon:${color}"><div class="game-work card-work"><div class="card-activity-heading"><div><h1>${esc(world)} <span>Samen oefenen</span></h1><p>${esc(intro)}</p></div>${setPicker()}</div><div class="cards-stage"><div class="deckpanel"><div class="card-deck-button" aria-hidden="true">${playCardBack(title,'Nieuwe activiteiten',icon,'Dagelijks leven',color)}</div></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon">${gameIcon(icon)}<strong>${esc(title)}</strong><span class="card-counter">${state.custom?'Eigen set':variants().length?`${state.round%variants().length+1} / ${variants().length}`:`${Object.keys(state.answers).length} / ${content.quiz.length}`}</span></div><div class="card-content"><div class="na-workspace">${body()}</div><p class="na-feedback" id="na-feedback" role="status" aria-live="polite" aria-atomic="true"></p></div>${contextTools('na',{Example:{disabled:!exampleAvailable(),tip:exampleAvailable()?'Bekijk een voorbeeld bij deze ronde.':'Doe eerst een poging of onthul het antwoord in het spel.'}})}</article></div><aside class="cardtypes"><h3>Activiteiten</h3><nav aria-label="Nieuwe activiteiten">${content.games.map(([id,name,,glyph])=>`<button class="typebtn ${id===kind?'active':''}" data-activity="${id}" ${id===kind?'aria-current="page"':''}>${gameIcon(glyph)}<span>${esc(name)}</span></button>`).join('')}</nav><div class="card-table-tip"><div><strong>Dagelijks leven</strong><p id="na-level">${esc(levelInstruction())}</p><p>De docent kan woorden en aanwijzingen voorlezen.</p></div></div></aside></div></div>${footer}</div>`;
+  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell new-activity" data-workspace="${['draaiwiel','raad-het-woord'].includes(kind)?'standard':'wide'}" style="--ribbon:${color}"><div class="game-work card-work"><div class="card-activity-heading"><div><button class="smallbtn na-back" data-activities-back>← Activiteiten</button><h1>${esc(title)}</h1><p>${esc(intro)}</p></div>${setPicker()}</div><div class="cards-stage"><div class="game-card-motion"><article class="active-card"><div class="card-ribbon">${gameIcon(icon)}<strong>${esc(title)}</strong><span class="card-counter">${state.custom?'Eigen set':variants().length?`${state.round%variants().length+1} / ${variants().length}`:`${Object.keys(state.answers).length} / ${content.quiz.length}`}</span></div><div class="card-content"><div class="na-workspace">${body()}</div><p id="na-level" class="na-level">${esc(levelInstruction())}</p><p class="na-feedback" id="na-feedback" role="status" aria-live="polite" aria-atomic="true"></p></div>${contextTools('na',{Example:{disabled:!exampleAvailable(),tip:exampleAvailable()?'Bekijk een voorbeeld bij deze ronde.':'Doe eerst een poging of onthul het antwoord in het spel.'}})}</article></div></div></div>${footer}</div>`;
   bindGameBar(actPrimary);
   for(const key of ['Help','Example','Goals','Partner','More'])$('#na'+key).onclick=()=>context(key);
   $('#na-set')?.addEventListener('change',e=>{
@@ -171,15 +174,32 @@ window.DigiActivities = (() => {
   render(focusId);
  }
  document.addEventListener('click',e=>{
-  const choice=e.target.closest('[data-activity]');if(choice&&!choice.disabled)return start(choice.dataset.activity);
+  const choice=e.target.closest('[data-activity]');if(choice&&!choice.disabled)return start(choice.dataset.activity,choice.dataset.set);
   const control=e.target.closest('.new-activity [data-na]');if(control&&!control.disabled)action(control.dataset.na,control.dataset.value,control.id);
  });
- const counts=['30 onderwerpen','30 beeldsets','30 beeld-woordsets','30 sorteerrondes','30 situaties','30 vragen','30 raadsels'];
- const entries=content.games.map((g,i)=>({id:g[0],title:g[1],world:g[2],icon:g[3],color:g[4],intro:g[5],count:counts[i]}));
- entries.push({id:'mission',title:'Spreekmissies',world:'Missies en gesprekken',icon:'mission',color:'#a44932',intro:'Voer samen een praktische spreekopdracht uit.',count:'Bestaande kaartspellen',existing:true},{id:'conversation',title:'Gespreksstarters',world:'Missies en gesprekken',icon:'conversation',color:'#552795',intro:'Trek een kaart, vertel en reageer op elkaar.',count:'Bestaande kaartspellen',existing:true});
- $('#workformDecks').innerHTML=entries.map(e=>`<button type="button" class="activity-entry" data-world="${esc(e.world)}" ${e.existing?'data-cardgame':'data-activity'}="${e.id}" aria-label="${esc(e.title)}, ${esc(e.count)}. Start activiteit"><span class="activity-symbol" style="--deck-color:${e.color}" aria-hidden="true">${gameIcon(e.icon)}</span><span class="activity-summary"><strong class="activity-title">${esc(e.title)}</strong><span class="activity-count">${esc(e.count)}</span><span class="activity-description">${esc(e.intro)}</span><span class="activity-start">${e.existing?'Open kaartspel':'Start activiteit'}<span aria-hidden="true">→</span></span></span></button>`).join('');
- $('#workformWorld').onchange=e=>{$$('#workformDecks [data-world]').forEach(card=>card.hidden=!!e.target.value&&card.dataset.world!==e.target.value)};
- $$('#workformDecks [data-cardgame]').forEach(button=>button.onclick=()=>startCards(button.dataset.cardgame));
+ // Navigation stays on goScreen/startCards; content is never copied into tile definitions.
+ const assets=['DRAAIWIEL','MEMORY','KOPPELEN','SORTEREN','RANGSCHIKKEN','CATEGORIEENQUIZ','RAAD_HET_WOORD','MEER_ACTIVITEITEN'];
+ const tiles=[...content.games.map(([id,title])=>({id,title})),{id:'library',title:'Meer activiteiten'}];
+ $('#workformDecks').innerHTML=tiles.map((t,i)=>`<button type="button" class="activity-tile" ${t.id==='library'?'data-activities-library':`data-activity="${t.id}"`}><span class="photo-frame"><img src="assets/activities/DIGIBORD_ACT_${assets[i]}_VOLWASSEN_FINAL_${i===5?'v02':'v01'}.png" alt="" width="1536" height="1024"></span><strong>${esc(t.title)}</strong></button>`).join('');
+ const entry=(attr,id,title,icon)=>`<button type="button" class="smallbtn" ${attr}="${esc(id)}">${gameIcon(icon)}<span>${esc(title)}</span></button>`;
+ const group=(title,body)=>`<section class="activity-library-group"><h2>${esc(title)}</h2><div class="activity-library-grid">${body}</div></section>`;
+ $('#activityLibrary').innerHTML=[
+  ...[...new Set(content.games.map(g=>g[2]))].map(world=>group(world,content.games.filter(g=>g[2]===world).map(([id,title,,icon])=>entry('data-activity',id,title,icon)).join(''))),
+  group('Kaarten, missies en gesprekken',CARD_GAMES.map(g=>entry('data-library-card',g.id,g.title,g.icon)).join('')+entry('data-library-cabinet','all','Alle kaartensets','cards')),
+  group('Speelborden',Array.from(document.querySelectorAll('#screen-boards [data-board]')).map(b=>entry('data-library-board',b.dataset.board,b.querySelector('h3').textContent,'mission')).join('')),
+  group('Dobbelspellen',entry('data-dicegame','taalworp','Taalworp','verbs')+entry('data-dicegame','story','Verhaalworp','story')),
+  group('Woorden en zinnen',entry('data-library-word','build','Bouw een zin','spelling')),
+  group('Gedeelde activiteitensets',content.pictureSets.map(set=>`<article class="activity-shared-set"><h3>${esc(set.title)}</h3><div>${set.forms.map(id=>`<button type="button" class="smallbtn" data-activity="${id}" data-set="${esc(set.id)}">${esc(content.games.find(g=>g[0]===id)[1])}</button>`).join('')}</div></article>`).join(''))
+ ].join('');
+ document.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b||b.disabled)return;
+  if(b.hasAttribute('data-activities-back'))goScreen('workforms');
+  if(b.hasAttribute('data-activities-library'))goScreen('activities');
+  if(b.dataset.libraryCard)startCards(b.dataset.libraryCard);
+  if(b.dataset.libraryBoard)startBoard(b.dataset.libraryBoard);
+  if(b.dataset.libraryWord)startWords(b.dataset.libraryWord);
+  if(b.hasAttribute('data-library-cabinet'))openCabinet('all');
+ });
  $('#levelSelect').addEventListener('change',()=>{if(APP.last?.type==='activity'&&$('#na-level'))$('#na-level').textContent=levelInstruction()});
  return {start};
 })();
