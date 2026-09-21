@@ -53,6 +53,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.reload();await page.locator('#resumeBtn').click();
   assert.equal(await page.locator('#c1Domain').inputValue(),'5');assert.equal(await page.locator('#c1Feedback').innerText(),before);
   await page.locator('#undoAction').click();assert.equal(await page.locator('#c1Feedback').textContent(),'');
+  await page.route('**/settings/index.html',async route=>{await new Promise(resolve=>setTimeout(resolve,200));await route.continue()});
   await page.locator('#settingsBtn').click();
   await page.frameLocator('#settingsOverlay iframe').locator('button[data-page="display"]').click();
   await page.frameLocator('#settingsOverlay iframe').locator('#cardAnimation').selectOption('slide');

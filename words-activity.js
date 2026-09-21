@@ -19,7 +19,7 @@ function ExerciseNavigation(active) {
  return `<aside class="cardtypes activity-navigation"><h3>Oefenvormen</h3><nav aria-label="Oefenvormen">${WORD_EXERCISES.map(([id, label, description], i) => `<button class="typebtn ${id === active ? 'active' : ''}" ${id === active ? 'aria-current="page"' : 'disabled'}>${gameIcon(['verbs','spelling','conversation','puzzles'][i])}<span>${label}<small>${description}${id !== 'build' ? ' · Binnenkort' : ''}</small></span></button>`).join('')}</nav></aside>`;
 }
 function ActivityHeader(total = WORD_CARDS.length) {
- return `<div class="card-activity-heading"><div><h1>Woorden &amp; zinnen <span>${total} kaarten</span></h1><p>${wordRound?.version === 4 ? 'Docentpreview · ' : ''}Overleg samen. Zeg je zin. Luister naar elkaar.</p></div></div>`;
+ return `<div class="card-activity-heading"><div><h1>Woorden &amp; zinnen <span>${total} kaarten</span></h1><p>Overleg samen. Zeg je zin. Luister naar elkaar.</p></div></div>`;
 }
 function FeedbackPanel() {
  return '<div class="supportbox activity-feedback" id="wordFeedback" role="status" aria-live="polite" aria-atomic="true" hidden></div>';
@@ -274,7 +274,7 @@ function WZNavigation() {
  const option = (value,label,selected) => `<option value="${esc(value)}" ${selected ? 'selected' : ''}>${esc(label)}</option>`;
  const contexts = [...new Set(wzPool({...state,type:'',context:''}).map(i=>i.context))].sort();
  const levels = [...new Set(wzPool({...state,type:'',context:'',level:''}).map(i=>i.level))];
- const difficulty = historical ? `<label>Niveau uit het archief<select id="wzLevel">${option('','Alle niveaus',!state.level)}${levels.map(level=>option(level,level,level===state.level)).join('')}</select></label>` : `<label>Moeilijkheid<select id="wzBand">${[[1,'1 · Instap met docent'],[2,'2 · Verder oefenen'],[3,'3 · Later in A1'],[0,'Alle banden']].filter(([band])=>!band || wzPool({...state,type:'',context:'',band}).length).map(([band,label])=>option(band,label,band===state.band)).join('')}</select></label>`;
+ const difficulty = historical ? `<label>Niveau<select id="wzLevel">${option('','Alle niveaus',!state.level)}${levels.map(level=>option(level,level,level===state.level)).join('')}</select></label>` : `<label>Moeilijkheid<select id="wzBand">${[[1,'1 · Instap met docent'],[2,'2 · Verder oefenen'],[3,'3 · Later in A1'],[0,'Alle banden']].filter(([band])=>!band || wzPool({...state,type:'',context:'',band}).length).map(([band,label])=>option(band,label,band===state.band)).join('')}</select></label>`;
  const types = historical ? WORD_TYPES.filter(type=>wzPool({...state,type,context:'',level:''}).length) : WZ_TYPES;
  return `<aside class="cardtypes activity-navigation wz-navigation"><label>Taaldoel<select id="wzGoal">${(historical?HISTORICAL_GOALS:WZ_GOALS).map(([id,label])=>option(id,label,id===state.goalId)).join('')}</select></label>${difficulty}<h3>Oefenvorm</h3><nav aria-label="Oefenvormen">${types.map(type=>{const count=wzPool({...state,type}).length;return `<button class="typebtn ${type===state.type?'active':''}" data-wz-type="${type}" ${count?'':'disabled'} ${type===state.type?'aria-current="page"':''}><span>${type}<small>${count} oefeningen</small></span></button>`}).join('')}</nav><label>Context<select id="wzContext">${option('','Alle contexten',!state.context)}${contexts.map(c=>option(c,c,c===state.context)).join('')}</select></label><button class="smallbtn" id="wzGoalsBack">Alle taaldoelen</button></aside>`;
 }
@@ -292,7 +292,7 @@ function startWZ() {
  const item = wordItem(), pool = wzPool(wordRound);
  APP.wordKind = 'wz'; persistWZ();
  setLast('word', `${item.goal} · ${item.type}`, {kind:'wz',goalId:item.goalId,itemId:item.id});
- $('#gameMount').innerHTML = WordsAndSentencesActivityShell({active:item.type,name:item.type,title:item.goal,instruction:item.instruction,workspace:WZWorkspace(item),structure:`${item.source==='PRAATPAD_WORDS'?'Historische kaart · '+item.level:'Band '+item.band} · ${item.context}`,counter:`${(wordRound.round-1)%pool.length+1} / ${pool.length}`,total:pool.length,navigation:WZNavigation()});
+ $('#gameMount').innerHTML = WordsAndSentencesActivityShell({active:item.type,name:item.type,title:item.goal,instruction:item.instruction,workspace:WZWorkspace(item),structure:`${item.source==='PRAATPAD_WORDS'?item.level:'Band '+item.band} · ${item.context}`,counter:`${(wordRound.round-1)%pool.length+1} / ${pool.length}`,total:pool.length,navigation:WZNavigation()});
  goScreen('game');bindGameBar(nextWordCard);
  $('[data-ghelp]').onclick=()=>openGameDialog('Spelhulp','<p>Kies eerst een taaldoel en daarna een oefenvorm. De docent kan de opdracht voorlezen en voordoen. Bij Raad toon je de aanwijzingen één voor één; met het oog onthul je het woord. Bij Spreek, Transfer en Raad is er geen automatische beoordeling.</p>');
  $('#wordDeck').onclick = () => {rememberAction('volgende kaart');nextWordCard();};
