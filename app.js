@@ -907,7 +907,7 @@ $('#levelSelect').onchange=e=>{
 $('#dialogClose').onclick=()=>$('#gameDialog').close();
 
 window.addEventListener('keydown',e=>{
- if(e.code!=='Space'||e.repeat||e.target.closest('#curriculumContext')||$('#curriculumPanel').matches(':popover-open')||e.target.closest('input,textarea,select,[contenteditable=true]')||e.target.closest('button,.context-tool')||$('#settingsOverlay').classList.contains('open')||$('#gameDialog').open||!$('#screen-game').classList.contains('active'))return;
+ if(e.code!=='Space'||e.repeat||e.target.closest('#curriculumContext')||$('#curriculumPanel').matches(':popover-open')||e.target.closest('input,textarea,select,[contenteditable=true]')||e.target.closest('button,summary,.context-tool')||$('#settingsOverlay').classList.contains('open')||$('#gameDialog').open||!$('#screen-game').classList.contains('active'))return;
  e.preventDefault();if(APP.last?.type==='board'){if(!boardBusy&&$('#taxiChoice').hidden)rememberPrimary();boardAction(APP.last.data.board,routeCache[APP.last.data.board])}else $('#primaryGame')?.click();
 });
 

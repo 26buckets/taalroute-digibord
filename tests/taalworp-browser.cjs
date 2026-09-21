@@ -16,6 +16,12 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    await page.locator('#applyVerbSets').click();
   };
   const selected=()=>page.locator('[data-verbset]:checked').evaluateAll(xs=>xs.map(x=>x.value));
+  const beforeMenu=await page.evaluate(()=>APP.currentVerb);
+  await page.locator('#verbSetPicker > summary').press('Space');
+  assert.notEqual(await page.locator('#verbSetPicker').getAttribute('open'),null);
+  await page.locator('.verb-set-group summary').first().press('Space');
+  assert.notEqual(await page.locator('.verb-set-group').first().getAttribute('open'),null);
+  assert.equal(await page.evaluate(()=>APP.currentVerb),beforeMenu);
   assert.equal(await page.locator('[data-verbset]').count(),23);
   assert.deepEqual(await page.locator('[data-verbgroup] legend').allTextContents(),['Basis','Taalvorm','Thema’s']);
   assert.deepEqual(await page.locator('[data-verbgroup]').evaluateAll(xs=>xs.map(x=>x.querySelectorAll('input').length)),[2,5,16]);
