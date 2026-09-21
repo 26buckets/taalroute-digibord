@@ -50,7 +50,7 @@ document.addEventListener('click',e=>{
 },true);
 function currentMode(){const s=settingsState();return ['class','groups','individual'].includes(s.pawnMode)?s.pawnMode:(APP.turn.mode||'individual')}
 function goScreen(id){
- if(APP.last?.type==='card'&&APP.cardKind==='tongue')window.speechSynthesis?.cancel();
+ stopTongueAudio();
  if(id==='cards')return startCards(APP.cardKind||'conversation');
  BoardViewport.disconnect();
  if(id==='collection')renderCollection();
@@ -639,8 +639,21 @@ function activeCardRoute(){return APP.cardRoute==='all'||CARD_ROUTES.some(r=>r.i
 function cardsFor(kind,all=false){if(kind==='tongue'){const bank=RUNTIME.tongueBank;return bank.cards.filter(c=>c.type==='tongbreker'&&(all||(bank.levels.indexOf(c.entryLevel)<=bank.levels.indexOf(tongueLevel())&&(!APP.tongueDifficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[APP.tongueDifficulty]??true)))))}const list=CARD_GAMES.find(x=>x.id===kind)?.cards||[];return all||activeCardRoute()==='all'?list:list.filter(c=>c.routeId===activeCardRoute())}
 function tongueLevel(){return RUNTIME.tongueBank.levels.includes(APP.tongueLevel)?APP.tongueLevel:RUNTIME.tongueBank.levels.includes(APP.level)?APP.level:'A0'}
 function tongueFilters(){return `<div class="tongue-filters"><label>Niveau <select id="tongueLevel">${RUNTIME.tongueBank.levels.map(l=>`<option value="${l}" ${tongueLevel()===l?'selected':''}>t/m ${l}</option>`).join('')}</select></label><label>Moeilijkheid <select id="tongueDifficulty">${[['','Alles'],['easy','Makkelijk'],['medium','Gemiddeld'],['hard','Lastig']].map(([v,label])=>`<option value="${v}" ${(APP.tongueDifficulty||'')===v?'selected':''}>${label}</option>`).join('')}</select></label></div>`}
+let tongueAudio=null;
+function stopTongueAudio(){
+ const previous=tongueAudio;tongueAudio=null;
+ if(previous){previous.pause();previous.currentTime=0}
+}
+async function readTongue(c,button){
+ stopTongueAudio();
+ if(!c?.audio?.src)return;
+ const audio=new Audio(c.audio.src);tongueAudio=audio;
+ const failed=()=>{if(tongueAudio===audio){stopTongueAudio();if(button.isConnected){button.textContent='Voorlezen';toast('De opname kan niet worden afgespeeld. Probeer het opnieuw.')}}};
+ audio.onerror=failed;
+ try{await audio.play();if(tongueAudio===audio&&button.isConnected)button.textContent='Nog een keer'}catch{failed()}
+}
 function startTongue(){
- window.speechSynthesis?.cancel();
+ stopTongueAudio();
  const list=cardsFor('tongue');APP.cardKind='tongue';APP.cardIndex=list.length?((APP.cardIndex||0)%list.length+list.length)%list.length:0;
  const c=list[APP.cardIndex],counter=list.length?`${APP.cardIndex+1} van ${list.length}`:'0 kaarten';
  setLast('card','Tongbrekers',{kind:'tongue'});
@@ -670,9 +683,8 @@ function bindCards(kind){
  if(kind==='tongue'){
   $('#primaryGame').disabled=$('#cardDeck').disabled=!c;
   for(const key of ['tongueLevel','tongueDifficulty'])$('#'+key).onchange=e=>{rememberAction('tongbrekerfilter kiezen');APP[key]=e.target.value;APP.cardIndex=0;delete APP.cardRound;save();startTongue()};
-  const read=$('#tongueRead');read.disabled=!c||!window.speechSynthesis||!window.SpeechSynthesisUtterance;
-  if(!window.speechSynthesis||!window.SpeechSynthesisUtterance)read.title='Voorlezen is niet beschikbaar in deze browser.';
-  read.onclick=()=>{window.speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(c.text);utterance.lang='nl-NL';utterance.onerror=e=>{if(read.isConnected&&!['canceled','interrupted'].includes(e.error))toast('Voorlezen is niet beschikbaar. Probeer het opnieuw.')};window.speechSynthesis.speak(utterance);read.textContent='Nog een keer'};
+  const read=$('#tongueRead');read.disabled=!c?.audio?.src;
+  read.onclick=()=>readTongue(c,read);
   return;
  }
  const state=cardRound(c);
@@ -701,7 +713,7 @@ async function nextCard(){
  }finally{cardBusy=false;updateUndo()}
 }
 function startCards(kind){
- if(APP.cardKind==='tongue')window.speechSynthesis?.cancel();
+ stopTongueAudio();
  if(kind==='tongue')return startTongue();
  const family=CARD_GAMES.find(x=>x.id===kind);if(!family)return toast('Dit kaartspel is niet beschikbaar.');
  const list=cardsFor(kind);if(!list.length)return toast('Deze route bevat geen kaarten.');APP.cardKind=kind;APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;

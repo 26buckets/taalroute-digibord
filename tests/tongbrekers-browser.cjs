@@ -5,16 +5,33 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  const browser=await chromium.launch({headless:true,channel:'chrome',args:['--allow-file-access-from-files']});
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.spoken=[];window.cancelled=0;Object.defineProperty(window,'speechSynthesis',{value:{cancel(){window.cancelled++},speak(u){window.spoken.push({text:u.text,lang:u.lang})}}})});
+ await page.addInitScript(()=>{
+  const NativeAudio=window.Audio;window.NativeAudio=NativeAudio;window.spoken=[];window.cancelled=0;window.audioFailed=false;
+  window.Audio=function(src){
+   if(!String(src).startsWith('assets/audio/tongbrekers/'))return new NativeAudio(src);
+   this.src=src;this.currentTime=0;this.pause=()=>{window.cancelled++};
+   this.play=()=>{window.spoken.push(src);return window.audioFailed?Promise.reject(new Error('test load failure')):Promise.resolve()};
+  };
+ });
  try{
   await page.goto('file://'+path.join(served,'index.html'));
-  await page.locator('[data-main="play"]').click();await page.locator('[data-category="workforms"]').click();await page.locator('.new-workforms [data-cardgame="conversation"]').click();await page.locator('[data-ctype="tongue"]').click();
+  await page.locator('[data-main="play"]').click();await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="tongue"]').click();
   await page.locator('#tongueLevel').selectOption('C2');
   assert.equal(await page.locator('.card-activity-heading h1 span').innerText(),'142 kaarten');
   assert.equal(await page.locator('#cardHelp,#cardGoals,#cardPartner,#cardSetInfo,#cardSupport,#cardAttempt,[data-ghelp],[data-grules]').count(),0);
   await page.locator('#tongueLevel').selectOption('A1');assert.equal(await page.locator('.card-counter').innerText(),'1 van 61');await page.locator('#tongueLevel').selectOption('A2');assert.equal(await page.locator('.card-counter').innerText(),'1 van 121');await page.locator('#tongueLevel').selectOption('C2');
   const initial=await page.locator('.tongue-text').innerText();await page.locator('#tongueRead').click();await page.locator('#tongueRead').click();
-  assert.deepEqual(await page.evaluate(()=>window.spoken),[{text:initial,lang:'nl-NL'},{text:initial,lang:'nl-NL'}]);
+  const initialAudio=await page.evaluate(()=>currentCard().audio.src);
+  assert.deepEqual(await page.evaluate(()=>window.spoken),[initialAudio,initialAudio]);
+  assert.equal(await page.locator('#tongueRead').innerText(),'Nog een keer');
+  assert.ok(await page.evaluate(()=>window.cancelled>=1));
+  await page.evaluate(()=>{window.audioFailed=true});await page.locator('#tongueRead').click();
+  assert.equal(await page.locator('#tongueRead').innerText(),'Voorlezen');
+  assert.ok((await page.locator('#toast').innerText()).includes('De opname kan niet'));
+  await page.evaluate(()=>{window.audioFailed=false});await page.locator('#tongueRead').click();
+  const cancelled=await page.evaluate(()=>window.cancelled);
+  await page.locator('#tongueLevel').selectOption('A1');assert.ok(await page.evaluate(()=>window.cancelled)>cancelled);
+  await page.locator('#tongueLevel').selectOption('C2');
   const seen=new Set();
   for(let i=0;i<142;i++){seen.add(await page.locator('.tongue-content').getAttribute('data-card-id'));await page.locator('#primaryGame').click()}
   assert.equal(seen.size,142);assert.equal(await page.locator('.tongue-text').innerText(),initial);
@@ -55,6 +72,6 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#levelSelect').getAttribute('data-tongue'),'false');
   await page.evaluate(()=>openCabinetSet('cards','tongue'));assert.equal(await page.locator('.detail-text-cards article').count(),142);assert.equal(await page.locator('.detail-text-cards').innerText().then(t=>t.includes('Mila maakt soep.')),false);
   await page.locator('#startCabinetActivity').click();assert.ok(await page.locator('.tongue-table').isVisible());
-  assert.deepEqual(errors,[]);console.log('PASS: real navigation, 142-card cycle, undo, 28 filter combinations, empty states, Dutch read/repeat dispatch, reload, all seven other games, Style Control, unchanged board state, six viewports, fullscreen and cabinet.');
+  assert.deepEqual(errors,[]);console.log('PASS: real navigation, 142-card cycle, undo, 28 filter combinations, empty states, bundled audio/read/repeat/failure/cancellation, reload, all seven other games, Style Control, unchanged board state, six viewports, fullscreen and cabinet.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
