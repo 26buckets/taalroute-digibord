@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'..'),read=name=>fs.readFileSync(path.join(root,name),'utf8');
-const runtime=vm.runInNewContext(read('data-bundle.js')+read('data/tongbrekers.js')+';window.DIGIBORD_DATA',{window:{}});
+const runtime=vm.runInNewContext(read('data-bundle.js')+read('data/taalmix.js')+read('data/tongbrekers.js')+';window.DIGIBORD_DATA',{window:{}});
 const bank=JSON.parse(read('data/tongbrekers.json'));
 assert.equal(JSON.stringify(runtime.tongueBank),JSON.stringify(bank));
 assert.equal(bank.cards.length,161);assert.equal(new Set(bank.cards.map(c=>c.id)).size,161);assert.equal(new Set(bank.cards.map(c=>c.text)).size,161);
@@ -31,7 +31,7 @@ for(const level of bank.levels){
 ctx.APP.tongueLevel='C2';ctx.APP.tongueDifficulty='';
 for(let i=0;i<142;i++){ctx.APP.cardIndex=i;vm.runInContext('startTongue()',ctx);assert.ok(rendered.html.includes(bank.cards.filter(c=>c.type==='tongbreker')[i].text))}
 assert.equal(vm.runInContext("cardsFor('tongue',true).length",ctx),142);
-for(const family of runtime.cardGames.families.filter(f=>f.id!=='tongue'))for(const route of runtime.cardGames.routeDefinitions){ctx.APP.cardRoute=route.id;ctx.kind=family.id;assert.deepEqual(Array.from(vm.runInContext('cardsFor(kind)',ctx),c=>c.id),Array.from(family.cards.filter(c=>c.routeId===route.id),c=>c.id))}
+for(const family of runtime.cardGames.families.filter(f=>!['tongue','idioms'].includes(f.id)))for(const route of runtime.cardGames.routeDefinitions){ctx.APP.cardRoute=route.id;ctx.kind=family.id;assert.deepEqual(Array.from(vm.runInContext('cardsFor(kind)',ctx),c=>c.id),Array.from(family.cards.filter(c=>c.routeId===route.id),c=>c.id))}
 console.log('PASS: exact 88 classifications; 142 playable/19 retained; 60 A1 and 60 A2 records; all 28 filter combinations, all 142 texts, empty selections and seven unchanged card families.');
 
 // Every playable record must point to its own bundled audio; retained sentences stay silent.

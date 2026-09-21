@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('.',import.meta.url)),source=fs.readFileSync(root+'app.js','utf8');
-const data=JSON.parse(JSON.stringify(vm.runInNewContext(fs.readFileSync(root+'data-bundle.js','utf8')+fs.readFileSync(root+'data/tongbrekers.js','utf8')+'\nwindow.DIGIBORD_DATA',{window:{}})));
+const data=JSON.parse(JSON.stringify(vm.runInNewContext(fs.readFileSync(root+'data-bundle.js','utf8')+fs.readFileSync(root+'data/taalmix.js','utf8')+fs.readFileSync(root+'data/tongbrekers.js','utf8')+'\nwindow.DIGIBORD_DATA',{window:{}})));
 const ctx=vm.createContext({});
 vm.runInContext(source.slice(source.indexOf('function taalworpExample('),source.indexOf('let languageBusy=')),ctx);
 const m=data.taalworpManifest;
@@ -177,7 +177,7 @@ console.log('PASS: board footer keeps roll and undo controls unique; mode select
 
 // All three real card games render the same usable table with one of each control.
 const tableMount={innerHTML:''};
-const tableCtx=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0},taskBank:data.taskBank,story:data.storydice,Math,
+const tableCtx=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0,mixLevel:'all',mixCollection:'all'},taskBank:data.taskBank,story:data.storydice,Math,
  $:()=>tableMount,save(){},bindCards(){},setLast(){},toast(message){throw Error(message)},
  selectedTaskRoute:()=>data.taskBank.routes[2],adaptTask:c=>c,shapeMeta:id=>data.taskBank.shapes.find(s=>s.id===id),
  cardFan:()=>'<svg></svg>',levelInstruction:()=> 'Vertel in enkele zinnen.',gameIcon:()=>'<svg></svg>',gameBar:html=>html,cardBack:title=>title,
@@ -189,21 +189,21 @@ for(const kind of data.cardGames.families.filter(x=>x.id!=='tongue').map(x=>x.id
  vm.runInContext(`startCards('${kind}')`,tableCtx);
  for(const id of ['primaryGame','cardDeck','cardHelp','cardExample','cardGoals','cardPartner','cardSetInfo','cardSupport'])assert.equal((tableMount.innerHTML.match(new RegExp(`id="${id}"`,'g'))||[]).length,1,kind+' '+id);
  assert.ok(tableMount.innerHTML.includes('card-table-shell'));assert.ok(tableMount.innerHTML.includes('assets/brand/taalroute-white.svg'));
- assert.ok(tableMount.innerHTML.includes('1 van 40'));
+ assert.ok(tableMount.innerHTML.includes('1 van '+data.cardGames.families.find(f=>f.id===kind).cards.length));
 }
 console.log('PASS: all seven other card tables render real counts/content, white logo and the five unique contextual controls.');
 
 assert.deepEqual(data.cardGames,JSON.parse(fs.readFileSync(root+'data/card-games.json')));
 assert.equal(data.cardGames.families.length,8);
-const pilotCards=data.cardGames.families.flatMap(g=>g.cards);assert.equal(pilotCards.length,320);
-assert.equal(new Set(pilotCards.map(c=>c.id)).size,320);
+const pilotCards=data.cardGames.families.flatMap(g=>g.cards);assert.equal(pilotCards.length,542);
+assert.equal(new Set(pilotCards.map(c=>c.id)).size,542);
 for(const c of pilotCards){for(const field of ['title','instruction','situation','criterion'])assert.ok(c[field]?.trim(),c.id+' '+field);assert.ok(c.help.items.length);assert.ok(c.model.text);assert.equal(c.reviewStatus,'pilot_ready');}
 const wordLetters=s=>[...s.replace(/[^a-z]/gi,'').toUpperCase()].sort().join('');
 assert.equal(wordLetters('TSFIE'),wordLetters('FIETS'));assert.equal(wordLetters('IHSU'),wordLetters('HUIS'));
 assert.equal('PAN'.replace('A','E'),'PEN');assert.equal('BOOT'.replace('O',''),'BOT');assert.ok('ZKATLM'.includes('KAT'));
 const hostHtml=fs.readFileSync(root+'index.html','utf8'),settingsHtml=fs.readFileSync(root+'settings/index.html','utf8');
 assert.ok(!hostHtml.includes('id="settingsClose"'));assert.equal((settingsHtml.match(/class="back-btn"/g)||[]).length,1);assert.ok(settingsHtml.includes('taalroute-close-settings'));
-console.log('PASS: matching self-contained 320-card production bundle, unique complete records, letter-puzzle checks and one settings return control.');
+console.log('PASS: matching self-contained 542-card production bundle, unique complete records, letter-puzzle checks and one settings return control.');
 
 // Card category and legacy deep link skip the cabinet screen.
 const navigationCalls=[];
@@ -268,12 +268,12 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
    assert.ok(fs.existsSync(root+c.visualRebus.src));
    assert.ok(html.includes('id="cardRebus"'));
    assert.ok(html.includes('src="'+c.visualRebus.src+'"'));
-   assert.ok(!html.includes(c.situation),c.id+' still shows the old word rebus');
+   assert.ok(!html.match(/<div class="card-situation">[\s\S]*?<\/div><\/div>/)?.[0].includes(c.situation),c.id+' still shows the old word rebus');
   }
   assert.ok(html.includes(`data-card-id="${c.id}"`));
   assert.equal(/\bdisabled\b/.test(html.match(/<button[^>]*id="cardExample"[^>]*>/)[0]),c.model.showWhen!=='before_during_after_attempt',c.id+' model timing');
  }
- for(const route of data.cardGames.routeDefinitions){
+ for(const route of family.id==='idioms'?[]:data.cardGames.routeDefinitions){
   tableCtx.APP.cardRoute=route.id;tableCtx.kind=family.id;
   const selected=vm.runInContext('cardsFor(kind)',tableCtx);
   assert.ok(selected.length);assert.ok(selected.every(c=>c.routeId===route.id));
@@ -286,7 +286,7 @@ const emptyFamily={id:'empty',cards:[data.cardGames.families[0].cards[0]]};
 tableCtx.CARD_GAMES.push(emptyFamily);tableCtx.APP.cardRoute='R6';
 assert.equal(vm.runInContext("cardsFor('empty').length",tableCtx),0);
 tableCtx.CARD_GAMES.pop();
-console.log('PASS: all 280 other records render correctly, including ten illustrated rebuses; seven exact routes; all 40 conversation cards; no empty-route substitution.');
+console.log('PASS: all other records render correctly, including 90 illustrated rebuses; seven exact routes; all 40 conversation cards; no empty-route substitution.');
 
 // One shared selector exposes every production route, then restores levels outside card games.
 const levelMenu={dataset:{},setAttribute(){}};

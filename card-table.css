@@ -109,3 +109,10 @@
 .tongue-actions{display:flex;justify-content:center;padding:12px 20px 20px;flex-shrink:0}
 .tongue-actions .smallbtn{min-height:44px;padding:10px 24px}
 @media(max-width:850px){.tongue-table .cards-stage{grid-template-columns:1fr;padding:12px 16px;gap:16px;overflow:auto;display:block}.tongue-table .deckpanel{display:none}.tongue-table .game-card-motion{height:auto;min-height:240px;margin-bottom:22px}.tongue-table .active-card{height:auto;min-height:240px}.tongue-table .cardtypes{margin-top:20px}.tongue-table .card-activity-heading{padding:12px 16px}.tongue-table .tongue-text{font-size:32px}.tongue-table .tongue-long{font-size:27px}}
+
+/* Taalmix shares the existing card table and native filters. */
+.taalmix-filters{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:12px}
+.taalmix-filters label{display:grid;gap:4px;font-size:.85rem;font-weight:600;max-width:100%}
+.taalmix-filters select{font:inherit;padding:7px;border:1px solid #c8c3bb;border-radius:8px;background:#fff;color:#243749;max-width:100%}
+.taalmix-filters p{flex-basis:100%;font-size:.82rem;margin:0;max-width:72ch}
+.taalmix-meta{font-size:.85rem;color:#665740;font-weight:600}
