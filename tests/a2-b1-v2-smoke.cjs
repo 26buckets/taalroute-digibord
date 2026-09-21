@@ -1,4 +1,5 @@
-const {reveal}=require('./ui-controls.cjs');\nconst {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs');
+const {reveal}=require('./ui-controls.cjs');
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),server=require('../server.cjs');
 (async()=>{
   await new Promise(r=>server.listen(0,'127.0.0.1',r));
   const b=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH});
