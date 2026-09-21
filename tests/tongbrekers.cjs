@@ -11,7 +11,7 @@ const source=read('app.js');let rendered;
 const ctx=vm.createContext({RUNTIME:runtime,CARD_GAMES:runtime.cardGames.families,APP:{level:'A2',cardIndex:0},window:{},$$:()=>[],activeCardRoute:()=>ctx.APP.cardRoute||'all',esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>rendered={kind,count,html}});
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function cardActivityHeader(')),ctx);
 for(const level of bank.levels){
- ctx.APP.tongueLevel=level;
+ ctx.APP.level=level;
  for(const difficulty of ['','easy','medium','hard']){
   ctx.APP.tongueDifficulty=difficulty;
   const selected=vm.runInContext("cardsFor('tongue')",ctx);
@@ -23,7 +23,7 @@ for(const level of bank.levels){
   if(!expected.length)assert.ok(rendered.html.includes('Geen tongbrekers bij deze filters.'));
  }
 }
-ctx.APP.tongueLevel='C2';ctx.APP.tongueDifficulty='';
+ctx.APP.level='C2';ctx.APP.tongueDifficulty='';
 for(let i=0;i<240;i++){ctx.APP.cardIndex=i;vm.runInContext('startTongue()',ctx);assert.ok(rendered.html.includes(bank.cards.filter(c=>c.type==='tongbreker')[i].text))}
 assert.equal(vm.runInContext("cardsFor('tongue',true).length",ctx),240);
 for(const family of runtime.cardGames.families.filter(f=>f.id!=='tongue'))for(const route of runtime.cardGames.routeDefinitions){ctx.APP.cardRoute=route.id;ctx.kind=family.id;assert.deepEqual(Array.from(vm.runInContext('cardsFor(kind)',ctx),c=>c.id),Array.from(family.cards.filter(c=>c.routeId===route.id),c=>c.id))}
