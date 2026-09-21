@@ -133,7 +133,8 @@ globalThis.PraatpadDice=(()=>{
   let canvas=original,renderer,angles=[0,0,0],raf=0,animation=null,rollKey=null,value=1,style='numbers';
   function fallback(){const next=canvas.cloneNode(false);canvas.replaceWith(next);canvas=next;renderer=software(canvas,pictures,fill,ink,body);canvas.dataset.renderer=renderer.kind;}
   try{renderer=webgl(canvas,pictures,fill,ink,body);}catch{renderer=null;}if(!renderer)fallback();else canvas.dataset.renderer=renderer.kind;
-  function draw(bounce=0){const r=canvas.getBoundingClientRect();if(!r.width||!r.height)return;const ratio=Math.min(devicePixelRatio||1,2);const w=Math.round(r.width*ratio),h=Math.round(r.height*ratio);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}renderer.draw(model(angles,orientation),r.width,r.height,bounce,style,front);}
+  // Measure before CSS transforms and supersample: small idle dice must stay crisp too.
+  function draw(bounce=0){const r={width:canvas.clientWidth,height:canvas.clientHeight};if(!r.width||!r.height)return;const ratio=2;const w=Math.round(r.width*ratio),h=Math.round(r.height*ratio);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}renderer.draw(model(angles,orientation),r.width,r.height,bounce,style,front);}
   function stop(){cancelAnimationFrame(raf);raf=0;animation=null;canvas.dataset.rolling='false';}
   function show(next,{animate=false,key=0,duration=1350,style:nextStyle=style,spin=[2,3,1],lift=4,delay=0}={}){
    style=nextStyle==='verbs'&&pictures?'verbs':'numbers';canvas.dataset.style=style;
