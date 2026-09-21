@@ -153,8 +153,8 @@
     },
     {
       "id": 7,
-      "x": 790.49,
-      "y": 591.04,
+      "x": 814.17,
+      "y": 609.46,
       "kind": "task",
       "shape": "triangle",
       "pathToNext": [
