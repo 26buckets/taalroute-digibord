@@ -24,7 +24,9 @@ Deze map is onderdeel van Git en gaat mee zodra de commit wordt gepusht. Dezelfd
 - `tongbrekers-240.js`: dezelfde 240 records als direct bruikbare `window.DIGIBORD_DATA.tongueBank`-bundle. Andere runtimebanken blijven intact.
 - `source.txt` en `manifest.json`: herkomst, brondatum, hashes, tellingen en eerlijke integratiestatus.
 - `migration.json`: 94 behouden IDs bij exact gelijke tekst, 146 nieuwe IDs en 67 eerdere records die niet in deze definitieve selectie staan. 21 bestaande kaarten krijgen volgens de nieuwe bron een andere niveau-/moeilijkheidsindeling. Geen oude ID wordt aan een andere tekst toegewezen.
-- `audio-plan.json`: 94 bestaande opnames zijn op exacte tekst en bestandshash gecontroleerd. Voor 146 nieuwe teksten ontbreekt nog een opname. Er zijn geen onjuiste opnames gekoppeld en er is geen nieuwe audio gegenereerd.
+- `audio-plan.json`: 94 bestaande opnames zijn op exacte tekst en bestandshash gecontroleerd. Alle 146 aanvullingen zijn nu gekoppeld: 140 nieuw gegenereerde opnames en zes exact passende opnames teruggevonden in de ElevenLabs-geschiedenis. Geen ontbrekende audio meer.
+- `tongbrekers-audio-240.json`: de volledige audiomatrix met stemmen, modellen, bronbestanden, duur, volume en bestandshashes.
+- `AUDIOVERSLAG.md`: uitgevoerde audiocontroles en status.
 - `validate.cjs`: controleert alle bronteksten, tellingen, unieke IDs/teksten, JSON/bundle-pariteit, audioverwijzingen, 28 filtercombinaties en alle 240 teksten met de bestaande renderfuncties.
 
 Controle vanuit de repository:
@@ -36,8 +38,8 @@ node imports/tongbrekers-240-20260921/validate.cjs
 ## Aansluiting bij daadwerkelijke inbouw
 
 1. Maak een nieuwe back-up van de dan actieve Tongbrekers-JSON, JS-bundle en audiomatrix. Bewaar oudere gegevens als historie.
-2. Rond de 146 ontbrekende opnames af volgens de bestaande audioafspraken, of leg bewust vast dat die kaarten zonder voorleesknop worden aangeboden. De huidige renderer schakelt voorlezen uit als `audio.src` ontbreekt. Dit pakket is tekstueel klaar; volledige audio is nog niet gereed.
-3. Gebruik deze JSON als nieuwe bron voor `data/tongbrekers.json` en de overeenkomstige JS-bundle voor `data/tongbrekers.js`. Werk de audiomatrix en cacheversie in `index.html` bij. Wijzig geen andere kaartfamilies of bordbanken.
+2. Alle 240 kaarten hebben audio. Behoud de aangeleverde bestanden en controleer de hashes met de pakketvalidator. De oorspronkelijke 94 opnames zijn byte voor byte behouden.
+3. Gebruik deze JSON als nieuwe bron voor `data/tongbrekers.json` en de overeenkomstige JS-bundle voor `data/tongbrekers.js`. Neem `tongbrekers-audio-240.json` over als `data/tongbrekers-audio.json` en werk de cacheversie in `index.html` bij. Wijzig geen andere kaartfamilies of bordbanken.
 4. Werk de Tongbrekers-tests bewust bij naar deze nieuwe bron: de oude 88-recordindeling en 142-/161-tellingen horen bij de voorgaande bank. Behoud de tests voor andere families, opnames, filters, terugzetten en voortgang.
 5. Controleer de actieve kaart-ID en huidige filters/voortgang bij een bankwissel. Een verdwenen kaart mag niet ongemerkt naar een andere tekst op dezelfde positie verwijzen.
 6. Draai de inhouds-, regressie-, browser- en buildcontroles. Test alle 240 kaarten en lange hogere-niveaukaarten in de browser. De rendertest in dit pakket vervangt die volledige integratiecontrole niet.
