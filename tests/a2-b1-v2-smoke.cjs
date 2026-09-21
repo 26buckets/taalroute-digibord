@@ -42,7 +42,8 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),serv
       const visibleText=await p.locator('#pp-task').textContent();
       const model=await p.evaluate(id=>DigiBoardMatrix.byId.get(id).model,id);
       assert.ok(!visibleText.includes(model),'Model vooraf zichtbaar bij '+id);
-      await reveal(p);\n      await p.locator('#pp-help').click();
+      await reveal(p);
+      await p.locator('#pp-help').click();
       assert.equal((await p.locator('.db-support-example').textContent()).trim(),model.trim());
       await p.keyboard.press('Escape');
     }
