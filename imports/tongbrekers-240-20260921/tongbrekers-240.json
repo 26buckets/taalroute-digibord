@@ -1,0 +1,3031 @@
+{
+  "version": "2.0.0",
+  "source": "Taalroute Tongbrekers Definitieve Bank 2026 09 21 · https://docs.google.com/document/d/1an4zsAiWIlaSmouU5mlXv1h2B4BVH19UtUMX8nI1QKY/edit",
+  "levels": [
+    "A0",
+    "A1",
+    "A2",
+    "B1",
+    "B2",
+    "C1",
+    "C2"
+  ],
+  "cards": [
+    {
+      "id": "TR-TONGUE-049",
+      "sourceNumber": 1,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 1,
+      "text": "Pim pakt papier.",
+      "soundFocus": "p en p, korte a en ie",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-049.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-105",
+      "sourceNumber": 2,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 2,
+      "text": "Nat net, net nat.",
+      "soundFocus": "a en e wisselen in nat en net",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-105.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-003",
+      "sourceNumber": 3,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 3,
+      "text": "Pak pap, pak sap.",
+      "soundFocus": "p, k en s in korte woorden",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-004",
+      "sourceNumber": 4,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 4,
+      "text": "Kop, kip, kop, kip.",
+      "soundFocus": "o en i wisselen tussen k en p",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-005",
+      "sourceNumber": 5,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 5,
+      "text": "Kan in pan, pan in kan.",
+      "soundFocus": "k en p wisselen rond an",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-006",
+      "sourceNumber": 6,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 6,
+      "text": "Pak de pan, pak de pen.",
+      "soundFocus": "pan en pen, a en e",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-007",
+      "sourceNumber": 7,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 7,
+      "text": "Vis of vies, vies of vis.",
+      "soundFocus": "korte i en lange ie",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-008",
+      "sourceNumber": 8,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 8,
+      "text": "Baan, been, boon, been, baan.",
+      "soundFocus": "aa, ee en oo met b en n",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-009",
+      "sourceNumber": 9,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 9,
+      "text": "Bep belt Bob.",
+      "soundFocus": "b, p en b rond korte klinkers",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-010",
+      "sourceNumber": 10,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 10,
+      "text": "Piet pakt patat.",
+      "soundFocus": "p met ie, a en aa",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-011",
+      "sourceNumber": 11,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 11,
+      "text": "Saar snijdt sla.",
+      "soundFocus": "s, sn en sl",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-012",
+      "sourceNumber": 12,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 12,
+      "text": "Sien ziet zee.",
+      "soundFocus": "s en z met ie en ee",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-013",
+      "sourceNumber": 13,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 13,
+      "text": "Wim wast wol.",
+      "soundFocus": "w met i, a en o",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-014",
+      "sourceNumber": 14,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 14,
+      "text": "Jas in tas, tas met jas.",
+      "soundFocus": "j en t rond as",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-015",
+      "sourceNumber": 15,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 15,
+      "text": "Bas wast was.",
+      "soundFocus": "b en w rond as",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-016",
+      "sourceNumber": 16,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 16,
+      "text": "Kop op kop op kop.",
+      "soundFocus": "k en p met herhaalde overgang",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-017",
+      "sourceNumber": 17,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 17,
+      "text": "Pak, pik, pak, pik.",
+      "soundFocus": "a en i tussen p en k",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-018",
+      "sourceNumber": 18,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 18,
+      "text": "Tik op tak, tak op tik.",
+      "soundFocus": "i en a tussen t en k",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-019",
+      "sourceNumber": 19,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 19,
+      "text": "Pap plakt, pak plakt.",
+      "soundFocus": "p, pl en k",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-020",
+      "sourceNumber": 20,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 20,
+      "text": "Bus bij bos, bos bij bus.",
+      "soundFocus": "u en o rond b en s",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-021",
+      "sourceNumber": 21,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 21,
+      "text": "Natte noten, nette noten.",
+      "soundFocus": "a en e met n en t",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-022",
+      "sourceNumber": 22,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 22,
+      "text": "Twee tenen tikken.",
+      "soundFocus": "tw, t en korte i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-023",
+      "sourceNumber": 23,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 23,
+      "text": "Zes zakken, zes sokken.",
+      "soundFocus": "z, s en a, o",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-024",
+      "sourceNumber": 24,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 24,
+      "text": "Volle vellen vallen.",
+      "soundFocus": "v met o, e en a",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-025",
+      "sourceNumber": 25,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 25,
+      "text": "Losse lussen, losse lassen.",
+      "soundFocus": "l en s met o, u en a",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-026",
+      "sourceNumber": 26,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 26,
+      "text": "Rode rits, rare rits.",
+      "soundFocus": "r met o, a en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-027",
+      "sourceNumber": 27,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 27,
+      "text": "Kom maar, kam maar.",
+      "soundFocus": "o en a na k",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-028",
+      "sourceNumber": 28,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 28,
+      "text": "Pak de kop, pak de kan.",
+      "soundFocus": "k, p en klinkerwisseling",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-029",
+      "sourceNumber": 29,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 29,
+      "text": "Dikke sokken zakken.",
+      "soundFocus": "k en z, o en a",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-030",
+      "sourceNumber": 30,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 30,
+      "text": "Rode rollen rollen.",
+      "soundFocus": "r en rollende r combinaties",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-031",
+      "sourceNumber": 31,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 31,
+      "text": "Kat tikt tak.",
+      "soundFocus": "k en t wisselen snel",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-032",
+      "sourceNumber": 32,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 32,
+      "text": "Kip pikt pit.",
+      "soundFocus": "k, p en t rond korte i",
+      "entryLevel": "A0",
+      "difficulty": 1,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-033",
+      "sourceNumber": 33,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 33,
+      "text": "Kees kiest kaas.",
+      "soundFocus": "k met ee, ie en aa",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-034",
+      "sourceNumber": 34,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 34,
+      "text": "Koos kiest koek.",
+      "soundFocus": "k met oo, ie en oe",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-035",
+      "sourceNumber": 35,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 35,
+      "text": "Fien vindt vis.",
+      "soundFocus": "f en v met ie en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-036",
+      "sourceNumber": 36,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 36,
+      "text": "Tien tenen tikken.",
+      "soundFocus": "t met ie, ee en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-037",
+      "sourceNumber": 37,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 37,
+      "text": "Zes zussen zingen.",
+      "soundFocus": "z en s met u en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-038",
+      "sourceNumber": 38,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 38,
+      "text": "Zeven zussen zoeken.",
+      "soundFocus": "z en s met ee, u en oe",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-039",
+      "sourceNumber": 39,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 39,
+      "text": "Kleine klokken klinken.",
+      "soundFocus": "kl met ei, o en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-040",
+      "sourceNumber": 40,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 40,
+      "text": "Platte planten plakken.",
+      "soundFocus": "pl met t, nt en k",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-124",
+      "sourceNumber": 41,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 41,
+      "text": "Lange lepels liggen links.",
+      "soundFocus": "l met a, e en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-124.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-042",
+      "sourceNumber": 42,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 42,
+      "text": "Schone schoenen schuiven.",
+      "soundFocus": "sch en sjachtige overgangen",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-018",
+      "sourceNumber": 43,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 43,
+      "text": "Drie droge doeken.",
+      "soundFocus": "dr met ie, oo en oe",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-018.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-044",
+      "sourceNumber": 44,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 44,
+      "text": "Twee trage treinen.",
+      "soundFocus": "tw, tr en t",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-045",
+      "sourceNumber": 45,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 45,
+      "text": "Vier vieze vazen.",
+      "soundFocus": "v met ie, ie en aa",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-046",
+      "sourceNumber": 46,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 46,
+      "text": "Vijf volle vellen.",
+      "soundFocus": "v en f met ij, o en e",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-047",
+      "sourceNumber": 47,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 47,
+      "text": "Zwarte zak, zachte zak.",
+      "soundFocus": "zw, z en zachte ch",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-048",
+      "sourceNumber": 48,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 48,
+      "text": "Dikke tak, dunne tak.",
+      "soundFocus": "d, t en k met i, a en u",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-107",
+      "sourceNumber": 49,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 49,
+      "text": "Rood haar, raar haar.",
+      "soundFocus": "oo en aa met r en h",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-107.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-050",
+      "sourceNumber": 50,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 50,
+      "text": "Kat krabt krat.",
+      "soundFocus": "k, kr en bt",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-051",
+      "sourceNumber": 51,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 51,
+      "text": "Krab krabt krat.",
+      "soundFocus": "kr, b, bt en t",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-052",
+      "sourceNumber": 52,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 52,
+      "text": "Broer brengt brood.",
+      "soundFocus": "br met oe, e en oo",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-053",
+      "sourceNumber": 53,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 53,
+      "text": "Blauwe bril, bruine bril.",
+      "soundFocus": "bl en br",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-054",
+      "sourceNumber": 54,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 54,
+      "text": "Rode roos, rare roos.",
+      "soundFocus": "r met oo en aa",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-055",
+      "sourceNumber": 55,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 55,
+      "text": "Korte krul, kromme krul.",
+      "soundFocus": "kr met o en u",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-056",
+      "sourceNumber": 56,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 56,
+      "text": "Strakke straat, stroeve straat.",
+      "soundFocus": "str met a, aa en oe",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-057",
+      "sourceNumber": 57,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 57,
+      "text": "Knappe knieën knikken.",
+      "soundFocus": "kn met a, ie en i",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-058",
+      "sourceNumber": 58,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 58,
+      "text": "Flinke fles valt.",
+      "soundFocus": "fl en v",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-059",
+      "sourceNumber": 59,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 59,
+      "text": "Slappe sla slaapt.",
+      "soundFocus": "sl met a en aa",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A0-060",
+      "sourceNumber": 60,
+      "sourceGroup": "A0",
+      "sourceGroupNumber": 60,
+      "text": "Drie dikke druppels.",
+      "soundFocus": "dr met ie, i en u",
+      "entryLevel": "A0",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-004",
+      "sourceNumber": 61,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 1,
+      "text": "De prins spreekt slecht Spaans.",
+      "soundFocus": "spr, sl en sp",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-004.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-002",
+      "sourceNumber": 62,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 2,
+      "text": "Boterklontje, boterklontje, boterklontje.",
+      "soundFocus": "tr, kl en ntj in één woord",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-003",
+      "sourceNumber": 63,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 3,
+      "text": "Die dikke domoren drammen door.",
+      "soundFocus": "d en dr",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-013",
+      "sourceNumber": 64,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 4,
+      "text": "De kat krabt de krullen van de trap.",
+      "soundFocus": "kr en tr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-013.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-016",
+      "sourceNumber": 65,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 5,
+      "text": "Frits vindt visfrietjes vreselijk vies.",
+      "soundFocus": "fr, v en vr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-016.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-022",
+      "sourceNumber": 66,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 6,
+      "text": "Ik schrijf scheef in mijn schrift.",
+      "soundFocus": "schr en sch",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-022.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-007",
+      "sourceNumber": 67,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 7,
+      "text": "Bakker Bas bakt bolle broodjes bruin.",
+      "soundFocus": "b, br en kt",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-027",
+      "sourceNumber": 68,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 8,
+      "text": "Bedek het bed met het dekbed.",
+      "soundFocus": "bed en dek wisselen",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-027.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-009",
+      "sourceNumber": 69,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 9,
+      "text": "Papa pakt de platte bakpan.",
+      "soundFocus": "p, pl en bp",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-044",
+      "sourceNumber": 70,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 10,
+      "text": "Drie dove domme dromedarissen.",
+      "soundFocus": "dr en d",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-044.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-055",
+      "sourceNumber": 71,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 11,
+      "text": "Koen koopt koek, maar de koek kruimelt.",
+      "soundFocus": "k en kr met oe",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-055.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-057",
+      "sourceNumber": 72,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 12,
+      "text": "In de stille straat staan twee stoelen.",
+      "soundFocus": "st en str",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-057.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-061",
+      "sourceNumber": 73,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 13,
+      "text": "Frans fietst vroeg naar de fruitmarkt.",
+      "soundFocus": "fr en f",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-061.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-089",
+      "sourceNumber": 74,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 14,
+      "text": "Pak de kop, pak de kan, pak de pan.",
+      "soundFocus": "k en p wisselen",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-089.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-092",
+      "sourceNumber": 75,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 15,
+      "text": "Twee katten tikken tegen tien takken.",
+      "soundFocus": "t en k",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-092.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-094",
+      "sourceNumber": 76,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 16,
+      "text": "De kok kookt kool in een kleine kookpan.",
+      "soundFocus": "k met oo en ei",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-094.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-095",
+      "sourceNumber": 77,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 17,
+      "text": "Zes zussen zoeken zeven sokken.",
+      "soundFocus": "z en s",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-095.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-096",
+      "sourceNumber": 78,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 18,
+      "text": "Knappe kappers knippen korte krullen.",
+      "soundFocus": "kn, k en kr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-096.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-097",
+      "sourceNumber": 79,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 19,
+      "text": "Kees kiest kaas, Koos kiest koek.",
+      "soundFocus": "k met meerdere klinkers",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-097.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-098",
+      "sourceNumber": 80,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 20,
+      "text": "Piet poetst de pot, de pot poetst Piet.",
+      "soundFocus": "p, t en oe",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-098.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-099",
+      "sourceNumber": 81,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 21,
+      "text": "Bert botst, Bart bukt, Bert bukt, Bart botst.",
+      "soundFocus": "b, t en k met naamwisseling",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-099.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-100",
+      "sourceNumber": 82,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 22,
+      "text": "Grote groene glazen glimmen.",
+      "soundFocus": "gr en gl",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-100.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-101",
+      "sourceNumber": 83,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 23,
+      "text": "Vijf vuile vorken vallen.",
+      "soundFocus": "v en f",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-101.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-102",
+      "sourceNumber": 84,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 24,
+      "text": "Vis in de fles, vlees in de tas.",
+      "soundFocus": "v, fl en vl",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-102.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-103",
+      "sourceNumber": 85,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 25,
+      "text": "De tas past pas naast de kast.",
+      "soundFocus": "t, p, s en st",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-103.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-104",
+      "sourceNumber": 86,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 26,
+      "text": "Sam wast zes vieze vazen.",
+      "soundFocus": "s, z en v",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-104.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-106",
+      "sourceNumber": 87,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 27,
+      "text": "Tante Tine telt tien tanden.",
+      "soundFocus": "t met a, ie en e",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-106.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-109",
+      "sourceNumber": 88,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 28,
+      "text": "Negen natte neuzen niezen.",
+      "soundFocus": "n met a, eu en ie",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-109.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-111",
+      "sourceNumber": 89,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 29,
+      "text": "Zeven zakken zout zakken weg.",
+      "soundFocus": "z en k",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-111.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-112",
+      "sourceNumber": 90,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 30,
+      "text": "Zes messen missen één mes.",
+      "soundFocus": "m, s en i, e",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-112.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-115",
+      "sourceNumber": 91,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 31,
+      "text": "De kip pikt, de kikker kijkt.",
+      "soundFocus": "k, p en kt",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-115.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-117",
+      "sourceNumber": 92,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 32,
+      "text": "Drie trage treinen trillen.",
+      "soundFocus": "dr en tr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-117.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-119",
+      "sourceNumber": 93,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 33,
+      "text": "Een paar paarse paarden.",
+      "soundFocus": "p en r",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-119.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-122",
+      "sourceNumber": 94,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 34,
+      "text": "De draad draait drie keer.",
+      "soundFocus": "dr en d",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-122.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-035",
+      "sourceNumber": 95,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 35,
+      "text": "Gijs giet geel sap.",
+      "soundFocus": "g, j en ie",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-036",
+      "sourceNumber": 96,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 36,
+      "text": "Schoon schort, scheef schort.",
+      "soundFocus": "sch en rt",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-037",
+      "sourceNumber": 97,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 37,
+      "text": "De slome slak sleept sla.",
+      "soundFocus": "sl en s",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-038",
+      "sourceNumber": 98,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 38,
+      "text": "Bram brengt breed brood.",
+      "soundFocus": "br en b",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-039",
+      "sourceNumber": 99,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 39,
+      "text": "Fien vouwt vijf vellen.",
+      "soundFocus": "f en v",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-040",
+      "sourceNumber": 100,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 40,
+      "text": "Tom trekt twee tassen.",
+      "soundFocus": "t, tr en tw",
+      "entryLevel": "A1",
+      "difficulty": 2,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-041",
+      "sourceNumber": 101,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 41,
+      "text": "Saar schuift zes schalen.",
+      "soundFocus": "s, sch en z",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-042",
+      "sourceNumber": 102,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 42,
+      "text": "Karel kraakt krokante crackers.",
+      "soundFocus": "kr en k",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-043",
+      "sourceNumber": 103,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 43,
+      "text": "De kleine kraan kraakt.",
+      "soundFocus": "kl en kr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-044",
+      "sourceNumber": 104,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 44,
+      "text": "Roos rolt rode rollen.",
+      "soundFocus": "r en rl",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-045",
+      "sourceNumber": 105,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 45,
+      "text": "De grijze gans graast graag.",
+      "soundFocus": "gr en g",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-046",
+      "sourceNumber": 106,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 46,
+      "text": "Drie broers brengen brood.",
+      "soundFocus": "dr en br",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-047",
+      "sourceNumber": 107,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 47,
+      "text": "Vera veegt vijf vieze vegen weg.",
+      "soundFocus": "v en f",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-048",
+      "sourceNumber": 108,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 48,
+      "text": "De post past pas in de postbus.",
+      "soundFocus": "p, st en s",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-049",
+      "sourceNumber": 109,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 49,
+      "text": "Een platte plaat plakt.",
+      "soundFocus": "pl en t, kt",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-050",
+      "sourceNumber": 110,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 50,
+      "text": "De blauwe blouse blijft blauw.",
+      "soundFocus": "bl en b",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-051",
+      "sourceNumber": 111,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 51,
+      "text": "Kleine krabben kruipen krom.",
+      "soundFocus": "kl, kr en kr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-052",
+      "sourceNumber": 112,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 52,
+      "text": "Vier frisse frieten frituren.",
+      "soundFocus": "fr en f",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-053",
+      "sourceNumber": 113,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 53,
+      "text": "De snelle slager snijdt sla.",
+      "soundFocus": "sn en sl",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-054",
+      "sourceNumber": 114,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 54,
+      "text": "Zes zachte zolen zakken.",
+      "soundFocus": "z en s",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-055",
+      "sourceNumber": 115,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 55,
+      "text": "De groene groenteboer grijnst.",
+      "soundFocus": "gr en g",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-056",
+      "sourceNumber": 116,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 56,
+      "text": "Truus trekt drie truien.",
+      "soundFocus": "tr en dr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-057",
+      "sourceNumber": 117,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 57,
+      "text": "De brede brug breekt bijna.",
+      "soundFocus": "br en b",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-058",
+      "sourceNumber": 118,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 58,
+      "text": "Twee stoere stieren staren.",
+      "soundFocus": "st en t",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-059",
+      "sourceNumber": 119,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 59,
+      "text": "De schoen schuift schuin.",
+      "soundFocus": "sch en ui",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A1-060",
+      "sourceNumber": 120,
+      "sourceGroup": "A1",
+      "sourceGroupNumber": 60,
+      "text": "Drie glazen glijden glad.",
+      "soundFocus": "gl en dr",
+      "entryLevel": "A1",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-002",
+      "sourceNumber": 121,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 1,
+      "text": "Ruud Rups raspt rap rode ronde radijsjes.",
+      "soundFocus": "r en rsprongen",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-002.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-002",
+      "sourceNumber": 122,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 2,
+      "text": "Wat Wil wil, wil Wil wel weten.",
+      "soundFocus": "wil en wel wisselen",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-009",
+      "sourceNumber": 123,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 3,
+      "text": "Een pet met een platte klep is een platte kleppet.",
+      "soundFocus": "pl, kl en pet, klep",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-009.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-011",
+      "sourceNumber": 124,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 4,
+      "text": "Moeder sneed zeven scheve sneden brood.",
+      "soundFocus": "sn, sch en z",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-011.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-012",
+      "sourceNumber": 125,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 5,
+      "text": "Max mixt de whisky met de whiskymixer.",
+      "soundFocus": "ks, xt en sk",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-012.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-019",
+      "sourceNumber": 126,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 6,
+      "text": "Ik zag haar haar kammen met haar haarkam.",
+      "soundFocus": "haar herhalen met woordgrenzen",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-019.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-021",
+      "sourceNumber": 127,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 7,
+      "text": "De knecht snijdt recht en de meid snijdt scheef.",
+      "soundFocus": "kn, sn, cht en sch",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-021.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-008",
+      "sourceNumber": 128,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 8,
+      "text": "Klara knipt de krullenkop kaal.",
+      "soundFocus": "kl, kn en kr",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-009",
+      "sourceNumber": 129,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 9,
+      "text": "Zij zei dat zij zei dat zij wat zei.",
+      "soundFocus": "zij en zei wisselen",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-025",
+      "sourceNumber": 130,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 10,
+      "text": "Die schaar knipt knap stroef.",
+      "soundFocus": "sch, kn en str",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-025.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-028",
+      "sourceNumber": 131,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 11,
+      "text": "Duizend dames drinken dagelijks druivensap.",
+      "soundFocus": "d en dr",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-028.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-032",
+      "sourceNumber": 132,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 12,
+      "text": "De kapster kapt de krullenbol op de kruk.",
+      "soundFocus": "k, kr en kt",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-032.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-013",
+      "sourceNumber": 133,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 13,
+      "text": "Thijs snijdt de schijfjes steeds scheef.",
+      "soundFocus": "sn, sch en st",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-035",
+      "sourceNumber": 134,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 14,
+      "text": "De poes kotst in de postzak.",
+      "soundFocus": "poes, post en kotst",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-035.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-037",
+      "sourceNumber": 135,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 15,
+      "text": "Ik bak een plak bakbloedworst.",
+      "soundFocus": "bak, plak en bl",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-037.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-016",
+      "sourceNumber": 136,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 16,
+      "text": "Ik pak mijn kersenpittenkussentje.",
+      "soundFocus": "k, p en samengestelde klanken",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-017",
+      "sourceNumber": 137,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 17,
+      "text": "Vera vult vijf volle vuilnisvaten.",
+      "soundFocus": "v en f",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-018",
+      "sourceNumber": 138,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 18,
+      "text": "De buur brengt bruine borden naar boven.",
+      "soundFocus": "b en br",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-062",
+      "sourceNumber": 139,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 19,
+      "text": "Zes zachte zakken zitten stevig in dezelfde tas.",
+      "soundFocus": "z, s en st",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-062.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-063",
+      "sourceNumber": 140,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 20,
+      "text": "Korte kratten kraken als Karim ze kantelt.",
+      "soundFocus": "kr en k",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-063.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-064",
+      "sourceNumber": 141,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 21,
+      "text": "Saar schuift smalle schalen naast de schone schaal.",
+      "soundFocus": "s, sch en sm",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-064.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-A2-022",
+      "sourceNumber": 142,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 22,
+      "text": "Bram brengt bruine borden binnen, de brede bak blijft buiten.",
+      "soundFocus": "br, b en bl",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-126",
+      "sourceNumber": 143,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 23,
+      "text": "De schipper schuift de scheve schotel achter de schone schuur.",
+      "soundFocus": "sch herhalen met klinkerwissels",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-126.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-127",
+      "sourceNumber": 144,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 24,
+      "text": "Twee strenge stratenmakers stapelen stenen naast een smalle straat.",
+      "soundFocus": "str, st en sm",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-127.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-128",
+      "sourceNumber": 145,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 25,
+      "text": "De postbode stopt de post pas in de pas geverfde postbus.",
+      "soundFocus": "post, pas en st",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-128.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-129",
+      "sourceNumber": 146,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 26,
+      "text": "De kapper knipt krullen, maar de krullen klitten aan zijn kleren.",
+      "soundFocus": "k, kn, kr en kl",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-129.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-130",
+      "sourceNumber": 147,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 27,
+      "text": "Wie de rits van de rok rukt, rukt de rok van de rits.",
+      "soundFocus": "r, rk en ts",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-130.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-131",
+      "sourceNumber": 148,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 28,
+      "text": "De plakker plakt platte plaatjes op een plakkerige plastic plaat.",
+      "soundFocus": "pl en klankherhaling",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-131.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-132",
+      "sourceNumber": 149,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 29,
+      "text": "Trage trams trillen terwijl drie treinen langs het station razen.",
+      "soundFocus": "tr en dr",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-132.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-133",
+      "sourceNumber": 150,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 30,
+      "text": "De korte kurk klemt in de kromme hals van de kruik.",
+      "soundFocus": "k, kr en kl",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-133.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-134",
+      "sourceNumber": 151,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 31,
+      "text": "De drukke drukker drukt drie dikke druppels drukinkt op papier.",
+      "soundFocus": "dr en dk",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-134.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-135",
+      "sourceNumber": 152,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 32,
+      "text": "Een scheve schroef schroef je scheef in een scheve schutting.",
+      "soundFocus": "schr en sch",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-135.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-136",
+      "sourceNumber": 153,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 33,
+      "text": "De grote grijze grasmaaier graast graag door het groene gras.",
+      "soundFocus": "gr en g",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-136.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-137",
+      "sourceNumber": 154,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 34,
+      "text": "Vera verft vijf fietsen, Fien verft vier vieze vazen.",
+      "soundFocus": "v en f",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-137.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-138",
+      "sourceNumber": 155,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 35,
+      "text": "Zwarte zwanen zwaaien zwijgend naar zeven zware zwemmers.",
+      "soundFocus": "zw, z en zwa",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-138.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-139",
+      "sourceNumber": 156,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 36,
+      "text": "De kok klopt koude room terwijl de kopjes in de kast klapperen.",
+      "soundFocus": "k en kl",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-139.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-141",
+      "sourceNumber": 157,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 37,
+      "text": "Tussen twee dikke takken tikken tien takjes tegen elkaar.",
+      "soundFocus": "t en tk",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-141.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-142",
+      "sourceNumber": 158,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 38,
+      "text": "Als de bus de brug mist, mist de brug de bus niet.",
+      "soundFocus": "bus, brug en mist",
+      "entryLevel": "A2",
+      "difficulty": 3,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-142.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-143",
+      "sourceNumber": 159,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 39,
+      "text": "De breiende buurvrouw breit bruine broeken voor haar broer.",
+      "soundFocus": "br en b",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-143.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-144",
+      "sourceNumber": 160,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 40,
+      "text": "De boze bezorger bezorgt zes bezems zonder bezorgbon.",
+      "soundFocus": "b, bez en z",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-144.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-145",
+      "sourceNumber": 161,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 41,
+      "text": "Kleine kinderen kraken krokante koekjes naast een krakende kachel.",
+      "soundFocus": "k en kr",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-145.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-146",
+      "sourceNumber": 162,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 42,
+      "text": "De volle vuilniswagen vervoert vijf vuilnisvaten vol vuil.",
+      "soundFocus": "v en f",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-146.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-147",
+      "sourceNumber": 163,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 43,
+      "text": "Drie slome slakken slapen tussen slappe slabladeren.",
+      "soundFocus": "sl en dr",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-147.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-148",
+      "sourceNumber": 164,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 44,
+      "text": "Willem wast witte was, terwijl Wilma wollen wanten wast.",
+      "soundFocus": "w met klinkerwissels",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-148.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-150",
+      "sourceNumber": 165,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 45,
+      "text": "De scheidsrechter schreeuwt schor terwijl de spelers scheef schieten.",
+      "soundFocus": "schr, sch en sp",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-150.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-151",
+      "sourceNumber": 166,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 46,
+      "text": "Een strook stof schuift steeds tussen de stoffen stoelen.",
+      "soundFocus": "str, st en sch",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-151.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-152",
+      "sourceNumber": 167,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 47,
+      "text": "De timmerman timmert tien traptreden tegen de trap.",
+      "soundFocus": "t en tr",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-152.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-153",
+      "sourceNumber": 168,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 48,
+      "text": "Met een kromme kam kamt Karim de korte krullen van Kim.",
+      "soundFocus": "k en kr",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-153.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-154",
+      "sourceNumber": 169,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 49,
+      "text": "De slager snijdt slordig slappe plakjes van een slingerende worst.",
+      "soundFocus": "sl en sn",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-154.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-155",
+      "sourceNumber": 170,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 50,
+      "text": "Rond de ronde rotonde rijden drie rode ronkende auto's.",
+      "soundFocus": "r en dr",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-155.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-156",
+      "sourceNumber": 171,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 51,
+      "text": "Vier vrolijke verhuizers verhuizen vijf volle vriezers.",
+      "soundFocus": "v, vr en f",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-156.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-157",
+      "sourceNumber": 172,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 52,
+      "text": "De winkelier wisselt wisselgeld, maar wil weinig wisselen.",
+      "soundFocus": "w en wissel",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-157.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-158",
+      "sourceNumber": 173,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 53,
+      "text": "Gladde glazen glijden langs de glanzende glazen deur.",
+      "soundFocus": "gl en g",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-158.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-159",
+      "sourceNumber": 174,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 54,
+      "text": "Zes zussen zagen zeven zagen naast zes zakken zand.",
+      "soundFocus": "z en s",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-159.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-161",
+      "sourceNumber": 175,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 55,
+      "text": "Netty legt het natte net net naast het nette net.",
+      "soundFocus": "nat, net en nette",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-161.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-036",
+      "sourceNumber": 176,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 56,
+      "text": "De koetsier poetst de koets van de postkoets met de poetsdoek.",
+      "soundFocus": "koets, poets en post",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-036.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-030",
+      "sourceNumber": 177,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 57,
+      "text": "Als apen elkaar naapen, apen apen apen na.",
+      "soundFocus": "apen en naapen met woordgrenzen",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-030.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-014",
+      "sourceNumber": 178,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 58,
+      "text": "Jeukt jouw jeukende neus ook zo als mijn jeukende neus jeukt?",
+      "soundFocus": "j, eu en jeuk",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-014.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-017",
+      "sourceNumber": 179,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 59,
+      "text": "Als jouw teckel mijn teckel tackelt, tackelt mijn teckel jouw teckel terug.",
+      "soundFocus": "teckel en tackelt",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-017.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-005",
+      "sourceNumber": 180,
+      "sourceGroup": "A2",
+      "sourceGroupNumber": 60,
+      "text": "Voor was was was was was is.",
+      "soundFocus": "was met verschillende functies",
+      "entryLevel": "A2",
+      "difficulty": 4,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-005.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-001",
+      "sourceNumber": 181,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 1,
+      "text": "Zeven schone Schotse schaatsers schaatsen een scheve schaats in Scheveningen.",
+      "soundFocus": "sch, schaats en scheef",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-001.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-010",
+      "sourceNumber": 182,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 2,
+      "text": "Pieter Peeters plant petieterige peterselieplantjes in pimpelpaarse peperpotjes.",
+      "soundFocus": "p, pt en pl",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-010.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-020",
+      "sourceNumber": 183,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 3,
+      "text": "Ping en Pong speelden pingpong. Ping pingpongde de pingpongbal naar Pong en Pong pingpongde de pingpongbal naar Ping.",
+      "soundFocus": "ping, pong en pingpong",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-020.mp3",
+        "voice": "Jennifer"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-004",
+      "sourceNumber": 184,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 4,
+      "text": "Als een potvis in de pispot pist, heb je een pispot vol potvispis.",
+      "soundFocus": "potvis, pispot en pis",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-005",
+      "sourceNumber": 185,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 5,
+      "text": "Mijn zeven zeven zeven zeven keer beter dan jouw zeven zeven.",
+      "soundFocus": "zeven als telwoord en werkwoord",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-007",
+      "sourceNumber": 186,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 6,
+      "text": "De knecht van Klaas de knappe kapper knipt en kapt nog knapper dan Klaas de knappe kapper knippen en kappen kan.",
+      "soundFocus": "kn, kl, kap en knip",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-007.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-007",
+      "sourceNumber": 187,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 7,
+      "text": "Wie weet waar Willem Wevers witte wollen winterwanten werkelijk waren?",
+      "soundFocus": "w met snelle woordgrenzen",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-033",
+      "sourceNumber": 188,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 8,
+      "text": "Leentje leerde Lotje lopen langs de lange lindelaan, maar toen Lotje niet wou lopen, liet Leentje Lotje staan.",
+      "soundFocus": "l en lange l reeksen",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-033.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-009",
+      "sourceNumber": 189,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 9,
+      "text": "Als achter vliegen vliegen vliegen, vliegen vliegen vliegen achterna.",
+      "soundFocus": "vliegen als naamwoord en werkwoord",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-043",
+      "sourceNumber": 190,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 10,
+      "text": "De herbergier van de herberg hier herbergt hier de herbergier van de herberg daar.",
+      "soundFocus": "herberg, hier en herbergt",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-043.mp3",
+        "voice": "Rick"
+      }
+    },
+    {
+      "id": "TR-TONGUE-048",
+      "sourceNumber": 191,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 11,
+      "text": "Zeven zware zwemmers zwemmen zwoele zomerse zondagen zomaar zonder zwembroek in de zwarte zee.",
+      "soundFocus": "z, zw en zom",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker",
+      "audio": {
+        "src": "assets/audio/tongbrekers/tr-tongue-048.mp3",
+        "voice": "Roland"
+      }
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-012",
+      "sourceNumber": 192,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 12,
+      "text": "Frans zei tegen Frans in het Frans: is Frans in het Frans Frans? Nee, Frans in het Frans is François.",
+      "soundFocus": "Frans herhalen met betekeniswissel",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-013",
+      "sourceNumber": 193,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 13,
+      "text": "Als kakkerlakken in kattenbakken kakken, kun je kattenbakken vol kakkerlakkak pakken.",
+      "soundFocus": "kak, kat en pak",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-014",
+      "sourceNumber": 194,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 14,
+      "text": "Ik denk dat dat dat dat daar staat, dat dat dat moet zijn.",
+      "soundFocus": "dat met verschillende functies",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-015",
+      "sourceNumber": 195,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 15,
+      "text": "Wie een scheur scheef dichtnaait, naait de scheve scheur scheef dicht.",
+      "soundFocus": "sch, scheur en scheef",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-016",
+      "sourceNumber": 196,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 16,
+      "text": "De stratenmaker straat de straat, maar straat de straat steeds schever.",
+      "soundFocus": "straat als naamwoord en werkwoord",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-017",
+      "sourceNumber": 197,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 17,
+      "text": "Een kromme kurkentrekker trekt de kurk krom uit de kruik.",
+      "soundFocus": "kr, kurk en krom",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-018",
+      "sourceNumber": 198,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 18,
+      "text": "De kleermaker knipt kleine knoopsgaten in kleren met knellende knopen.",
+      "soundFocus": "kl en kn",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-019",
+      "sourceNumber": 199,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 19,
+      "text": "In de drukke drukkerij drukt Dries drie proefdrukken met drukfouten.",
+      "soundFocus": "dr, druk en proefdruk",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-020",
+      "sourceNumber": 200,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 20,
+      "text": "Wie de klos losklopt, klopt de losse klos los van de plank.",
+      "soundFocus": "klos, los en klopt",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-021",
+      "sourceNumber": 201,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 21,
+      "text": "De buurvrouw breit breed, maar haar broer breit bredere breisels.",
+      "soundFocus": "br en brei",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-022",
+      "sourceNumber": 202,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 22,
+      "text": "De klep van de klepkar klapt dicht tegen de klepperende klapdeur.",
+      "soundFocus": "klep, klap en kl",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-023",
+      "sourceNumber": 203,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 23,
+      "text": "De trein trekt traag drie treinstellen door de treinwasstraat.",
+      "soundFocus": "tr en trein",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-024",
+      "sourceNumber": 204,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 24,
+      "text": "De kok klopt klontjes uit de saus, maar de saus klontert koppig door.",
+      "soundFocus": "kl, k en klont",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-025",
+      "sourceNumber": 205,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 25,
+      "text": "Als de slotenmaker het slot sluit, sluit het slot de slotenmaker buiten.",
+      "soundFocus": "slot, sluit en sloten",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-026",
+      "sourceNumber": 206,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 26,
+      "text": "De schilder schuurt de schuurdeur schoon voordat hij de schuurdeur schildert.",
+      "soundFocus": "schu, schuur en schilder",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-027",
+      "sourceNumber": 207,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 27,
+      "text": "De blikken deksels blinken tussen de blikken met blikjes.",
+      "soundFocus": "blik, blink en blikken",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-028",
+      "sourceNumber": 208,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 28,
+      "text": "De tandarts telt tien tanden, maar telt twee tanden twee keer.",
+      "soundFocus": "t en tand",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-029",
+      "sourceNumber": 209,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 29,
+      "text": "De verhuizer verhuist de vriezer voorbij de vastgelopen verhuiswagen.",
+      "soundFocus": "v en vr",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-030",
+      "sourceNumber": 210,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 30,
+      "text": "Wie zijn sokken in zakken stopt, stopt soms zakken tussen zijn sokken.",
+      "soundFocus": "sok, zak en stopt",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-031",
+      "sourceNumber": 211,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 31,
+      "text": "De broodrooster roostert droog brood, maar droog brood roostert droger.",
+      "soundFocus": "brood, rooster en droog",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-032",
+      "sourceNumber": 212,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 32,
+      "text": "Als de schroevendraaier de schroef scheef draait, draait de scheve schroef scheef terug.",
+      "soundFocus": "schr, sch en dr",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-033",
+      "sourceNumber": 213,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 33,
+      "text": "Pakt de pakjespakker het pakket verkeerd in, dan pakt de pakketbezorger het pakket weer uit.",
+      "soundFocus": "pak, pakket en pakjes",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-034",
+      "sourceNumber": 214,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 34,
+      "text": "De stadsdichter dicht over dichte stadspoorten, maar dicht de dichtstbijzijnde poort niet dicht.",
+      "soundFocus": "dicht in meerdere functies",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-035",
+      "sourceNumber": 215,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 35,
+      "text": "Wie een scheepsschroef schoon schrobt, schrobt scheepsschroefschilfers uit de schroefschacht.",
+      "soundFocus": "sch, schr en schroef",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-036",
+      "sourceNumber": 216,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 36,
+      "text": "De knoflookkweker knoopt knoflookstrengen vast aan knoestige knoflookrekken.",
+      "soundFocus": "kn en knof",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-037",
+      "sourceNumber": 217,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 37,
+      "text": "Wie een kromme kromming recht probeert te trekken, trekt de rechte kant soms krommer dan de kromming.",
+      "soundFocus": "krom, recht en trekt",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-038",
+      "sourceNumber": 218,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 38,
+      "text": "Wie plakband op plakband plakt, plakt het plakband vast aan het plakband dat al geplakt zat.",
+      "soundFocus": "plak en plakt",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-039",
+      "sourceNumber": 219,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 39,
+      "text": "De heggenschaar snijdt scherper sinds de scherenslijper de scheve schaar langs zijn slijpsteen schoof.",
+      "soundFocus": "sch, scher en sl",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-040",
+      "sourceNumber": 220,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 40,
+      "text": "De klapstoel klapt dicht zodra de klapstoelverkoper de dichtgeklapte klapstoel openklapt.",
+      "soundFocus": "klap en kl",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-041",
+      "sourceNumber": 221,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 41,
+      "text": "De sluiswachter sluit de sluis zodra de laatste slome sleepboot langs de sluisdeur schuift.",
+      "soundFocus": "sl, sluis en sluit",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-042",
+      "sourceNumber": 222,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 42,
+      "text": "De schilder schildert de schilder die de schilder schildert, terwijl die schilder hem terugschildert.",
+      "soundFocus": "schilder als persoon en werkwoord",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-043",
+      "sourceNumber": 223,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 43,
+      "text": "De letterzetter zet de letters recht, maar zet de rechtgezette letters telkens in de verkeerde lettervolgorde.",
+      "soundFocus": "zet, letter en rechtgezet",
+      "entryLevel": "B1",
+      "difficulty": 4,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-044",
+      "sourceNumber": 224,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 44,
+      "text": "Hoe strakker de strikkenstrikker de strikken strikt, hoe stroever de strakgestrikte strikken straks schuiven.",
+      "soundFocus": "strik, strak en str",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-045",
+      "sourceNumber": 225,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 45,
+      "text": "De trompettist trachtte drie treurige trompettrillers te trillen, tot de trombonist drie trillers terugtrilde.",
+      "soundFocus": "tr en trom",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-046",
+      "sourceNumber": 226,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 46,
+      "text": "Niet de knoop die de knoper knoopte, maar de knoop die hij daarna knoopte, knoopte de knopenstreng vast.",
+      "soundFocus": "knoop en kn",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-047",
+      "sourceNumber": 227,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 47,
+      "text": "Schat de schade aan de schaatsen, maar schat de schade aan de schaatsenslijper niet te schraal.",
+      "soundFocus": "sch, scha en schaats",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-048",
+      "sourceNumber": 228,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 48,
+      "text": "Waar de warrelwind wollige wolken wegwervelt, wapperen verweerde wimpels wild.",
+      "soundFocus": "w in lange reeks",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-049",
+      "sourceNumber": 229,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 49,
+      "text": "De prins prees precies de preischotel die de preikok presenteerde.",
+      "soundFocus": "pr en prei",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-050",
+      "sourceNumber": 230,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 50,
+      "text": "De poelier plukte plots pluizige pluimen uit een pluimveekussen.",
+      "soundFocus": "pl en plu",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-051",
+      "sourceNumber": 231,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 51,
+      "text": "Hoe langer de lome lepelaar langs de leliebladeren laveerde, hoe losser de leliebladeren lagen.",
+      "soundFocus": "l in lange reeks",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-052",
+      "sourceNumber": 232,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 52,
+      "text": "Proef de prikkelende pruimenpuree, prevelde de prinses.",
+      "soundFocus": "pr en pru",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-053",
+      "sourceNumber": 233,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 53,
+      "text": "De trage truffelzoeker struikelde tussen drie struikwortels en trof drie vertrapte truffels.",
+      "soundFocus": "tr, str en truf",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-054",
+      "sourceNumber": 234,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 54,
+      "text": "Voor de voorste voorzetwand stond voorheen een voorzetwand die vroeger voorste voorzetwand was.",
+      "soundFocus": "voor in verschillende samenstellingen",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-055",
+      "sourceNumber": 235,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 55,
+      "text": "De zeepzieder zag zes zussen zorgvuldig zeezout zeven.",
+      "soundFocus": "z, ze en zee",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-056",
+      "sourceNumber": 236,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 56,
+      "text": "De scharenslijper schatte scherp hoeveel scharen scherper sneden na het slijpen.",
+      "soundFocus": "sch, scherp en slijp",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-057",
+      "sourceNumber": 237,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 57,
+      "text": "Wie het weerbericht weer weerlegt met het weer van gisteren, weerlegt weer wat het weerbericht voorspelde.",
+      "soundFocus": "weer met meerdere betekenissen",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-058",
+      "sourceNumber": 238,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 58,
+      "text": "De postzegelplakker plakte postzegels op postzegelpakketten, terwijl de verzamelaar ze er prompt weer af pulkte.",
+      "soundFocus": "postzegel, plak en pak",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-059",
+      "sourceNumber": 239,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 59,
+      "text": "De scheepsschroefschacht schuurde schuin langs het scheepsschot, zodat de scheepsschadecontroleur schrok.",
+      "soundFocus": "sch, schr en scheeps",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    },
+    {
+      "id": "TR-TONGUE-D240-B1-C2-060",
+      "sourceNumber": 240,
+      "sourceGroup": "B1-C2",
+      "sourceGroupNumber": 60,
+      "text": "Wie twijfelt of de twijfelaar twijfelt aan zijn twijfel, twijfelt misschien aan de twijfel waaraan hij zelf niet meer twijfelt.",
+      "soundFocus": "twijfel in verschillende functies",
+      "entryLevel": "B1",
+      "difficulty": 5,
+      "type": "tongbreker"
+    }
+  ]
+}
