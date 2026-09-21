@@ -693,7 +693,16 @@ async function readTongue(c,button){
 }
 function startTongue(){
  stopTongueAudio();
- const list=cardsFor('tongue');APP.cardKind='tongue';APP.cardIndex=list.length?((APP.cardIndex||0)%list.length+list.length)%list.length:0;
+ const list=cardsFor('tongue');
+ if(APP.tongueBankVersion!==RUNTIME.tongueBank.version){
+  const previous=(RUNTIME.tonguePreviousCards||[]).filter(c=>RUNTIME.tongueBank.levels.indexOf(c.entryLevel)<=RUNTIME.tongueBank.levels.indexOf(tongueLevel())&&(!APP.tongueDifficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[APP.tongueDifficulty]??true)));
+  const oldId=APP.tongueCardId||(APP.last?.data?.kind==='tongue'?previous[APP.cardIndex||0]?.id:null);
+  const restored=list.findIndex(c=>c.id===oldId);
+  APP.cardIndex=Math.max(0,restored);APP.tongueBankVersion=RUNTIME.tongueBank.version;
+  if(oldId&&restored<0)toast('Tongbrekers is bijgewerkt. Je vorige kaart valt buiten deze selectie; je begint bij de eerste kaart.');
+ }
+ APP.cardKind='tongue';APP.cardIndex=list.length?((APP.cardIndex||0)%list.length+list.length)%list.length:0;
+ APP.tongueCardId=list[APP.cardIndex]?.id||null;
  const c=list[APP.cardIndex],counter=list.length?`${APP.cardIndex+1} van ${list.length}`:'0 kaarten';
  setLast('card','Tongbrekers',{kind:'tongue'});
  renderCardTable('tongue',counter,`<div class="card-ribbon" style="--ribbon:#b95979"><strong>Tongbrekers</strong><span class="card-counter">${counter}</span></div><div class="card-content tongue-content" aria-live="polite" ${c?`data-card-id="${c.id}"`:''}><p class="tongue-text${c&&c.text.length>150?' tongue-long':''}">${esc(c?.text||'Geen tongbrekers bij deze filters.')}</p></div><div class="tongue-actions"><button class="smallbtn" id="tongueRead" ${c?'':'disabled'}>Voorlezen</button></div>`);

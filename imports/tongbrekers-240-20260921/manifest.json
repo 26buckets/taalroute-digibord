@@ -1,0 +1,34 @@
+{
+  "packageId": "tongbrekers-240-20260921",
+  "status": "integrated_pending_publication",
+  "activated": true,
+  "source": {
+    "url": "https://docs.google.com/document/d/1an4zsAiWIlaSmouU5mlXv1h2B4BVH19UtUMX8nI1QKY/edit",
+    "title": "Taalroute Tongbrekers Definitieve Bank 2026 09 21",
+    "modifiedTime": "2026-09-21T14:14:55.144Z",
+    "snapshot": "source.txt",
+    "snapshotSha256": "d72a05e3b1c33f03fe4d507e2496acdfb6529245dadc8789dec1de3bbbfba912",
+    "normalization": "Only line endings normalized to LF; card wording preserved."
+  },
+  "counts": {
+    "total": 240,
+    "A0": 60,
+    "A1": 60,
+    "A2": 60,
+    "B1-C2": 60
+  },
+  "audio": {
+    "retained": 94,
+    "additionalCompleted": 146,
+    "recoveredFromHistory": 6,
+    "newlyGenerated": 140,
+    "totalLinked": 240,
+    "required": 0
+  },
+  "bankSha256": "179a3f01c247d51539d3c5d45722f4ed482ffdef0a799e919989e1539448771d",
+  "technicalValidation": "local_source_runtime_audio_filters_regressions_build_passed; browser_CI_pending",
+  "humanReview": "not_verified_by_this_task",
+  "lessonTrial": "not_performed_by_this_task",
+  "publication": "not_published_by_this_task",
+  "audioManifestSha256": "9fded34b28400cfc6835ae421b4baf578b1e31097a8208d9d1218ebe7866011f"
+}
