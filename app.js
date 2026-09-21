@@ -73,7 +73,7 @@ $('#collectionStorySets').onclick=()=>openCabinet('story');
 $$('[data-home]').forEach(b=>b.onclick=home);$$('[data-category]').forEach(b=>b.onclick=()=>goScreen(b.dataset.category));$$('[data-open-main]').forEach(b=>b.onclick=()=>goScreen(b.dataset.openMain));$$('.navitem').forEach(b=>b.onclick=()=>goScreen(b.dataset.main==='play'?'play':b.dataset.main));
 
 let settingsRouteAtOpen;
-function openSettings(){settingsRouteAtOpen=settingsState().route;$('#settingsOverlay iframe').src='settings/index.html';$('#settingsOverlay').classList.add('open')}
+function openSettings(){settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label.replace('→',' → ')});settingsRouteAtOpen=settingsState().route;$('#settingsOverlay iframe').src='settings/index.html';$('#settingsOverlay').classList.add('open')}
 function closeSettings(){const selected=settingsState().route;if(selected&&selected!==settingsRouteAtOpen){const route=CARD_ROUTES.findIndex(r=>r.label.replaceAll(' ','')===selected.replaceAll(' ',''));selectLevel(['A0','A1','A1+','A2','B1','B2','C1'][route]||APP.level)}$('#settingsOverlay').classList.remove('open');refreshCurrentGame()}
 function syncFullscreen(){
  const active=!!document.fullscreenElement,button=$('#fullscreenBtn');
@@ -910,7 +910,7 @@ function resetLevelContent(){
 function selectLevel(level){
  if(!LEVELS.includes(level))return;
  if(APP.level!==level){APP.level=level;resetLevelContent()}
- settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label});save();syncLevelSelect();refreshCurrentGame();
+ settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label.replace('→',' → ')});save();syncLevelSelect();refreshCurrentGame();
  if($('#screen-collection').classList.contains('active'))renderCollection();
 }
 if(APP.levelPreferenceVersion!==1){
