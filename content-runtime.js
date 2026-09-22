@@ -55,10 +55,16 @@
  }
  function availability(filters={}){
   const filtered=filterSource(filters);
+  const common=eligibleItems(PROFILE.engines,filters);
   return Object.freeze({
    source_count:filtered.length,
-   common_count:eligibleItems(PROFILE.engines,filters).length,
-   engines:Object.freeze(Object.fromEntries(PROFILE.engines.map(engine=>[engine,filtered.filter(item=>compatibility(item,engine).compatible).length])))
+   source_duration_seconds:filtered.reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0),
+   common_count:common.length,
+   common_duration_seconds:common.reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0),
+   engines:Object.freeze(Object.fromEntries(PROFILE.engines.map(engine=>{
+    const pool=filtered.filter(item=>compatibility(item,engine).compatible);
+    return [engine,Object.freeze({count:pool.length,duration_seconds:pool.reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0)})];
+   })))
   });
  }
  function rng(seed){let state=(Number(seed)||1)>>>0;return()=>{state^=state<<13;state^=state>>>17;state^=state<<5;return(state>>>0)/4294967296}}
@@ -82,6 +88,7 @@
    if(!progressed)break;round++;
   }
   if(activeFunctions.some(fn=>!selected.some(item=>item.language_function===fn)))throw new Error('Selectie mist minimaal één gekozen grammaticale functie.');
+  if(total<targetDurationSeconds)throw new Error('Onvoldoende content voor de gekozen tijdsduur. Maak de selectie ruimer of kies een kortere duur.');
   return selected;
  }
  function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={},organizationMode='class',selectedGameEngine=null,startedAt=null}={}){
