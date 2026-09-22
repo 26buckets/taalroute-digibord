@@ -40,9 +40,9 @@
  function availability(){return scopeError()?emptyAvailability():ContentRuntime.availability(filters())}
  function compatibleEngineIds(){
   if(scopeError())return[];
-  const a=availability(),individually=engines().filter(e=>engineRegistry.supportsOrganization(e.id,state.organization)&&(a.engines[e.id]?.count||0)>0).map(e=>e.id);
-  if(!individually.length)return[];
-  return individually.filter(e=>ContentRuntime.eligibleItems(individually,filters()).length>0);
+  const a=availability(),fullyCompatible=engines().filter(e=>engineRegistry.supportsOrganization(e.id,state.organization)&&(a.engines[e.id]?.count||0)===a.source_count).map(e=>e.id);
+  if(!fullyCompatible.length)return[];
+  return fullyCompatible.filter(e=>ContentRuntime.eligibleItems(fullyCompatible,filters()).length===a.source_count);
  }
  function capacitySeconds(){const engines=compatibleEngineIds();return engines.length?ContentRuntime.eligibleItems(engines,filters()).reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0):0}
  function persist(){APP.contentUiDraft={...state};save()}
@@ -125,6 +125,7 @@
    else if(state.engine==='CARDS')CONTENT_VERT001.cards();
    else if(state.engine==='DICE')CONTENT_VERT001.dice();
    else if(state.engine==='QUIZ')CONTENT_VERT001.quiz();
+   else if(state.engine==='SEQUENCE')CONTENT_VERT001.sequence();
    return session;
   }catch(error){toast(error.message||'Deze sessie kan niet worden gestart.');renderPage();return null}
  }
