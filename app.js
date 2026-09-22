@@ -893,7 +893,8 @@ window.CONTENT_VERT001={
  wheel(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Draaiwiel is nog niet geladen.');window.DigiActivities.start('draaiwiel')},
  cards(){if(!this.session())this.start();APP.cardIndex=0;startCards('content-vert001')},
  dice(){if(!this.session())this.start();APP.contentDiceIndex=0;APP.contentDiceLastRoll=0;startContentDice()},
- quiz(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Categorieënquiz is nog niet geladen.');window.DigiActivities.start('categorieenquiz')}
+ quiz(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Categorieënquiz is nog niet geladen.');window.DigiActivities.start('categorieenquiz')},
+ sequence(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Rangschikken is nog niet geladen.');window.DigiActivities.start('rangschikken')}
 };
 function startCabinetActivity(info,count=3){
  if(info.type==='verbs'){twDiceState={};APP.verbLocked=false;APP.taalworpSet=null;startTaalworp(info.id)}
