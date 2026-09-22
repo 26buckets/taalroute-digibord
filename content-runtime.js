@@ -12,6 +12,7 @@
  const ANSWER_TYPES=new Set(['gesloten','geleid_gesloten','open','open_geleid']);
  const DIFFICULTIES=new Set(['basis','midden','hoog']);
  const MODES=new Set(['productief','receptief']);
+ const BLOCKED_RIGHTS=new Set(['revoked','hard_revoked','blocked','not_cleared','expired']);
  let active=null;
  function list(value){return Array.isArray(value)?value.filter(Boolean):value?[value]:[]}
  function assertSource(){
@@ -65,6 +66,7 @@
   const f=normalizeFilters(filters);
   return source.items.filter(item=>
    PROFILE.reviewGate.includes(item.review_status)&&
+   !BLOCKED_RIGHTS.has(String(item.rights_status||'').toLowerCase())&&item.revocation_status!=='HARD_REVOKED'&&
    PROFILE.publicationGate.includes(item.publication_status)&&
    (!f.topics.length||f.topics.includes(item.topic))&&
    (!f.levels.length||f.levels.includes(item.cefr_level))&&
