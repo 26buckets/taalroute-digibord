@@ -95,7 +95,7 @@
    owner_ref:ref,
    created_by_ref:owner.created_by_ref||ref,
    visibility:owner.visibility||(scope==='system'?'system':'private'),
-   edit_policy:owner.edit_policy||(scope==='system'?'system_only':'owner_only')
+   edit_policy:owner.edit_policy||(scope==='system'?'system_only':scope==='school'?'school_editors':'owner_only')
   };
  }
  function actorCanRead(object,actor={}){
@@ -109,6 +109,7 @@
   const ref=actor.owner_ref||actor.user_ref||'local-user';
   if(object.owner_scope==='system'||object.edit_policy==='system_only'||object.edit_policy==='read_only')return !!actor.system_admin;
   if(object.owner_scope==='user')return object.owner_ref===ref;
+  if(object.owner_scope==='school'&&object.edit_policy==='owner_only')return object.created_by_ref===ref;
   if(object.owner_scope==='school'&&object.edit_policy==='school_editors')return object.owner_ref===actor.school_ref||arrays(actor.school_refs).includes(object.owner_ref);
   return false;
  }
@@ -185,10 +186,10 @@
   const levels=unique(scopes.flatMap(s=>s.cefr_levels));
   const subtopics=unique(scopes.flatMap(s=>s.subtopic_ids).filter(x=>x&&x!=='all'));
   const interactions=unique(scopes.flatMap(s=>s.interaction_type_ids));
-  assert(scopes.every(s=>!s.content_bank_ids.length||s.content_bank_ids.includes('CB-GRAM-001')),STATUS.BLOCKED_SELECTION_SPEC,'Een scope verwijst naar een niet aangesloten contentbank.');
+  assert(scopes.every(s=>s.content_bank_ids.every(id=>id==='CB-GRAM-001')),STATUS.BLOCKED_SELECTION_SPEC,'Een scope verwijst naar een niet aangesloten contentbank.');
   assert(!interactions.length,STATUS.BLOCKED_SELECTION_SPEC,'InteractionType filtering uit opgeslagen selecties is nog niet door de huidige runtimefilter ondersteund.');
   const filter=spec.filter_spec||{};
-  const unsupported=Object.entries(filter).filter(([key,value])=>!['production_mode','difficulty','support_level','oral_or_written','exercise_focus_ids','exercise_types'].includes(key)&&value!=null&&value!==''&&!(Array.isArray(value)&&!value.length));
+  const unsupported=Object.entries(filter).filter(([key,value])=>!['production_mode','difficulty','exercise_types'].includes(key)&&value!=null&&value!==''&&!(Array.isArray(value)&&!value.length));
   assert(!unsupported.length,STATUS.BLOCKED_SELECTION_SPEC,'selection_spec bevat een filter dat de huidige runtime nog niet ondersteunt.',{keys:unsupported.map(([key])=>key)});
   assert(scopes.length===1,STATUS.BLOCKED_SELECTION_SPEC,'Meerdere scope_clauses worden wel opgeslagen, maar uitvoering wacht op de clause aware uitbreiding van de bestaande selectiemotor.');
   return {
@@ -337,14 +338,13 @@
   function contentRefFor(id){
    const item=contentRuntime.itemById(id);assert(item,STATUS.BLOCKED_MISSING_REFERENCE,'ContentItem ontbreekt: '+id);
    const source=contentRuntime.source||{};
+   const {review_status,publication_status,rights_status,qa_id,source_ref,...executionItem}=item;
+   void review_status;void publication_status;void rights_status;void qa_id;void source_ref;
    const ref={
     content_item_id:id,content_item_version:item.version||null,content_bank_id:item.content_bank_id||null,
     source_version:source.source_version||item.version||null,
     immutable_version_ref:[item.content_bank_id||'bank',id,item.version||'version',source.source_sha256||'source'].join(':'),
-    content_hash:fingerprint({
-     id,version:item.version,bank:item.content_bank_id,prompt:item.prompt,correct_answer:item.correct_answer,
-     model_answer:item.model_answer,accepted_answers:item.accepted_answers,explanation:item.explanation
-    })
+    content_hash:fingerprint(executionItem)
    };
    return Object.freeze(ref);
   }
@@ -354,7 +354,7 @@
     const item=contentRuntime.itemById(ref.content_item_id);
     if(!item)return{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:[ref.content_item_id]};
     if(String(item.version||'')!==String(ref.content_item_version||''))return{status:STATUS.BLOCKED_VERSION_UNAVAILABLE,reasons:[ref.content_item_id]};
-    if(HARD_RIGHTS.has(String(item.rights_status||'').toLowerCase()))return{status:STATUS.BLOCKED_RIGHTS,reasons:[ref.content_item_id]};
+    if(item.revocation_status==='HARD_REVOKED'||HARD_RIGHTS.has(String(item.rights_status||'').toLowerCase()))return{status:STATUS.BLOCKED_RIGHTS,reasons:[ref.content_item_id]};
     const current=contentRefFor(ref.content_item_id);
     if(current.content_hash!==ref.content_hash)return{status:STATUS.BLOCKED_VERSION_UNAVAILABLE,reasons:[ref.content_item_id]};
    }
@@ -449,9 +449,22 @@
    return save(OBJECT_TYPES.RECENT_SESSION,next,expectedRevision);
   }
 
-  function addFavorite({ref_type,ref_id,label_override='',owner={}}={}){
+  function favoriteTarget(refType,refId,actor){
+   if(refType==='saved_selection'){
+    const target=adapter.get(OBJECT_TYPES.SAVED_SELECTION,refId);assert(target,STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel bestaat niet.');assertReadable(target,actor);return target;
+   }
+   if(refType==='mix_profile'){
+    const target=adapter.get(OBJECT_TYPES.MIX_PROFILE,refId);assert(target,STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel bestaat niet.');assertReadable(target,actor);return target;
+   }
+   if(refType==='content_item'){
+    const target=contentRuntime.itemById(refId);assert(target,STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel bestaat niet.');return target;
+   }
+   return{ref_id:refId,ref_type:refType};
+  }
+  function addFavorite({ref_type,ref_id,label_override='',owner={},actor=null}={}){
    assert(FAVORITE_TYPES.has(ref_type),STATUS.BLOCKED_SCHEMA_VERSION,'Ongeldig favoriettype.');assert(nonEmptyString(ref_id),STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel ontbreekt.');
-   const own=normalizeOwner(owner),existing=adapter.list(OBJECT_TYPES.FAVORITE_REF).find(x=>x.owner_ref===own.owner_ref&&x.ref_type===ref_type&&x.ref_id===ref_id);
+   const own=normalizeOwner(owner),effectiveActor=actor||currentActor(own);favoriteTarget(ref_type,ref_id,effectiveActor);
+   const existing=adapter.list(OBJECT_TYPES.FAVORITE_REF).find(x=>x.owner_ref===own.owner_ref&&x.ref_type===ref_type&&x.ref_id===ref_id);
    if(existing)return clone(existing);
    const id=idFactory('FR'),object={...base(OBJECT_TYPES.FAVORITE_REF,id,own),ref_type,ref_id,label_override:String(label_override||''),sort_order:0};
    return save(OBJECT_TYPES.FAVORITE_REF,object,0);
@@ -464,10 +477,8 @@
    const favorite=adapter.get(OBJECT_TYPES.FAVORITE_REF,id);if(!favorite)return{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:['favorite_missing'],object:null,target:null};
    try{assertReadable(favorite,actor)}catch(error){return{status:error.code,reasons:[error.message],object:clone(favorite),target:null}};
    let target=null;
-   if(favorite.ref_type==='saved_selection')target=adapter.get(OBJECT_TYPES.SAVED_SELECTION,favorite.ref_id);
-   else if(favorite.ref_type==='mix_profile')target=adapter.get(OBJECT_TYPES.MIX_PROFILE,favorite.ref_id);
-   else if(favorite.ref_type==='content_item')target=contentRuntime.itemById(favorite.ref_id);
-   else target={ref_id:favorite.ref_id,ref_type:favorite.ref_type};
+   try{target=favoriteTarget(favorite.ref_type,favorite.ref_id,actor)}
+   catch(error){return{status:error.code||STATUS.BLOCKED_PERMISSION,reasons:[error.message],object:clone(favorite),target:null}}
    return target?{status:STATUS.READY,reasons:[],object:clone(favorite),target:clone(target)}:{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:[favorite.ref_id],object:clone(favorite),target:null};
   }
 
