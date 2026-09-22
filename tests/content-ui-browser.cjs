@@ -56,6 +56,7 @@ let browser;
  // Mixed selection must hide SEQUENCE instead of silently narrowing to ORDER.
  await page.evaluate(()=>ContentUI.open());await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:300,organization:'class'}));
  assert.equal(await page.locator('.practice-engine').filter({hasText:'Rangschikken'}).count(),0);
+ await page.evaluate(()=>ContentUI.setState({focus:'order',duration:300}));
 
  // Too long for the narrow ORDER pool is blocked instead of changing scope.
  await page.evaluate(()=>ContentUI.setState({duration:600}));
