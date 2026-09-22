@@ -3,11 +3,12 @@
  else root.ContentRuntime=factory(root.DIGIBORD_CONTENT_VERT001);
 })(typeof globalThis!=='undefined'?globalThis:this,function(source){
  'use strict';
- const PROFILE=Object.freeze({id:'SP_GRAM_PB001',version:'2.0',bankId:'CB-GRAM-001',targetDurationSeconds:600,reviewGate:['REVIEW_GO'],publicationGate:['staging_only','pilot_only','published'],engines:['BOARD','WHEEL','CARDS']});
- const ENGINE_VERSIONS=Object.freeze({BOARD:'CONTENT000-2.0',WHEEL:'CONTENT000-2.0',CARDS:'CONTENT000-2.0'});
- const DIRECT=new Set(['IT_001_OPEN_ANSWER','IT_002_RAPID_ANSWER','IT_004_MULTIPLE_CHOICE','IT_005_FILL_GAP','IT_006_CORRECT_ERROR','IT_007_TRANSFORM_SENTENCE','IT_012_CREATE_EXAMPLE','IT_017_IDENTIFY','IT_018_COMPLETE_SENTENCE']);
- const ORDER='IT_008_ORDER';
- const SUPPORTED=Object.freeze({BOARD:new Set([...DIRECT,ORDER]),WHEEL:new Set([...DIRECT,ORDER]),CARDS:new Set([...DIRECT,ORDER])});
+ const engineRegistry=globalThis.GameEngineRegistry||(typeof require==='function'?require('./game-engine-registry.js'):null);
+ const rendererRegistry=globalThis.InteractionRendererRegistry||(typeof require==='function'?require('./interaction-renderer-registry.js'):null);
+ if(!engineRegistry||!rendererRegistry)throw new Error('CONTENT ENG 001 registers ontbreken.');
+ const CONTENT_ENGINES=Object.freeze(engineRegistry.contentEngines().map(engine=>engine.id));
+ const PROFILE=Object.freeze({id:'SP_GRAM_PB001',version:'2.1',bankId:'CB-GRAM-001',targetDurationSeconds:600,reviewGate:['REVIEW_GO'],publicationGate:['staging_only','pilot_only','published'],engines:CONTENT_ENGINES});
+ const ENGINE_VERSIONS=Object.freeze(Object.fromEntries(engineRegistry.contentEngines().map(engine=>[engine.id,engine.version])));
  const TOPICS=Object.freeze(['ER','ZULLEN','ZOUDEN']),LEVELS=Object.freeze(['A2','B1','B2']);
  const ANSWER_TYPES=new Set(['gesloten','geleid_gesloten','open','open_geleid']);
  const DIFFICULTIES=new Set(['basis','midden','hoog']);
@@ -38,12 +39,7 @@
  assertSource();
  const byId=new Map(source.items.map(item=>[item.content_item_id,item]));
  const FUNCTIONS=Object.freeze([...new Set(source.items.map(item=>item.language_function))].sort());
- function compatibility(item,engine){
-  if(!SUPPORTED[engine])return{compatible:false,reason:'unknown_engine',mode:'NOT_COMPATIBLE'};
-  if(!SUPPORTED[engine].has(item.interaction_type))return{compatible:false,reason:'interaction_not_supported',mode:'NOT_COMPATIBLE'};
-  if(item.interaction_type===ORDER)return{compatible:true,reason:'text_order_adapter',mode:'COMPATIBLE_WITH_ADAPTER',adapter:'text_order'};
-  return{compatible:true,reason:'supported',mode:'COMPATIBLE',adapter:null};
- }
+ function compatibility(item,engine){return rendererRegistry.compatibility(item,engine)}
  function normalizeFilters(filters={}){
   const topics=list(filters.topics),levels=list(filters.levels),familyTags=list(filters.family_tags),languageFunctions=list(filters.language_functions),exerciseTypes=list(filters.exercise_types);
   const knownExercises=new Set(source.items.map(item=>item.exercise_type));
