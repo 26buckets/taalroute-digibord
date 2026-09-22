@@ -91,7 +91,7 @@
   if(total<targetDurationSeconds)throw new Error('Onvoldoende content voor de gekozen tijdsduur. Maak de selectie ruimer of kies een kortere duur.');
   return selected;
  }
- function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={},organizationMode='class',selectedGameEngine=null,startedAt=null}={}){
+ function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={},organizationMode='class',selectedGameEngine=null,selectedGameVariant=null,startedAt=null}={}){
   const f=normalizeFilters(filters),selected=selectItems({seed,targetDurationSeconds,engines,filters:f}),ids=selected.map(item=>item.content_item_id);
   if(selectedGameEngine&&!engines.includes(selectedGameEngine))throw new Error('De gekozen spelvorm is niet compatibel met deze selectie.');
   return Object.freeze({
@@ -106,6 +106,7 @@
    filters:f,
    organization_mode:['class','groups','individual'].includes(organizationMode)?organizationMode:'class',
    selected_game_engine:selectedGameEngine,
+   selected_game_variant:selectedGameVariant,
    game_engines:Object.freeze([...engines]),
    game_engine_versions:Object.freeze(Object.fromEntries(engines.map(engine=>[engine,ENGINE_VERSIONS[engine]]))),
    selected_item_ids:Object.freeze(ids),
