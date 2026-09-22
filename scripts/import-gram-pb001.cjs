@@ -83,25 +83,26 @@ function projectSource(source){
 function renderProjection(projected){
  return "(function(root){\n const data="+JSON.stringify(projected)+";\n if(typeof module==='object'&&module.exports)module.exports=data;else root.DIGIBORD_CONTENT_VERT001=data;\n})(typeof globalThis!=='undefined'?globalThis:this);\n";
 }
-function backupTarget(){
- fs.mkdirSync(backupDir,{recursive:true});
- if(!fs.existsSync(targetPath))return null;
- const stamp=new Date().toISOString().replace(/[:.]/g,'-'),file=path.join(backupDir,'gram-pb001-runtime-'+stamp+'.js');
- fs.copyFileSync(targetPath,file,fs.constants.COPYFILE_EXCL);
- return file;
-}
-function writeProjection(output){
- const backup=backupTarget(),tmp=targetPath+'.tmp';
- fs.writeFileSync(tmp,output,{flag:'wx'});fs.renameSync(tmp,targetPath);
+function atomicWriteWithBackup(output,target=targetPath,dir=backupDir,stamp=new Date().toISOString().replace(/[:.]/g,'-')){
+ fs.mkdirSync(dir,{recursive:true});
+ let backup=null;
+ if(fs.existsSync(target)){
+  backup=path.join(dir,'gram-pb001-runtime-'+stamp+'.js');
+  fs.copyFileSync(target,backup,fs.constants.COPYFILE_EXCL);
+ }
+ const tmp=target+'.tmp';
+ fs.writeFileSync(tmp,output,{flag:'wx'});fs.renameSync(tmp,target);
  return backup;
 }
-function rollback(file){
- const absolute=path.resolve(root,file);
- if(!absolute.startsWith(backupDir+path.sep))throw new Error('Rollbackbestand moet in bank-backups staan.');
- if(!fs.existsSync(absolute))throw new Error('Rollbackbestand bestaat niet: '+file);
- const tmp=targetPath+'.rollback.tmp';fs.writeFileSync(tmp,fs.readFileSync(absolute),{flag:'wx'});fs.renameSync(tmp,targetPath);
+function writeProjection(output){return atomicWriteWithBackup(output)}
+function safeRollback(backupFile,target=targetPath,dir=backupDir){
+ const absolute=path.resolve(backupFile),allowed=path.resolve(dir);
+ if(!absolute.startsWith(allowed+path.sep))throw new Error('Rollbackbestand moet in bank-backups staan.');
+ if(!fs.existsSync(absolute))throw new Error('Rollbackbestand bestaat niet: '+backupFile);
+ const tmp=target+'.rollback.tmp';fs.writeFileSync(tmp,fs.readFileSync(absolute),{flag:'wx'});fs.renameSync(tmp,target);
  return absolute;
 }
+function rollback(file){return safeRollback(path.resolve(root,file))}
 function load(){return JSON.parse(fs.readFileSync(stagingPath,'utf8'))}
 
 if(require.main===module){
@@ -119,4 +120,4 @@ if(require.main===module){
  }
  console.log('PASS: GRAM PB 001 staging 1440 -> CONTENT 000 runtime 1440; source hash, IDs, enums en projectie gelijk.');
 }
-module.exports={INTERACTION,ANSWER,DURATION,ROUTE,SUPPORT,FIELDS,REQUIRED,validateSource,projectItem,projectSource,renderProjection,sourceHash,writeProjection,rollback,load};
+module.exports={INTERACTION,ANSWER,DURATION,ROUTE,SUPPORT,FIELDS,REQUIRED,validateSource,projectItem,projectSource,renderProjection,sourceHash,atomicWriteWithBackup,writeProjection,safeRollback,rollback,load};
