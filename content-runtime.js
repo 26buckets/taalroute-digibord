@@ -100,7 +100,7 @@
    organization_mode:['class','groups','individual'].includes(organizationMode)?organizationMode:'class',
    selected_game_engine:selectedGameEngine,
    game_engines:Object.freeze([...engines]),
-   game_engine_versions:Object.freeze(Object.fromEntries(engines.map(engine=>[engine,ENGINE_VERSIONS[engine]])),
+   game_engine_versions:Object.freeze(Object.fromEntries(engines.map(engine=>[engine,ENGINE_VERSIONS[engine]]))),
    selected_item_ids:Object.freeze(ids),
    selection_seed:seed,
    target_duration_seconds:targetDurationSeconds,
