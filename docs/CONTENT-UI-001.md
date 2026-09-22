@@ -4,7 +4,7 @@ Status: implementatie op pull request 28, nog niet gemerged naar main.
 
 ## Doel
 
-CONTENT UI 001 is de universele docentstarter bovenop CONTENT 000. De docent kiest inhoud en werkvorm. De runtime maakt één canonieke SessionConfig. BOARD, WHEEL en CARDS projecteren daarna dezelfde geselecteerde content IDs.
+CONTENT UI 001 is de universele docentstarter bovenop CONTENT 000. De docent kiest inhoud en werkvorm. De runtime maakt één canonieke SessionConfig. BOARD, WHEEL, CARDS en iedere later geregistreerde compatibele GameEngine projecteren daarna dezelfde geselecteerde content IDs. DICE is de vierde bewezen engine.
 
 De interface is niet gebonden aan ER B1. De huidige stagingcatalogus bevat GRAM PB 001 met ER, ZULLEN, ZOUDEN en de modale mix op A2, B1 en B2. De catalogusstructuur kan later extra contentfamilies opnemen zonder een tweede sessiemotor te bouwen.
 
@@ -36,7 +36,7 @@ Klassikaal, groepen, duo's en individueel zijn echte sessieparameters. De gekoze
 
 ## Compatibiliteit
 
-De interface vraagt de centrale runtime welke spelmotoren de actuele selectie veilig kunnen uitvoeren. Niet compatibele spelvormen worden niet in de keuzelijst getoond.
+De interface leest spelmotoren uitsluitend uit GameEngineRegistry en vraagt de centrale runtime welke geregistreerde engines de actuele selectie veilig kunnen uitvoeren. Niet compatibele of nog gespecialiseerde spelvormen worden niet in de keuzelijst getoond.
 
 De huidige GRAM PB 001 stagingruntime ondersteunt ook IT_008_ORDER via de lichte text_order adapter. Dit is een tekstgebaseerde volgordeprojectie. Een rijkere interactieve ordering renderer kan later worden toegevoegd zonder de canonieke records te wijzigen.
 
@@ -104,7 +104,7 @@ inhoud eerst en spel eerst zijn semantisch gelijk
 
 gelijke seed en selectie geven dezelfde content IDs
 
-BOARD, WHEEL en CARDS gebruiken één SessionConfig
+BOARD, WHEEL, CARDS en DICE gebruiken één SessionConfig
 
 duo's bereiken de echte spelruntime
 
