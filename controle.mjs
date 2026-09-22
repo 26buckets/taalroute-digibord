@@ -37,7 +37,7 @@ console.log(`PASS: ${examples} example combinations without missing forms; separ
 
 // Finished players are skipped, progress is separate per mode, and a completed round resets.
 const tc=vm.createContext({mode:'individual',players:[{id:'p1',name:'Laila'},{id:'p2',name:'Daan'}],APP:{turn:{active:0},boardStates:{r:{positions:{p1:51,p2:20},finished:{},groupPositions:{g1:51,g2:20},groupFinished:{},classPos:51,round:1}}},save(){},toast(){}});
-vm.runInContext("function currentMode(){return mode} function participants(){return players} function settingsState(){return {groupCount:2}}",tc);
+vm.runInContext("function currentMode(){return mode} function participants(){return players} function settingsState(){return {groupCount:2}} function teamMode(value){return value==='groups'||value==='pairs'} function teamInfo(value,ppl=participants()){if(value==='pairs')return{count:Math.max(1,Math.ceil(ppl.length/2)),prefix:'d',label:'Duo'};return{count:settingsState().groupCount||4,prefix:'g',label:'Groep'}}",tc);
 vm.runInContext(source.slice(source.indexOf('function boardActiveActor('),source.indexOf('function boardRouteSvg(')),tc);
 vm.runInContext(source.slice(source.indexOf('function completeBoardTurn('),source.indexOf("/* Dobbelspellen */")),tc);
 vm.runInContext("completeBoardTurn('r',{finishPosition:51})",tc);assert.equal(tc.APP.turn.active,1);assert.equal(tc.APP.boardStates.r.finished.p1,true);
