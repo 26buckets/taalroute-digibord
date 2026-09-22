@@ -83,8 +83,14 @@
  function nextItem(engine,session,usedIds=[]){
   const pool=enginePool(engine,session),used=new Set(usedIds),item=pool.find(x=>!used.has(x.content_item_id))||pool[0];return item||null;
  }
+ function restoreSession(config){
+  if(!config||config.selection_profile_id!==PROFILE.id)throw new Error('Ongeldige opgeslagen CONTENT VERT 001 sessie.');
+  const engines=[...config.game_engines],ids=[...config.selected_item_ids];
+  for(const id of ids){const item=byId.get(id);if(!item)throw new Error('Opgeslagen sessie verwijst naar onbekend item: '+id);if(!engines.every(engine=>compatibility(item,engine).compatible))throw new Error('Opgeslagen sessie bevat nu incompatibel item: '+id)}
+  active=Object.freeze({...config,game_engines:Object.freeze(engines),selected_item_ids:Object.freeze(ids),game_engine_versions:Object.freeze({...config.game_engine_versions}),content_source:Object.freeze({...config.content_source})});return active
+ }
  function activateSession(options){active=createSession(options);return active}
  function activeSession(){return active}
  function clearSession(){active=null}
- return Object.freeze({PROFILE,ENGINE_VERSIONS,FUNCTIONS,compatibility,eligibleItems,selectItems,createSession,enginePool,answerPolicy,project,nextItem,activateSession,activeSession,clearSession,itemById:id=>byId.get(id)||null,source});
+ return Object.freeze({PROFILE,ENGINE_VERSIONS,FUNCTIONS,compatibility,eligibleItems,selectItems,createSession,restoreSession,enginePool,answerPolicy,project,nextItem,activateSession,activeSession,clearSession,itemById:id=>byId.get(id)||null,source});
 });
