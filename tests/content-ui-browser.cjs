@@ -76,7 +76,15 @@ let browser;
  await page.evaluate(()=>ContentUI.open({engine:'DICE'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-engine-dice');
  const diceSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(diceSession.selected_item_ids,boardSession.selected_item_ids);
- assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE');
+ assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ');
+
+ // QUIZ is offered for groups, uses the same IDs, and is hidden for unsupported organization modes.
+ await page.evaluate(()=>ContentUI.open({engine:'QUIZ'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
+ assert.equal(await page.locator('.practice-engine').filter({hasText:'Categorieënquiz'}).count(),1);
+ await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .na-quiz-board');
+ const quizSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(quizSession.selected_item_ids,boardSession.selected_item_ids);assert.equal(quizSession.organization_mode,'groups');
+ await page.evaluate(()=>ContentUI.open());await page.evaluate(()=>ContentUI.setState({organization:'class'}));
+ assert.equal(await page.locator('.practice-engine').filter({hasText:'Categorieënquiz'}).count(),0);
 
  // Duo remains a real organization mode in the board runtime.
  await page.evaluate(()=>ContentUI.open({engine:'BOARD',variant:'rotterdam'}));await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'A2',subtopic:'all',focus:'all',duration:600,organization:'pairs'}));await page.evaluate(()=>ContentUI.setSeedOverride(99));
@@ -93,5 +101,5 @@ let browser;
   await page.waitForSelector('#screen-practice.active .practice-layout');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  assert.deepEqual(errors,[]);
- console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic four-engine registry and duo mode.');
+ console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic five-engine registry, organization-aware QUIZ and duo mode.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});
