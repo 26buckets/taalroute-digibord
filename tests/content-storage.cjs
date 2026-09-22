@@ -9,7 +9,7 @@ let tick=0,id=0;
 const clock=()=>`2026-09-22T10:${String(tick++).padStart(2,'0')}:00.000Z`;
 const idFactory=prefix=>prefix+'_TEST_'+String(++id).padStart(3,'0');
 const progressAdapters={BOARD:{canResume:p=>p.progress_schema_version==='BOARD-PROGRESS-1'}};
-const referenceResolvers={game_variant:(refId,{engine}={})=>({BOARD:['rotterdam','zwolle'],WHEEL:['draaiwiel'],CARDS:['content-pb001']}[engine]||[]).includes(refId),selection_profile:refId=>refId.startsWith('SP_')?{id:refId}:null};
+const referenceResolvers={game_variant:refId=>['rotterdam','zwolle','draaiwiel','content-pb001'].includes(refId),selection_profile:refId=>refId.startsWith('SP_')?{id:refId}:null};
 const adapter=createMemoryStorageAdapter();
 const service=createContentStorageService({adapter,contentRuntime:runtime,clock,idFactory,progressAdapters,referenceResolvers});
 const actor={owner_ref:'teacher-1'};
