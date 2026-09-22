@@ -128,6 +128,8 @@
   if(!Number.isFinite(Number(targetDurationSeconds))||Number(targetDurationSeconds)<=0)throw new Error('Ongeldige tijdsduur in contentselectie.');
   const f=normalizeFilters(filters),resolvedEngines=engines??fullCoverageEngines(f,organizationMode);
   if(!resolvedEngines.length)throw new Error('Geen spelvorm ondersteunt de volledige gekozen contentselectie.');
+  const scopedItems=filterSource(f),partialCoverage=resolvedEngines.filter(engine=>scopedItems.some(item=>!compatibility(item,engine).compatible));
+  if(partialCoverage.length)throw new Error('Spelvorm dekt niet de volledige gekozen contentselectie: '+partialCoverage.join(', '));
   const unsupportedOrganization=resolvedEngines.filter(engine=>!engineRegistry.supportsOrganization(engine,organizationMode));
   if(unsupportedOrganization.length)throw new Error('Spelvorm ondersteunt deze organisatievorm niet: '+unsupportedOrganization.join(', '));
   const selected=selectItems({seed,targetDurationSeconds:Number(targetDurationSeconds),engines:resolvedEngines,filters:f}),ids=selected.map(item=>item.content_item_id);
