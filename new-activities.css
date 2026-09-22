@@ -40,6 +40,10 @@
 .new-activity .na-quiz-board .na-choice{display:block;width:100%;margin-bottom:12px;background:#f0eaf7;color:#552795;min-height:70px;font-weight:700}
 .new-activity .na-quiz-options{display:grid;grid-template-columns:1fr}
 .new-activity .na-quiz-options .na-choice{text-align:left}
+.new-activity .na-quiz-tokens{padding:12px 14px;border-radius:10px;background:#f6f1fb;color:#4f3470;line-height:1.55}
+.new-activity .na-quiz-oral{font-size:17px;line-height:1.55}
+.new-activity .na-quiz-review{margin-top:14px;padding:14px;border:1px solid #d9c9ea;border-radius:12px;background:#fbf8fe}
+.new-activity .na-quiz-review>strong{display:block;margin-bottom:6px}
 .new-activity .na-clues{padding-left:25px;display:grid;gap:14px;font-size:clamp(18px,1.5vw,25px);line-height:1.5;margin:0 0 22px}
 .new-activity #na-guess-form label{display:block;margin:16px 0 8px;font-size:16px}
 .new-activity #na-guess-form small{font-size:13px}
