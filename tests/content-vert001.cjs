@@ -68,6 +68,8 @@ assert.ok(amountSession.selected_item_ids.every(id=>runtime.itemById(id).languag
 assert.equal(amountSession.organization_mode,'groups');
 assert.equal(amountSession.selected_game_engine,'BOARD');
 assert.equal(amountSession.selected_game_variant,'zwolle');
+const pairSession=runtime.createSession({seed:78,targetDurationSeconds:300,filters:{language_functions:['hoeveelheid']},organizationMode:'pairs',selectedGameEngine:'BOARD',selectedGameVariant:'rotterdam'});
+assert.equal(pairSession.organization_mode,'pairs','duo organization is preserved in SessionConfig');
 assert.throws(()=>runtime.createSession({targetDurationSeconds:300,filters:{language_functions:['hoeveelheid'],exercise_types:['snelvraag']}}),/Onvoldoende content/,'too narrow selection is blocked instead of silently changing topic, level or duration');
 
 
