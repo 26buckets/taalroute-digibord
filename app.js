@@ -191,6 +191,15 @@ function appOriginalDiceBuffer(ctx){
 }
 function boardTaskMode(){return ['direct','conversation','mixed'].includes(APP.questionMode)?APP.questionMode:'direct'}
 function boardTaskCards(){return boardTaskMode()==='direct'?directBank.cards:boardTaskMode()==='mixed'?[...taskBank.cards,...directBank.cards]:taskBank.cards}
+function contentVertSession(){return window.ContentRuntime?.activeSession?.()||null}
+function contentVertHistory(engine,session){APP.contentVert001Used??={};const key=session.session_id+':'+engine;APP.contentVert001Used[key]??=[];return APP.contentVert001Used[key]}
+function contentBoardTask(item){
+ const projection=ContentRuntime.project('BOARD',item),choices=item.options.length?'Keuzes: '+item.options.join(' · '):item.context||'Geef een passend antwoord.';
+ return {id:item.content_item_id,contentItemId:item.content_item_id,routeId:selectedTaskRoute().id,shape:'circle',title:'Grammatica ER',instruction:item.prompt,input:choices,support:item.feedback_incorrect,model:item.model_answer,criterion:item.learning_goal,partner:projection.answerPolicy.modelIsExample?'Luister naar het antwoord. Een andere natuurlijke formulering kan ook goed zijn.':'Controleer samen de vorm met er.',retry:'Probeer opnieuw en gebruik de gevraagde functie van er.',teacher:item.explanation,exerciseMode:'direct',definition:item.learning_goal,answerPolicy:projection.answerPolicy}
+}
+function nextContentBoardTask(){
+ const session=contentVertSession();if(!session)return null;const used=contentVertHistory('BOARD',session),item=ContentRuntime.nextItem('BOARD',session,used);if(!item)return null;used.push(item.content_item_id);save();return contentBoardTask(item)
+}
 function routeTask(pos,route){
  if(!taskBank)return {shape:'circle',title:'Vertel',instruction:'Vertel iets over deze situatie.',input:'Gebruik taal die bij je niveau past.',support:'Begin met één korte zin.',model:'Ik ben hier vandaag.'};
  const r=selectedTaskRoute();
@@ -346,9 +355,10 @@ function showBoardSupport(key){
 }
 function showBoardTask(board,route){
  const s=APP.boardStates[board],actor=boardActiveActor(board),pos=actor.pos;
- const task=boardTaskCards().find(c=>c.id===s.pending?.task?.id&&c.routeId===selectedTaskRoute().id)||routeTask(pos,route),sm=(task.exerciseMode==='direct'?directBank.shapes:taskBank.shapes).find(sh=>sh.id===task.shape);
+ const session=contentVertSession(),pendingItem=session&&s.pending?.task?.contentItemId?ContentRuntime.itemById(s.pending.task.contentItemId):null;
+ const task=session?(pendingItem?contentBoardTask(pendingItem):routeTask(pos,route)):(boardTaskCards().find(c=>c.id===s.pending?.task?.id&&c.routeId===selectedTaskRoute().id)||routeTask(pos,route)),sm=((task.exerciseMode==='direct'?directBank.shapes:taskBank.shapes).find(sh=>sh.id===task.shape)||shapeMeta(task.shape));
  s.pending={mode:currentMode(),actorId:actor.id,task,position:pos,choice:false};save();
- $('#taskMeta').textContent=`${sm.symbol} ${sm.task.toUpperCase()} · ${task.exerciseMode==='direct'?'SNELVRAAG':'GESPREK'} · VAK ${pos} · ${APP.level}`;
+ $('#taskMeta').textContent=task.contentItemId?`GRAMMATICA ER · B1 · VAK ${pos}`:`${sm.symbol} ${sm.task.toUpperCase()} · ${task.exerciseMode==='direct'?'SNELVRAAG':'GESPREK'} · VAK ${pos} · ${APP.level}`;
  $('#taskDrawer').dataset.taskId=task.id;$('#taskDrawer').dataset.questionMode=task.exerciseMode==='direct'?'direct':'conversation';
  const partnerButton=$('#taskPartner');
  if(partnerButton){const direct=task.exerciseMode==='direct',label=direct?'Voor de voorlezer':'Voor de gesprekspartner';partnerButton.setAttribute('aria-label',label);const tool=partnerButton.closest('.context-tool');tool.dataset.tipLabel=label;tool.dataset.tip=direct?'Lees de vraag voor en luister naar het antwoord.':'Bekijk hoe je meedoet, luistert en reageert.'}
@@ -770,8 +780,20 @@ function bindCards(kind){
  if(c.visualRebus)$('#cardRebus').onclick=()=>openGameDialog('Bekijk de rebus',`<div class="rebus-enlarged">${rebusImage(c)}</div>`);
  $('#cardDeck').onclick=nextCard;
 }
+function contentSessionCards(){const session=contentVertSession();return session?ContentRuntime.enginePool('CARDS',session):[]}
+function startContentCards(){
+ const session=contentVertSession();if(!session)return toast('Start eerst de ER B1 contentsessie.');
+ const list=contentSessionCards();if(!list.length)return toast('Deze contentsessie bevat geen kaarten.');
+ APP.cardKind='content-vert001';APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
+ const item=list[APP.cardIndex],projection=ContentRuntime.project('CARDS',item),policy=projection.answerPolicy,counter=`${APP.cardIndex+1} van ${list.length}`,options=item.options.length?`<ul class="content-card-options">${item.options.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:'',answerLabel=policy.modelIsExample?'Mogelijk voorbeeld':'Antwoord';
+ setLast('card','Grammatica ER · B1',{kind:'content-vert001',contentItemId:item.content_item_id});
+ $('#gameMount').innerHTML=`<div class="game-shell card-table-shell content-vert001-cards"><div class="game-work card-work"><div class="card-activity-heading"><h1>Grammatica ER · B1 <span>${counter}</span></h1></div><div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="contentCardDeck" aria-label="Volgende kaart trekken"><span class="play-card-back" style="--deck-color:#176b9a"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute"><strong>ER · B1</strong><span class="card-family">Canonieke content</span><span class="deck-count">${counter}</span></span></button></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>${esc(item.language_function.replaceAll('_',' '))}</strong><span class="card-counter">B1 · ${counter}</span></div><div class="card-content" data-content-item-id="${esc(item.content_item_id)}"><h2>${esc(item.prompt)}</h2><div class="card-situation"><div><strong>Context</strong><p>${esc(item.context)}</p></div></div>${options}<p><button class="smallbtn" id="contentCardReveal" aria-expanded="false" aria-controls="contentCardAnswer">${answerLabel}</button></p><div id="contentCardAnswer" hidden><strong>${answerLabel}</strong><p>${esc(policy.modelAnswer)}</p><p class="card-feedback-note">${esc(item.learning_goal)}</p></div></div></article></div></div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
+ goScreen('game');bindGameBar(()=>nextContentCard(1));$('#contentCardDeck').onclick=()=>nextContentCard(1);$('#contentCardReveal').onclick=()=>{const box=$('#contentCardAnswer'),open=box.hidden;box.hidden=!open;$('#contentCardReveal').setAttribute('aria-expanded',String(open))};
+}
+function nextContentCard(direction=1){const list=contentSessionCards();if(!list.length)return;APP.cardIndex=(APP.cardIndex||0)+(direction===-1?-1:1);if(direction!==-1)completeTurn();startContentCards();save()}
 let cardBusy=false;
 async function nextCard(direction=1){
+ if(APP.cardKind==='content-vert001')return nextContentCard(direction);
  if(cardBusy)return;cardBusy=true;
  try{
   const kind=APP.cardKind;
@@ -785,6 +807,7 @@ async function nextCard(direction=1){
 }
 function startCards(kind){
  stopTongueAudio();
+ if(kind==='content-vert001')return startContentCards();
  if(kind==='tongue')return startTongue();
  if(kind==='c1-between-lines')return startC1();
  const family=CARD_GAMES.find(x=>x.id===kind);if(!family)return toast('Dit kaartspel is niet beschikbaar.');
@@ -833,6 +856,15 @@ function openCabinetSet(type,id){
  section.innerHTML=`<button class="smallbtn" id="backToCabinet">← Terug naar de kaartenkast</button><div class="set-detail"><aside class="set-detail-cover">${cabinetCover(info)}<span>${esc(info.meta)}</span></aside><div class="set-detail-main"><span class="eyebrow">${esc(info.format)}</span><h1 tabindex="-1" id="setDetailTitle">${esc(info.title)}</h1><p class="set-detail-description">${esc(info.description)}</p><p>${esc(info.how)}</p><div class="set-start-row"><button class="primary" id="startCabinetActivity">Start ${esc(info.activity)}</button>${type==='story'?`<label>Aantal stenen <select id="setStoryCount">${storyCounts(id).map(n=>`<option value="${n}">${n} stenen</option>`).join('')}</select></label>`:''}<span>${type==='cards'?(id==='c1-between-lines'?'C1':id==='tongue'?'A0–C2':'Alle 7 taalroutes'):'Niveau: '+esc(APP.level)}</span></div><div class="set-preview"><h2>Dit zit in deze set</h2>${preview}</div></div></div>`;
  $('#backToCabinet').onclick=()=>goScreen('collection');$('#startCabinetActivity').onclick=()=>startCabinetActivity(info,Number($('#setStoryCount')?.value||3));section.scrollTop=0;$('#setDetailTitle').focus();
 }
+window.CONTENT_VERT001={
+ start(options={}){if(!window.ContentRuntime)throw new Error('ContentRuntime ontbreekt.');const session=ContentRuntime.activateSession(options);APP.contentSessionConfig=JSON.parse(JSON.stringify(session));APP.contentVert001Used={};save();return session},
+ restore(){if(!APP.contentSessionConfig)return null;const session=ContentRuntime.restoreSession(APP.contentSessionConfig);APP.contentVert001Used??={};return session},
+ stop(){ContentRuntime?.clearSession?.();delete APP.contentSessionConfig;delete APP.contentVert001Used;save()},
+ session(){return ContentRuntime?.activeSession?.()||null},
+ board(id='rotterdam'){if(!this.session())this.start();startBoard(id)},
+ wheel(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Draaiwiel is nog niet geladen.');window.DigiActivities.start('draaiwiel')},
+ cards(){if(!this.session())this.start();APP.cardIndex=0;startCards('content-vert001')}
+};
 function startCabinetActivity(info,count=3){
  if(info.type==='verbs'){twDiceState={};APP.verbLocked=false;APP.taalworpSet=null;startTaalworp(info.id)}
  else if(info.type==='story'){APP.storyRoll=[];APP.storyLocks={};APP.storyEnabled={};APP.storyCount=[3,6,9].includes(count)?count:3;startStory(info.id)}
