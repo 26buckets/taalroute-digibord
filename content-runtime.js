@@ -172,12 +172,16 @@
   const part=String(item.prompt||'').includes(marker)?String(item.prompt).slice(String(item.prompt).lastIndexOf(marker)+1):'';
   return part.split('/').map(x=>x.trim()).filter(Boolean);
  }
+ function orderExpectedTokens(item){
+  return String(item.correct_answer||'').trim().replace(/[.!?]+$/,'').split(/\s+/).map(x=>x.trim()).filter(Boolean);
+ }
  function project(engine,item){
   const check=compatibility(item,engine);if(!check.compatible)throw new Error('Niet compatibel: '+item.content_item_id+' voor '+engine);
   return Object.freeze({
    engine,contentItemId:item.content_item_id,sourceItem:item,prompt:item.prompt,options:item.options,
    interactionType:item.interaction_type,renderer:check.renderer,compatibility:check,adapter:check.adapter,
    orderTokens:check.adapter==='text_order'?Object.freeze(orderTokens(item)):Object.freeze([]),
+   orderExpectedTokens:check.adapter==='text_order'?Object.freeze(orderExpectedTokens(item)):Object.freeze([]),
    answerPolicy:answerPolicy(item)
   });
  }
