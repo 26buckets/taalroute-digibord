@@ -73,7 +73,7 @@ let browser;
  await closedButton.click();
  const closedCorrect=await page.evaluate(id=>window.ContentRuntime.itemById(id).correct_answer,closedId);
  await page.locator('.na-quiz-options .na-choice').filter({hasText:closedCorrect}).click();
- assert.match(await page.locator('#na-feedback').textContent(),/Goed!/);
+ await page.waitForFunction(()=>/Goed!/.test(document.querySelector('#na-feedback')?.textContent||''));
  await page.locator('#primaryGame').click();
  assert.equal(Number(await page.locator('.na-scoreboard strong').first().textContent()),closedPoints);
 
@@ -88,7 +88,7 @@ let browser;
  const openModel=await page.evaluate(id=>window.ContentRuntime.itemById(id).model_answer,openId);
  assert.equal((await page.locator('.na-quiz-review p').textContent()).trim(),openModel);
  await page.getByText('Goed · punten toekennen',{exact:true}).click();
- assert.match(await page.locator('#na-feedback').textContent(),/punten voor Team 1/);
+ await page.waitForFunction(()=>/punten voor Team 1/.test(document.querySelector('#na-feedback')?.textContent||''));
  await page.locator('#primaryGame').click();
  assert.equal(Number(await page.locator('.na-scoreboard strong').first().textContent()),openPoints);
 
