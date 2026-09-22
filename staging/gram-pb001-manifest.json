@@ -1,0 +1,42 @@
+{
+  "schema_version": "GRAM-IMP002-STAGING-1.0",
+  "bank_id": "CB-GRAM-001",
+  "source_version": "1.2",
+  "adapter_version": "2.0",
+  "source_sha256": "8b4acf6ef675fd34c1776a24848513a327010b0265bb1c9c0aee61d3e16caca0",
+  "runtime_sha256": "e9c11301ee5fb1988f604862e4d47f698ecb23222fa0d3956c067605ac2c0f98",
+  "browser_sha256": "33323f5147228a20554cc956e02ac547f2a5a9b3861c111c4bc7832699ab5cd6",
+  "record_count": 1440,
+  "unique_id_count": 1440,
+  "topic_counts": {
+    "ER": 540,
+    "ZULLEN": 450,
+    "ZOUDEN": 450
+  },
+  "level_counts": {
+    "A2": 480,
+    "B1": 480,
+    "B2": 480
+  },
+  "order_count": 144,
+  "modaal_count": 900,
+  "review_statuses": [
+    "approved"
+  ],
+  "source_review_statuses": [
+    "REVIEW_GO"
+  ],
+  "publication_statuses": [
+    "staging_only"
+  ],
+  "base_commit": "a35961e4f210e553feefd80be52363a784eb5cbe",
+  "branch": "gram-imp002-pb001-full-runtime",
+  "rollback": {
+    "git_ref": "a35961e4f210e553feefd80be52363a784eb5cbe",
+    "live_deploy_performed": false
+  },
+  "generated_files": [
+    "staging/gram-pb001-runtime-v1.2.json",
+    "data/content-gram-pb001.js"
+  ]
+}
