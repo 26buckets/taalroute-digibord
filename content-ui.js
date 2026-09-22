@@ -1,7 +1,7 @@
 (function(root){
  'use strict';
- const catalog=root.DIGIBORD_CONTENT_CATALOG;
- if(!catalog||!root.ContentRuntime)return;
+ const catalog=root.DIGIBORD_CONTENT_CATALOG,engineRegistry=root.GameEngineRegistry;
+ if(!catalog||!root.ContentRuntime||!engineRegistry)return;
  const $=s=>document.querySelector(s);
  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const defaults={family:'grammar',topic:'ER',profile:'',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:null,variant:null};
@@ -9,7 +9,8 @@
  function family(){return catalog.families.find(x=>x.id===state.family)||null}
  function topic(){const f=family();return f?.topics.find(x=>x.id===state.topic)||null}
  function focus(){return catalog.focuses.find(x=>x.id===state.focus)||null}
- function engine(){return catalog.engines.find(x=>x.id===state.engine)||null}
+ function engines(){return engineRegistry.contentEngines().map(x=>({id:x.id,label:x.label,description:x.description,variants:x.variants}))}
+ function engine(){return engines().find(x=>x.id===state.engine)||null}
  function topicSubtopics(){
   const t=topic();if(!t)return[];
   return (t.subtopics||[{id:'all',label:'Alles',levels:t.levels}]).filter(x=>!x.levels||x.levels.includes(state.level));
@@ -26,7 +27,7 @@
   if(!catalog.organizations.some(x=>x.id===state.organization))return'De gekozen organisatievorm is niet beschikbaar.';
   return'';
  }
- function emptyAvailability(){return Object.freeze({source_count:0,source_duration_seconds:0,common_count:0,common_duration_seconds:0,engines:Object.freeze(Object.fromEntries(catalog.engines.map(e=>[e.id,Object.freeze({count:0,duration_seconds:0,adapter_count:0})])))})}
+ function emptyAvailability(){return Object.freeze({source_count:0,source_duration_seconds:0,common_count:0,common_duration_seconds:0,engines:Object.freeze(Object.fromEntries(engines().map(e=>[e.id,Object.freeze({count:0,duration_seconds:0,adapter_count:0})])))})}
  function filters(){
   const error=scopeError();if(error)throw new Error(error);
   const t=topic();
@@ -39,7 +40,7 @@
  function availability(){return scopeError()?emptyAvailability():ContentRuntime.availability(filters())}
  function compatibleEngineIds(){
   if(scopeError())return[];
-  const a=availability(),individually=catalog.engines.filter(e=>(a.engines[e.id]?.count||0)>0).map(e=>e.id);
+  const a=availability(),individually=engines().filter(e=>(a.engines[e.id]?.count||0)>0).map(e=>e.id);
   if(!individually.length)return[];
   return individually.filter(e=>ContentRuntime.eligibleItems(individually,filters()).length>0);
  }
@@ -70,7 +71,7 @@
   return `<label class="practice-select"><span>${esc(label)}</span><select name="${esc(name)}">${invalid}${items.map(item=>`<option value="${esc(item.id)}" ${String(item.id)===String(value)?'selected':''}>${esc(item.label)}</option>`).join('')}</select></label>`;
  }
  function renderEngines(a,compatible,capacity){
-  const visible=catalog.engines.filter(item=>compatible.includes(item.id));
+  const visible=engines().filter(item=>compatible.includes(item.id));
   return `<fieldset class="practice-field practice-engines"><legend>Hoe wil je oefenen?</legend><div class="practice-engine-grid">${visible.map(item=>{
    const own=a.engines[item.id]?.count||0,enabled=capacity>=state.duration;
    return `<label class="practice-engine ${state.engine===item.id?'selected':''}"><input type="radio" name="engine" value="${item.id}" ${state.engine===item.id?'checked':''} ${enabled?'':'disabled'}><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span><small>${own} geschikte opdrachten${enabled?'':' · onvoldoende voor de gekozen duur'}</small></label>`;
@@ -101,7 +102,7 @@
    const name=e.target.name,value=e.target.value;if(!name||value==='__invalid__')return;
    if(name==='profile'){applyProfile(value);persist();renderPage();return}
    if(name==='duration'){setState({duration:Number(value)});return}
-   if(name==='engine'){const item=catalog.engines.find(x=>x.id===value);setState({engine:value,variant:item?.variants[0]?.id||null});return}
+   if(name==='engine'){const item=engines().find(x=>x.id===value);setState({engine:value,variant:item?.variants[0]?.id||null});return}
    setState({[name]:value});
   };
   $('#practiceStart')?.addEventListener('click',()=>start());
@@ -122,13 +123,14 @@
    if(state.engine==='BOARD')CONTENT_VERT001.board(state.variant||'rotterdam');
    else if(state.engine==='WHEEL')CONTENT_VERT001.wheel();
    else if(state.engine==='CARDS')CONTENT_VERT001.cards();
+   else if(state.engine==='DICE')CONTENT_VERT001.dice();
    return session;
   }catch(error){toast(error.message||'Deze sessie kan niet worden gestart.');renderPage();return null}
  }
  function open(preset={}){
   if(preset.topic&&family()?.topics.some(x=>x.id===preset.topic))state.topic=preset.topic;
   if(preset.level&&topic()?.levels.includes(preset.level))state.level=preset.level;
-  if(preset.engine){const e=catalog.engines.find(x=>x.id===preset.engine);state.engine=e?.id||null;state.variant=preset.variant&&e?.variants.some(v=>v.id===preset.variant)?preset.variant:e?.variants[0]?.id||null}
+  if(preset.engine){const e=engines().find(x=>x.id===preset.engine);state.engine=e?.id||null;state.variant=preset.variant&&e?.variants.some(v=>v.id===preset.variant)?preset.variant:e?.variants[0]?.id||null}
   persist();goScreen('practice');renderPage();return {...state};
  }
  document.querySelector('[data-main="practice"]')?.addEventListener('click',()=>renderPage());
@@ -141,5 +143,5 @@
   if(launcher&&!launcher.closest('#screen-practice')&&ContentRuntime.activeSession?.())CONTENT_VERT001.stop();
  },true);
  try{if(APP.contentSessionConfig)CONTENT_VERT001.restore()}catch{delete APP.contentSessionConfig;delete APP.contentVert001Used;save()}
- root.ContentUI=Object.freeze({open,render:renderPage,start,sessionOptions,filters,availability,scopeError,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
+ root.ContentUI=Object.freeze({open,render:renderPage,start,sessionOptions,filters,availability,scopeError,engines,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
 })(typeof globalThis!=='undefined'?globalThis:this);
