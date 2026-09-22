@@ -103,7 +103,9 @@ let browser;
  // Responsive configuration page has no horizontal overflow.
  for(const [width,height] of [[1024,768],[768,1024],[390,844]]){
   await page.setViewportSize({width,height});
-  await page.locator('[data-main="practice"]').click();
+  await page.locator('[data-main="play"]').click();
+  if(width<=720){assert.equal(await page.locator('.practice-mobile-launch').isVisible(),true,'mobile Oefenen entry visible '+width);await page.locator('.practice-mobile-launch').click()}
+  else await page.locator('[data-main="practice"]').click();
   await page.waitForSelector('#screen-practice.active .practice-layout');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'practice UI fits '+width);
  }
