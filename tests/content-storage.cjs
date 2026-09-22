@@ -9,8 +9,9 @@ let tick=0,id=0;
 const clock=()=>`2026-09-22T10:${String(tick++).padStart(2,'0')}:00.000Z`;
 const idFactory=prefix=>prefix+'_TEST_'+String(++id).padStart(3,'0');
 const progressAdapters={BOARD:{canResume:p=>p.progress_schema_version==='BOARD-PROGRESS-1'}};
+const referenceResolvers={game_variant:(refId,{engine}={})=>({BOARD:['rotterdam','zwolle'],WHEEL:['draaiwiel'],CARDS:['content-pb001']}[engine]||[]).includes(refId),selection_profile:refId=>refId.startsWith('SP_')?{id:refId}:null};
 const adapter=createMemoryStorageAdapter();
-const service=createContentStorageService({adapter,contentRuntime:runtime,clock,idFactory,progressAdapters});
+const service=createContentStorageService({adapter,contentRuntime:runtime,clock,idFactory,progressAdapters,referenceResolvers});
 const actor={owner_ref:'teacher-1'};
 const owner={owner_scope:'user',owner_ref:'teacher-1',created_by_ref:'teacher-1',visibility:'private',edit_policy:'owner_only'};
 
@@ -86,6 +87,13 @@ assert.equal(service.validateHistoricalContentRefs(recent.selected_content_refs)
 assert.throws(()=>service.replayRecentSessionExact(recent.recent_session_id,{actor,owner}),e=>e.code===STATUS.BLOCKED_RIGHTS);
 exactItem.rights_status=oldRights;
 
+// New sessions must also exclude hard-revoked rights at the existing ContentRuntime gate.
+const rightsPoolBefore=runtime.filterSource({topics:['ER'],levels:['B1']});
+assert.ok(rightsPoolBefore.some(x=>x.content_item_id===exactItem.content_item_id));
+exactItem.rights_status='revoked';
+assert.equal(runtime.filterSource({topics:['ER'],levels:['B1']}).some(x=>x.content_item_id===exactItem.content_item_id),false);
+exactItem.rights_status=oldRights;
+
 const contentOnly=service.storeRecentSession({sessionConfig:session,runtimeProgress:null,owner,resumePolicy:'ALLOW_CONTENT_ONLY'});
 assert.throws(()=>service.resumeRecentSession(contentOnly.recent_session_id,{actor}),e=>e.code===STATUS.BLOCKED_PROGRESS_SCHEMA);
 const contentOnlyReplay=service.replayRecentSessionExact(contentOnly.recent_session_id,{actor,owner});
@@ -99,6 +107,9 @@ const favorite1=service.addFavorite({ref_type:'saved_selection',ref_id:saved.sav
 const favorite2=service.addFavorite({ref_type:'saved_selection',ref_id:saved.saved_selection_id,owner});
 assert.equal(favorite1.favorite_ref_id,favorite2.favorite_ref_id,'favorite addition is idempotent');
 assert.equal(service.resolveFavorite(favorite1.favorite_ref_id,{actor}).status,STATUS.READY);
+const variantFavorite=service.addFavorite({ref_type:'game_variant',ref_id:'rotterdam',owner});
+assert.equal(service.resolveFavorite(variantFavorite.favorite_ref_id,{actor}).status,STATUS.READY);
+assert.throws(()=>service.addFavorite({ref_type:'game_variant',ref_id:'bestaat-niet',owner}),e=>e.code===STATUS.BLOCKED_MISSING_REFERENCE);
 
 const mix=service.createMixProfile({
  name:'Grammaticamix B1',
@@ -156,15 +167,25 @@ assert.equal(schoolSelection.edit_policy,'school_editors');
 const schoolUpdated=service.updateSavedSelection(schoolSelection.saved_selection_id,{description:'gedeeld bijgewerkt'},{actor:schoolActor,expectedRevision:1});
 assert.equal(schoolUpdated.record_revision,2);
 
+// Resolve returns current executable status rather than schema validity only.
+const readyResolved=service.resolveSavedSelection(saved.saved_selection_id,{actor,engines:['BOARD','WHEEL','CARDS']});
+assert.equal(readyResolved.status,STATUS.READY);
+assert.ok(readyResolved.available_count>0);
+assert.ok(readyResolved.available_duration_seconds>=execution.target_duration_seconds);
+const unresolvedAdapter=createMemoryStorageAdapter();
+const unresolvedService=createContentStorageService({adapter:unresolvedAdapter,contentRuntime:runtime,clock,idFactory,progressAdapters});
+const unresolvedSaved=unresolvedService.saveSelection({name:'Geen variantresolver',selection_spec:selectionSpec,execution_preferences:execution,owner},actor);
+assert.equal(unresolvedService.resolveSavedSelection(unresolvedSaved.saved_selection_id,{actor}).status,STATUS.BLOCKED_MISSING_REFERENCE);
+
 const fakeStorage=(()=>{
  let value=null;
  return{getItem:()=>value,setItem:(_,v)=>{value=v},removeItem:()=>{value=null}};
 })();
 const localAdapter=createLocalStorageAdapter(fakeStorage);
-const localService=createContentStorageService({adapter:localAdapter,contentRuntime:runtime,clock,idFactory,progressAdapters});
+const localService=createContentStorageService({adapter:localAdapter,contentRuntime:runtime,clock,idFactory,progressAdapters,referenceResolvers});
 const localSaved=localService.saveSelection({name:'Lokaal',selection_spec:selectionSpec,execution_preferences:execution,owner},actor);
 const localAdapterReloaded=createLocalStorageAdapter(fakeStorage);
-const reloaded=createContentStorageService({adapter:localAdapterReloaded,contentRuntime:runtime,clock,idFactory,progressAdapters});
+const reloaded=createContentStorageService({adapter:localAdapterReloaded,contentRuntime:runtime,clock,idFactory,progressAdapters,referenceResolvers});
 assert.equal(reloaded.resolveSavedSelection(localSaved.saved_selection_id,{actor}).object.name,'Lokaal');
 
 const archived=service.archiveSavedSelection(saved.saved_selection_id,{actor,expectedRevision:3});
