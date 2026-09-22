@@ -71,6 +71,10 @@ assert.equal(amountSession.selected_game_variant,'zwolle');
 const pairSession=runtime.createSession({seed:78,targetDurationSeconds:300,filters:{language_functions:['hoeveelheid']},organizationMode:'pairs',selectedGameEngine:'BOARD',selectedGameVariant:'rotterdam'});
 assert.equal(pairSession.organization_mode,'pairs','duo organization is preserved in SessionConfig');
 assert.throws(()=>runtime.createSession({targetDurationSeconds:300,filters:{language_functions:['hoeveelheid'],exercise_types:['snelvraag']}}),/Onvoldoende content/,'too narrow selection is blocked instead of silently changing topic, level or duration');
+assert.throws(()=>runtime.createSession({targetDurationSeconds:300,organizationMode:'unknown'}),/Ongeldige organisatievorm/,'invalid organization never falls back to class');
+assert.throws(()=>runtime.createSession({targetDurationSeconds:300,filters:{productive_or_receptive:'unknown'}}),/Ongeldige productievorm/,'invalid production filter never falls back to all');
+assert.throws(()=>runtime.createSession({targetDurationSeconds:300,filters:{difficulty:'unknown'}}),/Ongeldige moeilijkheid/,'invalid difficulty never falls back to all');
+assert.throws(()=>runtime.createSession({targetDurationSeconds:0}),/Ongeldige tijdsduur/,'invalid duration never starts a session');
 
 
 const index=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
