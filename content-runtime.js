@@ -86,6 +86,10 @@
    })))
   });
  }
+ function fullCoverageEngines(filters={},organizationMode='class'){
+  const filtered=filterSource(filters);
+  return engineRegistry.contentEngines().filter(engine=>engineRegistry.supportsOrganization(engine.id,organizationMode)&&filtered.every(item=>compatibility(item,engine.id).compatible)).map(engine=>engine.id);
+ }
  function rng(seed){let state=(Number(seed)||1)>>>0;return()=>{state^=state<<13;state^=state>>>17;state^=state<<5;return(state>>>0)/4294967296}}
  function shuffle(listIn,random){const out=[...listIn];for(let i=out.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out}
  function selectItems({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={}}={}){
@@ -119,13 +123,15 @@
   return f.topics.length===1?f.topics[0]:'GRAMMATICA';
  }
  function profileId(topic,level){return'SP_GRAM_'+topic+'_'+level}
- function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={},organizationMode='class',selectedGameEngine=null,selectedGameVariant=null,startedAt=null,selectionTopic=null}={}){
+ function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=null,filters={},organizationMode='class',selectedGameEngine=null,selectedGameVariant=null,startedAt=null,selectionTopic=null}={}){
   if(!['class','groups','pairs','individual'].includes(organizationMode))throw new Error('Ongeldige organisatievorm in contentselectie.');
   if(!Number.isFinite(Number(targetDurationSeconds))||Number(targetDurationSeconds)<=0)throw new Error('Ongeldige tijdsduur in contentselectie.');
-  const unsupportedOrganization=engines.filter(engine=>!engineRegistry.supportsOrganization(engine,organizationMode));
+  const f=normalizeFilters(filters),resolvedEngines=engines??fullCoverageEngines(f,organizationMode);
+  if(!resolvedEngines.length)throw new Error('Geen spelvorm ondersteunt de volledige gekozen contentselectie.');
+  const unsupportedOrganization=resolvedEngines.filter(engine=>!engineRegistry.supportsOrganization(engine,organizationMode));
   if(unsupportedOrganization.length)throw new Error('Spelvorm ondersteunt deze organisatievorm niet: '+unsupportedOrganization.join(', '));
-  const f=normalizeFilters(filters),selected=selectItems({seed,targetDurationSeconds:Number(targetDurationSeconds),engines,filters:f}),ids=selected.map(item=>item.content_item_id);
-  if(selectedGameEngine&&!engines.includes(selectedGameEngine))throw new Error('De gekozen spelvorm is niet compatibel met deze selectie.');
+  const selected=selectItems({seed,targetDurationSeconds:Number(targetDurationSeconds),engines:resolvedEngines,filters:f}),ids=selected.map(item=>item.content_item_id);
+  if(selectedGameEngine&&!resolvedEngines.includes(selectedGameEngine))throw new Error('De gekozen spelvorm is niet compatibel met deze selectie.');
   if(selectedGameEngine&&!engineRegistry.supportsOrganization(selectedGameEngine,organizationMode))throw new Error('De gekozen spelvorm ondersteunt deze organisatievorm niet.');
   const topic=sessionTopic(f,selectionTopic),level=f.levels.length===1?f.levels[0]:'MIX';
   return Object.freeze({
@@ -135,7 +141,7 @@
    topic,cefr_level:level,filters:f,
    organization_mode:organizationMode,
    selected_game_engine:selectedGameEngine,selected_game_variant:selectedGameVariant,
-   game_engines:Object.freeze([...engines]),game_engine_versions:Object.freeze(Object.fromEntries(engines.map(engine=>[engine,ENGINE_VERSIONS[engine]]))),
+   game_engines:Object.freeze([...resolvedEngines]),game_engine_versions:Object.freeze(Object.fromEntries(resolvedEngines.map(engine=>[engine,ENGINE_VERSIONS[engine]]))),
    selected_item_ids:Object.freeze(ids),selection_seed:seed,target_duration_seconds:targetDurationSeconds,
    actual_estimated_duration_seconds:selected.reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0),
    review_gate:Object.freeze([...PROFILE.reviewGate]),publication_gate:Object.freeze([...PROFILE.publicationGate]),
@@ -189,5 +195,5 @@
  function activateSession(options){active=createSession(options);return active}
  function activeSession(){return active}
  function clearSession(){active=null}
- return Object.freeze({PROFILE,ENGINE_VERSIONS,TOPICS,LEVELS,FUNCTIONS,compatibility,normalizeFilters,filterSource,eligibleItems,availability,selectItems,createSession,restoreSession,enginePool,answerPolicy,project,nextItem,activateSession,activeSession,clearSession,itemById:id=>byId.get(id)||null,source});
+ return Object.freeze({PROFILE,ENGINE_VERSIONS,TOPICS,LEVELS,FUNCTIONS,compatibility,normalizeFilters,filterSource,eligibleItems,availability,fullCoverageEngines,selectItems,createSession,restoreSession,enginePool,answerPolicy,project,nextItem,activateSession,activeSession,clearSession,itemById:id=>byId.get(id)||null,source});
 });
