@@ -173,7 +173,7 @@ assert.ok(source.includes('playerPawn(p.color)'));assert.ok(source.includes('paw
 console.log('PASS: closed 26-surface dice, 48 shared edges without openings; six real language-form selections; shared pawn silhouette.');
 
 // Board footers retain a single roll target, undo button and mode selector.
-const footerContext=vm.createContext({participants:()=>[{name:'Ali',color:'#0088ff'},{name:'Fatima',color:'#ee3333'}],currentMode:()=> 'individual',APP:{turn:{active:0}},undoHistory:[],settingsState:()=>({}),playerPawn:()=>'<svg></svg>',gameIcon:()=>'<svg></svg>',esc:s=>s});
+const footerContext=vm.createContext({participants:()=>[{name:'Ali',color:'#0088ff'},{name:'Fatima',color:'#ee3333'}],currentMode:()=> 'individual',teamMode:value=>value==='groups'||value==='pairs',teamInfo:(value,ppl)=>value==='pairs'?{count:Math.max(1,Math.ceil(ppl.length/2)),prefix:'d',label:'Duo'}:{count:4,prefix:'g',label:'Groep'},APP:{turn:{active:0}},undoHistory:[],settingsState:()=>({}),playerPawn:()=>'<svg></svg>',gameIcon:()=>'<svg></svg>',esc:s=>s});
 vm.runInContext(source.slice(source.indexOf('function gameBar('),source.indexOf('function bindGameBar(')),footerContext);
 const boardFooter=vm.runInContext('gameBar(\'<button id="primaryGame">GOOIEN</button>\',true)',footerContext);
 const otherFooter=vm.runInContext('gameBar(\'<button id="primaryGame">GOOIEN</button>\')',footerContext);
