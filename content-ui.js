@@ -70,9 +70,10 @@
   return `<label class="practice-select"><span>${esc(label)}</span><select name="${esc(name)}">${invalid}${items.map(item=>`<option value="${esc(item.id)}" ${String(item.id)===String(value)?'selected':''}>${esc(item.label)}</option>`).join('')}</select></label>`;
  }
  function renderEngines(a,compatible,capacity){
-  return `<fieldset class="practice-field practice-engines"><legend>Hoe wil je oefenen?</legend><div class="practice-engine-grid">${catalog.engines.map(item=>{
-   const own=a.engines[item.id]?.count||0,enabled=compatible.includes(item.id)&&capacity>=state.duration;
-   return `<label class="practice-engine ${state.engine===item.id?'selected':''} ${enabled?'':'disabled'}"><input type="radio" name="engine" value="${item.id}" ${state.engine===item.id?'checked':''} ${enabled?'':'disabled'}><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span><small>${own} geschikte opdrachten${enabled?'':' · niet beschikbaar voor deze combinatie'}</small></label>`;
+  const visible=catalog.engines.filter(item=>compatible.includes(item.id));
+  return `<fieldset class="practice-field practice-engines"><legend>Hoe wil je oefenen?</legend><div class="practice-engine-grid">${visible.map(item=>{
+   const own=a.engines[item.id]?.count||0,enabled=capacity>=state.duration;
+   return `<label class="practice-engine ${state.engine===item.id?'selected':''}"><input type="radio" name="engine" value="${item.id}" ${state.engine===item.id?'checked':''} ${enabled?'':'disabled'}><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span><small>${own} geschikte opdrachten${enabled?'':' · onvoldoende voor de gekozen duur'}</small></label>`;
   }).join('')}</div></fieldset>`;
  }
  function renderSummary(a,compatible,capacity){
