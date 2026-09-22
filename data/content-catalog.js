@@ -48,6 +48,7 @@
   organizations:[
    {id:'class',label:'Klassikaal'},
    {id:'groups',label:'Groepen'},
+   {id:'pairs',label:"Duo's"},
    {id:'individual',label:'Individueel'}
   ],
   engines:[
