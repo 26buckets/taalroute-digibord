@@ -328,7 +328,10 @@
     const chosen=options.selectedGameEngine;
     if(chosen&&!effectiveEngines.includes(chosen))return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['selected_game_engine']};
     if(chosen&&contentRuntime.ENGINE_VERSIONS&&!contentRuntime.ENGINE_VERSIONS[chosen])return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['unknown_game_engine']};
-    if(options.selectedGameVariant&&typeof referenceResolvers.game_variant==='function'&&!referenceResolvers.game_variant(options.selectedGameVariant,{engine:chosen}))return{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:['selected_game_variant']};
+    if(options.selectedGameVariant){
+     if(typeof referenceResolvers.game_variant!=='function')return{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:['game_variant_resolver_missing']};
+     if(!referenceResolvers.game_variant(options.selectedGameVariant,{engine:chosen}))return{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:['selected_game_variant']};
+    }
     const pool=contentRuntime.eligibleItems(effectiveEngines,options.filters);
     if(!pool.length)return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['empty_compatible_pool']};
     const duration=pool.reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0);
@@ -344,7 +347,7 @@
    return{...execution,object:clone(object)};
   }
   function createSessionFromSelection(id,{actor={},seed,engines,selectedGameEngine,selectedGameVariant,startedAt}={}){
-   const result=resolveSavedSelection(id,{actor});if(result.status!==STATUS.READY)fail(result.status,'Opgeslagen les kan niet worden gestart.',result);
+   const result=resolveSavedSelection(id,{actor,engines,selectedGameEngine,selectedGameVariant});if(result.status!==STATUS.READY)fail(result.status,'Opgeslagen les kan niet worden gestart.',result);
    const object=result.object,options=selectionSpecToRuntimeOptions(object.selection_spec,object.execution_preferences,{seed,engines,selectedGameEngine,selectedGameVariant,startedAt:startedAt||clock()});
    if(options.seed==null)options.seed=Date.now()%4294967295;
    if(!options.engines)options.engines=contentRuntime.PROFILE.engines;
