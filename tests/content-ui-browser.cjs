@@ -59,7 +59,7 @@ let browser;
  await page.evaluate(()=>ContentUI.setSeedOverride(20260922));await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .board-game');
  const boardSession=await page.evaluate(()=>APP.contentSessionConfig);
  assert.equal(boardSession.topic,'MODAAL');assert.equal(boardSession.cefr_level,'B1');assert.equal(boardSession.organization_mode,'groups');
- const leak=await page.evaluate(ids=>ids.some(id=>{const x=ContentRuntime.itemById(id);return !['ZULLEN','ZOUDEN'].includes(x.topic)||x.cefr_level!=='B1'||!x.technical_tags.includes('MODAAL')}),boardSession.selected_item_ids);
+ const leak=await page.evaluate(ids=>ids.some(id=>{const x=window.ContentRuntime.itemById(id);return !['ZULLEN','ZOUDEN'].includes(x.topic)||x.cefr_level!=='B1'||!x.technical_tags.includes('MODAAL')}),boardSession.selected_item_ids);
  assert.equal(leak,false);
 
  // Same selection and seed across WHEEL and CARDS.
@@ -78,7 +78,7 @@ let browser;
 
  // Standard play exits canonical session.
  await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-board="rotterdam"]').click();await page.waitForSelector('#screen-game.active .board-game');
- assert.equal(await page.evaluate(()=>ContentRuntime.activeSession()),null);
+ assert.equal(await page.evaluate(()=>window.ContentRuntime.activeSession()),null);
 
  for(const [width,height] of [[1024,768],[768,1024],[390,844]]){
   await page.setViewportSize({width,height});await page.locator('[data-main="play"]').click();
