@@ -793,6 +793,21 @@ function bindCards(kind){
  if(c.visualRebus)$('#cardRebus').onclick=()=>openGameDialog('Bekijk de rebus',`<div class="rebus-enlarged">${rebusImage(c)}</div>`);
  $('#cardDeck').onclick=nextCard;
 }
+function contentSessionDice(){const session=contentVertSession();return session?ContentRuntime.enginePool('DICE',session):[]}
+function startContentDice(){
+ const session=contentVertSession();if(!session)return toast('Start eerst een grammaticasessie.');
+ const list=contentSessionDice();if(!list.length)return toast('Deze contentsessie bevat geen dobbelopdrachten.');
+ APP.contentDiceIndex=((APP.contentDiceIndex||0)%list.length+list.length)%list.length;
+ const item=list[APP.contentDiceIndex],projection=ContentRuntime.project('DICE',item),policy=projection.answerPolicy,label=contentSessionLabel(session,item),counter=`${APP.contentDiceIndex+1} van ${list.length}`,answerLabel=policy.modelIsExample?'Mogelijk voorbeeld':'Antwoord';
+ setLast('activity',label,{kind:'content-dice',contentItemId:item.content_item_id});
+ $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell content-engine-dice"><div class="game-work card-work"><div class="card-activity-heading"><div><h1>${esc(label)} <span>${counter}</span></h1><p>Gooi en ga zoveel plaatsen verder in dezelfde canonieke sessie.</p></div></div><div class="dice-table-stage"><div class="dice-page"><section class="language-tray"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>Dobbelspel</strong><span class="card-counter">${esc(item.cefr_level)} · ${counter}</span></div><div class="language-tray-heading"><p id="contentDiceRoll">${APP.contentDiceLastRoll?'Laatste worp: '+APP.contentDiceLastRoll:'Gooi om de volgende stap te bepalen.'}</p></div><article class="active-card"><div class="card-content" data-content-item-id="${esc(item.content_item_id)}"><h2>${esc(item.prompt)}</h2><p>${esc(item.context)}</p><p><button class="smallbtn" id="contentDiceReveal" aria-expanded="false" aria-controls="contentDiceAnswer">${answerLabel}</button></p><div id="contentDiceAnswer" hidden><strong>${answerLabel}</strong><p>${esc(policy.modelAnswer)}</p><p class="card-feedback-note">${esc(item.learning_goal)}</p></div></div></article></section></div></div></div>${gameBar(`<button class="primary card-next-primary table-roll" id="primaryGame"><span class="roll-button-die">${diceFaceHtml(APP.contentDiceLastRoll||5)}</span><span>GOOIEN</span></button>`)}</div>`;
+ goScreen('game');bindGameBar(rollContentDice);$('#contentDiceReveal').onclick=()=>{const box=$('#contentDiceAnswer'),open=box.hidden;box.hidden=!open;$('#contentDiceReveal').setAttribute('aria-expanded',String(open))};
+}
+function rollContentDice(){
+ const list=contentSessionDice();if(!list.length)return;
+ rememberAction('dobbelspel gooien');
+ const roll=1+Math.floor(Math.random()*6);APP.contentDiceLastRoll=roll;APP.contentDiceIndex=((APP.contentDiceIndex||0)+roll)%list.length;completeTurn();save();startContentDice();
+}
 function contentSessionCards(){const session=contentVertSession();return session?ContentRuntime.enginePool('CARDS',session):[]}
 function startContentCards(){
  const session=contentVertSession();if(!session)return toast('Start eerst een grammaticasessie.');
@@ -876,7 +891,8 @@ window.CONTENT_VERT001={
  session(){return ContentRuntime?.activeSession?.()||null},
  board(id='rotterdam'){if(!this.session())this.start();startBoard(id)},
  wheel(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Draaiwiel is nog niet geladen.');window.DigiActivities.start('draaiwiel')},
- cards(){if(!this.session())this.start();APP.cardIndex=0;startCards('content-vert001')}
+ cards(){if(!this.session())this.start();APP.cardIndex=0;startCards('content-vert001')},
+ dice(){if(!this.session())this.start();APP.contentDiceIndex=0;APP.contentDiceLastRoll=0;startContentDice()}
 };
 function startCabinetActivity(info,count=3){
  if(info.type==='verbs'){twDiceState={};APP.verbLocked=false;APP.taalworpSet=null;startTaalworp(info.id)}
