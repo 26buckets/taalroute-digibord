@@ -95,7 +95,7 @@ let browser;
 
  // Normal play exits the canonical content session before launching a standard game.
  await page.evaluate(()=>goScreen('boards'));
- await page.locator('[data-board="rotterdam"]').click();
+ await page.locator('#screen-boards [data-board="rotterdam"]').click();
  await page.waitForSelector('#screen-game.active .board-game');
  assert.equal(await page.evaluate(()=>ContentRuntime.activeSession()),null);
  assert.equal(await page.evaluate(()=>APP.contentSessionConfig===undefined),true);
