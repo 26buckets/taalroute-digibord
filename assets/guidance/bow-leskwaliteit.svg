@@ -1,4 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="80" viewBox="0 0 96 80" fill="none" role="img" aria-label="BOW · Leskwaliteit">
   <path d="M14 6h68a8 8 0 0 1 8 8v38a8 8 0 0 1-8 8H30L6 74V14a8 8 0 0 1 8-8Z" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="48" y="34" dy=".35em" text-anchor="middle" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing=".3">BOW</text>
+  <text x="48" y="25" dy=".35em" text-anchor="middle" fill="currentColor" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing=".3">BOW</text>
+  <g stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="26" y="40" width="4" height="4" rx=".4"/>
+    <rect x="26" y="49" width="4" height="4" rx=".4"/>
+    <path d="M36 42h32m-32 9h32"/>
+  </g>
 </svg>

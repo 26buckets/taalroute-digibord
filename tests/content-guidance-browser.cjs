@@ -18,7 +18,9 @@ let browser;
   assert.equal(await page.locator('#gameDialog[open].guidance-dialog').count(),1,JSON.stringify({key,errors,dialog:await page.locator('#gameDialog').evaluate(e=>e.outerHTML.slice(0,180))}));
   assert.equal(await page.locator('#guidanceHeading').evaluate(e=>e===document.activeElement),true);
   assert.match(await page.locator('.guidance-status').textContent(),key==='bow'?/Enkele lestips/:/Nog niet gekoppeld/);
-  await page.keyboard.press('Escape');assert.equal(await button.evaluate(e=>e===document.activeElement),true);
+  await page.keyboard.press('Escape');
+  await page.waitForFunction(key=>!document.querySelector('#gameDialog').open&&document.activeElement===document.querySelector(`#practiceForm [data-guidance=${key}]`),key);
+  assert.equal(await button.evaluate(e=>e===document.activeElement),true);
  }
  assert.equal(await page.evaluate(()=>JSON.stringify(localStorage)),before);
  await page.locator('#practiceForm [data-guidance=bow]').click();
