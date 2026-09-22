@@ -40,7 +40,7 @@ let browser;
  await page.locator('label.practice-choice').filter({hasText:'Zin bouwen'}).click();
  await page.locator('label.practice-choice').filter({hasText:/^5 minuten$/}).click();
  assert.equal(await page.locator('.practice-count strong').textContent(),'18');
- assert.equal(await page.locator('.practice-engine input:enabled').count(),3);
+ assert.equal(await page.locator('.practice-engine input:enabled').count(),4);
  await page.locator('.practice-engine').filter({hasText:'Kaarten'}).click();
  const orderOpts=await page.evaluate(()=>ContentUI.sessionOptions(55));
  assert.deepEqual(orderOpts.filters.exercise_types,['zinnen_leggen']);
@@ -73,6 +73,10 @@ let browser;
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-vert001-cards');
  const cardSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(cardSession.selected_item_ids,boardSession.selected_item_ids);
  assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Modale werkwoorden · B1/);
+ await page.evaluate(()=>ContentUI.open({engine:'DICE'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
+ await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-engine-dice');
+ const diceSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(diceSession.selected_item_ids,boardSession.selected_item_ids);
+ assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE');
 
  // Duo remains a real organization mode in the board runtime.
  await page.evaluate(()=>ContentUI.open({engine:'BOARD',variant:'rotterdam'}));await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'A2',subtopic:'all',focus:'all',duration:600,organization:'pairs'}));await page.evaluate(()=>ContentUI.setSeedOverride(99));
@@ -89,5 +93,5 @@ let browser;
   await page.waitForSelector('#screen-practice.active .practice-layout');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  assert.deepEqual(errors,[]);
- console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions and duo mode.');
+ console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic four-engine registry and duo mode.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});
