@@ -25,7 +25,13 @@ window.DigiActivities = (() => {
   }
   if(id==='sorteren')s.order=shuffled(content.sorting[round%content.sorting.length].items.map((_,i)=>i));
   if(id==='rangschikken'){
-   s.order=shuffled(content.sequences[round%content.sequences.length].steps.map((_,i)=>i));
+   const session=contentSession();
+   if(session){
+    const pool=ContentRuntime.enginePool('SEQUENCE',session),item=pool[round%pool.length],projection=item?ContentRuntime.project('SEQUENCE',item):null;
+    if(projection){s.contentSessionId=session.session_id;s.contentSequence={id:item.content_item_id,title:'Zet de zin in de goede volgorde',prompt:item.prompt,steps:[...projection.orderExpectedTokens],model:item.model_answer};}
+   }
+   const sequence=s.contentSequence||content.sequences[round%content.sequences.length];
+   s.order=shuffled(sequence.steps.map((_,i)=>i));
    if(s.order.every((x,i)=>x===i))s.order.reverse();
   }
   if(id==='draaiwiel'){
@@ -45,10 +51,11 @@ window.DigiActivities = (() => {
   if(setId!==undefined&&setIndex<0)return;
   clearTimeout(timer);kind=id;
   if(setIndex<0){
-   const existing=rounds[id],session=['draaiwiel','categorieenquiz'].includes(id)?contentSession():null;
+   const existing=rounds[id],session=['draaiwiel','categorieenquiz','rangschikken'].includes(id)?contentSession():null;
    const wrongWheelState=id==='draaiwiel'&&existing&&((session&&existing.contentSessionId!==session.session_id)||(!session&&existing.contentOptions));
    const wrongQuizState=id==='categorieenquiz'&&existing&&((session&&existing.contentSessionId!==session.session_id)||(!session&&existing.contentQuiz));
-   state=(wrongWheelState||wrongQuizState)?(rounds[id]=fresh(id,existing.round||0)):(rounds[id]??=fresh(id));
+   const wrongSequenceState=id==='rangschikken'&&existing&&((session&&existing.contentSessionId!==session.session_id)||(!session&&existing.contentSequence));
+   state=(wrongWheelState||wrongQuizState||wrongSequenceState)?(rounds[id]=fresh(id,existing.round||0)):(rounds[id]??=fresh(id));
   }else state=rounds[id]=fresh(id,setIndex);
   state.busy=false;
   if(setIndex>=0)histories[id]=[];else histories[id]??=[];
@@ -74,8 +81,8 @@ window.DigiActivities = (() => {
    return `<h2>${esc(c.title)}</h2>${item?`<div class="na-word">${esc(item[0])}</div><div class="na-options">${c.groups.map((x,i)=>button('sort',i,esc(x))).join('')}</div>`:'<p class="na-word">Alles gesorteerd ✓</p>'}<p class="na-progress">${state.done.length} / ${c.items.length} woorden</p><div class="na-sort-result">${c.groups.map((g,i)=>`<section><h3>${esc(g)}</h3><p>${state.done.filter(k=>c.items[k][1]===i).map(k=>esc(c.items[k][0])).join(' · ')||'Nog geen woorden'}</p></section>`).join('')}</div>`;
   }
   if(kind==='rangschikken'){
-   const c=content.sequences[state.round%content.sequences.length];
-   return `<h2>${esc(c.title)}</h2><ol class="na-sequence">${state.sequence.map((i,j)=>`<li>${button('remove-step',j,esc(c.steps[i]),`aria-label="Stap ${j+1} terugleggen: ${esc(c.steps[i])}" ${state.correct?'disabled':''}`)}</li>`).join('')}</ol>${state.sequence.length?'':'<p class="na-empty">Kies hieronder wat eerst komt.</p>'}<div class="na-step-bank">${state.order.filter(i=>!state.sequence.includes(i)).map(i=>button('step',i,esc(c.steps[i]))).join('')}</div>`;
+   const sequence=state.contentSequence||content.sequences[state.round%content.sequences.length],attr=state.contentSequence?` data-content-item-id="${esc(sequence.id)}"`:'';
+   return `<div${attr}><h2>${esc(sequence.title)}</h2>${state.contentSequence?`<p class="na-sequence-source">Canonieke opdracht · ${esc(sequence.id)}</p>`:''}<ol class="na-sequence">${state.sequence.map((i,j)=>`<li>${button('remove-step',j,esc(sequence.steps[i]),`aria-label="Stap ${j+1} terugleggen: ${esc(sequence.steps[i])}" ${state.correct?'disabled':''}`)}</li>`).join('')}</ol>${state.sequence.length?'':'<p class="na-empty">Kies hieronder wat eerst komt.</p>'}<div class="na-step-bank">${state.order.filter(i=>!state.sequence.includes(i)).map(i=>button('step',i,esc(sequence.steps[i]))).join('')}</div></div>`;
   }
   if(kind==='categorieenquiz'){
    const quiz=quizData(),q=quiz[state.question];
@@ -104,7 +111,7 @@ window.DigiActivities = (() => {
   if(kind==='draaiwiel')return content.wheelTitles;
   if(kind==='memory'||kind==='koppelen')return content.pictureSets.map(s=>s.title);
   if(kind==='sorteren')return content.sorting.map(s=>s.title);
-  if(kind==='rangschikken')return content.sequences.map(s=>s.title);
+  if(kind==='rangschikken')return state.contentSequence?[]:content.sequences.map(s=>s.title);
   if(kind==='raad-het-woord')return content.riddles.map((_,i)=>`Raadsel ${i+1}`);
   return [];
  }
@@ -148,7 +155,7 @@ window.DigiActivities = (() => {
    memory:()=>`Als je twee kaarten met “${state.words[0]}” omdraait, heb je een paar. Benoem wat je ziet.`,
    koppelen:()=>`Bij een beeld van “${state.words[0]}” kies je het woord “${state.words[0]}”.`,
    sorteren:()=>{const c=content.sorting[state.round%content.sorting.length],item=c.items[state.order[state.done.length]??0];return `“${item[0]}” hoort bij “${c.groups[item[1]]}”. Bespreek samen waarom.`},
-   rangschikken:()=>content.sequences[state.round%content.sequences.length].steps.join(' → '),
+   rangschikken:()=>state.contentSequence?(state.contentSequence.model||state.contentSequence.steps.join(' ')):content.sequences[state.round%content.sequences.length].steps.join(' → '),
    categorieenquiz:()=>{const q=quizData()[state.question];return q?(q.manual?q.model:(q.options[q.answer]+'. '+q.explanation)):''},
    'raad-het-woord':()=>{const r=content.riddles[state.round%content.riddles.length];return r.word+': '+r.clues.join(' ')}
   };
@@ -156,7 +163,7 @@ window.DigiActivities = (() => {
   const sections={Example:[['Bij deze ronde',key==='Example'?examples[kind]():'']],Goals:[['Doel',game()[5]],['Deze ronde',round],['Rollen',kind==='categorieenquiz'?'Het actieve team overlegt en kiest een antwoord. Het andere team luistert. Daarna wisselt de beurt.':'Eén deelnemer kiest of vertelt. De gesprekspartner luistert, vraagt door en denkt mee. Wissel na de beurt.']],Partner:[['Bij deze ronde',round],['Jouw rol',kind==='categorieenquiz'?'Overleg met je team voordat één van jullie het antwoord kiest. Leg daarna uit hoe jullie tot de keuze kwamen.':'Laat de ander eerst kiezen of vertellen. Vraag: waarom kies je dat? Wat herken je? Bespreek samen de uitkomst.'],['Gesprekstip',levelInstruction()]],More:[['Verder oefenen','Vertel waar je de woorden of de situatie uit deze ronde in je eigen leven tegenkomt.'],['Opnieuw','Je kunt deze ronde opnieuw beginnen. Terug herstelt je vorige stap.']]}[key];
   openGameDialog({Example:'Voorbeeld',Goals:'Doel en rollen',Partner:'Voor de gesprekspartner',More:'Meer bij deze ronde'}[key],sections.map(([title,text])=>`<h3>${esc(title)}</h3><p>${esc(text)}</p>`).join('')+(key==='More'?'<button class="smallbtn" id="naRestartRound">Ronde opnieuw beginnen</button>':''),()=>{if(key==='More')$('#naRestartRound').onclick=()=>{$('#gameDialog').close();action('restart')}});
  }
- function help(){openGameDialog(game()[1],`<p>${esc(game()[5])}</p><p>${esc({draaiwiel:state.contentOptions?'Dit wiel gebruikt de actieve canonieke ER B1 contentsessie. De segmenten verwijzen naar dezelfde content IDs als BOARD en CARDS.':'Gebruik Eigen onderwerpen om twee tot twaalf eigen keuzes in te vullen. Draaien kiest willekeurig één onderwerp.',memory:'Draai twee kaarten om. Een paar blijft zichtbaar. Gebruik Verder om twee verschillende kaarten weer om te draaien.',koppelen:'Selecteer links een beeld en rechts het juiste woord. Een verkeerd antwoord kun je opnieuw proberen.',sorteren:'Kies de juiste groep voor het woord. Bij een fout blijft het woord staan zodat je opnieuw kunt kiezen.',rangschikken:'Tik de stappen van begin tot eind aan. Tik een gekozen stap aan om hem terug te leggen. Controleer als alle stappen zijn gekozen.',categorieenquiz:state.contentQuiz?'Deze quiz gebruikt de actieve canonieke SessionConfig. Kies een vak. Meerkeuze wordt automatisch beoordeeld; open opdrachten beoordeelt de docent na het modelantwoord.':'Selecteer Team 1 of Team 2, kies een vak en geef één antwoord. Goed: de punten van het vak. Fout: geen punten. Daarna is het andere team aan de beurt. Bij gelijkspel delen de teams de winst.','raad-het-woord':'Raad samen hardop of typ een antwoord. Vraag om nog een hint of toon het antwoord. Volgend woord start een nieuwe ronde.'}[kind])}</p><p>${esc(levelInstruction())}</p>`)}
+ function help(){openGameDialog(game()[1],`<p>${esc(game()[5])}</p><p>${esc({draaiwiel:state.contentOptions?'Dit wiel gebruikt de actieve canonieke ER B1 contentsessie. De segmenten verwijzen naar dezelfde content IDs als BOARD en CARDS.':'Gebruik Eigen onderwerpen om twee tot twaalf eigen keuzes in te vullen. Draaien kiest willekeurig één onderwerp.',memory:'Draai twee kaarten om. Een paar blijft zichtbaar. Gebruik Verder om twee verschillende kaarten weer om te draaien.',koppelen:'Selecteer links een beeld en rechts het juiste woord. Een verkeerd antwoord kun je opnieuw proberen.',sorteren:'Kies de juiste groep voor het woord. Bij een fout blijft het woord staan zodat je opnieuw kunt kiezen.',rangschikken:state.contentSequence?'Zet de canonieke zinsdelen in de juiste volgorde. Controleren vergelijkt met de volgorde uit het canonieke correct_answer.':'Tik de stappen van begin tot eind aan. Tik een gekozen stap aan om hem terug te leggen. Controleer als alle stappen zijn gekozen.',categorieenquiz:state.contentQuiz?'Deze quiz gebruikt de actieve canonieke SessionConfig. Kies een vak. Meerkeuze wordt automatisch beoordeeld; open opdrachten beoordeelt de docent na het modelantwoord.':'Selecteer Team 1 of Team 2, kies een vak en geef één antwoord. Goed: de punten van het vak. Fout: geen punten. Daarna is het andere team aan de beurt. Bij gelijkspel delen de teams de winst.','raad-het-woord':'Raad samen hardop of typ een antwoord. Vraag om nog een hint of toon het antwoord. Volgend woord start een nieuwe ronde.'}[kind])}</p><p>${esc(levelInstruction())}</p>`)}
  function next(){checkpoint();const options=state.options,contentOptions=state.contentOptions;state=rounds[kind]=fresh(kind,state.round+1);if(options&&!contentOptions)state.options=options;completeTurn();render('primaryGame')}
  function actPrimary(){
   if(primary()[1])return;
