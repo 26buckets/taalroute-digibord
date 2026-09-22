@@ -62,7 +62,7 @@ let browser;
  const seqExpected=await page.evaluate(id=>window.ContentRuntime.project('SEQUENCE',window.ContentRuntime.itemById(id)).orderExpectedTokens,seqId);
  const seqSession=await page.evaluate(()=>APP.contentSessionConfig);
  assert.ok(seqSession.selected_item_ids.includes(seqId));
- assert.ok(seqSession.selected_item_ids.every(id=>window.ContentRuntime.itemById(id).interaction_type==='IT_008_ORDER'));
+ assert.equal(await page.evaluate(ids=>ids.every(id=>window.ContentRuntime.itemById(id).interaction_type==='IT_008_ORDER'),seqSession.selected_item_ids),true);
  const bankValues=await page.locator('.na-step-bank [data-na="step"]').evaluateAll(nodes=>nodes.map(n=>({i:Number(n.dataset.value),text:n.textContent.trim()})));
  assert.deepEqual(new Set(bankValues.map(x=>x.text)),new Set(seqExpected));
  for(let i=0;i<seqExpected.length;i++)await page.locator(`[data-na="step"][data-value="${i}"]`).click();
