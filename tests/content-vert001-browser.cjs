@@ -16,7 +16,7 @@ let browser;
 
  const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',startedAt:'2026-09-22T08:00:00+02:00'}));
  assert.equal(session.topic,'ER');assert.equal(session.cefr_level,'B1');assert.ok(session.selected_item_ids.length>=6);
- assert.ok(session.selected_item_ids.every(id=>{const x=ContentRuntime.itemById(id);return x.topic==='ER'&&x.cefr_level==='B1'}));
+ assert.equal(await page.evaluate(ids=>ids.every(id=>{const x=ContentRuntime.itemById(id);return x.topic==='ER'&&x.cefr_level==='B1'}),session.selected_item_ids),true);
  assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids);
 
  const boardIds=await page.evaluate(()=>{APP.contentVert001Used={};return Array.from({length:8},()=>routeTask(1,routeCache.rotterdam).contentItemId)});
