@@ -49,7 +49,7 @@ let browser;
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active [data-content-item-id]');
  const sequenceSession=await page.evaluate(()=>APP.contentSessionConfig);
  assert.equal(sequenceSession.selected_game_engine,'SEQUENCE');
- assert.ok(sequenceSession.selected_item_ids.every(id=>window.ContentRuntime.itemById(id).interaction_type==='IT_008_ORDER'));
+ assert.equal(await page.evaluate(ids=>ids.every(id=>window.ContentRuntime.itemById(id).interaction_type==='IT_008_ORDER'),sequenceSession.selected_item_ids),true);
  const sequenceId=await page.locator('[data-content-item-id]').first().getAttribute('data-content-item-id');
  assert.ok(sequenceSession.selected_item_ids.includes(sequenceId));
 
