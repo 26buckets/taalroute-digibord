@@ -20,6 +20,7 @@ const ROUTE={A2:'A1→A2',B1:'A2→B1',B2:'B1→B2'};
 const SUPPORT={basis:'meer_steun',midden:'standaard',hoog:'weinig_steun'};
 const TOPICS=new Set(['ER','ZULLEN','ZOUDEN']),LEVELS=new Set(['A2','B1','B2']),MODES=new Set(['productief','receptief']),DIFFICULTIES=new Set(['basis','midden','hoog']);
 const FIELDS=['id','topic','lemma','surface_form','level','function','subfunction','exercise_type','mode','difficulty','context','register','prompt','options','correct_answer','model_answer','feedback_correct','feedback_incorrect','grammar_note','tags','randomization_safe','spoken_safe','board_safe','review_status','version','source'];
+const REQUIRED=['id','topic','lemma','surface_form','level','function','subfunction','exercise_type','mode','difficulty','context','register','prompt','correct_answer','model_answer','feedback_correct','feedback_incorrect','grammar_note','tags','randomization_safe','spoken_safe','board_safe','review_status','version','source'];
 
 function sourceHash(items){return crypto.createHash('sha256').update(JSON.stringify(items)).digest('hex')}
 function split(value,separator){return String(value||'').split(separator).map(x=>x.trim()).filter(Boolean)}
@@ -35,7 +36,7 @@ function validateSource(source){
  assert.equal(sourceHash(source.items),source.source_sha256,'Staging source hash verschilt');
  const ids=new Set();
  for(const item of source.items){
-  for(const field of FIELDS)assert.notEqual(String(item[field]??'').trim(),'',item.id+': leeg veld '+field);
+  for(const field of REQUIRED)assert.notEqual(String(item[field]??'').trim(),'',item.id+': leeg veld '+field);
   assert.ok(!ids.has(item.id),'Dubbel ID: '+item.id);ids.add(item.id);
   assert.ok(TOPICS.has(item.topic),item.id+': topic');
   assert.ok(LEVELS.has(item.level),item.id+': level');
@@ -118,4 +119,4 @@ if(require.main===module){
  }
  console.log('PASS: GRAM PB 001 staging 1440 -> CONTENT 000 runtime 1440; source hash, IDs, enums en projectie gelijk.');
 }
-module.exports={INTERACTION,ANSWER,DURATION,ROUTE,SUPPORT,validateSource,projectItem,projectSource,renderProjection,sourceHash,writeProjection,rollback,load};
+module.exports={INTERACTION,ANSWER,DURATION,ROUTE,SUPPORT,FIELDS,REQUIRED,validateSource,projectItem,projectSource,renderProjection,sourceHash,writeProjection,rollback,load};
