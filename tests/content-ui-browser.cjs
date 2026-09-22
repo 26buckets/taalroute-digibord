@@ -40,10 +40,22 @@ let browser;
  await page.locator('label.practice-choice').filter({hasText:'Zin bouwen'}).click();
  await page.locator('label.practice-choice').filter({hasText:/^5 minuten$/}).click();
  assert.equal(await page.locator('.practice-count strong').textContent(),'18');
- assert.equal(await page.locator('.practice-engine input:enabled').count(),4);
+ assert.equal(await page.locator('.practice-engine input:enabled').count(),5);
  await page.locator('.practice-engine').filter({hasText:'Kaarten'}).click();
  const orderOpts=await page.evaluate(()=>ContentUI.sessionOptions(55));
  assert.deepEqual(orderOpts.filters.exercise_types,['zinnen_leggen']);
+ assert.equal(await page.locator('.practice-engine').filter({hasText:'Rangschikken'}).count(),1);
+ await page.evaluate(()=>ContentUI.open({engine:'SEQUENCE'}));await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'B1',subtopic:'all',focus:'order',production:'all',difficulty:'all',duration:300,organization:'class'}));await page.evaluate(()=>ContentUI.setSeedOverride(5501));
+ await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active [data-content-item-id]');
+ const sequenceSession=await page.evaluate(()=>APP.contentSessionConfig);
+ assert.equal(sequenceSession.selected_game_engine,'SEQUENCE');
+ assert.ok(sequenceSession.selected_item_ids.every(id=>window.ContentRuntime.itemById(id).interaction_type==='IT_008_ORDER'));
+ const sequenceId=await page.locator('[data-content-item-id]').first().getAttribute('data-content-item-id');
+ assert.ok(sequenceSession.selected_item_ids.includes(sequenceId));
+
+ // Mixed selection must hide SEQUENCE instead of silently narrowing to ORDER.
+ await page.evaluate(()=>ContentUI.open());await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:300,organization:'class'}));
+ assert.equal(await page.locator('.practice-engine').filter({hasText:'Rangschikken'}).count(),0);
 
  // Too long for the narrow ORDER pool is blocked instead of changing scope.
  await page.evaluate(()=>ContentUI.setState({duration:600}));
@@ -76,7 +88,7 @@ let browser;
  await page.evaluate(()=>ContentUI.open({engine:'DICE'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-engine-dice');
  const diceSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(diceSession.selected_item_ids,boardSession.selected_item_ids);
- assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ');
+ assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ,SEQUENCE');
 
  // QUIZ is offered for groups, uses the same IDs, and is hidden for unsupported organization modes.
  await page.evaluate(()=>ContentUI.open({engine:'QUIZ'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
@@ -101,5 +113,5 @@ let browser;
   await page.waitForSelector('#screen-practice.active .practice-layout');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  assert.deepEqual(errors,[]);
- console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic five-engine registry, organization-aware QUIZ and duo mode.');
+ console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic six-engine registry, scoped SEQUENCE, organization-aware QUIZ and duo mode.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});
