@@ -32,11 +32,14 @@
  }
  function normalizeFilters(filters={}){
   const list=value=>Array.isArray(value)?value.filter(Boolean):value?[value]:[];
+  const production=filters.productive_or_receptive??'all',difficulty=filters.difficulty??'all';
+  if(!['all','productief','receptief'].includes(production))throw new Error('Ongeldige productievorm in contentselectie.');
+  if(!['all','basis','midden','hoog'].includes(difficulty))throw new Error('Ongeldige moeilijkheid in contentselectie.');
   return Object.freeze({
    language_functions:Object.freeze(list(filters.language_functions)),
    exercise_types:Object.freeze(list(filters.exercise_types)),
-   productive_or_receptive:['productief','receptief'].includes(filters.productive_or_receptive)?filters.productive_or_receptive:'all',
-   difficulty:['basis','midden','hoog'].includes(filters.difficulty)?filters.difficulty:'all'
+   productive_or_receptive:production,
+   difficulty
   });
  }
  function filterSource(filters={}){
@@ -92,7 +95,9 @@
   return selected;
  }
  function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={},organizationMode='class',selectedGameEngine=null,selectedGameVariant=null,startedAt=null}={}){
-  const f=normalizeFilters(filters),selected=selectItems({seed,targetDurationSeconds,engines,filters:f}),ids=selected.map(item=>item.content_item_id);
+  if(!['class','groups','pairs','individual'].includes(organizationMode))throw new Error('Ongeldige organisatievorm in contentselectie.');
+  if(!Number.isFinite(Number(targetDurationSeconds))||Number(targetDurationSeconds)<=0)throw new Error('Ongeldige tijdsduur in contentselectie.');
+  const f=normalizeFilters(filters),selected=selectItems({seed,targetDurationSeconds:Number(targetDurationSeconds),engines,filters:f}),ids=selected.map(item=>item.content_item_id);
   if(selectedGameEngine&&!engines.includes(selectedGameEngine))throw new Error('De gekozen spelvorm is niet compatibel met deze selectie.');
   return Object.freeze({
    session_id:'CONTENT-VERT001-'+String(seed)+'-'+ids.length,
@@ -104,7 +109,7 @@
    topic:PROFILE.topic,
    cefr_level:PROFILE.level,
    filters:f,
-   organization_mode:['class','groups','pairs','individual'].includes(organizationMode)?organizationMode:'class',
+   organization_mode:organizationMode,
    selected_game_engine:selectedGameEngine,
    selected_game_variant:selectedGameVariant,
    game_engines:Object.freeze([...engines]),
