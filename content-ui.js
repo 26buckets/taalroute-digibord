@@ -32,7 +32,9 @@
   if(profile){state.level=profile.level;state.subtopic='all';state.focus='all';state.production='all';state.difficulty='all'}
  }
  function setState(patch,{render=true}={}){
-  state={...state,...patch};
+  const previousFamily=state.family,previousTopic=state.topic;state={...state,...patch};
+  if(state.family!==previousFamily){state.topic=family().topics[0]?.id||'';state.level=topic().levels[0]||'';state.profile='';state.subtopic='all';state.focus='all';state.production='all';state.difficulty='all'}
+  else if(state.topic!==previousTopic){state.level=topic().levels[0]||'';state.profile='';state.subtopic='all';state.focus='all';state.production='all';state.difficulty='all'}
   if(state.profile&&Object.keys(patch).some(k=>['level','subtopic','focus','production','difficulty'].includes(k)))state.profile='';
   const e=engine();if(e&&!e.variants.some(v=>v.id===state.variant))state.variant=e.variants[0]?.id||null;
   persist();if(render)renderPage();
@@ -90,6 +92,7 @@
    filters:filters(),
    organizationMode:state.organization,
    selectedGameEngine:state.engine,
+   selectedGameVariant:state.variant,
    startedAt:new Date().toISOString()
   };
  }
@@ -107,6 +110,7 @@
   if(preset.engine){const e=catalog.engines.find(x=>x.id===preset.engine);state.engine=e?.id||null;state.variant=preset.variant&&e?.variants.some(v=>v.id===preset.variant)?preset.variant:e?.variants[0]?.id||null}
   persist();goScreen('practice');renderPage();return {...state};
  }
+ document.querySelector('[data-main="practice"]')?.addEventListener('click',()=>renderPage());
  document.addEventListener('click',e=>{
   const entry=e.target.closest('[data-practice-engine]');if(entry&&!entry.disabled){e.preventDefault();open({engine:entry.dataset.practiceEngine,variant:entry.dataset.practiceVariant});return}
  },true);
