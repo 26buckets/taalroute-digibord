@@ -892,7 +892,8 @@ window.CONTENT_VERT001={
  board(id='rotterdam'){if(!this.session())this.start();startBoard(id)},
  wheel(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Draaiwiel is nog niet geladen.');window.DigiActivities.start('draaiwiel')},
  cards(){if(!this.session())this.start();APP.cardIndex=0;startCards('content-vert001')},
- dice(){if(!this.session())this.start();APP.contentDiceIndex=0;APP.contentDiceLastRoll=0;startContentDice()}
+ dice(){if(!this.session())this.start();APP.contentDiceIndex=0;APP.contentDiceLastRoll=0;startContentDice()},
+ quiz(){if(!this.session())this.start();if(!window.DigiActivities)return toast('Categorieënquiz is nog niet geladen.');window.DigiActivities.start('categorieenquiz')}
 };
 function startCabinetActivity(info,count=3){
  if(info.type==='verbs'){twDiceState={};APP.verbLocked=false;APP.taalworpSet=null;startTaalworp(info.id)}
