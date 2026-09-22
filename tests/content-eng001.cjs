@@ -22,16 +22,20 @@ const interactionTypes=new Set(source.items.map(x=>x.interaction_type));
 for(const type of interactionTypes)assert.ok(renderers.getByInteraction(type),'renderer registered for '+type);
 for(const engine of engines.contentEngines())assert.ok(source.items.every(item=>renderers.compatibility(item,engine.id).compatible),engine.id+' covers current PB001 interactions');
 
-const session=runtime.createSession({seed:1001,targetDurationSeconds:600,engines:engines.contentEngines().map(x=>x.id),filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER'});
+const session=runtime.createSession({seed:1001,targetDurationSeconds:600,engines:engines.contentEngines().map(x=>x.id),filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',organizationMode:'groups'});
 const ids=session.selected_item_ids;
 for(const engine of engines.contentEngines())assert.deepEqual(runtime.enginePool(engine.id,session).map(x=>x.content_item_id),ids,engine.id+' receives one shared SessionConfig');
 assert.deepEqual(Object.keys(session.game_engine_versions),['BOARD','WHEEL','CARDS','DICE','QUIZ']);
 assert.equal(runtime.PROFILE.engines.includes('DICE'),true);
 assert.equal(runtime.PROFILE.engines.includes('QUIZ'),true);
+assert.equal(engines.get('QUIZ').integrationStatus,'CONTENT_READY');
+assert.deepEqual(engines.get('QUIZ').organizations,['groups']);
+assert.equal(engines.supportsOrganization('QUIZ','groups'),true);
+assert.equal(engines.supportsOrganization('QUIZ','class'),false);
 
 const fake={...source.items[0],interaction_type:'IT_999_UNKNOWN'};
 assert.equal(renderers.compatibility(fake,'BOARD').compatible,false);
 assert.equal(renderers.compatibility(fake,'BOARD').reason,'renderer_missing');
 assert.equal(renderers.compatibility(source.items[0],'UNKNOWN').compatible,false);
 
-console.log('PASS: CONTENT ENG 001 dynamic GameEngine and InteractionRenderer registers with DICE fourth-engine proof.');
+console.log('PASS: CONTENT ENG 001 open GameEngine and InteractionRenderer platform with DICE and QUIZ registration guards.');
