@@ -50,7 +50,8 @@ assert.equal(closedPolicy.mode,'canonical_answer');assert.equal(closedPolicy.req
 for(const engine of ['BOARD','WHEEL','CARDS']){const projection=runtime.project(engine,board[0]);assert.equal(projection.contentItemId,board[0].content_item_id);assert.strictEqual(projection.sourceItem,board[0]);assert.equal(projection.prompt,board[0].prompt)}
 
 assert.deepEqual(session.game_engine_versions,{BOARD:'VERT001-1.1',WHEEL:'VERT001-1.1',CARDS:'VERT001-1.1'});
-assert.deepEqual(session.content_source,{drive_id:'1ofjEPAW9Crq4CgLWlsUS-FTubsgvEh4S_giFY4vhxCQ',qa_id:'GRAM_QA_001',version:'1.1'});\n
+assert.deepEqual(session.content_source,{drive_id:'1ofjEPAW9Crq4CgLWlsUS-FTubsgvEh4S_giFY4vhxCQ',qa_id:'GRAM_QA_001',version:'1.1'});
+
 const orderAvailability=runtime.availability({exercise_types:['zinnen_leggen']});
 assert.equal(orderAvailability.source_count,18,'all 18 ORDER records remain in the canonical source');
 assert.equal(orderAvailability.common_count,0,'ORDER has no common renderer yet');
