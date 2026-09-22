@@ -49,8 +49,26 @@ const closedPolicy=runtime.answerPolicy(closed);
 assert.equal(closedPolicy.mode,'canonical_answer');assert.equal(closedPolicy.requiresExactMatch,false);assert.equal(closedPolicy.canonicalAnswer,closed.correct_answer);assert.ok(closedPolicy.modelAnswer,'closed task exposes canonical model');
 for(const engine of ['BOARD','WHEEL','CARDS']){const projection=runtime.project(engine,board[0]);assert.equal(projection.contentItemId,board[0].content_item_id);assert.strictEqual(projection.sourceItem,board[0]);assert.equal(projection.prompt,board[0].prompt)}
 
-assert.deepEqual(session.game_engine_versions,{BOARD:'VERT001-1.0',WHEEL:'VERT001-1.0',CARDS:'VERT001-1.0'});
-assert.deepEqual(session.content_source,{drive_id:'1ofjEPAW9Crq4CgLWlsUS-FTubsgvEh4S_giFY4vhxCQ',qa_id:'GRAM_QA_001',version:'1.1'});
+assert.deepEqual(session.game_engine_versions,{BOARD:'VERT001-1.1',WHEEL:'VERT001-1.1',CARDS:'VERT001-1.1'});
+assert.deepEqual(session.content_source,{drive_id:'1ofjEPAW9Crq4CgLWlsUS-FTubsgvEh4S_giFY4vhxCQ',qa_id:'GRAM_QA_001',version:'1.1'});\n
+const orderAvailability=runtime.availability({exercise_types:['zinnen_leggen']});
+assert.equal(orderAvailability.source_count,18,'all 18 ORDER records remain in the canonical source');
+assert.equal(orderAvailability.common_count,0,'ORDER has no common renderer yet');
+assert.equal(orderAvailability.engines.BOARD.count,0);
+assert.equal(orderAvailability.engines.WHEEL.count,0);
+assert.equal(orderAvailability.engines.CARDS.count,0);
+assert.throws(()=>runtime.createSession({targetDurationSeconds:300,filters:{exercise_types:['zinnen_leggen']}}),/Geen compatibele content/,'unsupported focus is blocked without fallback');
+
+const amountAvailability=runtime.availability({language_functions:['hoeveelheid']});
+assert.equal(amountAvailability.source_count,30,'subtopic filter keeps exact canonical function scope');
+assert.ok(amountAvailability.common_count>0&&amountAvailability.common_count<30,'compatibility is applied after content filtering');
+const amountSession=runtime.createSession({seed:77,targetDurationSeconds:300,filters:{language_functions:['hoeveelheid']},organizationMode:'groups',selectedGameEngine:'BOARD',selectedGameVariant:'zwolle'});
+assert.ok(amountSession.selected_item_ids.every(id=>runtime.itemById(id).language_function==='hoeveelheid'),'subtopic session never leaks another function');
+assert.equal(amountSession.organization_mode,'groups');
+assert.equal(amountSession.selected_game_engine,'BOARD');
+assert.equal(amountSession.selected_game_variant,'zwolle');
+assert.throws(()=>runtime.createSession({targetDurationSeconds:300,filters:{language_functions:['hoeveelheid'],exercise_types:['snelvraag']}}),/Onvoldoende content/,'too narrow selection is blocked instead of silently changing topic, level or duration');
+
 
 const index=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
 const dataPos=index.indexOf('data/content-vert001-er-b1.js'),runtimePos=index.indexOf('content-runtime.js'),appPos=index.indexOf('app.js');
