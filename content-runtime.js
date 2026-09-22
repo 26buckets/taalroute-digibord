@@ -172,7 +172,7 @@
   const check=compatibility(item,engine);if(!check.compatible)throw new Error('Niet compatibel: '+item.content_item_id+' voor '+engine);
   return Object.freeze({
    engine,contentItemId:item.content_item_id,sourceItem:item,prompt:item.prompt,options:item.options,
-   interactionType:item.interaction_type,compatibility:check,adapter:check.adapter,
+   interactionType:item.interaction_type,renderer:check.renderer,compatibility:check,adapter:check.adapter,
    orderTokens:check.adapter==='text_order'?Object.freeze(orderTokens(item)):Object.freeze([]),
    answerPolicy:answerPolicy(item)
   });
