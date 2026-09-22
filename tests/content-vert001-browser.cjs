@@ -14,7 +14,7 @@ let browser;
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
  await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
 
- const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',startedAt:'2026-09-22T08:00:00+02:00'}));
+ const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS','DICE'],filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',startedAt:'2026-09-22T08:00:00+02:00'}));
  assert.equal(session.topic,'ER');assert.equal(session.cefr_level,'B1');assert.ok(session.selected_item_ids.length>=6);
  assert.equal(await page.evaluate(ids=>ids.every(id=>{const x=window.ContentRuntime.itemById(id);return x.topic==='ER'&&x.cefr_level==='B1'}),session.selected_item_ids),true);
  assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids);
@@ -32,6 +32,15 @@ let browser;
  assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Grammatica ER · B1/);
  assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,cardId));
 
+ await page.evaluate(()=>CONTENT_VERT001.dice());
+ await page.waitForSelector('#screen-game.active .content-engine-dice');
+ const diceId=await page.locator('.content-engine-dice [data-content-item-id]').getAttribute('data-content-item-id');
+ assert.equal(diceId,session.selected_item_ids[0]);
+ assert.equal(await page.locator('.content-engine-dice .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,diceId));
+ await page.locator('#primaryGame').click();
+ const diceSession=await page.evaluate(()=>APP.contentSessionConfig);
+ assert.deepEqual(diceSession.selected_item_ids,session.selected_item_ids);
+
  const orderReport=await page.evaluate(()=>{
   const pool=window.ContentRuntime.filterSource({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']});
   const item=pool[0],projection=window.ContentRuntime.project('CARDS',item);
@@ -39,7 +48,7 @@ let browser;
  });
  assert.equal(orderReport.count,18);assert.equal(orderReport.mode,'COMPATIBLE_WITH_ADAPTER');assert.equal(orderReport.adapter,'text_order');assert.ok(orderReport.tokens.length>=2);
 
- const modal=await page.evaluate(()=>window.ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL'}));
+ const modal=await page.evaluate(()=>window.ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS','DICE'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL'}));
  assert.equal(modal.topic,'MODAAL');assert.equal(modal.cefr_level,'B2');
  const modalTopics=await page.evaluate(ids=>[...new Set(ids.map(id=>window.ContentRuntime.itemById(id).topic))],modal.selected_item_ids);
  assert.deepEqual(new Set(modalTopics),new Set(['ZULLEN','ZOUDEN']));
@@ -50,12 +59,12 @@ let browser;
  assert.equal(closedPolicy.mode,'canonical_answer');assert.ok(closedPolicy.canonicalAnswer);
 
  await page.evaluate(()=>CONTENT_VERT001.stop());
- await page.evaluate(()=>CONTENT_VERT001.start({seed:44,targetDurationSeconds:300,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ZOUDEN'],levels:['A2']},selectionTopic:'ZOUDEN'}));
+ await page.evaluate(()=>CONTENT_VERT001.start({seed:44,targetDurationSeconds:300,engines:['BOARD','WHEEL','CARDS','DICE'],filters:{topics:['ZOUDEN'],levels:['A2']},selectionTopic:'ZOUDEN'}));
  const saved=await page.evaluate(()=>JSON.parse(JSON.stringify(APP.contentSessionConfig)));
  await page.reload();await page.waitForFunction(()=>!!window.ContentRuntime);
  const restored=await page.evaluate(()=>CONTENT_VERT001.restore());
  assert.deepEqual(restored.selected_item_ids,saved.selected_item_ids);assert.equal(restored.topic,'ZOUDEN');assert.equal(restored.cefr_level,'A2');
 
  assert.deepEqual(errors,[]);
- console.log('PASS: full GRAM PB001 browser runtime across BOARD WHEEL CARDS, ORDER adapter, MODAAL and restore.');
+ console.log('PASS: full GRAM PB001 browser runtime across BOARD WHEEL CARDS DICE, ORDER adapter, MODAAL and restore.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});
