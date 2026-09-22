@@ -4,7 +4,7 @@
  const catalog={
   version:'3.0',
   families:[{
-   id:'grammar',selection_dimensions:{topic:'required',level:'required',subtopic:'optional',production:'optional',difficulty:'optional'},label:'Grammatica',description:'Oefen grammaticale vormen en functies.',
+   id:'grammar',selection_dimensions:{topic:'required',level:'required',subtopic:'optional',production:'optional',difficulty:'optional'},label:'Grammatica',description:'Oefen met woorden en zinnen.',
    topics:[
     {id:'ER',label:'ER',description:'Plaats, hoeveelheid, presentatief er, voornaamwoordelijke bijwoorden, passief en formele constructies.',levels:['A2','B1','B2'],sourceTopics:['ER'],familyTags:[],profiles:profiles('ER'),subtopics:[
      sub('all','Alles',['A2','B1','B2']),
@@ -36,12 +36,12 @@
    {id:'correct',label:'Fout verbeteren',exerciseTypes:['fout_verbeteren']},
    {id:'rapid',label:'Snel antwoorden',exerciseTypes:['snelvraag']},
    {id:'rewrite',label:'Herschrijven',exerciseTypes:['herschrijven']},
-   {id:'produce',label:'Zelf produceren',exerciseTypes:['scenario','dialoog_aanvullen','vrije_productie']}
+   {id:'produce',label:'Zelf een antwoord maken',exerciseTypes:['scenario','dialoog_aanvullen','vrije_productie']}
   ],
-  productionModes:[{id:'all',label:'Gemengd'},{id:'receptief',label:'Receptief'},{id:'productief',label:'Productief'}],
+  productionModes:[{id:'all',label:'Gemengd'},{id:'receptief',label:'Begrijpen'},{id:'productief',label:'Zelf spreken of schrijven'}],
   difficulties:[{id:'all',label:'Gemengd'},{id:'basis',label:'Basis'},{id:'midden',label:'Gemiddeld'},{id:'hoog',label:'Uitdagend'}],
   durations:[{seconds:300,label:'5 minuten'},{seconds:600,label:'10 minuten'},{seconds:900,label:'15 minuten'},{seconds:1200,label:'20 minuten'}],
-  organizations:[{id:'class',label:'Klassikaal'},{id:'groups',label:'Groepen'},{id:'pairs',label:"Duo's"},{id:'individual',label:'Individueel'}]
+  organizations:[{id:'class',label:'Met de klas'},{id:'groups',label:'Groepen'},{id:'pairs',label:'In tweetallen'},{id:'individual',label:'Alleen'}]
  };
  catalog.registerBank=function(bank,metadata={}){
   const id=metadata.familyId||bank.family_id;
