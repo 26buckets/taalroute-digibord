@@ -40,6 +40,10 @@
 .new-activity .na-quiz-board .na-choice{display:block;width:100%;margin-bottom:12px;background:#f0eaf7;color:#552795;min-height:70px;font-weight:700}
 .new-activity .na-quiz-options{display:grid;grid-template-columns:1fr}
 .new-activity .na-quiz-options .na-choice{text-align:left}
+.new-activity .na-quiz-tokens{padding:12px 14px;border-radius:10px;background:#f6f1fb;color:#4f3470;line-height:1.55}
+.new-activity .na-quiz-oral{font-size:17px;line-height:1.55}
+.new-activity .na-quiz-review{margin-top:14px;padding:14px;border:1px solid #d9c9ea;border-radius:12px;background:#fbf8fe}
+.new-activity .na-quiz-review>strong{display:block;margin-bottom:6px}
 .new-activity .na-clues{padding-left:25px;display:grid;gap:14px;font-size:clamp(18px,1.5vw,25px);line-height:1.5;margin:0 0 22px}
 .new-activity #na-guess-form label{display:block;margin:16px 0 8px;font-size:16px}
 .new-activity #na-guess-form small{font-size:13px}
@@ -104,4 +108,22 @@
  .new-activity .card-ribbon{padding:12px;gap:10px}
  .new-activity .card-ribbon>strong{font-size:19px}
  .new-activity .active-card>.card-tools{margin-inline:12px}
+}
+
+@media(max-width:360px) and (max-height:620px){
+ .new-activity .card-activity-heading{height:62px;min-height:62px;padding:6px 10px}
+ .new-activity .card-activity-heading h1{font-size:19px;gap:8px}
+ .new-activity .card-activity-heading p{font-size:11px}
+ .new-activity .cards-stage{padding:0 8px 8px}
+ .new-activity .card-ribbon{height:50px;min-height:50px;padding:7px 10px}
+ .new-activity .card-ribbon>strong{font-size:16px}
+ .new-activity .card-content{padding:9px 10px}
+ .new-activity .card-content .na-feedback{min-height:18px;margin-top:5px;font-size:12px}
+ .new-activity .card-content .na-level{margin-top:6px;font-size:11px}
+ .new-activity .na-wheel-frame{max-width:145px;margin:2px auto}
+ .new-activity .na-wheel{border-width:6px}
+ .new-activity .na-pointer{border-left-width:9px;border-right-width:9px;border-top-width:22px;left:calc(50% - 9px)}
+ .new-activity .na-wheel-result h2{font-size:18px;margin:4px 0}
+ .new-activity .na-wheel-result p{font-size:11px;margin:3px 0}
+ .new-activity .na-wheel-legend{margin:6px 0;gap:3px;padding-left:18px;font-size:11px;line-height:1.2}
 }
