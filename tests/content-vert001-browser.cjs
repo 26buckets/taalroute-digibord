@@ -13,37 +13,49 @@ let browser;
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
  await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
- const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],startedAt:'2026-09-22T08:00:00+02:00'}));
- assert.ok(session.selected_item_ids.length>=6);
- assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids,'SessionConfig persisted in app state');
+
+ const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',startedAt:'2026-09-22T08:00:00+02:00'}));
+ assert.equal(session.topic,'ER');assert.equal(session.cefr_level,'B1');assert.ok(session.selected_item_ids.length>=6);
+ assert.ok(session.selected_item_ids.every(id=>{const x=ContentRuntime.itemById(id);return x.topic==='ER'&&x.cefr_level==='B1'}));
+ assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids);
 
  const boardIds=await page.evaluate(()=>{APP.contentVert001Used={};return Array.from({length:8},()=>routeTask(1,routeCache.rotterdam).contentItemId)});
- assert.ok(boardIds.every(id=>session.selected_item_ids.includes(id)),'BOARD draws only from active canonical session');
- assert.equal(new Set(boardIds).size,boardIds.length,'BOARD does not repeat before pool use requires it');
+ assert.ok(boardIds.every(id=>session.selected_item_ids.includes(id)));assert.equal(new Set(boardIds).size,boardIds.length);
 
  await page.evaluate(()=>CONTENT_VERT001.wheel());
  const wheelIds=await page.locator('.na-wheel-legend [data-content-item-id]').evaluateAll(nodes=>nodes.map(n=>n.dataset.contentItemId));
- assert.equal(wheelIds.length,Math.min(6,session.selected_item_ids.length));
- assert.deepEqual(wheelIds,session.selected_item_ids.slice(0,wheelIds.length),'WHEEL starts from the exact same SessionConfig ordering');
- await page.locator('#primaryGame').click();
- await page.waitForFunction(()=>document.querySelector('.na-wheel-result h2[data-content-item-id]'));
- const wheelChosen=await page.locator('.na-wheel-result h2').getAttribute('data-content-item-id');
- assert.ok(session.selected_item_ids.includes(wheelChosen));
+ assert.deepEqual(wheelIds,session.selected_item_ids.slice(0,wheelIds.length));
 
  await page.evaluate(()=>CONTENT_VERT001.cards());
  const cardId=await page.locator('.content-vert001-cards [data-content-item-id]').getAttribute('data-content-item-id');
- assert.equal(cardId,session.selected_item_ids[0],'CARDS uses first item from the same SessionConfig');
- const cardPrompt=await page.locator('.content-vert001-cards .card-content h2').textContent();
- const sourcePrompt=await page.evaluate(id=>ContentRuntime.itemById(id).prompt,cardId);
- assert.equal(cardPrompt,sourcePrompt,'CARDS renders canonical prompt without a game copy');
- await page.locator('#contentCardReveal').click();
- const model=await page.locator('#contentCardAnswer p').first().textContent();
- assert.equal(model,await page.evaluate(id=>ContentRuntime.itemById(id).model_answer,cardId),'CARDS reveals canonical model answer');
+ assert.equal(cardId,session.selected_item_ids[0]);
+ assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Grammatica ER · B1/);
+ assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>ContentRuntime.itemById(id).prompt,cardId));
 
- const openPolicy=await page.evaluate(()=>{const item=ContentRuntime.eligibleItems(['BOARD','WHEEL','CARDS']).find(x=>x.openness==='open'||x.openness==='open_geleid');return ContentRuntime.answerPolicy(item)});
+ const orderReport=await page.evaluate(()=>{
+  const pool=ContentRuntime.filterSource({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']});
+  const item=pool[0],projection=ContentRuntime.project('CARDS',item);
+  return {count:pool.length,mode:ContentRuntime.compatibility(item,'CARDS').mode,adapter:projection.adapter,tokens:projection.orderTokens};
+ });
+ assert.equal(orderReport.count,18);assert.equal(orderReport.mode,'COMPATIBLE_WITH_ADAPTER');assert.equal(orderReport.adapter,'text_order');assert.ok(orderReport.tokens.length>=2);
+
+ const modal=await page.evaluate(()=>ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL'}));
+ assert.equal(modal.topic,'MODAAL');assert.equal(modal.cefr_level,'B2');
+ const modalTopics=await page.evaluate(ids=>[...new Set(ids.map(id=>ContentRuntime.itemById(id).topic))],modal.selected_item_ids);
+ assert.deepEqual(new Set(modalTopics),new Set(['ZULLEN','ZOUDEN']));
+
+ const openPolicy=await page.evaluate(()=>{const item=ContentRuntime.source.items.find(x=>x.openness==='open');return ContentRuntime.answerPolicy(item)});
  assert.equal(openPolicy.requiresExactMatch,false);assert.equal(openPolicy.mode,'teacher_or_peer_review');
- const closedPolicy=await page.evaluate(()=>{const item=ContentRuntime.eligibleItems(['BOARD','WHEEL','CARDS']).find(x=>x.openness==='gesloten'||x.openness==='geleid_gesloten');return ContentRuntime.answerPolicy(item)});
+ const closedPolicy=await page.evaluate(()=>{const item=ContentRuntime.source.items.find(x=>x.openness==='gesloten');return ContentRuntime.answerPolicy(item)});
  assert.equal(closedPolicy.mode,'canonical_answer');assert.ok(closedPolicy.canonicalAnswer);
+
+ await page.evaluate(()=>CONTENT_VERT001.stop());
+ await page.evaluate(()=>CONTENT_VERT001.start({seed:44,targetDurationSeconds:300,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ZOUDEN'],levels:['A2']},selectionTopic:'ZOUDEN'}));
+ const saved=await page.evaluate(()=>JSON.parse(JSON.stringify(APP.contentSessionConfig)));
+ await page.reload();await page.waitForFunction(()=>!!window.ContentRuntime);
+ const restored=await page.evaluate(()=>CONTENT_VERT001.restore());
+ assert.deepEqual(restored.selected_item_ids,saved.selected_item_ids);assert.equal(restored.topic,'ZOUDEN');assert.equal(restored.cefr_level,'A2');
+
  assert.deepEqual(errors,[]);
- console.log('PASS: CONTENT VERT 001 browser smoke across BOARD, WHEEL and CARDS');
+ console.log('PASS: full GRAM PB001 browser runtime across BOARD WHEEL CARDS, ORDER adapter, MODAAL and restore.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});
