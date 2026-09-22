@@ -26,13 +26,14 @@ const runtime=require('../data/content-vert001-er-b1.js');
 assert.deepEqual(runtime,projected,'Committed runtime projection must equal staging projector output');
 assert.equal(imp.renderProjection(projected),fs.readFileSync(path.join(root,'data/content-vert001-er-b1.js'),'utf8'));
 
-const duplicate=structuredClone(source);duplicate.items[1].id=duplicate.items[0].id;
+const mutated=change=>{const copy=structuredClone(source);change(copy.items);copy.source_sha256=imp.sourceHash(copy.items);return copy};
+const duplicate=mutated(items=>{items[1].id=items[0].id});
 assert.throws(()=>imp.validateSource(duplicate),/Dubbel ID/);
-const badType=structuredClone(source);badType.items[0].exercise_type='onbekend';
+const badType=mutated(items=>{items[0].exercise_type='onbekend'});
 assert.throws(()=>imp.validateSource(badType),/exercise_type/);
-const badReview=structuredClone(source);badReview.items[0].review_status='pilot_ready';
+const badReview=mutated(items=>{items[0].review_status='pilot_ready'});
 assert.throws(()=>imp.validateSource(badReview),/review_status/);
-const badVersion=structuredClone(source);badVersion.items[0].version='1.1';
+const badVersion=mutated(items=>{items[0].version='1.1'});
 assert.throws(()=>imp.validateSource(badVersion),/version/);
 assert.throws(()=>imp.rollback('../package.json'),/bank-backups/);
 console.log('PASS: GRAM PB 001 staging/projector parity, 1440 IDs, enums, MODAAL, source hash, conflict guards and rollback path guard.');
