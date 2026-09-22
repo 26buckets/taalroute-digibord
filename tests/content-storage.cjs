@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict');
 const source=require('../data/content-vert001-er-b1.js');
 const {createContentRuntime}=require('../content-runtime.js');
-const {createMemoryStorageAdapter,createLocalStorageAdapter,createContentStorageService,STATUS,OBJECT_TYPES,ContentStorageError}=require('../content-storage.js');
+const {SCHEMA_VERSION,createMemoryStorageAdapter,createLocalStorageAdapter,createContentStorageService,STATUS,OBJECT_TYPES,ContentStorageError}=require('../content-storage.js');
 
 const cloned=JSON.parse(JSON.stringify(source));
 const runtime=createContentRuntime(cloned);
@@ -126,6 +126,35 @@ assert.throws(()=>service.createSessionFromSelection(multi.saved_selection_id,{a
 const otherActor={owner_ref:'teacher-2'};
 assert.equal(service.resolveSavedSelection(saved.saved_selection_id,{actor:otherActor}).status,STATUS.BLOCKED_PERMISSION);
 assert.throws(()=>service.updateSavedSelection(saved.saved_selection_id,{name:'Niet toegestaan'},{actor:otherActor,expectedRevision:2}),e=>e.code===STATUS.BLOCKED_PERMISSION);
+
+// P1 guard: a favorite may never expose another user's private target.
+const privateOther=service.saveSelection({name:'Privé van ander',selection_spec:selectionSpec,execution_preferences:execution,owner:{...owner,owner_ref:'teacher-2',created_by_ref:'teacher-2'}},{owner_ref:'teacher-2'});
+assert.throws(()=>service.addFavorite({ref_type:'saved_selection',ref_id:privateOther.saved_selection_id,owner,actor}),e=>e.code===STATUS.BLOCKED_PERMISSION);
+const forgedFavorite={favorite_ref_id:'FR_FORGED',schema_version:SCHEMA_VERSION,record_revision:1,ref_type:'saved_selection',ref_id:privateOther.saved_selection_id,label_override:'',owner_scope:'user',owner_ref:'teacher-1',created_by_ref:'teacher-1',visibility:'private',edit_policy:'owner_only',sort_order:0,created_at:clock(),updated_at:clock(),status:STATUS.READY};
+assert.equal(adapter.put(OBJECT_TYPES.FAVORITE_REF,forgedFavorite.favorite_ref_id,forgedFavorite,{expectedRevision:0}).ok,true);
+assert.equal(service.resolveFavorite(forgedFavorite.favorite_ref_id,{actor}).status,STATUS.BLOCKED_PERMISSION);
+
+// P1 guard: filters that the current runtime cannot honor must fail instead of being ignored.
+const unsupportedFilter=service.saveSelection({name:'Steunfilter',selection_spec:{...selectionSpec,filter_spec:{...selectionSpec.filter_spec,support_level:'meer_steun'}},execution_preferences:execution,owner},actor);
+assert.throws(()=>service.createSessionFromSelection(unsupportedFilter.saved_selection_id,{actor,seed:1,engines:['BOARD']}),e=>e.code===STATUS.BLOCKED_SELECTION_SPEC);
+
+// P1 guard: every declared bank must be connected, not merely one bank in the list.
+const mixedBank=service.saveSelection({name:'Gemengde bank',selection_spec:{...selectionSpec,scope_clauses:[{...selectionSpec.scope_clauses[0],content_bank_ids:['CB-GRAM-001','CB-OTHER']}]},execution_preferences:execution,owner},actor);
+assert.throws(()=>service.createSessionFromSelection(mixedBank.saved_selection_id,{actor,seed:1,engines:['BOARD']}),e=>e.code===STATUS.BLOCKED_SELECTION_SPEC);
+
+// P1 guard: exact replay fingerprint covers all execution-relevant learner content.
+const hashItem=runtime.itemById(exactRef.content_item_id),oldOptions=[...hashItem.options];
+hashItem.options=[...oldOptions,'extra optie'];
+assert.equal(service.validateHistoricalContentRefs(recent.selected_content_refs).status,STATUS.BLOCKED_VERSION_UNAVAILABLE);
+hashItem.options=oldOptions;
+assert.equal(service.validateHistoricalContentRefs(recent.selected_content_refs).status,STATUS.READY);
+
+// P1 guard: school-owned objects default to a policy that matching school editors can actually edit.
+const schoolActor={owner_ref:'teacher-school',school_ref:'school-1'};
+const schoolSelection=service.saveSelection({name:'Schoolles',selection_spec:selectionSpec,execution_preferences:execution,owner:{owner_scope:'school',owner_ref:'school-1',created_by_ref:'teacher-school',visibility:'school_shared'}},schoolActor);
+assert.equal(schoolSelection.edit_policy,'school_editors');
+const schoolUpdated=service.updateSavedSelection(schoolSelection.saved_selection_id,{description:'gedeeld bijgewerkt'},{actor:schoolActor,expectedRevision:1});
+assert.equal(schoolUpdated.record_revision,2);
 
 const fakeStorage=(()=>{
  let value=null;
