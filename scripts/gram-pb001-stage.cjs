@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const {compactRuntime,browserBundle,inflateRuntime}=require('./gram-pb001-adapter.cjs');
+const root=path.resolve(__dirname,'..'),sourcePath=path.join(root,'staging/gram-pb001-source-v1.2.json'),runtimePath=path.join(root,'staging/gram-pb001-runtime-v1.2.json'),browserPath=path.join(root,'data/content-gram-pb001.js'),manifestPath=path.join(root,'staging/gram-pb001-manifest.json');
+const sourceText=fs.readFileSync(sourcePath,'utf8'),source=JSON.parse(sourceText),sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+const runtime=compactRuntime(source,sha(sourceText)),runtimeText=JSON.stringify(runtime)+'\n',browserText=browserBundle(runtime);
+const manifest={schema_version:'GRAM-IMP002-STAGING-1.0',bank_id:'CB-GRAM-001',source_version:'1.2',adapter_version:'2.0',source_sha256:sha(sourceText),runtime_sha256:sha(runtimeText),browser_sha256:sha(browserText),record_count:1440,unique_id_count:1440,topic_counts:{ER:540,ZULLEN:450,ZOUDEN:450},level_counts:{A2:480,B1:480,B2:480},order_count:144,modaal_count:900,review_statuses:['approved'],source_review_statuses:['REVIEW_GO'],publication_statuses:['staging_only'],base_commit:'a35961e4f210e553feefd80be52363a784eb5cbe',branch:'gram-imp002-pb001-full-runtime',rollback:{git_ref:'a35961e4f210e553feefd80be52363a784eb5cbe',live_deploy_performed:false},generated_files:['staging/gram-pb001-runtime-v1.2.json','data/content-gram-pb001.js']};
+const manifestText=JSON.stringify(manifest,null,2)+'\n';
+if(process.argv.includes('--write')){fs.writeFileSync(runtimePath,runtimeText);fs.writeFileSync(browserPath,browserText);fs.writeFileSync(manifestPath,manifestText)}
+else{assert.equal(fs.readFileSync(runtimePath,'utf8'),runtimeText,'PB001 runtime staging is niet uit de bron gegenereerd');assert.equal(fs.readFileSync(browserPath,'utf8'),browserText,'PB001 browserprojectie wijkt af');assert.equal(fs.readFileSync(manifestPath,'utf8'),manifestText,'PB001 stagingmanifest wijkt af')}
+const inflated=inflateRuntime(runtime);assert.equal(inflated.items.length,1440);assert.equal(new Set(inflated.items.map(x=>x.content_item_id)).size,1440);
+console.log('PASS: GRAM PB001 bron, 1440 stagingrecords, browserprojectie en hashes zijn gelijk.');
