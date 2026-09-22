@@ -83,7 +83,7 @@ let browser;
  const openButton=page.locator('.na-quiz-board [data-content-item-id]').first();
  const openId=await openButton.getAttribute('data-content-item-id'),openPoints=Number((await openButton.textContent()).trim());
  await openButton.click();
- assert.equal(await page.locator('.na-quiz-options').filter({hasText:'Toon modelantwoord'}).count(),1);
+ assert.equal(await page.getByText('Toon modelantwoord',{exact:true}).count(),1);
  await page.getByText('Toon modelantwoord',{exact:true}).click();
  const openModel=await page.evaluate(id=>window.ContentRuntime.itemById(id).model_answer,openId);
  assert.equal((await page.locator('.na-quiz-review p').textContent()).trim(),openModel);
