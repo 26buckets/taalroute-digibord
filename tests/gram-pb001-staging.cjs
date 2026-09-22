@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),vm=require('node:vm');
+const {inflateRuntime}=require('../scripts/gram-pb001-adapter.cjs');
+const root=path.resolve(__dirname,'..'),sourceText=fs.readFileSync(path.join(root,'staging/gram-pb001-source-v1.2.json'),'utf8'),runtimeText=fs.readFileSync(path.join(root,'staging/gram-pb001-runtime-v1.2.json'),'utf8'),manifest=JSON.parse(fs.readFileSync(path.join(root,'staging/gram-pb001-manifest.json'),'utf8')),raw=JSON.parse(runtimeText),runtime=inflateRuntime(raw),sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+assert.equal(manifest.source_sha256,sha(sourceText));assert.equal(manifest.runtime_sha256,sha(runtimeText));
+assert.equal(runtime.items.length,1440);assert.equal(new Set(runtime.items.map(x=>x.content_item_id)).size,1440);
+assert.deepEqual(Object.fromEntries(['ER','ZULLEN','ZOUDEN'].map(t=>[t,runtime.items.filter(x=>x.topic===t).length])),{ER:540,ZULLEN:450,ZOUDEN:450});
+assert.deepEqual(Object.fromEntries(['A2','B1','B2'].map(l=>[l,runtime.items.filter(x=>x.cefr_level===l).length])),{A2:480,B1:480,B2:480});
+assert.equal(runtime.items.filter(x=>x.interaction_type==='IT_008_ORDER').length,144);assert.ok(runtime.items.filter(x=>x.interaction_type==='IT_008_ORDER').every(x=>x.order_tokens.length>=2));
+assert.equal(runtime.items.filter(x=>x.technical_tags.includes('MODAAL')).length,900);
+assert.ok(runtime.items.every(x=>x.review_status==='approved'&&x.source_review_status==='REVIEW_GO'&&x.publication_status==='staging_only'&&x.version==='1.2'));
+assert.ok(runtime.items.every(x=>x.selection_safety==='ja'&&x.speaking_safety==='ja'));
+const ctx={module:{exports:{}},exports:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'data/content-gram-pb001.js'),'utf8'),ctx);const browser=JSON.parse(JSON.stringify(ctx.module.exports));
+assert.equal(browser.items.length,1440);assert.deepEqual(browser.items,runtime.items);
+assert.equal(manifest.base_commit,'a35961e4f210e553feefd80be52363a784eb5cbe');assert.equal(manifest.rollback.live_deploy_performed,false);
+console.log('PASS: 1440 PB001 stagingrecords, hashes, MODAAL, ORDER, review/publicatiepoort en browserpariteit.');
