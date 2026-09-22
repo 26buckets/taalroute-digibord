@@ -201,6 +201,7 @@ function nextContentBoardTask(){
  const session=contentVertSession();if(!session)return null;const used=contentVertHistory('BOARD',session),item=ContentRuntime.nextItem('BOARD',session,used);if(!item)return null;used.push(item.content_item_id);save();return contentBoardTask(item)
 }
 function routeTask(pos,route){
+ const contentTask=nextContentBoardTask();if(contentTask)return contentTask;
  if(!taskBank)return {shape:'circle',title:'Vertel',instruction:'Vertel iets over deze situatie.',input:'Gebruik taal die bij je niveau past.',support:'Begin met één korte zin.',model:'Ik ben hier vandaag.'};
  const r=selectedTaskRoute();
  const wanted=route?.nodes?.[pos]?.shape;
