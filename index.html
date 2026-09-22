@@ -3,7 +3,7 @@
 <head>
 <link rel="icon" type="image/svg+xml" sizes="any" href="assets/brand/favicon.svg?v=0124">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Taalroute DigiBord V01.24</title><link rel="stylesheet" href="app.css?v=0124-board-options-dark">
+<title>Taalroute DigiBord V01.25</title><link rel="stylesheet" href="app.css?v=0124-board-options-dark">
 <link rel="stylesheet" href="kaartenkast.css">
 <link rel="stylesheet" href="taalworp-table.css?v=0124">
 <link rel="stylesheet" href="card-table.css?v=readable-cards-level">
@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="landing-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="new-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="context-tools.css?v=0124-context">
-<link rel="stylesheet" href="content-ui.css?v=content-ui001">
+<link rel="stylesheet" href="content-ui.css?v=1.25">
 </head>
 <body>
 <div id="app">
 <header id="appHeader">
   <div class="brand"><img class="header-brand-logo" src="assets/brand/taalroute.svg" alt="Taalroute"><div class="brand-sep"></div><div class="product">DigiBord</div></div>
-  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Oefenen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
+  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Oefenen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Mijn lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
   <div class="header-actions">
     <button class="curriculum-context" id="curriculumContext" type="button" popovertarget="curriculumPanel" aria-controls="curriculumPanel" aria-expanded="false" aria-label="Curriculum bekijken" title="Curriculum bekijken"><svg class="ui-icon curriculum-book-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg><span class="curriculum-button-label">Curriculum</span><svg class="curriculum-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     <label class="level-pill"><span class="sr-only">Niveau</span><select id="levelSelect" aria-label="Niveau"><option>Alpha A</option><option>Alpha B</option><option>Alpha C</option><option>A0</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
@@ -93,7 +93,7 @@
 
 <section class="screen content-practice-page" id="screen-practice">
   <div class="practice-shell">
-    <div class="practice-head"><div><span class="eyebrow">Oefenen</span><h1>Stel je oefensessie samen</h1><p>Kies inhoud, niveau, focus, tijd en spelvorm. DigiBord gebruikt daarna één gedeelde sessieselectie.</p></div><button class="smallbtn" data-home>← Spelen</button></div>
+    <div class="practice-head"><div><span class="eyebrow">Oefenen</span><h1>Stel je oefensessie samen</h1><p>Kies wat je wilt oefenen en hoe je wilt spelen. Je opdrachten gaan mee naar de gekozen spelvorm.</p></div><button class="smallbtn" data-home>← Spelen</button></div>
     <div id="contentPracticeApp"></div>
   </div>
 </section>
@@ -145,13 +145,13 @@
 <section class="screen" id="screen-game"><div id="gameMount" style="position:absolute;inset:0"></div></section>
 
 <section class="screen simple-page" id="screen-lessons">
-  <h1>Lessen</h1><p>Start vanuit je lescontext en laat DigiBord direct de passende inhoud tonen.</p>
+  <div id="lessonLibrary"></div><details class="legacy-lessons"><summary>Overige lesingangen</summary><h1>Lessen</h1><p>Start vanuit je lescontext en laat DigiBord direct de passende inhoud tonen.</p>
   <div class="simple-grid">
     <div class="simple-card"><h3>💼 Thema 3 Werk</h3><p>Huidige lescontext. Taalworp kan direct naar de set Werk springen.</p><button class="smallbtn" data-start-work>Open Taalworp · Werk</button></div>
     <div class="simple-card"><h3>Actuele opdrachtenbank</h3><p>Methoderoute, didactisch zoeken en vrij zoeken staan in Instellingen.</p><button class="smallbtn" data-open-settings>Open inhoud</button></div>
     <div class="simple-card"><h3>Didactische uitleg</h3><p>Zes families, 48 taalhandelingen en route-uitwerking.</p><button class="smallbtn" data-open-settings>Open didactiek</button></div>
   </div>
-</section>
+</details></section>
 
 <section class="screen simple-page" id="screen-mycollection"><h1>Mijn collectie</h1><p>Je beeldsets, bewaarde voortgang en groepen.</p><div class="simple-grid"><div class="simple-card"><h3>Verhaalworp</h3><p>320 beelden in tien speelbare sets.</p><button class="smallbtn" id="collectionStorySets">Bekijk de beeldsets</button></div><div class="simple-card"><h3>Verder spelen</h3><p>Ga verder met je laatst gespeelde spel.</p><button class="smallbtn" id="collectionResume">Hervat mijn spel</button></div><div class="simple-card"><h3>Mijn groepen</h3><p>Beheer de deelnemers en je bewaarde groepen.</p><button class="smallbtn" data-open-settings>Open instellingen</button></div></div></section>
 <section class="screen simple-page" id="screen-collection">
@@ -176,22 +176,29 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div><dialog id="gameDialog"><div class="dialog-head"><h2 id="dialogTitle"></h2><button id="dialogClose" aria-label="Sluiten">×</button></div><div id="dialogBody"></div></dialog>
 <script src="data-bundle.js?v=0124-zwolle-diepte-kleur"></script>
 <script src="data/content-vert001-er-b1.js?v=content000-vert001"></script>
-<script src="game-engine-registry.js?v=content-eng001"></script>
+<script src="game-engine-registry.js?v=1.25"></script>
 <script src="interaction-renderer-registry.js?v=content-eng001"></script>
-<script src="content-runtime.js?v=content-eng001"></script>
-<script src="data/content-catalog.js?v=content-ui001"></script>
+<script src="match-pair-contract.js?v=1.25"></script>
+<script src="content-runtime.js?v=1.25"></script>
+<script src="data/content-catalog.js?v=1.25"></script>
 <script src="data/c1-between-lines.js?v=001-frozen"></script>
 <script src="data/storydice.js?v=0124-verhaalworp-320"></script>
 <script src="data/tongbrekers.js?v=0124-tongue-240-audio"></script>
-<script src="dice-textures.js?v=0124-verhaalworp-320"></script><script src="smooth-dice-renderer.js?v=0124"></script><script src="smooth-dice.js?v=0124"></script>
+<script src="data/dice-texture-index.js?v=1.25"></script>
+<script>if(location.protocol==='file:')document.write('<script src="dice-textures.js"><\/script>');</script><script src="smooth-dice-renderer.js?v=0124"></script><script src="smooth-dice.js?v=0124"></script>
 <script src="context-tools.js?v=0124-board-options"></script>
 <script src="words-content.js?v=wz001"></script>
 <script src="words-activity.js?v=plain-language"></script>
 <script src="curriculum.js?v=alfa-abc"></script>
 <script src="board-viewport.js?v=0124-board-focus"></script>
+<script src="storage-migration.js?v=1.25"></script>
 <script src="data/tongbrekers-migration.js?v=0124-tongue-240-audio"></script>
-<script src="app.js?v=plain-language-settings"></script>
-<script src="data/new-activities.js?v=0124-photo-activities"></script>
-<script src="new-activities.js?v=0124-photo-activities"></script>
-<script src="content-ui.js?v=content-ui001"></script>
+<script src="app.js?v=1.25"></script>
+<script src="data/new-activities.js?v=1.25"></script>
+<script src="new-activities.js?v=1.25"></script>
+<script src="content-bank-adapters.js?v=1.25"></script>
+<script src="lesson-storage-adapter.js?v=1.25"></script>
+<script src="lesson-storage.js?v=1.25"></script>
+<script src="content-ui.js?v=1.25"></script>
+<script src="content-lessons.js?v=1.25"></script>
 </body></html>

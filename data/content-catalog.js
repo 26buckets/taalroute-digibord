@@ -2,9 +2,9 @@
  const sub=(id,label,levels)=>({id,label,levels});
  const profiles=(topic)=>['A2','B1','B2'].map(level=>({id:'SP_GRAM_'+topic+'_'+level,label:topic+' '+level+' compleet',level}));
  const catalog={
-  version:'2.0',
+  version:'3.0',
   families:[{
-   id:'grammar',label:'Grammatica',description:'Oefen grammaticale vormen en functies.',
+   id:'grammar',selection_dimensions:{topic:'required',level:'required',subtopic:'optional',production:'optional',difficulty:'optional'},label:'Grammatica',description:'Oefen grammaticale vormen en functies.',
    topics:[
     {id:'ER',label:'ER',description:'Plaats, hoeveelheid, presentatief er, voornaamwoordelijke bijwoorden, passief en formele constructies.',levels:['A2','B1','B2'],sourceTopics:['ER'],familyTags:[],profiles:profiles('ER'),subtopics:[
      sub('all','Alles',['A2','B1','B2']),
@@ -29,6 +29,7 @@
   }],
   focuses:[
    {id:'all',label:'Gemengd',exerciseTypes:[]},
+   {id:'sort',label:'Functies sorteren',exerciseTypes:['functie_sorteren']},
    {id:'recognize',label:'Herkennen',exerciseTypes:['meerkeuze_vorm','betekenis_kiezen','functie_sorteren','meerkeuze_context']},
    {id:'fill',label:'Invullen',exerciseTypes:['invullen']},
    {id:'order',label:'Zin bouwen',exerciseTypes:['zinnen_leggen']},
@@ -41,6 +42,18 @@
   difficulties:[{id:'all',label:'Gemengd'},{id:'basis',label:'Basis'},{id:'midden',label:'Gemiddeld'},{id:'hoog',label:'Uitdagend'}],
   durations:[{seconds:300,label:'5 minuten'},{seconds:600,label:'10 minuten'},{seconds:900,label:'15 minuten'},{seconds:1200,label:'20 minuten'}],
   organizations:[{id:'class',label:'Klassikaal'},{id:'groups',label:'Groepen'},{id:'pairs',label:"Duo's"},{id:'individual',label:'Individueel'}]
+ };
+ catalog.registerBank=function(bank,metadata={}){
+  const id=metadata.familyId||bank.family_id;
+  let family=catalog.families.find(f=>f.id===id);
+  if(!family){family={id,label:metadata.label||bank.bank_name,description:metadata.description||'',selection_dimensions:metadata.selection_dimensions||{topic:'required',level:'required',subtopic:'optional',production:'optional',difficulty:'optional'},defaultDifficulty:metadata.defaultDifficulty||'all',topics:[]};catalog.families.push(family)}
+  for(const topicId of [...new Set(bank.items.map(i=>i.topic))]){
+   const rows=bank.items.filter(i=>i.topic===topicId),levels=[...new Set(rows.map(i=>i.cefr_level))];
+   const prior=family.topics.find(t=>t.id===topicId);
+   if(prior){prior.levels=[...new Set([...prior.levels,...levels])];continue}
+   family.topics.push({id:topicId,label:rows[0].topic_label||topicId,sourceTopics:[topicId],familyTags:[],levels,profiles:[],subtopics:[sub('all','Alles',levels),...[...new Set(rows.map(i=>i.language_function))].map(fn=>sub(fn,fn,levels))]});
+  }
+  return family;
  };
  if(typeof module==='object'&&module.exports)module.exports=catalog;else root.DIGIBORD_CONTENT_CATALOG=catalog;
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -5,9 +5,10 @@ require('node:child_process').execFileSync(process.execPath,[path.join(__dirname
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'words-content.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(root,'tests/tongbrekers.cjs')],{stdio:'inherit'});
 require('./c1-bank.cjs');
+require('./dice-texture-assets.cjs');
 fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(dist);
 // Runtime only: historical sources, reports, tests and the archived app are not published.
 for(const name of ['assets','data','settings','banken-manifest.json','_redirects','_headers',...fs.readdirSync(root).filter(n=>/\.(html|css|js)$/.test(n))]){
  fs.cpSync(path.join(root,name),path.join(dist,name),{recursive:true,filter:file=>!(/\.(md|txt)$/i.test(file))&&!['kaartenkast_160.json','kaartenkast_180.json','.DS_Store'].includes(path.basename(file))});
 }
-console.log('PASS: clean V01.24 static build in dist/.');
+console.log('PASS: clean V01.25 static build in dist/.');

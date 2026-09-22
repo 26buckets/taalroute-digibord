@@ -37,11 +37,12 @@ let browser;
  // ORDER is supported through the explicit text-order adapter and never silently redirected.
  await page.locator('[name=topic]').selectOption('ER');
  await page.locator('[name=level]').selectOption('B1');
+ await page.locator('.practice-more summary').click();
  await page.locator('label.practice-choice').filter({hasText:'Zin bouwen'}).click();
  await page.locator('label.practice-choice').filter({hasText:/^5 minuten$/}).click();
  assert.equal(await page.locator('.practice-count strong').textContent(),'18');
- assert.equal(await page.locator('.practice-engine input:enabled').count(),5);
- await page.locator('.practice-engine').filter({hasText:'Kaarten'}).click();
+ assert.equal(await page.locator('.practice-engine input:enabled').count(),7);
+ await page.locator('.practice-engine:has(input[value="CARDS"])').click();
  const orderOpts=await page.evaluate(()=>ContentUI.sessionOptions(55));
  assert.deepEqual(orderOpts.filters.exercise_types,['zinnen_leggen']);
  assert.equal(await page.locator('.practice-engine').filter({hasText:'Rangschikken'}).count(),1);
@@ -65,7 +66,7 @@ let browser;
  // Content first and game first produce the same options.
  await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups',engine:'BOARD',variant:'zwolle'}));
  const contentFirst=await page.evaluate(()=>ContentUI.sessionOptions(20260922));
- await page.evaluate(()=>goScreen('boards'));await page.locator('[data-practice-engine="BOARD"]').click();await page.locator('[name=variant]').selectOption('zwolle');
+ await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-practice-engine="BOARD"]:not([data-practice-variant])').click();await page.locator('[name=variant]').selectOption('zwolle');
  await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));
  const gameFirst=await page.evaluate(()=>ContentUI.sessionOptions(20260922));
  const normalize=o=>({targetDurationSeconds:o.targetDurationSeconds,engines:o.engines,filters:o.filters,organizationMode:o.organizationMode,selectedGameEngine:o.selectedGameEngine,selectedGameVariant:o.selectedGameVariant,selectionTopic:o.selectionTopic});
@@ -89,7 +90,7 @@ let browser;
  await page.evaluate(()=>ContentUI.open({engine:'DICE'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-engine-dice');
  const diceSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(diceSession.selected_item_ids,boardSession.selected_item_ids);
- assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ,SEQUENCE');
+ assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ,MEMORY,MATCH,SORT,SEQUENCE,RIDDLE');
 
  // QUIZ is offered for groups, uses the same IDs, and is hidden for unsupported organization modes.
  await page.evaluate(()=>ContentUI.open({engine:'QUIZ'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
@@ -114,5 +115,5 @@ let browser;
   await page.waitForSelector('#screen-practice.active .practice-layout');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  assert.deepEqual(errors,[]);
- console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic six-engine registry, scoped SEQUENCE, organization-aware QUIZ and duo mode.');
+ console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic ten-engine registry, scoped SEQUENCE, organization-aware QUIZ and duo mode.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});

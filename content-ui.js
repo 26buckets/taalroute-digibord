@@ -2,6 +2,10 @@
  'use strict';
  const catalog=root.DIGIBORD_CONTENT_CATALOG,engineRegistry=root.GameEngineRegistry;
  if(!catalog||!root.ContentRuntime||!engineRegistry)return;
+ function registerBank(bank,metadata){ContentRuntime.registerBank(bank,metadata);catalog.registerBank(bank,metadata)}
+ registerBank(ContentBankAdapters(WORD_CONTENT),{familyId:'words',label:'Woorden en zinnen',defaultDifficulty:'basis',description:'A0 naar A1: begin met Basis en kies later meer uitdaging.'});
+ registerBank(ContentBankAdapters.riddles(DIGIBORD_ACTIVITIES),{familyId:'riddles',label:'Woordraadsels',description:'Bestaande woordraadsels zonder vastgesteld taalniveau. De docent kiest wat past.',reviewGate:['LEGACY_PRESERVED'],selection_dimensions:{topic:'required',level:'required',production:'not_applicable',difficulty:'not_applicable'}});
+ let externalSpec=null,editing=null,moreOpen=false;
  const $=s=>document.querySelector(s);
  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const defaults={family:'grammar',topic:'ER',profile:'',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:null,variant:null};
@@ -16,7 +20,8 @@
   return (t.subtopics||[{id:'all',label:'Alles',levels:t.levels}]).filter(x=>!x.levels||x.levels.includes(state.level));
  }
  function scopeError(){
-  const f=family();if(!f)return'De gekozen contentfamilie is niet beschikbaar.';
+  if(externalSpec){try{ContentRuntime.selectionPool(externalSpec);return ''}catch(e){return e.message}}
+  const f=family();if(!f)return'De gekozen inhoud is niet beschikbaar.';
   const t=topic();if(!t)return'Het gekozen onderwerp is niet beschikbaar.';
   if(!t.levels.includes(state.level))return'Dit niveau is niet beschikbaar voor het gekozen onderwerp.';
   if(!topicSubtopics().some(x=>x.id===state.subtopic))return'Het gekozen subonderwerp is niet beschikbaar op dit niveau.';
@@ -32,32 +37,35 @@
   const error=scopeError();if(error)throw new Error(error);
   const t=topic();
   return {
-   topics:t.sourceTopics||[t.id],levels:[state.level],family_tags:t.familyTags||[],
+   family_ids:[state.family],topics:t.sourceTopics||[t.id],levels:[state.level],family_tags:t.familyTags||[],
    language_functions:state.subtopic==='all'?[]:[state.subtopic],exercise_types:focus().exerciseTypes,
    productive_or_receptive:state.production,difficulty:state.difficulty
   };
  }
- function availability(){return scopeError()?emptyAvailability():ContentRuntime.availability(filters())}
- function compatibleEngineIds(){
-  if(scopeError())return[];
-  const a=availability(),fullyCompatible=engines().filter(e=>engineRegistry.supportsOrganization(e.id,state.organization)&&(a.engines[e.id]?.count||0)===a.source_count).map(e=>e.id);
-  if(!fullyCompatible.length)return[];
-  return fullyCompatible.filter(e=>ContentRuntime.eligibleItems(fullyCompatible,filters()).length===a.source_count);
+ function selectionSpec(){return externalSpec||ContentRuntime.specFromFilters(filters())}
+ function preferences(){return {target_duration_seconds:state.duration,organization_mode:state.organization,preferred_game_engine:state.engine,preferred_game_variant:state.variant}}
+ function availability(){
+  if(scopeError())return emptyAvailability();
+  if(!externalSpec)return ContentRuntime.availability(filters());
+  const pool=ContentRuntime.selectionPool(externalSpec),duration=pool.reduce((n,i)=>n+i.estimated_duration_seconds,0);
+  return {source_count:pool.length,source_duration_seconds:duration,engines:Object.fromEntries(engines().map(e=>[e.id,{count:pool.filter(i=>ContentRuntime.compatibility(i,e.id).compatible).length,full_coverage:ContentRuntime.setCompatibility(pool,e.id),duration_seconds:duration}]))};
  }
- function capacitySeconds(){const engines=compatibleEngineIds();return engines.length?ContentRuntime.eligibleItems(engines,filters()).reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0):0}
+ function compatibleEngineIds(){if(scopeError())return [];return ContentRuntime.compatibleSelectionEngines(selectionSpec(),state.organization)}
+ function capacitySeconds(){return compatibleEngineIds().length?availability().source_duration_seconds:0}
  function persist(){APP.contentUiDraft={...state};save()}
  function applyProfile(id){
   const t=topic(),profile=t?.profiles.find(x=>x.id===id);state.profile=id||'';
   if(profile){state.level=profile.level;state.subtopic='all';state.focus='all';state.production='all';state.difficulty='all'}
  }
  function setState(patch,{render=true}={}){
+  if(Object.keys(patch).some(k=>['family','topic','level','focus','subtopic','production','difficulty'].includes(k)))externalSpec=null;
   const previousFamily=state.family,previousTopic=state.topic,previousLevel=state.level;state={...state,...patch};
   if(state.family!==previousFamily){
    const f=family();
-   if(f){state.topic=f.topics[0]?.id||'';const t=topic();state.level=t?.levels[0]||'';state.profile='';state.subtopic='all';state.focus='all';state.production='all';state.difficulty='all'}
+   if(f){state.topic=patch.topic||f.topics[0]?.id||'';const t=topic();state.level=patch.level||t?.levels[0]||'';state.profile='';state.subtopic='all';state.focus='all';state.production='all';state.difficulty=f.defaultDifficulty||'all'}
   }else if(state.topic!==previousTopic){
    const t=topic();
-   if(t){state.level=t.levels.includes(state.level)?state.level:t.levels[0]||'';state.profile='';state.subtopic='all';state.focus='all';state.production='all';state.difficulty='all'}
+   if(t){state.level=patch.level||state.level;state.profile='';state.subtopic='all';state.focus='all';state.production='all';state.difficulty=family().defaultDifficulty||'all'}
   }else if(state.level!==previousLevel&&topic()?.levels.includes(state.level))state.subtopic='all';
   if(state.profile&&Object.keys(patch).some(k=>['level','subtopic','focus','production','difficulty'].includes(k)))state.profile='';
   const e=engine();if(e&&!e.variants.some(v=>v.id===state.variant))state.variant=e.variants[0]?.id||null;
@@ -72,27 +80,29 @@
  }
  function renderEngines(a,compatible,capacity){
   const visible=engines().filter(item=>compatible.includes(item.id));
-  return `<fieldset class="practice-field practice-engines"><legend>Hoe wil je oefenen?</legend><div class="practice-engine-grid">${visible.map(item=>{
+  const suggestions=!externalSpec&&state.engine&&!compatible.includes(state.engine)&&!scopeError()?catalog.focuses.filter(f=>{try{return f.id!==state.focus&&ContentRuntime.fullCoverageEngines({...filters(),exercise_types:f.exerciseTypes},state.organization).includes(state.engine)}catch{return false}}):[];
+  const guidance=suggestions.length?`<p class="practice-note">Voor ${esc(engine()?.label)} kun je kiezen:</p><div class="lesson-actions">${suggestions.map(f=>`<button type="button" class="smallbtn" data-practice-focus="${esc(f.id)}">${esc(f.label)}</button>`).join('')}</div>`:'';
+  return `${guidance}<fieldset class="practice-field practice-engines"><legend>Hoe wil je oefenen?</legend><div class="practice-engine-grid">${visible.map(item=>{
    const own=a.engines[item.id]?.count||0,enabled=capacity>=state.duration;
    return `<label class="practice-engine ${state.engine===item.id?'selected':''}"><input type="radio" name="engine" value="${item.id}" ${state.engine===item.id?'checked':''} ${enabled?'':'disabled'}><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span><small>${own} geschikte opdrachten${enabled?'':' · onvoldoende voor de gekozen duur'}</small></label>`;
   }).join('')}</div></fieldset>`;
  }
  function renderSummary(a,compatible,capacity){
   const t=topic(),e=engine(),variant=e?.variants.find(v=>v.id===state.variant),minutes=Math.round(capacity/60),selectedCount=e?(a.engines[e.id]?.count||0):a.source_count,error=scopeError();
-  const blocker=error||(!a.source_count?'Geen inhoud gevonden voor deze selectie.':!compatible.length?'De gekozen oefenfocus heeft nog geen spelmotor die hem veilig kan uitvoeren.':capacity<state.duration?`Deze selectie bevat ongeveer ${minutes} minuten unieke content. Kies een kortere duur of maak de selectie ruimer.`:!state.engine?'Kies nog een spelvorm.':'');
-  return `<aside class="practice-summary"><span class="eyebrow">Jouw sessie</span><h2>${esc(t?.label||state.topic)} · ${esc(state.level)}</h2><dl><div><dt>Subonderwerp</dt><dd>${esc(topicSubtopics().find(x=>x.id===state.subtopic)?.label||state.subtopic)}</dd></div><div><dt>Oefenfocus</dt><dd>${esc(focus()?.label||state.focus)}</dd></div><div><dt>Productie</dt><dd>${esc(catalog.productionModes.find(x=>x.id===state.production)?.label||state.production)}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(x=>x.id===state.difficulty)?.label||state.difficulty)}</dd></div><div><dt>Duur</dt><dd>${esc(catalog.durations.find(x=>x.seconds===state.duration)?.label||state.duration)}</dd></div><div><dt>Organisatie</dt><dd>${esc(catalog.organizations.find(x=>x.id===state.organization)?.label||state.organization)}</dd></div><div><dt>Spel</dt><dd>${esc(e?.label||'Nog kiezen')}${variant&&e?.variants.length>1?' · '+esc(variant.label):''}</dd></div></dl><div class="practice-count"><strong>${selectedCount}</strong><span>geschikte oefeningen voor de gekozen spelvorm</span></div>${blocker?`<p class="practice-warning" role="status">${esc(blocker)}</p>`:`<p class="practice-ready" role="status">Deze selectie kan als één canonieke SessionConfig worden gestart.</p>`}<button type="button" class="primary practice-start" id="practiceStart" ${blocker?'disabled':''}>Start sessie</button></aside>`;
+  const blocker=error||(!a.source_count?'Geen inhoud gevonden voor deze selectie.':!compatible.length?'Er is nog geen passende spelvorm voor deze oefenfocus.':capacity<state.duration?`Deze selectie bevat ongeveer ${minutes} minuten unieke content. Kies een kortere duur of maak de selectie ruimer.`:!state.engine?'Kies nog een spelvorm.':!compatible.includes(state.engine)?'Deze spelvorm past niet bij de volledige selectie. Kies een andere spelvorm of pas de inhoud aan.':'');
+  return `<aside class="practice-summary"><span class="eyebrow">Jouw sessie</span><h2>${esc(externalSpec?editing?.name||'Mijn mix':t?.label||state.topic)} · ${esc(externalSpec?'Eigen selectie':state.level)}</h2><dl>${externalSpec?`<div><dt>Inhoud</dt><dd>${externalSpec.scope_clauses.map(c=>esc(c.topic_ids.join(', ')+' · '+c.cefr_levels.join(', '))).join('<br>')}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(d=>d.id===externalSpec.filter_spec.difficulty)?.label||'Gemengd')}</dd></div>`:`<div><dt>Subonderwerp</dt><dd>${esc(topicSubtopics().find(x=>x.id===state.subtopic)?.label||state.subtopic)}</dd></div><div><dt>Oefenfocus</dt><dd>${esc(focus()?.label||state.focus)}</dd></div><div><dt>Productie</dt><dd>${esc(catalog.productionModes.find(x=>x.id===state.production)?.label||state.production)}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(x=>x.id===state.difficulty)?.label||state.difficulty)}</dd></div>`}<div><dt>Duur</dt><dd>${esc(catalog.durations.find(x=>x.seconds===state.duration)?.label||state.duration)}</dd></div><div><dt>Organisatie</dt><dd>${esc(catalog.organizations.find(x=>x.id===state.organization)?.label||state.organization)}</dd></div><div><dt>Spel</dt><dd>${esc(e?.label||'Nog kiezen')}${variant&&e?.variants.length>1?' · '+esc(variant.label):''}</dd></div></dl><div class="practice-count"><strong>${selectedCount}</strong><span>geschikte oefeningen voor de gekozen spelvorm</span></div>${blocker?`<p class="practice-warning" role="status">${esc(blocker)}</p>`:`<p class="practice-ready" role="status">Alles staat klaar voor je les.</p>`}<button type="button" class="primary practice-start" id="practiceStart" ${blocker?'disabled':''}>Start sessie</button><button type="button" class="smallbtn lesson-save" id="practiceSave" ${scopeError()?'disabled':''}>Bewaar als ${editing?'nieuwe les':'les'}</button>${editing?'<button type="button" class="smallbtn lesson-save" id="practiceUpdate">Wijzigingen opslaan</button>':''}${state.engine?'<button type="button" class="smallbtn lesson-save" id="practiceFavorite">Spelvorm als favoriet</button>':''}<button type="button" class="smallbtn lesson-save" id="practiceMix">Mix maken</button></aside>`;
  }
  function renderPage(){
   const mount=$('#contentPracticeApp');if(!mount)return;
   const a=availability(),compatible=compatibleEngineIds(),capacity=capacitySeconds();
-  if(state.engine&&!compatible.includes(state.engine)){state.engine=null;state.variant=null}
+  // Preserve an incompatible choice so the teacher can explicitly change it.
   const e=engine();if(e&&!state.variant)state.variant=e.variants[0]?.id||null;
   const f=family(),t=topic(),profileItems=[{id:'',label:'Zelf samenstellen'},...(t?.profiles||[]).map(p=>({id:p.id,label:p.label}))];
   mount.innerHTML=`<div class="practice-layout"><form class="practice-config" id="practiceForm">
-   <section class="practice-panel"><h2>1. Inhoud</h2><div class="practice-select-grid">${selectField('family','Contentfamilie',catalog.families,state.family)}${selectField('topic','Onderwerp',f?.topics||[],state.topic)}${selectField('profile','Selectieprofiel',profileItems,state.profile)}${selectField('level','Niveau',(t?.levels||[]).map(id=>({id,label:id})),state.level)}</div></section>
-   <section class="practice-panel"><h2>2. Focus</h2>${choiceGroup('subtopic','Subonderwerp',topicSubtopics(),state.subtopic)}${choiceGroup('focus','Oefenfocus',catalog.focuses,state.focus)}${choiceGroup('production','Productief of receptief',catalog.productionModes,state.production)}${choiceGroup('difficulty','Moeilijkheid',catalog.difficulties,state.difficulty)}</section>
-   <section class="practice-panel"><h2>3. Lesinstelling</h2>${choiceGroup('duration','Tijdsduur',catalog.durations,state.duration)}${choiceGroup('organization','Organisatievorm',catalog.organizations,state.organization)}</section>
-   <section class="practice-panel"><h2>4. Spelvorm</h2>${renderEngines(a,compatible,capacity)}${e&&e.variants.length>1?`<label class="practice-select practice-variant"><span>Spelvariant</span><select name="variant">${e.variants.map(v=>`<option value="${v.id}" ${v.id===state.variant?'selected':''}>${esc(v.label)}</option>`).join('')}</select></label>`:''}</section>
+   <section class="practice-panel"><h2>Wat wil je oefenen?</h2>${!externalSpec&&f?.description?`<p class="practice-note">${esc(f.description)}</p>`:''}${externalSpec?`<p>${esc(externalSpec.scope_clauses.map(c=>c.topic_ids.map(id=>catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label||id).join(', ')+' · '+c.cefr_levels.join(', ')).join(' + '))}</p><button type="button" class="smallbtn" id="practiceEditMix">Inhoud aanpassen</button>`:`<div class="practice-select-grid">${selectField('family','Inhoud',catalog.families,state.family)}${selectField('topic','Onderwerp',f?.topics||[],state.topic)}${selectField('level','Niveau',(t?.levels||[]).map(id=>({id,label:id})),state.level)}</div>`}${!externalSpec&&f?.id==='words'?'<p class="practice-note">A0 → A1 is een groeiroute. Basis is de instap; Uitdagend is voor later in A1. Open opdrachten bespreek je samen.</p>':''}</section>
+   ${externalSpec?'':`<details class="practice-panel practice-more" ${moreOpen?'open':''}><summary>Meer opties</summary>${selectField('profile','Lesvoorstel',profileItems,state.profile)}${choiceGroup('subtopic','Subonderwerp',topicSubtopics(),state.subtopic)}${choiceGroup('focus','Oefenfocus',catalog.focuses,state.focus)}${f?.selection_dimensions?.production==='not_applicable'?'':choiceGroup('production','Spreken en begrijpen',catalog.productionModes,state.production)}${f?.selection_dimensions?.difficulty==='not_applicable'?'':choiceGroup('difficulty','Moeilijkheid',catalog.difficulties,state.difficulty)}</details>`}
+   <section class="practice-panel"><h2>Hoe ziet je les eruit?</h2>${choiceGroup('duration','Tijdsduur',catalog.durations,state.duration)}${choiceGroup('organization','Organisatievorm',catalog.organizations,state.organization)}</section>
+   <section class="practice-panel"><h2>Kies je spelvorm</h2>${renderEngines(a,compatible,capacity)}${e&&e.variants.length>1?`<label class="practice-select practice-variant"><span>Spelvariant</span><select name="variant">${e.variants.map(v=>`<option value="${v.id}" ${v.id===state.variant?'selected':''}>${esc(v.label)}</option>`).join('')}</select></label>`:''}</section>
   </form>${renderSummary(a,compatible,capacity)}</div>`;
   bind();
  }
@@ -105,6 +115,13 @@
    if(name==='engine'){const item=engines().find(x=>x.id===value);setState({engine:value,variant:item?.variants[0]?.id||null});return}
    setState({[name]:value});
   };
+  form.querySelectorAll('[data-practice-focus]').forEach(b=>b.onclick=()=>setState({focus:b.dataset.practiceFocus}));
+  $('.practice-more')?.addEventListener('toggle',e=>{moreOpen=e.target.open});
+  $('#practiceSave')?.addEventListener('click',()=>LessonUI.saveDraft(false));
+  $('#practiceUpdate')?.addEventListener('click',()=>LessonUI.saveDraft(true));
+  $('#practiceFavorite')?.addEventListener('click',()=>LessonUI.favoriteGame(state.engine,state.variant));
+  $('#practiceMix')?.addEventListener('click',()=>LessonUI.openMix());
+  $('#practiceEditMix')?.addEventListener('click',()=>LessonUI.openMix(externalSpec));
   $('#practiceStart')?.addEventListener('click',()=>start());
  }
  function sessionOptions(seed){
@@ -112,24 +129,23 @@
   const compatible=compatibleEngineIds(),capacity=capacitySeconds();
   if(!state.engine||!compatible.includes(state.engine))throw new Error('Kies een beschikbare spelvorm.');
   if(capacity<state.duration)throw new Error('Onvoldoende content voor de gekozen tijdsduur.');
-  return {seed:seed??seedOverride??Math.floor(Date.now()%4294967295),targetDurationSeconds:state.duration,engines:compatible,filters:filters(),organizationMode:state.organization,selectedGameEngine:state.engine,selectedGameVariant:state.variant,selectionTopic:state.topic,startedAt:new Date().toISOString()};
+  return {seed:seed??seedOverride??Math.floor(Date.now()%4294967295),targetDurationSeconds:state.duration,engines:compatible,filters:externalSpec?{}:filters(),selectionSpec:selectionSpec(),organizationMode:state.organization,selectedGameEngine:state.engine,selectedGameVariant:state.variant,selectionTopic:externalSpec?null:state.topic,startedAt:new Date().toISOString()};
  }
- function start(seed){
-  try{
-   const options=sessionOptions(seed);
-   if(typeof selectLevel==='function')selectLevel(state.level);
-   const session=CONTENT_VERT001.start(options);
-   APP.turn.mode=state.organization;settingsPatch({pawnMode:state.organization});save();
-   if(state.engine==='BOARD')CONTENT_VERT001.board(state.variant||'rotterdam');
-   else if(state.engine==='WHEEL')CONTENT_VERT001.wheel();
-   else if(state.engine==='CARDS')CONTENT_VERT001.cards();
-   else if(state.engine==='DICE')CONTENT_VERT001.dice();
-   else if(state.engine==='QUIZ')CONTENT_VERT001.quiz();
-   else if(state.engine==='SEQUENCE')CONTENT_VERT001.sequence();
-   return session;
-  }catch(error){toast(error.message||'Deze sessie kan niet worden gestart.');renderPage();return null}
+ function launch(session,{resume=false,progress=null}={}){
+  if(progress)LessonUI.validateProgress(progress,session);
+  ContentRuntime.restoreSession(session);delete root.contentRestoreError;APP.contentSessionConfig=structuredClone(session);
+  APP.turn.mode=session.organization_mode;settingsPatch({pawnMode:session.organization_mode});
+  if(!resume){APP.contentVert001Used={};APP.cardIndex=0;APP.contentDiceIndex=0;APP.contentDiceLastRoll=0;if(session.selected_game_engine==='BOARD'){const b=session.selected_game_variant||'rotterdam';APP.contentBoardBaseline??={};APP.contentBoardBaseline[b]??=structuredClone(APP.boardStates[b]||{});APP.boardStates[b]={};}}
+  if(progress)LessonUI.restoreProgress(progress);
+  const engine=session.selected_game_engine,variant=session.selected_game_variant;
+  const starts={BOARD:()=>startBoard(variant||'rotterdam'),WHEEL:()=>DigiActivities.start('draaiwiel'),CARDS:startContentCards,DICE:startContentDice,QUIZ:()=>DigiActivities.start('categorieenquiz'),SEQUENCE:()=>DigiActivities.start('rangschikken'),MATCH:()=>DigiActivities.start('koppelen'),MEMORY:()=>DigiActivities.start('memory'),SORT:()=>DigiActivities.start('sorteren'),RIDDLE:()=>DigiActivities.start('raad-het-woord')};
+  if(!starts[engine])throw new Error('Deze spelvorm kan nog niet vanuit je les worden gestart.');
+  starts[engine]();save();root.LessonUI?.checkpoint();return session;
  }
+ function start(seed){try{const session=ContentRuntime.createSession(sessionOptions(seed));launch(session);return session}catch(error){toast(error.message||'Deze sessie kan niet worden gestart.');renderPage();return null}}
+ function loadSelection(spec,p,{record=null}={}){externalSpec=ContentRuntime.normalizeSelection(spec);editing=record;state={...state,duration:p.target_duration_seconds,organization:p.organization_mode,engine:p.preferred_game_engine,variant:p.preferred_game_variant};goScreen('practice');renderPage()}
  function open(preset={}){
+  if(preset.family)setState({family:preset.family}, {render:false});
   if(preset.topic&&family()?.topics.some(x=>x.id===preset.topic))state.topic=preset.topic;
   if(preset.level&&topic()?.levels.includes(preset.level))state.level=preset.level;
   if(preset.engine){const e=engines().find(x=>x.id===preset.engine);state.engine=e?.id||null;state.variant=preset.variant&&e?.variants.some(v=>v.id===preset.variant)?preset.variant:e?.variants[0]?.id||null}
@@ -141,9 +157,9 @@
   const entry=e.target.closest('[data-practice-engine]');if(entry&&!entry.disabled){e.preventDefault();open({engine:entry.dataset.practiceEngine,variant:entry.dataset.practiceVariant});return}
  },true);
  document.addEventListener('click',e=>{
-  const launcher=e.target.closest('[data-board],[data-cardgame],[data-dicegame],[data-wordgame],[data-activity]');
-  if(launcher&&!launcher.closest('#screen-practice')&&ContentRuntime.activeSession?.())CONTENT_VERT001.stop();
+  const launcher=e.target.closest('[data-board],[data-cardgame],[data-dicegame],[data-wordgame],[data-activity],[data-library-board],[data-library-card],[data-library-word],[data-start-work],#startCabinetActivity');
+  if(launcher&&!launcher.closest('#screen-practice')&&(APP.contentSessionConfig||ContentRuntime.activeSession?.()))CONTENT_VERT001.stop();
  },true);
- try{if(APP.contentSessionConfig)CONTENT_VERT001.restore()}catch{delete APP.contentSessionConfig;delete APP.contentVert001Used;save()}
- root.ContentUI=Object.freeze({open,render:renderPage,start,sessionOptions,filters,availability,scopeError,engines,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
+ try{if(APP.contentSessionConfig)CONTENT_VERT001.restore()}catch(error){root.contentRestoreError=error;ContentRuntime.clearSession()}
+ root.ContentUI=Object.freeze({open,registerBank,launch,loadSelection,selectionSpec,preferences,editing:()=>editing,clearEditing:()=>{editing=null;externalSpec=null},render:renderPage,start,sessionOptions,filters,availability,scopeError,engines,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
 })(typeof globalThis!=='undefined'?globalThis:this);

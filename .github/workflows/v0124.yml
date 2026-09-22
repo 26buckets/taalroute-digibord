@@ -1,7 +1,7 @@
-name: DigiBord V01.24
+name: DigiBord
 on:
   pull_request:
-    branches: [main]
+    branches: [main, content-vert001-er-b1-runtime]
   push:
     branches: [main, release/digibord-v0124]
   workflow_dispatch:

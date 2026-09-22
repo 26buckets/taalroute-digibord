@@ -1,12 +1,12 @@
 {
   "name": "taalroute-digibord",
-  "version": "1.24.0",
+  "version": "1.25.0",
   "private": true,
   "scripts": {
-    "lint": "eslint match-pair-contract.js game-engine-registry.js interaction-renderer-registry.js content-runtime.js content-ui.js data/content-catalog.js context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
+    "lint": "eslint content-bank-adapters.js lesson-storage.js lesson-storage-adapter.js content-lessons.js storage-migration.js match-pair-contract.js game-engine-registry.js interaction-renderer-registry.js content-runtime.js content-ui.js data/content-catalog.js context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
     "types": "tsc --allowJs --checkJs --noEmit --target ES2022 --lib ES2022,DOM board-viewport.js",
-    "test": "node scripts/import-gram-pb001.cjs && node tests/gram-pb001-import.cjs && node tests/content-eng001.cjs && node tests/content-eng002.cjs && node tests/content-eng002-sequence.cjs && node tests/match-pair-contract.cjs && node tests/content-vert001.cjs && node scripts/words-content.cjs && node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/zwolle-route.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/words-content.cjs && node tests/wordspel-import.cjs && node scripts/c1-bank.cjs",
-    "smoke": "node tests/board-browser.cjs && node tests/content-vert001-browser.cjs && node tests/content-ui-browser.cjs",
+    "test": "node scripts/import-gram-pb001.cjs && node tests/gram-pb001-import.cjs && node tests/content-eng001.cjs && node tests/content-eng002.cjs && node tests/content-eng002-sequence.cjs && node tests/match-pair-contract.cjs && node tests/content-vert001.cjs && node scripts/words-content.cjs && node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/zwolle-route.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/words-content.cjs && node tests/wordspel-import.cjs && node scripts/c1-bank.cjs && node tests/v125-content.cjs && node tests/v125-storage.cjs && node scripts/dice-texture-assets.cjs",
+    "smoke": "node tests/board-browser.cjs && node tests/content-vert001-browser.cjs && node tests/content-ui-browser.cjs && node tests/v125-browser.cjs",
     "build": "node scripts/build.cjs",
     "test:words:browser": "node controle-ui001-browser.cjs",
     "test:activities": "node tests/activity-content.cjs && node tests/landing-activities.cjs",
