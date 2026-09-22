@@ -35,8 +35,10 @@ let browser;
  assert.equal(await page.locator('.practice-count strong').textContent(),'300');
 
  // ORDER is supported through the explicit text-order adapter and never silently redirected.
- await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'B1',subtopic:'all'}));
- await page.evaluate(()=>ContentUI.setState({focus:'order',duration:300}));
+ await page.locator('[name=topic]').selectOption('ER');
+ await page.locator('[name=level]').selectOption('B1');
+ await page.locator('label.practice-choice').filter({hasText:'Zin bouwen'}).click();
+ await page.locator('label.practice-choice').filter({hasText:'5 minuten'}).click();
  assert.equal(await page.locator('.practice-count strong').textContent(),'18');
  assert.equal(await page.locator('.practice-engine input:enabled').count(),3);
  await page.locator('.practice-engine').filter({hasText:'Kaarten'}).click();
