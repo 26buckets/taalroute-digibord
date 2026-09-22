@@ -190,7 +190,7 @@
   const filter=spec.filter_spec||{};
   const unsupported=Object.entries(filter).filter(([key,value])=>!['production_mode','difficulty','support_level','oral_or_written','exercise_focus_ids','exercise_types'].includes(key)&&value!=null&&value!==''&&!(Array.isArray(value)&&!value.length));
   assert(!unsupported.length,STATUS.BLOCKED_SELECTION_SPEC,'selection_spec bevat een filter dat de huidige runtime nog niet ondersteunt.',{keys:unsupported.map(([key])=>key)});
-  assert(scopes.length===1||scopes.every(s=>stableStringify(s.cefr_levels)===stableStringify(scopes[0].cefr_levels)),STATUS.BLOCKED_SELECTION_SPEC,'Meerdere scopes met verschillende niveaurelaties vereisen een toekomstige clause aware runtimeuitbreiding.');
+  assert(scopes.length===1,STATUS.BLOCKED_SELECTION_SPEC,'Meerdere scope_clauses worden wel opgeslagen, maar uitvoering wacht op de clause aware uitbreiding van de bestaande selectiemotor.');
   return {
    seed:overrides.seed,
    targetDurationSeconds:Number(overrides.targetDurationSeconds||preferences.target_duration_seconds),
@@ -343,7 +343,7 @@
     immutable_version_ref:[item.content_bank_id||'bank',id,item.version||'version',source.source_sha256||'source'].join(':'),
     content_hash:fingerprint({
      id,version:item.version,bank:item.content_bank_id,prompt:item.prompt,correct_answer:item.correct_answer,
-     model_answer:item.model_answer,review_status:item.review_status,publication_status:item.publication_status,rights_status:item.rights_status
+     model_answer:item.model_answer,accepted_answers:item.accepted_answers,explanation:item.explanation
     })
    };
    return Object.freeze(ref);
@@ -402,25 +402,26 @@
    };
    return save(OBJECT_TYPES.RECENT_SESSION,object,0);
   }
-  function validateRecentSession(object,actor,{requireProgress=false}={}){
+  function validateRecentSession(object,actor,{checkProgress=false}={}){
    const stored=validateStoredObject(OBJECT_TYPES.RECENT_SESSION,object,actor);if(stored.status!==STATUS.READY)return stored;
    if(object.revocation_status==='HARD_REVOKED'||object.resume_policy==='BLOCK')return{status:STATUS.BLOCKED_CONTENT_STATUS,reasons:['resume_blocked']};
    const refs=validateHistoricalContentRefs(object.selected_content_refs);if(refs.status!==STATUS.READY)return refs;
-   if(requireProgress||object.runtime_progress){
+   if(checkProgress){
     const progress=validateProgress(object.runtime_progress);if(progress.status!==STATUS.READY)return progress;
    }
    if(object.session_config_fingerprint!==fingerprint(object.session_config_snapshot))return{status:STATUS.BLOCKED_SCHEMA_VERSION,reasons:['session_config_fingerprint_mismatch']};
    return{status:STATUS.READY,reasons:[]};
   }
   function resumeRecentSession(id,{actor={}}={}){
-   const object=adapter.get(OBJECT_TYPES.RECENT_SESSION,id),validation=validateRecentSession(object,actor,{requireProgress:!!object?.runtime_progress});
+   const object=adapter.get(OBJECT_TYPES.RECENT_SESSION,id);if(object?.resume_policy!=='ALLOW_HISTORICAL')fail(STATUS.BLOCKED_PROGRESS_SCHEMA,'Deze sessie kan niet met oude spelvoortgang worden hervat.');
+   const validation=validateRecentSession(object,actor,{checkProgress:!!object?.runtime_progress});
    if(validation.status!==STATUS.READY)fail(validation.status,'Deze sessie kan niet worden hervat.',validation);
    const session=contentRuntime.restoreSession(clone(object.session_config_snapshot));
    return{sessionConfig:session,recentSession:clone(object),runtimeProgress:clone(object.runtime_progress)};
   }
   function newSessionId(base,kind){return String(base||'CONTENT')+'-'+kind+'-'+idFactory('S').replace(/^S_/,'')}
   function replayRecentSessionExact(id,{actor={},owner=null,selectedGameEngine,selectedGameVariant,startedAt}={}){
-   const old=adapter.get(OBJECT_TYPES.RECENT_SESSION,id),validation=validateRecentSession(old,actor);
+   const old=adapter.get(OBJECT_TYPES.RECENT_SESSION,id),validation=validateRecentSession(old,actor,{checkProgress:false});
    if(validation.status!==STATUS.READY)fail(validation.status,'Dezelfde opdrachten kunnen niet exact opnieuw worden gestart.',validation);
    const snapshot=clone(old.session_config_snapshot);snapshot.session_id=newSessionId(snapshot.session_id,'REPLAY');snapshot.started_at=startedAt||clock();
    if(selectedGameEngine&&selectedGameEngine!==snapshot.selected_game_engine)fail(STATUS.BLOCKED_COMPATIBILITY,'Exact opnieuw spelen gebruikt dezelfde spelvorm. Gebruik een nieuwe sessie voor een andere spelvorm.');
