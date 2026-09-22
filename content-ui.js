@@ -40,7 +40,7 @@
  function availability(){return scopeError()?emptyAvailability():ContentRuntime.availability(filters())}
  function compatibleEngineIds(){
   if(scopeError())return[];
-  const a=availability(),individually=engines().filter(e=>(a.engines[e.id]?.count||0)>0).map(e=>e.id);
+  const a=availability(),individually=engines().filter(e=>engineRegistry.supportsOrganization(e.id,state.organization)&&(a.engines[e.id]?.count||0)>0).map(e=>e.id);
   if(!individually.length)return[];
   return individually.filter(e=>ContentRuntime.eligibleItems(individually,filters()).length>0);
  }
