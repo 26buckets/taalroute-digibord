@@ -21,6 +21,28 @@ let browser;
  assert.equal(await page.locator('[name=level]').inputValue(),'B1');
  assert.equal(await page.locator('.practice-count strong').textContent(),'162');
  assert.equal(await page.locator('#practiceStart').isDisabled(),true,'game form is required');
+ assert.equal(await page.locator('[name=organization] option').count().catch(()=>0),0,'organization uses explicit choice buttons');
+ assert.equal(await page.locator('input[name=organization][value=pairs]').count(),1,'duo organization is available');
+
+ // Invalid topic and level never fall back to another scope.
+ await page.evaluate(()=>ContentUI.setState({level:'B2'}));
+ assert.equal(await page.locator('#practiceStart').isDisabled(),true);
+ assert.match(await page.locator('.practice-warning').textContent(),/niet vrijgegeven/i);
+ const invalidLevelError=await page.evaluate(()=>{try{ContentUI.sessionOptions(7);return''}catch(e){return e.message}});
+ assert.match(invalidLevelError,/niet vrijgegeven/i);
+ await page.evaluate(()=>ContentUI.setState({level:'B1'}));
+ await page.evaluate(()=>ContentUI.setState({topic:'NIET_BESTAAND'}));
+ assert.equal(await page.locator('#practiceStart').isDisabled(),true);
+ assert.match(await page.locator('.practice-warning').textContent(),/onderwerp is niet beschikbaar/i);
+ const invalidTopicError=await page.evaluate(()=>{try{ContentUI.sessionOptions(7);return''}catch(e){return e.message}});
+ assert.match(invalidTopicError,/onderwerp is niet beschikbaar/i);
+ await page.evaluate(()=>ContentUI.setState({topic:'ER'}));
+
+ // Duo is a real organization choice and is retained in SessionConfig.
+ await page.locator('label.practice-choice').filter({hasText:"Duo's"}).click();
+ const pairOptions=await page.evaluate(()=>{ContentUI.setState({engine:'BOARD',variant:'rotterdam'},{render:false});return ContentUI.sessionOptions(20260922)});
+ assert.equal(pairOptions.organizationMode,'pairs');
+ await page.locator('label.practice-choice').filter({hasText:'Klassikaal'}).click();
 
  // Content first.
  await page.locator('.practice-engine').filter({hasText:'Speelbord'}).click();
@@ -92,6 +114,17 @@ let browser;
  const cardId=await page.locator('.content-vert001-cards [data-content-item-id]').getAttribute('data-content-item-id');
  assert.equal(cardId,cardSession.selected_item_ids[0]);
  assert.equal(await page.locator('.content-vert001-cards h2').textContent(),await page.evaluate(id=>ContentRuntime.itemById(id).prompt,cardId));
+
+ // Duo mode also reaches the real board runtime.
+ await page.evaluate(()=>ContentUI.open({engine:'BOARD',variant:'rotterdam'}));
+ await page.locator('label.practice-choice').filter({hasText:"Duo's"}).click();
+ await page.locator('label.practice-choice').filter({hasText:'10 minuten'}).click();
+ await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
+ await page.locator('#practiceStart').click();
+ await page.waitForSelector('#screen-game.active .board-game');
+ assert.equal(await page.evaluate(()=>APP.contentSessionConfig.organization_mode),'pairs');
+ assert.match(await page.locator('.board-players-heading').textContent(),/Duo/);
+ assert.match(await page.locator('.turnzone .chip').first().textContent(),/Duo 1/);
 
  // Normal play exits the canonical content session before launching a standard game.
  await page.evaluate(()=>goScreen('boards'));
