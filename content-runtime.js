@@ -45,16 +45,19 @@
   return{compatible:true,reason:'supported',mode:'COMPATIBLE',adapter:null};
  }
  function normalizeFilters(filters={}){
-  const topics=list(filters.topics),levels=list(filters.levels),familyTags=list(filters.family_tags);
+  const topics=list(filters.topics),levels=list(filters.levels),familyTags=list(filters.family_tags),languageFunctions=list(filters.language_functions),exerciseTypes=list(filters.exercise_types);
+  const knownExercises=new Set(source.items.map(item=>item.exercise_type));
   if(topics.some(x=>!TOPICS.includes(x)))throw new Error('Ongeldig grammaticaonderwerp in contentselectie.');
   if(levels.some(x=>!LEVELS.includes(x)))throw new Error('Ongeldig niveau in contentselectie.');
   if(familyTags.some(x=>x!=='MODAAL'))throw new Error('Ongeldige contentfamilietag in contentselectie.');
+  if(languageFunctions.some(x=>!FUNCTIONS.includes(x)))throw new Error('Ongeldige grammaticale functie in contentselectie.');
+  if(exerciseTypes.some(x=>!knownExercises.has(x)))throw new Error('Ongeldige oefenvorm in contentselectie.');
   const production=filters.productive_or_receptive??'all',difficulty=filters.difficulty??'all';
   if(!['all','productief','receptief'].includes(production))throw new Error('Ongeldige productievorm in contentselectie.');
   if(!['all','basis','midden','hoog'].includes(difficulty))throw new Error('Ongeldige moeilijkheid in contentselectie.');
   return Object.freeze({
    topics:Object.freeze(topics),levels:Object.freeze(levels),family_tags:Object.freeze(familyTags),
-   language_functions:Object.freeze(list(filters.language_functions)),exercise_types:Object.freeze(list(filters.exercise_types)),
+   language_functions:Object.freeze(languageFunctions),exercise_types:Object.freeze(exerciseTypes),
    productive_or_receptive:production,difficulty
   });
  }
