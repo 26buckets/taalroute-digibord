@@ -124,6 +124,7 @@
   if(!Number.isFinite(Number(targetDurationSeconds))||Number(targetDurationSeconds)<=0)throw new Error('Ongeldige tijdsduur in contentselectie.');
   const f=normalizeFilters(filters),selected=selectItems({seed,targetDurationSeconds:Number(targetDurationSeconds),engines,filters:f}),ids=selected.map(item=>item.content_item_id);
   if(selectedGameEngine&&!engines.includes(selectedGameEngine))throw new Error('De gekozen spelvorm is niet compatibel met deze selectie.');
+  if(selectedGameEngine&&!engineRegistry.supportsOrganization(selectedGameEngine,organizationMode))throw new Error('De gekozen spelvorm ondersteunt deze organisatievorm niet.');
   const topic=sessionTopic(f,selectionTopic),level=f.levels.length===1?f.levels[0]:'MIX';
   return Object.freeze({
    session_id:'CONTENT-PB001-'+topic+'-'+level+'-'+String(seed)+'-'+ids.length,
