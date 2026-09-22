@@ -3,10 +3,10 @@
   "version": "1.24.0",
   "private": true,
   "scripts": {
-    "lint": "eslint context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
+    "lint": "eslint content-runtime.js content-ui.js data/content-catalog.js context-tools.js app.js new-activities.js data/new-activities.js words-activity.js curriculum.js board-viewport.js tests/*.cjs scripts/*.cjs",
     "types": "tsc --allowJs --checkJs --noEmit --target ES2022 --lib ES2022,DOM board-viewport.js",
-    "test": "node scripts/words-content.cjs && node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/zwolle-route.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/words-content.cjs && node tests/wordspel-import.cjs && node scripts/c1-bank.cjs",
-    "smoke": "node tests/board-browser.cjs",
+    "test": "node scripts/import-gram-pb001.cjs && node tests/gram-pb001-import.cjs && node tests/content-vert001.cjs && node tests/content-storage.cjs && node scripts/words-content.cjs && node scripts/check-banks.cjs && node controle.mjs && node words-activity.test.mjs && node tests/board-viewport.cjs && node tests/zwolle-route.cjs && node tests/curriculum-data.cjs && node tests/tongbrekers.cjs && node tests/language-review.cjs && node tests/words-content.cjs && node tests/wordspel-import.cjs && node scripts/c1-bank.cjs",
+    "smoke": "node tests/board-browser.cjs && node tests/content-vert001-browser.cjs && node tests/content-ui-browser.cjs && node tests/content-storage-browser.cjs",
     "build": "node scripts/build.cjs",
     "test:words:browser": "node controle-ui001-browser.cjs",
     "test:activities": "node tests/activity-content.cjs && node tests/landing-activities.cjs",
@@ -20,7 +20,9 @@
     "test:c1:browser": "node tests/c1-browser.cjs",
     "test:taalworp:browser": "node tests/taalworp-browser.cjs",
     "test:cards:browser": "node tests/card-layout-browser.cjs && node tests/card-reading-browser.cjs",
-    "test:level:browser": "node tests/shared-level-browser.cjs"
+    "test:level:browser": "node tests/shared-level-browser.cjs",
+    "check:gram": "node scripts/import-gram-pb001.cjs && node tests/gram-pb001-import.cjs && node tests/content-vert001.cjs",
+    "import:gram": "node scripts/import-gram-pb001.cjs --write"
   },
   "devDependencies": {
     "eslint": "9.39.4",

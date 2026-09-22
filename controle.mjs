@@ -37,7 +37,7 @@ console.log(`PASS: ${examples} example combinations without missing forms; separ
 
 // Finished players are skipped, progress is separate per mode, and a completed round resets.
 const tc=vm.createContext({mode:'individual',players:[{id:'p1',name:'Laila'},{id:'p2',name:'Daan'}],APP:{turn:{active:0},boardStates:{r:{positions:{p1:51,p2:20},finished:{},groupPositions:{g1:51,g2:20},groupFinished:{},classPos:51,round:1}}},save(){},toast(){}});
-vm.runInContext("function currentMode(){return mode} function participants(){return players} function settingsState(){return {groupCount:2}}",tc);
+vm.runInContext("function currentMode(){return mode} function participants(){return players} function settingsState(){return {groupCount:2}} function teamMode(value){return value==='groups'||value==='pairs'} function teamInfo(value,ppl=participants()){if(value==='pairs')return{count:Math.max(1,Math.ceil(ppl.length/2)),prefix:'d',label:'Duo'};return{count:settingsState().groupCount||4,prefix:'g',label:'Groep'}}",tc);
 vm.runInContext(source.slice(source.indexOf('function boardActiveActor('),source.indexOf('function boardRouteSvg(')),tc);
 vm.runInContext(source.slice(source.indexOf('function completeBoardTurn('),source.indexOf("/* Dobbelspellen */")),tc);
 vm.runInContext("completeBoardTurn('r',{finishPosition:51})",tc);assert.equal(tc.APP.turn.active,1);assert.equal(tc.APP.boardStates.r.finished.p1,true);
@@ -173,7 +173,7 @@ assert.ok(source.includes('playerPawn(p.color)'));assert.ok(source.includes('paw
 console.log('PASS: closed 26-surface dice, 48 shared edges without openings; six real language-form selections; shared pawn silhouette.');
 
 // Board footers retain a single roll target, undo button and mode selector.
-const footerContext=vm.createContext({participants:()=>[{name:'Ali',color:'#0088ff'},{name:'Fatima',color:'#ee3333'}],currentMode:()=> 'individual',APP:{turn:{active:0}},undoHistory:[],settingsState:()=>({}),playerPawn:()=>'<svg></svg>',gameIcon:()=>'<svg></svg>',esc:s=>s});
+const footerContext=vm.createContext({participants:()=>[{name:'Ali',color:'#0088ff'},{name:'Fatima',color:'#ee3333'}],currentMode:()=> 'individual',teamMode:value=>value==='groups'||value==='pairs',teamInfo:(value,ppl)=>value==='pairs'?{count:Math.max(1,Math.ceil(ppl.length/2)),prefix:'d',label:'Duo'}:{count:4,prefix:'g',label:'Groep'},APP:{turn:{active:0}},undoHistory:[],settingsState:()=>({}),playerPawn:()=>'<svg></svg>',gameIcon:()=>'<svg></svg>',esc:s=>s});
 vm.runInContext(source.slice(source.indexOf('function gameBar('),source.indexOf('function bindGameBar(')),footerContext);
 const boardFooter=vm.runInContext('gameBar(\'<button id="primaryGame">GOOIEN</button>\',true)',footerContext);
 const otherFooter=vm.runInContext('gameBar(\'<button id="primaryGame">GOOIEN</button>\')',footerContext);
@@ -342,7 +342,7 @@ console.log('PASS: board/button dice keep the angled view; learning dice remain 
 // Imported records replace stale saved task copies; partner/criterion reach the existing support area.
 const updatedTask=data.taskBank.cards.find(c=>c.id==='mx-2-dagelijks-04-diamond');
 const boardNodes=Object.fromEntries(['#taskSupport','#taskMeta','#taskTitle','#taskInput','#taskDrawer','.board-game','#primaryGame','#boardStatus'].map(id=>[id,{textContent:'',innerHTML:'',dataset:{},classList:{add(){}}}]));
-const importCtx=vm.createContext({APP:{last:{data:{board:'rotterdam'}},level:'A2',boardStates:{rotterdam:{pending:{task:{id:updatedTask.id,instruction:'Old instruction'}}}}},taskBank:data.taskBank,directBank:data.directBank,boardTaskCards:()=>data.taskBank.cards,selectedTaskRoute:()=>data.taskBank.routes[2],$:s=>boardNodes[s],openGameDialog(title,html){boardNodes['#taskSupport'].innerHTML=html},esc:s=>s,save(){},boardActiveActor:()=>({id:'p0',pos:2,name:'Laila'}),shapeMeta:()=>({symbol:'◇',task:'Regel iets'}),routeTask(){throw Error('Saved ID was lost')},currentMode:()=> 'individual'});
+const importCtx=vm.createContext({APP:{last:{data:{board:'rotterdam'}},level:'A2',boardStates:{rotterdam:{pending:{task:{id:updatedTask.id,instruction:'Old instruction'}}}}},taskBank:data.taskBank,directBank:data.directBank,boardTaskCards:()=>data.taskBank.cards,selectedTaskRoute:()=>data.taskBank.routes[2],contentVertSession:()=>null,$:s=>boardNodes[s],openGameDialog(title,html){boardNodes['#taskSupport'].innerHTML=html},esc:s=>s,save(){},boardActiveActor:()=>({id:'p0',pos:2,name:'Laila'}),shapeMeta:()=>({symbol:'◇',task:'Regel iets'}),routeTask(){throw Error('Saved ID was lost')},currentMode:()=> 'individual'});
 vm.runInContext(source.slice(source.indexOf('function showBoardSupport('),source.indexOf('async function animateBoardPath(')),importCtx);
 vm.runInContext("showBoardTask('rotterdam',{finishPosition:51});showBoardSupport('partner')",importCtx);
 assert.equal(boardNodes['#taskTitle'].textContent,updatedTask.instruction);

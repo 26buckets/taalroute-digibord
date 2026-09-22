@@ -3,6 +3,7 @@ window.DigiActivities = (() => {
  const content=window.DIGIBORD_ACTIVITIES, rounds={}, histories={};
  let kind, state, timer;
  const game=()=>content.games.find(g=>g[0]===kind);
+ const contentSession=()=>window.ContentRuntime?.activeSession?.()||null;
  const shuffled=list=>{const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
  const picture=label=>RUNTIME.storydice.icons.find(x=>x.label===label);
  const button=(action,arg,label,extra='')=>`<button type="button" class="na-choice" id="na-${action}-${arg}" data-na="${action}" data-value="${arg}" ${extra}>${label}</button>`;
@@ -17,14 +18,23 @@ window.DigiActivities = (() => {
    s.order=shuffled(content.sequences[round%content.sequences.length].steps.map((_,i)=>i));
    if(s.order.every((x,i)=>x===i))s.order.reverse();
   }
-  if(id==='draaiwiel'){const offset=(round%content.wheelTitles.length)*6;s.options=content.wheel.slice(offset,offset+6)}
+  if(id==='draaiwiel'){
+   const session=contentSession();
+   if(session){const pool=ContentRuntime.enginePool('WHEEL',session),count=Math.min(6,pool.length),offset=(round*count)%pool.length;s.contentSessionId=session.session_id;s.contentOptions=Array.from({length:count},(_,i)=>pool[(offset+i)%pool.length]).map(item=>({id:item.content_item_id,label:item.language_function.replaceAll('_',' '),prompt:item.prompt,model:item.model_answer}));s.options=s.contentOptions.map((entry,i)=>`${i+1}. ${entry.label}`)}
+   else{const offset=(round%content.wheelTitles.length)*6;s.options=content.wheel.slice(offset,offset+6)}
+  }
   return s;
  }
  function start(id,setId){
   if(!content.games.some(g=>g[0]===id))return;
   const setIndex=setId===undefined?-1:content.pictureSets.findIndex(s=>s.id===setId&&s.forms.includes(id));
   if(setId!==undefined&&setIndex<0)return;
-  clearTimeout(timer);kind=id;state=setIndex<0?(rounds[id]??=fresh(id)):(rounds[id]=fresh(id,setIndex));state.busy=false;
+  clearTimeout(timer);kind=id;
+  if(setIndex<0){
+   const existing=rounds[id],session=id==='draaiwiel'?contentSession():null,wrongWheelState=id==='draaiwiel'&&existing&&((session&&existing.contentSessionId!==session.session_id)||(!session&&existing.contentOptions));
+   state=wrongWheelState?(rounds[id]=fresh(id,existing.round||0)):(rounds[id]??=fresh(id));
+  }else state=rounds[id]=fresh(id,setIndex);
+  state.busy=false;
   if(setIndex>=0)histories[id]=[];else histories[id]??=[];
   setLast('activity',game()[1],{kind});render();goScreen('game');
  }
@@ -35,7 +45,8 @@ window.DigiActivities = (() => {
   if(kind==='draaiwiel'){
    const n=state.options.length,colors=['#176b9a','#39765c','#b57b20','#76569c','#a44932','#438d9b'];
    const gradient=state.options.map((_,i)=>`${colors[i%colors.length]} ${i*360/n}deg ${(i+1)*360/n}deg`).join(',');
-   return `<div class="na-wheel-layout"><div class="na-wheel-frame"><span class="na-pointer" aria-hidden="true"></span><div class="na-wheel" aria-hidden="true" style="background:conic-gradient(${gradient});transform:rotate(${state.rotation}deg)">${state.options.map((_,i)=>{const a=(i+.5)*Math.PI*2/n;return `<b style="left:${50+37*Math.sin(a)}%;top:${50-37*Math.cos(a)}%">${i+1}</b>`}).join('')}<span class="na-hub"></span></div></div><div class="na-wheel-result"><h2>${state.selected!==null&&!state.busy?esc(state.options[state.selected]):'Wat wordt het onderwerp?'}</h2><p>${state.busy?'Het wiel draait…':'Druk op Draaien of gebruik de spatiebalk.'}</p></div></div><ol class="na-wheel-legend">${state.options.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><button type="button" class="smallbtn" data-na="edit-wheel">Eigen onderwerpen</button>`;
+   const chosen=state.selected!==null&&!state.busy?state.contentOptions?.[state.selected]:null,result=chosen?chosen.prompt:(state.selected!==null&&!state.busy?state.options[state.selected]:'Wat wordt het onderwerp?'),edit=state.contentOptions?'':'<button type="button" class="smallbtn" data-na="edit-wheel">Eigen onderwerpen</button>';
+   return `<div class="na-wheel-layout"><div class="na-wheel-frame"><span class="na-pointer" aria-hidden="true"></span><div class="na-wheel" aria-hidden="true" style="background:conic-gradient(${gradient});transform:rotate(${state.rotation}deg)">${state.options.map((_,i)=>{const a=(i+.5)*Math.PI*2/n;return `<b style="left:${50+37*Math.sin(a)}%;top:${50-37*Math.cos(a)}%">${i+1}</b>`}).join('')}<span class="na-hub"></span></div></div><div class="na-wheel-result"><h2 ${chosen?`data-content-item-id="${esc(chosen.id)}"`:''}>${esc(result)}</h2><p>${state.busy?'Het wiel draait…':'Druk op Draaien of gebruik de spatiebalk.'}</p></div></div><ol class="na-wheel-legend">${state.options.map((x,i)=>`<li ${state.contentOptions?`data-content-item-id="${esc(state.contentOptions[i].id)}"`:''}>${esc(x)}</li>`).join('')}</ol>${edit}`;
   }
   if(kind==='memory')return `<div class="na-memory">${state.order.map((pair,i)=>{
    const open=state.revealed.includes(i)||state.done.includes(pair),matched=state.done.includes(pair);
@@ -110,7 +121,7 @@ window.DigiActivities = (() => {
   if(key==='Help')return help();
   const round=variants()[state.round%variants().length]||game()[1];
   const examples={
-   draaiwiel:()=>`Kies één onderwerp, bijvoorbeeld “${state.options[state.selected??0]}”. Vertel één eigen ervaring en laat je gesprekspartner doorvragen.`,
+   draaiwiel:()=>state.contentOptions?(state.contentOptions[state.selected??0]?.model||'Bekijk het mogelijke antwoord bij deze grammaticaopdracht.'):`Kies één onderwerp, bijvoorbeeld “${state.options[state.selected??0]}”. Vertel één eigen ervaring en laat je gesprekspartner doorvragen.`,
    memory:()=>`Als je twee kaarten met “${state.words[0]}” omdraait, heb je een paar. Benoem wat je ziet.`,
    koppelen:()=>`Bij een beeld van “${state.words[0]}” kies je het woord “${state.words[0]}”.`,
    sorteren:()=>{const c=content.sorting[state.round%content.sorting.length],item=c.items[state.order[state.done.length]??0];return `“${item[0]}” hoort bij “${c.groups[item[1]]}”. Bespreek samen waarom.`},
@@ -122,14 +133,14 @@ window.DigiActivities = (() => {
   const sections={Example:[['Bij deze ronde',key==='Example'?examples[kind]():'']],Goals:[['Doel',game()[5]],['Deze ronde',round],['Rollen',kind==='categorieenquiz'?'Het actieve team overlegt en kiest een antwoord. Het andere team luistert. Daarna wisselt de beurt.':'Eén deelnemer kiest of vertelt. De gesprekspartner luistert, vraagt door en denkt mee. Wissel na de beurt.']],Partner:[['Bij deze ronde',round],['Jouw rol',kind==='categorieenquiz'?'Overleg met je team voordat één van jullie het antwoord kiest. Leg daarna uit hoe jullie tot de keuze kwamen.':'Laat de ander eerst kiezen of vertellen. Vraag: waarom kies je dat? Wat herken je? Bespreek samen de uitkomst.'],['Gesprekstip',levelInstruction()]],More:[['Verder oefenen','Vertel waar je de woorden of de situatie uit deze ronde in je eigen leven tegenkomt.'],['Opnieuw','Je kunt deze ronde opnieuw beginnen. Terug herstelt je vorige stap.']]}[key];
   openGameDialog({Example:'Voorbeeld',Goals:'Doel en rollen',Partner:'Voor de gesprekspartner',More:'Meer bij deze ronde'}[key],sections.map(([title,text])=>`<h3>${esc(title)}</h3><p>${esc(text)}</p>`).join('')+(key==='More'?'<button class="smallbtn" id="naRestartRound">Ronde opnieuw beginnen</button>':''),()=>{if(key==='More')$('#naRestartRound').onclick=()=>{$('#gameDialog').close();action('restart')}});
  }
- function help(){openGameDialog(game()[1],`<p>${esc(game()[5])}</p><p>${esc({draaiwiel:'Gebruik Eigen onderwerpen om twee tot twaalf eigen keuzes in te vullen. Draaien kiest willekeurig één onderwerp.',memory:'Draai twee kaarten om. Een paar blijft zichtbaar. Gebruik Verder om twee verschillende kaarten weer om te draaien.',koppelen:'Selecteer links een beeld en rechts het juiste woord. Een verkeerd antwoord kun je opnieuw proberen.',sorteren:'Kies de juiste groep voor het woord. Bij een fout blijft het woord staan zodat je opnieuw kunt kiezen.',rangschikken:'Tik de stappen van begin tot eind aan. Tik een gekozen stap aan om hem terug te leggen. Controleer als alle stappen zijn gekozen.',categorieenquiz:'Selecteer Team 1 of Team 2, kies een vak en geef één antwoord. Goed: de punten van het vak. Fout: geen punten. Daarna is het andere team aan de beurt. Bij gelijkspel delen de teams de winst.','raad-het-woord':'Raad samen hardop of typ een antwoord. Vraag om nog een hint of toon het antwoord. Volgend woord start een nieuwe ronde.'}[kind])}</p><p>${esc(levelInstruction())}</p>`)}
- function next(){checkpoint();const options=state.options;state=rounds[kind]=fresh(kind,state.round+1);if(options)state.options=options;completeTurn();render('primaryGame')}
+ function help(){openGameDialog(game()[1],`<p>${esc(game()[5])}</p><p>${esc({draaiwiel:state.contentOptions?'Dit wiel gebruikt de actieve canonieke ER B1 contentsessie. De segmenten verwijzen naar dezelfde content IDs als BOARD en CARDS.':'Gebruik Eigen onderwerpen om twee tot twaalf eigen keuzes in te vullen. Draaien kiest willekeurig één onderwerp.',memory:'Draai twee kaarten om. Een paar blijft zichtbaar. Gebruik Verder om twee verschillende kaarten weer om te draaien.',koppelen:'Selecteer links een beeld en rechts het juiste woord. Een verkeerd antwoord kun je opnieuw proberen.',sorteren:'Kies de juiste groep voor het woord. Bij een fout blijft het woord staan zodat je opnieuw kunt kiezen.',rangschikken:'Tik de stappen van begin tot eind aan. Tik een gekozen stap aan om hem terug te leggen. Controleer als alle stappen zijn gekozen.',categorieenquiz:'Selecteer Team 1 of Team 2, kies een vak en geef één antwoord. Goed: de punten van het vak. Fout: geen punten. Daarna is het andere team aan de beurt. Bij gelijkspel delen de teams de winst.','raad-het-woord':'Raad samen hardop of typ een antwoord. Vraag om nog een hint of toon het antwoord. Volgend woord start een nieuwe ronde.'}[kind])}</p><p>${esc(levelInstruction())}</p>`)}
+ function next(){checkpoint();const options=state.options,contentOptions=state.contentOptions;state=rounds[kind]=fresh(kind,state.round+1);if(options&&!contentOptions)state.options=options;completeTurn();render('primaryGame')}
  function actPrimary(){
   if(primary()[1])return;
   if(kind==='draaiwiel'){
    checkpoint();state.busy=true;state.selected=Math.floor(Math.random()*state.options.length);const rotation=Math.ceil(state.rotation/360)*360+1080-(state.selected+.5)*360/state.options.length;
    $('#primaryGame').disabled=true;$('#activityUndo').disabled=true;$('#na-set').disabled=true;$('.na-wheel').style.transform=`rotate(${rotation}deg)`;state.rotation=rotation;$('#na-feedback').textContent='Het wiel draait…';
-   timer=setTimeout(()=>{state.busy=false;state.feedback=state.options[state.selected];if(APP.last?.type==='activity'&&APP.last.data.kind===kind&&$('#screen-game').classList.contains('active'))render('primaryGame')},settingsState().reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches?0:900);return;
+   timer=setTimeout(()=>{state.busy=false;state.feedback=state.contentOptions?.[state.selected]?.prompt||state.options[state.selected];if(APP.last?.type==='activity'&&APP.last.data.kind===kind&&$('#screen-game').classList.contains('active'))render('primaryGame')},settingsState().reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches?0:900);return;
   }
   if(kind==='memory'&&state.done.length!==state.words.length){checkpoint();state.revealed=[];completeTurn();feedback('Kies weer twee kaarten.');render();return}
   if(kind==='rangschikken'&&!state.correct){checkpoint();state.attempts++;state.correct=state.sequence.every((x,i)=>x===i);feedback(state.correct?'De volgorde klopt! Vertel nu alle stappen in je eigen woorden.':'De volgorde klopt nog niet. Leg een stap terug en probeer opnieuw.');render('primaryGame');return}
@@ -137,7 +148,7 @@ window.DigiActivities = (() => {
   next();
  }
  function editWheel(){
-  if(state.busy)return;
+  if(state.busy||state.contentOptions)return;
   openGameDialog('Eigen onderwerpen','<p>Schrijf één onderwerp per regel: 2 tot 12 onderwerpen, maximaal 48 tekens per onderwerp.</p><form id="na-wheel-form"><label for="na-wheel-input">Onderwerpen</label><textarea id="na-wheel-input" rows="8" maxlength="588"></textarea><p id="na-wheel-error" role="alert"></p><button class="primary" type="submit">Gebruik onderwerpen</button></form>',()=>{
    $('#na-wheel-input').value=state.options.join('\n');
    $('#na-wheel-form').onsubmit=e=>{e.preventDefault();const list=$('#na-wheel-input').value.split('\n').map(x=>x.trim()).filter(Boolean);if(list.length<2||list.length>12||list.some(x=>x.length>48)){ $('#na-wheel-error').textContent='Vul 2 tot 12 onderwerpen in, van maximaal 48 tekens per onderwerp.';return}checkpoint();state.options=list;state.custom=true;state.selected=null;state.rotation=0;feedback('Je eigen onderwerpen staan op het wiel.');$('#gameDialog').close();render('primaryGame')};

@@ -1,5 +1,6 @@
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),dist=path.join(root,'dist');
+require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'import-gram-pb001.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'check-banks.cjs'),root],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'words-content.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(root,'tests/tongbrekers.cjs')],{stdio:'inherit'});

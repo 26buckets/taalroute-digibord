@@ -12,12 +12,13 @@
 <link rel="stylesheet" href="landing-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="new-activities.css?v=0124-photo-activities">
 <link rel="stylesheet" href="context-tools.css?v=0124-context">
+<link rel="stylesheet" href="content-ui.css?v=content-ui001">
 </head>
 <body>
 <div id="app">
 <header id="appHeader">
   <div class="brand"><img class="header-brand-logo" src="assets/brand/taalroute.svg" alt="Taalroute"><div class="brand-sep"></div><div class="product">DigiBord</div></div>
-  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
+  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Oefenen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
   <div class="header-actions">
     <button class="curriculum-context" id="curriculumContext" type="button" popovertarget="curriculumPanel" aria-controls="curriculumPanel" aria-expanded="false" aria-label="Curriculum bekijken" title="Curriculum bekijken"><svg class="ui-icon curriculum-book-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg><span class="curriculum-button-label">Curriculum</span><svg class="curriculum-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     <label class="level-pill"><span class="sr-only">Niveau</span><select id="levelSelect" aria-label="Niveau"><option>Alpha A</option><option>Alpha B</option><option>Alpha C</option><option>A0</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
@@ -34,6 +35,7 @@
     <div class="hero">
       <h1>Kies je spel</h1>
       <p>Samen met taal aan de slag.</p>
+      <button type="button" class="practice-mobile-launch" data-practice-open>Oefenen <span>Stel je sessie samen</span></button>
       <div class="scribble">Taal opent<br>de wereld!</div>
     </div>
 
@@ -89,8 +91,15 @@
   </div>
 </section>
 
+<section class="screen content-practice-page" id="screen-practice">
+  <div class="practice-shell">
+    <div class="practice-head"><div><span class="eyebrow">Oefenen</span><h1>Stel je oefensessie samen</h1><p>Kies inhoud, niveau, focus, tijd en spelvorm. DigiBord gebruikt daarna één gedeelde sessieselectie.</p></div><button class="smallbtn" data-home>← Spelen</button></div>
+    <div id="contentPracticeApp"></div>
+  </div>
+</section>
+
 <section class="screen category activity-catalog" id="screen-workforms">
-  <div class="category-head"><div><h1>Meer manieren om te oefenen</h1></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="category-head"><div><h1>Meer manieren om te oefenen</h1></div><div class="category-head-actions"><button class="smallbtn" data-practice-engine="WHEEL">Kies inhoud voor draaischijf</button><button class="smallbtn" data-home>← Kies je spel</button></div></div>
   <div class="new-workforms" id="workformDecks"></div>
 </section>
 
@@ -100,7 +109,7 @@
 </section>
 
 <section class="screen category" id="screen-boards">
-  <div class="category-head"><div><h1>Speelborden</h1><p>Kies een wereld. Volg de route, gooi de dobbelsteen en maak samen taal.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="category-head"><div><h1>Speelborden</h1><p>Kies een wereld. Volg de route, gooi de dobbelsteen en maak samen taal.</p></div><div class="category-head-actions"><button class="smallbtn" data-practice-engine="BOARD">Kies inhoud voor speelbord</button><button class="smallbtn" data-home>← Kies je spel</button></div></div>
   <div class="tiles">
     <button class="tile" data-board="rotterdam"><div class="tile-img" style="background-image:url('assets/boards/rotterdam.png')"></div><div class="tile-body"><span class="status">Speelbaar · 52 posities</span><h3>Rotterdam</h3><p>Volg de gekleurde weg over beide bruggen of neem de watertaxi.</p></div></button>
     <button class="tile" data-board="zwolle"><div class="tile-img" style="background-image:url('assets/boards/zwolle-speelweg-v6.png')"></div><div class="tile-body"><span class="status">Speelbaar · 42 posities</span><h3>Zwolle</h3><p>Volg de gekleurde weg door de stadspoort en de tunnel. Via het houten bruggetje loop je naar de finish.</p></div></button>
@@ -116,7 +125,7 @@
 </section>
 
 <section class="screen category" id="screen-cards">
-  <div class="category-head"><div><h1>Kaartspellen</h1><p>Kies een kaart, vertel en reageer op elkaar.</p></div><button class="smallbtn" data-home>← Kies je spel</button></div>
+  <div class="category-head"><div><h1>Kaartspellen</h1><p>Kies een kaart, vertel en reageer op elkaar.</p></div><div class="category-head-actions"><button class="smallbtn" data-practice-engine="CARDS">Kies inhoud voor kaartspel</button><button class="smallbtn" data-home>← Kies je spel</button></div></div>
   <div class="tiles">
     <button class="tile" data-cardgame="conversation"><div class="tile-img" style="background-image:url('assets/landing/kaartspellen.png')"></div><div class="tile-body"><span class="status">Werkend</span><h3>Gespreksstarters</h3><p>Praat, luister en reageer met kaarten uit de bestaande opdrachtenbank.</p></div></button>
     <button class="tile" data-cardgame="mission"><div class="tile-img" style="background:linear-gradient(135deg,#dcecff,#f4eaff)"></div><div class="tile-body"><span class="status">Werkend</span><h3>Spreekmissies</h3><p>Praktische taalopdrachten met een concrete uitkomst.</p></div></button>
@@ -166,6 +175,9 @@
 <div class="settings-overlay" id="settingsOverlay"><iframe class="settings-frame" src="settings/index.html"></iframe></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div><dialog id="gameDialog"><div class="dialog-head"><h2 id="dialogTitle"></h2><button id="dialogClose" aria-label="Sluiten">×</button></div><div id="dialogBody"></div></dialog>
 <script src="data-bundle.js?v=0124-zwolle-diepte-kleur"></script>
+<script src="data/content-vert001-er-b1.js?v=content000-vert001"></script>
+<script src="content-runtime.js?v=content000-vert001"></script>\n<script src="content-storage.js?v=content-ui002b"></script>
+<script src="data/content-catalog.js?v=content-ui001"></script>
 <script src="data/c1-between-lines.js?v=001-frozen"></script>
 <script src="data/storydice.js?v=0124-verhaalworp-320"></script>
 <script src="data/tongbrekers.js?v=0124-tongue-240-audio"></script>
@@ -179,4 +191,5 @@
 <script src="app.js?v=plain-language-settings"></script>
 <script src="data/new-activities.js?v=0124-photo-activities"></script>
 <script src="new-activities.js?v=0124-photo-activities"></script>
+<script src="content-ui.js?v=content-ui001"></script>
 </body></html>
