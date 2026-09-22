@@ -122,6 +122,8 @@
  function createSession({seed=20260922,targetDurationSeconds=PROFILE.targetDurationSeconds,engines=PROFILE.engines,filters={},organizationMode='class',selectedGameEngine=null,selectedGameVariant=null,startedAt=null,selectionTopic=null}={}){
   if(!['class','groups','pairs','individual'].includes(organizationMode))throw new Error('Ongeldige organisatievorm in contentselectie.');
   if(!Number.isFinite(Number(targetDurationSeconds))||Number(targetDurationSeconds)<=0)throw new Error('Ongeldige tijdsduur in contentselectie.');
+  const unsupportedOrganization=engines.filter(engine=>!engineRegistry.supportsOrganization(engine,organizationMode));
+  if(unsupportedOrganization.length)throw new Error('Spelvorm ondersteunt deze organisatievorm niet: '+unsupportedOrganization.join(', '));
   const f=normalizeFilters(filters),selected=selectItems({seed,targetDurationSeconds:Number(targetDurationSeconds),engines,filters:f}),ids=selected.map(item=>item.content_item_id);
   if(selectedGameEngine&&!engines.includes(selectedGameEngine))throw new Error('De gekozen spelvorm is niet compatibel met deze selectie.');
   if(selectedGameEngine&&!engineRegistry.supportsOrganization(selectedGameEngine,organizationMode))throw new Error('De gekozen spelvorm ondersteunt deze organisatievorm niet.');
@@ -144,6 +146,7 @@
  function restoreSession(config){
   if(!config||config.content_bank_id!==PROFILE.bankId)throw new Error('Ongeldige opgeslagen GRAM PB 001 sessie.');
   const engines=[...config.game_engines],ids=[...config.selected_item_ids],filters=normalizeFilters(config.filters||{});
+  if(engines.some(engine=>!engineRegistry.supportsOrganization(engine,config.organization_mode||'class')))throw new Error('Opgeslagen sessie bevat een spelvorm die de organisatievorm niet ondersteunt.');
   for(const id of ids){
    const item=byId.get(id);if(!item)throw new Error('Opgeslagen sessie verwijst naar onbekend item: '+id);
    if(!engines.every(engine=>compatibility(item,engine).compatible))throw new Error('Opgeslagen sessie bevat nu incompatibel item: '+id);
