@@ -14,7 +14,7 @@ for(const id of ['QUIZ','MEMORY','MATCH','SORT','SEQUENCE','RIDDLE','TAALWORP','
 assert.equal(engines.get('MEMORY').classification,'GameEngine plus InteractionRenderer');
 assert.equal(engines.get('TAALWORP').classification,'GameEngine plus gespecialiseerd contentproduct');
 assert.equal(engines.get('WORDS').classification,'Contentproduct plus uitvoeringsmotor');
-assert.ok(engines.all().filter(x=>!x.contentSessionEnabled).length>=9,'specialized engines remain visible without false universal compatibility');
+assert.deepEqual(engines.all().filter(x=>!x.contentSessionEnabled).map(x=>x.id),['MEMORY','MATCH','SORT','SEQUENCE','RIDDLE','TAALWORP','STORY_DICE','WORDS'],'specialized engines remain visible without false universal compatibility');
 
 const rendererIds=renderers.all().map(x=>x.id).sort();
 assert.deepEqual(rendererIds,['CHOICE','OPEN_PROMPT','TEXT_INPUT','TEXT_ORDER']);
