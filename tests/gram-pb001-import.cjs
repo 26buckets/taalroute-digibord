@@ -36,4 +36,15 @@ assert.throws(()=>imp.validateSource(badReview),/review_status/);
 const badVersion=mutated(items=>{items[0].version='1.1'});
 assert.throws(()=>imp.validateSource(badVersion),/version/);
 assert.throws(()=>imp.rollback('../package.json'),/bank-backups/);
-console.log('PASS: GRAM PB 001 staging/projector parity, 1440 IDs, enums, MODAAL, source hash, conflict guards and rollback path guard.');
+
+const tmpRoot=path.join(root,'test-results','gram-imp002-temp');
+const tmpTarget=path.join(tmpRoot,'runtime.js'),tmpBackups=path.join(tmpRoot,'backups');
+fs.rmSync(tmpRoot,{recursive:true,force:true});fs.mkdirSync(tmpRoot,{recursive:true});
+fs.writeFileSync(tmpTarget,'OLD');
+const backup=imp.atomicWriteWithBackup('NEW',tmpTarget,tmpBackups,'test');
+assert.equal(fs.readFileSync(tmpTarget,'utf8'),'NEW');
+assert.ok(backup&&fs.existsSync(backup));assert.equal(fs.readFileSync(backup,'utf8'),'OLD');
+imp.safeRollback(backup,tmpTarget,tmpBackups);
+assert.equal(fs.readFileSync(tmpTarget,'utf8'),'OLD');
+fs.rmSync(tmpRoot,{recursive:true,force:true});
+console.log('PASS: GRAM PB 001 staging/projector parity, 1440 IDs, enums, MODAAL, source hash, conflict guards, atomic backup and executable rollback.');
