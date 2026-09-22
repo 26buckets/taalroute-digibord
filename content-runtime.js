@@ -104,7 +104,7 @@
    topic:PROFILE.topic,
    cefr_level:PROFILE.level,
    filters:f,
-   organization_mode:['class','groups','individual'].includes(organizationMode)?organizationMode:'class',
+   organization_mode:['class','groups','pairs','individual'].includes(organizationMode)?organizationMode:'class',
    selected_game_engine:selectedGameEngine,
    selected_game_variant:selectedGameVariant,
    game_engines:Object.freeze([...engines]),
