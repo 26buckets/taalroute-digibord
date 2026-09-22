@@ -55,6 +55,22 @@ let browser;
  });
  assert.equal(orderReport.count,18);assert.equal(orderReport.mode,'COMPATIBLE_WITH_ADAPTER');assert.equal(orderReport.adapter,'text_order');assert.ok(orderReport.tokens.length>=2);
 
+ // Existing Rangschikken engine executes the canonical IT_008_ORDER item directly.
+ await page.evaluate(()=>{CONTENT_VERT001.stop();CONTENT_VERT001.start({seed:777,targetDurationSeconds:300,engines:['BOARD','WHEEL','CARDS','DICE','SEQUENCE'],filters:{topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},selectionTopic:'ER',organizationMode:'class',selectedGameEngine:'SEQUENCE',selectedGameVariant:'rangschikken'});CONTENT_VERT001.sequence()});
+ await page.waitForSelector('#screen-game.active [data-content-item-id]');
+ const seqId=await page.locator('[data-content-item-id]').first().getAttribute('data-content-item-id');
+ const seqExpected=await page.evaluate(id=>window.ContentRuntime.project('SEQUENCE',window.ContentRuntime.itemById(id)).orderExpectedTokens,seqId);
+ const seqSession=await page.evaluate(()=>APP.contentSessionConfig);
+ assert.ok(seqSession.selected_item_ids.includes(seqId));
+ assert.ok(seqSession.selected_item_ids.every(id=>window.ContentRuntime.itemById(id).interaction_type==='IT_008_ORDER'));
+ const bankValues=await page.locator('.na-step-bank [data-na="step"]').evaluateAll(nodes=>nodes.map(n=>({i:Number(n.dataset.value),text:n.textContent.trim()})));
+ assert.deepEqual(new Set(bankValues.map(x=>x.text)),new Set(seqExpected));
+ for(let i=0;i<seqExpected.length;i++)await page.locator(`[data-na="step"][data-value="${i}"]`).click();
+ const chosen=await page.locator('.na-sequence [data-na="remove-step"]').evaluateAll(nodes=>nodes.map(n=>n.textContent.trim()));
+ assert.deepEqual(chosen,seqExpected);
+ await page.locator('#primaryGame').click();
+ await page.waitForFunction(()=>/De volgorde klopt!/.test(document.querySelector('#na-feedback')?.textContent||''));
+
  const modal=await page.evaluate(()=>window.ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS','DICE','QUIZ'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL',organizationMode:'groups'}));
  assert.equal(modal.topic,'MODAAL');assert.equal(modal.cefr_level,'B2');
  const modalTopics=await page.evaluate(ids=>[...new Set(ids.map(id=>window.ContentRuntime.itemById(id).topic))],modal.selected_item_ids);
@@ -101,5 +117,5 @@ let browser;
  assert.deepEqual(restored.selected_item_ids,saved.selected_item_ids);assert.equal(restored.topic,'ZOUDEN');assert.equal(restored.cefr_level,'A2');
 
  assert.deepEqual(errors,[]);
- console.log('PASS: full GRAM PB001 browser runtime across BOARD WHEEL CARDS DICE QUIZ, automatic and teacher-scored quiz paths, ORDER adapter, MODAAL and restore.');
+ console.log('PASS: full GRAM PB001 browser runtime across BOARD WHEEL CARDS DICE QUIZ SEQUENCE, automatic and teacher-scored quiz paths, canonical ORDER execution, MODAAL and restore.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});
