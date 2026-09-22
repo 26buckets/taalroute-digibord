@@ -40,7 +40,7 @@
   productionModes:[{id:'all',label:'Gemengd'},{id:'receptief',label:'Receptief'},{id:'productief',label:'Productief'}],
   difficulties:[{id:'all',label:'Gemengd'},{id:'basis',label:'Basis'},{id:'midden',label:'Gemiddeld'},{id:'hoog',label:'Uitdagend'}],
   durations:[{seconds:300,label:'5 minuten'},{seconds:600,label:'10 minuten'},{seconds:900,label:'15 minuten'},{seconds:1200,label:'20 minuten'}],
-  organizations:[{id:'class',label:'Klassikaal'},{id:'groups',label:'Groepen'},{id:'individual',label:'Individueel'}],
+  organizations:[{id:'class',label:'Klassikaal'},{id:'groups',label:'Groepen'},{id:'pairs',label:"Duo's"},{id:'individual',label:'Individueel'}],
   engines:[
    {id:'BOARD',label:'Speelbord',description:'Volg een route en krijg bij ieder oefenmoment een opdracht.',variants:[{id:'rotterdam',label:'Rotterdam'},{id:'zwolle',label:'Zwolle'}]},
    {id:'WHEEL',label:'Draaischijf',description:'Draai en open een opdracht uit dezelfde sessieselectie.',variants:[{id:'draaiwiel',label:'Draaischijf'}]},
