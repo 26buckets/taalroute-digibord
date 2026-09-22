@@ -20,7 +20,7 @@ window.DigiActivities = (() => {
   }
   if(id==='draaiwiel'){
    const session=contentSession();
-   if(session){const pool=ContentRuntime.enginePool('WHEEL',session),count=Math.min(6,pool.length),offset=(round*count)%pool.length;s.contentOptions=Array.from({length:count},(_,i)=>pool[(offset+i)%pool.length]).map(item=>({id:item.content_item_id,label:item.language_function.replaceAll('_',' '),prompt:item.prompt,model:item.model_answer}));s.options=s.contentOptions.map((entry,i)=>`${i+1}. ${entry.label}`)}
+   if(session){const pool=ContentRuntime.enginePool('WHEEL',session),count=Math.min(6,pool.length),offset=(round*count)%pool.length;s.contentSessionId=session.session_id;s.contentOptions=Array.from({length:count},(_,i)=>pool[(offset+i)%pool.length]).map(item=>({id:item.content_item_id,label:item.language_function.replaceAll('_',' '),prompt:item.prompt,model:item.model_answer}));s.options=s.contentOptions.map((entry,i)=>`${i+1}. ${entry.label}`)}
    else{const offset=(round%content.wheelTitles.length)*6;s.options=content.wheel.slice(offset,offset+6)}
   }
   return s;
@@ -29,7 +29,12 @@ window.DigiActivities = (() => {
   if(!content.games.some(g=>g[0]===id))return;
   const setIndex=setId===undefined?-1:content.pictureSets.findIndex(s=>s.id===setId&&s.forms.includes(id));
   if(setId!==undefined&&setIndex<0)return;
-  clearTimeout(timer);kind=id;state=setIndex<0?(rounds[id]??=fresh(id)):(rounds[id]=fresh(id,setIndex));state.busy=false;
+  clearTimeout(timer);kind=id;
+  if(setIndex<0){
+   const existing=rounds[id],session=id==='draaiwiel'?contentSession():null,wrongWheelState=id==='draaiwiel'&&existing&&((session&&existing.contentSessionId!==session.session_id)||(!session&&existing.contentOptions));
+   state=wrongWheelState?(rounds[id]=fresh(id,existing.round||0)):(rounds[id]??=fresh(id));
+  }else state=rounds[id]=fresh(id,setIndex);
+  state.busy=false;
   if(setIndex>=0)histories[id]=[];else histories[id]??=[];
   setLast('activity',game()[1],{kind});render();goScreen('game');
  }
