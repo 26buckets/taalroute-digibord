@@ -112,6 +112,7 @@
  }
  document.querySelector('[data-main="practice"]')?.addEventListener('click',()=>renderPage());
  document.addEventListener('click',e=>{
+  const direct=e.target.closest('[data-practice-open]');if(direct&&!direct.disabled){e.preventDefault();open();return}
   const entry=e.target.closest('[data-practice-engine]');if(entry&&!entry.disabled){e.preventDefault();open({engine:entry.dataset.practiceEngine,variant:entry.dataset.practiceVariant});return}
  },true);
  document.addEventListener('click',e=>{
