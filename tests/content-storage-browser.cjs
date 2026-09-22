@@ -18,7 +18,8 @@ let browser;
   const adapter=ContentStorage.createLocalStorageAdapter(localStorage,{key:'content002b-browser-test'});
   const service=ContentStorage.createContentStorageService({
    adapter,contentRuntime:ContentRuntime,
-   progressAdapters:{BOARD:{canResume:p=>p.progress_schema_version==='BOARD-PROGRESS-1'}}
+   progressAdapters:{BOARD:{canResume:p=>p.progress_schema_version==='BOARD-PROGRESS-1'}},
+   referenceResolvers:{game_variant:(refId,{engine}={})=>({BOARD:['rotterdam','zwolle'],WHEEL:['draaiwiel'],CARDS:['content-pb001']}[engine]||[]).includes(refId)}
   });
   const owner={owner_scope:'user',owner_ref:'local-user',created_by_ref:'local-user',visibility:'private',edit_policy:'owner_only'};
   const selection_spec={scope_clauses:[{scope_id:'scope-1',content_family_id:'grammar',content_bank_ids:['CB-GRAM-001'],topic_ids:['ER'],cefr_levels:['B1'],subtopic_ids:[],interaction_type_ids:[]}],filter_spec:{production_mode:'all',difficulty:'all',exercise_types:[]},distribution_spec:{mode:'equal'},compatibility_policy:'compatible_only'};
@@ -35,7 +36,7 @@ let browser;
  await page.reload();
  const second=await page.evaluate(ids=>{
   const adapter=ContentStorage.createLocalStorageAdapter(localStorage,{key:'content002b-browser-test'});
-  const service=ContentStorage.createContentStorageService({adapter,contentRuntime:ContentRuntime,progressAdapters:{BOARD:{canResume:p=>p.progress_schema_version==='BOARD-PROGRESS-1'}}});
+  const service=ContentStorage.createContentStorageService({adapter,contentRuntime:ContentRuntime,progressAdapters:{BOARD:{canResume:p=>p.progress_schema_version==='BOARD-PROGRESS-1'}},referenceResolvers:{game_variant:(refId,{engine}={})=>({BOARD:['rotterdam','zwolle'],WHEEL:['draaiwiel'],CARDS:['content-pb001']}[engine]||[]).includes(refId)}});
   const actor={owner_ref:'local-user'},owner={owner_scope:'user',owner_ref:'local-user',created_by_ref:'local-user',visibility:'private',edit_policy:'owner_only'};
   const saved=service.resolveSavedSelection(ids.savedId,{actor});
   const favorite=service.resolveFavorite(ids.favoriteId,{actor});
