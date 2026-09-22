@@ -16,7 +16,7 @@ let browser;
 
  const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',startedAt:'2026-09-22T08:00:00+02:00'}));
  assert.equal(session.topic,'ER');assert.equal(session.cefr_level,'B1');assert.ok(session.selected_item_ids.length>=6);
- assert.equal(await page.evaluate(ids=>ids.every(id=>{const x=ContentRuntime.itemById(id);return x.topic==='ER'&&x.cefr_level==='B1'}),session.selected_item_ids),true);
+ assert.equal(await page.evaluate(ids=>ids.every(id=>{const x=window.ContentRuntime.itemById(id);return x.topic==='ER'&&x.cefr_level==='B1'}),session.selected_item_ids),true);
  assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids);
 
  const boardIds=await page.evaluate(()=>{APP.contentVert001Used={};return Array.from({length:8},()=>routeTask(1,routeCache.rotterdam).contentItemId)});
@@ -30,23 +30,23 @@ let browser;
  const cardId=await page.locator('.content-vert001-cards [data-content-item-id]').getAttribute('data-content-item-id');
  assert.equal(cardId,session.selected_item_ids[0]);
  assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Grammatica ER · B1/);
- assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>ContentRuntime.itemById(id).prompt,cardId));
+ assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,cardId));
 
  const orderReport=await page.evaluate(()=>{
-  const pool=ContentRuntime.filterSource({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']});
-  const item=pool[0],projection=ContentRuntime.project('CARDS',item);
-  return {count:pool.length,mode:ContentRuntime.compatibility(item,'CARDS').mode,adapter:projection.adapter,tokens:projection.orderTokens};
+  const pool=window.ContentRuntime.filterSource({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']});
+  const item=pool[0],projection=window.ContentRuntime.project('CARDS',item);
+  return {count:pool.length,mode:window.ContentRuntime.compatibility(item,'CARDS').mode,adapter:projection.adapter,tokens:projection.orderTokens};
  });
  assert.equal(orderReport.count,18);assert.equal(orderReport.mode,'COMPATIBLE_WITH_ADAPTER');assert.equal(orderReport.adapter,'text_order');assert.ok(orderReport.tokens.length>=2);
 
- const modal=await page.evaluate(()=>ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL'}));
+ const modal=await page.evaluate(()=>window.ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL'}));
  assert.equal(modal.topic,'MODAAL');assert.equal(modal.cefr_level,'B2');
- const modalTopics=await page.evaluate(ids=>[...new Set(ids.map(id=>ContentRuntime.itemById(id).topic))],modal.selected_item_ids);
+ const modalTopics=await page.evaluate(ids=>[...new Set(ids.map(id=>window.ContentRuntime.itemById(id).topic))],modal.selected_item_ids);
  assert.deepEqual(new Set(modalTopics),new Set(['ZULLEN','ZOUDEN']));
 
- const openPolicy=await page.evaluate(()=>{const item=ContentRuntime.source.items.find(x=>x.openness==='open');return ContentRuntime.answerPolicy(item)});
+ const openPolicy=await page.evaluate(()=>{const item=window.ContentRuntime.source.items.find(x=>x.openness==='open');return window.ContentRuntime.answerPolicy(item)});
  assert.equal(openPolicy.requiresExactMatch,false);assert.equal(openPolicy.mode,'teacher_or_peer_review');
- const closedPolicy=await page.evaluate(()=>{const item=ContentRuntime.source.items.find(x=>x.openness==='gesloten');return ContentRuntime.answerPolicy(item)});
+ const closedPolicy=await page.evaluate(()=>{const item=window.ContentRuntime.source.items.find(x=>x.openness==='gesloten');return window.ContentRuntime.answerPolicy(item)});
  assert.equal(closedPolicy.mode,'canonical_answer');assert.ok(closedPolicy.canonicalAnswer);
 
  await page.evaluate(()=>CONTENT_VERT001.stop());
