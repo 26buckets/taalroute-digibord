@@ -15,7 +15,7 @@
   {id:'STORY_DICE',label:'Verhaalworp',description:'Gespecialiseerde beeldstenenmotor voor verhaalproductie.',classification:'GameEngine plus gespecialiseerd contentproduct',integrationStatus:'SPECIALIZED_PRODUCT',contentSessionEnabled:false,version:'V01.24',capabilities:['DICE','IMAGE','PROMPT','TURNS','TEAMS','PAIRS','INDIVIDUAL'],variants:[{id:'story',label:'Verhaalworp'}],existingSurface:'startStory'},
   {id:'WORDS',label:'Woorden en zinnen',description:'Eigen oefenproduct met meerdere interacties en een zelfstandige inhoudsbank.',classification:'Contentproduct plus uitvoeringsmotor',integrationStatus:'SPECIALIZED_PRODUCT',contentSessionEnabled:false,version:'V01.24',capabilities:['PROMPT','CHOICE','TEXT_INPUT','TEXT_ORDER','FEEDBACK'],variants:[{id:'words',label:'Woorden en zinnen'}],existingSurface:'startWords'}
  ];
- const map=new Map(definitions.map(x=>[x.id,Object.freeze({...x,capabilities:Object.freeze([...x.capabilities]),variants:Object.freeze(x.variants.map(v=>Object.freeze({...v})))}]));
+ const map=new Map(definitions.map(x=>[x.id,Object.freeze({...x,capabilities:Object.freeze([...x.capabilities]),variants:Object.freeze(x.variants.map(v=>Object.freeze({...v})))})]));
  function get(id){return map.get(id)||null}
  function all(){return Object.freeze([...map.values()])}
  function contentEngines(){return Object.freeze(all().filter(x=>x.contentSessionEnabled))}
