@@ -124,6 +124,7 @@
    else if(state.engine==='WHEEL')CONTENT_VERT001.wheel();
    else if(state.engine==='CARDS')CONTENT_VERT001.cards();
    else if(state.engine==='DICE')CONTENT_VERT001.dice();
+   else if(state.engine==='QUIZ')CONTENT_VERT001.quiz();
    return session;
   }catch(error){toast(error.message||'Deze sessie kan niet worden gestart.');renderPage();return null}
  }
