@@ -38,7 +38,7 @@ let browser;
  await page.locator('[name=topic]').selectOption('ER');
  await page.locator('[name=level]').selectOption('B1');
  await page.locator('label.practice-choice').filter({hasText:'Zin bouwen'}).click();
- await page.locator('label.practice-choice').filter({hasText:'5 minuten'}).click();
+ await page.locator('label.practice-choice').filter({hasText:/^5 minuten$/}).click();
  assert.equal(await page.locator('.practice-count strong').textContent(),'18');
  assert.equal(await page.locator('.practice-engine input:enabled').count(),3);
  await page.locator('.practice-engine').filter({hasText:'Kaarten'}).click();
