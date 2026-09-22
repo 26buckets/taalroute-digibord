@@ -256,7 +256,7 @@
   });
  }
 
- function createContentStorageService({adapter,contentRuntime,clock=nowIso,idFactory=defaultId,progressAdapters={}}={}){
+ function createContentStorageService({adapter,contentRuntime,clock=nowIso,idFactory=defaultId,progressAdapters={},referenceResolvers={}}={}){
   assert(adapter&&typeof adapter.get==='function'&&typeof adapter.put==='function',STATUS.BLOCKED_SCHEMA_VERSION,'StorageAdapter ontbreekt.');
   assert(contentRuntime&&typeof contentRuntime.createSession==='function'&&typeof contentRuntime.itemById==='function',STATUS.BLOCKED_SCHEMA_VERSION,'ContentRuntime ontbreekt.');
 
@@ -321,9 +321,27 @@
    const old=read(OBJECT_TYPES.SAVED_SELECTION,id,actor);assert(old,STATUS.BLOCKED_MISSING_REFERENCE,'Opgeslagen les bestaat niet.');assertEditable(old,actor);
    const result=adapter.remove(OBJECT_TYPES.SAVED_SELECTION,id,{expectedRevision});if(!result.ok)fail(result.code,'Dit object is intussen gewijzigd.',result);return result.removed;
   }
-  function resolveSavedSelection(id,{actor={}}={}){
-   const object=adapter.get(OBJECT_TYPES.SAVED_SELECTION,id);const validation=validateStoredObject(OBJECT_TYPES.SAVED_SELECTION,object,actor);
-   return{...validation,object:validation.status===STATUS.READY?clone(object):object?clone(object):null};
+  function assessSelectionExecution(object,{engines,selectedGameEngine,selectedGameVariant}={}){
+   try{
+    const effectiveEngines=engines||contentRuntime.PROFILE.engines;
+    const options=selectionSpecToRuntimeOptions(object.selection_spec,object.execution_preferences,{engines:effectiveEngines,selectedGameEngine,selectedGameVariant});
+    const chosen=options.selectedGameEngine;
+    if(chosen&&!effectiveEngines.includes(chosen))return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['selected_game_engine']};
+    if(chosen&&contentRuntime.ENGINE_VERSIONS&&!contentRuntime.ENGINE_VERSIONS[chosen])return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['unknown_game_engine']};
+    if(options.selectedGameVariant&&typeof referenceResolvers.game_variant==='function'&&!referenceResolvers.game_variant(options.selectedGameVariant,{engine:chosen}))return{status:STATUS.BLOCKED_MISSING_REFERENCE,reasons:['selected_game_variant']};
+    const pool=contentRuntime.eligibleItems(effectiveEngines,options.filters);
+    if(!pool.length)return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['empty_compatible_pool']};
+    const duration=pool.reduce((sum,item)=>sum+(item.estimated_duration_seconds||30),0);
+    if(duration<Number(options.targetDurationSeconds||0))return{status:STATUS.BLOCKED_CAPACITY,reasons:['insufficient_duration'],available_duration_seconds:duration};
+    if(chosen&&!contentRuntime.eligibleItems([chosen],options.filters).length)return{status:STATUS.BLOCKED_COMPATIBILITY,reasons:['selected_game_engine']};
+    return{status:STATUS.READY,reasons:[],available_count:pool.length,available_duration_seconds:duration};
+   }catch(error){return{status:error.code||STATUS.BLOCKED_SELECTION_SPEC,reasons:[error.message],details:error.details||{}}}
+  }
+  function resolveSavedSelection(id,{actor={},engines,selectedGameEngine,selectedGameVariant}={}){
+   const object=adapter.get(OBJECT_TYPES.SAVED_SELECTION,id),validation=validateStoredObject(OBJECT_TYPES.SAVED_SELECTION,object,actor);
+   if(validation.status!==STATUS.READY)return{...validation,object:object?clone(object):null};
+   const execution=assessSelectionExecution(object,{engines,selectedGameEngine,selectedGameVariant});
+   return{...execution,object:clone(object)};
   }
   function createSessionFromSelection(id,{actor={},seed,engines,selectedGameEngine,selectedGameVariant,startedAt}={}){
    const result=resolveSavedSelection(id,{actor});if(result.status!==STATUS.READY)fail(result.status,'Opgeslagen les kan niet worden gestart.',result);
@@ -459,7 +477,13 @@
    if(refType==='content_item'){
     const target=contentRuntime.itemById(refId);assert(target,STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel bestaat niet.');return target;
    }
-   return{ref_id:refId,ref_type:refType};
+   if(refType==='game_engine'){
+    const target=contentRuntime.ENGINE_VERSIONS?.[refId]?{ref_id:refId,ref_type:refType,version:contentRuntime.ENGINE_VERSIONS[refId]}:null;
+    assert(target,STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel bestaat niet.');return target;
+   }
+   const resolver=referenceResolvers[refType];
+   assert(typeof resolver==='function',STATUS.BLOCKED_MISSING_REFERENCE,'Voor dit favoriettype is geen referentieresolver aangesloten.',{ref_type:refType});
+   const target=resolver(refId,{actor});assert(target,STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel bestaat niet.');return target;
   }
   function addFavorite({ref_type,ref_id,label_override='',owner={},actor=null}={}){
    assert(FAVORITE_TYPES.has(ref_type),STATUS.BLOCKED_SCHEMA_VERSION,'Ongeldig favoriettype.');assert(nonEmptyString(ref_id),STATUS.BLOCKED_MISSING_REFERENCE,'Favorietdoel ontbreekt.');
@@ -516,7 +540,7 @@
    storeRecentSession,resumeRecentSession,replayRecentSessionExact,rerollRecentSession,archiveRecentSession,
    addFavorite,removeFavorite,resolveFavorite,
    createMixProfile,updateMixProfile,archiveMixProfile,resolveMixProfile,
-   validateStoredObject,validatePermissions:(object,actor)=>({read:actorCanRead(object,actor),edit:actorCanEdit(object,actor)}),
+   validateStoredObject,assessSelectionExecution,validatePermissions:(object,actor)=>({read:actorCanRead(object,actor),edit:actorCanEdit(object,actor)}),
    validatePrivacyPayload,validateHistoricalContentRefs,
    fingerprint,selectionSpecToRuntimeOptions,
    list:(type,actor={})=>adapter.list(type).filter(object=>actorCanRead(object,actor)).map(clone)
