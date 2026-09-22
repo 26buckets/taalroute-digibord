@@ -57,3 +57,5 @@ tests/content-storage.cjs controleert het domeincontract.
 tests/content-storage-browser.cjs controleert echte browseropslag, reload, resume, replay, reroll, privacy en revision conflicts.
 
 De volledige bestaande regressiesuite blijft verplicht.
+
+De regressiepoort draait tegen de volledige afhankelijke CONTENT stack.
