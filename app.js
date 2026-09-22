@@ -48,7 +48,12 @@ document.addEventListener('click',e=>{
  const actions={taskDone:['beurt afronden',false],takeTaxi:['watertaxi',false],stayOnRoad:['hoofdweg kiezen',false],twFinish:['beurt afronden',false],storyFinish:['beurt afronden',false],drawVerb:['kaart trekken',true],cardNext:['volgende kaart',true],cardDeck:['volgende kaart',true],wordNext:['volgende ronde',true]};
  if(actions[b.id])rememberAction(...actions[b.id]);
 },true);
-function currentMode(){const s=settingsState();return ['class','groups','individual'].includes(s.pawnMode)?s.pawnMode:(APP.turn.mode||'individual')}
+function currentMode(){const s=settingsState();return ['class','groups','pairs','individual'].includes(s.pawnMode)?s.pawnMode:(['class','groups','pairs','individual'].includes(APP.turn.mode)?APP.turn.mode:'individual')}
+function teamMode(mode){return mode==='groups'||mode==='pairs'}
+function teamInfo(mode,ppl=participants()){
+ if(mode==='pairs')return{count:Math.max(1,Math.ceil(ppl.length/2)),prefix:'d',label:'Duo'};
+ return{count:settingsState().groupCount||4,prefix:'g',label:'Groep'};
+}
 function goScreen(id){
  stopTongueAudio();
  if(id==='cards')return startCards(APP.cardKind||'conversation');
@@ -125,10 +130,13 @@ function cardFan(){return `<svg class="game-icon card-fan-icon" viewBox="0 0 32 
 function gameBar(primaryHtml,board=false){
  const ppl=participants(),mode=currentMode();let actorHtml='';
  if(mode==='class')actorHtml='<div class="chip active">Klassikaal</div>';
- else if(mode==='groups'){
-   const s=settingsState(),groupCount=s.groupCount||4,groups=Array.from({length:groupCount},(_,i)=>`Groep ${i+1}`);
-   const active=APP.turn.active%Math.max(1,groups.length),ordered=groups.slice(active).concat(groups.slice(0,active));
-   actorHtml=ordered.slice(0,4).map((g,i)=>`<div class="chip ${i===0?'active':''}">${g}</div>`).join('');
+ else if(teamMode(mode)){
+   const info=teamInfo(mode,ppl),teams=Array.from({length:info.count},(_,i)=>{
+    if(mode==='pairs'){const names=ppl.slice(i*2,i*2+2).map(p=>p.name);return names.length?`${info.label} ${i+1} · ${names.join(' + ')}`:`${info.label} ${i+1}`}
+    return `${info.label} ${i+1}`
+   });
+   const active=APP.turn.active%Math.max(1,teams.length),ordered=teams.slice(active).concat(teams.slice(0,active));
+   actorHtml=ordered.slice(0,4).map((g,i)=>`<div class="chip ${i===0?'active':''}">${esc(g)}</div>`).join('');
  }else{
    if(APP.turn.active>=ppl.length)APP.turn.active=0;
    const ordered=ppl.slice(APP.turn.active).concat(ppl.slice(0,APP.turn.active));
@@ -136,8 +144,8 @@ function gameBar(primaryHtml,board=false){
  }
  const tongue=APP.last?.type==='card'&&APP.cardKind==='tongue';
  const undo=`<button class="game-action undo-action" id="undoAction" ${undoHistory.length?'':'disabled'} aria-label="Vorige spelactie herstellen">${gameIcon('undo')}<span>Terug</span></button>`;
- const modeSelect='<select class="mode-select" id="modeSelect" aria-label="Spelmodus"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option></select>';
- return `<footer class="gamebar">${board?`<div class="board-players"><div class="board-players-heading"><span>${mode==='groups'?'Groepen':mode==='class'?'Samen spelen':'Spelers'}</span>${undo}</div><div class="turnzone">${actorHtml}</div></div>`:`<div class="turnzone">${modeSelect}${actorHtml}</div>`}<div class="primary-slot">${primaryHtml}</div><div class="right-actions">${board?'':undo}${tongue?'':`<button class="game-action" data-ghelp aria-label="Spelhulp" title="Hulp bij het spel">${gameIcon('help')}<span>Hulp</span></button><button class="game-action" data-grules>${gameIcon('rules')}<span>Spelregels</span></button>`}<button class="game-action" data-goptions>${gameIcon('options')}<span>${board?'Bordopties':'Opties'}</span></button></div></footer>`;
+ const modeSelect='<select class="mode-select" id="modeSelect" aria-label="Spelmodus"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option><option value="pairs">Duo\'s</option></select>';
+ return `<footer class="gamebar">${board?`<div class="board-players"><div class="board-players-heading"><span>${mode==='groups'?'Groepen':mode==='pairs'?"Duo's":mode==='class'?'Samen spelen':'Spelers'}</span>${undo}</div><div class="turnzone">${actorHtml}</div></div>`:`<div class="turnzone">${modeSelect}${actorHtml}</div>`}<div class="primary-slot">${primaryHtml}</div><div class="right-actions">${board?'':undo}${tongue?'':`<button class="game-action" data-ghelp aria-label="Spelhulp" title="Hulp bij het spel">${gameIcon('help')}<span>Hulp</span></button><button class="game-action" data-grules>${gameIcon('rules')}<span>Spelregels</span></button>`}<button class="game-action" data-goptions>${gameIcon('options')}<span>${board?'Bordopties':'Opties'}</span></button></div></footer>`;
 }
 function bindGameBar(primaryHandler){
  const sel=$('#modeSelect');
@@ -162,7 +170,7 @@ function bindGameBar(primaryHandler){
 function completeTurn(){
  const mode=currentMode(),ppl=participants();
  if(mode==='individual'&&ppl.length)APP.turn.active=(APP.turn.active+1)%ppl.length;
- if(mode==='groups'){const gc=settingsState().groupCount||4;APP.turn.active=(APP.turn.active+1)%Math.max(1,gc)}
+ if(teamMode(mode)){const info=teamInfo(mode,ppl);APP.turn.active=(APP.turn.active+1)%Math.max(1,info.count)}
  save();
 }
 function wait(ms){return new Promise(r=>setTimeout(r,ms))}
@@ -236,19 +244,19 @@ function diceFaceHtml(n){
 function boardActors(board){
  const s=APP.boardStates[board],ppl=participants(),mode=currentMode();
  if(mode==='class')return[{id:'class',name:'Klassikaal',color:'#0b87f3',pos:s.classPos||0,finished:false}];
- if(mode==='groups'){
-   const gc=settingsState().groupCount||4,colors=['#2389e8','#cf4d42','#4a8d69','#8165c7','#df9829','#269f9b'];
-   return Array.from({length:gc},(_,i)=>{const id='g'+(i+1);if(s.groupPositions[id]==null)s.groupPositions[id]=0;return{id,name:'Groep '+(i+1),color:colors[i%colors.length],pos:s.groupPositions[id],finished:!!s.groupFinished[id]}})
+ if(teamMode(mode)){
+   const info=teamInfo(mode,ppl),colors=['#2389e8','#cf4d42','#4a8d69','#8165c7','#df9829','#269f9b'];
+   return Array.from({length:info.count},(_,i)=>{const id=info.prefix+(i+1);if(s.groupPositions[id]==null)s.groupPositions[id]=0;return{id,name:info.label+' '+(i+1),color:colors[i%colors.length],pos:s.groupPositions[id],finished:!!s.groupFinished[id]}})
  }
  return ppl.map(p=>({id:p.id,name:p.name,color:p.color||'#2389e8',pos:s.positions[p.id]||0,finished:!!s.finished[p.id]}))
 }
 function boardActiveActor(board){
  const s=APP.boardStates[board],mode=currentMode(),ppl=participants();
  if(mode==='class')return{id:'class',name:'Klassikaal',pos:s.classPos||0};
- if(mode==='groups'){
-  const gc=settingsState().groupCount||4;
-  for(let step=0;step<gc;step++){const idx=(APP.turn.active+step)%gc,id='g'+(idx+1);if(!s.groupFinished[id]){APP.turn.active=idx;return{id,name:'Groep '+(idx+1),pos:s.groupPositions[id]||0}}}
-  return{id:'g1',name:'Groep 1',pos:s.groupPositions.g1||0}
+ if(teamMode(mode)){
+  const info=teamInfo(mode,ppl);
+  for(let step=0;step<info.count;step++){const idx=(APP.turn.active+step)%info.count,id=info.prefix+(idx+1);if(!s.groupFinished[id]){APP.turn.active=idx;return{id,name:info.label+' '+(idx+1),pos:s.groupPositions[id]||0}}}
+  const first=info.prefix+'1';return{id:first,name:info.label+' 1',pos:s.groupPositions[first]||0}
  }
  if(!ppl.length)return null;
  for(let step=0;step<ppl.length;step++){const idx=(APP.turn.active+step)%ppl.length,p=ppl[idx];if(!s.finished[p.id]){APP.turn.active=idx;return{id:p.id,name:p.name,pos:s.positions[p.id]||0}}}
@@ -290,7 +298,7 @@ function startBoard(board){
  <div class="board-hud"><strong>${esc(route.label||board[0].toUpperCase()+board.slice(1))}</strong><span>Ronde <b id="roundValue">${s.round}</b></span><span id="boardStatus">Spatie om te gooien</span></div>
  <aside class="board-options" id="boardOptions"><div class="board-options-head"><strong>Bordopties</strong><button id="closeBoardOptions" aria-label="Sluit bordopties">×</button></div>
  <div class="board-option-row board-exercise-choice">${boardOptionTitle('questionMode','Oefening',`Snelvragen: geef zelf antwoord op een korte vraag. Met gesprekspartner: voer samen een gesprek. Mix: beide soorten door elkaar. Voor het gekozen niveau zijn ${directBank.cards.filter(c=>c.routeId===selectedTaskRoute().id).length} snelvragen beschikbaar; de aangesloten snelvraagbank bevat ${directBank.cards.length} vragen in totaal.`)}<select class="mode-select" id="questionMode"><option value="direct">Snelvragen</option><option value="conversation">Met gesprekspartner</option><option value="mixed">Mix van beide</option></select></div>
- <div class="board-option-row">${boardOptionTitle('modeSelect','Speelmodus','Klassikaal: de hele klas speelt met één pion. Individueel: iedere deelnemer heeft een eigen pion en beurt. Groepen: iedere groep speelt met één pion. Deelnemers en groepen stel je in via Menu → Instellingen.')}<select class="mode-select" id="modeSelect"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option></select></div>
+ <div class="board-option-row">${boardOptionTitle('modeSelect','Speelmodus','Klassikaal: de hele klas speelt met één pion. Individueel: iedere deelnemer heeft een eigen pion en beurt. Duo's: telkens twee deelnemers spelen samen. Groepen: iedere groep speelt met één pion. Deelnemers en groepen stel je in via Menu → Instellingen.')}<select class="mode-select" id="modeSelect"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option><option value="pairs">Duo's</option></select></div>
  <div class="board-option-row"><button class="smallbtn" id="nextBoardTask">Andere opdracht</button>${boardOptionInfo('Andere opdracht','Toon een andere opdracht voor het huidige vak, niveau en de gekozen oefening. De pion blijft staan.')}</div>
  <fieldset class="footer-choices"><legend>Bordweergave</legend>${[['fixed','Groot houden','Het bord blijft groot als je een opdracht of de bordopties opent. Het paneel kan een deel van het bord bedekken.'],['adaptive','Alles zichtbaar','Het bord wordt kleiner als je een opdracht of de bordopties opent. Zo blijven het hele bord en het paneel naast elkaar zichtbaar.']].map(([value,label,tip])=>`<div class="board-choice-row"><label class="footer-choice"><input type="radio" name="boardFit" value="${value}" ${(settingsState().boardFit==='adaptive'?'adaptive':'fixed')===value?'checked':''}><span>${label}</span></label>${boardOptionInfo(label,tip)}</div>`).join('')}</fieldset>
  <fieldset class="footer-choices"><legend>Gooiknop ${boardOptionInfo('Gooiknop','Kies de blauwe knop met dobbelsteen of de rode ronde knop. Beide gebruiken dezelfde worpen en spelregels.')}</legend>${[['blue','Blauw · dobbelsteen'],['red','Rood · ronde knop']].map(([value,label])=>`<label class="footer-choice"><input type="radio" name="boardFooter" value="${value}" ${(settingsState().boardFooter==='red'?'red':'blue')===value?'checked':''}><span class="footer-swatch ${value}" aria-hidden="true">⚄</span><span>${label}</span></label>`).join('')}</fieldset>
@@ -414,19 +422,19 @@ $('#boardStatus').textContent=leg.mode==='boat'?'Varen naar de overkant…':'Wan
  }finally{if(mount.isConnected){boardBusy=false;$('#primaryGame').disabled=false;updateUndo()}}
 }
 
-function setBoardPos(s,mode,id,p){if(mode==='class')s.classPos=p;else if(mode==='groups')s.groupPositions[id]=p;else s.positions[id]=p}
+function setBoardPos(s,mode,id,p){if(mode==='class')s.classPos=p;else if(teamMode(mode))s.groupPositions[id]=p;else s.positions[id]=p}
 function completeBoardTurn(board,route){
  const s=APP.boardStates[board],mode=currentMode(),ppl=participants(),actor=boardActiveActor(board);
  if(mode==='class'){
   if(s.classPos>=route.finishPosition){s.round=(s.round||1)+1;s.classPos=0;toast(`Ronde ${s.round} gestart.`)}
   save();return
  }
- if(mode==='groups'){
-  const gc=settingsState().groupCount||4,current=Number(actor.id.replace(/\D/g,''))-1;
+ if(teamMode(mode)){
+  const info=teamInfo(mode,ppl),current=Number(actor.id.replace(/\D/g,''))-1;
   if((s.groupPositions[actor.id]||0)>=route.finishPosition)s.groupFinished[actor.id]=true;
-  const open=[];for(let i=0;i<gc;i++){const id='g'+(i+1);if(!s.groupFinished[id])open.push(i)}
+  const open=[];for(let i=0;i<info.count;i++){const id=info.prefix+(i+1);if(!s.groupFinished[id])open.push(i)}
   if(!open.length){
-   s.round=(s.round||1)+1;s.groupFinished={};for(let i=0;i<gc;i++)s.groupPositions['g'+(i+1)]=0;APP.turn.active=0;toast(`Alle groepen zijn binnen. Ronde ${s.round} start bij START.`)
+   s.round=(s.round||1)+1;s.groupFinished={};for(let i=0;i<info.count;i++)s.groupPositions[info.prefix+(i+1)]=0;APP.turn.active=0;toast(`Alle ${mode==='pairs'?'duo\'s':'groepen'} zijn binnen. Ronde ${s.round} start bij START.`)
   }else{
    let next=open.find(i=>i>current);if(next==null)next=open[0];APP.turn.active=next
   }
