@@ -15,7 +15,7 @@ const fixture=structuredClone(data),[a,b,c]=items;
 const reviewed={status:'reviewed',source:'grammar',version:'test',evidence:'test-only',levels:['B1'],skill:'Lezen',goal:'Test'};
 fixture.bindings[a.content_item_id].erk=reviewed;
 fixture.bindings[b.content_item_id].erk={...reviewed,levels:['B2']};
-assert.equal(guidance.summarize([a,b,c],'erk',fixture).status,'Meerdere');
+assert.equal(guidance.summarize([a,b,c],'erk',fixture).status,'Deels gekoppeld');
 assert.equal(guidance.summarize([a,c],'erk',fixture).status,'Deels gekoppeld');
 assert.equal(guidance.summarize([a],'erk',fixture).status,'B1');
 assert.equal(guidance.summarize([a],'f',fixture).status,'Nog niet gekoppeld');

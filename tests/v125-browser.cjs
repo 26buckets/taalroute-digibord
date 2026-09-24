@@ -1,3 +1,4 @@
+const controls=require('./practice-controls.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
@@ -6,11 +7,11 @@ let browser;
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});const page=await browser.newPage({viewport:{width:1920,height:1080},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>{errors.push(e.stack);console.error(e.stack)});
  await page.addInitScript(()=>{if(!localStorage.getItem('v125-test-seeded')){localStorage.setItem('taalroute-digibord-v020',JSON.stringify({level:'A2',turn:{mode:'class',active:0},boardStates:{rotterdam:{classPos:9,round:2}},storyLocks:{0:true}}));localStorage.setItem('taalroute-poc0141-settings',JSON.stringify({participants:[{id:'p1',name:'Privénaam',present:true}],pawnMode:'class',groupCount:2}));localStorage.setItem('v125-test-seeded','1')}});
- await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.waitForFunction(()=>window.ContentUI&&window.LessonUI);
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.waitForFunction(()=>window.ContentUI&&window.LessonUI);
  const backup=await page.evaluate(()=>JSON.parse(localStorage.getItem('taalroute-v0124-backup-before-v0125')));assert.equal(JSON.parse(backup.values['taalroute-digibord-v020']).boardStates.rotterdam.classPos,9);
- await page.locator('[data-main="practice"]').click();await page.locator('[name=family]').selectOption('words');
- assert.equal(await page.locator('[name=level]').inputValue(),'A0→A1');assert.equal(await page.evaluate(()=>ContentUI.state().difficulty),'basis');
- await page.locator('.practice-engine:has(input[value="CARDS"])').click();await page.locator('[name=duration][value="300"]').check({force:true});
+ await page.locator('[data-main="practice"]').click();await controls.topic(page,'WZ_001');await controls.level(page,'A0→A1');
+ assert.equal(await page.evaluate(()=>ContentUI.state().level),'A0→A1');assert.equal(await page.evaluate(()=>ContentUI.state().difficulty),'basis');
+ await controls.game(page,'.practice-engine:has(input[value="CARDS"])');await page.locator('select[name=duration]').selectOption('300');
  await page.locator('#practiceSave').click();await page.locator('#lessonName').fill('Mijn eerste WZ-les');await page.locator('#lessonSaveForm .primary').click();await page.waitForFunction(()=>!document.querySelector('#gameDialog').open);
  const saved=await page.evaluate(async()=> (await LessonUI.service.list('saved_selection'))[0]);assert.equal(saved.name,'Mijn eerste WZ-les');assert.equal(saved.selected_item_ids,undefined);
  await page.locator('#practiceStart').click();await page.waitForSelector('.content-vert001-cards');await page.locator('#primaryGame').click();await page.locator('#undoAction').click();assert.equal(await page.evaluate(()=>APP.cardIndex),0);await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());
@@ -19,7 +20,7 @@ let browser;
  await page.reload();await page.locator('[data-main="lessons"]').click();await page.waitForSelector('[data-lesson-action="resume"]');await page.locator('[data-lesson-action="resume"]').click();await page.waitForSelector('.content-vert001-cards');
  assert.equal(await page.evaluate(()=>APP.cardIndex),1);assert.equal(await page.evaluate(()=>ContentRuntime.activeSession().session_id),before.session.session_id);
  await page.locator('[data-main="lessons"]').click();await page.waitForSelector('[data-lesson-action="replay"]');await page.locator('[data-lesson-action="replay"]').first().click();await page.waitForSelector('.content-vert001-cards');assert.equal(await page.evaluate(()=>APP.cardIndex),0);assert.notEqual(await page.evaluate(()=>ContentRuntime.activeSession().session_id),before.session.session_id);
- await page.evaluate(()=>ContentUI.open());await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1'}));await page.evaluate(()=>ContentUI.setState({focus:'all',difficulty:'all',duration:300,engine:'MATCH',variant:'koppelen'}));await page.locator('[data-practice-focus=correct]').click();
+ await page.evaluate(()=>ContentUI.open());await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1'}));await page.evaluate(()=>ContentUI.setState({focus:'all',difficulty:'all',duration:300,engine:'MATCH',variant:'koppelen'}));await controls.openStep(page,'game');await page.locator('[data-practice-focus=correct]').click();
  await page.locator('#practiceStart').click();await page.waitForSelector('.na-pairs .na-pair-text');const pairs=await page.locator('.na-pairs [data-content-item-id]').count();assert.ok(pairs>=2);
  await page.locator('#na-select-0').click();await page.locator('#na-match-0').click();await page.evaluate(()=>LessonUI.flush());const pairProgress=await page.evaluate(()=>DigiActivities.exportProgress());assert.deepEqual(pairProgress.done,[0]);
  await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('.na-pairs .na-pair-text');assert.deepEqual(await page.evaluate(()=>DigiActivities.exportProgress().done),[0]);
@@ -34,9 +35,11 @@ let browser;
 
  for(let pair=1;pair<order.length/2;pair++){for(const i of order.map((token,i)=>Math.floor(token/2)===pair?i:-1).filter(i=>i>=0))await page.locator('#na-flip-'+i).click()}
  await page.locator('#primaryGame').click();assert.equal(await page.evaluate(()=>DigiActivities.exportProgress().round),1);
- await page.evaluate(()=>ContentUI.open());await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1'}));await page.evaluate(()=>ContentUI.setState({focus:'sort',duration:300,engine:'SORT',variant:'sorteren'}));await page.locator('#practiceStart').click();await page.waitForSelector('.na-sort-result');
+ // Reviewed meaning questions replace new grammar sorting; earlier sorting lessons remain playable.
+ const old=require('../content-runtime.js').createContentRuntime(require('../data/content-vert001-er-b1.js'),{familyId:'grammar'}),oldSort=old.createSession({filters:{topics:['ZULLEN','ZOUDEN'],levels:['B1'],exercise_types:['functie_sorteren']},targetDurationSeconds:300,organizationMode:'groups',engines:['SORT'],selectedGameEngine:'SORT',selectedGameVariant:'sorteren',seed:61});
+ await page.evaluate(session=>ContentUI.launch(ContentRuntime.restoreSession(session)),oldSort);await page.waitForSelector('.na-sort-result');
 
- for(let n=0;n<6;n++){const answer=await page.evaluate(()=>{const el=document.querySelector('.na-word[data-content-item-id]');if(!el)return null;const item=ContentRuntime.itemById(el.dataset.contentItemId);return [...document.querySelectorAll('.na-options [data-na=sort]')].findIndex(b=>b.textContent===item.correct_answer)});if(answer===null)break;await page.locator('#na-sort-'+answer).click()}
+ for(let n=0;n<6;n++){const answer=await page.evaluate(()=>{const el=document.querySelector('.na-word[data-content-item-id]');if(!el)return null;const item=ContentRuntime.itemForSession(el.dataset.contentItemId,APP.contentSessionConfig);return [...document.querySelectorAll('.na-options [data-na=sort]')].findIndex(b=>b.textContent===item.correct_answer)});if(answer===null)break;await page.locator('#na-sort-'+answer).click()}
  await page.locator('#primaryGame').click();assert.equal(await page.evaluate(()=>DigiActivities.exportProgress().round),1);
  await page.evaluate(()=>ContentUI.open({family:'words',engine:'WHEEL'}));await page.evaluate(()=>ContentUI.setState({duration:300}));await page.locator('#practiceStart').click();await page.locator('#primaryGame').click();await page.waitForFunction(()=>document.querySelector('.na-wheel-result [data-content-item-id]'));assert.equal(await page.locator('#levelSelect').inputValue(),'A0→A1');
  await page.evaluate(()=>ContentUI.open({family:'riddles',engine:'RIDDLE'}));await page.evaluate(()=>ContentUI.setState({duration:300}));await page.locator('#practiceStart').click();await page.waitForSelector('.na-clues[data-content-item-id]');await page.locator('#na-guess').fill('Mijn eigen antwoord');await page.locator('#na-guess-form button').click();await page.waitForFunction(()=>/Vergelijk|Bespreek/i.test(document.querySelector('#na-feedback').textContent));

@@ -1,0 +1,477 @@
+{
+  "version": "2026-09-23.1",
+  "source_sha256": "71e8ff0a4786c9a466399b8070657e845296cc542688aa7345933ffd04393451",
+  "scope": "Eigen redactie en voorlopig niveauadvies per keuzevraag; geen formele niveautoets of klasproef.",
+  "items": [
+    {
+      "id": "C1_AL_001",
+      "title": "Precies",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_002",
+      "title": "Dat snap ik",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_003",
+      "title": "Daar zit wat in",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_AL_004",
+      "title": "Dat kan ik volgen",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "REDACTIE",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen.",
+      "proposed_edit": {
+        "field": "attention",
+        "text": "Begrijpen en instemmen zijn niet hetzelfde.",
+        "reason": "Het losse label C1 in de uitleg suggereert een niveau dat deze herkenningsvraag niet aantoont."
+      }
+    },
+    {
+      "id": "C1_AL_005",
+      "title": "Inderdaad",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_006",
+      "title": "Zeker",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_007",
+      "title": "Dat is waar",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_AL_008",
+      "title": "Dat ligt eraan",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_009",
+      "title": "Op zich wel",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_AL_010",
+      "title": "Tot op zekere hoogte",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_AL_011",
+      "title": "Ik begrijp wat je bedoelt",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_012",
+      "title": "Ja, maar",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_013",
+      "title": "Dat weet ik zo net nog niet",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_AL_014",
+      "title": "Daar heb je een punt",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_AL_015",
+      "title": "Ik hoor wat je zegt",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_016",
+      "title": "Daar kan ik me in vinden",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_INT_017",
+      "title": "Ik denk dat je daar gelijk in hebt",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_018",
+      "title": "Dat lijkt me een redelijke conclusie",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_019",
+      "title": "Daar zou ik wel een kanttekening bij willen plaatsen",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_020",
+      "title": "Ik zie dat toch iets anders",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_021",
+      "title": "Daar ben ik nog niet helemaal van overtuigd",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_022",
+      "title": "Volgens mij ligt het iets genuanceerder",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_023",
+      "title": "Dat gaat me wat te ver",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_024",
+      "title": "Dat is één manier om ernaar te kijken",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_INT_025",
+      "title": "Ik vraag me af of dat helemaal opgaat",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "REDACTIE",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd.",
+      "proposed_edit": {
+        "field": "explanation",
+        "text": "Met deze formulering uit de spreker vaak beleefd twijfel of bezwaar.",
+        "reason": "‘De zin heeft de vorm van een vraag’ is onzuiver: ‘Ik vraag me af ...’ is hier geen rechtstreeks gestelde vraag."
+      }
+    },
+    {
+      "id": "C1_REG_026",
+      "title": "Mag ik daar even op inhaken?",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_REG_027",
+      "title": "Als ik daar iets aan mag toevoegen",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_REG_028",
+      "title": "Om daar nog even op terug te komen",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_REG_029",
+      "title": "Mag ik je daar even onderbreken?",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_REG_030",
+      "title": "Even voor mijn begrip",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_REG_031",
+      "title": "Als ik je goed begrijp...",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_REG_032",
+      "title": "Volgens mij lopen er nu twee dingen door elkaar",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_REG_033",
+      "title": "Misschien moeten we eerst één punt afmaken",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_REG_034",
+      "title": "Laat ik het even samenvatten",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_REG_035",
+      "title": "Zullen we dit punt afronden?",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "REDACTIE",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd.",
+      "proposed_edit": {
+        "field": "options.A",
+        "text": "Dat de spreker de bespreking van dit punt wil beëindigen.",
+        "reason": "Maak duidelijk dat afronden over dit agendapunt gaat, niet noodzakelijk over het hele overleg."
+      }
+    },
+    {
+      "id": "C1_VER_036",
+      "title": "Laten we dit even parkeren",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_VER_037",
+      "title": "We moeten nu de knoop doorhakken",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_VER_038",
+      "title": "Kunnen we dit concreet maken?",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_VER_039",
+      "title": "Wie pakt dit op?",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_VER_040",
+      "title": "Daar komen we later op terug",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_VER_041",
+      "title": "Laten we eerst de hoofdlijn vasthouden",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_VER_042",
+      "title": "Daar moeten we nog een besluit over nemen",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_VER_043",
+      "title": "Ik stel voor dat we dit doorschuiven",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_VER_044",
+      "title": "Kunnen we hier een actiepunt van maken?",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_VER_045",
+      "title": "Volgens mij is dit voldoende besproken",
+      "source_level": "C1",
+      "advised_level": "B1",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag; alledaagse reactie of duidelijke gesprekshandeling; situatie helpt het antwoord kiezen."
+    },
+    {
+      "id": "C1_IMP_046",
+      "title": "Interessante keuze",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_IMP_047",
+      "title": "Dat is ambitieus",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_IMP_048",
+      "title": "Dat is niet helemaal wat ik voor ogen had",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "REDACTIE",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd.",
+      "proposed_edit": {
+        "field": "question",
+        "text": "Welke boodschap kan achter deze voorzichtige formulering zitten?",
+        "reason": "De oorspronkelijke vraag ‘Wat kan de boodschap sterker zijn ...’ is grammaticaal onjuist."
+      }
+    },
+    {
+      "id": "C1_IMP_049",
+      "title": "Daar moeten we nog even naar kijken",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    },
+    {
+      "id": "C1_IMP_050",
+      "title": "Als jij denkt dat dat werkt...",
+      "source_level": "C1",
+      "advised_level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; niet gekalibreerd",
+      "decision": "BRUIKBAAR_MET_PASSEND_NIVEAU",
+      "reason": "Korte herkenningsvraag over nuance, figuurlijk taalgebruik of gespreksfunctie; antwoordkeuzes en situatie geven steun. Geen zelfstandige C1-prestatie gevraagd."
+    }
+  ]
+}

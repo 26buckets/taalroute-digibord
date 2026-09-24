@@ -13,9 +13,9 @@ window.DigiActivities = (() => {
  function buildContentQuiz(session){
   const pool=ContentRuntime.enginePool('QUIZ',session),functions=[...new Set(pool.map(item=>item.language_function))],primary=functions.length<=5?functions:functions.slice(0,4),counts={};
   return pool.map(item=>{
-   const projection=ContentRuntime.project('QUIZ',item),policy=projection.answerPolicy,options=[...(item.options||[])],answer=options.findIndex(option=>option===item.correct_answer),rawCategory=primary.includes(item.language_function)?item.language_function:'mix',category=quizLabel(rawCategory);
+   const projection=ContentRuntime.project('QUIZ',item),policy=projection.answerPolicy,options=[...(item.options||[])],answer=options.findIndex(option=>option===item.correct_answer),rawCategory=primary.includes(item.language_function)?item.language_function:'mix',category=rawCategory==='mix'?'Mix':item.title||quizLabel(rawCategory);
    counts[category]=(counts[category]||0)+1;
-   return {category,points:Math.min(counts[category],5)*100,question:item.prompt,options,answer,explanation:item.explanation||item.feedback_correct||item.model_answer,model:item.model_answer,contentItemId:item.content_item_id,interactionType:item.interaction_type,renderer:projection.renderer,manual:!(policy.mode==='canonical_answer'&&options.length>=2&&answer>=0),orderTokens:[...(projection.orderTokens||[])],modelIsExample:policy.modelIsExample};
+   return {category,points:Math.min(counts[category],5)*100,question:projection.prompt,options,answer,explanation:item.explanation||item.feedback_correct||item.model_answer,model:item.model_answer,contentItemId:item.content_item_id,interactionType:item.interaction_type,renderer:projection.renderer,manual:!(policy.mode==='canonical_answer'&&options.length>=2&&answer>=0),orderTokens:[...(projection.orderTokens||[])],modelIsExample:policy.modelIsExample};
   });
  }
  function fresh(id,round=0,sessionOverride=contentSession()){
@@ -34,7 +34,7 @@ window.DigiActivities = (() => {
    const session=sessionOverride;
    if(session){
     const pool=ContentRuntime.enginePool('SEQUENCE',session),item=pool[round%pool.length],projection=item?ContentRuntime.project('SEQUENCE',item):null;
-    if(projection){s.contentSessionId=session.session_id;s.contentSequence={id:item.content_item_id,title:'Zet de zin in de goede volgorde',prompt:item.prompt,steps:[...projection.orderExpectedTokens],model:item.model_answer};}
+    if(projection){s.contentSessionId=session.session_id;s.contentSequence={id:item.content_item_id,title:'Zet de zin in de goede volgorde',prompt:projection.prompt,steps:[...projection.orderExpectedTokens],model:item.model_answer};}
    }
    const sequence=s.contentSequence||content.sequences[round%content.sequences.length];
    s.order=shuffled(sequence.steps.map((_,i)=>i));
@@ -42,7 +42,7 @@ window.DigiActivities = (() => {
   }
   if(id==='draaiwiel'){
    const session=sessionOverride;
-   if(session){const pool=ContentRuntime.enginePool('WHEEL',session),count=Math.min(6,pool.length),offset=(round*count)%pool.length;s.contentSessionId=session.session_id;s.contentOptions=Array.from({length:count},(_,i)=>pool[(offset+i)%pool.length]).map(item=>({id:item.content_item_id,label:item.language_function.replaceAll('_',' '),prompt:item.prompt,choices:item.options,model:item.model_answer}));s.options=s.contentOptions.map((entry,i)=>`${i+1}. ${entry.label}`)}
+   if(session){const pool=ContentRuntime.enginePool('WHEEL',session),completeCycles=session.wheel_draw_version===2,offset=completeCycles?(round%Math.ceil(pool.length/6))*6:(round*Math.min(6,pool.length))%pool.length,count=Math.min(6,completeCycles?pool.length-offset:pool.length);s.contentSessionId=session.session_id;s.contentOptions=Array.from({length:count},(_,i)=>pool[(offset+i)%pool.length]).map(item=>({id:item.content_item_id,label:item.title||item.language_function.replaceAll('_',' '),prompt:ContentRuntime.displayPrompt(item),choices:item.options,model:item.model_answer}));s.options=s.contentOptions.map((entry,i)=>`${i+1}. ${entry.label}`)}
    else{const offset=(round%content.wheelTitles.length)*6;s.options=content.wheel.slice(offset,offset+6)}
   }
   if(id==='raad-het-woord'&&sessionOverride){const session=sessionOverride,pool=ContentRuntime.enginePool('RIDDLE',session),item=pool[round%pool.length];s.contentSessionId=session.session_id;s.contentRiddle={id:item.content_item_id,word:item.riddle_word,clues:item.clues};}
@@ -53,6 +53,7 @@ window.DigiActivities = (() => {
   return s;
  }
  function start(id,setId){
+  if(globalThis.ReleasePolicy?.enabled&&!ContentRuntime.activeSession()?.game_engines.includes(engineIds[id]))return ContentUI.open({engine:({draaiwiel:'WHEEL',categorieenquiz:'QUIZ',rangschikken:'SEQUENCE',koppelen:'MATCH',memory:'MEMORY',sorteren:'SORT','raad-het-woord':'RIDDLE'})[id]});
   if(!content.games.some(g=>g[0]===id))return;
   const setIndex=setId===undefined?-1:content.pictureSets.findIndex(s=>s.id===setId&&s.forms.includes(id));
   if(setId!==undefined&&setIndex<0)return;
@@ -75,12 +76,16 @@ window.DigiActivities = (() => {
  const riddleData=()=>state.contentRiddle||content.riddles[state.round%content.riddles.length];
  const sortData=()=>state.contentSort||content.sorting[state.round%content.sorting.length];
  function imageCard(label){const p=picture(label);return `<img src="${esc(p.file)}" alt="${esc(label)}">`}
+ function wheelFace(){
+  const n=state.options.length,colors=['#126ba5','#174a78','#2686b8'],point=(a,r)=>[200+r*Math.sin(a),200-r*Math.cos(a)];
+  const sectors=state.options.map((_,i)=>{const a=i*2*Math.PI/n,b=(i+1)*2*Math.PI/n,[x,y]=point(a,180),[u,v]=point(b,180),[tx,ty]=point((a+b)/2,133);return `<path d="${n===1?'M200 20 A180 180 0 1 1 200 380 A180 180 0 1 1 200 20 Z':`M200 200 L${x} ${y} A180 180 0 ${b-a>Math.PI?1:0} 1 ${u} ${v} Z`}" fill="${colors[i%colors.length]}" stroke="#cce4f3" stroke-width="2"/><text x="${tx}" y="${ty}" transform="rotate(${-state.rotation} ${tx} ${ty})">${i+1}</text>`}).join('');
+  const ticks=Array.from({length:60},(_,i)=>{const a=i*Math.PI/30,[x,y]=point(a,i%5?187:183),[u,v]=point(a,192);return `<path d="M${x} ${y}L${u} ${v}"/>`}).join('');
+  return `<svg viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="197" fill="#eaf2f7"/>${sectors}<g class="na-wheel-ticks">${ticks}</g></svg>`;
+ }
  function body(){
   if(kind==='draaiwiel'){
-   const n=state.options.length,colors=['#176b9a','#39765c','#b57b20','#76569c','#a44932','#438d9b'];
-   const gradient=state.options.map((_,i)=>`${colors[i%colors.length]} ${i*360/n}deg ${(i+1)*360/n}deg`).join(',');
    const chosen=state.selected!==null&&!state.busy?state.contentOptions?.[state.selected]:null,result=chosen?chosen.prompt:(state.selected!==null&&!state.busy?state.options[state.selected]:'Wat wordt het onderwerp?'),edit=state.contentOptions?'':'<button type="button" class="smallbtn" data-na="edit-wheel">Eigen onderwerpen</button>';
-   return `<div class="na-wheel-layout"><div class="na-wheel-frame"><span class="na-pointer" aria-hidden="true"></span><div class="na-wheel" aria-hidden="true" style="background:conic-gradient(${gradient});transform:rotate(${state.rotation}deg)">${state.options.map((_,i)=>{const a=(i+.5)*Math.PI*2/n;return `<b style="left:${50+37*Math.sin(a)}%;top:${50-37*Math.cos(a)}%">${i+1}</b>`}).join('')}<span class="na-hub"></span></div></div><div class="na-wheel-result"><h2 ${chosen?`data-content-item-id="${esc(chosen.id)}"`:''}>${esc(result)}</h2>${chosen?.choices?.length?`<ul>${chosen.choices.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<p>${state.busy?'Het wiel draait…':'Druk op Draaien of gebruik de spatiebalk.'}</p></div></div><ol class="na-wheel-legend">${state.options.map((x,i)=>`<li ${state.contentOptions?`data-content-item-id="${esc(state.contentOptions[i].id)}"`:''}>${esc(x)}</li>`).join('')}</ol>${edit}`;
+   return `<div class="na-wheel-layout"><div class="na-wheel-frame"><span class="na-pointer" aria-hidden="true"></span><div class="na-wheel" aria-hidden="true" style="transform:rotate(${state.rotation}deg)">${wheelFace()}</div><span class="na-hub" aria-hidden="true">${gameIcon('wheel')}</span></div><div class="na-wheel-result ${chosen?'content-reading':''}" aria-live="polite" aria-atomic="true">${state.selected!==null&&!state.busy?`<span class="na-selected-number">Vak ${state.selected+1}</span>`:''}${chosen?`<div data-content-item-id="${esc(chosen.id)}">${contentTaskText(ContentRuntime.itemForSession(chosen.id))}${ContentRuntime.itemForSession(chosen.id).reasoning?'':`<details><summary>${contentAnswerLabel(ContentRuntime.itemForSession(chosen.id))}</summary><div class="content-answer">${contentAnswerText(ContentRuntime.itemForSession(chosen.id),ContentRuntime.project('WHEEL',ContentRuntime.itemForSession(chosen.id)).answerPolicy)}</div></details>`}</div>`:`<h2>${esc(result)}</h2><p>${state.busy?'Het wiel draait…':'Druk op Draaien of gebruik de spatiebalk.'}</p>`}</div></div><ol class="na-wheel-legend">${state.options.map((x,i)=>`<li class="${state.selected===i&&!state.busy?'selected':''}" ${state.selected===i&&!state.busy?'aria-current="true"':''} ${state.contentOptions?`data-content-item-id="${esc(state.contentOptions[i].id)}"`:''}>${esc(x)}</li>`).join('')}</ol>${edit}`;
   }
   if(kind==='memory')return `<div class="na-memory">${state.order.map((token,i)=>{
    const pair=state.contentPairs?Math.floor(token/2):token;
@@ -96,16 +101,17 @@ window.DigiActivities = (() => {
   }
   if(kind==='rangschikken'){
    const sequence=state.contentSequence||content.sequences[state.round%content.sequences.length],attr=state.contentSequence?` data-content-item-id="${esc(sequence.id)}"`:'';
-   return `<div${attr}><h2>${esc(sequence.title)}</h2>${state.contentSequence?`<p class="na-sequence-source">${esc(sequence.prompt)}</p>`:''}<ol class="na-sequence">${state.sequence.map((i,j)=>`<li>${button('remove-step',j,esc(sequence.steps[i]),`aria-label="Stap ${j+1} terugleggen: ${esc(sequence.steps[i])}" ${state.correct?'disabled':''}`)}</li>`).join('')}</ol>${state.sequence.length?'':'<p class="na-empty">Kies hieronder wat eerst komt.</p>'}<div class="na-step-bank">${state.order.filter(i=>!state.sequence.includes(i)).map(i=>button('step',i,esc(sequence.steps[i]))).join('')}</div></div>`;
+   return `<div${attr}><h2>${esc(sequence.title)}</h2>${state.contentSequence?`${contentSituation(ContentRuntime.itemForSession(sequence.id))}<p class="na-sequence-source">${esc(sequence.prompt)}</p>`:''}<ol class="na-sequence">${state.sequence.map((i,j)=>`<li>${button('remove-step',j,esc(sequence.steps[i]),`aria-label="Stap ${j+1} terugleggen: ${esc(sequence.steps[i])}" ${state.correct?'disabled':''}`)}</li>`).join('')}</ol>${state.sequence.length?'':'<p class="na-empty">Kies hieronder wat eerst komt.</p>'}<div class="na-step-bank">${state.order.filter(i=>!state.sequence.includes(i)).map(i=>button('step',i,esc(sequence.steps[i]))).join('')}</div></div>`;
   }
   if(kind==='categorieenquiz'){
    const quiz=quizData(),q=quiz[state.question];
    if(q){
+    const situation=q.contentItemId?contentSituation(ContentRuntime.itemForSession(q.contentItemId)):'';
     const answered=Object.hasOwn(state.answers,state.question),revealed=!!state.quizRevealed?.[state.question],contentAttr=q.contentItemId?` data-content-item-id="${esc(q.contentItemId)}"`:'';
-    if(!q.manual)return `<p class="na-progress">${esc(q.category)} · ${q.points} punten · Team ${state.team+1}</p><h2${contentAttr}>${esc(q.question)}</h2><div class="na-options na-quiz-options">${q.options.map((x,i)=>button('quiz-answer',i,esc(x)+(answered&&i===q.answer?' ✓':''),`${answered?'disabled':''} ${answered&&i===q.answer?'data-correct="true"':''}`)).join('')}</div>`;
+    if(!q.manual)return `<p class="na-progress">${esc(q.category)} · ${q.points} punten · Team ${state.team+1}</p>${situation}<h2${contentAttr}>${esc(q.question)}</h2><div class="na-options na-quiz-options">${q.options.map((x,i)=>button('quiz-answer',i,esc(x)+(answered&&i===q.answer?' ✓':''),`${answered?'disabled':''} ${answered&&i===q.answer?'data-correct="true"':''}`)).join('')}</div>`;
     const tokens=q.orderTokens?.length?`<p class="na-quiz-tokens"><strong>Gebruik deze delen:</strong> ${q.orderTokens.map(esc).join(' · ')}</p>`:'',input=['TEXT_INPUT','TEXT_ORDER'].includes(q.renderer)?`<form id="na-quiz-form"><label for="na-quiz-text">Antwoord van Team ${state.team+1}</label><div class="na-guess-input"><input id="na-quiz-text" value="${esc(state.quizResponses?.[state.question]||'')}" autocomplete="off"><button class="smallbtn" type="submit">Antwoord vastleggen</button></div></form>`:`<p class="na-quiz-oral">Team ${state.team+1} geeft het antwoord hardop. Toon daarna het modelantwoord.</p>`;
-    const review=revealed?`<div class="na-quiz-review"><strong>${q.modelIsExample?'Mogelijk voorbeeld':'Modelantwoord'}</strong><p>${esc(q.model)}</p><div class="na-options">${button('quiz-grade',1,'Goed · punten toekennen',answered?'disabled':'')}${button('quiz-grade',0,'Niet goed · geen punten',answered?'disabled':'')}</div></div>`:`<div class="na-options">${button('quiz-reveal',state.question,'Toon modelantwoord',answered?'disabled':'')}</div>`;
-    return `<p class="na-progress">${esc(q.category)} · ${q.points} punten · Team ${state.team+1}</p><h2${contentAttr}>${esc(q.question)}</h2>${tokens}${input}${review}`;
+    const review=revealed?`<div class="na-quiz-review">${q.contentItemId?contentAnswerText(ContentRuntime.itemForSession(q.contentItemId),ContentRuntime.answerPolicy(ContentRuntime.itemForSession(q.contentItemId))):`<strong>${q.modelIsExample?'Mogelijk voorbeeld':'Modelantwoord'}</strong><p>${esc(q.model)}</p>`}<div class="na-options">${button('quiz-grade',1,'Goed · punten toekennen',answered?'disabled':'')}${button('quiz-grade',0,'Niet goed · geen punten',answered?'disabled':'')}</div></div>`:`<div class="na-options">${button('quiz-reveal',state.question,'Toon modelantwoord',answered?'disabled':'')}</div>`;
+    return `<p class="na-progress">${esc(q.category)} · ${q.points} punten · Team ${state.team+1}</p>${situation}<h2${contentAttr}>${esc(q.question)}</h2>${tokens}${input}${review}`;
    }
    return `<div class="na-scoreboard">${state.scores.map((score,i)=>button('team',i,`Team ${i+1}<strong>${score}</strong>`,`aria-pressed="${state.team===i}"`)).join('')}</div><div class="na-quiz-board">${[...new Set(quiz.map(q=>q.category))].map(category=>`<section><h3>${esc(category)}</h3>${quiz.map((q,i)=>q.category===category?button('question',i,Object.hasOwn(state.answers,i)?'Gespeeld ✓':String(q.points),`aria-label="${esc(category)}, ${q.points} punten" ${Object.hasOwn(state.answers,i)?'disabled':''} ${q.contentItemId?`data-content-item-id="${esc(q.contentItemId)}"`:''}`):'').join('')}</section>`).join('')}</div>`;
   }
@@ -139,8 +145,9 @@ window.DigiActivities = (() => {
   const [,title,world,icon,color,intro]=game(),[label,disabled]=primary();
   let footer=gameBar(`<button class="primary card-next-primary" id="primaryGame" ${disabled?'disabled':''}>${gameIcon(kind==='draaiwiel'?'mission':'cards')}<span>${label}</span></button>`).replace('id="undoAction"','id="activityUndo"');
   if(kind==='categorieenquiz')footer=footer.replace(/<div class="turnzone">.*?<\/div>(?=<div class="primary-slot">)/,`<div class="turnzone"><div class="chip active">Team ${state.team+1}</div><div class="chip">${state.scores[state.team]} punten</div></div>`);
-  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell new-activity" data-workspace="${['draaiwiel','raad-het-woord'].includes(kind)?'standard':'wide'}" style="--ribbon:${color}"><div class="game-work card-work"><div class="card-activity-heading"><div><button class="smallbtn na-back" data-activities-back>← Activiteiten</button><h1>${esc(title)}</h1><p>${esc(intro)}</p></div>${setPicker()}</div><div class="cards-stage"><div class="game-card-motion"><article class="active-card"><div class="card-ribbon">${gameIcon(icon)}<strong>${esc(title)}</strong><span class="card-counter">${state.custom?'Eigen set':state.contentSessionId&&kind!=='categorieenquiz'?`Ronde ${state.round+1}`:variants().length?`${state.round%variants().length+1} / ${variants().length}`:`${Object.keys(state.answers).length} / ${quizData().length}`}</span></div><div class="card-content"><div class="na-workspace">${body()}</div><p id="na-level" class="na-level">${esc(levelInstruction())}</p><p class="na-feedback" id="na-feedback" role="status" aria-live="polite" aria-atomic="true"></p></div>${contextTools('na',{Example:{disabled:!exampleAvailable(),tip:exampleAvailable()?'Bekijk een voorbeeld bij deze ronde.':'Doe eerst een poging of onthul het antwoord in het spel.'}})}</article></div></div></div>${footer}</div>`;
+  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell new-activity${kind==='draaiwiel'?' wheel-game':''}${state.contentOptions?' content-wheel':''}" data-workspace="${['draaiwiel','raad-het-woord'].includes(kind)?'standard':'wide'}" style="--ribbon:${color}"><div class="game-work card-work"><div class="card-activity-heading"><div><button class="smallbtn na-back" data-activities-back>← Activiteiten</button><h1>${esc(title)}</h1><p>${esc(state.contentSessionId?contentSessionLabel(contentSession(),null,false):intro)}</p></div>${setPicker()}</div><div class="cards-stage"><div class="game-card-motion"><article class="active-card">${kind==='draaiwiel'?'':`<div class="card-ribbon">${gameIcon(icon)}<strong>${esc(title)}</strong><span class="card-counter">${state.custom?'Eigen set':state.contentSessionId&&kind!=='categorieenquiz'?`Ronde ${state.round+1}`:variants().length?`${state.round%variants().length+1} / ${variants().length}`:`${Object.keys(state.answers).length} / ${quizData().length}`}</span></div>`}<div class="card-content"><div class="na-workspace">${body()}</div><p id="na-level" class="na-level" ${state.contentSessionId||kind==='draaiwiel'?'hidden':''}>${esc(levelInstruction())}</p><p class="na-feedback" id="na-feedback" role="status" aria-live="polite" aria-atomic="true"></p></div>${contextTools('na',{Example:{disabled:!exampleAvailable(),tip:exampleAvailable()?'Bekijk een voorbeeld bij deze ronde.':'Doe eerst een poging of onthul het antwoord in het spel.'}})}</article></div></div></div>${footer}</div>`;
   bindGameBar(actPrimary);
+  if(state.contentOptions)$('#naExample').closest('.context-tool').hidden=!state.contentOptions[state.selected]?.model;
   for(const key of ['Help','Example','Goals','Partner','More'])$('#na'+key).onclick=()=>context(key);
   $('#na-set')?.addEventListener('change',e=>{
    const round=Number(e.target.value);if(state.busy||!Number.isInteger(round)||round<0||round>=variants().length)return;
@@ -148,13 +155,13 @@ window.DigiActivities = (() => {
   });
   $('#activityUndo').disabled=!histories[kind].length||state.busy;
   $('#activityUndo').onclick=()=>{if(!histories[kind].length||state.busy)return;const prior=histories[kind].pop();state=rounds[kind]=prior.state;APP.turn=prior.turn;save();render('activityUndo')};
-  $('[data-ghelp]').onclick=help;
+  if(!contentSession())$('[data-ghelp]').onclick=help;
   $('[data-grules]').onclick=help;
   $('[data-goptions]').onclick=()=>kind==='draaiwiel'?editWheel():openGameDialog('Spelopties','<p>Kies de spelmodus links onderaan. Het niveau bovenaan past de gesprekstip aan. Kies bovenaan een andere ronde. Het niveau verandert de gesprekstip.</p><p>Bij de quiz kies je op het quizbord welk team antwoordt. Een goed antwoord levert punten op; een fout antwoord kost geen punten.</p>');
   $('#na-guess-form')?.addEventListener('submit',e=>{e.preventDefault();guess()});
   $('#na-quiz-form')?.addEventListener('submit',e=>{e.preventDefault();const value=$('#na-quiz-text')?.value.trim();if(!value)return;checkpoint();state.quizResponses[state.question]=value;feedback('Antwoord vastgelegd. Toon nu het modelantwoord en beoordeel het antwoord.');render('na-quiz-text')});
   const message=state.feedback;
-  requestAnimationFrame(()=>{const el=$('#na-feedback');if(el)el.textContent=message});
+  requestAnimationFrame(()=>{const el=$('#na-feedback');if(el)el.textContent=lessonText(message)});
   if(focusId)document.getElementById(focusId)?.focus({preventScroll:true});
  }
  function exampleAvailable(){
@@ -184,12 +191,12 @@ window.DigiActivities = (() => {
  function actPrimary(){
   if(primary()[1])return;
   if(kind==='draaiwiel'){
-   checkpoint();state.busy=true;state.selected=Math.floor(Math.random()*state.options.length);const rotation=Math.ceil(state.rotation/360)*360+1080-(state.selected+.5)*360/state.options.length;
+   checkpoint();const previous=state.contentOptions?.[state.selected]?.id;if(state.contentOptions&&state.done.length===state.options.length){state=rounds[kind]=fresh(kind,state.round+1);render()}const available=state.options.map((_,i)=>i).filter(i=>!state.contentOptions||!state.done.includes(i)&&(state.options.length===1||state.contentOptions[i].id!==previous));state.busy=true;state.selected=available[Math.floor(Math.random()*available.length)];if(state.contentOptions)state.done.push(state.selected);const rotation=Math.ceil(state.rotation/360)*360+1080-(state.selected+.5)*360/state.options.length;
    $('#primaryGame').disabled=true;$('#activityUndo').disabled=true;if($('#na-set'))$('#na-set').disabled=true;$('.na-wheel').style.transform=`rotate(${rotation}deg)`;state.rotation=rotation;$('#na-feedback').textContent='Het wiel draait…';
-   timer=setTimeout(()=>{state.busy=false;state.feedback=state.contentOptions?.[state.selected]?.prompt||state.options[state.selected];if(APP.last?.type==='activity'&&APP.last.data.kind===kind&&$('#screen-game').classList.contains('active'))render('primaryGame')},settingsState().reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches?0:900);return;
+   timer=setTimeout(()=>{state.busy=false;state.feedback='';if(APP.last?.type==='activity'&&APP.last.data.kind===kind&&$('#screen-game').classList.contains('active'))render('primaryGame')},settingsState().reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches?0:900);return;
   }
   if(kind==='memory'&&state.done.length!==state.words.length){checkpoint();state.revealed=[];completeTurn();feedback('Kies weer twee kaarten.');render();return}
-  if(kind==='rangschikken'&&!state.correct){checkpoint();state.attempts++;state.correct=state.sequence.every((x,i)=>x===i);feedback(state.correct?'De volgorde klopt! Vertel nu alle stappen in je eigen woorden.':'De volgorde klopt nog niet. Leg een stap terug en probeer opnieuw.');render('primaryGame');return}
+  if(kind==='rangschikken'&&!state.correct){checkpoint();state.attempts++;state.correct=state.sequence.every((x,i)=>x===i);feedback(state.correct?(state.contentSequence?'De volgorde klopt! '+ContentRuntime.itemForSession(state.contentSequence.id).explanation:'De volgorde klopt! Vertel nu alle stappen in je eigen woorden.'):'De volgorde klopt nog niet. Leg een stap terug en probeer opnieuw.');render('primaryGame');return}
   if(kind==='categorieenquiz'&&state.question!==null){checkpoint();state.question=null;state.team=1-state.team;completeTurn();feedback(Object.keys(state.answers).length===quizData().length?(state.scores[0]===state.scores[1]?'Gelijkspel!':`Team ${state.scores[0]>state.scores[1]?1:2} wint!`):`Team ${state.team+1} kiest een vak.`);render();return}
   next();
  }
@@ -272,7 +279,7 @@ window.DigiActivities = (() => {
   if(base.contentPairs){const n=base.contentPairs.length;if(!indices(candidate.done,n)||!indices(candidate.revealed,n*2)||candidate.revealed.length>2||candidate.selected!==null&&candidate.selected>=n)fail()}
   if(base.contentSort&&!indices(candidate.done,base.contentSort.items.length))fail();
   if(base.contentSequence&&!indices(candidate.sequence,base.contentSequence.steps.length))fail();
-  if(base.contentOptions&&candidate.selected!==null&&candidate.selected>=base.contentOptions.length)fail();
+  if(base.contentOptions&&(!indices(candidate.done,base.contentOptions.length)||candidate.selected!==null&&candidate.selected>=base.contentOptions.length))fail();
   if(base.contentRiddle&&(candidate.hints<1||candidate.hints>base.contentRiddle.clues.length))fail();
   if(base.contentQuiz){const n=base.contentQuiz.length;if(candidate.question!==null&&candidate.question>=n||candidate.team>1||candidate.scores.length!==2)fail();for(const [key,value] of Object.entries(candidate.answers)){const q=base.contentQuiz[key];if(!q||(q.manual?!['manual-correct','manual-incorrect'].includes(value):!Number.isInteger(value)||value>=q.options.length))fail()}if(Object.keys(candidate.quizRevealed).some(k=>Number(k)>=n))fail()}
   return candidate;

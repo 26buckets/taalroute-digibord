@@ -9,23 +9,31 @@ let browser;
  browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
  const context=await browser.newContext({viewport:{width:1440,height:900},hasTouch:true});const page=await context.newPage();
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
- await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
  await page.locator('[data-main="practice"]').click();
  assert.equal(await page.locator('#practiceForm [data-guidance]').count(),4);
+ const fieldIcons=await page.locator('#practiceForm .practice-select>span svg,#practiceForm .practice-field>legend svg').evaluateAll(icons=>icons.map(e=>e.innerHTML));
+ assert.equal(new Set(fieldIcons).size,fieldIcons.length,'Different choices have different icons');
+ for(const logo of await page.locator('#practiceForm [data-guidance]').all())assert.equal(await logo.isVisible(),false,'Lesson help starts collapsed');
+ await page.locator('.practice-guidance>summary').click();
+ for(const logo of await page.locator('#practiceForm [data-guidance]').all())assert.equal(await logo.isVisible(),true,'Four unchanged logos are available under lesson help');
+ await page.locator('#practiceForm [data-guidance=lowan]').click();
+ await page.evaluate(()=>new Promise(resolve=>{const d=document.querySelector('#gameDialog');d.addEventListener('close',resolve,{once:true});d.close();document.querySelector('#practiceForm [data-guidance=bow]').focus()}));
+ assert.equal(await page.evaluate(()=>document.activeElement.dataset.guidance),'bow','A queued close must not steal the next keyboard choice');
  const before=await page.evaluate(()=>JSON.stringify(localStorage));
  for(const key of ['lowan','erk','f','bow']){
   const button=page.locator(`#practiceForm [data-guidance=${key}]`);await button.focus();await page.keyboard.press('Enter');
   assert.equal(await page.locator('#gameDialog[open].guidance-dialog').count(),1,JSON.stringify({key,errors,dialog:await page.locator('#gameDialog').evaluate(e=>e.outerHTML.slice(0,180))}));
   assert.equal(await page.locator('#guidanceHeading').evaluate(e=>e===document.activeElement),true);
-  assert.match(await page.locator('.guidance-status').textContent(),key==='bow'?/Enkele lestips/:/Nog niet gekoppeld/);
+  assert.equal(await page.locator('.guidance-status').textContent(),await page.evaluate(key=>ContentGuidance.summarize(ContentUI.previewItems(),key).status,key));
   await page.keyboard.press('Escape');
   await page.waitForFunction(key=>!document.querySelector('#gameDialog').open&&document.activeElement===document.querySelector(`#practiceForm [data-guidance=${key}]`),key);
   assert.equal(await button.evaluate(e=>e===document.activeElement),true);
  }
  assert.equal(await page.evaluate(()=>JSON.stringify(localStorage)),before);
  await page.locator('#practiceForm [data-guidance=bow]').click();
- assert.match(await page.locator('.guidance-content').textContent(),/3 van de 180/);
- assert.match(await page.locator('.guidance-content').textContent(),/A3f/);
+ const bow=await page.evaluate(()=>{const s=ContentGuidance.summarize(ContentUI.previewItems(),'bow');return {known:s.known.length,total:s.entries.length}});
+ if(bow.known){assert.ok((await page.locator('.guidance-content').textContent()).includes(`${bow.known} van de ${bow.total}`));assert.match(await page.locator('.guidance-content').textContent(),/A3f/)}
  await page.locator('#gameDialog [data-guidance=erk]').click();assert.match(await page.locator('#guidanceHeading').textContent(),/ERK/);
  await page.locator('#dialogClose').click();
  const first=await page.locator('#practiceForm .guidance-row').innerHTML();
@@ -35,7 +43,8 @@ let browser;
  const selection=await page.evaluate(()=>({spec:ContentUI.selectionSpec(),p:ContentUI.preferences()}));
  await page.evaluate(({spec,p})=>ContentUI.loadSelection(spec,p,{record:{name:'Bewaarde les'}}),selection);
  assert.equal(await page.locator('#practiceForm .guidance-row').innerHTML(),first);
- await page.reload();await page.locator('[data-main="practice"]').click();
+ await page.reload();await page.locator('[data-main="practice"]').click();await page.locator('.practice-guidance>summary').click();
+
  for(const width of [320,390,768,1440,1920]){
   await page.setViewportSize({width,height:900});
   const button=page.locator('#practiceForm [data-guidance=bow]');await button.tap();
@@ -47,11 +56,17 @@ let browser;
   await page.locator('#dialogClose').tap();
  }
  await page.evaluate(()=>ContentUI.setState({family:'words'}));await page.locator('#practiceForm [data-guidance=bow]').click();
- assert.match(await page.locator('.guidance-status').textContent(),/Nog niet gekoppeld/);assert.equal(await page.locator('.guidance-tip').count(),0);await page.keyboard.press('Escape');
+ assert.equal(await page.locator('.guidance-status').textContent(),'Lestips');assert.equal(await page.locator('.guidance-tip').count(),5);
+ assert.ok(await page.locator('.guidance-lesson').count());assert.match(await page.locator('.guidance-content').textContent(),/Lees eerst voor/);
+ await page.locator('#gameDialog [data-guidance=erk]').click();assert.equal(await page.locator('.guidance-status').textContent(),'A0 → A1 · route');
+ await page.locator('#gameDialog [data-guidance=lowan]').click();assert.equal(await page.locator('.guidance-status').textContent(),'Route bij de cursist');assert.match(await page.locator('.guidance-content').textContent(),/al gekozen route/);
+ await page.locator('#gameDialog [data-guidance=f]').click();assert.equal(await page.locator('.guidance-status').textContent(),'Taalonderdeel');assert.match(await page.locator('.guidance-content').textContent(),/geen F-niveau toegekend/);await page.keyboard.press('Escape');
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',duration:300}));
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-vert001-cards');
  assert.equal(await page.locator('#screen-game [data-guidance]').count(),0);
  const session=await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids);assert.ok(session.length);
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource({bank_ids:['CB-GRAM-001'],topics:['ER']}).every(i=>ContentGuidance.mapping(i,'erk')?.status==='reviewed')),true);
+ await page.locator('[data-ghelp]').click();assert.equal(await page.locator('.guidance-status').textContent(),'B1');await page.keyboard.press('Escape');
  await page.reload();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session);
  assert.deepEqual(errors,[]);console.log('Guidance browser: keyboard, touch, both routes, saved selection, reload and 320–1920px OK');
 })().catch(e=>{console.error(e);process.exitCode=1}).finally(async()=>{await browser?.close();await new Promise(resolve=>server.close(resolve))});

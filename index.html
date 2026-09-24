@@ -6,13 +6,14 @@
 <title>Taalroute DigiBord V01.25</title><link rel="stylesheet" href="app.css?v=0124-board-options-dark">
 <link rel="stylesheet" href="kaartenkast.css">
 <link rel="stylesheet" href="taalworp-table.css?v=0124">
-<link rel="stylesheet" href="card-table.css?v=readable-cards-level">
+<link rel="stylesheet" href="card-table.css?v=1.25-tongue-large-1">
 <link rel="stylesheet" href="dice-table.css?v=0124-taalworp-mix">
 <link rel="stylesheet" href="words-activity.css?v=wz001">
 <link rel="stylesheet" href="landing-activities.css?v=0124-photo-activities">
-<link rel="stylesheet" href="new-activities.css?v=0124-photo-activities">
-<link rel="stylesheet" href="context-tools.css?v=0124-context">
-<link rel="stylesheet" href="content-ui.css?v=1.25-guidance-2">
+<link rel="stylesheet" href="new-activities.css?v=1.25-modals-1">
+<link rel="stylesheet" href="context-tools.css?v=1.25-snelvragen-1">
+<link rel="stylesheet" href="content-ui.css?v=1.25-rustige-lijst-1">
+<link rel="stylesheet" href="open-quiet.css?v=1.25-open-quiet-1">
 </head>
 <body>
 <div id="app">
@@ -93,7 +94,7 @@
 
 <section class="screen content-practice-page" id="screen-practice">
   <div class="practice-shell">
-    <div class="practice-head"><div><span class="eyebrow">Oefenen</span><h1>Maak je les klaar</h1><p>Kies wat je wilt oefenen. Kies een spel dat bij je les past.</p></div><button class="smallbtn" data-home>← Spelen</button></div>
+    <div class="practice-head"><div><h1>Maak je les klaar</h1></div><button class="smallbtn" data-home>← Spelen</button></div>
     <div id="contentPracticeApp"></div>
   </div>
 </section>
@@ -174,13 +175,16 @@
 </section>
 <div class="settings-overlay" id="settingsOverlay"><iframe class="settings-frame" src="settings/index.html"></iframe></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div><dialog id="gameDialog"><div class="dialog-head"><h2 id="dialogTitle"></h2><button id="dialogClose" aria-label="Sluiten">×</button></div><div id="dialogBody"></div></dialog>
+<script src="release-policy.js?v=2026-09-25.1"></script>
+<script src="wording.js?v=2026-09-24.1"></script>
 <script src="data-bundle.js?v=0124-zwolle-diepte-kleur"></script>
 <script src="data/content-vert001-er-b1.js?v=content000-vert001"></script>
+<script src="data/grammar-review.js?v=2026-09-24.modals.rest.4"></script>
 <script src="game-engine-registry.js?v=1.25"></script>
 <script src="interaction-renderer-registry.js?v=content-eng001"></script>
 <script src="match-pair-contract.js?v=1.25"></script>
-<script src="content-runtime.js?v=1.25"></script>
-<script src="data/content-catalog.js?v=1.25-guidance"></script>
+<script src="content-runtime.js?v=2026-09-25.reviewed-only"></script>
+<script src="data/content-catalog.js?v=2026-09-24.modals.rest.4"></script>
 <script src="data/c1-between-lines.js?v=001-frozen"></script>
 <script src="data/storydice.js?v=0124-verhaalworp-320"></script>
 <script src="data/tongbrekers.js?v=0124-tongue-240-audio"></script>
@@ -188,19 +192,64 @@
 <script>if(location.protocol==='file:')document.write('<script src="dice-textures.js"><\/script>');</script><script src="smooth-dice-renderer.js?v=0124"></script><script src="smooth-dice.js?v=0124"></script>
 <script src="context-tools.js?v=0124-board-options"></script>
 <script src="words-content.js?v=wz001"></script>
-<script src="words-activity.js?v=plain-language"></script>
+<script src="words-activity.js?v=2026-09-25.reviewed-only"></script>
 <script src="curriculum.js?v=alfa-abc"></script>
 <script src="board-viewport.js?v=0124-board-focus"></script>
 <script src="storage-migration.js?v=1.25"></script>
 <script src="data/tongbrekers-migration.js?v=0124-tongue-240-audio"></script>
-<script src="app.js?v=1.25"></script>
-<script src="data/new-activities.js?v=1.25"></script>
-<script src="new-activities.js?v=1.25"></script>
-<script src="content-bank-adapters.js?v=1.25"></script>
+<script src="reasoning-tasks.js?v=1.25-snelvragen-1"></script>
+<script src="app.js?v=2026-09-25.reviewed-only"></script>
+<script src="data/new-activities.js?v=1.25-snelvragen-1"></script>
+<script src="new-activities.js?v=2026-09-25.reviewed-only"></script>
+<script src="content-bank-adapters.js?v=1.25-wz3-1"></script>
 <script src="lesson-storage-adapter.js?v=1.25"></script>
-<script src="lesson-storage.js?v=1.25"></script>
-<script src="data/content-guidance.js?v=1.25"></script>
-<script src="content-guidance.js?v=1.25"></script>
-<script src="content-ui.js?v=1.25-guidance"></script>
-<script src="content-lessons.js?v=1.25"></script>
+<script src="lesson-storage.js?v=1.25-overzicht-1"></script>
+<script src="data/content-guidance.js?v=1.25-conversation-review-3"></script>
+<script src="data/lesson-guidance.js?v=2026-09-24.modals.rest.4"></script>
+<script src="content-guidance.js?v=1.25-conversation-review-3"></script>
+<script src="data/connections-pilot.js?v=1.0"></script>
+<script src="data/wz-pb005.js?v=2026-09-23.1"></script>
+<script src="data/wz-pb004.js?v=2026-09-23.1"></script>
+<script src="data/wz-pb003.js?v=2026-09-23.1"></script>
+<script src="data/wz-pb002.js?v=1.0"></script>
+<script src="data/c1-nuance.js?v=2026-09-22.1"></script>
+<script src="data/werkvloertaal.js?v=2026-09-23.1"></script>
+<script src="data/vergadertaal.js?v=2026-09-23.1"></script>
+<script src="data/impliciete-boodschap.js?v=2026-09-23.1"></script>
+<script src="data/humor-ironie.js?v=2026-09-23.1"></script>
+<script src="data/betekenisnuances.js?v=2026-09-23.1"></script>
+<script src="data/herformuleren.js?v=2026-09-23.1"></script>
+<script src="data/gesprek-repareren.js?v=2026-09-23.1"></script>
+<script src="data/samenvatten-bemiddelen.js?v=2026-09-23.1"></script>
+<script src="data/overtuigen-onderhandelen.js?v=2026-09-23.1"></script>
+<script src="data/gram-pb002.js?v=2026-09-23.1"></script>
+<script src="data/gram-pb003.js?v=2026-09-22.1"></script>
+<script src="data/snelvragen-content.js?v=2026-09-23.1"></script>
+<script src="data/snelvragen-review.js?v=2026-09-24.2"></script>
+<script src="data/snelvragen-vertel-review.js?v=2026-09-24.1"></script>
+<script src="data/snelvragen-vertel-vervolg.js?v=2026-09-24.2"></script>
+<script src="data/snelvragen-vertel-situaties.js?v=2026-09-24.3"></script>
+<script src="data/snelvragen-vertel-uitleg.js?v=2026-09-24.4"></script>
+<script src="data/snelvragen-vertel-afronding.js?v=2026-09-24.5"></script>
+<script src="data/snelvragen-vragen-review.js?v=2026-09-24.6"></script>
+<script src="data/snelvragen-vragen-vervolg.js?v=2026-09-24.7"></script>
+<script src="data/snelvragen-vragen-situaties.js?v=2026-09-24.8"></script>
+<script src="data/snelvragen-vragen-uitleg.js?v=2026-09-24.9"></script>
+<script src="data/snelvragen-vragen-afronding.js?v=2026-09-24.10"></script>
+<script src="data/snelvragen-kies-review.js?v=2026-09-24.11"></script>
+<script src="data/snelvragen-kies-vervolg.js?v=2026-09-24.12"></script>
+<script src="data/snelvragen-kies-situaties.js?v=2026-09-24.13"></script>
+<script src="data/snelvragen-kies-uitleg.js?v=2026-09-24.14"></script>
+<script src="data/snelvragen-kies-afronding.js?v=2026-09-24.15"></script>
+<script src="data/snelvragen-regel-review.js?v=2026-09-24.16"></script>
+<script src="data/snelvragen-regel-vervolg.js?v=2026-09-24.17"></script>
+<script src="data/snelvragen-regel-situaties.js?v=2026-09-24.18"></script>
+<script src="data/snelvragen-regel-uitleg.js?v=2026-09-24.19"></script>
+<script src="data/snelvragen-regel-afweging.js?v=2026-09-24.20"></script>
+<script src="data/snelvragen-regel-afronding.js?v=2026-09-25.21"></script>
+<script src="data/mr03.js?v=2026-09-23.1"></script>
+<script src="data/tussen-de-regels.js?v=2026-09-23.1"></script>
+<script src="data/conversation-review.js?v=2026-09-23.3"></script>
+<script src="content-ui.js?v=2026-09-25.reviewed-only"></script>
+<script src="content-lessons.js?v=2026-09-25.reviewed-only"></script>
 </body></html>

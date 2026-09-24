@@ -6,3 +6,4 @@ tests/artifacts/
 bank-backups/
 .wrangler/
 *.log
+backups/

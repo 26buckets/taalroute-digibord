@@ -3,7 +3,7 @@ const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
 (async()=>{const browser=await chromium.launch({channel:'chrome',headless:true,args:['--allow-file-access-from-files']});try{
  const page=await browser.newPage({reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(process.env.BASE_URL||'file://'+path.join(served,'index.html'));
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.BASE_URL||'file://'+path.join(served,'index.html'));
  await page.locator('[data-category="cards"]').click();
  const kinds=await page.locator('[data-ctype]').evaluateAll(nodes=>nodes.map(n=>n.dataset.ctype));
  const selectors=['#app>header .mainnav','#app>header .header-actions','#levelSelect','.card-activity-heading','.game-card-motion','.active-card','.card-ribbon','.card-controls','.cardtypes','.gamebar','#primaryGame','#undoAction','[data-goptions]'];

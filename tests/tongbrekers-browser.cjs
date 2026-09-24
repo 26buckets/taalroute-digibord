@@ -14,7 +14,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   };
  });
  try{
-  await page.goto('file://'+path.join(served,'index.html'));
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
   await page.locator('[data-main="play"]').click();await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="tongue"]').click();
   await page.locator('#levelSelect').selectOption('C2');
   assert.equal(await page.locator('.card-activity-heading h1 span').innerText(),'240 kaarten');
@@ -57,13 +57,18 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#settingsBtn').click();await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open'));assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
   await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();await page.waitForFunction(()=>!document.querySelector('#settingsOverlay').classList.contains('open'));assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),states);
-  for(const [width,height] of [[1920,1080],[1440,900],[1024,768],[768,1024],[390,844],[320,568]]){
+  // Frozen classroom typography: short windows must not shrink the sentence.
+  const longest=await page.evaluate(()=>cardsFor('tongue').reduce((a,b)=>a.text.length>b.text.length?a:b).sourceNumber);
+  for(const [width,height,fontSize] of [[1920,1080,88],[1440,900,72],[1440,800,72],[1440,650,72],[1024,768,51.2],[768,1024,38.4],[390,844,36],[320,568,36]]){
    await page.setViewportSize({width,height});
-   for(const sourceNumber of [1,181,210,240]){
+   for(const sourceNumber of [1,181,210,longest]){
     await page.evaluate(n=>{APP.cardIndex=cardsFor('tongue').findIndex(c=>c.sourceNumber===n);startTongue()},sourceNumber);
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`page overflow ${width}`);
     const b=await page.locator('#primaryGame').boundingBox();assert.ok(b.x>=0&&b.x+b.width<=width+1&&b.y+b.height<=height+1,`next clipped ${width}`);
     assert.ok(await page.locator('.tongue-content').evaluate(e=>e.scrollWidth<=e.clientWidth),`text width ${width}`);
+    const textStyle=await page.locator('.tongue-text').evaluate(e=>{const s=getComputedStyle(e);return {size:parseFloat(s.fontSize),line:parseFloat(s.lineHeight),weight:s.fontWeight}});
+    assert.ok(Math.abs(textStyle.size-fontSize)<.1,`frozen tongue font ${width}x${height}: ${textStyle.size}`);
+    assert.ok(Math.abs(textStyle.line/textStyle.size-1.25)<.01,`tongue line spacing ${width}x${height}`);assert.equal(textStyle.weight,'700');
     await page.locator('#tongueRead').scrollIntoViewIfNeeded();assert.ok(await page.locator('#tongueRead').isVisible());
     if(process.env.SCREENSHOT_DIR&&[1440,390].includes(width)&&sourceNumber===210){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'tongbrekers-'+width+'.png')})}
    }
@@ -72,6 +77,6 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#levelSelect').getAttribute('data-tongue'),'false');
   await page.evaluate(()=>openCabinetSet('cards','tongue'));assert.equal(await page.locator('.detail-text-cards article').count(),240);assert.equal(await page.locator('.detail-text-cards').innerText().then(t=>t.includes('Mila maakt soep.')),false);
   await page.locator('#startCabinetActivity').click();assert.ok(await page.locator('.tongue-table').isVisible());
-  assert.deepEqual(errors,[]);console.log('PASS: real navigation, 240-card cycle, undo, 28 filter combinations, empty states, bundled audio/read/repeat/failure/cancellation, reload, all seven other games, Style Control, unchanged board state, six viewports, fullscreen and cabinet.');
+  assert.deepEqual(errors,[]);console.log('PASS: real navigation, 240-card cycle, undo, 28 filter combinations, empty states, bundled audio/read/repeat/failure/cancellation, reload, all seven other games, Style Control, unchanged board state, frozen large typography at eight viewports including short windows and longest text, fullscreen and cabinet.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

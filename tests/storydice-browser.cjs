@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('file://'+path.join(served,'index.html'));
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
   const selectSets=async(...ids)=>{
    if(await page.locator('#storySet').getAttribute('open')===null)await page.locator('#storySet summary').click();
    for(const input of await page.locator('[data-storyset]').all())await input.setChecked(ids.includes(await input.inputValue()));
