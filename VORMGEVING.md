@@ -126,3 +126,7 @@ Nico heeft uiterlijk 1, Open en rustig, gekozen. De volledige voorbereiding en a
 ## Tongbrekeraudio tijdelijk uit — 25 september 2026
 
 Op verzoek van Nico blijft Voorlezen zichtbaar, grijs en uitgeschakeld bij alle tongbrekers. Toon ‘Voorlezen · tijdelijk uit’. Ook hervatten, andere niveaus en de kaartenkast mogen de audio niet activeren. De opnames blijven bewaard; de vaste grote tongbrekertekst blijft ongewijzigd. Audio pas weer inschakelen op expliciet verzoek.
+
+## Verplichte woorden zichtbaar maken — 25 september 2026
+
+Een afsluitende instructie ‘Gebruik …’ krijgt een eigen lichtblauwe regel. Alleen de woorden of woordgroepen zijn vet; Gebruik, en en of blijven normaal. De originele opdrachttekst, bron, ID en opgeslagen les blijven gelijk. Dezelfde weergave geldt voor voorbereiding, kaarten, bord, draaischijf, dobbelspel en quiz. Voorbeeld: Gebruik **er** en **voor zorgen**. Geen antwoord vooraf tonen. Instructies met een dubbele punt of zinnen daarna blijven intact en worden niet automatisch gesplitst.

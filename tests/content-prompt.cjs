@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync(require('node:path').join(__dirname,'../app.js'),'utf8');
+const ctx=vm.createContext({lessonText:s=>s,esc:s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))});
+vm.runInContext(source.slice(source.indexOf('function contentPromptHtml('),source.indexOf('function contentTaskText(')),ctx);
+assert.equal(ctx.contentPromptHtml('Vertel dat je de reservering vandaag nog regelt. Gebruik er en voor zorgen.'),'Vertel dat je de reservering vandaag nog regelt. <span class="content-required">Gebruik <strong>er</strong> en <strong>voor zorgen</strong>.</span>');
+assert.match(ctx.contentPromptHtml('Gebruik ‘zal’ of ‘zullen’.'),/<strong>‘zal’<\/strong> of <strong>‘zullen’<\/strong>/);
+assert.equal(ctx.contentPromptHtml('Gebruik zou: ‘Ik volg de cursus niet.’'),'Gebruik zou: ‘Ik volg de cursus niet.’');
+assert.equal(ctx.contentPromptHtml('Gebruik er. Geef een reden.'),'Gebruik er. Geef een reden.');
+assert.ok(!ctx.contentPromptHtml('Gebruik <img onerror="bad">.').includes('<img'));
+assert.equal(ctx.contentPromptHtml('Wat denk je?'),'Wat denk je?');
+console.log('PASS required-word emphasis, original wording, alternative forms, colon/follow-up instructions and HTML escaping.');

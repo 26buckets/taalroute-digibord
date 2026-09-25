@@ -410,7 +410,7 @@ function showBoardTask(board,route){
  if(contentItem){
   const pool=ContentRuntime.enginePool('BOARD',session),number=pool.findIndex(i=>i.content_item_id===contentItem.content_item_id)+1;
   $('#taskMeta').textContent=`${contentSessionLabel(session,contentItem,false)} · Opdracht ${number} van ${pool.length} · Vak ${pos}`;
-  $('#taskTitle').textContent=lessonText(contentItem.prompt);$('#taskInput').innerHTML=contentSituation(contentItem)+(contentItem.options.length?`<ul>${contentItem.options.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:'');$('#taskTitle').before($('#taskInput'));if(contentItem.reasoning)$('#taskInput').innerHTML=contentTaskText(contentItem);
+  $('#taskTitle').innerHTML=contentPromptHtml(contentItem.prompt);$('#taskInput').innerHTML=contentSituation(contentItem)+(contentItem.options.length?`<ul>${contentItem.options.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:'');$('#taskTitle').before($('#taskInput'));if(contentItem.reasoning)$('#taskInput').innerHTML=contentTaskText(contentItem);
  }
  $('#taskDrawer').classList.add('open');$('.board-game').classList.add('task-open');$('#primaryGame').textContent='VERDER';$('#primaryGame').title='Beurt afronden en opnieuw gooien · spatie';
  $('#boardStatus').textContent='Spatie: opdracht sluiten en volgende worp.';
@@ -826,7 +826,14 @@ function bindCards(kind){
  $('#cardDeck').onclick=nextCard;
 }
 function contentSituation(item){return item.context?`<section class="content-situation"><h3>De situatie</h3><p>${esc(item.context)}</p></section>`:''}
-function contentTaskText(item,options){if(item.reasoning)return ReasoningTasks.render(item,options);return `${contentSituation(item)}<section class="content-prompt"><h3>De opdracht</h3><h2>${esc(ContentRuntime.displayPrompt(item))}</h2>${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`}
+function contentPromptHtml(prompt){
+ const text=lessonText(String(prompt||''));
+ const match=text.match(/^([\s\S]*?)(\bGebruik )([^.!?\n:]+)([.!?]?)$/);
+ if(!match)return esc(text);
+ const words=match[3].split(/(\s+(?:en|of)\s+)/).map((part,i)=>i%2?esc(part):`<strong>${esc(part)}</strong>`).join('');
+ return `${esc(match[1])}<span class="content-required">${esc(match[2])}${words}${esc(match[4])}</span>`;
+}
+function contentTaskText(item,options){if(item.reasoning)return ReasoningTasks.render(item,options);return `${contentSituation(item)}<section class="content-prompt"><h3>De opdracht</h3><h2>${contentPromptHtml(ContentRuntime.displayPrompt(item))}</h2>${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`}
 function contentAnswerLabel(item){return !item.model_answer?'Bespreek samen':ContentRuntime.answerPolicy(item).modelIsExample?'Bekijk een mogelijk antwoord':'Bekijk het antwoord'}
 function contentAnswerText(item,policy){return `${policy.modelAnswer?`<section><h3>${policy.modelIsExample?'Een mogelijk antwoord':'Antwoord'}</h3><p>${esc(policy.modelAnswer)}</p></section>`:''}<section><h3>Bespreek samen</h3><p>${esc(item.explanation||item.learning_goal)}</p></section>`}
 let contentDiceBusy=false;

@@ -29,6 +29,19 @@ let browser,page;
   for(const width of [390,1024,1630]){await page.setViewportSize({width,height:900});assert.ok(await container.evaluate(e=>e.scrollWidth<=e.clientWidth+1),engine+' width '+width)}
   await page.setViewportSize({width:1630,height:900});
  }
+ // The actual reported sentence must emphasize the same words in every shared game.
+ for(const engine of ['CARDS','BOARD','WHEEL','QUIZ','DICE']){
+  await launch(engine,'ER_B1_127');
+  if(engine==='BOARD'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));}
+  if(engine==='WHEEL'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);}
+  if(engine==='QUIZ')await page.locator('.na-quiz-board [data-content-item-id=ER_B1_127]').click();
+  const focus=page.locator('#screen-game.active .content-required');
+  assert.deepEqual(await focus.locator('strong').allTextContents(),['er','voor zorgen']);
+  assert.equal(await focus.evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(231, 243, 254)');
+  for(const width of [1440,390]){await page.setViewportSize({width,height:900});assert.ok(await focus.evaluate(e=>e.scrollWidth<=e.clientWidth+1),'Required words fit '+engine+' '+width);}
+  await page.setViewportSize({width:1440,height:900});
+  if(engine==='CARDS')await page.screenshot({path:path.join(dir,'required-words.png')});
+ }
  await launch('CARDS');await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());const saved=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,index:APP.cardIndex,refs:APP.contentSessionConfig.selected_content_refs}));await page.reload();await page.locator('#resumeBtn').click();await page.locator('#contentCardReveal').waitFor();assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,index:APP.cardIndex,refs:APP.contentSessionConfig.selected_content_refs})),saved);
  // Pin the reported card for the visual check, without editing application data.
  await page.evaluate(()=>{APP.cardIndex=APP.contentSessionConfig.selected_item_ids.indexOf('ER_B2_099');startContentCards()});
@@ -46,7 +59,7 @@ let browser,page;
   const item=await page.evaluate(id=>ContentRuntime.itemById(id),id);
   const container=page.locator(engine==='BOARD'?'#taskDrawer':engine==='WHEEL'?'.na-wheel-result':engine==='QUIZ'?'.na-workspace':'.content-reading[data-content-item-id]');
   const text=await container.innerText();assert.ok(text.includes(item.context),id+' '+engine+' situation visible');
-  assert.ok(text.includes(item.prompt.split('\n')[0]),id+' '+engine+' instruction visible');
+  assert.ok(text.replace(/\s+/g,' ').includes(item.prompt.split('\n')[0].replace(/\s+/g,' ')),id+' '+engine+' instruction visible');
   if(['open','open_geleid'].includes(item.answer_type))assert.ok(!text.includes(item.model_answer),id+' hidden example');
   let answer;
   if(engine==='QUIZ'&&item.options.length){
