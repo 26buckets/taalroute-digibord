@@ -127,6 +127,16 @@ Nico heeft uiterlijk 1, Open en rustig, gekozen. De volledige voorbereiding en a
 
 Op verzoek van Nico blijft Voorlezen zichtbaar, grijs en uitgeschakeld bij alle tongbrekers. Toon ‘Voorlezen · tijdelijk uit’. Ook hervatten, andere niveaus en de kaartenkast mogen de audio niet activeren. De opnames blijven bewaard; de vaste grote tongbrekertekst blijft ongewijzigd. Audio pas weer inschakelen op expliciet verzoek.
 
-## Verplichte woorden zichtbaar maken — 25 september 2026
+## Vaste opdrachtregel: nadruk op oefenwoorden — 25 september 2026
 
-Een afsluitende instructie ‘Gebruik …’ krijgt een eigen lichtblauwe regel. Alleen de woorden of woordgroepen zijn vet; Gebruik, en en of blijven normaal. De originele opdrachttekst, bron, ID en opgeslagen les blijven gelijk. Dezelfde weergave geldt voor voorbereiding, kaarten, bord, draaischijf, dobbelspel en quiz. Voorbeeld: Gebruik **er** en **voor zorgen**. Geen antwoord vooraf tonen. Instructies met een dubbele punt of zinnen daarna blijven intact en worden niet automatisch gesplitst.
+Deze regel geldt voor alle online oefeningen en nieuwe aansluitingen. De nadruk hoort bij wat de cursist moet gebruiken of beoordelen, niet bij een toevallig gekozen voorbeeld.
+
+- Maak verplichte woorden, woordgroepen, beginwoorden en eindwoorden vet. Doe dit ook bij ‘Vul … in’, ‘Reageer met’, ‘Zeg hetzelfde met’, ‘Herschrijf met’ en ‘Vervang … door …’. Meerdere aanwijzingen binnen één opdracht krijgen elk de juiste nadruk.
+- Zet de twee mogelijkheden bij ‘Kies:’ vet. Maak een aangehaalde term waarover een vraag gaat eveneens vet, bijvoorbeeld het woord **‘compact’**.
+- Alleen de bedoelde woorden zijn vet (gewicht 800). Instructiewoorden zoals Gebruik, Begin met, een vorm van, en en of blijven normaal (gewicht 400). Een volledige geciteerde woordgroep blijft één geheel.
+- Concrete taalaanwijzingen staan op een rustige lichtblauwe regel. De zin die moet worden bewerkt en losse bouwstenen blijven daarbuiten. Aangehaalde termen binnen een gewone vraag blijven in die vraag staan.
+- Pas dit toe in voorbereiding, kaarten, speelbord, draaischijf, quiz, dobbelspel en Zin bouwen, voor zover het spel geschikt is. De klassieke ingangen en hervatte goedgekeurde lessen gebruiken dezelfde opmaak.
+- Laat een open vraag zonder verplichte woorden gewoon leesbaar. Bedenk geen verplichte woorden, verklap geen antwoord en maak niet de hele opdracht vet om aan de regel te voldoen.
+- Behoud de letterlijke tekst, bronnen, inhoudsversies en opgeslagen voortgang. De vastgelegde grote tongbrekers en uitgeschakelde audio blijven behouden.
+
+De gedeelde functie contentPromptHtml past deze regel toe. tests/content-prompt.cjs controleert de vormen en veilige tekstweergave; tests/grammar-review-browser.cjs controleert alle 4.061 gepubliceerde opdrachtteksten en de verschillende spelweergaven. Bij nieuwe instructievormen moet de controle bevestigen dat de bedoelde woorden nadruk krijgen voordat ze online komen.

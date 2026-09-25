@@ -828,10 +828,38 @@ function bindCards(kind){
 function contentSituation(item){return item.context?`<section class="content-situation"><h3>De situatie</h3><p>${esc(item.context)}</p></section>`:''}
 function contentPromptHtml(prompt){
  const text=lessonText(String(prompt||''));
- const match=text.match(/^([\s\S]*?)(\bGebruik )([^.!?\n:]+)([.!?]?)$/);
- if(!match)return esc(text);
- const words=match[3].split(/(\s+(?:en|of)\s+)/).map((part,i)=>i%2?esc(part):`<strong>${esc(part)}</strong>`).join('');
- return `${esc(match[1])}<span class="content-required">${esc(match[2])}${words}${esc(match[4])}</span>`;
+ // Match instructions, not words in the situation or hidden example answer.
+ const strong=words=>words.split(/(‘[^’]*’|\s+(?:en|of)\s+|\s*\/\s*)/).filter(Boolean).map(part=>!part.trim()||/^(?:\s+(?:en|of)\s+|\s*\/\s*)$/.test(part)?esc(part):`<strong>${esc(part)}</strong>`).join('');
+ return (text.match(/(?:‘[^’]*’|[^.!?\n])+[.!?]?|[.!?\n]/g)||[]).map(sentence=>{
+  const parts=sentence.match(/^(\s*)((?:‘[^’]*’|[^:])*?)(:([\s\S]*))?$/);
+  const [,space,head,tail='',after='']=parts;
+  const punctuation=head.match(/[.!?]$/)?.[0]||'',body=punctuation?head.slice(0,-1):head;
+  let match,html,suffix='';
+  if(/^(?:Gebruik|Kies)$/.test(body)&&tail){
+   const words=after.match(/^(\s*)([\s\S]*?)([.!?]?)$/);
+   html=esc(body+':'+words[1])+strong(words[2])+esc(words[3]);
+  }else if((match=body.match(/^(Gebruik |Begin met |Reageer met |Antwoord met |Geef antwoord met |Zeg hetzelfde met |Vertel dit met |Herschrijf met |Maak (?:de zin volledig|hiervan een vraag|het verzoek beleefd|de conclusie minder zeker|de zin voorzichtiger) met )(.+)$/))&&!/^(?:jij|je|de informatie)\b/.test(match[2])){
+   const chunks=match[2].split(/( en (?:gebruik|eindig met) | en noem [\s\S]*)/);
+   suffix=tail?esc(after):'';
+   html=esc(match[1])+chunks.map((chunk,i)=>{
+    if(i%2)return esc(chunk);
+    const form=chunk.match(/^((?:een|de juiste) vorm van )(.+)$/);
+    return form?esc(form[1])+strong(form[2]):strong(chunk);
+   }).join('')+esc(punctuation+(tail?':':''));
+  }else if((match=body.match(/^(Vul )(?:(een vorm van |de juiste vorm van ))?(.+)( in)$/))){
+   suffix=tail?esc(after):'';
+   html=esc(match[1]+(match[2]||''))+strong(match[3])+esc(match[4]+punctuation+(tail?':':''));
+  }else if((match=body.match(/^(Vervang )(.+)( door )(.+)$/))){
+   suffix=tail?esc(after):'';
+   html=esc(match[1])+strong(match[2])+esc(match[3])+strong(match[4])+esc(punctuation+(tail?':':''));
+  }
+  if(html)return esc(space)+`<span class="content-required">${html}</span>${suffix}`;
+  // In a question, keep the sentence together and only mark its named language form.
+  const question=sentence.trimStart().match(/^(Welke hele zin (?:met |begint met ))(er|zullen|zouden|Er)([\s\S]*)$/);
+  if(question)return esc(space+question[1])+strong(question[2])+esc(question[3]);
+  if(!tail&&!body.startsWith('‘'))return sentence.split(/(‘[^’]+’)/).map(part=>part.startsWith('‘')?strong(part):esc(part)).join('');
+  return esc(sentence);
+ }).join('');
 }
 function contentTaskText(item,options){if(item.reasoning)return ReasoningTasks.render(item,options);return `${contentSituation(item)}<section class="content-prompt"><h3>De opdracht</h3><h2>${contentPromptHtml(ContentRuntime.displayPrompt(item))}</h2>${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`}
 function contentAnswerLabel(item){return !item.model_answer?'Bespreek samen':ContentRuntime.answerPolicy(item).modelIsExample?'Bekijk een mogelijk antwoord':'Bekijk het antwoord'}

@@ -42,6 +42,34 @@ let browser,page;
   await page.setViewportSize({width:1440,height:900});
   if(engine==='CARDS')await page.screenshot({path:path.join(dir,'required-words.png')});
  }
+ const emphasisAudit=await page.evaluate(()=>ContentRuntime.filterSource().map(item=>{
+  const prompt=ContentRuntime.displayPrompt(item),node=document.createElement('div');node.innerHTML=contentPromptHtml(prompt);
+  return {id:item.content_item_id,bank:item.content_bank_id,prompt:lessonText(prompt),text:node.textContent,words:[...node.querySelectorAll('strong')].map(e=>e.textContent),unsafe:!!node.querySelector('script,img,iframe'),required:/\b(?:Begin met|Reageer met|Vul .+ in:|Kies:|Gebruik:|Herschrijf met)\b/.test(prompt)};
+ }));
+ assert.equal(emphasisAudit.length,4061);
+ assert.equal(emphasisAudit.filter(i=>i.words.length).length,1570);
+ for(const item of emphasisAudit){assert.equal(item.text,item.prompt,item.id+' exact instruction retained');assert.ok(!item.unsafe,item.id+' safe markup');assert.ok(item.words.every(w=>w.trim()),item.id+' no empty emphasis');if(item.required)assert.ok(item.words.length,item.id+' named instruction emphasized');}
+ fs.writeFileSync(path.join(dir,'emphasis-audit.json'),JSON.stringify(emphasisAudit,null,2));
+ console.log('PASS all '+emphasisAudit.length+' published instructions: '+emphasisAudit.filter(i=>i.words.length).length+' with explicit emphasis; text and release scope retained.');
+ const emphasisCases=[['ZULLEN_A2_006',['Zullen we','een datum kiezen']],['ZOUDEN_B1_038',['zou']],['ER_A2_003',['‘Ik kom er’']],['sq-r3-circle-117',['‘compact’']]];
+ const choice=emphasisAudit.find(i=>i.bank==='CB-QUICK-014'&&i.prompt.startsWith('Kies:'));
+ emphasisCases.push([choice.id,choice.words]);
+ for(const [id,expected] of emphasisCases){
+  const engines=id.startsWith('sq-')||id.startsWith('dq-')?['CARDS','BOARD','WHEEL']:['CARDS','BOARD','WHEEL','QUIZ','DICE',...(id==='ER_A2_003'?['SEQUENCE']:[])];
+  for(const engine of engines){
+   await launch(engine,id);
+   if(engine==='BOARD'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));}
+   if(engine==='WHEEL'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);}
+   if(engine==='QUIZ')await page.locator('.na-quiz-board [data-content-item-id="'+id+'"]').click();
+   const selector=engine==='BOARD'?'#taskTitle':engine==='QUIZ'?'.na-workspace h2[data-content-item-id]':engine==='SEQUENCE'?'.na-sequence-source':engine==='WHEEL'?'.na-wheel-result .content-prompt h2':'.content-reading .content-prompt h2';
+   const task=page.locator(selector);assert.deepEqual(await task.locator('strong').allTextContents(),expected,id+' '+engine);
+   assert.equal(await task.evaluate(e=>getComputedStyle(e).fontWeight),'400',id+' ordinary instruction stays lighter');
+   assert.ok((await task.locator('strong').evaluateAll(es=>es.every(e=>getComputedStyle(e).fontWeight==='800'))),id+' required words bold');
+   for(const width of [1440,390]){await page.setViewportSize({width,height:900});assert.ok(await task.evaluate(e=>e.scrollWidth<=e.clientWidth+1),id+' '+engine+' '+width);}
+   if(engine==='CARDS')await page.screenshot({path:path.join(dir,id+'-emphasis.png')});
+   await page.setViewportSize({width:1440,height:900});
+  }
+ }
  await launch('CARDS');await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());const saved=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,index:APP.cardIndex,refs:APP.contentSessionConfig.selected_content_refs}));await page.reload();await page.locator('#resumeBtn').click();await page.locator('#contentCardReveal').waitFor();assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,index:APP.cardIndex,refs:APP.contentSessionConfig.selected_content_refs})),saved);
  // Pin the reported card for the visual check, without editing application data.
  await page.evaluate(()=>{APP.cardIndex=APP.contentSessionConfig.selected_item_ids.indexOf('ER_B2_099');startContentCards()});

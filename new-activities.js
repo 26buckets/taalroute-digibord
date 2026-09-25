@@ -101,7 +101,7 @@ window.DigiActivities = (() => {
   }
   if(kind==='rangschikken'){
    const sequence=state.contentSequence||content.sequences[state.round%content.sequences.length],attr=state.contentSequence?` data-content-item-id="${esc(sequence.id)}"`:'';
-   return `<div${attr}><h2>${esc(sequence.title)}</h2>${state.contentSequence?`${contentSituation(ContentRuntime.itemForSession(sequence.id))}<p class="na-sequence-source">${esc(sequence.prompt)}</p>`:''}<ol class="na-sequence">${state.sequence.map((i,j)=>`<li>${button('remove-step',j,esc(sequence.steps[i]),`aria-label="Stap ${j+1} terugleggen: ${esc(sequence.steps[i])}" ${state.correct?'disabled':''}`)}</li>`).join('')}</ol>${state.sequence.length?'':'<p class="na-empty">Kies hieronder wat eerst komt.</p>'}<div class="na-step-bank">${state.order.filter(i=>!state.sequence.includes(i)).map(i=>button('step',i,esc(sequence.steps[i]))).join('')}</div></div>`;
+   return `<div${attr}><h2>${esc(sequence.title)}</h2>${state.contentSequence?`${contentSituation(ContentRuntime.itemForSession(sequence.id))}<p class="na-sequence-source">${contentPromptHtml(sequence.prompt)}</p>`:''}<ol class="na-sequence">${state.sequence.map((i,j)=>`<li>${button('remove-step',j,esc(sequence.steps[i]),`aria-label="Stap ${j+1} terugleggen: ${esc(sequence.steps[i])}" ${state.correct?'disabled':''}`)}</li>`).join('')}</ol>${state.sequence.length?'':'<p class="na-empty">Kies hieronder wat eerst komt.</p>'}<div class="na-step-bank">${state.order.filter(i=>!state.sequence.includes(i)).map(i=>button('step',i,esc(sequence.steps[i]))).join('')}</div></div>`;
   }
   if(kind==='categorieenquiz'){
    const quiz=quizData(),q=quiz[state.question];

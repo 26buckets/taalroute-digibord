@@ -202,3 +202,7 @@
 /* Required words remain separate from the situation and hidden model answer. */
 .content-required{display:block;width:fit-content;max-width:100%;margin-top:18px;padding:12px 16px;border-radius:8px;background:#e7f3fe;color:#173752;font-size:clamp(20px,1.8vw,28px);font-weight:400;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
 .content-required strong{font-weight:800}
+
+/* Required words carry the emphasis; surrounding instructions stay readable and calm. */
+.content-prompt h2,.content-board-task #taskTitle,.na-workspace h2[data-content-item-id],.na-sequence-source{font-weight:400}
+.content-prompt h2 strong,.content-board-task #taskTitle strong,.na-workspace h2[data-content-item-id] strong,.na-sequence-source strong{font-weight:800}
