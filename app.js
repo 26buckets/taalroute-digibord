@@ -180,7 +180,7 @@ function bindGameBar(primaryHandler){
   if(session&&globalThis.ContentGuidance)return ContentGuidance.open(session.selected_item_ids.map(id=>ContentRuntime.itemForSession(id)),'erk',b);
   openGameDialog('Spelhulp',`<p>${esc(levelInstruction())}</p><p>Lees zo nodig voor. Geef eerst ruimte voor een eigen antwoord; bekijk daarna samen het voorbeeld.</p>`);
  });
- $$('[data-grules]').forEach(b=>b.onclick=()=>openGameDialog('Spelregels',`<p>${esc(currentGameRules())}</p>`));
+ $$('[data-grules]').forEach(b=>b.onclick=()=>openGameDialog('Spelregels',`<ol class="game-rules">${currentGameRules().split(/(?<=[.!?])\s+/).map(rule=>`<li>${esc(rule)}</li>`).join('')}</ol>`));
  $$('[data-goptions]').forEach(b=>b.onclick=()=>{
   const panel=$('#boardOptions');if(panel){setBoardMenu(false);panel.classList.toggle('open');return}
   openGameDialog('Spelopties',`<label class="option-row">Minder beweging <input id="gameMotion" type="checkbox" ${settingsState().reducedMotion?'checked':''}></label><label class="option-row">Geluid <input id="gameSound" type="checkbox" ${settingsState().soundEnabled!==false?'checked':''}></label><p>${APP.last?.type==='word'&&APP.last.data.kind==='wz'?'De moeilijkheid kies je bij het taaldoel.':'Het niveau kies je rechtsboven.'} De beschikbare sets en aantallen staan bij het spel.</p>`,()=>{$('#gameMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});$('#gameSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked})});
@@ -310,7 +310,7 @@ function softDie({color='#fffefa',word='',image='',value=null,words=[],images=[]
 function cardBack(title='Kaarten',family=''){return `<img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute"><span class="card-set-title">${esc(title)}</span>${family?`<span class="card-family">${esc(family)}</span>`:''}`}
 function physicalDie(n=5){return `<div class="dice-cradle"><div class="dice-float"><div id="moveDie" class="physical-die sculpted-board-die" aria-label="Dobbelsteen ${n}">${softDie({value:n,front:false})}</div></div></div>`}
 function boardOptionInfo(label,description){
- return `<span class="context-tool board-info" data-tip-label="${esc(label)}" data-tip="${esc(description)}"><button type="button" aria-label="Uitleg: ${esc(label)}"><span aria-hidden="true">ⓘ</span></button></span>`;
+ return `<span class="context-tool board-info" data-tip-label="${esc(label)}" data-tip="${esc(description)}"><button type="button" aria-label="Uitleg: ${esc(label)}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.01"/></svg></button></span>`;
 }
 function boardOptionTitle(id,label,description){return `<span class="board-option-title"><label for="${id}">${label}</label>${boardOptionInfo(label,description)}</span>`}
 function startBoard(board){

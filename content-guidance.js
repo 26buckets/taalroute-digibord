@@ -9,7 +9,9 @@
  };
  const esc=value=>(globalThis.AppWording?.text(value)??String(value??'')).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const completion=typeof module==='object'&&module.exports?require('./data/lesson-guidance.js'):root.CompleteLessonGuidance;
- function sourceLink(id,registry=data){const s=registry.sources[id];return s?(/^https:\/\//.test(s.url)?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`:esc(s.title))+` · ${esc(s.version)}`:''}
+ // Public references are separate from the retained internal review trail.
+ function sourceLink(id){const publicId={lowanLesson:'lowanLesson',fLesson:'fLesson',erkLesson:'erkLesson',bow:'bowPublic',bowPublic:'bowPublic'}[id],s=data.sources[publicId];return s?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>`:''}
+ function facts(rows){return `<table class="guidance-facts"><tbody>${rows.filter(([,value])=>value).map(([label,value])=>`<tr><th scope="row">${esc(label)}</th><td>${esc(Array.isArray(value)?value.join(', '):value)}</td></tr>`).join('')}</tbody></table>`}
  function binding(item,registry=data){const b=registry.bindings[item?.content_item_id];return b?.item_version===item?.version?b:registry.historicalBindings?.[item?.content_item_id+'@'+item?.version]}
  function mapping(item,key,registry=data){
   const b=binding(item,registry);
@@ -39,35 +41,38 @@
   }
   return {entries,known,missing,levels,status};
  }
- function buttons(items,selected=null){return Object.entries(sections).map(([key,s])=>`<button type="button" data-guidance="${key}" ${selected?`aria-pressed="${selected===key}"`:''} aria-label="${s.name} · ${s.label}: ${esc(summarize(items,key).status)}" ${selected?'':'aria-haspopup="dialog"'}><span class="guidance-icon guidance-${key}" aria-hidden="true"></span><span>${key==='f'?'Referentie-<br>niveau':s.label}</span></button>`).join('')}
+ function statusLabel(summary){return ({'Nog niet gekoppeld':'Geen advies','Deels gekoppeld':'Deels beschikbaar','Gekoppeld':'Beschikbaar','Meerdere':'Meerdere niveaus'})[summary.status]||summary.status}
+ function buttons(items,selected=null){return Object.entries(sections).map(([key,s])=>`<button type="button" data-guidance="${key}" ${selected?`aria-pressed="${selected===key}"`:''} aria-label="${s.name} · ${s.label}: ${esc(statusLabel(summarize(items,key)))}" ${selected?'':'aria-haspopup="dialog"'}><span class="guidance-icon guidance-${key}" aria-hidden="true"></span><span>${s.label}</span></button>`).join('')}
  function row(items){return `<div class="guidance-row" role="group" aria-label="Uitleg bij deze oefeningen">${buttons(items)}</div>`}
  function details(entry,key){
   const m=entry.mapping;
-  if(m.status==='not_applicable')return `<p>Niet van toepassing: ${esc(m.evidence)}</p><p>${sourceLink(m.source)} · ${esc(m.version)}</p>`;
-  if(m.status==='lesson_use')return `<p>${esc(m.goal)}</p>${m.area?`<p>${esc(m.area)}</p>`:''}<p>${esc(m.use)}</p><p>${esc(m.evidence)}</p><p>${sourceLink(m.source)}</p>`;
-  if(m.status==='source_route')return `<dl class="guidance-facts"><div><dt>Route uit de bron</dt><dd>${esc(m.routes.join(', '))}</dd></div><div><dt>Doel</dt><dd>${esc(m.goal)}</dd></div></dl><p>${esc(m.evidence)}</p><p>${sourceLink(m.source)}</p>`;
-  return `<dl class="guidance-facts">${Object.entries(sections[key].fields).map(([field,label])=>`<div><dt>${m.status==='source_level'&&field==='levels'?'Niveau uit de bron':label}</dt><dd>${esc(Array.isArray(m[field])?m[field].join(', '):m[field])}</dd></div>`).join('')}</dl><p>${esc(m.evidence)}</p><p>${sourceLink(m.source)} · ${esc(m.version)}</p>`;
+  if(m.status==='not_applicable')return facts([['Niveau','Niet van toepassing'],['Toelichting',m.evidence]]);
+  if(m.status==='source_route')return facts([['Leerroute',m.routes],['Doel',m.goal],['Toelichting',m.evidence]]);
+  return facts([...Object.entries(sections[key].fields).map(([field,label])=>[m.status==='source_level'&&field==='levels'?'Niveau uit de bron':label,m[field]]),['Waarom dit niveau?',entry.item.level_review?.reason?.split(' Deze inhoud is daarom verplaatst')[0]]])+(m.status==='source_level'?`<p>${esc(m.evidence)}</p>`:'');
  }
  function content(items,key){
   const summary=summarize(items,key),s=sections[key];
-  let body=`<h3 id="guidanceHeading" tabindex="-1">${s.name} · ${s.label}</h3><p>${s.intro}</p><p class="guidance-status">${esc(summary.status)}</p>`;
+  let body=`<h3 id="guidanceHeading" tabindex="-1">${s.name} · ${s.label}</h3><p>${s.intro}</p><p class="guidance-status">${esc(statusLabel(summary))}</p>`;
   if(!items.length)return body+'<p>Kies eerst de inhoud die je wilt oefenen.</p>';
-  if(summary.missing)body+=`<p>${summary.missing===items.length?'Deze oefeningen zijn nog niet gekoppeld.':`Voor ${summary.missing} van de ${items.length} oefeningen is nog geen koppeling gemaakt.`} Je kunt ze wel gebruiken.</p>`;
+  if(summary.missing)body+=`<p>${summary.missing===items.length?'Bij deze oefeningen is deze informatie niet beschikbaar.':`Bij ${summary.missing} van de ${items.length} oefeningen is deze informatie niet beschikbaar.`} Je kunt ze wel gebruiken.</p>`;
   if(key==='bow'){
    if(summary.known.length){
     body+=`<p>Tips bij ${summary.known.length} van de ${items.length} gekozen oefeningen.</p>`;
     const lessons=new Map();
     for(const {item,mapping:m} of summary.known){const lesson=binding(item)?.lesson,example=data.examples[m.example];const key=JSON.stringify([lesson?.goal||example.goal,lesson?.source||example.source]);const group=lessons.get(key)||{lesson,example,items:[],tips:new Map()};group.items.push(item);if(lesson)group.tips.set(JSON.stringify(lesson),lesson);lessons.set(key,group);}
-    body+=Array.from(lessons.values()).map(({lesson,example,items:group,tips})=>`<details class="guidance-lesson"><summary>${esc(lesson?.goal||example.goal)}${group.length>1?` (${group.length})`:''}</summary>${lesson?Array.from(tips.values()).map(t=>`<h4>${esc(t.activity)}</h4><dl class="guidance-facts"><div><dt>Hulp</dt><dd>${esc(t.help)}</dd></div><div><dt>Bespreek</dt><dd>${esc(t.check)}</dd></div><div><dt>Daarna</dt><dd>${esc(t.next)}</dd></div></dl>`).join(''):`<p>${esc(example.evidence)}</p>`}<details><summary>Opdrachten bij deze tip</summary>${group.map(item=>`<p>${esc(item.prompt)}</p>`).join('')}</details><p>${sourceLink(lesson?.source||example.source)}</p></details>`).join('');
+    body+=Array.from(lessons.values()).map(({lesson,example,items:group,tips})=>`<details class="guidance-lesson"><summary>${esc(lesson?.goal||example.goal)}${group.length>1?` (${group.length})`:''}</summary>${lesson?Array.from(tips.values()).map(t=>facts([['Werkvorm',t.activity],['Hulp',t.help],['Bespreek',t.check],['Daarna',t.next]])).join(''):`<p>${esc(example.evidence)}</p>`}<details><summary>Opdrachten bij deze tip</summary>${group.map(item=>`<p>${esc(item.prompt)}</p>`).join('')}</details></details>`).join('');
     const ids=[...new Set(summary.known.flatMap(e=>e.mapping.criteria))];
-    body+='<details><summary>Zo kun je de les geven</summary>'+ids.map(id=>{const c=data.criteria[id];return `<section class="guidance-tip"><h4>${esc(c.title)}</h4><dl class="guidance-facts"><div><dt>Docent</dt><dd>${esc(c.teacher)}</dd></div><div><dt>Cursist</dt><dd>${esc(c.learner)}</dd></div><div><dt>Let op</dt><dd>${esc(c.observe)}</dd></div></dl><details><summary>Waar komt deze tip vandaan?</summary><p>Taalroute-lestip bij ${esc(c.layer)} ${esc(c.code)} · ${esc(c.name)}. Dit is geen volledige beoordeling van dit punt.</p><p>${sourceLink(c.source)} · ${esc(c.version)}</p></details></section>`}).join('')+'</details>';
+    body+='<details><summary>Zo kun je de les geven</summary>'+ids.map(id=>{const c=data.criteria[id];return `<section class="guidance-tip"><h4>${esc(c.title)}</h4>${facts([['Docent',c.teacher],['Cursist',c.learner],['Let op',c.observe]])}</section>`}).join('')+`<p>${sourceLink('bowPublic')}</p></details>`;
    }
-   body+='<p>Een knop voor het antwoord is nog geen feedback. Bespreek het antwoord en kijk of de cursist de tip gebruikt.</p><p>BoW gaat over leskwaliteit. Het is geen taalniveau of keurmerk voor deze oefening. Voor de hele les, het leertraject en de school zijn meer punten van belang.</p><details><summary>Eigen afspraken van Taalroute</summary><p>Er zijn hier nog geen eigen afspraken gekoppeld. Afspraken voor online en klassikaal lesgeven horen apart van BoW.</p></details>';
+   body+='<p class="guidance-note">Bespreek het antwoord samen. Deze lestips helpen bij het lesgeven; ze zijn geen beoordeling of keurmerk van de les.</p>';
   }else{
    const uses=summary.known.filter(e=>e.mapping.status==='lesson_use');
-   if(uses.length){body+=`<p>${esc(uses[0].mapping.evidence)}</p>`;const tips=[...new Set(uses.map(e=>(e.mapping.area?e.mapping.area+': ':'')+e.mapping.use))];body+=tips.map(t=>`<p>${esc(t)}</p>`).join('')+`<p>${sourceLink(uses[0].mapping.source)}</p>`;}
+   if(uses.length){
+    const areas=[...new Set(uses.map(e=>e.mapping.area).filter(Boolean))],tips=[...new Set(uses.map(e=>e.mapping.use))];
+    body+=facts([['Bij deze les',key==='lowan'?'Oefen binnen de al gekozen route van de cursist.':areas.join(', ')],['Gebruik',tips.join(' ')],['Goed om te weten',key==='lowan'?'De LOWAN-route hangt af van de cursist en het vervolgonderwijs. Een losse oefening bepaalt die route niet. Buiten de ISK is een ISK-route niet van toepassing.':'Een losse opdracht bepaalt geen niveau 1F, 2F, 3F of 4F. Er is daarom geen F-niveau toegekend.']])+`<p class="guidance-note">${sourceLink(uses[0].mapping.source)}</p>`;
+   }
    body+=summary.known.filter(e=>e.mapping.status!=='lesson_use').map(e=>`<details><summary>${esc(binding(e.item)?.lesson?.goal||e.item.prompt)}</summary>${details(e,key)}</details>`).join('');
-   body+='<p>Een niveauadvies bij een opdracht is geen niveautoets. LOWAN, ERK en F worden apart bekeken.</p>';
+   if(key==='erk')body+='<p class="guidance-note">Het niveau helpt je bij het kiezen van een oefening. Het is geen toets van het niveau van de cursist.</p>';
    if(key==='erk')body+=`<p>${sourceLink('erkLesson')}</p>`;
   }
   return body;
@@ -93,7 +98,7 @@
   dlg.classList.add('guidance-dialog');dlg.setAttribute('aria-labelledby','dialogTitle');
   root.openGameDialog('Bij deze oefeningen',`<div class="guidance-row" role="group" aria-label="Kies uitleg">${buttons(items,key)}</div><div class="guidance-content">${content(items,key)}</div>`,()=>{
    dlg.querySelectorAll('[data-guidance]').forEach(b=>b.onclick=()=>open(items,b.dataset.guidance,opener));
-   dlg.querySelector('#guidanceHeading').focus();
+   dlg.querySelector('#guidanceHeading').focus({preventScroll:true});
   });
  }
  function bind(container,items){container.querySelectorAll('[data-guidance]').forEach(b=>b.onclick=()=>open(items,b.dataset.guidance,b))}

@@ -224,7 +224,7 @@
 .board-options .board-option-row>.smallbtn{width:100%;min-height:44px;margin:0;border:1px solid var(--setup-line);border-radius:8px;background:#fff;color:inherit;font:inherit;text-align:left}
 .board-options #restartBoard{width:100%;margin:0}
 .board-options .board-info{flex-basis:44px}
-.board-options .board-info button{width:44px;height:44px;color:var(--setup-muted)}
+.board-options .board-info button{width:44px;height:44px;font-size:16px;font-weight:400;color:var(--setup-muted)}
 .board-options .footer-choices{padding:16px 0;border-bottom:1px solid var(--setup-line)}
 .board-options .footer-choices legend{font:500 15px/1.45 var(--setup-font);color:inherit}
 .board-options .footer-choice{height:auto;min-height:48px;margin:4px 0;padding:10px 12px;border:0;border-radius:8px;font:inherit;color:inherit;background:transparent}
@@ -260,3 +260,53 @@
 .board-game[data-dark=true] .donebtn kbd{background:#1b3042;color:var(--setup-ink);border-color:var(--setup-line)}
 .board-game[data-dark=true] .donebtn:hover{background:#245d85}
 @media(max-width:720px){.board-game .task-drawer{grid-template-columns:minmax(0,1fr)}.board-game .task-drawer .donebtn{flex-direction:row;justify-content:space-between;min-height:56px;padding:12px 16px}}
+
+/* One presentation for explanation, rules and options throughout the app. */
+#gameDialog,.curriculum-panel,.context-tooltip{font:400 16px/1.55 var(--setup-font);color:var(--setup-ink);border:1px solid var(--setup-line);border-radius:12px;background:#fff;box-shadow:0 10px 30px #17375218}
+#gameDialog{width:min(760px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:24px;box-sizing:border-box;overflow:hidden}
+#gameDialog[open]{display:flex;flex-direction:column}
+#gameDialog .dialog-head{position:static;flex-shrink:0;padding:0 0 16px;border-bottom:1px solid var(--setup-line);background:transparent}
+#gameDialog .dialog-head h2{font:500 23px/1.3 var(--setup-font)}
+#gameDialog #dialogClose{width:44px;height:44px;min-width:44px;border:1px solid var(--setup-line);border-radius:8px;background:transparent;color:inherit}
+#gameDialog #dialogBody{min-height:0;overflow:auto;overscroll-behavior:contain;line-height:1.55;padding-top:16px;scrollbar-gutter:stable}
+#gameDialog :is(button,select,input){font-family:var(--setup-font)}
+#gameDialog :is(h3,h4,strong){font-weight:500}
+#gameDialog h3{font-size:19px}
+#gameDialog h4{font-size:17px}
+#gameDialog :is(button,select,input,summary):focus-visible{outline:3px solid var(--setup-blue);outline-offset:2px}
+#gameDialog :is(.smallbtn,.primary){min-height:44px;border-radius:8px;box-shadow:none}
+#gameDialog summary{padding:14px 2px;min-height:44px;cursor:pointer}
+#gameDialog details{border-top:1px solid var(--setup-line)}
+#gameDialog.guidance-dialog{width:1040px;padding:24px;color:var(--setup-ink)}
+#gameDialog.guidance-dialog #dialogBody{display:flex;flex-direction:column;overflow:hidden;padding-top:0;scrollbar-gutter:auto}
+.guidance-dialog .guidance-row{flex-shrink:0;border-top:0;border-bottom:1px solid var(--setup-line);padding:12px 0;margin:0;gap:8px}
+.guidance-dialog .guidance-row button{min-height:80px;padding:8px;gap:6px;color:inherit}
+.guidance-dialog .guidance-row button[aria-pressed=true]{background:var(--setup-soft);color:var(--setup-blue)}
+.guidance-row button>span:last-child{overflow-wrap:normal;hyphens:none}
+.guidance-dialog .guidance-row button>span:last-child{font-size:14px;line-height:1.35}
+.guidance-dialog .guidance-icon{width:36px}
+.guidance-dialog .guidance-content{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 12px 8px 0;overflow-wrap:break-word;line-height:1.55}
+.guidance-content #guidanceHeading{margin-top:20px;outline:none}
+.guidance-content .guidance-status{display:inline-block;margin:4px 0 12px;padding:4px 10px;background:var(--setup-soft);color:var(--setup-blue);border-radius:6px;font-weight:500}
+.guidance-facts{width:100%;border-collapse:collapse;table-layout:fixed;margin:12px 0 20px;text-align:left}
+.guidance-facts :is(th,td){padding:14px 16px;border-bottom:1px solid var(--setup-line);vertical-align:top;overflow-wrap:break-word}
+.guidance-facts th{width:25%;font-weight:500;background:var(--setup-soft)}
+.guidance-note{font-size:14px;color:var(--setup-muted)}
+html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-ink:#edf3f8;--setup-muted:#b7c8d8;--setup-line:#45596c;--setup-soft:#194e75;--setup-blue:#a4d5ff}
+@media(max-width:600px){
+ #gameDialog,#gameDialog.guidance-dialog{padding:16px}
+ .guidance-dialog .guidance-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:8px 0}
+ .guidance-dialog .guidance-row button{flex-direction:row;justify-content:flex-start;min-height:48px;padding:6px;gap:6px;text-align:left}
+ .guidance-dialog .guidance-icon{width:32px}
+ .guidance-dialog .guidance-row button>span:last-child{font-size:12px}
+ .guidance-facts :is(th,td){padding:10px 8px}
+ .guidance-facts :is(th,td){display:block;width:auto}
+ .guidance-facts th{padding-bottom:6px;border-bottom:0}
+ .guidance-facts td{padding-top:8px}
+}
+
+#gameDialog .game-rules{margin:0;padding-left:28px}
+#gameDialog .game-rules li{padding:12px 8px;border-bottom:1px solid var(--setup-line)}
+#gameDialog .game-rules li::marker{font-weight:500;color:var(--setup-blue)}
+
+@media(max-width:380px){.guidance-dialog .guidance-row button{flex-direction:column;align-items:center;text-align:center;min-height:68px}.guidance-dialog .guidance-row button>span:last-child{font-size:12px}}

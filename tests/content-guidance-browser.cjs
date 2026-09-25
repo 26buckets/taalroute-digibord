@@ -33,7 +33,7 @@ let browser;
  assert.equal(await page.evaluate(()=>JSON.stringify(localStorage)),before);
  await page.locator('#practiceForm [data-guidance=bow]').click();
  const bow=await page.evaluate(()=>{const s=ContentGuidance.summarize(ContentUI.previewItems(),'bow');return {known:s.known.length,total:s.entries.length}});
- if(bow.known){assert.ok((await page.locator('.guidance-content').textContent()).includes(`${bow.known} van de ${bow.total}`));assert.match(await page.locator('.guidance-content').textContent(),/A3f/)}
+ if(bow.known){assert.ok((await page.locator('.guidance-content').textContent()).includes(`${bow.known} van de ${bow.total}`));assert.doesNotMatch(await page.locator('.guidance-content').textContent(),/A3f|beoordeling van \d+ bestaande|2026-|snelvragen\.2/)}
  await page.locator('#gameDialog [data-guidance=erk]').click();assert.match(await page.locator('#guidanceHeading').textContent(),/ERK/);
  await page.locator('#dialogClose').click();
  const first=await page.locator('#practiceForm .guidance-row').innerHTML();
@@ -50,8 +50,21 @@ let browser;
   const button=page.locator('#practiceForm [data-guidance=bow]');await button.tap();
   const sizes=await page.locator('#gameDialog [data-guidance]').evaluateAll(bs=>bs.map(b=>({width:b.getBoundingClientRect().width,height:b.getBoundingClientRect().height})));
   assert.ok(sizes.every(s=>s.width>=44&&s.height>=44));
+  assert.ok(await page.locator('#gameDialog [data-guidance]').evaluateAll(bs=>bs.every(b=>{const r=b.getBoundingClientRect(),t=b.lastElementChild.getBoundingClientRect();return t.left>=r.left&&t.right<=r.right+1})), 'Tab labels stay inside their own buttons');
   assert.ok(await page.locator('#gameDialog').evaluate(e=>e.scrollWidth<=e.clientWidth+1));
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  for(const key of ['lowan','erk','f','bow']){
+   await page.locator(`#gameDialog [data-guidance=${key}]`).tap();
+   await page.locator('.guidance-content details').evaluateAll(ds=>ds.forEach(d=>d.open=true));
+   assert.doesNotMatch(await page.locator('.guidance-content').textContent(),/beoordeling van \d+ bestaande|2026-|GRAM_REV|A3f|bronlabel|redactioneel/);
+   assert.ok(await page.locator('.guidance-content').evaluate(e=>e.scrollWidth<=e.clientWidth+1),'All guidance text fits');
+   assert.ok(await page.locator('#gameDialog [data-guidance=f]').evaluate(e=>e.innerText.includes('Referentieniveau')));
+   const positions=await page.locator('#gameDialog').evaluate(d=>{const h=d.querySelector('.dialog-head').getBoundingClientRect(),tabs=d.querySelector('.guidance-row').getBoundingClientRect();return {header:h.bottom,tabs:tabs.top,width:d.getBoundingClientRect().width}});
+   assert.ok(positions.tabs>=positions.header-1,'Tabs are not hidden beneath the title');
+   if(width>=1440)assert.ok(positions.width>=1000,'Long text gets a wide dialog');
+   await page.locator('.guidance-content').evaluate(e=>e.scrollTop=e.scrollHeight);
+   assert.ok(await page.locator('#gameDialog [data-guidance=erk]').isVisible());
+  }
   if(process.env.GUIDANCE_SCREENSHOT){await page.screenshot({path:path.resolve(process.env.GUIDANCE_SCREENSHOT,`guidance-${width}.png`)});}
   await page.locator('#dialogClose').tap();
  }

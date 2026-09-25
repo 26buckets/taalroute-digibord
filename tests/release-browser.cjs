@@ -10,6 +10,33 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),4061);
  assert.equal(await page.evaluate(()=>ContentRuntime.items().length),8414,'Unreviewed sources retained');
+ // Lesson help is tied to the released items; review metadata stays internal.
+ assert.deepEqual(await page.evaluate(()=>Object.fromEntries(['lowan','erk','f','bow'].map(key=>[key,ContentGuidance.summarize(ContentRuntime.filterSource(),key).known.length]))),{lowan:4061,erk:4061,f:4061,bow:4061});
+ const guidanceAudit=await page.evaluate(()=>{
+  const items=ContentRuntime.filterSource(),failures=[];
+  for(let start=0;start<items.length;start+=120)for(const key of ['erk','bow']){
+   ContentGuidance.open(items.slice(start,start+120),key,document.querySelector('[data-main=practice]'));
+   const text=document.querySelector('.guidance-content').textContent;
+   if(/beoordeling van \d+ bestaande|2026-\d\d-\d\d|GRAM_REV|bronlabel|redactioneel|A3f/.test(text))failures.push({start,key,match:text.match(/.{0,90}(?:beoordeling van \d+ bestaande|2026-\d\d-\d\d|GRAM_REV|bronlabel|redactioneel|A3f).{0,150}/g)});
+  }
+  document.querySelector('#gameDialog').close();return failures;
+ });
+ assert.deepEqual(guidanceAudit,[],'No internal review text in guidance for any of the 4061 released exercises');
+ fs.mkdirSync(path.join(root,'tests/artifacts/release'),{recursive:true});
+ for(const width of [1440,390]){
+  await page.setViewportSize({width,height:900});
+  for(const key of ['lowan','erk','f','bow']){
+   await page.evaluate(key=>ContentGuidance.open(ContentRuntime.filterSource().filter(i=>i.domain==='QUICK').slice(0,14),key,document.querySelector('[data-main=practice]')),key);
+   await page.locator('.guidance-content details').evaluateAll(ds=>ds.forEach(d=>d.open=true));
+   const text=await page.locator('.guidance-content').innerText();
+   assert.doesNotMatch(text,/beoordeling van \d+ bestaande|2026-|snelvragen\.\d|bronlabel|redactioneel|A3f/);
+   assert.ok(await page.locator('.guidance-facts').count(),'Selected lesson has readable information rows: '+key);
+   assert.ok(await page.locator('.guidance-content').evaluate(e=>e.scrollWidth<=e.clientWidth+1),'No clipped text '+key+' '+width);
+   await page.screenshot({path:path.join(root,`tests/artifacts/release/lesuitleg-${key}-${width}.png`)});
+   await page.keyboard.press('Escape');
+  }
+ }
+ await page.setViewportSize({width:1440,height:1000});
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.map(f=>f.id)),['grammar','quick']);
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families[0].topics.map(t=>t.id)),['ER','ZULLEN','ZOUDEN','MODAAL']);
  assert.equal(await page.locator('[data-category=words]').isVisible(),true);
