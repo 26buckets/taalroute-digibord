@@ -741,14 +741,8 @@ function stopTongueAudio(){
  const previous=tongueAudio;tongueAudio=null;
  if(previous){previous.pause();previous.currentTime=0}
 }
-async function readTongue(c,button){
- stopTongueAudio();
- if(!c?.audio?.src)return;
- const audio=new Audio(globalThis.AppWording?.audio(c)??c.audio.src);tongueAudio=audio;
- const failed=()=>{if(tongueAudio===audio){stopTongueAudio();if(button.isConnected){button.textContent='Voorlezen';toast('De opname kan niet worden afgespeeld. Probeer het opnieuw.')}}};
- audio.onerror=failed;
- try{await audio.play();if(tongueAudio===audio&&button.isConnected)button.textContent='Nog een keer'}catch{failed()}
-}
+// Temporarily disabled at Nico's request; retain recordings and stop any old playback.
+function readTongue(){stopTongueAudio()}
 function startTongue(){
  if(globalThis.ReleasePolicy?.enabled)return toast(ReleasePolicy.message);
  stopTongueAudio();
@@ -785,7 +779,7 @@ function cardTypeChoices(kind){return `<aside class="cardtypes"><h3>Kaartspellen
 function playCardBack(title,family,icon,counter,color){return `<span class="play-card-back" style="--deck-color:${color}"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute">${gameIcon(icon)}<strong>${esc(title)}</strong><span class="card-family">${esc(family)}</span><span class="deck-count">${esc(counter)}</span></span>`}
 function cardDeck(kind,counter){const item=collectionItems().find(x=>x.type==='cards'&&x.id===kind);return `<div class="deckpanel"><button class="card-deck-button" id="cardDeck" aria-label="Volgende kaart trekken">${playCardBack(item.title,'Kaartspel',CARD_GAMES.find(x=>x.id===kind).icon,counter,item.color)}</button></div>`}
 function rebusImage(c){return c.visualRebus?`<img class="rebus-image" src="${esc(c.visualRebus.src)}" alt="${esc(c.visualRebus.alt)}">`:''}
-function cardTools(){const c=currentCard();if(APP.cardKind==='tongue')return `<div class="card-control-row">${tongueFilters()}<button class="smallbtn" id="tongueRead" ${c?'':'disabled'}>Voorlezen</button></div>`;if(APP.cardKind==='c1-between-lines')return c1Filters();if(!c)return '';const state=cardRound(c),practice=c.model.showWhen==='before_during_after_attempt';return `<button class="smallbtn card-attempt" id="cardAttempt" aria-label="Antwoord klaar" title="Antwoord klaar: bekijk nu het voorbeeld" aria-pressed="${state.attempted}" ${c.prediction&&!state.predictionReady?'disabled':''}>✓</button>`+contextTools('card',{
+function cardTools(){const c=currentCard();if(APP.cardKind==='tongue')return `<div class="card-control-row">${tongueFilters()}<button class="smallbtn" id="tongueRead" disabled title="Audio tijdelijk uitgeschakeld">Voorlezen · tijdelijk uit</button></div>`;if(APP.cardKind==='c1-between-lines')return c1Filters();if(!c)return '';const state=cardRound(c),practice=c.model.showWhen==='before_during_after_attempt';return `<button class="smallbtn card-attempt" id="cardAttempt" aria-label="Antwoord klaar" title="Antwoord klaar: bekijk nu het voorbeeld" aria-pressed="${state.attempted}" ${c.prediction&&!state.predictionReady?'disabled':''}>✓</button>`+contextTools('card',{
  Help:{controls:'cardSupport',disabled:!c.help.availableBeforeAttempt&&!state.attempted,tip:'Aanwijzingen bij deze kaart. '+(c.help.availableBeforeAttempt?'Je mag ze vóór je poging bekijken.':'Beschikbaar na je eigen poging.')},
  Example:{controls:'cardSupport',disabled:!state.attempted&&!practice,label:c.answerType==='hybrid'?'Oplossing':'Voorbeeld',tip:practice?'De docent mag deze oefentekst eerst voordoen.':'Geef eerst je eigen antwoord. Klik op het vinkje als je antwoord klaar is; daarna kun je het voorbeeld bekijken.'},
  Goals:{controls:'cardSupport',tip:'Het doel van deze kaart en de verdeling van de rollen.'},
@@ -816,8 +810,7 @@ function bindCards(kind){
  if(kind==='tongue'){
   $('#primaryGame').disabled=$('#cardDeck').disabled=!c;
   $('#tongueDifficulty').onchange=e=>{rememberAction('tongbrekerfilter kiezen');APP.tongueDifficulty=e.target.value;APP.cardIndex=0;delete APP.cardRound;save();startTongue()};
-  const read=$('#tongueRead');read.disabled=!c?.audio?.src;
-  read.onclick=()=>readTongue(c,read);
+  $('#tongueRead').disabled=true;
   return;
  }
  const state=cardRound(c);

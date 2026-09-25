@@ -122,3 +122,7 @@ Nico heeft uiterlijk 1, Open en rustig, gekozen. De volledige voorbereiding en a
 - Alle twaalf instellingenpagina's gebruiken dezelfde letters, rustige lijsten, knoppen en geselecteerde kleur. De navigatie schuift op kleine schermen boven de instellingen; bediening blijft minimaal 44 px.
 - Alleen de voorbereiding en instellingen krijgen deze stijl. Inhoud, bronversies, opgeslagen lessen, groepen, pionnen en de vaste grote tongbrekertekst veranderen hierdoor niet.
 - `npm run test:practice:browser` controleert de routes, bewaren/hervatten, voorkeuren, de positie van het inhoudsoverzicht en alle instellingenpagina's op vier schermbreedtes.
+
+## Tongbrekeraudio tijdelijk uit — 25 september 2026
+
+Op verzoek van Nico blijft Voorlezen zichtbaar, grijs en uitgeschakeld bij alle tongbrekers. Toon ‘Voorlezen · tijdelijk uit’. Ook hervatten, andere niveaus en de kaartenkast mogen de audio niet activeren. De opnames blijven bewaard; de vaste grote tongbrekertekst blijft ongewijzigd. Audio pas weer inschakelen op expliciet verzoek.

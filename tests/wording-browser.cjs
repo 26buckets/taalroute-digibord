@@ -28,7 +28,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.evaluate(()=>{ContentUI.clearEditing();APP.level='C2';APP.cardKind='tongue';startTongue();APP.cardIndex=cardsFor('tongue').findIndex(c=>c.id==='TR-TONGUE-D240-A2-018');startTongue()});
   assert.equal(await page.locator('.tongue-text').innerText(),'De buurman brengt bruine borden naar boven.');
   const style=await page.locator('.tongue-text').evaluate(e=>({font:getComputedStyle(e).fontSize,line:getComputedStyle(e).lineHeight,weight:getComputedStyle(e).fontWeight}));assert.deepEqual(style,{font:'72px',line:'90px',weight:'700'});
-  await page.locator('#tongueRead').click();await page.waitForFunction(()=>tongueAudio&&tongueAudio.readyState>=2);assert.match(await page.evaluate(()=>tongueAudio.src),/woordkeuze\.mp3$/);
+  assert.ok(await page.locator('#tongueRead').isDisabled());assert.match(await page.evaluate(()=>AppWording.audio(currentCard())),/woordkeuze\.mp3$/);assert.equal(await page.evaluate(()=>tongueAudio),null);
   await page.evaluate(()=>openCabinetSet('cards','tongue'));assert.ok(!/\bbuur\b/i.test(await page.locator('.detail-text-cards').innerText()));
   await page.goto('file://'+path.join(served,'settings/index.html'));assert.equal(await page.evaluate(()=>AppWording.text('Buur')),'Buurman');assert.ok(!/\bbuur\b/i.test(await page.locator('body').innerText()));
   assert.deepEqual(errors,[]);console.log('PASS wording: '+audit.count+' affected current tasks; historical card/board/wheel including examples and reload, unchanged saved references, tongue text/audio and frozen 72px type, cabinet and settings.');
