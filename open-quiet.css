@@ -208,3 +208,43 @@
  .settings-page .participant-row.group-mode .presence{grid-column:2;grid-row:2}
  .settings-page .participant-row.group-mode .group-select{grid-column:2;grid-row:3}
 }
+
+/* The same calm settings layout inside a game. */
+.board-game .board-options,#gameDialog:has(#gameMotion){font:400 15px/1.45 var(--setup-font);color:var(--setup-ink);background:#fff;border:1px solid var(--setup-line);border-radius:12px;box-shadow:0 10px 30px #17375218;padding:20px}
+.board-game .board-options{width:min(380px,calc(100% - 28px));scrollbar-gutter:stable}
+.board-options .board-options-head{padding:0 0 12px;margin:0 0 12px;border-color:var(--setup-line)}
+.board-options .board-options-head strong{font-size:23px;font-weight:500}
+.board-options .board-options-head button{width:44px;height:44px}
+.board-options .board-settings-heading{margin:24px 0 8px;font-size:16px;font-weight:500;color:inherit}
+.board-options .board-settings-heading:first-of-type{margin-top:8px}
+.board-options .board-option-row{min-height:56px;padding:8px 0;border-color:var(--setup-line);gap:12px}
+.board-options .board-option-title label{font:inherit;color:inherit}
+.board-options .board-option-row:has(select){display:grid;grid-template-columns:minmax(0,1fr)}
+.board-options .board-option-row select{width:100%;max-width:none;height:44px;border:1px solid var(--setup-line);border-radius:8px;padding:0 12px;background:#fff;color:inherit;font:inherit}
+.board-options .board-option-row>.smallbtn{width:100%;min-height:44px;margin:0;border:1px solid var(--setup-line);border-radius:8px;background:#fff;color:inherit;font:inherit;text-align:left}
+.board-options #restartBoard{width:100%;margin:0}
+.board-options .board-info{flex-basis:44px}
+.board-options .board-info button{width:44px;height:44px;color:var(--setup-muted)}
+.board-options .footer-choices{padding:16px 0;border-bottom:1px solid var(--setup-line)}
+.board-options .footer-choices legend{font:500 15px/1.45 var(--setup-font);color:inherit}
+.board-options .footer-choice{height:auto;min-height:48px;margin:4px 0;padding:10px 12px;border:0;border-radius:8px;font:inherit;color:inherit;background:transparent}
+.board-options .footer-choice:has(input:checked){background:var(--setup-soft)}
+.board-options .footer-swatch{width:24px;height:24px;font-size:18px}
+.board-options input,#gameDialog:has(#gameMotion) input{accent-color:var(--setup-blue)}
+.board-options :is(button,select,input):focus-visible,#gameDialog:has(#gameMotion) :is(button,input):focus-visible{outline:3px solid var(--setup-blue);outline-offset:2px}
+.board-game .right-actions{gap:8px}
+.board-game .right-actions .game-action{width:96px;height:60px;min-height:60px;flex-shrink:0;border:1px solid var(--setup-line);border-radius:8px;box-shadow:none;background:#fff;color:var(--setup-ink);font:500 12px/1.25 var(--setup-font);gap:6px}
+.board-game .right-actions .game-action .game-icon{width:22px;height:22px;padding:0;border:0;background:none}
+.board-game .right-actions .game-action:hover{background:var(--setup-soft);border-color:var(--setup-line)}
+#gameDialog:has(#gameMotion) h2{font-size:23px;font-weight:500}
+#gameDialog:has(#gameMotion) .option-row{min-height:56px;padding:12px 0;border-bottom:1px solid var(--setup-line);font:inherit}
+#gameDialog:has(#gameMotion) input{width:22px;height:22px}
+#gameDialog:has(#gameMotion) p{color:var(--setup-muted);font:inherit}
+.board-game[data-dark=true]{--setup-ink:#edf3f8;--setup-muted:#b7c8d8;--setup-line:#45596c;--setup-soft:#194e75}
+.board-game[data-dark=true] .board-options,.board-game[data-dark=true] .right-actions .game-action,.board-game[data-dark=true] .board-option-row :is(select,.smallbtn){background:#1b3042;color:var(--setup-ink)}
+@media(max-width:900px){
+ .board-game{--gamebar:158px}
+ .board-game .gamebar{grid-template-columns:minmax(0,1fr) 150px;grid-template-rows:86px 72px;padding-inline:12px}
+ .board-game .right-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,380px);justify-self:center;gap:8px}
+ .board-game .right-actions .game-action{width:100%;height:56px;min-height:56px;font-size:12px}
+}

@@ -4,7 +4,7 @@
  // Only automated archive tests set this before loading; no URL or saved setting changes the release.
  const enabled=root.DigiBordArchiveReview!==true;
  const versions=Object.freeze({'CB-GRAM-001':'2026-09-24.modals.rest.4','CB-QUICK-014':'2026-09-25.snelvragen.regel.6'});
- const message='Deze inhoud is nog niet volledig nagekeken. Je opgeslagen les blijft bewaard.';
+ const message='Deze les is nu niet beschikbaar. Je opgeslagen les blijft bewaard.';
  const bankAllowed=bank=>!enabled||versions[bank?.bank_id]===bank?.source_version;
  function sessionAllowed(session){
   if(!enabled)return true;

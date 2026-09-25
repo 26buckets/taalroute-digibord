@@ -140,3 +140,11 @@ Deze regel geldt voor alle online oefeningen en nieuwe aansluitingen. De nadruk 
 - Behoud de letterlijke tekst, bronnen, inhoudsversies en opgeslagen voortgang. De vastgelegde grote tongbrekers en uitgeschakelde audio blijven behouden.
 
 De gedeelde functie contentPromptHtml past deze regel toe. tests/content-prompt.cjs controleert de vormen en veilige tekstweergave; tests/grammar-review-browser.cjs controleert alle 4.061 gepubliceerde opdrachtteksten en de verschillende spelweergaven. Bij nieuwe instructievormen moet de controle bevestigen dat de bedoelde woorden nadruk krijgen voordat ze online komen.
+
+## Vaste regel: duidelijke taal in de live app — 25 september 2026
+
+Docenten en cursisten zien geen interne beoordelings- of ontwikkelstatus, zoals ‘nog niet nagekeken’, bronrecords of reviewstatus. Een komende activiteit krijgt het korte label **Binnenkort** en is niet aanklikbaar. De volledige tegel inclusief afbeelding is grijs; het label staat leesbaar boven op de afbeelding, ook op een telefoon. Bewaar de oorspronkelijke kleurenafbeelding. Voor een opgeslagen les die niet kan worden geopend: ‘Deze les is nu niet beschikbaar. Je opgeslagen les blijft bewaard.’ Interne voortgang staat alleen in werkdocumenten en verslagen. Controleer ook meldingen, inhoudsoverzicht en hervatten op deze regel.
+
+## Bordopties en spelopties — Open en rustig
+
+Bordopties en de algemene spelopties gebruiken dezelfde systeemletters, witte achtergrond, dunne scheidingen en lichtblauwe selectie als Oefenen. Labels 15 px, sectiekoppen 16 px, paneeltitel 23 px; bediening minimaal 44 px. Gelijke knoppen en keuzelijsten, volledige breedte waar nodig. Bordopties zijn gegroepeerd onder Spelen, Beeld en geluid en Nieuwe ronde. De drie hulp-/instellingenknoppen onder het bord zijn even groot, met gelijke pictogrammen en tussenruimtes. Op smallere schermen komen ze in een eigen rij. Donkere modus, instellingen, bordwerking en opslag blijven behouden.

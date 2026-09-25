@@ -417,3 +417,8 @@ html:has(#screen-game.active .board-game[data-dark=true]) .context-tooltip stron
 
 /* Tongue-twister recordings are retained but temporarily unavailable. */
 #tongueRead:disabled{background:#edf0f3;color:#64717e;border:1px solid #ccd3da;box-shadow:none;cursor:not-allowed;opacity:1}
+
+/* Unavailable activities: neutral cover and a visible label over the picture. */
+.gamecard:disabled{filter:grayscale(1)}
+.gamecard:disabled .arrowbubble{display:none}
+.gamecard>.status{position:absolute;top:16px;right:16px;background:#edf0f3;color:#34414d;font-size:14px;padding:7px 12px;border-radius:8px}
