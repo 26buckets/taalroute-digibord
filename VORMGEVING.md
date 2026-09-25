@@ -1,5 +1,11 @@
 # Vaste woordlogo’s voor DigiBord
 
+## Duidelijke voorbereidingsstappen — 25 september 2026
+
+De genummerde hoofdstappen gebruiken ronde labels van 44 × 44 px met cijfers van 22 px en koppen van 19 px. De open stap heeft een lichtblauwe kopbalk en een blauw rondje met wit cijfer. Gesloten stappen houden een lichtblauw rondje en tonen de gemaakte keuze. Cijfers blijven ook op smalle schermen zichtbaar; de hele kop is klikbaar. Onderdeel, Spelvariant en Meer opties blijven ondergeschikt zonder extra nummering. Automatisch doorgaan en de vaste grote tongbrekertekst blijven behouden.
+
+Spelen, Oefenen, Mijn lessen en Mijn collectie blijven buiten spellen altijd zichtbaar met tekstlabels. Tot 900 px breed staan ze op een aparte rij onder het logo. Een niet-beschikbaar onderdeel verdwijnt niet stilzwijgend: Woorden en zinnen toont ‘Nog niet nagekeken’, Live toont ‘Binnenkort’, en hervatten toont waarom een bewaarde les niet kan worden geopend. Deze ingangen geven geen toegang tot niet-nagekeken opdrachten.
+
 Bij gezamenlijke oefenkaarten blijven situatie, opdracht en verborgen voorbeeld apart. Gespreksregels staan op aparte regels. De compacte kaartregel voor lage vensters mag `.content-reading` niet terugbrengen naar 15 px: de bestaande schaal van 18–24 px voor situatie en antwoord blijft gelden, met scrollruimte waar nodig. `tests/grammar-review-browser.cjs` controleert dit ook op een groot maar laag venster. De vaste tongbrekermaten blijven afzonderlijk beschermd.
 
 Goedgekeurd door Nico op 22 september 2026. Dit besluit geldt voor de hele DigiBord-app en gaat voor op eerdere voorstellen voor deze vier iconen.

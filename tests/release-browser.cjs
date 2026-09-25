@@ -12,13 +12,29 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.equal(await page.evaluate(()=>ContentRuntime.items().length),8414,'Unreviewed sources retained');
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.map(f=>f.id)),['grammar','quick']);
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families[0].topics.map(t=>t.id)),['ER','ZULLEN','ZOUDEN','MODAAL']);
- assert.equal(await page.locator('[data-category=words]').isVisible(),false);
+ assert.equal(await page.locator('[data-category=words]').isVisible(),true);
+ assert.equal(await page.locator('[data-category=words]').isDisabled(),true);
+ assert.match(await page.locator('[data-category=words]').innerText(),/Nog niet nagekeken/);
+ assert.equal(await page.locator('.gamecard-live').isVisible(),true);
+ assert.equal(await page.locator('.gamecard-live').isDisabled(),true);
+ assert.equal(await page.locator('#resumeBtn').isVisible(),true);
+ assert.equal(await page.locator('#resumeBtn').isDisabled(),true);
+ for(const width of [1440,900,720,700,650,390,320]){
+  await page.setViewportSize({width,height:1000});
+  const nav=await page.locator('.mainnav .navitem').evaluateAll(es=>es.map(el=>{const r=el.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right,font:parseFloat(getComputedStyle(el).fontSize)}}));
+  assert.equal(nav.length,4);assert.ok(nav.every(r=>r.width>=44&&r.height>=44&&r.left>=0&&r.right<=width&&r.font>=12),`Navigation visible at ${width}: ${JSON.stringify(nav)}`);
+ }
+ await page.locator('[data-main=lessons]').click();await page.waitForSelector('#lessonLibrary h1');
+ await page.locator('[data-main=mycollection]').click();assert.ok(await page.locator('#screen-mycollection.active').isVisible());
+ assert.equal(await page.locator('#collectionStorySets').isVisible(),false);assert.ok(await page.locator('#screen-mycollection [data-open-settings]').isVisible());
+ await page.locator('#screen-mycollection [data-open-settings]').click();await page.waitForSelector('#settingsOverlay.open');await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();
+ await page.setViewportSize({width:1440,height:1000});
  assert.match(await page.evaluate(()=>{const prior=ContentRuntime.banks().find(b=>b.bank.bank_id==='CB-GRAM-001').previousVersions[0].items[0];try{ContentRuntime.validateContentRefs([ContentRuntime.contentRef(prior)],{historical:true});return ''}catch(e){return e.message}}),/nagekeken/,'Unreviewed historical text cannot reopen through an approved bank ID');
  // All legacy entry points must lead to reviewed preparation or leave state intact.
  for(const code of ['startWords("build")','startWZ()','startTaalworp("SET_A2_BASIS")','startStory("basis")','startTongue()','startC1()']){
   const before=await page.evaluate(()=>JSON.stringify(APP));await page.evaluate(code);assert.equal(await page.evaluate(()=>JSON.stringify(APP)),before,code);
  }
- for(const screen of ['cards','dice','workforms','activities','words','collection','mycollection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
+ for(const screen of ['cards','dice','workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
  for(const board of ['rotterdam','zwolle']){await page.evaluate(b=>{CONTENT_VERT001.stop();APP.questionMode='conversation';startBoard(b)},board);assert.ok(await page.locator('#screen-practice.active').isVisible());assert.equal(await page.evaluate(()=>ContentUI.state().variant),board)}
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',focus:'all',subtopic:'all',duration:180}));
  await page.locator('#practiceMix').click();assert.equal(await page.locator('.lesson-mix-option').count(),9);await page.locator('#dialogClose').click();
@@ -36,7 +52,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  const saved=await ap.evaluate(async()=>{const item=ContentRuntime.items().find(i=>i.content_bank_id==='CB-WZ-002');const session=ContentRuntime.createSession({filters:{bank_ids:[item.content_bank_id],topics:[item.topic],levels:[item.cefr_level]},engines:['CARDS'],selectedGameEngine:'CARDS',targetDurationSeconds:180});ContentUI.launch(session);await LessonUI.flush();return {session:APP.contentSessionConfig,boards:APP.boardStates};});
  const storageState=await archive.storageState({indexedDB:true});const live=await browser.newContext({storageState});const lp=await live.newPage();await lp.goto(url);await lp.waitForFunction(()=>window.LessonUI);
  assert.deepEqual(await lp.evaluate(()=>({session:APP.contentSessionConfig,boards:APP.boardStates})),saved);
- assert.equal(await lp.locator('#resumeBtn').isVisible(),false);assert.ok(await lp.evaluate(()=>contentRestoreError.message.includes('nagekeken')));
+ assert.equal(await lp.locator('#resumeBtn').isVisible(),true);assert.equal(await lp.locator('#resumeBtn').isDisabled(),true);assert.match(await lp.locator('#resumeText').innerText(),/bewaard/);assert.ok(await lp.evaluate(()=>contentRestoreError.message.includes('nagekeken')));
  await lp.evaluate(()=>{goScreen('lessons');return LessonUI.render()});await lp.waitForSelector('#lessonLibrary h1');assert.equal(await lp.locator('[data-lesson-action=resume]').count(),0);
  assert.equal(await lp.evaluate(async()=>(await LessonUI.service.list('recent_session')).length),1,'Hidden session not deleted');
  assert.deepEqual(errors,[]);console.log('PASS: 4061 approved, 4353 retained/hidden; legacy routes, catalog, mixes, six live game/resume routes, old IndexedDB preserved/hidden.');

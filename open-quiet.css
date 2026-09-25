@@ -1,6 +1,19 @@
 /* Open en rustig — shared presentation for preparation and every settings page.
    Deliberately scoped: game cards and the fixed large tongue twisters stay separate. */
 :root{--setup-ink:#173752;--setup-muted:#5c7386;--setup-blue:#126ab3;--setup-soft:#e7f3fe;--setup-line:#d7e4ee;--setup-font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.gamecard:disabled p{display:block}
+.resume:disabled{cursor:default}
+#app:not(:has(#screen-game.active))>header .mainnav .navitem{min-height:44px}
+#screen-mycollection .simple-card[hidden],.gamecard .arrowbubble[hidden]{display:none}
+/* Keep navigation labels visible outside games, including the former 650–720px gap. */
+@media(max-width:900px){
+ #app:not(:has(#screen-game.active)){grid-template-rows:112px minmax(0,1fr)}
+ #app:not(:has(#screen-game.active))>header{display:grid;grid-template-columns:1fr auto;grid-template-rows:58px 54px;gap:0;padding:0 12px}
+ #app:not(:has(#screen-game.active))>header .mainnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-row:2;grid-column:1/-1;gap:2px;width:100%;height:100%}
+ #app:not(:has(#screen-game.active))>header .mainnav .navitem{font-size:12px;line-height:1.2;white-space:normal;justify-content:center;padding:4px;gap:4px;min-height:44px;height:auto}
+ #app:not(:has(#screen-game.active))>header .mainnav .navitem svg{width:18px;height:18px;flex-shrink:0}
+ #app:not(:has(#screen-game.active))>header .header-actions{grid-column:2;grid-row:1}
+}
 #screen-practice,.settings-page{font:400 15px/1.45 var(--setup-font);color:var(--setup-ink);background:#fff}
 #screen-practice :is(button,select,input),.settings-page :is(button,select,input){font-family:var(--setup-font)}
 #screen-practice :is(h1,h2,h3,strong,legend),.settings-page :is(h1,h2,h3,strong){font-weight:500}
@@ -13,9 +26,12 @@
 #contentPracticeApp .practice-panel{border:0;border-radius:0;box-shadow:none;background:transparent;padding:0;min-width:0}
 #contentPracticeApp .practice-steps{padding:0}
 #contentPracticeApp .practice-step{border:0;border-bottom:1px solid var(--setup-line)}
-#contentPracticeApp .practice-step>summary{min-height:64px;padding:14px 0;gap:10px;font-size:16px}
+#contentPracticeApp .practice-step>summary{min-height:80px;padding:16px 12px;gap:14px;font-size:19px;border-radius:10px;margin:4px 0}
+#contentPracticeApp .practice-step>summary strong{min-width:0;font-weight:600}
 #contentPracticeApp .practice-step>summary>svg{display:none}
-#contentPracticeApp .practice-step-number{display:block;width:20px;height:auto;text-align:left;background:transparent;border-radius:0;color:var(--setup-muted);font-size:12px}
+#contentPracticeApp .practice-step-number{display:grid;place-items:center;width:44px;height:44px;background:var(--setup-soft);border-radius:50%;color:var(--setup-blue);font-size:22px;font-weight:600;line-height:1}
+#contentPracticeApp .practice-step[open]>summary{background:var(--setup-soft)}
+#contentPracticeApp .practice-step[open]>summary .practice-step-number{background:var(--setup-blue);color:#fff}
 #contentPracticeApp .practice-step[open]>summary::after{margin-left:auto}
 #contentPracticeApp .practice-step[open]>summary strong{font-size:19px}
 #contentPracticeApp .practice-step[open] .practice-step-value{display:none}

@@ -56,7 +56,7 @@ function teamInfo(mode,ppl=participants()){
  return{count:settingsState().groupCount||4,prefix:'g',label:'Groep'};
 }
 function goScreen(id){
- if(globalThis.ReleasePolicy?.enabled&&['cards','dice','words','workforms','activities','collection','mycollection','curriculum'].includes(id)){
+ if(globalThis.ReleasePolicy?.enabled&&['cards','dice','words','workforms','activities','collection','curriculum'].includes(id)){
   if(!globalThis.ContentUI)return;
   return ContentUI.open({engine:({cards:'CARDS',dice:'DICE',workforms:'WHEEL',activities:'WHEEL'})[id]});
  }
@@ -65,6 +65,7 @@ function goScreen(id){
  setBoardMenu(false);
  BoardViewport.disconnect();
  if(id==='collection')renderCollection();
+ if(id==='mycollection')updateResume();
  $$('.screen').forEach(x=>x.classList.remove('active'));$('#screen-'+id)?.classList.add('active');
  $$('.navitem').forEach(n=>n.classList.toggle('active',(id==='play'||['boards','dice','cards','words','workforms','activities','game','collection'].includes(id))?n.dataset.main==='play':n.dataset.main===id));
  syncLevelSelect(id==='game'&&APP.last?.type==='card');SmoothDice.mount();
@@ -101,7 +102,13 @@ $('#settingsBtn').innerHTML=gameIcon('settings');$('#settingsBtn').onclick=openS
 window.addEventListener('message',e=>{if(e.source===$('#settingsOverlay iframe').contentWindow&&e.data?.type==='taalroute-close-settings'){closeSettings();toast('Instellingen bijgewerkt.')}});
 
 function setLast(type,label,data={}){APP.last={type,label,data};save();updateResume()}
-function updateResume(){const blocked=globalThis.ReleasePolicy?.enabled&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig);$('#resumeBtn').hidden=!!blocked;$('#resumeBtn').style.display=blocked?'none':'';const t=$('#resumeText');t.textContent=APP.last?APP.last.label:'Nog geen spel gestart'}
+function updateResume(){
+ const blocked=globalThis.ReleasePolicy?.enabled&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig);
+ const message=!APP.last?'Nog geen spel gestart':blocked?'Je les is bewaard · nog niet nagekeken':APP.last.label;
+ for(const id of ['resumeBtn','collectionResume']){const button=$('#'+id);button.hidden=false;button.style.display='';button.disabled=!APP.last||!!blocked;}
+ $('#resumeText').textContent=message;
+ $('#collectionResume').previousElementSibling.textContent=message;
+}
 $('#resumeBtn').onclick=()=>{if(!APP.last)return toast('Start eerst een spel.');resumeLast()};
 function resumeLast(fromMemory=false){
  if(globalThis.ReleasePolicy?.enabled&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig))return toast(ReleasePolicy.message);

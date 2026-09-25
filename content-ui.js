@@ -451,6 +451,10 @@
 })(typeof globalThis!=='undefined'?globalThis:this);
 
 if(globalThis.ReleasePolicy?.enabled){
- document.querySelectorAll('[data-category="words"],.gamecard-live,[data-main="curriculum"],[data-main="collection"],[data-main="mycollection"],[data-open-main="curriculum"],[data-open-main="collection"]').forEach(el=>{el.hidden=true;el.style.display='none'});
+ document.querySelectorAll('[data-main="curriculum"],[data-main="collection"],[data-open-main="curriculum"],[data-open-main="collection"]').forEach(el=>{el.hidden=true;el.style.display='none'});
+ const words=document.querySelector('[data-category="words"]');
+ words.disabled=true;words.querySelector('p').textContent='Nog niet nagekeken';words.querySelector('.arrowbubble').hidden=true;
+ document.querySelector('#collectionStorySets').closest('.simple-card').hidden=true;
+ document.querySelector('#screen-mycollection>p').textContent='Je bewaarde voortgang en groepen.';
  updateResume();
 }

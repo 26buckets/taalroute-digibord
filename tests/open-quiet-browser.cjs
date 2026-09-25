@@ -9,6 +9,14 @@ let browser,page;
  assert.ok(await page.evaluate(()=>document.querySelector('#practiceForm').compareDocumentPosition(document.querySelector('.practice-inventory'))&Node.DOCUMENT_POSITION_FOLLOWING));
  await page.locator('.practice-topic-group').first().locator('summary').click();
  const dir=path.join(root,'tests/artifacts/open-quiet');fs.mkdirSync(dir,{recursive:true});await page.screenshot({path:path.join(dir,'oefenen.png')});
+ for(const width of [1440,768,390,320]){
+  await page.setViewportSize({width,height:1000});
+  const steps=await page.locator('.practice-step').evaluateAll(es=>es.map(el=>{const head=el.querySelector('summary'),badge=head.querySelector('.practice-step-number'),r=badge.getBoundingClientRect(),s=getComputedStyle(badge);return {width:r.width,height:r.height,font:parseFloat(s.fontSize),headHeight:head.getBoundingClientRect().height,open:el.open,color:getComputedStyle(head).backgroundColor,overflow:head.scrollWidth>head.clientWidth+1}}));
+  assert.ok(steps.every(s=>s.width>=44&&s.height>=44&&s.font>=22&&s.headHeight>=80&&!s.overflow),`Readable step badges at ${width}: ${JSON.stringify(steps)}`);
+  assert.notEqual(steps.find(s=>s.open).color,steps.find(s=>!s.open).color,'Open step stands out');
+  await page.screenshot({path:path.join(dir,`stappen-${width}.png`)});
+ }
+ await page.setViewportSize({width:1440,height:1000});
  await page.locator('[name=duration]').selectOption('900');await page.locator('[name=organization]').selectOption('pairs');
  await page.reload();await page.locator('[data-main=practice]').click();assert.equal(await page.locator('[name=duration]').inputValue(),'900');assert.equal(await page.locator('[name=organization]').inputValue(),'pairs');
  await page.locator('#settingsBtn').click();const frame=page.frameLocator('#settingsOverlay iframe');await frame.locator('.nav-btn').first().waitFor();
