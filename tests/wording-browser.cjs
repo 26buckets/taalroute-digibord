@@ -5,6 +5,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));
  try{
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});
   await page.goto('file://'+path.join(served,'index.html'));
   const audit=await page.evaluate(()=>{
    const affected=ContentRuntime.items().filter(i=>/\bbuur\b/i.test(JSON.stringify(i))),bad=[];
