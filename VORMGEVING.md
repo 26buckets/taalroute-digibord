@@ -148,3 +148,7 @@ Docenten en cursisten zien geen interne beoordelings- of ontwikkelstatus, zoals 
 ## Bordopties en spelopties — Open en rustig
 
 Bordopties en de algemene spelopties gebruiken dezelfde systeemletters, witte achtergrond, dunne scheidingen en lichtblauwe selectie als Oefenen. Labels 15 px, sectiekoppen 16 px, paneeltitel 23 px; bediening minimaal 44 px. Gelijke knoppen en keuzelijsten, volledige breedte waar nodig. Bordopties zijn gegroepeerd onder Spelen, Beeld en geluid en Nieuwe ronde. De drie hulp-/instellingenknoppen onder het bord zijn even groot, met gelijke pictogrammen en tussenruimtes. Op smallere schermen komen ze in een eigen rij. Donkere modus, instellingen, bordwerking en opslag blijven behouden.
+
+## Verder en gooien
+
+De vervolgknop op het bord gebruikt een rustig lichtblauw vlak, dunne blauwe rand en dezelfde systeemletters als de bordopties. Een dobbelsteenpictogram staat naast ‘Verder en gooien’; de sneltoets Spatie staat als klein afzonderlijk toetslabel. Op een klein scherm staan actie en toetslabel naast elkaar in één brede knop. Het blijft één knop: klikken, Enter en Spatie houden dezelfde werking.

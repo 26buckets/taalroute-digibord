@@ -248,3 +248,15 @@
  .board-game .right-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,380px);justify-self:center;gap:8px}
  .board-game .right-actions .game-action{width:100%;height:56px;min-height:56px;font-size:12px}
 }
+
+/* Continue the turn: one clear action, with a secondary keyboard hint. */
+.board-game .task-drawer{grid-template-columns:minmax(0,1fr) 200px}
+.board-game .task-drawer .donebtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;height:auto;min-height:84px;padding:14px 12px;border:1px solid #bdd5e9;border-radius:8px;background:var(--setup-soft);color:var(--setup-ink);box-shadow:none;font:500 15px/1.3 var(--setup-font)}
+.board-game .donebtn .continue-label{display:flex;align-items:center;justify-content:center;gap:8px}
+.board-game .donebtn .game-icon{width:22px;height:22px;flex:none}
+.board-game .donebtn kbd{padding:3px 9px;border:1px solid #bdd5e9;border-radius:5px;background:#fff;font:400 12px/1.3 var(--setup-font);color:#536c80}
+.board-game .donebtn:hover{background:#d9edfc;border-color:#89b9de}
+.board-game .donebtn:focus-visible{outline:3px solid var(--setup-blue);outline-offset:3px}
+.board-game[data-dark=true] .donebtn kbd{background:#1b3042;color:var(--setup-ink);border-color:var(--setup-line)}
+.board-game[data-dark=true] .donebtn:hover{background:#245d85}
+@media(max-width:720px){.board-game .task-drawer{grid-template-columns:minmax(0,1fr)}.board-game .task-drawer .donebtn{flex-direction:row;justify-content:space-between;min-height:56px;padding:12px 16px}}

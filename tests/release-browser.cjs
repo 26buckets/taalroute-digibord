@@ -63,6 +63,16 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
     await page.locator('#closeBoardOptions').click();
    }
    await page.setViewportSize({width:1440,height:1000});
+   await page.evaluate(()=>{APP.fixedRoll=1;settingsPatch({reducedMotion:true})});await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));
+   for(const width of [1440,390]){
+    await page.setViewportSize({width,height:1000});const done=page.getByRole('button',{name:'Verder en gooien',exact:true});
+    assert.equal(await done.getAttribute('aria-keyshortcuts'),'Space');assert.equal(await done.locator('kbd').innerText(),'Spatie');
+    await done.scrollIntoViewIfNeeded();assert.ok(await done.evaluate(e=>{const r=e.getBoundingClientRect();return r.height>=44&&r.left>=0&&r.right<=innerWidth&&e.scrollWidth<=e.clientWidth+1}),'Continue button fits '+width);
+    if(family==='grammar')await page.screenshot({path:path.join(root,'tests/artifacts/release/verder-gooien-'+width+'.png')});
+   }
+   await page.locator('#taskDone').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));
+   await page.locator('#taskDone').press('Space');await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));
+   await page.setViewportSize({width:1440,height:1000});
   }
   assert.ok(await page.locator('#screen-game.active').isVisible());const old=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs}));
   await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active');assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs})),old);
