@@ -1,0 +1,739 @@
+{
+ "version": "2026-09-23.1",
+ "source_url": "https://drive.google.com/file/d/1kdohgVyfGc48acKKIRYkMl4uYs_v6N_6/view",
+ "manifest_url": "https://docs.google.com/document/d/1ZaqcL-UnV3OjRTWYcXAG59mEvsk04U0A3UJJawJQRd8/edit",
+ "source_sha256": "f180c7ebfa21251acae01957f69c7223090acaecc6a0711aa7599048c93832e9",
+ "source_level": "C1",
+ "source_status": "FROZEN v1.0 volgens bronmanifest; tekst bevat de voorafgaande Reviewronde 2 HERSTELD.",
+ "scope": "Eigen lokale AI-redactie en taakgericht niveauadvies. Geen officiële ERK-toets, menselijke review of lesproef. De vastgezette Drive-bron blijft ongewijzigd.",
+ "actual_answer_counts": {
+  "A": 20,
+  "B": 20,
+  "C": 20
+ },
+ "items": {
+  "C1_IMB_001": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een zachte afwijzing bij een volle agenda herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een zachte afwijzing bij een volle agenda herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_002": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een waarschuwing over haalbaarheid van een toezegging onderscheiden. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een waarschuwing over haalbaarheid van een toezegging onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_003": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een kleine kans onderscheiden van onmogelijkheid. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een kleine kans onderscheiden van onmogelijkheid.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_004": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een verzoek voorzichtig naar iemand anders doorverwijzen herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een verzoek voorzichtig naar iemand anders doorverwijzen herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_005": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een tijdelijke grens aan beschikbare tijd herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een tijdelijke grens aan beschikbare tijd herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_006": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een onhaalbare termijn onderscheiden van de taak afwijzen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een onhaalbare termijn onderscheiden van de taak afwijzen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_007": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een grens aan eigen deskundigheid herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een grens aan eigen deskundigheid herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_008": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een uitgesproken voorkeur onderscheiden van een onbekende reden. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een uitgesproken voorkeur onderscheiden van een onbekende reden.",
+   "patch": {
+    "options": [
+     "De spreker vindt dat de ander formeel verplicht is het gesprek te voeren.",
+     "De spreker geeft aan dat hij het gesprek liever door de ander laat voeren, zonder zijn reden te noemen.",
+     "De spreker wil alleen samen het gesprek voorbereiden."
+    ],
+    "explanation": "De spreker geeft een voorkeur aan om het gesprek door de ander te laten voeren. Daarmee is nog niet afgesproken wie het werkelijk doet.",
+    "note": "De reden kan vertrouwen, terughoudendheid of het vermijden van de taak zijn. Vraag door als dat belangrijk is."
+   },
+   "change_reason": "Geschiktheid en feitelijke taakoverdracht volgen niet uit de uitspraak. De reden blijft open."
+  },
+  "C1_IMB_009": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Persoonlijk geen behoefte hebben onderscheiden van een verbod. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Persoonlijk geen behoefte hebben onderscheiden van een verbod.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_010": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een indirect negatief advies herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Nee zeggen",
+   "source_section": "Indirect afwijzen en begrenzen",
+   "goal": "Een indirect negatief advies herkennen.",
+   "patch": {
+    "context": "Een collega wil een scherpe e-mail sturen naar een belangrijke klant en vraagt jouw mening. Jij zegt: “Ik zou dat zelf niet doen.”",
+    "options": [
+     "Je geeft indirect een duidelijke waarschuwing of negatief advies zonder een verbod uit te spreken.",
+     "Je zegt alleen dat jouw persoonlijke schrijfstijl anders is.",
+     "Je weigert de e-mail zelf te verzenden."
+    ]
+   },
+   "change_reason": "Spelling e-mail hersteld."
+  },
+  "C1_IMB_011": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Onvrede herkennen bij een resultaat dat niet aan de afspraak voldoet. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Onvrede herkennen bij een resultaat dat niet aan de afspraak voldoet.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_012": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Verzachte kritiek op een onvolledig concept herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Verzachte kritiek op een onvolledig concept herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_013": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een verzoek om inhoudelijke verbetering herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Een verzoek om inhoudelijke verbetering herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_014": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Kritiek op een redenering onderscheiden van het afwijzen van de conclusie. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Kritiek op een redenering onderscheiden van het afwijzen van de conclusie.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_015": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Kritiek op een onrealistische planning herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Kritiek op een onrealistische planning herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_016": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een ogenschijnlijk neutraal woord met kritische afstand verbinden. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Een ogenschijnlijk neutraal woord met kritische afstand verbinden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_017": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De kracht van een indirecte waarschuwing uit de situatie afleiden. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "De kracht van een indirecte waarschuwing uit de situatie afleiden.",
+   "patch": {
+    "prompt": "Hoe sterk is de boodschap hier?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_018": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een rem op externe communicatie herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Een rem op externe communicatie herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_019": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Kritische twijfel onderscheiden van een vastgestelde fout. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Kritische twijfel onderscheiden van een vastgestelde fout.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_020": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Teleurstelling herkennen zonder te raden op welk onderdeel die precies slaat. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Kritiek geven",
+   "source_section": "Verborgen kritiek en ontevredenheid",
+   "goal": "Teleurstelling herkennen zonder te raden op welk onderdeel die precies slaat.",
+   "patch": {
+    "prompt": "Wat wil de leidinggevende hiermee duidelijk maken?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_021": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Herkennen dat iemand nog geen keuze heeft gemaakt. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Herkennen dat iemand nog geen keuze heeft gemaakt.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_022": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De figuurlijke betekenis en informele toon van op kauwen herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "De figuurlijke betekenis en informele toon van op kauwen herkennen.",
+   "patch": {
+    "prompt": "Wat betekent dit en hoe klinkt de uitdrukking?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_023": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Mogelijkheid onderscheiden van waarschijnlijkheid en een plan. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Mogelijkheid onderscheiden van waarschijnlijkheid en een plan.",
+   "patch": {
+    "prompt": "Wat zegt de directeur hiermee wel en niet?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_024": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Terughoudendheid bij een pas gestart onderzoek herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Terughoudendheid bij een pas gestart onderzoek herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_025": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Serieuze twijfel onderscheiden van definitieve afwijzing. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Serieuze twijfel onderscheiden van definitieve afwijzing.",
+   "patch": {
+    "prompt": "Hoe sterk is de boodschap hier?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_026": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Vooruitlopen op een besluit als betekenis van voorschot nemen herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Vooruitlopen op een besluit als betekenis van voorschot nemen herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_027": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een nog open uitkomst herkennen in de uitdrukking gelopen race. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Een nog open uitkomst herkennen in de uitdrukking gelopen race.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_028": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Geen positie bekendmaken onderscheiden van geen voorkeur hebben. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Geen positie bekendmaken onderscheiden van geen voorkeur hebben.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_029": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een waarschuwing tegen te sterk concluderen herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Een waarschuwing tegen te sterk concluderen herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_030": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Kritiek op te vroeg concluderen onderscheiden van een negatieve uitkomst. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Twijfel uitspreken",
+   "source_section": "Voorbehoud, twijfel en terughoudendheid",
+   "goal": "Kritiek op te vroeg concluderen onderscheiden van een negatieve uitkomst.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_031": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een beleefde vraag als aanwijzing begrijpen door de gezagsverhouding mee te wegen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Een beleefde vraag als aanwijzing begrijpen door de gezagsverhouding mee te wegen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_032": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De sturende functie van misschien in een gevoelige werksituatie beoordelen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "De sturende functie van misschien in een gevoelige werksituatie beoordelen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_033": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De grens tussen nadrukkelijk advies en een formeel bevel herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "De grens tussen nadrukkelijk advies en een formeel bevel herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_034": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Advies herkennen in een concrete zin met ik zou. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Advies herkennen in een concrete zin met ik zou.",
+   "patch": {
+    "prompt": "Wat wil je met deze zin bereiken?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_035": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een vraagvorm als mogelijke opdracht met een deadline herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Een vraagvorm als mogelijke opdracht met een deadline herkennen.",
+   "patch": {
+    "prompt": "Wat wil de projectleider hiermee bereiken?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_036": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een zacht geformuleerde verwachting herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Een zacht geformuleerde verwachting herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_037": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een als vanzelfsprekend voorgestelde taak herkennen zonder instemming te veronderstellen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Een als vanzelfsprekend voorgestelde taak herkennen zonder instemming te veronderstellen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_038": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Urgentie herkennen achter een voorzichtige formulering. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Urgentie herkennen achter een voorzichtige formulering.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_039": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een alternatief als advies met ruimte voor de ander herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Een alternatief als advies met ruimte voor de ander herkennen.",
+   "patch": {
+    "note": "De formulering laat op zichzelf ruimte. De rol van de spreker en de situatie bepalen hoeveel keuzevrijheid er werkelijk is."
+   },
+   "change_reason": "Een zachte formulering garandeert geen keuzevrijheid; de situatie en verhouding blijven bepalend."
+  },
+  "C1_IMB_040": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een persoonlijke formulering als sterke verwachting van een manager begrijpen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Iets vragen",
+   "source_section": "Indirect verzoeken, adviseren en sturen",
+   "goal": "Een persoonlijke formulering als sterke verwachting van een manager begrijpen.",
+   "patch": {
+    "prompt": "Wat bedoelt de manager waarschijnlijk tegen zijn team?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_041": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Acceptatie van een compromis onderscheiden van enthousiasme. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Acceptatie van een compromis onderscheiden van enthousiasme.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_042": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een negatieve eerste reactie onderscheiden van definitieve afwijzing. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Een negatieve eerste reactie onderscheiden van definitieve afwijzing.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_043": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Het belang van één reactie relativeren zonder haar te negeren. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Het belang van één reactie relativeren zonder haar te negeren.",
+   "patch": {
+    "prompt": "Wat zeg je hiermee over het belang van die ene negatieve reactie?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_044": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een voorzichtig positieve beoordeling in een ontkenning herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Een voorzichtig positieve beoordeling in een ontkenning herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_045": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Begrip voor een derde persoon onderscheiden van instemming met diens oordeel. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Begrip voor een derde persoon onderscheiden van instemming met diens oordeel.",
+   "patch": {
+    "explanation": "Je laat zien dat je het gevoel of standpunt van de klant kunt begrijpen. Daarmee zeg je nog niet dat je het oordeel over de procedure deelt.",
+    "note": "Begrijpen hoe iets voor een ander voelt, is iets anders dan die ander op alle punten gelijk geven."
+   },
+   "change_reason": "De uitleg gebruikt gewone woorden voor begrip van een ander perspectief."
+  },
+  "C1_IMB_046": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De begrensde positieve betekenis van een dubbele ontkenning beoordelen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "De begrensde positieve betekenis van een dubbele ontkenning beoordelen.",
+   "patch": {
+    "options": [
+     "De resultaten zijn precies voldoende en verder niet.",
+     "De manager wil geen inhoudelijk oordeel geven.",
+     "Een voorzichtig positieve beoordeling die minder enthousiast klinkt dan “ik ben tevreden”."
+    ],
+    "explanation": "Door te zeggen dat je niet ontevreden bent, kun je voorzichtig iets positiefs zeggen. Hoe positief het klinkt, hangt ook af van de toon."
+   },
+   "change_reason": "Geen bewuste bedoeling veronderstellen; de uitleg vermijdt het vakwoord litotes."
+  },
+  "C1_IMB_047": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Onuitgesproken kritiek herkennen bij zo mijn gedachten. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Onuitgesproken kritiek herkennen bij zo mijn gedachten.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_048": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Mogelijkheid onderscheiden van waarschijnlijkheid. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Mogelijkheid onderscheiden van waarschijnlijkheid.",
+   "patch": {
+    "note": "Maak onderscheid tussen iets mogelijk vinden, het waarschijnlijk vinden en er zeker van zijn."
+   },
+   "change_reason": "Geen automatische C1-claim in de lestip."
+  },
+  "C1_IMB_049": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Openstaan voor een voorstel onderscheiden van definitieve instemming. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Openstaan voor een voorstel onderscheiden van definitieve instemming.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_050": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Bereidheid en informele toon herkennen bij voor te porren. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Steun en afstand",
+   "source_section": "Impliciete steun, enthousiasme en afstand",
+   "goal": "Bereidheid en informele toon herkennen bij voor te porren.",
+   "patch": {
+    "prompt": "Wat betekent dit en hoe klinkt de uitdrukking?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft gelijk."
+  },
+  "C1_IMB_051": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Onzekere effecten onderscheiden van een voorspelde negatieve afloop. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Onzekere effecten onderscheiden van een voorspelde negatieve afloop.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_052": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De ernst achter een mild verzoek om overleg herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "De ernst achter een mild verzoek om overleg herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_053": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een tijdelijke stop onderscheiden van definitief afsluiten. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Een tijdelijke stop onderscheiden van definitief afsluiten.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_054": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een onzekere vervolgstap voorlopig niet uitwerken als bedoeling herkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Een onzekere vervolgstap voorlopig niet uitwerken als bedoeling herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_055": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een vage toezegging onderscheiden van bewijs van opvolging. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Een vage toezegging onderscheiden van bewijs van opvolging.",
+   "patch": {
+    "prompt": "Wat kun je uit dit antwoord afleiden over het vervolg?",
+    "options": [
+     "Hij zegt dat hij het punt in zijn afweging meeneemt, maar noemt geen concrete vervolgstap of uitkomst.",
+     "Dat hij het voorstel inhoudelijk accepteert.",
+     "Dat hij het voorstel in de eerstvolgende vergadering op de agenda zet."
+    ],
+    "explanation": "De manager zegt dat hij het punt meeneemt in zijn afweging. De woorden maken niet duidelijk wat hij daarna zal doen; ze kunnen ook een beleefde afsluiting zijn.",
+    "note": "Vraag zo nodig wat de volgende stap is en wanneer je een reactie krijgt. Uit deze zin alleen weet je niet of er werkelijk iets volgt."
+   },
+   "change_reason": "De uitspraak is geen bewijs van feitelijke opvolging; vraag, antwoord en uitleg maken de grens duidelijk."
+  },
+  "C1_IMB_056": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Geen harde toezegging onderscheiden van een onhaalbare datum. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Geen harde toezegging onderscheiden van een onhaalbare datum.",
+   "patch": {
+    "explanation": "Zich ergens op vastleggen betekent hier een duidelijke toezegging doen. De projectleider wil die toezegging nu nog niet geven.",
+    "note": "Geen toezegging doen is iets anders dan verwachten dat de datum niet wordt gehaald."
+   },
+   "change_reason": "Het Engelse commitment vervangen door gewone Nederlandse woorden."
+  },
+  "C1_IMB_057": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een punt erkennen onderscheiden van een concrete actie. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Een punt erkennen onderscheiden van een concrete actie.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_058": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Interne afstemming onderscheiden van een inhoudelijk eindantwoord. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "canonical",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Interne afstemming onderscheiden van een inhoudelijk eindantwoord.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_IMB_059": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Waarnemingen erkennen zonder een onvoldoende onderbouwde conclusie te trekken. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "Waarnemingen erkennen zonder een onvoldoende onderbouwde conclusie te trekken.",
+   "patch": {
+    "explanation": "De onderzoeker erkent wat de cijfers laten zien, maar vindt dat er nog te weinig gegevens zijn voor een conclusie."
+   },
+   "change_reason": "De uitleg gebruikt gewone woorden voor voorzichtig conclusies trekken."
+  },
+  "C1_IMB_060": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De bewijskracht van één waarneming begrenzen zonder de waarneming te ontkennen. Het advies betreft deze keuzevraag met gegeven context, niet zelfstandig passend reageren.",
+   "scoring": "discuss",
+   "section": "Open laten",
+   "source_section": "Context, weglating en strategische vaagheid",
+   "goal": "De bewijskracht van één waarneming begrenzen zonder de waarneming te ontkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  }
+ }
+}

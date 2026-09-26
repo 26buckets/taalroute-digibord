@@ -1,0 +1,36 @@
+const assert=require('node:assert/strict');
+const {createContentRuntime}=require('../content-runtime.js');
+const gram=require('../data/content-vert001-er-b1.js');
+const wz=require('../content-bank-adapters.js')(require('../Lessen/woorden-zinnen.json'));
+const catalog=require('../data/content-catalog.js');
+const runtime=createContentRuntime(gram);runtime.registerBank(wz);catalog.registerBank(wz,{familyId:'words'});
+assert.equal(runtime.items().length,2120);assert.equal(wz.items.length,680);
+for(const type of ['Bouw','Kies','Herstel','Verander','Spreek','Transfer'])assert.ok(wz.items.some(i=>i.language_function===type));
+assert.ok(wz.items.every(i=>i.cefr_level==='A0→A1'&&i.source_review.human==='pending'));
+assert.equal(wz.items.filter(i=>i.openness==='open').length,202);
+for(const item of wz.items.filter(i=>i.openness==='open'))assert.equal(runtime.answerPolicy(item).mode,'teacher_or_peer_review');
+const opts={seed:81,targetDurationSeconds:300,filters:{family_ids:['words'],topics:['WZ_001'],levels:['A0→A1'],difficulty:'basis'},organizationMode:'groups'};
+const a=runtime.createSession({...opts,selectedGameEngine:'CARDS',selectedGameVariant:'content-pb001'}),b=runtime.createSession({...opts,selectedGameEngine:'WHEEL',selectedGameVariant:'draaiwiel'});
+assert.deepEqual(a.selected_item_ids,b.selected_item_ids);assert.notEqual(a.session_id,b.session_id);assert.ok(a.selected_item_ids.every(id=>id.startsWith('WZ_001')));
+assert.ok(runtime.enginePool('CARDS',a).every(i=>i.difficulty==='basis'));
+assert.throws(()=>runtime.createSession({...opts,filters:{family_ids:['words'],topics:['WZ_001'],levels:['B1']}}),/Geen|gekozen|onderwerp/);
+const correction={topics:['ER'],levels:['B1'],exercise_types:['fout_verbeteren']};
+for(const e of ['MEMORY','MATCH']){assert.ok(runtime.fullCoverageEngines(correction).includes(e));const s=runtime.createSession({filters:correction,selectedGameEngine:e,targetDurationSeconds:300});assert.equal(runtime.enginePool(e,s).length,s.selected_item_ids.length);assert.ok(runtime.enginePool(e,s).every(i=>runtime.project(e,i).pair.right.value===i.correct_answer));assert.throws(()=>runtime.createSession({filters:{topics:['ER'],levels:['B1']},engines:[e]}),/volledige/)}
+const sorted=runtime.createSession({filters:{topics:['ZULLEN','ZOUDEN'],levels:['B1'],exercise_types:['functie_sorteren']},engines:['SORT'],selectedGameEngine:'SORT',targetDurationSeconds:300});assert.ok(runtime.enginePool('SORT',sorted).every(i=>i.options.includes(i.correct_answer)));
+// A third bank uses one registration; neither the selector nor game code changes.
+const third={...structuredClone(wz),bank_id:'CB-TEST-003',family_id:'test',source_version:'test-1',items:wz.items.filter(i=>i.topic==='WZ_001').map(i=>({...structuredClone(i),content_item_id:'TEST-'+i.content_item_id,content_bank_id:'CB-TEST-003',topic:'NIEUW',topic_label:'Nieuwe inhoud',cefr_level:'C1',language_function:i.language_function}))};third.item_count=third.items.length;
+runtime.registerBank(third);catalog.registerBank(third,{familyId:'test',label:'Nieuwe familie'});
+assert.ok(catalog.families.find(f=>f.id==='test').topics.some(t=>t.id==='NIEUW'));
+const c=runtime.createSession({filters:{family_ids:['test'],topics:['NIEUW'],levels:['C1']},targetDurationSeconds:300,selectedGameEngine:'CARDS'});assert.ok(c.selected_item_ids.every(id=>id.startsWith('TEST-')));
+const spec={scope_clauses:[{scope_id:'grammar',content_family_id:'grammar',content_bank_ids:[],topic_ids:['ER'],cefr_levels:['B1'],subtopic_ids:[],interaction_type_ids:[],weight:1},{scope_id:'words',content_family_id:'words',content_bank_ids:[],topic_ids:['WZ_001'],cefr_levels:['A0→A1'],subtopic_ids:[],interaction_type_ids:[],weight:2}],filter_spec:{},distribution_spec:{mode:'weighted'},compatibility_policy:'compatible_only'};
+const mix=runtime.createSession({selectionSpec:spec,targetDurationSeconds:600,selectedGameEngine:'CARDS',seed:3});assert.equal(mix.content_bank_ids.length,2);assert.equal(new Set(mix.selected_item_ids).size,mix.selected_item_ids.length);
+const empty=structuredClone(spec);empty.scope_clauses[1].cefr_levels=['B2'];assert.throws(()=>runtime.createSession({selectionSpec:empty,targetDurationSeconds:300}),/onderwerp/);
+const duplicate=structuredClone(gram.items.find(i=>i.exercise_type==='fout_verbeteren'));assert.equal(runtime.setCompatibility([duplicate,{...duplicate,content_item_id:'conflict'}],'MEMORY'),false);
+const stale=structuredClone(a);stale.selected_content_refs[0].content_item_version='old';assert.throws(()=>runtime.restoreSession(stale),e=>e.code==='BLOCKED_VERSION_UNAVAILABLE');
+assert.deepEqual(runtime.restoreSession(a).selected_item_ids,a.selected_item_ids);
+const oldItem=runtime.itemById(a.selected_item_ids[0]);oldItem.revocation_status='SOFT_DEPRECATED';
+assert.deepEqual(runtime.restoreSession(a).selected_item_ids,a.selected_item_ids);assert.ok(!runtime.filterSource(opts.filters).includes(oldItem));
+oldItem.revocation_status='HARD_REVOKED';assert.throws(()=>runtime.restoreSession(a),e=>e.code==='BLOCKED_RIGHTS');delete oldItem.revocation_status;
+const counts=Object.fromEntries(mix.content_bank_ids.map(id=>[id,mix.selected_content_refs.filter(r=>r.content_bank_id===id).length]));assert.ok(counts[wz.bank_id]>=counts[gram.bank_id],'weighted mix honors family weight, not number of functions');
+const overlap=structuredClone(spec);overlap.scope_clauses=[{...spec.scope_clauses[0],maximum_items:1},{...spec.scope_clauses[0],scope_id:'overlap'}];assert.throws(()=>runtime.createSession({selectionSpec:overlap,targetDurationSeconds:600,selectedGameEngine:'CARDS'}),e=>e.code==='BLOCKED_CAPACITY');
+console.log('PASS v1.25: WZ source guardrails, route/game parity, third-bank registration, mixed families, version references, safe pairs and canonical sorting.');

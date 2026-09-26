@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.goto('file://'+path.join(served,'index.html'));
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
  await page.evaluate(()=>{APP.boardStates.rotterdam={positions:{p0:7}};settingsPatch({participants:[{id:'p0',name:'Test',color:'#2389e8'}]});save();});
  const before=await page.evaluate(()=>JSON.stringify({boards:APP.boardStates,settings:settingsState()}));
  await page.locator('[data-category="words"]').click();
@@ -128,7 +128,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  // Keyboard choice and a touch alternative to dragging.
  await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>selectWZGoal('WZ_001'));
  await page.locator('#wordArrange').click();await page.locator('#wordBank button').first().focus();await page.keyboard.press('Space');assert.equal(await page.locator('#sentence button').count(),1);
- const touch=await browser.newPage({viewport:{width:1024,height:768},hasTouch:true});await touch.goto('file://'+path.join(served,'index.html'));await touch.locator('[data-category="words"]').tap();await touch.locator('[data-wz-goal="WZ_005"]').tap();await touch.locator('#wordArrange').tap();await touch.locator('#wordBank button').first().tap();assert.equal(await touch.locator('#sentence button').count(),1);await touch.close();
+ const touch=await browser.newPage({viewport:{width:1024,height:768},hasTouch:true});await touch.addInitScript(()=>{window.DigiBordArchiveReview=true});await touch.goto('file://'+path.join(served,'index.html'));await touch.locator('[data-category="words"]').tap();await touch.locator('[data-wz-goal="WZ_005"]').tap();await touch.locator('#wordArrange').tap();await touch.locator('#wordBank button').first().tap();assert.equal(await touch.locator('#sentence button').count(),1);await touch.close();
  assert.deepEqual(errors,[]);
  console.log('PASS: 9 taaldoelen via UI, 680 WZ + 28 historische renders, 7 vormen, bron/niveaubehoud, raadaanwijzingen/onthullen, antwoordcontrole, open guard, hervatten/Terug, pion- en instellingenbehoud, toetsenbord/tik, 3 schermbreedtes.');
  }finally{await browser.close()}

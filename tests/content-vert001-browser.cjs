@@ -12,7 +12,7 @@ let browser;
  browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',args:['--allow-file-access-from-files']});
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
- await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
 
  const session=await page.evaluate(()=>CONTENT_VERT001.start({seed:20260922,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS','DICE','QUIZ'],filters:{topics:['ER'],levels:['B1']},selectionTopic:'ER',organizationMode:'groups',startedAt:'2026-09-22T08:00:00+02:00'}));
  assert.equal(session.topic,'ER');assert.equal(session.cefr_level,'B1');assert.ok(session.selected_item_ids.length>=6);
@@ -29,7 +29,8 @@ let browser;
  await page.evaluate(()=>CONTENT_VERT001.cards());
  const cardId=await page.locator('.content-vert001-cards [data-content-item-id]').getAttribute('data-content-item-id');
  assert.equal(cardId,session.selected_item_ids[0]);
- assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Grammatica ER · B1/);
+ assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/^Grammatica Er$/);
+ assert.equal(await page.locator('#levelSelect option:checked').textContent(),'B1');
  assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,cardId));
 
  await page.evaluate(()=>CONTENT_VERT001.dice());
@@ -53,7 +54,7 @@ let browser;
   const item=pool[0],projection=window.ContentRuntime.project('CARDS',item);
   return {count:pool.length,mode:window.ContentRuntime.compatibility(item,'CARDS').mode,adapter:projection.adapter,tokens:projection.orderTokens};
  });
- assert.equal(orderReport.count,18);assert.equal(orderReport.mode,'COMPATIBLE_WITH_ADAPTER');assert.equal(orderReport.adapter,'text_order');assert.ok(orderReport.tokens.length>=2);
+ assert.equal(orderReport.count,30);assert.equal(orderReport.mode,'COMPATIBLE_WITH_ADAPTER');assert.equal(orderReport.adapter,'text_order');assert.ok(orderReport.tokens.length>=2);
 
  // Existing Rangschikken engine executes the canonical IT_008_ORDER item directly.
  await page.evaluate(()=>{CONTENT_VERT001.stop();CONTENT_VERT001.start({seed:777,targetDurationSeconds:300,engines:['BOARD','WHEEL','CARDS','DICE','SEQUENCE'],filters:{topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},selectionTopic:'ER',organizationMode:'class',selectedGameEngine:'SEQUENCE',selectedGameVariant:'rangschikken'});CONTENT_VERT001.sequence()});
@@ -71,8 +72,8 @@ let browser;
  await page.locator('#primaryGame').click();
  await page.waitForFunction(()=>/De volgorde klopt!/.test(document.querySelector('#na-feedback')?.textContent||''));
 
- const modal=await page.evaluate(()=>window.ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS','DICE','QUIZ'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B2'],family_tags:['MODAAL']},selectionTopic:'MODAAL',organizationMode:'groups'}));
- assert.equal(modal.topic,'MODAAL');assert.equal(modal.cefr_level,'B2');
+ const modal=await page.evaluate(()=>window.ContentRuntime.createSession({seed:66,targetDurationSeconds:600,engines:['BOARD','WHEEL','CARDS','DICE','QUIZ'],filters:{topics:['ZULLEN','ZOUDEN'],levels:['B1'],family_tags:['MODAAL']},selectionTopic:'MODAAL',organizationMode:'groups'}));
+ assert.equal(modal.topic,'MODAAL');assert.equal(modal.cefr_level,'B1');
  const modalTopics=await page.evaluate(ids=>[...new Set(ids.map(id=>window.ContentRuntime.itemById(id).topic))],modal.selected_item_ids);
  assert.deepEqual(new Set(modalTopics),new Set(['ZULLEN','ZOUDEN']));
 
@@ -103,7 +104,7 @@ let browser;
  await page.waitForSelector('button[data-na="quiz-reveal"]');
  await page.locator('button[data-na="quiz-reveal"]').click();
  const openModel=await page.evaluate(id=>window.ContentRuntime.itemById(id).model_answer,openId);
- assert.equal((await page.locator('.na-quiz-review p').textContent()).trim(),openModel);
+ assert.equal((await page.locator('.na-quiz-review p').first().textContent()).trim(),openModel);
  await page.getByText('Goed · punten toekennen',{exact:true}).click();
  await page.waitForFunction(()=>/punten voor Team 1/.test(document.querySelector('#na-feedback')?.textContent||''));
  await page.locator('#primaryGame').click();

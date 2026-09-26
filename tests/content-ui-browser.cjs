@@ -1,3 +1,4 @@
+const controls=require('./practice-controls.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -12,11 +13,11 @@ let browser;
  browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',args:['--allow-file-access-from-files']});
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
- await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
  await page.locator('[data-main="practice"]').click();await page.waitForSelector('#screen-practice.active .practice-layout');
- assert.equal(await page.locator('[name=topic]').inputValue(),'ER');assert.equal(await page.locator('[name=level]').inputValue(),'B1');
- assert.equal(await page.locator('.practice-count strong').textContent(),'180');
- assert.equal(await page.locator('input[name=organization][value=pairs]').count(),1);
+ assert.equal(await page.evaluate(()=>ContentUI.state().topic),'ER');assert.equal(await page.evaluate(()=>ContentUI.state().level),'B1');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),325);
+ assert.equal(await page.locator('select[name=organization] option[value=pairs]').count(),1);
 
  // No silent fallback for invalid selections.
  await page.evaluate(()=>ContentUI.setState({level:'C1'}));
@@ -28,20 +29,46 @@ let browser;
 
  // ER, ZULLEN, ZOUDEN and MODAAL expose real source counts.
  await page.evaluate(()=>ContentUI.setState({topic:'ZULLEN',level:'B2',subtopic:'all'}));
- assert.equal(await page.locator('.practice-count strong').textContent(),'150');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),0);
+ assert.equal(await page.locator('#practiceStart').isDisabled(),true);
+ await page.evaluate(()=>ContentUI.setState({topic:'ZULLEN',level:'B1',subtopic:'all'}));
+ await page.locator('[name=subtopic]').selectOption('aanname');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('projectie');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('nuance');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('formeel_argumentatief');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('zekerheid_en_grens');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.evaluate(()=>ContentUI.setState({level:'B2'}));
+ await page.evaluate(()=>ContentUI.setState({topic:'ZOUDEN'}));
+ await page.locator('[name=subtopic]').selectOption('contrafeitelijk_verleden');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await controls.level(page,'B1');
+ await page.locator('[name=subtopic]').selectOption('gerapporteerde_onzekerheid');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('voorzichtige_inferentie');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('diplomatiek');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ await page.locator('[name=subtopic]').selectOption('hypothetische_consequentie');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
  await page.evaluate(()=>ContentUI.setState({topic:'ZOUDEN',level:'A2',subtopic:'all'}));
- assert.equal(await page.locator('.practice-count strong').textContent(),'150');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),173);
  await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all'}));
- assert.equal(await page.locator('.practice-count strong').textContent(),'300');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),526);
 
  // ORDER is supported through the explicit text-order adapter and never silently redirected.
- await page.locator('[name=topic]').selectOption('ER');
- await page.locator('[name=level]').selectOption('B1');
+ await controls.topic(page,'ER');
+ await controls.level(page,'B1');
+ await page.locator('.practice-more summary').click();
  await page.locator('label.practice-choice').filter({hasText:'Zin bouwen'}).click();
- await page.locator('label.practice-choice').filter({hasText:/^5 minuten$/}).click();
- assert.equal(await page.locator('.practice-count strong').textContent(),'18');
- assert.equal(await page.locator('.practice-engine input:enabled').count(),5);
- await page.locator('.practice-engine').filter({hasText:'Kaarten'}).click();
+ await page.locator('select[name=duration]').selectOption('300');
+ assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),30);
+ assert.equal(await page.locator('.practice-engine input:enabled').count(),7);
+ await controls.game(page,'.practice-engine:has(input[value="CARDS"])');
  const orderOpts=await page.evaluate(()=>ContentUI.sessionOptions(55));
  assert.deepEqual(orderOpts.filters.exercise_types,['zinnen_leggen']);
  assert.equal(await page.locator('.practice-engine').filter({hasText:'Rangschikken'}).count(),1);
@@ -59,13 +86,13 @@ let browser;
  await page.evaluate(()=>ContentUI.setState({focus:'order',duration:300}));
 
  // Too long for the narrow ORDER pool is blocked instead of changing scope.
- await page.evaluate(()=>ContentUI.setState({duration:600}));
+ await page.evaluate(()=>ContentUI.setState({duration:1200}));
  assert.equal(await page.locator('#practiceStart').isDisabled(),true);assert.match(await page.locator('.practice-warning').textContent(),/kortere duur|ruimer/i);
 
  // Content first and game first produce the same options.
  await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups',engine:'BOARD',variant:'zwolle'}));
  const contentFirst=await page.evaluate(()=>ContentUI.sessionOptions(20260922));
- await page.evaluate(()=>goScreen('boards'));await page.locator('[data-practice-engine="BOARD"]').click();await page.locator('[name=variant]').selectOption('zwolle');
+ await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-practice-engine="BOARD"]:not([data-practice-variant])').click();await page.locator('[name=variant]').selectOption('zwolle');
  await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));
  const gameFirst=await page.evaluate(()=>ContentUI.sessionOptions(20260922));
  const normalize=o=>({targetDurationSeconds:o.targetDurationSeconds,engines:o.engines,filters:o.filters,organizationMode:o.organizationMode,selectedGameEngine:o.selectedGameEngine,selectedGameVariant:o.selectedGameVariant,selectionTopic:o.selectionTopic});
@@ -85,11 +112,11 @@ let browser;
  await page.evaluate(()=>ContentUI.open({engine:'CARDS'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-vert001-cards');
  const cardSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(cardSession.selected_item_ids,boardSession.selected_item_ids);
- assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Modale werkwoorden · B1/);
+ assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/Modale werkwoorden/);
  await page.evaluate(()=>ContentUI.open({engine:'DICE'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .content-engine-dice');
  const diceSession=await page.evaluate(()=>APP.contentSessionConfig);assert.deepEqual(diceSession.selected_item_ids,boardSession.selected_item_ids);
- assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ,SEQUENCE');
+ assert.equal(await page.evaluate(()=>ContentUI.engines().map(x=>x.id).join(',')),'BOARD,WHEEL,CARDS,DICE,QUIZ,MEMORY,MATCH,SORT,SEQUENCE,RIDDLE');
 
  // QUIZ is offered for groups, uses the same IDs, and is hidden for unsupported organization modes.
  await page.evaluate(()=>ContentUI.open({engine:'QUIZ'}));await page.evaluate(()=>ContentUI.setState({topic:'MODAAL',level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'groups'}));await page.evaluate(()=>ContentUI.setSeedOverride(20260922));
@@ -104,8 +131,8 @@ let browser;
  await page.locator('#practiceStart').click();await page.waitForSelector('#screen-game.active .board-game');
  assert.equal(await page.evaluate(()=>APP.contentSessionConfig.organization_mode),'pairs');assert.match(await page.locator('.board-players-heading').textContent(),/Duo/);
 
- // Standard play exits canonical session.
- await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-board="rotterdam"]').click();await page.waitForSelector('#screen-game.active .board-game');
+ // The original conversation game still exits the shared session; new Snelvragen use preparation.
+ await page.evaluate(()=>{APP.questionMode='conversation';goScreen('boards')});await page.locator('#screen-boards [data-board="rotterdam"]').click();await page.waitForSelector('#screen-game.active .board-game');
  assert.equal(await page.evaluate(()=>window.ContentRuntime.activeSession()),null);
 
  for(const [width,height] of [[1024,768],[768,1024],[390,844]]){
@@ -114,5 +141,5 @@ let browser;
   await page.waitForSelector('#screen-practice.active .practice-layout');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  assert.deepEqual(errors,[]);
- console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic six-engine registry, scoped SEQUENCE, organization-aware QUIZ and duo mode.');
+ console.log('PASS: CONTENT UI full PB001 topics, levels, MODAAL, ORDER, strict no-fallback, shared sessions, dynamic ten-engine registry, scoped SEQUENCE, organization-aware QUIZ and duo mode.');
 })().catch(error=>{console.error(error);process.exitCode=1}).finally(async()=>{await browser?.close();server.close()});

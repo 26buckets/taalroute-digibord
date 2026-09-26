@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict'),path=require('node:path');
 const {chromium}=require('playwright');
 (async()=>{const browser=await chromium.launch({channel:'chrome',headless:true});try{
- const page=await browser.newPage();await page.goto(process.env.BASE_URL||'file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
+ const page=await browser.newPage();await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.BASE_URL||'file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
  for(const [width,height] of [[1920,1080],[1440,900],[1366,768]]){
   await page.setViewportSize({width,height});
   const failures=await page.evaluate(()=>{const errors=[];for(const kind of CARD_GAMES.map(c=>c.id))for(const c of cardsFor(kind,true)){

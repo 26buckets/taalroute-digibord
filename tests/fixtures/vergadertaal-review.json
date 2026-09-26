@@ -1,0 +1,722 @@
+{
+ "version": "2026-09-23.1",
+ "source_url": "https://drive.google.com/file/d/1np0AmwzBQGdAIcEs2kQOZramef7oG9RB/view",
+ "manifest_url": "https://docs.google.com/document/d/1IAaoBfZTuBG2Wv8LTrUPlnL5X3VWZ8VhNrPQkze7q4A/edit",
+ "source_sha256": "b20d68690e170bb0a8e018304e8617fbfed121c510ff00aa55bae787316c3d8e",
+ "source_level": "C1",
+ "source_status": "FROZEN v1.0 volgens bronmanifest; tekst bevat de voorafgaande Reviewronde 2 HERSTELD.",
+ "scope": "Eigen lokale AI-redactie en taakgericht niveauadvies. Geen officiële ERK-toets, menselijke review of lesproef. De vastgezette Drive-bron blijft ongewijzigd.",
+ "actual_answer_counts": {
+  "B": 20,
+  "A": 20,
+  "C": 20
+ },
+ "items": {
+  "C1_VB_001": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Het doel van een agendapunt herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "Het doel van een agendapunt herkennen.",
+   "patch": {
+    "context": "Een groep praat al tien minuten over een onderwerp, maar deelnemers lijken verschillende verwachtingen te hebben. Sommigen willen informatie delen, anderen willen vandaag een besluit. Iemand vraagt: “Wat is het doel van dit agendapunt?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_002": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De rol van deelnemers bij een informatiepunt onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "De rol van deelnemers bij een informatiepunt onderscheiden.",
+   "patch": {
+    "context": "Een voorzitter merkt dat deelnemers kritiek geven op een voorstel terwijl het management alleen een voortgangsupdate wilde geven. De voorzitter vraagt: “Is dit ter informatie of ter besluitvorming?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_003": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De figuurlijke formulering beslisvraag scherp krijgen uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "De figuurlijke formulering beslisvraag scherp krijgen uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_004": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een ongemerkte verschuiving van haalbaarheid naar wenselijkheid herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "Een ongemerkte verschuiving van haalbaarheid naar wenselijkheid herkennen.",
+   "patch": {
+    "context": "De oorspronkelijke vraag is of een project haalbaar is. De discussie gaat inmiddels vooral over de vraag of het project wenselijk is. Iemand zegt: “Volgens mij beantwoorden we nu een andere vraag.”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_005": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Verschillende beoordelingsmaatstaven onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "Verschillende beoordelingsmaatstaven onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_006": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Inhoudelijke steun en procedureel bezwaar tegelijk juist verwoorden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Het overleg leiden",
+   "goal": "Inhoudelijke steun en procedureel bezwaar tegelijk juist verwoorden.",
+   "patch": {
+    "prompt": "Welke formulering houdt inhoud en procedure duidelijk uit elkaar?"
+   },
+   "change_reason": "De situatie bevat steun voor de inhoud en één bezwaar, geen twee bezwaren.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_007": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Strategie en uitvoering als verschillende gesprekslagen herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "Strategie en uitvoering als verschillende gesprekslagen herkennen.",
+   "patch": {
+    "context": "Sommige deelnemers bespreken de algemene strategie. Anderen praten tegelijk over de planning van volgende week. Iemand zegt: “Ik hoor twee niveaus in de discussie.”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_008": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Herhaling van nieuwe argumenten onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "Herhaling van nieuwe argumenten onderscheiden.",
+   "patch": {
+    "context": "Dezelfde drie standpunten worden al geruime tijd herhaald. Iemand vraagt: “Wie heeft nog een nieuw argument?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_009": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De bedoeling van een laatste gespreksronde herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "De bedoeling van een laatste gespreksronde herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_010": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Ingrijpen op het proces van een inhoudelijk standpunt onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Het overleg leiden",
+   "goal": "Ingrijpen op het proces van een inhoudelijk standpunt onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Procesregie en focus"
+  },
+  "C1_VB_011": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een uitgesproken standpunt van een mogelijk verenigbaar achterliggend belang onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "Een uitgesproken standpunt van een mogelijk verenigbaar achterliggend belang onderscheiden.",
+   "patch": {
+    "context": "Twee afdelingen discussiëren fel over de keuze voor verschillende softwaresystemen. Iemand vraagt: “Wat is hier het onderliggende belang?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_012": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De onuitgesproken veronderstelling achter een redenering onderzoeken. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Argumenten bespreken",
+   "goal": "De onuitgesproken veronderstelling achter een redenering onderzoeken.",
+   "patch": {
+    "note": "Kijk niet alleen naar de conclusie, maar ook naar de veronderstelling waarop die rust."
+   },
+   "change_reason": "De lestip beschrijft de vaardigheid zonder de hele bronreeks automatisch C1 te noemen.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_013": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een verwachting van een vastgesteld feit onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "Een verwachting van een vastgesteld feit onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_014": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De betekenis van een doorslaggevend criterium uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "De betekenis van een doorslaggevend criterium uitleggen.",
+   "patch": {
+    "context": "Een collega erkent voordelen van beide opties, maar blijft duidelijk voor optie B kiezen. Iemand vraagt: “Wat is voor jou doorslaggevend?”",
+    "explanation": "Een doorslaggevend criterium bepaalt uiteindelijk welke kant de afweging opgaat."
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is. Onjuiste woordkeuze in de uitleg hersteld.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_015": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een verhelderende vraag over doel en uitvoering kiezen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Argumenten bespreken",
+   "goal": "Een verhelderende vraag over doel en uitvoering kiezen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_016": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De relevantie van een bezwaar afwegen wanneer het beide alternatieven raakt. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "De relevantie van een bezwaar afwegen wanneer het beide alternatieven raakt.",
+   "patch": {
+    "context": "Een collega noemt hoge invoeringskosten als bezwaar tegen optie A. Optie B vereist mogelijk dezelfde investering. Iemand vraagt: “Geldt dat bezwaar voor beide opties?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_017": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Onderzoeken onder welke voorwaarden een hardnekkig standpunt nog toetsbaar is. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "Onderzoeken onder welke voorwaarden een hardnekkig standpunt nog toetsbaar is.",
+   "patch": {
+    "context": "Een deelnemer houdt sterk vast aan één oplossing. Iemand vraagt: “Wat zou je van mening doen veranderen?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_018": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Steun voor een waarde scheiden van de grenzen aan toepassing ervan. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Argumenten bespreken",
+   "goal": "Steun voor een waarde scheiden van de grenzen aan toepassing ervan.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_019": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een ongelijke vergelijkingsbasis in een schijnbaar logisch argument herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "Een ongelijke vergelijkingsbasis in een schijnbaar logisch argument herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_020": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Bepalen welke conclusie een risicoargument wel en niet ondersteunt. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Argumenten bespreken",
+   "goal": "Bepalen welke conclusie een risicoargument wel en niet ondersteunt.",
+   "patch": {
+    "context": "Iemand zegt dat een plan mogelijk vertraging oplevert en gebruikt dat als bewijs dat het plan inhoudelijk slecht is. Een andere deelnemer zegt: “Dat argument zegt iets over risico, niet over wenselijkheid.”",
+    "prompt": "Wat doet de laatste spreker met deze reactie?"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is. De vraag verwijst naar de zichtbare uitspraak, niet naar een titel die sommige spellen weglaten.",
+   "source_section": "Argumenten, aannames en belangen"
+  },
+  "C1_VB_021": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De onderlinge afhankelijkheid meewegen bij het opsplitsen van een voorstel. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "De onderlinge afhankelijkheid meewegen bij het opsplitsen van een voorstel.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_022": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een concreet wijzigingsvoorstel van vage steun onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Voorstellen",
+   "goal": "Een concreet wijzigingsvoorstel van vage steun onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_023": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een expliciete voorwaarde voor steun herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "Een expliciete voorwaarde voor steun herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_024": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een ondergrens van een onderhandelbare voorkeur onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "Een ondergrens van een onderhandelbare voorkeur onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_025": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Het doel van een vooraf afgebakende proef uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "Het doel van een vooraf afgebakende proef uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_026": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van een terugvalafspraak na uitvoering uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "De functie van een terugvalafspraak na uitvoering uitleggen.",
+   "patch": {
+    "prompt": "Waarom helpt het om vóór de start af te spreken wat er gebeurt als de nieuwe aanpak na twee maanden niet werkt?"
+   },
+   "change_reason": "Het onderscheid met kaart 030 is expliciet: terugvallen na ervaring met de nieuwe aanpak.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_027": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van scenario’s bij onzekere kosten herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "De functie van scenario’s bij onzekere kosten herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_028": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een richtingbesluit van een latere uitvoeringskeuze onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "Een richtingbesluit van een latere uitvoeringskeuze onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_029": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Samenhang tussen twee voorwaarden herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "Samenhang tussen twee voorwaarden herkennen.",
+   "patch": {
+    "prompt": "Hoe verbindt de deelnemer het nieuwe softwaresysteem met de training?"
+   },
+   "change_reason": "De letters A en B waren alleen in de titel te begrijpen; de vraag benoemt nu beide maatregelen.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_030": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van een reserveoptie vóór uitvoering uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Voorstellen",
+   "goal": "De functie van een reserveoptie vóór uitvoering uitleggen.",
+   "patch": {
+    "context": "Een projectgroep heeft één duidelijke voorkeur, maar ziet een reëel risico dat deze oplossing niet uitvoerbaar blijkt. Dit moet vóór de start worden onderzocht."
+   },
+   "change_reason": "Het onderscheid met kaart 026 is expliciet: een alternatief bij onuitvoerbaarheid vóór de start.",
+   "source_section": "Voorstellen, varianten en voorwaarden"
+  },
+  "C1_VB_031": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een zorgvuldige vraag naar aanvaarding kiezen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Samen verder",
+   "goal": "Een zorgvuldige vraag naar aanvaarding kiezen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_032": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Blijvend bezwaar van blokkeren onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "Blijvend bezwaar van blokkeren onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_033": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een praktisch bezwaar van afwijzing van het doel onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "Een praktisch bezwaar van afwijzing van het doel onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_034": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De grenzen van overeenstemming en professioneel verdergaan afwegen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "De grenzen van overeenstemming en professioneel verdergaan afwegen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_035": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van vastlegging van een minderheidsstandpunt uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "De functie van vastlegging van een minderheidsstandpunt uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_036": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Draagvlak onderscheiden van formele geldigheid zonder de minderheid terzijde te schuiven. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "Draagvlak onderscheiden van formele geldigheid zonder de minderheid terzijde te schuiven.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_037": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Concessies als kenmerk van een compromis herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "Concessies als kenmerk van een compromis herkennen.",
+   "patch": {
+    "note": "Compromis beschrijft hier het geven en nemen. Als iedereen de uitkomst kan aanvaarden, kan er ook consensus over dat compromis zijn."
+   },
+   "change_reason": "Een compromis en consensus kunnen samengaan; de uitleg voorkomt een onjuiste tegenstelling.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_038": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een vastgelopen tegenstelling herformuleren als bespreekbare voorwaarden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Samen verder",
+   "goal": "Een vastgelopen tegenstelling herformuleren als bespreekbare voorwaarden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_039": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Instemming met een zichtbaar voorbehoud herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "Instemming met een zichtbaar voorbehoud herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_040": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De waarde van extra informatie afwegen tegen onzekerheid en uitstel. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Samen verder",
+   "goal": "De waarde van extra informatie afwegen tegen onzekerheid en uitstel.",
+   "patch": {
+    "context": "Een groep blijft om extra onderzoek vragen voordat zij een besluit wil nemen. Iemand vraagt: “Wanneer is de informatie voldoende?”"
+   },
+   "change_reason": "De bedoelde uitspraak staat nu in de situatie, zodat de vraag ook zonder kaarttitel begrijpelijk is.",
+   "source_section": "Consensus, verschil en impasse"
+  },
+  "C1_VB_041": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een advies onderscheiden van een besluit door het bevoegde orgaan. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Een advies onderscheiden van een besluit door het bevoegde orgaan.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_042": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De begrensde betekenis van raadpleging onderscheiden van bestaande formele rechten. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "De begrensde betekenis van raadpleging onderscheiden van bestaande formele rechten.",
+   "patch": {
+    "context": "In deze oefensituatie vraagt de directie medewerkers naar hun mening over een reorganisatie. Volgens de beschreven procedure beslist de directie; deze raadpleging is geen formele instemmingsprocedure.",
+    "note": "Gehoord worden schept op zichzelf geen instemmingsrecht. Welke rechten er al zijn, volgt uit de regels die voor de organisatie gelden."
+   },
+   "change_reason": "De rollen worden afgebakend tot de beschreven oefensituatie; raadpleging doet bestaande formele rechten niet verdwijnen.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_043": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Het begrip quorum uit de gegeven aanwezigheidsregel afleiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Het begrip quorum uit de gegeven aanwezigheidsregel afleiden.",
+   "patch": {
+    "title": "Zijn er genoeg leden aanwezig?",
+    "prompt": "Wat moet de voorzitter volgens deze regel controleren?",
+    "explanation": "De voorzitter controleert of het vereiste aantal leden aanwezig is. Dat minimumaantal heet het quorum.",
+    "note": "Het quorum is één voorwaarde. Ook andere afgesproken regels blijven gelden bij het nemen van een besluit."
+   },
+   "change_reason": "Besluitvaardigheid is geen precies synoniem voor quorum. Titel, vraag en uitleg richten zich op het vereiste aantal aanwezigen.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_044": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De samenhang tussen consensus zoeken en een meerderheidsprocedure uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "De samenhang tussen consensus zoeken en een meerderheidsprocedure uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_045": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Het doel van controle van de besluittekst herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Het doel van controle van de besluittekst herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_046": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De betekenis van mits in een concreet besluit uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "De betekenis van mits in een concreet besluit uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_047": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een voorgenomen besluit van een definitief besluit onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Een voorgenomen besluit van een definitief besluit onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_048": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een inhoudelijke reden voor heropening herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Een inhoudelijke reden voor heropening herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_049": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De zakelijke term beslisrijp uitleggen zonder absolute zekerheid te veronderstellen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "De zakelijke term beslisrijp uitleggen zonder absolute zekerheid te veronderstellen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_050": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een transparante reactie op een mogelijk persoonlijk belang kiezen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Besluiten nemen",
+   "goal": "Een transparante reactie op een mogelijk persoonlijk belang kiezen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Besluitvorming en procedure"
+  },
+  "C1_VB_051": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van een besluitenlijst onderscheiden van notulen en een actielijst. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "De functie van een besluitenlijst onderscheiden van notulen en een actielijst.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_052": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Verschillende betekenissen van we gaan verder herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "Verschillende betekenissen van we gaan verder herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_053": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Onthouding onderscheiden van voor of tegen stemmen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "Onthouding onderscheiden van voor of tegen stemmen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_054": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van een korte motivering bij een besluit uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "De functie van een korte motivering bij een besluit uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_055": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een besluit van een resterend open punt onderscheiden. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "Een besluit van een resterend open punt onderscheiden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_056": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van een gepland evaluatiemoment uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "De functie van een gepland evaluatiemoment uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_057": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een passende bevestiging kiezen na onduidelijkheid in een online overleg. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "discuss",
+   "section": "Afspraken vastleggen",
+   "goal": "Een passende bevestiging kiezen na onduidelijkheid in een online overleg.",
+   "patch": {
+    "note": "Bevestig wat daadwerkelijk is besloten. Is vereiste instemming niet vastgesteld doordat de verbinding wegviel, volg dan eerst de afgesproken besluitprocedure."
+   },
+   "change_reason": "Een bevestiging vervangt geen ontbrekende geldige besluitvorming; advies wordt als bespreekvoorbeeld getoond.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_058": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De ontbrekende vervolgafspraak bij een voorwaarde herkennen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "De ontbrekende vervolgafspraak bij een voorwaarde herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_059": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De functie van controle van een schriftelijke formulering uitleggen. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "De functie van controle van een schriftelijke formulering uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  },
+  "C1_VB_060": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Afgeronde besluitvorming onderscheiden van nog open uitvoering. Het advies betreft deze keuzevraag, niet zelfstandig een vergadering leiden.",
+   "scoring": "canonical",
+   "section": "Afspraken vastleggen",
+   "goal": "Afgeronde besluitvorming onderscheiden van nog open uitvoering.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd.",
+   "source_section": "Vastlegging en opvolging"
+  }
+ }
+}

@@ -1,0 +1,1076 @@
+{
+ "version": "2026-09-23.1",
+ "source_url": "https://drive.google.com/file/d/1vdOv2dhgwY0yHjSwK5thhIni3GstaW1L/view",
+ "manifest_url": "https://docs.google.com/document/d/1CpgyoD8TCckn9Bd20cqHeDwLF6PRWDqhzWYum4VkfW8/edit",
+ "source_sha256": "f676ca029c9e8043fad33c485b8756e80e3169d2926616282eadc8ff3e41563f",
+ "source_level": "C1",
+ "source_status": "FROZEN v1.0 volgens bronmanifest. Lokale review herstelt onder meer verkeerde positieverwijzingen in uitleg, toegevoegde informatie en verloren beperkingen.",
+ "scope": "Eigen lokale AI-redactie en taakgericht niveauadvies. Geen officiële ERK-toets, menselijke review of lesproef. Vastgezette Drive-bron ongewijzigd.",
+ "actual_answer_counts": {
+  "A": 20,
+  "B": 20,
+  "C": 20
+ },
+ "reviewed_answer_counts": {
+  "A": 20,
+  "B": 20,
+  "C": 20
+ },
+ "items": {
+  "C1_HF_001": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Een voorwaarde zegt wanneer iets kan doorgaan; zij is geen vaststaand feit. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Een voorwaarde zegt wanneer iets kan doorgaan; zij is geen vaststaand feit.",
+   "patch": {
+    "prompt": "Welke zin bewaart dezelfde voorwaarde?",
+    "note": "Een voorwaarde zegt wanneer iets kan doorgaan; zij is geen vaststaand feit."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. De bestaande betekenis en bedoelde antwoordletter blijven behouden."
+  },
+  "C1_HF_002": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Maak mogelijk niet sterker dan het is. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Maak mogelijk niet sterker dan het is.",
+   "patch": {
+    "prompt": "Welke zin is even onzeker?",
+    "note": "Maak mogelijk niet sterker dan het is."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. De bestaande betekenis en bedoelde antwoordletter blijven behouden."
+  },
+  "C1_HF_003": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Na een gebeurtenis betekent niet automatisch door die gebeurtenis. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Na een gebeurtenis betekent niet automatisch door die gebeurtenis.",
+   "patch": {
+    "prompt": "Welke zin noemt alleen wat na de wijziging gebeurde?",
+    "note": "Na een gebeurtenis betekent niet automatisch door die gebeurtenis.",
+    "options": [
+     "Door de softwarewijziging kwamen er meer meldingen.",
+     "Het aantal meldingen nam toe na de softwarewijziging.",
+     "De softwarewijziging veroorzaakte een toename van meldingen."
+    ]
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Na een gebeurtenis betekent niet automatisch door die gebeurtenis."
+  },
+  "C1_HF_004": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Niet alle zegt alleen dat minstens één deelnemer niet op tijd was. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Niet alle zegt alleen dat minstens één deelnemer niet op tijd was.",
+   "patch": {
+    "title": "Niet alle",
+    "prompt": "Welke zin betekent hetzelfde?",
+    "note": "Niet alle zegt alleen dat minstens één deelnemer niet op tijd was.",
+    "options": [
+     "Geen van de deelnemers was op tijd.",
+     "Minstens één deelnemer was niet op tijd.",
+     "Alle deelnemers kwamen te laat."
+    ]
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Niet alle zegt alleen dat minstens één deelnemer niet op tijd was."
+  },
+  "C1_HF_005": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Voorlopig is niet hetzelfde als definitief. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Voorlopig is niet hetzelfde als definitief.",
+   "patch": {
+    "title": "Voorlopig blijft voorlopig",
+    "prompt": "Welke zin bewaart dat de maatregel voorlopig geldt?",
+    "note": "Voorlopig is niet hetzelfde als definitief.",
+    "context": "De oorspronkelijke zin is: “De maatregel geldt voorlopig. Bij de evaluatie wordt besloten of hij daarna blijft gelden.”",
+    "explanation": "De bedoelde versie bewaart dat de maatregel nu geldt en bij de evaluatie opnieuw wordt beoordeeld. Er is nog geen definitief besluit over de periode daarna."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De bedoelde versie bewaart dat de maatregel nu geldt en bij de evaluatie opnieuw wordt beoordeeld. Er is nog geen definitief besluit over de periode daarna."
+  },
+  "C1_HF_006": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Voeg bij een uitzondering geen nieuwe datum of onzekerheid toe. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Voeg bij een uitzondering geen nieuwe datum of onzekerheid toe.",
+   "patch": {
+    "prompt": "Welke zin bewaart de uitzondering zonder extra informatie?",
+    "note": "Voeg bij een uitzondering geen nieuwe datum of onzekerheid toe.",
+    "context": "De oorspronkelijke zin is: “Alle teams leveren vrijdag aan, behalve het onderzoeksteam.”"
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Voeg bij een uitzondering geen nieuwe datum of onzekerheid toe."
+  },
+  "C1_HF_007": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Iets bekijken is nog niet beloven dat je het oplost. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Iets bekijken is nog niet beloven dat je het oplost.",
+   "patch": {
+    "title": "Niet meer beloven",
+    "prompt": "Welke zin belooft niet meer dan het origineel?",
+    "note": "Iets bekijken is nog niet beloven dat je het oplost.",
+    "explanation": "Bekijken is een beperktere belofte dan oplossen of een definitief antwoord geven."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Bekijken is een beperktere belofte dan oplossen of een definitief antwoord geven."
+  },
+  "C1_HF_008": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Bewaar zowel het verschil in prijs als het verschil in flexibiliteit. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Bewaar zowel het verschil in prijs als het verschil in flexibiliteit.",
+   "patch": {
+    "title": "Beide verschillen behouden",
+    "prompt": "Welke zin bewaart beide verschillen?",
+    "note": "Bewaar zowel het verschil in prijs als het verschil in flexibiliteit."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. De bestaande betekenis en bedoelde antwoordletter blijven behouden."
+  },
+  "C1_HF_009": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Aanwijzingen zijn nog geen bewijs. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Aanwijzingen zijn nog geen bewijs.",
+   "patch": {
+    "title": "Aanwijzing of bewijs",
+    "prompt": "Welke zin is even voorzichtig?",
+    "note": "Aanwijzingen zijn nog geen bewijs."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. De bestaande betekenis en bedoelde antwoordletter blijven behouden."
+  },
+  "C1_HF_010": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Voor nu zegt niets over alle toekomstige situaties. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Dezelfde betekenis",
+   "source_section": "Betekenis behouden",
+   "goal": "Voor nu zegt niets over alle toekomstige situaties.",
+   "patch": {
+    "title": "Voor nu",
+    "prompt": "Welke zin bewaart voor nu?",
+    "note": "Voor nu zegt niets over alle toekomstige situaties."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. De bestaande betekenis en bedoelde antwoordletter blijven behouden."
+  },
+  "C1_HF_011": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Een kortere zin moet ook de positieve uitkomst en de beperkingen bewaren. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Een kortere zin moet ook de positieve uitkomst en de beperkingen bewaren.",
+   "patch": {
+    "title": "Korter met behoud van betekenis",
+    "prompt": "Welke kortere zin bewaart de positieve resultaten én de beperkingen?",
+    "note": "Een kortere zin moet ook de positieve uitkomst en de beperkingen bewaren.",
+    "explanation": "De gekozen zin bewaart de positieve eerste resultaten, de kleine onderzochte groep en het ontbreken van een conclusie over alle teams."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart de positieve eerste resultaten, de kleine onderzochte groep en het ontbreken van een conclusie over alle teams."
+  },
+  "C1_HF_012": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Bewaar waarop de inschatting berust en hoe zeker zij is. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Bewaar waarop de inschatting berust en hoe zeker zij is.",
+   "patch": {
+    "prompt": "Welke kortere zin bewaart de informatiebasis en de onzekerheid?",
+    "note": "Bewaar waarop de inschatting berust en hoe zeker zij is.",
+    "options": [
+     "De huidige informatie bewijst dat de planning niet haalbaar is.",
+     "De planning is volgens de huidige informatie onmogelijk.",
+     "Volgens de huidige informatie is de planning waarschijnlijk niet haalbaar."
+    ],
+    "explanation": "De gekozen zin bewaart zowel de huidige informatie als waarschijnlijk. De andere zinnen maken de conclusie te sterk."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart zowel de huidige informatie als waarschijnlijk. De andere zinnen maken de conclusie te sterk."
+  },
+  "C1_HF_013": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Maak niet zelf iemand verantwoordelijk als de oorspronkelijke zin niemand noemt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Maak niet zelf iemand verantwoordelijk als de oorspronkelijke zin niemand noemt.",
+   "patch": {
+    "title": "Directer zeggen",
+    "prompt": "Welke zin zegt directer wat er gaat gebeuren, zonder iemand als uitvoerder toe te voegen?",
+    "note": "Maak niet zelf iemand verantwoordelijk als de oorspronkelijke zin niemand noemt.",
+    "options": [
+     "De haalbaarheid van het voorstel wordt door ons definitief vastgesteld.",
+     "We zullen het voorstel waarschijnlijk haalbaar verklaren.",
+     "Er zal worden beoordeeld of het voorstel haalbaar is."
+    ],
+    "explanation": "De gekozen zin gebruikt beoordelen als werkwoord. Zij voegt geen uitvoerder, positieve uitkomst of zekerheid over de haalbaarheid toe."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin gebruikt beoordelen als werkwoord. Zij voegt geen uitvoerder, positieve uitkomst of zekerheid over de haalbaarheid toe."
+  },
+  "C1_HF_014": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Vereenvoudig de vele voorzichtige woorden zonder er zekerheid van te maken. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Vereenvoudig de vele voorzichtige woorden zonder er zekerheid van te maken.",
+   "patch": {
+    "title": "Minder voorzichtige woorden",
+    "prompt": "Welke kortere zin blijft voorzichtig?",
+    "note": "Vereenvoudig de vele voorzichtige woorden zonder er zekerheid van te maken.",
+    "explanation": "De gekozen zin bewaart de beperkte gegevens, het voorlopige oordeel en een mogelijk klein effect. Het is een beknopte benadering van de voorzichtige boodschap; de andere zinnen stellen veel meer vast."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart de beperkte gegevens, het voorlopige oordeel en een mogelijk klein effect. Het is een beknopte benadering van de voorzichtige boodschap; de andere zinnen stellen veel meer vast."
+  },
+  "C1_HF_015": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Noem wie het besluit nam en wat er precies is besloten. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Noem wie het besluit nam en wat er precies is besloten.",
+   "patch": {
+    "title": "Wie nam het besluit?",
+    "prompt": "Welke kortere zin bewaart wie wat besloot?",
+    "note": "Noem wie het besluit nam en wat er precies is besloten.",
+    "explanation": "Het team besloot de pilot met twee weken te verlengen bewaart zowel de beslisser als de exacte verlenging."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Het team besloot de pilot met twee weken te verlengen bewaart zowel de beslisser als de exacte verlenging."
+  },
+  "C1_HF_016": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Een persoonlijke voorkeur is nog geen besluit of bevel. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Een persoonlijke voorkeur is nog geen besluit of bevel.",
+   "patch": {
+    "title": "Mening of besluit",
+    "prompt": "Welke kortere zin blijft een persoonlijke mening?",
+    "note": "Een persoonlijke voorkeur is nog geen besluit of bevel.",
+    "explanation": "Ik vind bewaart dat het om een mening of voorkeur gaat. De andere versies maken er een verbod of besluit van."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Ik vind bewaart dat het om een mening of voorkeur gaat. De andere versies maken er een verbod of besluit van."
+  },
+  "C1_HF_017": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Vervang dit alleen door een onderwerp waarvan je weet dat het bedoeld wordt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Vervang dit alleen door een onderwerp waarvan je weet dat het bedoeld wordt.",
+   "patch": {
+    "title": "Duidelijk verwijzen",
+    "prompt": "Welke zin maakt duidelijk waar dit naar verwijst?",
+    "note": "Vervang dit alleen door een onderwerp waarvan je weet dat het bedoeld wordt.",
+    "context": "De oorspronkelijke zin is: “Dit is iets waar we later nog op terug moeten komen.” Met dit bedoelt de spreker de openstaande privacyvraag."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Vervang dit alleen door een onderwerp waarvan je weet dat het bedoeld wordt."
+  },
+  "C1_HF_018": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: We hebben niet geen alternatieven betekent dat er wel alternatieven zijn. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "We hebben niet geen alternatieven betekent dat er wel alternatieven zijn.",
+   "patch": {
+    "title": "Dubbele ontkenning",
+    "prompt": "Welke zin zegt eenvoudiger hetzelfde?",
+    "note": "We hebben niet geen alternatieven betekent dat er wel alternatieven zijn.",
+    "explanation": "De dubbele ontkenning zegt dat er wel alternatieven zijn. Zij zegt niet hoeveel, hoe goed of hoe beperkt die zijn."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De dubbele ontkenning zegt dat er wel alternatieven zijn. Zij zegt niet hoeveel, hoe goed of hoe beperkt die zijn."
+  },
+  "C1_HF_019": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Een inleiding weglaten kan de toon directer maken, ook als het feit hetzelfde blijft. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Een inleiding weglaten kan de toon directer maken, ook als het feit hetzelfde blijft.",
+   "patch": {
+    "title": "Korter beginnen",
+    "prompt": "Welke kortere zin bewaart de feitelijke mededeling?",
+    "note": "Een inleiding weglaten kan de toon directer maken, ook als het feit hetzelfde blijft.",
+    "explanation": "De feitelijke mededeling blijft: de kosten zijn hoger uitgevallen dan verwacht. Zonder de lange inleiding klinkt de zin wel directer; de toon blijft dus niet precies gelijk."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De feitelijke mededeling blijft: de kosten zijn hoger uitgevallen dan verwacht. Zonder de lange inleiding klinkt de zin wel directer; de toon blijft dus niet precies gelijk."
+  },
+  "C1_HF_020": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Houd zowel de reden als de noodzakelijke wijziging in de zin. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Korter zeggen",
+   "source_section": "Bondiger en preciezer",
+   "goal": "Houd zowel de reden als de noodzakelijke wijziging in de zin.",
+   "patch": {
+    "title": "Reden en gevolg behouden",
+    "prompt": "Welke kortere zin bewaart de reden en de noodzaak tot uitstel?",
+    "note": "Houd zowel de reden als de noodzakelijke wijziging in de zin.",
+    "options": [
+     "We stellen de start uit en bekijken later waarom.",
+     "Door beperkte capaciteit kan de startdatum mogelijk verschuiven.",
+     "Door onvoldoende capaciteit moeten we de startdatum verschuiven."
+    ],
+    "explanation": "De gekozen zin bewaart het capaciteitstekort als reden én moeten als noodzaak tot uitstel."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart het capaciteitstekort als reden én moeten als noodzaak tot uitstel."
+  },
+  "C1_HF_021": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Noem concrete tekortkomingen alleen als bekend is welke dat zijn. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Noem concrete tekortkomingen alleen als bekend is welke dat zijn.",
+   "patch": {
+    "title": "Kritiek zakelijk maken",
+    "prompt": "Welke zin beschrijft de bekende tekortkoming zakelijk?",
+    "note": "Noem concrete tekortkomingen alleen als bekend is welke dat zijn.",
+    "context": "De oorspronkelijke zin is: “Het team heeft opnieuw een waardeloze planning aangeleverd.” Bekend is dat de planning opnieuw niet voldoet aan de afgesproken criteria.",
+    "explanation": "De gekozen zin vervangt waardeloos door de bekende tekortkoming. Zonder informatie over de criteria zou je die niet zelf mogen toevoegen."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin vervangt waardeloos door de bekende tekortkoming. Zonder informatie over de criteria zou je die niet zelf mogen toevoegen."
+  },
+  "C1_HF_022": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Achterstand bewijst niet dat iemand ongemotiveerd is. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Achterstand bewijst niet dat iemand ongemotiveerd is.",
+   "patch": {
+    "title": "Gedrag of motivatie",
+    "prompt": "Welke zin blijft bij wat je kunt vaststellen?",
+    "note": "Achterstand bewijst niet dat iemand ongemotiveerd is.",
+    "explanation": "De gekozen zin beschrijft de achterstand en minder afgeronde taken. De oorzaak is nog niet bekend; gebrek aan motivatie of inzet staat niet vast."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin beschrijft de achterstand en minder afgeronde taken. De oorzaak is nog niet bekend; gebrek aan motivatie of inzet staat niet vast."
+  },
+  "C1_HF_023": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Afspraken ter discussie stellen is niet automatisch afspraken ontwijken. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Afspraken ter discussie stellen is niet automatisch afspraken ontwijken.",
+   "patch": {
+    "title": "Beschuldiging zakelijk maken",
+    "prompt": "Welke zin blijft bij de bekende feiten?",
+    "note": "Afspraken ter discussie stellen is niet automatisch afspraken ontwijken."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. De bestaande betekenis en bedoelde antwoordletter blijven behouden."
+  },
+  "C1_HF_024": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Een zakelijke zin mag geen nieuwe bezwaren of redenen verzinnen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Een zakelijke zin mag geen nieuwe bezwaren of redenen verzinnen.",
+   "patch": {
+    "title": "Afwijzing zakelijk maken",
+    "prompt": "Welke zakelijke zin bewaart de afwijzing zonder extra redenen?",
+    "note": "Een zakelijke zin mag geen nieuwe bezwaren of redenen verzinnen.",
+    "options": [
+     "De directie heeft het voorstel volledig van tafel geveegd.",
+     "De directie heeft het voorstel hard afgewezen omdat het onvoldoende kwaliteit had.",
+     "De directie heeft het voorstel afgewezen."
+    ],
+    "explanation": "Afgewezen bewaart de negatieve uitkomst zonder de beeldspraak. De oorspronkelijke zin noemt geen inhoudelijke bezwaren of reden."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Afgewezen bewaart de negatieve uitkomst zonder de beeldspraak. De oorspronkelijke zin noemt geen inhoudelijke bezwaren of reden."
+  },
+  "C1_HF_025": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Twaalf van de veertig is een deel van de medewerkers, niet iedereen of de meerderheid. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Twaalf van de veertig is een deel van de medewerkers, niet iedereen of de meerderheid.",
+   "patch": {
+    "prompt": "Welke zin past bij de aantallen en de gemelde klachten?",
+    "note": "Twaalf van de veertig is een deel van de medewerkers, niet iedereen of de meerderheid.",
+    "explanation": "Twaalf van de veertig is een deel; meerdere klachten betekent herhaaldelijk. De andere zinnen voegen een meerderheid of een breder oordeel toe."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Twaalf van de veertig is een deel; meerdere klachten betekent herhaaldelijk. De andere zinnen voegen een meerderheid of een breder oordeel toe."
+  },
+  "C1_HF_026": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Maak een verplichting bij het herschrijven niet vrijblijvend. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Maak een verplichting bij het herschrijven niet vrijblijvend.",
+   "patch": {
+    "title": "Verplichting behouden",
+    "prompt": "Welke zin blijft een verplichting, zonder extra oordeel?",
+    "note": "Maak een verplichting bij het herschrijven niet vrijblijvend.",
+    "context": "De oorspronkelijke zin is: “Het management dwingt medewerkers om de nieuwe werkwijze te gebruiken.” Feitelijk is de werkwijze door het management formeel verplicht gesteld.",
+    "explanation": "Verplicht gesteld bewaart de verplichting. Het voegt geen druk of weerstand toe; aangespoord zou de verplichting juist te zwak weergeven."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Verplicht gesteld bewaart de verplichting. Het voegt geen druk of weerstand toe; aangespoord zou de verplichting juist te zwak weergeven."
+  },
+  "C1_HF_027": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Een concreet aantal zegt hier meer dan een oordeel over het hele project. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Een concreet aantal zegt hier meer dan een oordeel over het hele project.",
+   "patch": {
+    "title": "Uitkomst precies noemen",
+    "prompt": "Welke zin geeft de uitkomst het preciesst weer?",
+    "note": "Een concreet aantal zegt hier meer dan een oordeel over het hele project.",
+    "explanation": "Twee van de vijf doelen niet gehaald geeft de concrete uitkomst. De andere versies geven vooral een oordeel over het hele project."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Twee van de vijf doelen niet gehaald geeft de concrete uitkomst. De andere versies geven vooral een oordeel over het hele project."
+  },
+  "C1_HF_028": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Niet besproken betekent niet automatisch bewust genegeerd. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Niet besproken betekent niet automatisch bewust genegeerd.",
+   "patch": {
+    "title": "Geen bedoeling invullen",
+    "prompt": "Welke zin beschrijft wat gebeurde zonder een bedoeling in te vullen?",
+    "note": "Niet besproken betekent niet automatisch bewust genegeerd.",
+    "explanation": "Niet besproken beschrijft wat bekend is. Bewust of koos ervoor zou een bedoeling toevoegen die niet is vastgesteld."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Niet besproken beschrijft wat bekend is. Bewust of koos ervoor zou een bedoeling toevoegen die niet is vastgesteld."
+  },
+  "C1_HF_029": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Een verandering na een reorganisatie bewijst nog geen brede winst of oorzaak. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Een verandering na een reorganisatie bewijst nog geen brede winst of oorzaak.",
+   "patch": {
+    "title": "Bij de feiten blijven",
+    "prompt": "Welke zin blijft bij de bekende verandering?",
+    "note": "Een verandering na een reorganisatie bewijst nog geen brede winst of oorzaak.",
+    "explanation": "Na de reorganisatie duren twee processen korter blijft bij de bekende verandering. Het bewijst nog geen brede efficiëntiewinst of oorzaak."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Na de reorganisatie duren twee processen korter blijft bij de bekende verandering. Het bewijst nog geen brede efficiëntiewinst of oorzaak."
+  },
+  "C1_HF_030": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Beschrijf wat er gebeurde zonder zelf de reden of de sfeer in te vullen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zakelijk zeggen",
+   "source_section": "Neutraler en zakelijker",
+   "goal": "Beschrijf wat er gebeurde zonder zelf de reden of de sfeer in te vullen.",
+   "patch": {
+    "title": "Feitelijk verslag",
+    "prompt": "Welke zin past in een feitelijk verslag?",
+    "note": "Beschrijf wat er gebeurde zonder zelf de reden of de sfeer in te vullen.",
+    "options": [
+     "Het overleg verliep chaotisch en de voorzitter moest ingrijpen.",
+     "Tijdens het overleg werd herhaald door elkaar gesproken; de voorzitter schorste het overleg tien minuten.",
+     "De sfeer verslechterde zodanig dat normaal overleg onmogelijk werd."
+    ],
+    "explanation": "De gekozen zin noemt het gedrag en de schorsing. Zij voegt geen oorzaak of oordeel over de sfeer toe."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt het gedrag en de schorsing. Zij voegt geen oorzaak of oordeel over de sfeer toe."
+  },
+  "C1_HF_031": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Eén positieve meting bewijst nog geen vast effect. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Eén positieve meting bewijst nog geen vast effect.",
+   "patch": {
+    "title": "Eerste resultaat",
+    "prompt": "Welke zin past bij deze ene eerste meting?",
+    "note": "Eén positieve meting bewijst nog geen vast effect.",
+    "explanation": "De gekozen zin noemt de eerste meting en houdt de uitkomst voorlopig. Eén meting maakt het effect nog niet zeker."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt de eerste meting en houdt de uitkomst voorlopig. Eén meting maakt het effect nog niet zeker."
+  },
+  "C1_HF_032": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Zeg duidelijk dat de uitspraak uit deze interviews komt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Zeg duidelijk dat de uitspraak uit deze interviews komt.",
+   "patch": {
+    "title": "Deze interviews",
+    "prompt": "Welke zin beperkt de uitspraak tot de acht interviews?",
+    "note": "Zeg duidelijk dat de uitspraak uit deze interviews komt.",
+    "options": [
+     "In de acht interviews is een voorkeur voor de nieuwe versie genoemd.",
+     "Klanten beoordelen de nieuwe versie overwegend positiever.",
+     "De nieuwe versie heeft bij klanten waarschijnlijk de voorkeur."
+    ],
+    "explanation": "De gekozen zin blijft bij de interviews. Uit de gegeven informatie blijkt niet hoeveel geïnterviewden positief waren; overwegend zou een extra verdeling toevoegen."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin blijft bij de interviews. Uit de gegeven informatie blijkt niet hoeveel geïnterviewden positief waren; overwegend zou een extra verdeling toevoegen."
+  },
+  "C1_HF_033": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Samenhang tussen training en productiviteit bewijst niet dat het ene het andere veroorzaakt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Samenhang tussen training en productiviteit bewijst niet dat het ene het andere veroorzaakt.",
+   "patch": {
+    "title": "Samenhang of oorzaak",
+    "prompt": "Welke zin noemt de samenhang zonder een oorzaak vast te stellen?",
+    "note": "Samenhang tussen training en productiviteit bewijst niet dat het ene het andere veroorzaakt.",
+    "options": [
+     "De training heeft waarschijnlijk de productiviteit verhoogd.",
+     "De hogere productiviteit bewijst het effect van de training.",
+     "Deelname aan de training hangt samen met een hogere gemeten productiviteit; een oorzakelijk verband is niet vastgesteld."
+    ],
+    "explanation": "De gekozen zin noemt alleen de gemeten samenhang. Zij voegt geen meting vóór en na de training of bewezen oorzaak toe."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt alleen de gemeten samenhang. Zij voegt geen meting vóór en na de training of bewezen oorzaak toe."
+  },
+  "C1_HF_034": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Noem de onzekerheid zonder de richting van de voorspelling te veranderen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Noem de onzekerheid zonder de richting van de voorspelling te veranderen.",
+   "patch": {
+    "title": "Onzekere voorspelling",
+    "prompt": "Welke zin bewaart de voorspelling én de onzekerheid?",
+    "note": "Noem de onzekerheid zonder de richting van de voorspelling te veranderen.",
+    "options": [
+     "De omzet stijgt volgend jaar waarschijnlijk.",
+     "Volgens de prognose stijgt de omzet volgend jaar, maar die prognose heeft een ruime onzekerheidsmarge.",
+     "De omzet zal naar verwachting stijgen, tenzij de markt verandert."
+    ],
+    "explanation": "De gekozen zin bewaart de richting van de prognose én de ruime onzekerheid. Zij noemt geen nieuwe voorwaarde over de markt."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart de richting van de prognose én de ruime onzekerheid. Zij noemt geen nieuwe voorwaarde over de markt."
+  },
+  "C1_HF_035": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Laat zien van wie het oordeel komt; maak er geen vastgesteld feit van. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Laat zien van wie het oordeel komt; maak er geen vastgesteld feit van.",
+   "patch": {
+    "title": "Wie vindt dat?",
+    "prompt": "Welke zin maakt duidelijk van wie het oordeel komt?",
+    "note": "Laat zien van wie het oordeel komt; maak er geen vastgesteld feit van.",
+    "options": [
+     "Het probleem is structureel.",
+     "Volgens de teamleider is het probleem structureel.",
+     "Het staat vast dat het probleem structureel is."
+    ],
+    "explanation": "Volgens de teamleider laat zien van wie de inschatting komt. De uitspraak wordt zo niet als zelfstandig vastgesteld feit gepresenteerd; het oordeel van de teamleider wordt ook niet veranderd."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Volgens de teamleider laat zien van wie de inschatting komt. De uitspraak wordt zo niet als zelfstandig vastgesteld feit gepresenteerd; het oordeel van de teamleider wordt ook niet veranderd."
+  },
+  "C1_HF_036": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Beperk de uitspraak tot de zeven onderzochte teams. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Beperk de uitspraak tot de zeven onderzochte teams.",
+   "patch": {
+    "title": "Deze zeven teams",
+    "prompt": "Welke zin noemt precies wat bij de onderzochte teams is gezien?",
+    "note": "Beperk de uitspraak tot de zeven onderzochte teams.",
+    "explanation": "De gekozen zin noemt de zes succesvolle teams binnen de zeven onderzochte teams. De andere zinnen zijn minder precies en kunnen breder worden gelezen."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt de zes succesvolle teams binnen de zeven onderzochte teams. De andere zinnen zijn minder precies en kunnen breder worden gelezen."
+  },
+  "C1_HF_037": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Minder deelname is een waarneming; minder betrokkenheid is een mogelijke uitleg. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Minder deelname is een waarneming; minder betrokkenheid is een mogelijke uitleg.",
+   "patch": {
+    "title": "Meten en uitleggen",
+    "prompt": "Welke zin scheidt wat is gemeten van wat het zou kunnen betekenen?",
+    "note": "Minder deelname is een waarneming; minder betrokkenheid is een mogelijke uitleg.",
+    "explanation": "Minder deelname is gemeten. Of dat minder betrokkenheid betekent, is nog een open vraag; de andere zinnen maken die uitleg zeker."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Minder deelname is gemeten. Of dat minder betrokkenheid betekent, is nog een open vraag; de andere zinnen maken die uitleg zeker."
+  },
+  "C1_HF_038": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Een vrijwillige enquête hoeft niet te laten zien wat alle inwoners vinden. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Een vrijwillige enquête hoeft niet te laten zien wat alle inwoners vinden.",
+   "patch": {
+    "title": "Deze deelnemers",
+    "prompt": "Welke zin beperkt de uitspraak tot de vrijwillige deelnemers?",
+    "note": "Een vrijwillige enquête hoeft niet te laten zien wat alle inwoners vinden.",
+    "options": [
+     "In de enquête onder 120 vrijwillige deelnemers is weerstand tegen het plan gemeld.",
+     "De inwoners zijn overwegend tegen het plan.",
+     "Er is onvoldoende maatschappelijk draagvlak voor het plan."
+    ],
+    "explanation": "De gekozen zin noemt de onderzochte groep. Er is geen uitslagverdeling gegeven, dus ook een meerderheid onder de deelnemers mag niet worden toegevoegd. Vrijwillige deelname bewijst bovendien niet dat de hele bevolking zo denkt."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt de onderzochte groep. Er is geen uitslagverdeling gegeven, dus ook een meerderheid onder de deelnemers mag niet worden toegevoegd. Vrijwillige deelname bewijst bovendien niet dat de hele bevolking zo denkt."
+  },
+  "C1_HF_039": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Laat de voorwaarden niet verdwijnen uit een verwachting. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Laat de voorwaarden niet verdwijnen uit een verwachting.",
+   "patch": {
+    "title": "Verwachting met voorwaarden",
+    "prompt": "Welke zin bewaart de verwachting en de voorwaarden?",
+    "note": "Laat de voorwaarden niet verdwijnen uit een verwachting.",
+    "explanation": "De gekozen zin maakt zichtbaar waarop de verwachting berust en welke twee voorwaarden nog moeten worden vervuld."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin maakt zichtbaar waarop de verwachting berust en welke twee voorwaarden nog moeten worden vervuld."
+  },
+  "C1_HF_040": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Afwijkingen in gegevens bewijzen op zichzelf geen fraude. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zeker of onzeker",
+   "source_section": "Bewijsgevoelig en voorzichtig",
+   "goal": "Afwijkingen in gegevens bewijzen op zichzelf geen fraude.",
+   "patch": {
+    "title": "Wat weten we al?",
+    "prompt": "Welke zin past bij wat tot nu toe is vastgesteld?",
+    "note": "Afwijkingen in gegevens bewijzen op zichzelf geen fraude.",
+    "explanation": "Afwijkingen zijn vastgesteld, fraude nog niet. De gekozen zin houdt dat verschil zichtbaar zolang het onderzoek loopt."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Afwijkingen zijn vastgesteld, fraude nog niet. De gekozen zin houdt dat verschil zichtbaar zolang het onderzoek loopt."
+  },
+  "C1_HF_041": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Noem de beslisser alleen als bekend is wie het besluit nam. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Noem de beslisser alleen als bekend is wie het besluit nam.",
+   "patch": {
+    "title": "Wie beslist?",
+    "prompt": "Welke zin maakt duidelijk wie het besluit nam?",
+    "note": "Noem de beslisser alleen als bekend is wie het besluit nam.",
+    "explanation": "De directie noemt de bekende beslisser. De andere versies laten juist weg wie het besluit nam."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De directie noemt de bekende beslisser. De andere versies laten juist weg wie het besluit nam."
+  },
+  "C1_HF_042": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Maak zowel de taak als de datum duidelijk. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Maak zowel de taak als de datum duidelijk.",
+   "patch": {
+    "title": "Taak en datum",
+    "prompt": "Welke zin maakt de taak en de datum duidelijk?",
+    "note": "Maak zowel de taak als de datum duidelijk.",
+    "context": "De oorspronkelijke zin is: “Dat moet voor die tijd geregeld zijn.” De spreker bedoelt dat de beveiligingstest vóór 1 november moet zijn afgerond.",
+    "explanation": "De gekozen zin noemt zowel de beveiligingstest als de datum. Zij maakt geregeld zijn niet op eigen gezag sterker: afgerond zijn is hier expliciet de bedoeling."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt zowel de beveiligingstest als de datum. Zij maakt geregeld zijn niet op eigen gezag sterker: afgerond zijn is hier expliciet de bedoeling."
+  },
+  "C1_HF_043": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Houd uit elkaar wie iets zegt en via wie die informatie bij je komt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Houd uit elkaar wie iets zegt en via wie die informatie bij je komt.",
+   "patch": {
+    "title": "Wie zegt wat?",
+    "prompt": "Welke zin maakt duidelijk dat de projectleider extra risico’s verwacht?",
+    "note": "Houd uit elkaar wie iets zegt en via wie die informatie bij je komt.",
+    "explanation": "De gekozen zin laat zien dat de projectleider de uitspraak van Finance weergeeft en zelf extra risico’s verwacht. De andere zinnen veranderen of verbergen wie wat vindt."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin laat zien dat de projectleider de uitspraak van Finance weergeeft en zelf extra risico’s verwacht. De andere zinnen veranderen of verbergen wie wat vindt."
+  },
+  "C1_HF_044": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Kunnen instemmen is niet hetzelfde als al instemmen. Bewaar ook de uitzondering. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Kunnen instemmen is niet hetzelfde als al instemmen. Bewaar ook de uitzondering.",
+   "patch": {
+    "title": "Waarmee kun je instemmen?",
+    "prompt": "Welke zin bewaart kunnen instemmen én de uitzondering?",
+    "note": "Kunnen instemmen is niet hetzelfde als al instemmen. Bewaar ook de uitzondering.",
+    "options": [
+     "We stemmen in met het voorstel en bespreken de ingangsdatum later.",
+     "We stemmen niet in met het voorstel zolang de ingangsdatum niet verandert.",
+     "We kunnen instemmen met het voorstel, met uitzondering van de voorgestelde ingangsdatum."
+    ],
+    "explanation": "De gekozen zin bewaart kunnen instemmen en zondert de ingangsdatum uit. Zij maakt er geen al gegeven instemming of volledige afwijzing van."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart kunnen instemmen en zondert de ingangsdatum uit. Zij maakt er geen al gegeven instemming of volledige afwijzing van."
+  },
+  "C1_HF_045": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Uitvoeren en geïnformeerd worden zijn verschillende rollen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Uitvoeren en geïnformeerd worden zijn verschillende rollen.",
+   "patch": {
+    "title": "Wie doet wat?",
+    "prompt": "Welke zin maakt de twee rollen duidelijk?",
+    "note": "Uitvoeren en geïnformeerd worden zijn verschillende rollen.",
+    "explanation": "Finance corrigeert; HR krijgt informatie. De gekozen zin bewaart die twee verschillende rollen."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Finance corrigeert; HR krijgt informatie. De gekozen zin bewaart die twee verschillende rollen."
+  },
+  "C1_HF_046": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Een uitgevoerde test is niet automatisch een geslaagde test. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Een uitgevoerde test is niet automatisch een geslaagde test.",
+   "patch": {
+    "title": "Eerst een geslaagde test",
+    "prompt": "Welke zin maakt duidelijk dat de test eerst moet slagen?",
+    "note": "Een uitgevoerde test is niet automatisch een geslaagde test.",
+    "options": [
+     "We testen het systeem en starten daarna de pilot.",
+     "We starten de pilot pas als de systeemtest succesvol is.",
+     "We starten de pilot zodra de test is uitgevoerd."
+    ],
+    "explanation": "Pas als de test succesvol is bewaart de noodzakelijke voorwaarde. Alleen uitvoeren van de test is niet genoeg; de zin belooft ook geen onmiddellijke start."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Pas als de test succesvol is bewaart de noodzakelijke voorwaarde. Alleen uitvoeren van de test is niet genoeg; de zin belooft ook geen onmiddellijke start."
+  },
+  "C1_HF_047": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Als beide voorwaarden nodig zijn, moeten ze beide in de zin blijven. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Als beide voorwaarden nodig zijn, moeten ze beide in de zin blijven.",
+   "patch": {
+    "title": "Beide voorwaarden",
+    "prompt": "Welke zin noemt beide bedoelde voorwaarden?",
+    "note": "Als beide voorwaarden nodig zijn, moeten ze beide in de zin blijven.",
+    "explanation": "De test moet slagen én de vergunning moet binnen zijn. De gekozen zin maakt beide bedoelde voorwaarden zichtbaar."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De test moet slagen én de vergunning moet binnen zijn. De gekozen zin maakt beide bedoelde voorwaarden zichtbaar."
+  },
+  "C1_HF_048": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Alleen medewerkers met klantcontact is een kleinere groep dan alle medewerkers. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Alleen medewerkers met klantcontact is een kleinere groep dan alle medewerkers.",
+   "patch": {
+    "title": "Voor wie geldt de regel?",
+    "prompt": "Welke zin noemt precies voor wie de regel geldt?",
+    "note": "Alleen medewerkers met klantcontact is een kleinere groep dan alle medewerkers.",
+    "options": [
+     "De regel geldt vooral voor medewerkers.",
+     "De nieuwe regel geldt alleen voor medewerkers met klantcontact.",
+     "De regel geldt voor alle medewerkers."
+    ],
+    "explanation": "Alleen voor medewerkers met klantcontact begrenst de groep precies zoals bedoeld."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Alleen voor medewerkers met klantcontact begrenst de groep precies zoals bedoeld."
+  },
+  "C1_HF_049": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Bewaar zou en daarna: maak een gemeld plan niet ongemerkt tot een vaststaand feit. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Bewaar zou en daarna: maak een gemeld plan niet ongemerkt tot een vaststaand feit.",
+   "patch": {
+    "title": "Duidelijk verwijzen in twee zinnen",
+    "prompt": "Welke zin maakt duidelijk dat de directie het advies zou aanpassen en daarna publiceren?",
+    "note": "Bewaar zou en daarna: maak een gemeld plan niet ongemerkt tot een vaststaand feit.",
+    "context": "De oorspronkelijke tekst is: “De commissie stuurde het advies naar de directie. Die zou het na de vergadering aanpassen en daarna publiceren.” Je wilt zonder voornaamwoord duidelijk maken dat de directie beide vervolgstappen zou doen.",
+    "options": [
+     "De commissie stuurde het advies naar de directie. Na de vergadering zou de directie het advies aanpassen en daarna publiceren.",
+     "De commissie stuurde het advies naar de directie, waarna het advies zou worden aangepast en gepubliceerd.",
+     "Na de vergadering zou het advies worden aangepast en daarna door de directie gepubliceerd."
+    ],
+    "explanation": "De gekozen versie noemt de directie bij beide stappen en bewaart zou en daarna. Die verwees in de oorspronkelijke zin al het meest natuurlijk naar de directie; de herhaling maakt dat extra duidelijk."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen versie noemt de directie bij beide stappen en bewaart zou en daarna. Die verwees in de oorspronkelijke zin al het meest natuurlijk naar de directie; de herhaling maakt dat extra duidelijk."
+  },
+  "C1_HF_050": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Niet weten of iets niet werkt bewijst niet dat het wel werkt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Duidelijk zeggen",
+   "source_section": "Explicieter en ondubbelzinniger",
+   "goal": "Niet weten of iets niet werkt bewijst niet dat het wel werkt.",
+   "patch": {
+    "title": "Wat je nog niet weet",
+    "prompt": "Welke zin bewaart wat we nog niet kunnen concluderen?",
+    "note": "Niet weten of iets niet werkt bewijst niet dat het wel werkt.",
+    "context": "De oorspronkelijke zin is: “We kunnen niet zeggen dat het plan niet werkt.” De spreker bedoelt dat er nog te weinig informatie is om dat vast te stellen.",
+    "explanation": "De gekozen zin bewaart dat we niet kunnen concluderen dat het plan niet werkt. Dat is geen bewijs dat het wel werkt."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart dat we niet kunnen concluderen dat het plan niet werkt. Dat is geen bewijs dat het wel werkt."
+  },
+  "C1_HF_051": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Noem wie de fout maakte zonder een extra herstelplicht toe te voegen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Noem wie de fout maakte zonder een extra herstelplicht toe te voegen.",
+   "patch": {
+    "title": "Uitvoerder vooraan",
+    "prompt": "Welke zin zet de uitvoerder vooraan zonder iets toe te voegen?",
+    "note": "Noem wie de fout maakte zonder een extra herstelplicht toe te voegen.",
+    "explanation": "Het invoerteam staat vooraan en blijft de uitvoerder. Er wordt geen herstelplicht of extra oordeel toegevoegd."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Het invoerteam staat vooraan en blijft de uitvoerder. Er wordt geen herstelplicht of extra oordeel toegevoegd."
+  },
+  "C1_HF_052": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Drie onderzochte alternatieven is nog geen gemaakte keuze. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Drie onderzochte alternatieven is nog geen gemaakte keuze.",
+   "patch": {
+    "title": "Alternatieven centraal",
+    "prompt": "Welke zin zet de onderzochte alternatieven centraal?",
+    "note": "Drie onderzochte alternatieven is nog geen gemaakte keuze.",
+    "context": "De oorspronkelijke zin is: “De projectgroep heeft drie alternatieven onderzocht.” Je wilt in een samenvatting vooral noemen wat is onderzocht; wie dat deed is hier minder belangrijk.",
+    "explanation": "De gekozen zin noemt de drie onderzochte alternatieven en laat de uitvoerder weg, zoals gevraagd. Er is nog geen keuze uit de alternatieven genoemd."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin noemt de drie onderzochte alternatieven en laat de uitvoerder weg, zoals gevraagd. Er is nog geen keuze uit de alternatieven genoemd."
+  },
+  "C1_HF_053": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Bewaar zowel het nadeel als de reden waarom de optie toch aantrekkelijk blijft. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Bewaar zowel het nadeel als de reden waarom de optie toch aantrekkelijk blijft.",
+   "patch": {
+    "title": "Nadeel en voordeel",
+    "prompt": "Welke zin bewaart het nadeel én de reden waarom de optie aantrekkelijk blijft?",
+    "note": "Bewaar zowel het nadeel als de reden waarom de optie toch aantrekkelijk blijft.",
+    "explanation": "Ondanks de hogere kosten bewaart het nadeel. Omdat de uitvoering sneller is bewaart de reden waarom de optie aantrekkelijk blijft."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Ondanks de hogere kosten bewaart het nadeel. Omdat de uitvoering sneller is bewaart de reden waarom de optie aantrekkelijk blijft."
+  },
+  "C1_HF_054": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Maak duidelijk waar daardoor naar verwijst voordat je de zinnen samenvoegt. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Maak duidelijk waar daardoor naar verwijst voordat je de zinnen samenvoegt.",
+   "patch": {
+    "title": "Oorzaak duidelijk maken",
+    "prompt": "Welke zin bewaart de bedoelde oorzaak van het langere herstel?",
+    "note": "Maak duidelijk waar daardoor naar verwijst voordat je de zinnen samenvoegt.",
+    "context": "De oorspronkelijke tekst is: “De server viel uit. De reservekopie was niet beschikbaar. Daardoor duurde het herstel langer.” Met daardoor bedoelt de schrijver dat de reservekopie niet beschikbaar was.",
+    "options": [
+     "Na de serveruitval duurde het herstel langer doordat de reservekopie niet beschikbaar was.",
+     "Doordat de server uitviel, was de reservekopie niet beschikbaar en duurde het herstel langer.",
+     "Nadat het herstel langer duurde, bleek ook de reservekopie niet beschikbaar."
+    ],
+    "explanation": "De gekozen zin bewaart de bedoelde oorzaak van het langere herstel. De tekst zegt niet dat de serveruitval de reservekopie onbeschikbaar maakte."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen zin bewaart de bedoelde oorzaak van het langere herstel. De tekst zegt niet dat de serveruitval de reservekopie onbeschikbaar maakte."
+  },
+  "C1_HF_055": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Een voorwaarde vooraan zetten hoeft de afspraak zelf niet te veranderen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Een voorwaarde vooraan zetten hoeft de afspraak zelf niet te veranderen.",
+   "patch": {
+    "title": "Voorwaarde vooraan",
+    "prompt": "Welke zin zet dezelfde voorwaarde vooraan?",
+    "note": "Een voorwaarde vooraan zetten hoeft de afspraak zelf niet te veranderen.",
+    "context": "De oorspronkelijke zin is: “We voeren het plan uit als de financiering rondkomt.” Je wilt de voorwaarde vooraan zetten zonder de afspraak te veranderen.",
+    "explanation": "Als de financiering rondkomt staat nu vooraan. Zodra kan een snellere opvolging suggereren; want maakt van de voorwaarde een reden."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Als de financiering rondkomt staat nu vooraan. Zodra kan een snellere opvolging suggereren; want maakt van de voorwaarde een reden."
+  },
+  "C1_HF_056": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Laat alleen niet weg: anders is de beperking minder duidelijk. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Laat alleen niet weg: anders is de beperking minder duidelijk.",
+   "patch": {
+    "title": "Alleen nieuwe klanten",
+    "prompt": "Welke zin begint met de tijd en bewaart alleen voor nieuwe klanten?",
+    "note": "Laat alleen niet weg: anders is de beperking minder duidelijk.",
+    "options": [
+     "Vanaf januari geldt het nieuwe tarief alleen voor nieuwe klanten.",
+     "Vanaf januari geldt voor klanten het nieuwe tarief.",
+     "Het nieuwe tarief geldt vanaf januari voor nieuwe en bestaande klanten."
+    ],
+    "explanation": "Vanaf januari staat vooraan en alleen bewaart de beperking. Zonder alleen zou niet meer duidelijk uitgesloten zijn dat het tarief ook voor bestaande klanten geldt."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Vanaf januari staat vooraan en alleen bewaart de beperking. Zonder alleen zou niet meer duidelijk uitgesloten zijn dat het tarief ook voor bestaande klanten geldt."
+  },
+  "C1_HF_057": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Behoud de reden en de beperking van de conclusie. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Behoud de reden en de beperking van de conclusie.",
+   "patch": {
+    "title": "Twee zinnen verbinden",
+    "prompt": "Welke zin bewaart dezelfde redenering?",
+    "note": "Behoud de reden en de beperking van de conclusie.",
+    "options": [
+     "Omdat de pilot klein was, zijn de resultaten nog niet algemeen toepasbaar.",
+     "De pilot was klein, maar de resultaten bewijzen voldoende.",
+     "Hoewel de pilot klein was, zijn de resultaten algemeen toepasbaar."
+    ],
+    "explanation": "Omdat bewaart de gegeven reden waarom de resultaten nog niet algemeen toepasbaar zijn. De andere zinnen veranderen die conclusie."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: Omdat bewaart de gegeven reden waarom de resultaten nog niet algemeen toepasbaar zijn. De andere zinnen veranderen die conclusie."
+  },
+  "C1_HF_058": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een duidelijk gegeven feit, gewone zinsbouw of concrete beperking in de gekozen zin behouden. Taak: Bewaar door ons als je de verantwoordelijkheid wilt laten staan. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Bewaar door ons als je de verantwoordelijkheid wilt laten staan.",
+   "patch": {
+    "title": "Verantwoordelijkheid behouden",
+    "prompt": "Welke zin begint met de klant en bewaart wie verantwoordelijk was?",
+    "note": "Bewaar door ons als je de verantwoordelijkheid wilt laten staan.",
+    "explanation": "De klant staat vooraan, maar door ons bewaart wie de klant te laat informeerde."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De klant staat vooraan, maar door ons bewaart wie de klant te laat informeerde."
+  },
+  "C1_HF_059": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Betekenis, toon, voorbehoud of bewijs in een volledige uitspraak zorgvuldig vergelijken. Taak: Zet het besluit vooraan en bewaar wat eraan voorafging, zonder een nieuwe oorzaak te noemen. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "discuss",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Zet het besluit vooraan en bewaar wat eraan voorafging, zonder een nieuwe oorzaak te noemen.",
+   "patch": {
+    "title": "Besluit vooraan",
+    "prompt": "Welke versie begint met het besluit en bewaart wat eraan voorafging?",
+    "note": "Zet het besluit vooraan en bewaar wat eraan voorafging, zonder een nieuwe oorzaak te noemen.",
+    "options": [
+     "Na veel overleg gaat het project door.",
+     "De directie heeft besloten het project voort te zetten. Dat besluit volgde op overleg met drie afdelingen, een juridische toets en een extra kostenanalyse.",
+     "De directie zet het project voort omdat drie afdelingen dat wilden."
+    ],
+    "explanation": "De gekozen versie noemt eerst het besluit en daarna de drie voorafgaande stappen. Zij beweert niet dat de afdelingen het project wilden voortzetten."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen versie noemt eerst het besluit en daarna de drie voorafgaande stappen. Zij beweert niet dat de afdelingen het project wilden voortzetten."
+  },
+  "C1_HF_060": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Meerdere betekenisrelaties, bronnen, beperkingen of gevolgtrekkingen tegelijk bewaken. Taak: Bewaar bij het splitsen wie wat deed en in welke volgorde. Dit advies betreft de keuzevraag met context, niet zelfstandig een tekst schrijven.",
+   "scoring": "canonical",
+   "section": "Zinnen opbouwen",
+   "source_section": "Structuur, focus en perspectief",
+   "goal": "Bewaar bij het splitsen wie wat deed en in welke volgorde.",
+   "patch": {
+    "title": "Eén zin splitsen",
+    "prompt": "Welke versie verdeelt alle informatie duidelijk over twee zinnen?",
+    "note": "Bewaar bij het splitsen wie wat deed en in welke volgorde.",
+    "explanation": "De gekozen versie bewaart de bespreking morgen, Finance als uitvoerder, de aanpassing vorige week en de eerdere herziening van de kostenraming. Nadat geeft een volgorde aan, geen bewezen oorzaak."
+   },
+   "change_reason": "Bekende woorden in titel, vraag en hulp. Alle opties en de bijbehorende uitleg inhoudelijk vergeleken. Gerichte inhoudelijke correctie: De gekozen versie bewaart de bespreking morgen, Finance als uitvoerder, de aanpassing vorige week en de eerdere herziening van de kostenraming. Nadat geeft een volgorde aan, geen bewezen oorzaak."
+  }
+ }
+}

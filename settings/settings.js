@@ -25,8 +25,8 @@ const METHOD_DATA=[
 ];
 
 const TASK_POOL=[
- {shape:'○',title:'Nieuwe buren',desc:'Vertel kort wie er naast je woont of kies een fictieve buur.',family:'Verwoorden',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Aanbevolen'},
- {shape:'□',title:'Kennismaken met de buur',desc:'Vraag hoe iemand heet en stel één vervolgvraag.',family:'In gesprek',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Spreken'},
+ {shape:'○',title:'Nieuwe buren',desc:'Vertel kort wie er naast je woont of kies een fictieve buurman.',family:'Verwoorden',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Aanbevolen'},
+ {shape:'□',title:'Kennismaken met de buurman',desc:'Vraag hoe iemand heet en stel één vervolgvraag.',family:'In gesprek',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Spreken'},
  {shape:'◇',title:'Vraag om hulp in de buurt',desc:'Vraag iemand om hulp met een praktisch probleem.',family:'Samen regelen',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Samen regelen'},
  {shape:'△',title:'Welke woning kies je?',desc:'Kies tussen twee woningen en geef één reden.',family:'Kiezen en redeneren',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Herhaling'},
  {shape:'○',title:'Terugblik op de les',desc:'Vertel drie dingen die je vandaag hebt geoefend.',family:'Verwoorden',topic:'Dagelijks leven',level:'A1 → A2',method:'vanstart',section:'Aanbevolen'},
@@ -43,6 +43,7 @@ const TASK_POOL=[
 
 const defaults={
  page:'people',
+ practiceLayout:'topic',
  participants:DEFAULT_NAMES.map((name,i)=>({id:'p'+(i+1),name,present:true,group:'Groep '+(i<4?1:2),color:PAWN_COLORS[i%PAWN_COLORS.length]})),
  workMode:'classSpeaker',
  pawnMode:'class',
@@ -76,7 +77,7 @@ function save(){localStorage.setItem(STORAGE,JSON.stringify(state))}
 function qs(s){return document.querySelector(s)}
 function qsa(s){return [...document.querySelectorAll(s)]}
 function toast(msg){const t=qs('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),1800)}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function esc(s){return (globalThis.AppWording?.text(s)??String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function icon(id){return `<svg class="lucide"><use href="#i-${id}"/></svg>`}
 
 /* Tooltips */
@@ -300,7 +301,8 @@ qs('#numbersToggle').onclick=()=>{state.showNumbers=!state.showNumbers;save();re
 qs('#connectionsToggle').onclick=()=>{state.showConnections=!state.showConnections;save();renderDisplay()};
 qsa('[data-iconstyle]').forEach(b=>b.onclick=()=>{state.iconStyle=b.dataset.iconstyle;save();renderDisplay()});
 qs('#cardAnimation').onchange=e=>{state.cardAnimation=e.target.value;save();renderDisplay()};
-function renderDisplay(){qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle))}
+qs('#practiceLayout').onchange=e=>{state.practiceLayout=e.target.value;save()};
+function renderDisplay(){qs('#practiceLayout').value=['topic','level','goal','game','recent'].includes(state.practiceLayout)?state.practiceLayout:'topic';qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle))}
 
 /* Backup and other */
 qs('#backupDownload').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Taalroute-DigiBord-V01-5-settings.json';a.click();URL.revokeObjectURL(a.href)};

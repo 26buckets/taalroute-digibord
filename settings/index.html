@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Taalroute DigiBord · V01.24 Instellingen</title>
+<title>Taalroute DigiBord · V01.25 Instellingen</title>
 <link rel="stylesheet" href="settings.css">
+<link rel="stylesheet" href="../open-quiet.css?v=1.25-open-quiet-1">
 <style>
 body.embedded .topbar{display:none}
 body.embedded .app{grid-template-rows:minmax(0,1fr)}
 body.embedded .settings-shell{padding:10px 14px 14px}
 body.embedded .settings-card{max-width:1380px}
 </style></head>
-<body>
+<body class="settings-page">
 <div class="app">
 <header class="topbar">
   <div class="brand"><div class="wordmark">TAALROUTE<span class="tri">▶</span></div><div class="brand-divider"></div><div class="product">DigiBord</div></div>
@@ -21,7 +22,7 @@ body.embedded .settings-card{max-width:1380px}
 <main class="settings-shell">
 <section class="settings-card">
   <div class="settings-head">
-    <div class="settings-head-left"><h1>Instellingen</h1><span class="settings-context">DigiBord V01.24</span></div>
+    <div class="settings-head-left"><h1>Instellingen</h1><span class="settings-context">DigiBord V01.25</span></div>
     <button class="back-btn" data-tip="Terug naar het spel"><svg class="lucide"><use href="#i-arrow-left"/></svg> Terug naar het spel</button>
   </div>
 
@@ -42,6 +43,7 @@ body.embedded .settings-card{max-width:1380px}
         <button class="nav-btn" data-page="print"><svg class="lucide"><use href="#i-printer"/></svg>Lessen en printen</button>
 
         <div class="nav-group">Weergave</div>
+        <button class="nav-btn" data-page="practice"><svg class="lucide"><use href="#i-library"/></svg>Oefenen</button>
         <button class="nav-btn" data-page="display"><svg class="lucide"><use href="#i-monitor"/></svg>Beeld en beweging</button>
         <button class="nav-btn" data-page="sound"><svg class="lucide"><use href="#i-volume"/></svg>Geluid</button>
 
@@ -175,18 +177,23 @@ body.embedded .settings-card{max-width:1380px}
         <div class="section cardish"><div class="section-body"><button class="secondary" id="printLesson"><svg class="lucide"><use href="#i-printer"/></svg>Print instellingenoverzicht</button></div></div>
       </section>
 
+      <section class="page" data-page="practice">
+        <div class="page-header"><div class="page-title"><div><h2>Oefenen</h2><p class="page-lead">Waar wil je mee beginnen?</p></div></div></div>
+        <div class="section"><div class="section-body"><label for="practiceLayout">Indeling</label><select id="practiceLayout" style="display:block;width:100%;max-width:420px;margin:12px 0;padding:12px;font:inherit;border:1px solid #cad9e3;border-radius:8px"><option value="topic">Onderwerp eerst (standaard)</option><option value="level">Niveau eerst</option><option value="goal">Lesdoel eerst</option><option value="game">Spel eerst</option><option value="recent">Eerder gebruikt</option></select><p class="helptext">Rustige lijst · lichtblauw voor je keuze. Je voorkeur wordt op dit apparaat bewaard.</p></div></div>
+      </section>
+
       <section class="page" data-page="display">
         <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-monitor"/></svg></span><div><h2>Beeld en beweging</h2><p class="page-lead">Visuele voorkeuren veranderen nooit opdracht, bestemming of beurt.</p></div></div></div>
         <div class="section"><div class="section-head"><div><h3>Kaartbeweging in de hele app</h3></div></div><div class="section-body"><label for="cardAnimation">Kaartanimatie</label><select id="cardAnimation" style="display:block;width:100%;max-width:420px;margin:12px 0;padding:12px;font:inherit;border:1px solid #cad9e3;border-radius:10px"><option value="draw">Afpakken en draaien (standaard)</option><option value="slide">Schuiven</option><option value="turn">Omklappen</option></select><p class="helptext">Geldt voor Taalworp, alle kaartspellen en de kaartenkast. Je keuze wordt automatisch bewaard. Minder beweging laat de kaart direct verschijnen.</p></div></div>
-        <div class="section"><div class="section-head"><div><h3>Beweging</h3></div></div><div class="section-body"><div class="row" style="justify-content:space-between"><span>Minder beweging</span><button class="switch" id="motionToggle"></button></div></div></div>
-        <div class="section"><div class="section-head"><div><h3>Speelbord</h3></div></div><div class="section-body"><div class="row" style="justify-content:space-between"><span>Vaknummers</span><button class="switch" id="numbersToggle"></button></div><div class="row" style="justify-content:space-between;margin-top:8px"><span>Speciale verbindingen</span><button class="switch" id="connectionsToggle"></button></div></div></div>
+        <div class="section"><div class="section-head"><div><h3>Beweging</h3></div></div><div class="section-body"><div class="row" style="justify-content:space-between"><span>Minder beweging</span><button class="switch" id="motionToggle" aria-label="Minder beweging"></button></div></div></div>
+        <div class="section"><div class="section-head"><div><h3>Speelbord</h3></div></div><div class="section-body"><div class="row" style="justify-content:space-between"><span>Vaknummers</span><button class="switch" id="numbersToggle" aria-label="Vaknummers"></button></div><div class="row" style="justify-content:space-between;margin-top:8px"><span>Speciale verbindingen</span><button class="switch" id="connectionsToggle" aria-label="Speciale verbindingen"></button></div></div></div>
         <div class="section"><div class="section-head"><div><h3>Icoonstijl</h3></div></div><div class="section-body row"><button class="seg" data-iconstyle="line">Lijn</button><button class="seg" data-iconstyle="filled">Lijn met vlakken</button></div></div>
       </section>
 
       <section class="page" data-page="sound">
         <div class="page-header">
           <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-volume"/></svg></span><div><h2>Geluid</h2><p class="page-lead">Compact vergelijken. Origineel blijft bovenaan.</p></div></div>
-          <div class="row"><span class="helptext">Geluidseffecten</span><button class="switch" id="soundEnabled"></button></div>
+          <div class="row"><span class="helptext">Geluidseffecten</span><button class="switch" id="soundEnabled" aria-label="Geluidseffecten"></button></div>
         </div>
         <div class="sound-compact" id="soundRows"></div>
         <div class="volume-row"><span class="helptext">Volume</span><input class="range" type="range" min="0" max="100" id="volume"><span class="helptext" id="volumeValue"></span></div>
@@ -242,7 +249,8 @@ body.embedded .settings-card{max-width:1380px}
 </defs>
 </svg>
 
-<script src="settings.js?v=0115-final"></script>
+<script src="../wording.js?v=2026-09-24.1"></script>
+<script src="settings.js?v=0125-practice-1"></script>
 <script>
 if(window.parent!==window){document.body.classList.add('embedded')}
 document.querySelector('.back-btn')?.addEventListener('click',()=> {

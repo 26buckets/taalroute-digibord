@@ -1,0 +1,338 @@
+/* Open en rustig — shared presentation for preparation and every settings page.
+   Deliberately scoped: game cards and the fixed large tongue twisters stay separate. */
+:root{--setup-ink:#173752;--setup-muted:#5c7386;--setup-blue:#126ab3;--setup-soft:#e7f3fe;--setup-line:#d7e4ee;--setup-font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.gamecard:disabled p{display:block}
+.resume:disabled{cursor:default}
+#app:not(:has(#screen-game.active))>header .mainnav .navitem{min-height:44px}
+#screen-mycollection .simple-card[hidden],.gamecard .arrowbubble[hidden]{display:none}
+/* Keep navigation labels visible outside games, including the former 650–720px gap. */
+@media(max-width:900px){
+ #app:not(:has(#screen-game.active)){grid-template-rows:112px minmax(0,1fr)}
+ #app:not(:has(#screen-game.active))>header{display:grid;grid-template-columns:1fr auto;grid-template-rows:58px 54px;gap:0;padding:0 12px}
+ #app:not(:has(#screen-game.active))>header .mainnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-row:2;grid-column:1/-1;gap:2px;width:100%;height:100%}
+ #app:not(:has(#screen-game.active))>header .mainnav .navitem{font-size:12px;line-height:1.2;white-space:normal;justify-content:center;padding:4px;gap:4px;min-height:44px;height:auto}
+ #app:not(:has(#screen-game.active))>header .mainnav .navitem svg{width:18px;height:18px;flex-shrink:0}
+ #app:not(:has(#screen-game.active))>header .header-actions{grid-column:2;grid-row:1}
+}
+#screen-practice,.settings-page{font:400 15px/1.45 var(--setup-font);color:var(--setup-ink);background:#fff}
+#screen-practice :is(button,select,input),.settings-page :is(button,select,input){font-family:var(--setup-font)}
+#screen-practice :is(h1,h2,h3,strong,legend),.settings-page :is(h1,h2,h3,strong){font-weight:500}
+#screen-practice :is(button,select,input):focus-visible,.settings-page :is(button,select,input):focus-visible{outline:3px solid #126ab3;outline-offset:3px}
+#screen-practice .practice-shell{max-width:1280px;padding:32px 40px 60px}
+#screen-practice .practice-head{margin-bottom:28px;align-items:center}
+#screen-practice .practice-head h1{font-size:29px;line-height:1.2;letter-spacing:-.7px;margin:0}
+#contentPracticeApp .practice-layout{grid-template-columns:minmax(0,1fr) 270px;gap:28px 36px;margin:0}
+#contentPracticeApp .practice-config{gap:20px;min-width:0}
+#contentPracticeApp .practice-panel{border:0;border-radius:0;box-shadow:none;background:transparent;padding:0;min-width:0}
+#contentPracticeApp .practice-steps{padding:0}
+#contentPracticeApp .practice-step{border:0;border-bottom:1px solid var(--setup-line)}
+#contentPracticeApp .practice-step>summary{min-height:80px;padding:16px 12px;gap:14px;font-size:19px;border-radius:10px;margin:4px 0}
+#contentPracticeApp .practice-step>summary strong{min-width:0;font-weight:600}
+#contentPracticeApp .practice-step>summary>svg{display:none}
+#contentPracticeApp .practice-step-number{display:grid;place-items:center;width:44px;height:44px;background:var(--setup-soft);border-radius:50%;color:var(--setup-blue);font-size:22px;font-weight:600;line-height:1}
+#contentPracticeApp .practice-step[open]>summary{background:var(--setup-soft)}
+#contentPracticeApp .practice-step[open]>summary .practice-step-number{background:var(--setup-blue);color:#fff}
+#contentPracticeApp .practice-step[open]>summary::after{margin-left:auto}
+#contentPracticeApp .practice-step[open]>summary strong{font-size:19px}
+#contentPracticeApp .practice-step[open] .practice-step-value{display:none}
+.practice-open-title,.practice-step[open] .practice-closed-title{display:none}
+.practice-step[open] .practice-open-title{display:inline}
+#contentPracticeApp .practice-topic-search{border:0;border-bottom:1px solid var(--setup-line);border-radius:0;margin:4px 0 12px;padding:0 8px;background:transparent;color:var(--setup-muted)}
+#contentPracticeApp .practice-topic-search input{font-size:15px;min-height:44px}
+#contentPracticeApp .practice-topic-group{border-bottom:1px solid var(--setup-line)}
+#contentPracticeApp .practice-topic-group>summary{font-size:15px;padding:12px 8px;min-height:52px}
+#contentPracticeApp .practice-topic-group[open]>summary{color:var(--setup-blue);background:#fff}
+#contentPracticeApp .practice-topic-group>summary>svg{width:19px;height:19px;color:var(--setup-blue)}
+#contentPracticeApp .practice-topic-row{min-height:58px;border-color:var(--setup-line);padding:14px 12px;font-size:15px;border-radius:5px;color:var(--setup-ink);font-weight:400}
+#contentPracticeApp .practice-topic-row[aria-pressed=true],#contentPracticeApp .practice-engine:has(input:checked){background:var(--setup-soft);color:var(--setup-ink);font-weight:400}
+#contentPracticeApp .practice-topic-row:hover,#contentPracticeApp .practice-engine:hover{background:#f2f7fb}
+#contentPracticeApp .practice-topic-row .practice-labels{gap:5px}
+#contentPracticeApp .practice-level{border:0;min-width:0;font:500 12px/1.45 var(--setup-font);padding:3px 6px;background:var(--setup-soft);color:var(--setup-ink);border-radius:4px}
+#contentPracticeApp .practice-topic-row[aria-pressed=true] .practice-level{background:#fff}
+#contentPracticeApp .practice-level-route{background:#efebfb;color:#514077}
+#contentPracticeApp .practice-level-free{background:#edf1f5;color:#425466}
+#contentPracticeApp .practice-choice span{border:1px solid var(--setup-line);border-radius:6px;padding:10px 16px;min-height:44px;font-size:15px;font-weight:400;color:var(--setup-ink)}
+#contentPracticeApp .practice-choice:has(input:checked) span{background:var(--setup-soft);border-color:transparent;color:var(--setup-ink);box-shadow:none}
+#contentPracticeApp .practice-field legend{font-size:13px;color:var(--setup-muted);font-weight:500}
+#contentPracticeApp .practice-engines>legend,#contentPracticeApp [data-practice-step=level] legend{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+#contentPracticeApp .practice-engine{padding:14px 12px;min-height:58px;color:var(--setup-ink)}
+#contentPracticeApp .practice-engine strong{font-size:15px;font-weight:400;color:inherit}
+#contentPracticeApp .practice-engine .game-icon{width:20px;height:20px;color:var(--setup-blue)}
+#contentPracticeApp .practice-lesson{gap:16px}
+#contentPracticeApp .practice-lesson:empty{display:none}
+#contentPracticeApp .practice-select{gap:7px;font-size:13px;font-weight:400;color:var(--setup-ink);min-width:0}
+#contentPracticeApp .practice-select span{font-size:13px;font-weight:400;display:flex;align-items:center;gap:7px}
+#contentPracticeApp .practice-select svg{width:16px;height:16px}
+#contentPracticeApp .practice-select select{border:1px solid var(--setup-line);background:#fff;border-radius:6px;min-height:44px;padding:10px 12px;font-size:16px;font-weight:400;color:var(--setup-ink)}
+#contentPracticeApp .practice-summary{position:sticky;top:20px;padding:22px;background:var(--setup-soft);border:0;border-radius:10px;box-shadow:none;font-size:13px}
+#contentPracticeApp .practice-summary h2{font-size:17px;line-height:1.3;margin:0 0 18px}
+.practice-chosen{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:13px;color:var(--setup-muted);margin-bottom:20px;overflow-wrap:anywhere}
+.practice-summary-fields{display:grid;gap:16px;margin-bottom:16px}
+#contentPracticeApp .practice-count{padding:0;margin:14px 0 0;background:transparent;gap:6px;border-radius:0;color:var(--setup-muted)}
+#contentPracticeApp .practice-count strong{font-size:13px;color:inherit}
+#contentPracticeApp .practice-count span{font-size:13px;color:inherit}
+#contentPracticeApp .practice-ready{padding:0;background:transparent;font-weight:400;color:var(--setup-muted);font-size:13px;margin:6px 0}
+#contentPracticeApp .practice-warning{font-weight:400;font-size:14px}
+#screen-practice .smallbtn,#contentPracticeApp .lesson-save{min-height:44px;padding:10px 14px;border:1px solid var(--setup-line);border-radius:7px;box-shadow:none;background:transparent;font:400 13px/1.4 var(--setup-font);color:var(--setup-ink)}
+#contentPracticeApp .practice-start,#contentPracticeApp .primary{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--setup-blue);color:#fff;box-shadow:none;border:0;border-radius:7px;padding:12px 16px;font:500 15px/1.4 var(--setup-font);min-height:46px}
+#contentPracticeApp .practice-summary .practice-start{margin-top:18px}
+#contentPracticeApp .practice-summary :is(.lesson-save,.practice-start) svg{width:17px;height:17px}
+#contentPracticeApp .practice-facts summary,#contentPracticeApp .practice-more summary,#contentPracticeApp .practice-help summary,#contentPracticeApp .practice-inventory>summary{font-size:13px;font-weight:400;min-height:44px;padding:10px 0;color:var(--setup-muted)}
+#contentPracticeApp .practice-facts dd{font-weight:400}
+#contentPracticeApp .practice-more{border-top:1px solid var(--setup-line);padding-top:4px}
+#contentPracticeApp .practice-more[open]{display:grid;gap:18px}
+#contentPracticeApp .practice-more[open]>summary{margin-bottom:0}
+#contentPracticeApp .practice-more .practice-field{margin:0}
+#contentPracticeApp .practice-help{grid-column:1/-1;display:flex;align-items:flex-start;flex-wrap:wrap;gap:0 28px;margin:0}
+#contentPracticeApp .practice-help details{max-width:100%;margin:0}
+#contentPracticeApp .practice-help details[open]{flex-basis:100%}
+#contentPracticeApp .practice-preview .content-reading{margin:12px 0;padding:24px;background:#f2f7fb;border-radius:10px}
+#contentPracticeApp .practice-librarybar{border-top:1px solid var(--setup-line);margin:12px 0 0;padding-top:8px}
+#contentPracticeApp .practice-inventory{background:transparent;margin:0;padding:0;border:0}
+#contentPracticeApp .practice-layout-label{padding-top:12px;font-size:12px;color:var(--setup-muted)}
+#contentPracticeApp .inventory-toolbar :is(input,select){font:400 15px var(--setup-font);min-height:44px;border:1px solid var(--setup-line);border-radius:6px;background:#fff;color:var(--setup-ink)}
+#contentPracticeApp .inventory-topic h3{font-size:16px;font-weight:500}
+/* All settings use the same typography, quiet rows and blue selection. */
+.settings-page{--ink:var(--setup-ink);--ink-2:var(--setup-ink);--muted:var(--setup-muted);--line:var(--setup-line);--blue:var(--setup-blue);--blue-soft:var(--setup-soft);--sidebar:230px}
+.settings-page .settings-card{border:0;border-radius:0;box-shadow:none;max-width:1280px;grid-template-rows:76px minmax(0,1fr)}
+.settings-page .settings-shell{padding:12px 24px 24px}
+.settings-page .settings-head{padding:0 24px;border-bottom:1px solid var(--setup-line)}
+.settings-page .settings-head h1{font-size:29px;letter-spacing:-.7px}
+.settings-page .settings-context{background:transparent;color:var(--setup-muted);font-size:12px;font-weight:400}
+.settings-page .back-btn{font-weight:400;font-size:14px;min-height:44px}
+.settings-page .nav{background:#fff;border-color:var(--setup-line);padding:20px 12px 16px 0}
+.settings-page .nav-group{font-size:12px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--setup-muted);margin:20px 10px 6px}
+.settings-page .nav-btn{font-size:14px;font-weight:400;min-height:46px;border-radius:6px;padding:10px;line-height:1.4;color:var(--setup-ink)}
+.settings-page .nav-btn.active{background:var(--setup-soft);font-weight:500;color:var(--setup-ink)}
+.settings-page .nav-btn.active:before{display:none}
+.settings-page .nav-btn svg{color:var(--setup-blue);flex:none}
+.settings-page .content{padding:32px 36px 48px}
+.settings-page .page-header{margin-bottom:28px;flex-wrap:wrap}
+.settings-page .page h2{font-size:25px;line-height:1.25;letter-spacing:-.4px}
+.settings-page .page-title-icon{width:28px;height:32px;border-radius:0;background:transparent;color:var(--setup-blue)}
+.settings-page .page-title{gap:10px;min-width:0}
+.settings-page .page-lead{font-size:14px;line-height:1.5;color:var(--setup-muted)}
+.settings-page .page-meta{background:transparent;font-size:12px;color:var(--setup-muted);white-space:normal}
+.settings-page .section-head{padding:20px 0 12px}
+.settings-page .section-head h3{font-size:17px;font-weight:500}
+.settings-page :is(.section-head p,.helptext,.mode-card span){font-size:13px;line-height:1.5;color:var(--setup-muted)}
+.settings-page .section.cardish{border:0;border-top:1px solid var(--setup-line);border-radius:0;background:transparent}
+.settings-page .section.cardish :is(.section-head,.section-body){padding-left:0;padding-right:0}
+.settings-page .section-body{padding-bottom:20px}
+.settings-page .field label{font-size:13px;color:var(--setup-ink)}
+.settings-page :is(.input,.select,.count-select,.presence,.group-select,.name-input){min-height:44px;height:auto;border-radius:6px;font-size:16px;padding:10px 12px;border-color:var(--setup-line);font-weight:400}
+.settings-page :is(.primary,.secondary,.danger,.seg,.bank-tab,.route-tab,.mini-btn,.use-btn){min-height:44px;height:auto;border-radius:7px;padding:10px 14px;font-size:14px;line-height:1.4;font-weight:400;box-shadow:none}
+.settings-page .primary{background:var(--setup-blue);font-weight:500}
+.settings-page :is(.secondary,.seg,.bank-tab,.route-tab){border-color:var(--setup-line);background:#fff}
+.settings-page :is(.seg.active,.bank-tab.active,.route-tab.active,.mode-card.active,.method-card.active){background:var(--setup-soft);border-color:transparent;box-shadow:none;color:var(--setup-ink)}
+.settings-page .mode-cards,.settings-page .method-grid{grid-template-columns:1fr;gap:0}
+.settings-page :is(.mode-card,.method-card){min-height:70px;padding:14px 12px;border:0;border-bottom:1px solid var(--setup-line);border-radius:5px;color:var(--setup-ink)}
+.settings-page :is(.mode-card strong,.method-card strong){font-size:15px;font-weight:500}
+.settings-page :is(.saved-card,.group-controls,.didactic-column,.detail-item){border-color:var(--setup-line);border-radius:6px;box-shadow:none;background:#fff}
+.settings-page .saved-card{padding:18px}
+.settings-page .saved-grid{gap:20px}
+.settings-page :is(.saved-sub,.person-pill,.method-card span,.method-card .smallstatus,.task-copy span,.task-tag,.task-section-head span,.detail-desc,.detail-item .value){font-size:13px;color:var(--setup-muted)}
+.settings-page :is(.detail-item .label,.detail-kicker,.didactic-column-head span,.status){font-size:12px;text-transform:none;letter-spacing:0}
+.settings-page .family-mark{display:none}
+.settings-page :is(.family-btn,.action-btn){font-size:14px;padding:12px 10px;min-height:48px}
+.settings-page :is(.family-btn.active,.action-btn.active){background:var(--setup-soft);color:var(--setup-ink);font-weight:500}
+.settings-page :is(.family-icon,.action-icon){background:transparent;color:var(--setup-blue)}
+.settings-page .didactic-layout{grid-template-columns:190px 190px minmax(0,1fr);gap:16px}
+.settings-page .didactic-column-head{background:#fff}
+.settings-page .didactic-column-head strong{font-size:14px}
+.settings-page .detail-title{font-size:23px;font-weight:500}
+.settings-page .detail-grid{grid-template-columns:1fr}
+.settings-page .task-copy strong,.settings-page .sound-copy strong{font-size:15px;font-weight:400}
+.settings-page .task-row{grid-template-columns:28px minmax(0,1fr) 110px 100px;gap:12px;padding:12px 0}
+.settings-page .task-section-head strong{font-size:15px}
+.settings-page .bank-tabs{flex-wrap:wrap}
+.settings-page :is(.icon-btn,.icon-action,.listen){width:44px;height:44px;flex-shrink:0;border-radius:6px}
+.settings-page .quick-setup{flex-wrap:wrap}
+.settings-page .participant-row{grid-template-columns:44px minmax(120px,1fr) 140px 44px;gap:8px;padding:8px 0}
+.settings-page .participant-row.group-mode{grid-template-columns:44px minmax(120px,1fr) 140px 120px 44px}
+.settings-page .color-btn{width:44px;height:44px}
+.settings-page .sound-row{min-height:62px;grid-template-columns:24px minmax(0,1fr) 44px}
+.settings-page .sound-row.active .sound-copy span{font-size:12px;color:var(--setup-muted)}
+.settings-page .switch{width:48px;height:44px;border-radius:0;background:transparent;flex-shrink:0}
+.settings-page .switch:before{content:'';position:absolute;inset:10px 0;border-radius:20px;background:#c8d5dd}
+.settings-page .switch:after{width:18px;height:18px;top:13px;left:3px;box-shadow:none;transition:none}
+.settings-page .switch.on:before{background:var(--setup-blue)}
+.settings-page .switch.on:after{left:27px}
+@media(max-width:1000px){
+ #contentPracticeApp .practice-layout{grid-template-columns:minmax(0,1fr) 250px;gap:24px}
+ .settings-page .content{padding:24px}
+ .settings-page .didactic-layout{grid-template-columns:1fr;height:auto}
+ .settings-page .didactic-list{max-height:240px}
+ .settings-page .didactic-detail{overflow:visible}
+ .settings-page .participant-row.group-mode{grid-template-columns:44px minmax(120px,1fr) 44px}
+ .settings-page .participant-row.group-mode .row-actions{grid-column:3;grid-row:1}
+ .settings-page .participant-row.group-mode :is(.presence,.group-select){grid-row:2;grid-column:auto}
+}
+@media(max-width:760px){
+ #screen-practice .practice-shell{padding:24px 20px 40px}
+ .settings-page .settings-layout{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+ .settings-page .nav{padding:8px 0;border-right:0;border-bottom:1px solid var(--setup-line)}
+ .settings-page .nav-scroll{display:flex;flex-wrap:wrap;max-height:150px;gap:4px;align-content:start}
+ .settings-page .nav-group{display:none}
+ .settings-page .nav-btn{width:auto;min-height:44px;padding:10px;font-size:13px}
+ .settings-page .settings-shell,body.settings-page.embedded .settings-shell{padding:0}
+ .settings-page .settings-head{padding:12px 16px;gap:10px}
+ .settings-page .settings-head h1{font-size:25px}
+ .settings-page .settings-context{display:none}
+ .settings-page .back-btn{font-size:13px;padding:8px;flex-shrink:0}
+ .settings-page .content{padding:24px 20px}
+ .settings-page :is(.grid2,.grid3,.saved-grid){grid-template-columns:1fr}
+ .settings-page .participant-row{grid-template-columns:44px minmax(0,1fr) 44px}
+ .settings-page .participant-row .presence{grid-column:2;grid-row:2}
+ .settings-page .participant-row .row-actions{grid-column:3;grid-row:1}
+ .settings-page .task-row{grid-template-columns:24px minmax(0,1fr)}
+ .settings-page .task-row :is(.task-tag,.use-btn){grid-column:2;justify-self:start}
+}
+@media(max-width:660px){
+ #contentPracticeApp .practice-layout{grid-template-columns:1fr}
+ #contentPracticeApp .practice-summary{position:static}
+ .practice-summary-fields{grid-template-columns:1fr 1fr}
+ #contentPracticeApp .practice-help{grid-column:1}
+}
+@media(max-width:420px){
+ #screen-practice .practice-head h1{font-size:26px}
+ #screen-practice .practice-head{gap:12px;align-items:start}
+ #contentPracticeApp .practice-topic-row{flex-wrap:wrap}
+ #contentPracticeApp .practice-step-value{max-width:35%}
+ #contentPracticeApp .practice-topic-row .practice-level{font-size:12px}
+ .practice-summary-fields{grid-template-columns:1fr}
+ .settings-page .settings-head h1{font-size:23px}
+ .settings-page .back-btn{max-width:130px}
+ .settings-page .page h2{font-size:23px}
+ .settings-page .participant-row.group-mode{grid-template-columns:44px minmax(0,1fr) 44px}
+ .settings-page .participant-row.group-mode .presence{grid-column:2;grid-row:2}
+ .settings-page .participant-row.group-mode .group-select{grid-column:2;grid-row:3}
+}
+
+/* The same calm settings layout inside a game. */
+.board-game .board-options,#gameDialog:has(#gameMotion){font:400 15px/1.45 var(--setup-font);color:var(--setup-ink);background:#fff;border:1px solid var(--setup-line);border-radius:12px;box-shadow:0 10px 30px #17375218;padding:20px}
+.board-game .board-options{width:min(380px,calc(100% - 28px));scrollbar-gutter:stable}
+.board-options .board-options-head{padding:0 0 12px;margin:0 0 12px;border-color:var(--setup-line)}
+.board-options .board-options-head strong{font-size:23px;font-weight:500}
+.board-options .board-options-head button{width:44px;height:44px}
+.board-options .board-settings-heading{margin:24px 0 8px;font-size:16px;font-weight:500;color:inherit}
+.board-options .board-settings-heading:first-of-type{margin-top:8px}
+.board-options .board-option-row{min-height:56px;padding:8px 0;border-color:var(--setup-line);gap:12px}
+.board-options .board-option-title label{font:inherit;color:inherit}
+.board-options .board-option-row:has(select){display:grid;grid-template-columns:minmax(0,1fr)}
+.board-options .board-option-row select{width:100%;max-width:none;height:44px;border:1px solid var(--setup-line);border-radius:8px;padding:0 12px;background:#fff;color:inherit;font:inherit}
+.board-options .board-option-row>.smallbtn{width:100%;min-height:44px;margin:0;border:1px solid var(--setup-line);border-radius:8px;background:#fff;color:inherit;font:inherit;text-align:left}
+.board-options #restartBoard{width:100%;margin:0}
+.board-options .board-info{flex-basis:44px}
+.board-options .board-info button{width:44px;height:44px;font-size:16px;font-weight:400;color:var(--setup-muted)}
+.board-options .footer-choices{padding:16px 0;border-bottom:1px solid var(--setup-line)}
+.board-options .footer-choices legend{font:500 15px/1.45 var(--setup-font);color:inherit}
+.board-options .footer-choice{height:auto;min-height:48px;margin:4px 0;padding:10px 12px;border:0;border-radius:8px;font:inherit;color:inherit;background:transparent}
+.board-options .footer-choice:has(input:checked){background:var(--setup-soft)}
+.board-options .footer-swatch{width:24px;height:24px;font-size:18px}
+.board-options input,#gameDialog:has(#gameMotion) input{accent-color:var(--setup-blue)}
+.board-options :is(button,select,input):focus-visible,#gameDialog:has(#gameMotion) :is(button,input):focus-visible{outline:3px solid var(--setup-blue);outline-offset:2px}
+.board-game .right-actions{gap:8px}
+.board-game .right-actions .game-action{width:96px;height:60px;min-height:60px;flex-shrink:0;border:1px solid var(--setup-line);border-radius:8px;box-shadow:none;background:#fff;color:var(--setup-ink);font:500 12px/1.25 var(--setup-font);gap:6px}
+.board-game .right-actions .game-action .game-icon{width:22px;height:22px;padding:0;border:0;background:none}
+.board-game .right-actions .game-action:hover{background:var(--setup-soft);border-color:var(--setup-line)}
+#gameDialog:has(#gameMotion) h2{font-size:23px;font-weight:500}
+#gameDialog:has(#gameMotion) .option-row{min-height:56px;padding:12px 0;border-bottom:1px solid var(--setup-line);font:inherit}
+#gameDialog:has(#gameMotion) input{width:22px;height:22px}
+#gameDialog:has(#gameMotion) p{color:var(--setup-muted);font:inherit}
+.board-game[data-dark=true]{--setup-ink:#edf3f8;--setup-muted:#b7c8d8;--setup-line:#45596c;--setup-soft:#194e75}
+.board-game[data-dark=true] .board-options,.board-game[data-dark=true] .right-actions .game-action,.board-game[data-dark=true] .board-option-row :is(select,.smallbtn){background:#1b3042;color:var(--setup-ink)}
+@media(max-width:900px){
+ .board-game{--gamebar:158px}
+ .board-game .gamebar{grid-template-columns:minmax(0,1fr) 150px;grid-template-rows:86px 72px;padding-inline:12px}
+ .board-game .right-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,380px);justify-self:center;gap:8px}
+ .board-game .right-actions .game-action{width:100%;height:56px;min-height:56px;font-size:12px}
+}
+
+/* Continue the turn: one clear action, with a secondary keyboard hint. */
+.board-game .task-drawer{grid-template-columns:minmax(0,1fr) 200px}
+.board-game .task-drawer .donebtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;height:auto;min-height:84px;padding:14px 12px;border:1px solid #bdd5e9;border-radius:8px;background:var(--setup-soft);color:var(--setup-ink);box-shadow:none;font:500 15px/1.3 var(--setup-font)}
+.board-game .donebtn .continue-label{display:flex;align-items:center;justify-content:center;gap:8px}
+.board-game .donebtn .game-icon{width:22px;height:22px;flex:none}
+.board-game .donebtn kbd{padding:3px 9px;border:1px solid #bdd5e9;border-radius:5px;background:#fff;font:400 12px/1.3 var(--setup-font);color:#536c80}
+.board-game .donebtn:hover{background:#d9edfc;border-color:#89b9de}
+.board-game .donebtn:focus-visible{outline:3px solid var(--setup-blue);outline-offset:3px}
+.board-game[data-dark=true] .donebtn kbd{background:#1b3042;color:var(--setup-ink);border-color:var(--setup-line)}
+.board-game[data-dark=true] .donebtn:hover{background:#245d85}
+@media(max-width:720px){.board-game .task-drawer{grid-template-columns:minmax(0,1fr)}.board-game .task-drawer .donebtn{flex-direction:row;justify-content:space-between;min-height:56px;padding:12px 16px}}
+
+/* One presentation for explanation, rules and options throughout the app. */
+#gameDialog,.curriculum-panel,.context-tooltip{font:400 16px/1.55 var(--setup-font);color:var(--setup-ink);border:1px solid var(--setup-line);border-radius:12px;background:#fff;box-shadow:0 10px 30px #17375218}
+#gameDialog{width:min(760px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:24px;box-sizing:border-box;overflow:hidden}
+#gameDialog[open]{display:flex;flex-direction:column}
+#gameDialog .dialog-head{position:static;flex-shrink:0;padding:0 0 16px;border-bottom:1px solid var(--setup-line);background:transparent}
+#gameDialog .dialog-head h2{font:500 23px/1.3 var(--setup-font)}
+#gameDialog #dialogClose{width:44px;height:44px;min-width:44px;border:1px solid var(--setup-line);border-radius:8px;background:transparent;color:inherit}
+#gameDialog #dialogBody{min-height:0;overflow:auto;overscroll-behavior:contain;line-height:1.55;padding-top:16px;scrollbar-gutter:stable}
+#gameDialog :is(button,select,input){font-family:var(--setup-font)}
+#gameDialog :is(h3,h4,strong){font-weight:500}
+#gameDialog h3{font-size:19px}
+#gameDialog h4{font-size:17px}
+#gameDialog :is(button,select,input,summary):focus-visible{outline:3px solid var(--setup-blue);outline-offset:2px}
+#gameDialog :is(.smallbtn,.primary){min-height:44px;border-radius:8px;box-shadow:none}
+#gameDialog summary{padding:14px 2px;min-height:44px;cursor:pointer}
+#gameDialog details{border-top:1px solid var(--setup-line)}
+#gameDialog.guidance-dialog{width:1040px;padding:24px;color:var(--setup-ink)}
+#gameDialog.guidance-dialog #dialogBody{display:flex;flex-direction:column;overflow:hidden;padding-top:0;scrollbar-gutter:auto}
+.guidance-dialog .guidance-row{flex-shrink:0;border-top:0;border-bottom:1px solid var(--setup-line);padding:12px 0;margin:0;gap:8px}
+.guidance-dialog .guidance-row button{min-height:80px;padding:8px;gap:6px;color:inherit}
+.guidance-dialog .guidance-row button[aria-pressed=true]{background:var(--setup-soft);color:var(--setup-blue)}
+.guidance-row button>span:last-child{overflow-wrap:normal;hyphens:none}
+.guidance-dialog .guidance-row button>span:last-child{font-size:14px;line-height:1.35}
+.guidance-dialog .guidance-icon{width:36px}
+.guidance-dialog .guidance-content{min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:0 12px 8px 0;overflow-wrap:break-word;line-height:1.55}
+.guidance-content #guidanceHeading{margin-top:20px;outline:none}
+.guidance-content .guidance-status{display:inline-block;margin:4px 0 12px;padding:4px 10px;background:var(--setup-soft);color:var(--setup-blue);border-radius:6px;font-weight:500}
+.guidance-facts{width:100%;border-collapse:collapse;table-layout:fixed;margin:12px 0 20px;text-align:left}
+.guidance-facts :is(th,td){padding:14px 16px;border-bottom:1px solid var(--setup-line);vertical-align:top;overflow-wrap:break-word}
+.guidance-facts th{width:25%;font-weight:500;background:var(--setup-soft)}
+.guidance-note{font-size:14px;color:var(--setup-muted)}
+html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-ink:#edf3f8;--setup-muted:#b7c8d8;--setup-line:#45596c;--setup-soft:#194e75;--setup-blue:#a4d5ff}
+@media(max-width:600px){
+ #gameDialog,#gameDialog.guidance-dialog{padding:16px}
+ .guidance-dialog .guidance-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:8px 0}
+ .guidance-dialog .guidance-row button{flex-direction:row;justify-content:flex-start;min-height:48px;padding:6px;gap:6px;text-align:left}
+ .guidance-dialog .guidance-icon{width:32px}
+ .guidance-dialog .guidance-row button>span:last-child{font-size:12px}
+ .guidance-facts :is(th,td){padding:10px 8px}
+ .guidance-facts :is(th,td){display:block;width:auto}
+ .guidance-facts th{padding-bottom:6px;border-bottom:0}
+ .guidance-facts td{padding-top:8px}
+}
+
+#gameDialog .game-rules{margin:0;padding-left:28px}
+#gameDialog .game-rules li{padding:12px 8px;border-bottom:1px solid var(--setup-line)}
+#gameDialog .game-rules li::marker{font-weight:500;color:var(--setup-blue)}
+
+@media(max-width:380px){.guidance-dialog .guidance-row button{flex-direction:column;align-items:center;text-align:center;min-height:68px}.guidance-dialog .guidance-row button>span:last-child{font-size:12px}}
+
+/* Fixed navigation on the four main pages; preparation and game layouts stay intact. */
+#app:has(#screen-play.active,#screen-practice.active,#screen-lessons.active,#screen-mycollection.active)>header .navitem{font-weight:500}
+#app:has(#screen-play.active,#screen-practice.active,#screen-lessons.active,#screen-mycollection.active)>header .level-pill{display:flex}
+#app:has(#screen-practice.active,#screen-lessons.active)>header .level-pill{visibility:hidden}
+
+/* Step 3: card choices use the quiet list; the existing table stays intact. */
+#screen-cards{background:#fff;color:var(--setup-ink);font:400 16px/1.5 var(--setup-font);padding:32px 40px}
+.card-menu-shell{max-width:1040px;margin:auto}
+#screen-cards .category-head{align-items:center;gap:16px}
+#screen-cards h1{font:500 29px/1.2 var(--setup-font);letter-spacing:-.7px}
+#screen-cards h2{font:500 20px/1.3 var(--setup-font);margin:32px 0 12px}
+.card-menu-list{display:grid;border-top:1px solid var(--setup-line)}
+#screen-cards .card-menu-choice{display:flex;align-items:center;gap:16px;width:100%;min-height:72px;padding:16px 12px;border:0;border-bottom:1px solid var(--setup-line);border-radius:0;background:#fff;color:var(--setup-ink);text-align:left;font:inherit;box-shadow:none}
+.card-menu-choice>span{flex:1;min-width:0}.card-menu-choice strong{display:block;font-weight:500;overflow-wrap:break-word}.card-menu-choice small{font-size:14px;color:var(--setup-muted)}
+.card-menu-choice>.game-icon{width:24px;height:24px;flex:none}.card-menu-choice>b{font-size:24px;font-weight:400}
+#screen-cards .card-menu-choice:not(:disabled):hover{background:var(--setup-soft)}
+#screen-cards .card-menu-choice:disabled{color:#71808b;background:#f8fafb;opacity:1;cursor:default;filter:grayscale(1)}
+.card-menu-soon{flex:none;padding:3px 8px;background:#e9edef;border-radius:6px;font-size:12px!important}
+#screen-cards .smallbtn,.content-vert001-cards .card-menu-open{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 14px;font:500 15px/1.3 var(--setup-font);border:1px solid var(--setup-line);border-radius:8px;background:#fff;color:var(--setup-ink);box-shadow:none}
+#screen-cards .smallbtn .game-icon,.card-menu-open .game-icon{width:20px;height:20px;flex:none}
+#screen-cards .card-menu-resume{background:var(--setup-soft);color:var(--setup-blue)}
+.content-vert001-cards .card-activity-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;height:auto;min-height:64px}
+.content-vert001-cards .card-activity-heading h1{min-width:0}.content-vert001-cards .card-menu-open{flex:none}
+#screen-cards button:focus-visible,.card-menu-open:focus-visible{outline:3px solid var(--setup-blue);outline-offset:3px}
+@media(max-width:600px){#screen-cards{padding:24px 16px}.content-vert001-cards .card-activity-heading{flex-wrap:wrap;padding:12px 16px}.card-menu-choice{gap:10px!important}.card-menu-soon{padding:3px 6px}}

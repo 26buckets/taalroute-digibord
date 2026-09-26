@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('file://'+path.join(served,'index.html'));
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
   const boards=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   await page.locator('[data-category="dice"]').click();await page.locator('.tile[data-dicegame="taalworp"]').click();
   const selectSets=async(...ids)=>{

@@ -71,7 +71,7 @@ async function check(page, label) {
       disconnect(){this.targets.clear();super.disconnect();}
     };
   });
-  await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
   // Default overlay mode keeps board size and position when panels open.
   await page.evaluate(()=>{settingsPatch({reducedMotion:true});startBoard('rotterdam');});
   const boardRect = () => page.locator('#boardBackground').evaluate(el => JSON.stringify(el.getBoundingClientRect()));
@@ -243,7 +243,7 @@ async function check(page, label) {
     for(const expression of ["startTaalworp('SET_A2_BASIS')","startStory('basis')","startCards('conversation')"]){await page.evaluate(expression);assert.equal(await page.locator('#primaryGame').count(),1);}
     // Self-contained file entry remains supported.
     const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));
-    await offline.goto('file://'+path.join(root,'index.html'));await offline.evaluate(()=>startBoard('rotterdam'));await check(offline,'offline file');await offline.close();
+    await offline.addInitScript(()=>{window.DigiBordArchiveReview=true});await offline.goto('file://'+path.join(root,'index.html'));await offline.evaluate(()=>startBoard('rotterdam'));await check(offline,'offline file');await offline.close();
   }
   assert.deepEqual(errors,[],'browser errors');
   fs.writeFileSync(path.join(results,process.env.BUILD_SMOKE?'build-smoke.json':process.env.QUICK_SMOKE?'quick-smoke.json':'board-matrix.json'),JSON.stringify(measurements,null,2));

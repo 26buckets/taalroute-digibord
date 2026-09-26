@@ -61,6 +61,7 @@ function moveSentenceWord(state, id, destination, index = state.selected.length)
  return true;
 }
 function startWords(kind) {
+ if(globalThis.ReleasePolicy?.enabled)return toast(ReleasePolicy.message);
  if (kind === 'wz' || (!kind && wordRound?.version === 4)) return startWZ();
  if (['make','guess','combine'].includes(kind)) return goScreen('words');
  if (wordRound?.version === 4) wordRound = null;
@@ -104,8 +105,8 @@ function renderSentenceBuilder(focusId) {
  const isWZ = wordRound.version === 4;
  $('#wordWholeRow').hidden = isWZ || !WORD_CARDS[(wordRound.round - 1) % WORD_CARDS.length].prefix;
  $('#wordWhole').checked = !!wordRound.wholeSentence;
- $('#wordLead').hidden = !prefix; $('#wordLead').textContent = prefix;
- $('.words-activity .card-instruction').textContent = isWZ ? wordItem().instruction : prefix ? 'Maak de zin af. Gebruik alle losse woorden.' : 'Gebruik alle woorden. Zeg jullie zin hardop.';
+ $('#wordLead').hidden = !prefix; $('#wordLead').textContent = lessonText(prefix);
+ $('.words-activity .card-instruction').textContent = isWZ ? lessonText(wordItem().instruction) : prefix ? 'Maak de zin af. Gebruik alle losse woorden.' : 'Gebruik alle woorden. Zeg jullie zin hardop.';
  $('#wordSpeaking').hidden = !!wordRound.arranging;
  $('.words-activity .card-content h2').hidden = !!wordRound.arranging;
  $('.words-activity .card-instruction').hidden = !isWZ && !!wordRound.arranging;
@@ -128,7 +129,7 @@ function renderSentenceBuilder(focusId) {
  $('#wordCheck').disabled = !wordRound.selected.length;
  $('#wordCheck').textContent = wordRound.checked ? 'Opnieuw controleren' : 'Controleren';
  const feedback = $('#wordFeedback');
- feedback.textContent = wordRound.feedback; feedback.hidden = !wordRound.feedback;
+ feedback.textContent = lessonText(wordRound.feedback); feedback.hidden = !wordRound.feedback;
  feedback.classList.toggle('open', !!wordRound.feedback); feedback.dataset.status = wordRound.status;
  $('#wordHint').setAttribute('aria-expanded', String(wordRound.support === 'help'));
  $('#wordExample').setAttribute('aria-expanded', String(wordRound.support === 'example'));
@@ -287,6 +288,7 @@ function WZWorkspace(item) {
  return `${stimulus}<label class="wz-response-label" for="wzResponse">Jouw zin</label><textarea id="wzResponse" rows="2" maxlength="1000" spellcheck="false">${esc(wordRound.response)}</textarea>`;
 }
 function startWZ() {
+ if(globalThis.ReleasePolicy?.enabled)return toast(ReleasePolicy.message);
  if (wordRound?.version !== 4) wordRound = validWZRound(APP.wzRound) ? structuredClone(APP.wzRound) : newWZRound();
  if (!validWZRound(wordRound)) wordRound = newWZRound();
  const item = wordItem(), pool = wzPool(wordRound);
@@ -343,7 +345,7 @@ function renderWZFeedback() {
   $('#wordClues').innerHTML=item.clues.slice(0,wordRound.clueCount).map(clue=>`<li>${esc(clue)}</li>`).join('');
   $('#wordClue').disabled=wordRound.clueCount>=item.clues.length;
   $('#wordTarget').hidden=!wordRound.revealed;
-  $('#wordTarget').textContent=wordRound.revealed?'Het woord: '+item.answerModel:'';
+  $('#wordTarget').textContent=wordRound.revealed?'Het woord: '+lessonText(item.answerModel):'';
   $('#wordExample').setAttribute('aria-label',wordRound.revealed?'Verberg het woord':'Onthul het woord');
   const exampleTool=$('#wordExample').closest('.context-tool');
   exampleTool.dataset.tipLabel=wordRound.revealed?'Verberg het woord':'Onthul het woord';
@@ -351,7 +353,7 @@ function renderWZFeedback() {
   $('#wordHint').setAttribute('aria-controls','wordClues');
   $('#wordHint').closest('.context-tool').dataset.tip='Toon de volgende aanwijzing. Het gezochte woord blijft verborgen.';
  }
- const box=$('#wordFeedback');box.textContent=wordRound.feedback;box.hidden=!wordRound.feedback;box.classList.toggle('open',!!wordRound.feedback);box.dataset.status=wordRound.status;
+ const box=$('#wordFeedback');box.textContent=lessonText(wordRound.feedback);box.hidden=!wordRound.feedback;box.classList.toggle('open',!!wordRound.feedback);box.dataset.status=wordRound.status;
  $('#wordHint').setAttribute('aria-expanded',String(item.type==='Raad'?wordRound.clueCount>1:wordRound.support==='help'));
  $('#wordExample').setAttribute('aria-expanded',String(item.type==='Raad'?wordRound.revealed:wordRound.support==='example'));persistWZ();
 }
