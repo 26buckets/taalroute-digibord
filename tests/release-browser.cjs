@@ -146,6 +146,29 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   assert.ok(await page.locator('#screen-game.active').isVisible());const old=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs}));
   await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active');assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs})),old);
  }
+ // Dice: expanded answers stay in the card; the die and card clear the title.
+ await page.evaluate(()=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:true});ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'DICE',variant:null,subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:180});ContentUI.start(41)});
+ for(const [width,height] of [[1920,1080],[1440,900],[1024,768],[768,600],[390,844],[320,568]]){
+  await page.setViewportSize({width,height});await page.evaluate(()=>startContentDice());
+  const initial=await page.locator('.content-engine-dice').evaluate(e=>{const h=e.querySelector('.card-activity-heading').getBoundingClientRect(),c=e.querySelector('.active-card').getBoundingClientRect(),d=e.querySelector('.content-dice-tray').getBoundingClientRect();return {height:c.height,gap:Math.min(c.top,d.top)-h.bottom}});
+  assert.ok(initial.gap>=19,'Space under title '+width);
+  await page.locator('#contentDiceReveal').click();assert.equal(await page.locator('#contentDiceAnswer').isVisible(),true);
+  const region=page.getByRole('region',{name:'Opdracht en antwoord'});
+  assert.equal(await region.evaluate(e=>getComputedStyle(e).overflowY),'auto');
+  assert.ok(await region.evaluate(e=>e.clientHeight>80&&e.scrollWidth<=e.clientWidth+1),'Readable scroll area '+width);
+  assert.ok(Math.abs((await page.locator('.content-engine-dice .active-card').boundingBox()).height-initial.height)<1,'Answer does not grow the card '+width);
+  const last=page.locator('#contentDiceAnswer section:last-child p');await region.evaluate(e=>e.scrollTop=e.scrollHeight);
+  assert.ok(await last.evaluate(e=>{const r=e.getBoundingClientRect(),pane=e.closest('.content-reading').getBoundingClientRect(),bar=document.querySelector('.gamebar').getBoundingClientRect();return r.bottom<=pane.bottom+1&&r.bottom<=bar.top+1}),'End of answer reachable inside card '+width);
+  const beforeSpace=await page.evaluate(()=>APP.contentDiceIndex);await region.focus();await page.keyboard.press('Space');assert.equal(await page.evaluate(()=>APP.contentDiceIndex),beforeSpace,'Space scrolls focused card, not the die');await page.keyboard.press('Home');await page.keyboard.press('End');
+  if(width===1440||width===390)await page.screenshot({path:path.join(root,`tests/artifacts/release/dobbelkaart-${width}.png`)});
+ }
+ await page.setViewportSize({width:1440,height:1000});await page.locator('#primaryGame').click();await page.waitForFunction(()=>!contentDiceBusy);
+ assert.equal(await page.locator('#contentDiceRoll').innerText(),'Nieuwe opdracht.');
+ assert.doesNotMatch(await page.locator('.content-engine-dice').innerText(),/Tel zoveel|dezelfde opdracht|Je gooide/);
+ await page.locator('[data-grules]').click();assert.doesNotMatch(await page.locator('#dialogBody').innerText(),/Tel zoveel|dezelfde opdracht/);await page.keyboard.press('Escape');
+ const diceProgress=await page.evaluate(async()=>{await LessonUI.flush();return {index:APP.contentDiceIndex,roll:APP.contentDiceLastRoll,session:APP.contentSessionConfig}});
+ await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('.content-engine-dice');
+ assert.deepEqual(await page.evaluate(()=>({index:APP.contentDiceIndex,roll:APP.contentDiceLastRoll,session:APP.contentSessionConfig})),diceProgress,'Dice progress survives reload');
  // Shared cards reuse the existing draw/slide/turn animation and its motion preferences.
  await page.emulateMedia({reducedMotion:'no-preference'});
  for(const family of ['grammar','quick'])for(const effect of ['draw','slide','turn']){

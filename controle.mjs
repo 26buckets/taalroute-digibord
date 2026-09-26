@@ -218,7 +218,7 @@ vm.runInContext(source.slice(source.indexOf('function goScreen('),source.indexOf
 vm.runInContext("goScreen('cards')",navCtx);
 navCtx.APP.cardKind='verbs';vm.runInContext("goScreen('cards')",navCtx);
 assert.deepEqual(navigationCalls,['conversation','verbs']);
-assert.ok(source.includes("if(location.hash==='#kaartenkast'||location.hash==='#kaartspellen')goScreen('cards');"));
+assert.ok(source.includes("if(location.hash==='#kaartenkast'||location.hash==='#kaartspellen')window.addEventListener('DOMContentLoaded',()=>goScreen('cards'),{once:true});"));
 console.log('PASS: card games open directly, preserving the selected family.');
 
 // The shared board action must finish and roll with one gesture, while locks still hold.
