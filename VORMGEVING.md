@@ -168,3 +168,7 @@ Voor latere stappen: behoud de huidige kaartspel-look. Nico wil expliciet de bes
 ## Stap 2: kaart vliegt open — 26 september 2026
 
 Nico heeft stap 2 afzonderlijk goedgekeurd. De gezamenlijke kaartenroute gebruikt dezelfde bestaande kaartanimatie als de klassieke kaarten: vanuit de stapel naar de open kaart. De huidige kaartspel-look blijft behouden. Respecteer zowel Minder beweging in de app als de systeemvoorkeur. Tijdens de beweging mag een tweede klik geen kaart overslaan. De voorbereiding, spelmenu’s en vrijgave van andere spellen veranderen niet.
+
+## Stap 3: kaartspelmenu — 26 september 2026
+
+Nico heeft stap 3 goedgekeurd. Kaartspellen opent een rustige lijst met Grammatica en Snelvragen, die naar de bestaande voorbereiding voor kaarten leiden. De negen overige kaartspellen staan grijs en uitgeschakeld met Binnenkort, waaronder Tongbrekers en Verhalen vertellen. Die zichtbaarheid geeft geen oude inhoud vrij. In de gezamenlijke kaartspelweergave opent de knop Kaartspellen hetzelfde menu; Verder met je kaarten hervat de bestaande les. Behoud de huidige kaartspel-look, animatie en Minder beweging. De voorbereiding, inhoud, grote tongbrekertekst en audio blijven intact. Verhaaldobbelstenen zijn een afzonderlijke volgende stap en vallen buiten dit akkoord.

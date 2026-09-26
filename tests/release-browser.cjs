@@ -6,7 +6,8 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/index.html`,browser=await chromium.launch({headless:true,channel:'chrome'});
  try{
  const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(url);await page.waitForFunction(()=>window.ContentUI&&window.LessonUI);
+ await page.goto(url+'#kaartspellen');await page.waitForFunction(()=>window.ContentUI&&window.LessonUI);
+ assert.deepEqual(await page.locator('#screen-cards.active [data-card-family]').evaluateAll(es=>es.map(e=>e.dataset.cardFamily)),['grammar','quick'],'Direct card link waits for both registered families');await page.locator('#cardMenuHome').click();await page.evaluate(()=>history.replaceState(null,'',location.pathname));
  assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),4061);
  assert.equal(await page.evaluate(()=>ContentRuntime.items().length),8414,'Unreviewed sources retained');
@@ -75,16 +76,49 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  for(const code of ['startWords("build")','startWZ()','startTaalworp("SET_A2_BASIS")','startStory("basis")','startTongue()','startC1()']){
   const before=await page.evaluate(()=>JSON.stringify(APP));await page.evaluate(code);assert.equal(await page.evaluate(()=>JSON.stringify(APP)),before,code);
  }
- for(const screen of ['cards','dice','workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
+ for(const screen of ['dice','workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
  for(const board of ['rotterdam','zwolle']){await page.evaluate(b=>{CONTENT_VERT001.stop();APP.questionMode='conversation';startBoard(b)},board);assert.ok(await page.locator('#screen-practice.active').isVisible());assert.equal(await page.evaluate(()=>ContentUI.state().variant),board)}
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',focus:'all',subtopic:'all',duration:180}));
  await page.locator('#practiceMix').click();assert.equal(await page.locator('.lesson-mix-option').count(),9);await page.locator('#dialogClose').click();
  for(const filter of [{bank_ids:['CB-WZ-002']},{family_ids:['words']},{topics:['ER','RELATIEVE_BIJZIN']}]){
   assert.notEqual(await page.evaluate(f=>{try{ContentRuntime.filterSource(f);return ''}catch(e){return e.message}},filter),'');
  }
+ // Restored card menu exposes only approved families; upcoming cards cannot launch.
+ await page.locator('[data-main=play]').click();await page.locator('[data-category=cards]').click();
+ assert.ok(await page.locator('#screen-cards.active').isVisible());
+ assert.deepEqual(await page.locator('[data-card-family]').evaluateAll(es=>es.map(e=>e.dataset.cardFamily)),['grammar','quick']);
+ assert.equal(await page.locator('[data-card-soon]').count(),9);
+ for(const width of [1440,768,390,320]){
+  await page.setViewportSize({width,height:900});
+  assert.ok(await page.locator('#screen-cards').evaluate(e=>e.scrollWidth<=e.clientWidth),'Menu fits '+width);
+  assert.ok(await page.locator('.card-menu-choice').evaluateAll(es=>es.every(e=>{const r=e.getBoundingClientRect();return r.height>=44&&r.left>=0&&r.right<=innerWidth&&e.scrollWidth<=e.clientWidth})),'Readable choices '+width);
+  assert.ok(await page.locator('[data-card-soon]').evaluateAll(es=>es.every(e=>e.disabled&&e.textContent.includes('Binnenkort')&&getComputedStyle(e).filter==='grayscale(1)')));
+  if(width===1440||width===390)await page.screenshot({path:path.join(root,`tests/artifacts/release/kaartspelmenu-${width}.png`)});
+ }
+ const unchanged=await page.evaluate(()=>JSON.stringify(APP));await page.locator('[data-card-soon]').evaluateAll(es=>es.forEach(e=>e.click()));assert.equal(await page.evaluate(()=>JSON.stringify(APP)),unchanged);
+ assert.doesNotMatch(await page.locator('#screen-cards').innerText(),/nagekeken|review|bronlabel|Werkend/);
+ for(const family of ['grammar','quick']){
+  await page.locator(`[data-card-family=${family}]`).click();assert.ok(await page.locator('#screen-practice.active').isVisible());
+  assert.equal(await page.evaluate(()=>ContentUI.state().family),family);assert.equal(await page.evaluate(()=>ContentUI.state().engine),'CARDS');
+  await page.evaluate(()=>goScreen('cards'));
+ }
+ await page.setViewportSize({width:1440,height:1000});
  // Each approved family renders and resumes in each suitable common game.
  for(const family of ['grammar','quick'])for(const engine of ['CARDS','BOARD','WHEEL']){
   await page.evaluate(({family,engine})=>{CONTENT_VERT001.stop();ContentUI.setState({family,topic:family==='grammar'?'ER':'quick-arrange',level:family==='grammar'?'B1':'B2',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:180,engine,variant:engine==='BOARD'?'rotterdam':null});ContentUI.start(41)}, {family,engine});
+  if(engine==='CARDS'){
+   await page.locator('#primaryGame').click();await page.waitForFunction(()=>!cardBusy);
+   const progress=await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex,turn:APP.turn}));
+   for(const width of [1440,390,320]){
+    await page.setViewportSize({width,height:900});
+    await page.locator('#contentCardMenu').scrollIntoViewIfNeeded();
+    assert.ok(await page.locator('#contentCardMenu').evaluate(e=>{const r=e.getBoundingClientRect();return r.width>=44&&r.height>=44&&r.left>=0&&r.right<=innerWidth}));
+    await page.locator('#contentCardMenu').click();await page.locator('#cardMenuResume').click();
+    assert.ok(await page.locator('#screen-game.active').isVisible());
+    assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex,turn:APP.turn})),progress,'Menu does not reset the active lesson');
+   }
+   await page.setViewportSize({width:1440,height:1000});
+  }
   if(engine==='BOARD'){
    for(const width of [1440,900,390]){
     await page.setViewportSize({width,height:900});
