@@ -164,3 +164,7 @@ Lesuitleg is maximaal 1.040 px breed. Titel en kleine woordlogo’s blijven in b
 De huidige voorbereiding is leidend en blijft ongewijzigd: indeling, keuzevolgorde, automatisch doorgaan, inhoudsmotor en vormgeving. Vraag Nico vooraf akkoord voor iedere afzonderlijke herstelstap. Stap 1 is uitsluitend goedgekeurd voor vaste posities van Spelen, Oefenen, Mijn lessen en Mijn collectie op die vier hoofdpagina’s. Houd de ruimte van de verborgen niveaukeuze gereserveerd, zodat de navigatie niet verschuift. Spelpagina’s blijven in deze stap ongewijzigd.
 
 Voor latere stappen: behoud de huidige kaartspel-look. Nico wil expliciet de bestaande beweging terug waarbij een kaart uit de stapel komt en openvliegt; respecteer Minder beweging. Herstel van spelmenu’s, kaartanimatie en zelfstandige spellen vereist afzonderlijk akkoord. Alleen een menukaart terugzetten geeft oude tekstinhoud nog niet vrij.
+
+## Stap 2: kaart vliegt open — 26 september 2026
+
+Nico heeft stap 2 afzonderlijk goedgekeurd. De gezamenlijke kaartenroute gebruikt dezelfde bestaande kaartanimatie als de klassieke kaarten: vanuit de stapel naar de open kaart. De huidige kaartspel-look blijft behouden. Respecteer zowel Minder beweging in de app als de systeemvoorkeur. Tijdens de beweging mag een tweede klik geen kaart overslaan. De voorbereiding, spelmenu’s en vrijgave van andere spellen veranderen niet.

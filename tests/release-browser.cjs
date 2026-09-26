@@ -112,14 +112,61 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   assert.ok(await page.locator('#screen-game.active').isVisible());const old=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs}));
   await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active');assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs})),old);
  }
+ // Shared cards reuse the existing draw/slide/turn animation and its motion preferences.
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ for(const family of ['grammar','quick'])for(const effect of ['draw','slide','turn']){
+  await page.evaluate(({family,effect})=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:false,cardAnimation:effect});ContentUI.setState({family,topic:family==='grammar'?'ER':'quick-arrange',level:'B1',engine:'CARDS',variant:null,focus:'all',subtopic:'all',duration:180});ContentUI.start(41)}, {family,effect});
+  const before=await page.evaluate(()=>APP.cardIndex);
+  const motion=await page.evaluate(()=>{
+   document.querySelector('#contentCardDeck').click();
+   const card=document.querySelector('.game-card-motion'),animation=card.getAnimations()[0];
+   if(!animation)return null;
+   animation.pause();animation.currentTime=animation.effect.getTiming().duration*.2;
+   const index=APP.cardIndex;document.querySelector('#primaryGame').click();nextCard();
+   return {index,afterRepeat:APP.cardIndex,busy:cardBusy,disabled:document.querySelector('#primaryGame').disabled,frames:animation.effect.getKeyframes().map(f=>f.transform),backface:getComputedStyle(card.querySelector('.game-card-back')).backfaceVisibility};
+  });
+  assert.ok(motion,'A real card animation runs: '+family+' '+effect);
+  assert.equal(motion.index,before+1);assert.equal(motion.afterRepeat,motion.index,'Rapid input cannot skip a card');
+  assert.equal(motion.busy,true);assert.equal(motion.disabled,true);assert.equal(motion.backface,'hidden');
+  assert.ok(motion.frames.some(f=>f!=='none'),'Card moves');
+  if(family==='grammar'&&effect==='draw')await page.screenshot({path:path.join(root,'tests/artifacts/release/kaart-in-beweging.png')});
+  await page.evaluate(()=>document.querySelector('.game-card-motion').getAnimations()[0].finish());
+  await page.waitForFunction(()=>!cardBusy);
+  assert.equal(await page.locator('#primaryGame').isEnabled(),true);
+  assert.equal(await page.locator('#contentCardAnswer').isVisible(),false);
+  assert.equal(await page.locator('.game-card-motion').evaluate(e=>getComputedStyle(e).transform),'none');
+ }
+ await page.screenshot({path:path.join(root,'tests/artifacts/release/kaart-geopend.png')});
+ const savedCard=await page.evaluate(async()=>{await LessonUI.flush();return {index:APP.cardIndex,id:document.querySelector('[data-content-item-id]').dataset.contentItemId}});
+ await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active [data-content-item-id]');
+ assert.deepEqual(await page.evaluate(()=>({index:APP.cardIndex,id:document.querySelector('[data-content-item-id]').dataset.contentItemId})),savedCard,'Resume keeps the animated card');
+ for(const pref of [{os:'reduce',app:false},{os:'no-preference',app:true}]){
+  await page.emulateMedia({reducedMotion:pref.os});await page.evaluate(app=>settingsPatch({reducedMotion:app}),pref.app);
+  assert.equal(await page.evaluate(async()=>{const before=APP.cardIndex;await nextCard();return APP.cardIndex===(before+1)%contentSessionCards().length&&!cardBusy&&document.querySelector('.game-card-motion').getAnimations().length===0}),true,'Reduced motion skips animation: '+JSON.stringify(pref));
+ }
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:390,height:900});
+ await page.evaluate(()=>settingsPatch({reducedMotion:false,cardAnimation:'draw'}));
+ assert.equal(await page.locator('#contentCardDeck').isVisible(),false);
+ await page.locator('#primaryGame').click();await page.waitForFunction(()=>!cardBusy);
+ assert.equal(await page.locator('#primaryGame').isEnabled(),true,'Mobile draw works without a visible deck');
+ await page.setViewportSize({width:1440,height:1000});
  // A previous unreviewed session stays stored but cannot resume in the released view.
  const archive=await browser.newContext();await archive.addInitScript(()=>{window.DigiBordArchiveReview=true});const ap=await archive.newPage();await ap.goto(url);
+ // Archived editable cards still retain drafts through the shared next-card path.
+ assert.equal(await ap.evaluate(async()=>{
+  settingsPatch({reducedMotion:true});
+  ContentUI.launch(ContentRuntime.createSession({filters:{bank_ids:['CB-MR03-013']},selectedGameEngine:'CARDS',targetDurationSeconds:2160,seed:8}));
+  APP.cardIndex=contentSessionCards().findIndex(i=>i.content_item_id.endsWith('009'));startContentCards();
+  const field=document.querySelector('#screen-game textarea');field.value='Mijn bewaarde antwoord';field.dispatchEvent(new Event('input',{bubbles:true}));
+  await nextCard();await nextCard(-1);
+  return document.querySelector('#screen-game textarea').value==='Mijn bewaarde antwoord';
+ }),true,'Archived draft survives next and previous card');
  const saved=await ap.evaluate(async()=>{const item=ContentRuntime.items().find(i=>i.content_bank_id==='CB-WZ-002');const session=ContentRuntime.createSession({filters:{bank_ids:[item.content_bank_id],topics:[item.topic],levels:[item.cefr_level]},engines:['CARDS'],selectedGameEngine:'CARDS',targetDurationSeconds:180});ContentUI.launch(session);await LessonUI.flush();return {session:APP.contentSessionConfig,boards:APP.boardStates};});
  const storageState=await archive.storageState({indexedDB:true});const live=await browser.newContext({storageState});const lp=await live.newPage();await lp.goto(url);await lp.waitForFunction(()=>window.LessonUI);
  assert.deepEqual(await lp.evaluate(()=>({session:APP.contentSessionConfig,boards:APP.boardStates})),saved);
  assert.equal(await lp.locator('#resumeBtn').isVisible(),true);assert.equal(await lp.locator('#resumeBtn').isDisabled(),true);assert.match(await lp.locator('#resumeText').innerText(),/bewaard/);assert.ok(await lp.evaluate(()=>contentRestoreError.message.includes('niet beschikbaar')));
  await lp.evaluate(()=>{goScreen('lessons');return LessonUI.render()});await lp.waitForSelector('#lessonLibrary h1');assert.equal(await lp.locator('[data-lesson-action=resume]').count(),0);
- assert.equal(await lp.evaluate(async()=>(await LessonUI.service.list('recent_session')).length),1,'Hidden session not deleted');
+ assert.equal(await lp.evaluate(async()=>(await LessonUI.service.list('recent_session')).length),2,'Both hidden sessions remain stored');
  assert.deepEqual(errors,[]);console.log('PASS: 4061 approved, 4353 retained/hidden; legacy routes, catalog, mixes, six live game/resume routes, old IndexedDB preserved/hidden.');
  }finally{await browser.close();await new Promise(r=>server.close(r))}
 })().catch(e=>{console.error(e);process.exitCode=1});
