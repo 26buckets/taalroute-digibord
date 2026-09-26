@@ -310,3 +310,8 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #gameDialog .game-rules li::marker{font-weight:500;color:var(--setup-blue)}
 
 @media(max-width:380px){.guidance-dialog .guidance-row button{flex-direction:column;align-items:center;text-align:center;min-height:68px}.guidance-dialog .guidance-row button>span:last-child{font-size:12px}}
+
+/* Fixed navigation on the four main pages; preparation and game layouts stay intact. */
+#app:has(#screen-play.active,#screen-practice.active,#screen-lessons.active,#screen-mycollection.active)>header .navitem{font-weight:500}
+#app:has(#screen-play.active,#screen-practice.active,#screen-lessons.active,#screen-mycollection.active)>header .level-pill{display:flex}
+#app:has(#screen-practice.active,#screen-lessons.active)>header .level-pill{visibility:hidden}

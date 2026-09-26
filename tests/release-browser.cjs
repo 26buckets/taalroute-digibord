@@ -49,8 +49,16 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.equal(await page.locator('.gamecard-live').isDisabled(),true);
  assert.equal(await page.locator('#resumeBtn').isVisible(),true);
  assert.equal(await page.locator('#resumeBtn').isDisabled(),true);
- for(const width of [1440,900,720,700,650,390,320]){
+ for(const width of [1920,1440,1100,1024,900,720,700,650,390,320]){
   await page.setViewportSize({width,height:1000});
+  let positions;
+  for(const screen of ['play','practice','lessons','mycollection']){
+   await page.locator(`[data-main=${screen}]`).click();
+   const current=await page.locator('.mainnav .navitem').evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return [r.x,r.y,r.width,r.height].map(n=>Math.round(n*10)/10)}));
+   if(positions)assert.deepEqual(current,positions,'Header stays fixed on '+screen+' at '+width);else positions=current;
+   if(['practice','lessons'].includes(screen))assert.equal(await page.locator('#levelSelect').isVisible(),false,'Hidden level control remains unavailable');
+  }
+  await page.locator('[data-main=play]').click();
   const nav=await page.locator('.mainnav .navitem').evaluateAll(es=>es.map(el=>{const r=el.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right,font:parseFloat(getComputedStyle(el).fontSize)}}));
   const cover=await page.locator('[data-category=words]').boundingBox(),badge=await page.locator('#words-status').boundingBox();
   assert.ok(badge&&badge.x>=cover.x&&badge.x+badge.width<=cover.x+cover.width&&badge.y>=cover.y&&badge.y+badge.height<=cover.y+cover.height,'Soon label remains inside the cover at '+width);

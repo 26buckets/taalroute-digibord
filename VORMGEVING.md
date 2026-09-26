@@ -158,3 +158,9 @@ De vervolgknop op het bord gebruikt een rustig lichtblauw vlak, dunne blauwe ran
 Dezelfde opmaak geldt ook voor Bij deze les, Spelregels, spelopties en alle andere uitlegvensters: systeemletters, gewone tekst 16 px, titel 23 px, dunne scheidingen, lichtblauwe selectie. Geen interne broncodes, beoordelingsnamen of versienummers tonen. De volledige bron- en beoordelingsgegevens blijven intern bewaard. LOWAN/ERK/F/BoW tonen informatie bij de werkelijk gekozen oefeningen; een ontbrekende niveau- of routekoppeling mag niet worden verzonnen.
 
 Lesuitleg is maximaal 1.040 px breed. Titel en kleine woordlogo’s blijven in beeld; alleen de inhoud scrolt. Feiten en lestips staan in een tabel met duidelijke rijlabels. Tablabels worden niet midden in woorden afgebroken. Op kleine schermen komen de vier tabbladen in twee rijen. Informatie-iconen zijn 16 px binnen een klikvlak van minimaal 44 px. Dit verandert geen opgeslagen inhoud of de vaste grote tongbrekertekst.
+
+## Bevroren voorbereiding en stapsgewijs herstel — 26 september 2026
+
+De huidige voorbereiding is leidend en blijft ongewijzigd: indeling, keuzevolgorde, automatisch doorgaan, inhoudsmotor en vormgeving. Vraag Nico vooraf akkoord voor iedere afzonderlijke herstelstap. Stap 1 is uitsluitend goedgekeurd voor vaste posities van Spelen, Oefenen, Mijn lessen en Mijn collectie op die vier hoofdpagina’s. Houd de ruimte van de verborgen niveaukeuze gereserveerd, zodat de navigatie niet verschuift. Spelpagina’s blijven in deze stap ongewijzigd.
+
+Voor latere stappen: behoud de huidige kaartspel-look. Nico wil expliciet de bestaande beweging terug waarbij een kaart uit de stapel komt en openvliegt; respecteer Minder beweging. Herstel van spelmenu’s, kaartanimatie en zelfstandige spellen vereist afzonderlijk akkoord. Alleen een menukaart terugzetten geeft oude tekstinhoud nog niet vrij.
