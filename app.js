@@ -56,9 +56,9 @@ function teamInfo(mode,ppl=participants()){
  return{count:settingsState().groupCount||4,prefix:'g',label:'Groep'};
 }
 function goScreen(id){
- if(globalThis.ReleasePolicy?.enabled&&['dice','words','workforms','activities','collection','curriculum'].includes(id)){
+ if(globalThis.ReleasePolicy?.enabled&&['words','workforms','activities','collection','curriculum'].includes(id)){
   if(!globalThis.ContentUI)return;
-  return ContentUI.open({engine:({dice:'DICE',workforms:'WHEEL',activities:'WHEEL'})[id]});
+  return ContentUI.open({engine:({workforms:'WHEEL',activities:'WHEEL'})[id]});
  }
  stopTongueAudio();
  if(id==='cards'){if(!globalThis.ReleasePolicy?.enabled)return startCards(APP.cardKind||'conversation');renderCardMenu()}
@@ -103,7 +103,7 @@ window.addEventListener('message',e=>{if(e.source===$('#settingsOverlay iframe')
 
 function setLast(type,label,data={}){APP.last={type,label,data};save();updateResume()}
 function updateResume(){
- const blocked=globalThis.ReleasePolicy?.enabled&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig);
+ const blocked=globalThis.ReleasePolicy?.enabled&&!['story','taalworp'].includes(APP.last?.type)&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig);
  const message=!APP.last?'Nog geen spel gestart':blocked?'Je les is bewaard · nu niet beschikbaar':APP.last.label;
  for(const id of ['resumeBtn','collectionResume']){const button=$('#'+id);button.hidden=false;button.style.display='';button.disabled=!APP.last||!!blocked;}
  $('#resumeText').textContent=message;
@@ -111,6 +111,8 @@ function updateResume(){
 }
 $('#resumeBtn').onclick=()=>{if(!APP.last)return toast('Start eerst een spel.');resumeLast()};
 function resumeLast(fromMemory=false){
+ if(APP.last?.type==='taalworp')return startTaalworp(APP.last.data.setIds||APP.last.data.setId||'SET_A2_BASIS');
+ if(APP.last?.type==='story')return startStory(APP.last.data.collections||APP.last.data.collection||'basis');
  if(globalThis.ReleasePolicy?.enabled&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig))return toast(ReleasePolicy.message);
  if(fromMemory){if(APP.contentSessionConfig)globalThis.ContentRuntime?.restoreSession(APP.contentSessionConfig);else globalThis.ContentRuntime?.clearSession();}
  if(window.contentRestoreError&&APP.contentSessionConfig)return toast('De oorspronkelijke inhoud is niet beschikbaar. Open Mijn lessen om je opties te bekijken.');
@@ -496,28 +498,30 @@ function completeBoardTurn(board,route){
 
 
 /* Dobbelspellen */
-document.addEventListener('click',e=>{const b=e.target.closest('[data-dicegame]');if(!b||gameIsBusy())return;b.dataset.dicegame==='taalworp'?startTaalworp(APP.taalworpSets||APP.taalworpSet||'SET_A2_BASIS'):startStory(APP.storyCollections||APP.storyCollection||'basis')});
-let twDiceState={};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-dicegame]');if(!b||b.disabled||gameIsBusy())return;b.dataset.dicegame==='taalworp'?startTaalworp(APP.taalworpSets||APP.taalworpSet||'SET_A2_BASIS'):startStory(APP.storyCollections||APP.storyCollection||'basis')});
+let twDiceState=APP.taalworpDice||{};
 const TW_DICE_IDS=['WHO','TENSE','SENTENCE_TYPE','CONNECT_1','CONNECT_2','VERB_FORM'];
-function diceSidebar(kind,controls){return `<aside class="cardtypes dice-sidebar"><h3>Dobbelspellen</h3><nav aria-label="Kies een dobbelspel"><button class="typebtn ${kind==='taalworp'?'active':''}" data-dicegame="taalworp" aria-pressed="${kind==='taalworp'}">${gameIcon('verbs')}<span>Taalworp</span></button><button class="typebtn ${kind==='story'?'active':''}" data-dicegame="story" aria-pressed="${kind==='story'}">${gameIcon('story')}<span>Verhaalworp</span></button></nav><div class="dice-set-controls">${controls}</div></aside>`}
+document.addEventListener('click',e=>{if(e.target.closest('[data-dice-preparation]')&&!gameIsBusy()){ContentUI.clearEditing();ContentUI.open({engine:'DICE'})}});
+if(!globalThis.ReleasePolicy?.enabled)$('#screen-dice [data-dice-preparation]').hidden=true;
+function diceSidebar(kind,controls){return `<aside class="cardtypes dice-sidebar"><h3>Dobbelspellen</h3><nav aria-label="Kies een dobbelspel"><button class="typebtn ${kind==='taalworp'?'active':''}" data-dicegame="taalworp" aria-pressed="${kind==='taalworp'}">${gameIcon('verbs')}<span>Zinnen bouwen</span></button><button class="typebtn ${kind==='story'?'active':''}" data-dicegame="story" aria-pressed="${kind==='story'}">${gameIcon('story')}<span>Verhaal maken</span></button>${globalThis.ReleasePolicy?.enabled?`<button class="typebtn" data-dice-preparation>${gameIcon('dice')}<span>Dobbelen met opdrachten</span></button>`:''}</nav><div class="dice-set-controls">${controls}</div></aside>`}
 function verbSetMenu(sets,selected){
  const groups=[['basis','Basis','#176b9a'],['taalvorm','Taalvorm','#6953a3'],['themas',"Thema’s",'#237e85']];
  const groupOf=s=>s.groupId==='SETGRP_START'?'basis':s.groupId==='SETGRP_GRAMMAR'?'taalvorm':'themas';
  const label=sets.filter(s=>selected.includes(s.id)).map(s=>s.label).join(' + ');
  return `<span class="dice-set-label">Werkwoordsets mengen</span><details class="story-set-picker" id="verbSetPicker"><summary>${esc(label)}<small>${selected.length} ${selected.length===1?'set':'sets'} · ${currentVerbPool().length} unieke werkwoorden</small></summary><div class="verb-set-options">${groups.map(([id,label,color])=>`<details class="verb-set-group" style="--set-color:${color}"><summary>${label}<small>${sets.filter(s=>groupOf(s)===id).length} sets</small></summary><fieldset data-verbgroup="${id}"><legend class="sr-only">${label}</legend>${sets.filter(s=>groupOf(s)===id).map(s=>`<label><input type="checkbox" data-verbset value="${s.id}" ${selected.includes(s.id)?'checked':''}><span>${esc(s.label)}<small>${s.recordIds.length} werkwoorden</small></span></label>`).join('')}</fieldset></details>`).join('')}</div><button class="smallbtn" id="applyVerbSets">Selectie toepassen</button></details>`;
 }
-function startTaalworp(setId){
- if(globalThis.ReleasePolicy?.enabled)return toast(ReleasePolicy.message);
+async function startTaalworp(setId){
+ if(contentVertSession()){await window.LessonUI?.flush();ContentRuntime.clearSession()}
  languageBusy=false;
  if(!tw){toast('Taalworp-data ontbreekt in deze distributie.');return;}
  const sets=Object.values(tw.sets.sets).filter(x=>x.availabilityStatus==='ready'),requested=[].concat(setId);
  const selected=sets.filter(s=>requested.includes(s.id)).map(s=>s.id);if(!selected.length)selected.push('SET_A2_BASIS');
  const changed=JSON.stringify(APP.taalworpSets||[APP.taalworpSet])!==JSON.stringify(selected);
- initTwDice();APP.taalworpSets=selected;APP.taalworpSet=selected[0];if(changed&&!APP.verbLocked)drawVerb();
+ initTwDice();APP.taalworpDice=twDiceState;APP.taalworpSets=selected;APP.taalworpSet=selected[0];if(changed&&!APP.verbLocked)drawVerb();
  const label=sets.filter(s=>selected.includes(s.id)).map(s=>s.label).join(' + ');
- setLast('taalworp',`Taalworp · ${label}`,{setIds:selected});
+ setLast('taalworp',`Zinnen bouwen · ${label}`,{setIds:selected});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell taalworp-shell"><div class="game-work card-work">
-  <div class="card-activity-heading"><div><h1>Taalworp <span>${esc(APP.level)}</span></h1><p>Maak samen een zin. Gooi, denk, spreek!</p></div></div>
+  <div class="card-activity-heading"><div><h1>Zinnen bouwen <span>${esc(APP.level)}</span></h1><p>Maak samen een zin. Gooi, denk, spreek!</p></div></div>
   <div class="dice-table-stage"><div class="dice-page taalworp-page"><div class="tw-tabletop"><div class="table-playfield"><section class="language-tray"><div class="card-ribbon" style="--ribbon:#176b9a">${gameIcon('verbs')}<strong>Jouw worp</strong></div><div class="language-tray-heading"><p>Gooi de stenen. Gebruik de uitkomsten in je zin.</p></div><div class="language-stage" id="languageStage"></div></section>
   <div class="verbcard">
    
@@ -560,8 +564,8 @@ function renderLanguageDice(){
   </div>`;
  }).join('');
  SmoothDice.mount();
- $$('[data-die]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const s=twDiceState[b.dataset.die];s.active=!s.active;s.locked=false;renderLanguageDice();renderVerbCard()});
- $$('[data-lock]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const s=twDiceState[b.dataset.lock];if(!s.active)return;s.locked=!s.locked;renderLanguageDice();renderVerbCard()});
+ $$('[data-die]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const s=twDiceState[b.dataset.die];s.active=!s.active;s.locked=false;renderLanguageDice();renderVerbCard();save()});
+ $$('[data-lock]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const s=twDiceState[b.dataset.lock];if(!s.active)return;s.locked=!s.locked;renderLanguageDice();renderVerbCard();save()});
 }
 function currentVerbPool(){const ids=APP.taalworpSets||[APP.taalworpSet||'SET_A2_BASIS'];return [...new Set(ids.flatMap(id=>tw.sets.sets[id]?.recordIds||[]))].map(id=>tw.manifest.verbs[id]).filter(Boolean)}
 function taalworpExample(v,values){
@@ -626,7 +630,7 @@ async function playTaalworp(cardOnly=false){
   if(moving.length)playDiceSound();
   await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
  }finally{
-  if(stage.isConnected){languageBusy=false;updateUndo()}
+  if(stage.isConnected){languageBusy=false;save();updateUndo()}
   if(stage.isConnected){page.removeAttribute('aria-busy');page.querySelectorAll('button').forEach(b=>b.disabled=false);primary.disabled=false;$('#drawVerb').disabled=!!APP.verbLocked;}
  }
 }
@@ -671,8 +675,9 @@ function showDiceContext(type,key){
 function storyIcons(collection=APP.storyCollections||APP.storyCollection){const ids=[].concat(collection),extra=story.collections.filter(s=>ids.includes(s.id)).flatMap(s=>s.includeNumbers||[]);return story.icons.filter(x=>ids.includes(x.collection)||extra.includes(x.number))}
 function storyCounts(collection,held=[]){return [3,6,9].filter(n=>n<=new Set([...storyIcons(collection).map(x=>x.id),...held]).size)}
 function heldStoryIds(){return (APP.storyRoll||[]).filter((id,i)=>APP.storyLocks?.[i]&&story.icons.some(x=>x.id===id))}
-function startStory(collection){
- if(globalThis.ReleasePolicy?.enabled)return toast(ReleasePolicy.message);
+async function startStory(collection){
+ if(contentVertSession()){await window.LessonUI?.flush();ContentRuntime.clearSession()}
+ // Keep the previous lesson snapshot and stored progress available in Mijn lessen.
  storyBusy=false;
  if(!story){toast('Verhaalworp-data ontbreekt in deze distributie.');return;}
  const sets=story.collections.filter(s=>s.status==='ready'),requested=[].concat(collection);
@@ -685,9 +690,9 @@ function startStory(collection){
  APP.storyCount=count;
  APP.storyCollections=collection;APP.storyCollection=collection[0];APP.storyLocks??={};APP.storyEnabled??={};
  const label=sets.filter(s=>collection.includes(s.id)).map(s=>s.label).join(' + ');
- setLast('story',`Verhaalworp · ${label}`,{collections:collection});
+ setLast('story',`Verhaal maken · ${label}`,{collections:collection});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell story-table-shell"><div class="game-work card-work">
- <div class="card-activity-heading"><div><h1>Verhaalworp <span>${esc(APP.level)}</span></h1><p>Gooi beeldstenen en vertel samen een verhaal.</p></div></div>
+ <div class="card-activity-heading"><div><h1>Verhaal maken <span>${esc(APP.level)}</span></h1><p>Gooi beeldstenen en vertel samen een verhaal.</p></div></div>
  <div class="dice-table-stage"><section class="story-stage"><header class="story-prompt"><div class="card-ribbon" style="--ribbon:#176b9a">${gameIcon('story')}<strong>Vertel een verhaal</strong><span class="card-counter" id="storyCounter"></span></div><div class="story-prompt-body"><p id="storyPromptCount">Gebruik de beelden op de voorkant van de stenen.</p></div></header><div class="storygrid count-${APP.storyCount}" id="storyGrid"></div><div class="storyhelp">${contextTools('story',{Help:{tip:'Hulp bij het verbinden van de actieve beelden.'},Example:{tip:'Een vertelopzet met jullie huidige beelden.'}})}<button class="smallbtn" id="storyFinish">Beurt afronden</button></div></section>
  ${diceSidebar('story',`<span class="dice-set-label">Beeldsets mengen</span><details class="story-set-picker" id="storySet"><summary>${esc(label)}<small>${collection.length} ${collection.length===1?'set':'sets'} · ${storyIcons().length} beelden</small></summary><fieldset><legend>Kies één of meer sets</legend>${sets.map(({id,label,count})=>`<label><input type="checkbox" data-storyset value="${id}" ${collection.includes(id)?'checked':''}><span>${esc(label)}<small>${count} beelden</small></span></label>`).join('')}</fieldset><button class="smallbtn" id="applyStorySets">Selectie toepassen</button></details><span class="dice-set-label">Aantal stenen</span><div class="story-count-choices" role="group" aria-label="Aantal stenen">${counts.map(n=>`<button class="smallbtn ${APP.storyCount===n?'active':''}" data-storycount="${n}" aria-pressed="${APP.storyCount===n}">${n}</button>`).join('')}</div><button class="smallbtn" id="storySets">Over de beeldsets</button><div class="dice-table-tip"><strong>Zo speel je</strong><p>Het woord staat onder de steen. Grijze stenen doen niet mee. Vastgezette beelden blijven staan als je andere sets kiest.</p></div>`)}
  </div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame"><span class="roll-button-die">${softDie({value:5,front:false})}</span><span>GOOIEN</span></button>`)}</div>`;

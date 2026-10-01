@@ -73,16 +73,38 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  await page.setViewportSize({width:1440,height:1000});
  assert.match(await page.evaluate(()=>{const prior=ContentRuntime.banks().find(b=>b.bank.bank_id==='CB-GRAM-001').previousVersions[0].items[0];try{ContentRuntime.validateContentRefs([ContentRuntime.contentRef(prior)],{historical:true});return ''}catch(e){return e.message}}),/niet beschikbaar/,'Unreviewed historical text cannot reopen through an approved bank ID');
  // All legacy entry points must lead to reviewed preparation or leave state intact.
- for(const code of ['startWords("build")','startWZ()','startTaalworp("SET_A2_BASIS")','startStory("basis")','startTongue()','startC1()']){
+ for(const code of ['startWords("build")','startWZ()','startTongue()','startC1()']){
   const before=await page.evaluate(()=>JSON.stringify(APP));await page.evaluate(code);assert.equal(await page.evaluate(()=>JSON.stringify(APP)),before,code);
  }
- for(const screen of ['dice','workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
+ for(const screen of ['workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
  for(const board of ['rotterdam','zwolle']){await page.evaluate(b=>{CONTENT_VERT001.stop();APP.questionMode='conversation';startBoard(b)},board);assert.ok(await page.locator('#screen-practice.active').isVisible());assert.equal(await page.evaluate(()=>ContentUI.state().variant),board)}
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',focus:'all',subtopic:'all',duration:180}));
  await page.locator('#practiceMix').click();assert.equal(await page.locator('.lesson-mix-option').count(),9);await page.locator('#dialogClose').click();
  for(const filter of [{bank_ids:['CB-WZ-002']},{family_ids:['words']},{topics:['ER','RELATIEVE_BIJZIN']}]){
   assert.notEqual(await page.evaluate(f=>{try{ContentRuntime.filterSource(f);return ''}catch(e){return e.message}},filter),'');
  }
+ // Three dice routes: two standalone games and the unchanged shared preparation.
+ await page.locator('[data-main=play]').click();await page.locator('[data-category=dice]').click();
+ assert.deepEqual(await page.locator('#screen-dice h3').allTextContents(),['Zinnen bouwen','Verhaal maken','Dobbelen met opdrachten']);
+ await page.locator('#screen-dice [data-dice-preparation]').click();assert.equal(await page.evaluate(()=>ContentUI.state().engine),'DICE');
+ await page.evaluate(()=>{ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',focus:'all',subtopic:'all',duration:180});ContentUI.start(41)});
+ await page.locator('#primaryGame').click();await page.waitForFunction(()=>!cardBusy);
+ const previousLesson=await page.evaluate(async()=>{await LessonUI.flush();const id='recent-'+APP.contentSessionConfig.session_id;return (await LessonUI.service.list('recent_session')).find(r=>r.recent_session_id===id)});
+ await page.evaluate(()=>goScreen('dice'));await page.locator('#screen-dice [data-dicegame=verhaalworp]').click();await page.waitForSelector('#storyGrid');
+ assert.equal(await page.evaluate(()=>ContentRuntime.activeSession()),null);assert.equal(await page.locator('#storyGrid .storydie').count(),3);
+ await page.locator('[data-storylock="0"]').click();await page.locator('#primaryGame').click();
+ const storyState=await page.evaluate(()=>({roll:APP.storyRoll,locks:APP.storyLocks,enabled:APP.storyEnabled,sets:APP.storyCollections}));
+ await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#storyGrid');
+ assert.deepEqual(await page.evaluate(()=>({roll:APP.storyRoll,locks:APP.storyLocks,enabled:APP.storyEnabled,sets:APP.storyCollections})),storyState);
+ await page.locator('.dice-sidebar [data-dicegame=taalworp]').click();await page.waitForSelector('#languageStage');
+ await page.locator('[data-lock=WHO]').click();await page.locator('#primaryGame').click();await page.waitForFunction(()=>!languageBusy);
+ const sentenceState=await page.evaluate(()=>({dice:twDiceState,verb:APP.currentVerb,sets:APP.taalworpSets}));
+ await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#languageStage');
+ assert.deepEqual(await page.evaluate(()=>({dice:twDiceState,verb:APP.currentVerb,sets:APP.taalworpSets})),sentenceState,'Sentence dice and verb resume exactly');
+ const keptLesson=await page.evaluate(async id=>{await LessonUI.flush();return (await LessonUI.service.list('recent_session')).find(r=>r.recent_session_id===id)},previousLesson.recent_session_id);
+ assert.deepEqual(keptLesson,previousLesson,'Standalone games do not overwrite the earlier shared lesson');
+ await page.evaluate(id=>LessonUI.handle('resume',id),previousLesson.recent_session_id);await page.waitForSelector('.content-vert001-cards');
+ assert.equal(await page.evaluate(()=>APP.cardIndex),1);
  // Restored card menu exposes only approved families; upcoming cards cannot launch.
  await page.locator('[data-main=play]').click();await page.locator('[data-category=cards]').click();
  assert.ok(await page.locator('#screen-cards.active').isVisible());

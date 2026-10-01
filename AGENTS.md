@@ -20,3 +20,5 @@ Deze branch bevat de actuele V01.25-app met de bewaarde oudere inhoud. De oude a
 - Vaste opdrachtopmaak (25 september): alle verplichte oefenwoorden, begin-/eindwoorden, keuzeopties bij ‘Kies:’ en aangehaalde termen waarover de vraag gaat krijgen nadruk volgens VORMGEVING.md. Gebruik de gedeelde contentPromptHtml-weergave in alle geschikte spellen en voorbereiding; laat omliggende instructies normaal. Controleer nieuwe instructievormen vóór publicatie.
 
 - Publieke tekst: geen interne nakijk-, bron- of ontwikkelstatus in de live app. Komende activiteiten zijn grijs, uitgeschakeld en tonen Binnenkort op de afbeelding. Zie de vaste regel in VORMGEVING.md; controleer ook hervatten en het inhoudsoverzicht.
+
+- Dobbelspellen hersteld met expliciet akkoord van Nico (1 oktober 2026): Zinnen bouwen gebruikt de 23 bestaande vrijgegeven Taalworp-sets, Verhaal maken de 10 bestaande beeldsets (320 beelden), Dobbelen met opdrachten de bevroren gezamenlijke voorbereiding met nagekeken vragen. De eerste twee zijn zelfstandige spellen. Bewaar hun eigen worp en de eerdere les bij wisselen/hervatten. Dit geeft geen overige tekstbanken of komende kaartspellen vrij.

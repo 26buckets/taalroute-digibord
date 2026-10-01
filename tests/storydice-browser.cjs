@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
+  await page.goto('file://'+path.join(served,'index.html'));
   const selectSets=async(...ids)=>{
    if(await page.locator('#storySet').getAttribute('open')===null)await page.locator('#storySet summary').click();
    for(const input of await page.locator('[data-storyset]').all())await input.setChecked(ids.includes(await input.inputValue()));
@@ -114,16 +114,20 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.reload();await page.locator('#resumeBtn').click();
   assert.deepEqual(await selectedSets(),['dagelijks']);assert.deepEqual(await page.evaluate(()=>APP.storyRoll),legacyRoll);
   await page.locator('[data-storylock="0"]').click();
-  // Every new set is also discoverable and starts from the existing cabinet.
+  // Retain the archived cabinet checks separately from the public dice routes.
+  const archivePage=await browser.newPage();
+  await archivePage.addInitScript(()=>{window.DigiBordArchiveReview=true});
+  await archivePage.goto('file://'+path.join(served,'index.html'));
   for(const set of sets){
-   await page.locator('[data-main="mycollection"]').click();await page.locator('#collectionStorySets').click();
-   assert.equal(await page.locator('[data-cabinet-type="story"]').count(),10);
-   await page.locator(`[data-cabinet-id="${set.id}"][data-cabinet-type="story"]`).click();
-   assert.equal(await page.locator('#setDetailTitle').innerText(),set.label);
-   assert.equal(await page.locator('#setStoryCount option').count(),set.count<9?2:3);
-   await page.locator('#startCabinetActivity').click();
-   assert.deepEqual(await selectedSets(),[set.id]);
+   await archivePage.locator('[data-main="mycollection"]').click();await archivePage.locator('#collectionStorySets').click();
+   assert.equal(await archivePage.locator('[data-cabinet-type="story"]').count(),10);
+   await archivePage.locator(`[data-cabinet-id="${set.id}"][data-cabinet-type="story"]`).click();
+   assert.equal(await archivePage.locator('#setDetailTitle').innerText(),set.label);
+   assert.equal(await archivePage.locator('#setStoryCount option').count(),set.count<9?2:3);
+   await archivePage.locator('#startCabinetActivity').click();
+   assert.deepEqual(await archivePage.evaluate(()=>APP.storyCollections),[set.id]);
   }
+  await archivePage.close();
   for(const width of [1440,1024,768,390]){
    await page.setViewportSize({width,height:900});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+width);

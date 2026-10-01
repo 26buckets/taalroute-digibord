@@ -22,7 +22,7 @@
  const progressAdapters=Object.fromEntries(engines.contentEngines().map(e=>[e.id,{version:e.version,schemaVersion:1,validate:p=>e.id==='BOARD'?validBoard(p):e.id==='CARDS'||e.id==='DICE'?keys(p,['index','lastRoll','turn'])&&int(p.index)&&int(p.lastRoll)&&int(p.turn):validActivity(p)&&p.kind===engineKinds[e.id]}]));
  service=LessonStorage(runtime,LessonStorageAdapters.createIndexedDBAdapter(indexedDB),undefined,progressAdapters);
  function progress(){
-  const s=runtime.activeSession();if(!s||!$('#screen-game.active'))return null;
+  const s=runtime.activeSession();if(!s||['story','taalworp'].includes(APP.last?.type)||!$('#screen-game.active'))return null;
   let payload;
   if(s.selected_game_engine==='BOARD'){
    if(APP.last?.type!=='board')return null;

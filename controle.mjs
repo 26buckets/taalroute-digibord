@@ -56,7 +56,7 @@ const ac=vm.createContext({Promise,Math,APP:{verbLocked:false,currentVerb:'a'},r
  twDiceState:{WHO:{active:true,locked:true,value:{label:'ik'}},TENSE:{active:true,locked:false,value:{label:'nu'}},CONNECT_1:{active:false,locked:false,value:{label:'en'}}},
  tw:{manifest:{verbs:{a:{id:'a'},b:{id:'b'}},diceFamilies:{TENSE:{values:[{label:'nu'},{label:'verleden'}]}}}},
  $(selector){return {'#languageStage':stage,'#primaryGame':primary,'#activeVerbCard':card,'#drawVerb':deck}[selector]},
- SmoothDice:{roll:()=>animate([],{duration:700}).finished},updateUndo(){},renderLanguageDice(){},renderVerbCard(){},playDiceSound(){},matchMedia:()=>({matches:false})});
+ SmoothDice:{roll:()=>animate([],{duration:700}).finished},save(){},updateUndo(){},renderLanguageDice(){},renderVerbCard(){},playDiceSound(){},matchMedia:()=>({matches:false})});
 vm.runInContext("let languageBusy=false;function settingsState(){return {reducedMotion:reduced}}function currentVerbPool(){return [{id:'a'},{id:'b'}]}function drawVerb(){draws++;APP.currentVerb=APP.currentVerb==='a'?'b':'a'}",ac);
 vm.runInContext(source.slice(source.indexOf('function cardEffect(){'),source.indexOf('function playCabinetEffect(')),ac);
 vm.runInContext(source.slice(source.indexOf('function rollTaalworp(){'),source.indexOf('function drawVerb()')),ac);
@@ -94,7 +94,7 @@ console.log('PASS: five retained turns, ten separate roll/completion undos, pers
 vm.runInContext("for(let i=0;i<12;i++){rememberAction('worp',true);APP.counter++}",uc);
 assert.equal(vm.runInContext('undoHistory.length',uc),1);assert.equal(vm.runInContext('undoHistory[0].steps.length',uc),12);
 const cabinetContext=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',window:{DIGIBORD_DATA:data},tw:{sets:data.taalworpSets,manifest:m},story:data.storydice,taskBank:data.taskBank,APP:{level:'A2'}});
-vm.runInContext(source.slice(source.indexOf('function storyIcons('),source.indexOf('function startStory(')),cabinetContext);
+vm.runInContext(source.slice(source.indexOf('function storyIcons('),source.indexOf('async function startStory(')),cabinetContext);
 vm.runInContext(source.slice(source.indexOf('function collectionItems()'),source.indexOf('function cabinetCover(')),cabinetContext);
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function cardActivityHeader(')),cabinetContext);
 vm.runInContext(source.match(/function selectedTaskRoute\(\)\{[^\n]+/)[0],cabinetContext);
@@ -307,7 +307,7 @@ console.log('PASS: shared level selector remains unchanged inside and outside ca
 // All ready sets are selectable once, grouped into Basis, Taalvorm and Thema’s.
 const setCtx=vm.createContext({esc:s=>String(s??''),APP:{},tw:{sets:data.taalworpSets,manifest:m}});
 vm.runInContext(source.slice(source.indexOf('function currentVerbPool('),source.indexOf('function taalworpExample(')),setCtx);
-vm.runInContext(source.slice(source.indexOf('function verbSetMenu('),source.indexOf('function startTaalworp(')),setCtx);
+vm.runInContext(source.slice(source.indexOf('function verbSetMenu('),source.indexOf('async function startTaalworp(')),setCtx);
 setCtx.sets=Object.values(data.taalworpSets.sets).filter(s=>s.availabilityStatus==='ready');
 for(const set of setCtx.sets){
  setCtx.APP.taalworpSets=[set.id];setCtx.selected=[set.id];
@@ -322,7 +322,7 @@ console.log('PASS: all 23 verb sets, three labelled groups, single selections an
 
 // Three states: active/free, active/held and off. A lock cannot activate an off die.
 const toggleDie={dataset:{die:'WHO'}},toggleLock={dataset:{lock:'WHO'}},toggleStage={innerHTML:''};
-const toggleCtx=vm.createContext({TW_DICE_IDS:['WHO'],tw:{manifest:{diceFamilies:{WHO:{label:'Wie',values:[{label:'ik'}]}}}},twDiceState:{WHO:{active:true,locked:false,value:{label:'ik'}}},languageBusy:false,$:()=>toggleStage,$$:s=>s==='[data-die]'?[toggleDie]:[toggleLock],languageDieLabel:()=> 'ik',languageDieIcon:()=>'',softDie:()=>'',gameIcon:n=>`<svg>${n}</svg>`,esc:s=>s,SmoothDice:{mount(){}},renderVerbCard(){}});
+const toggleCtx=vm.createContext({TW_DICE_IDS:['WHO'],tw:{manifest:{diceFamilies:{WHO:{label:'Wie',values:[{label:'ik'}]}}}},twDiceState:{WHO:{active:true,locked:false,value:{label:'ik'}}},languageBusy:false,$:()=>toggleStage,$$:s=>s==='[data-die]'?[toggleDie]:[toggleLock],languageDieLabel:()=> 'ik',languageDieIcon:()=>'',softDie:()=>'',gameIcon:n=>`<svg>${n}</svg>`,esc:s=>s,SmoothDice:{mount(){}},renderVerbCard(){},save(){}});
 vm.runInContext(source.slice(source.indexOf('function renderLanguageDice('),source.indexOf('function currentVerbPool(')),toggleCtx);
 vm.runInContext('renderLanguageDice()',toggleCtx);toggleLock.onclick();assert.equal(toggleCtx.twDiceState.WHO.locked,true);assert.ok(toggleStage.innerHTML.includes('<svg>lock</svg>'));
 toggleDie.onclick();assert.equal(toggleCtx.twDiceState.WHO.active,false);assert.equal(toggleCtx.twDiceState.WHO.locked,false);assert.ok(toggleStage.innerHTML.includes('hidden><svg>unlock</svg>'));toggleLock.onclick();assert.equal(toggleCtx.twDiceState.WHO.active,false);
