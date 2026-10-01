@@ -56,10 +56,10 @@ const ac=vm.createContext({Promise,Math,APP:{verbLocked:false,currentVerb:'a'},r
  twDiceState:{WHO:{active:true,locked:true,value:{label:'ik'}},TENSE:{active:true,locked:false,value:{label:'nu'}},CONNECT_1:{active:false,locked:false,value:{label:'en'}}},
  tw:{manifest:{verbs:{a:{id:'a'},b:{id:'b'}},diceFamilies:{TENSE:{values:[{label:'nu'},{label:'verleden'}]}}}},
  $(selector){return {'#languageStage':stage,'#primaryGame':primary,'#activeVerbCard':card,'#drawVerb':deck}[selector]},
- SmoothDice:{roll:()=>animate([],{duration:700}).finished},save(){},updateUndo(){},renderLanguageDice(){},renderVerbCard(){},playDiceSound(){},matchMedia:()=>({matches:false})});
-vm.runInContext("let languageBusy=false;function settingsState(){return {reducedMotion:reduced}}function currentVerbPool(){return [{id:'a'},{id:'b'}]}function drawVerb(){draws++;APP.currentVerb=APP.currentVerb==='a'?'b':'a'}",ac);
+ SmoothDice:{roll:()=>animate([],{duration:700}).finished},save(){},updateUndo(){},renderLanguageDice(){},renderVerbCard(){deck.disabled=!!ac.APP.verbLocked},playDiceSound(){},matchMedia:()=>({matches:false})});
+vm.runInContext("let languageBusy=false;function settingsState(){return {reducedMotion:reduced}}function currentVerbPool(){return [{id:'a'},{id:'b'}]}function normalizeLanguageDice(){}function languageChoices(id){return tw.manifest.diceFamilies[id].values}function drawVerb(){draws++;APP.currentVerb=APP.currentVerb==='a'?'b':'a';return true}",ac);
 vm.runInContext(source.slice(source.indexOf('function cardEffect(){'),source.indexOf('function playCabinetEffect(')),ac);
-vm.runInContext(source.slice(source.indexOf('function rollTaalworp(){'),source.indexOf('function drawVerb()')),ac);
+vm.runInContext(source.slice(source.indexOf('function rollTaalworp(){'),source.indexOf('function drawVerb(')),ac);
 let pending=vm.runInContext('playTaalworp()',ac);
 assert.equal(animationCalls.length,2);assert.equal(animationCalls[1].options.duration,950);
 assert.ok(animationCalls[1].frames[0].transform.includes('rotateY(-180deg)'));
@@ -248,6 +248,7 @@ console.log('PASS: rounded 48-segment geometry, six faces, unit normals, bounded
 
 // The visible assignment must explain the actual roll, including ambiguous “zij”.
 const instructionContext=vm.createContext({});
+vm.runInContext(fs.readFileSync(root+'taalworp-choices.js','utf8')+source.slice(source.indexOf('function languageDieLabel('),source.indexOf('function languageChoices(')),instructionContext);
 vm.runInContext(source.slice(source.indexOf('function languageInstruction('),source.indexOf('function renderVerbCard(')),instructionContext);
 for(const [id,family] of Object.entries(m.diceFamilies))for(const value of family.values){
  instructionContext.id=id;instructionContext.value=value;
@@ -322,7 +323,7 @@ console.log('PASS: all 23 verb sets, three labelled groups, single selections an
 
 // Three states: active/free, active/held and off. A lock cannot activate an off die.
 const toggleDie={dataset:{die:'WHO'}},toggleLock={dataset:{lock:'WHO'}},toggleStage={innerHTML:''};
-const toggleCtx=vm.createContext({TW_DICE_IDS:['WHO'],tw:{manifest:{diceFamilies:{WHO:{label:'Wie',values:[{label:'ik'}]}}}},twDiceState:{WHO:{active:true,locked:false,value:{label:'ik'}}},languageBusy:false,$:()=>toggleStage,$$:s=>s==='[data-die]'?[toggleDie]:[toggleLock],languageDieLabel:()=> 'ik',languageDieIcon:()=>'',softDie:()=>'',gameIcon:n=>`<svg>${n}</svg>`,esc:s=>s,SmoothDice:{mount(){}},renderVerbCard(){},save(){}});
+const toggleCtx=vm.createContext({APP:{},TaalworpChoices:{labels:{WHO:'Wie/wat'}},rememberAction(){},normalizeLanguageDice(){},languageChoices:()=>[{label:'ik'}],TW_DICE_IDS:['WHO'],tw:{manifest:{diceFamilies:{WHO:{label:'Wie',values:[{label:'ik'}]}}}},twDiceState:{WHO:{active:true,locked:false,value:{label:'ik'}},SENTENCE_TYPE:{active:false,locked:false}},languageBusy:false,$:()=>toggleStage,$$:s=>s==='[data-die]'?[toggleDie]:[toggleLock],languageDieLabel:()=> 'ik',languageDieIcon:()=>'',softDie:()=>'',gameIcon:n=>`<svg>${n}</svg>`,esc:s=>s,SmoothDice:{mount(){}},renderVerbCard(){},save(){}});
 vm.runInContext(source.slice(source.indexOf('function renderLanguageDice('),source.indexOf('function currentVerbPool(')),toggleCtx);
 vm.runInContext('renderLanguageDice()',toggleCtx);toggleLock.onclick();assert.equal(toggleCtx.twDiceState.WHO.locked,true);assert.ok(toggleStage.innerHTML.includes('<svg>lock</svg>'));
 toggleDie.onclick();assert.equal(toggleCtx.twDiceState.WHO.active,false);assert.equal(toggleCtx.twDiceState.WHO.locked,false);assert.ok(toggleStage.innerHTML.includes('hidden><svg>unlock</svg>'));toggleLock.onclick();assert.equal(toggleCtx.twDiceState.WHO.active,false);

@@ -188,3 +188,13 @@ De drie dobbelspelkaarten hebben één vaste opbouw: afbeelding, kort label, tit
 ## Zinnen bouwen: ruimte rond de kop — 1 oktober 2026
 
 Nico heeft alleen de ruimte en verzorgde weergave rond de titel/ondertitel direct toegestaan. Deze kop krijgt natuurlijke hoogte, minimaal 104 px, 18 px boven-/onderruimte en rustige instellingen-typografie. Geen afsnijding door de gedeelde vaste kophoogte. De zes stenen, mogelijke uitkomsten, niveaukeuzes, verbindingswoorden en middelste opdrachtkaart blijven in deze ronde inhoudelijk ongewijzigd: daarover is eerst advies gevraagd. Het voorstel is geen toestemming om de inhoud of het werkproces al uit te breiden.
+
+## Zinnen bouwen: zes keuzes — 2 oktober 2026
+
+Nico heeft het voorstel van 1 oktober nu goedgekeurd. Bewaar zes zichtbare plekken op de middenkaart: Wie/wat, Tijd, Maak een zin, Verbindingswoorden hoofdzin, Verbindingswoorden bijzin en Werkwoordsvorm. Twee kolommen, drie rijen; uitgeschakelde keuzes tonen Uit. Geen lange herhaalde instructies op de kaart: uitleg en voorbeelden blijven achter de bestaande hulpknoppen. Werkwoord groot en verplichte keuzes vet. Geen scroll binnen de middenkaart op de gecontroleerde digibordformaten 1366×768, 1440×900 en 1920×1080, ook bij alle 303 werkwoordlabels en zes zichtbare keuzes. Mobiel behoudt leesbare tekst en een verticaal doorlopende pagina.
+
+Wie/wat voegt personen, de hond, de auto en de machine toe. Dieren en dingen zijn beperkt tot expliciet passende werkwoorden en krijgen bijbehorende voorbeelden. Tijd toont Nu, Vroeger en Al gebeurd; geen TT/OVT/VTT op de stenen. Beschikbare zinsvormen en verbindingen groeien met de gekozen oefenstand. Deze didactische opbouw is geen officiële ERK-classificatie van losse woorden. C1/C2 geeft geen extra verborgen inhoud vrij.
+
+Hoofdzin en bijzin wisselen elkaar standaard af. Beide verbindingen oefenen is een bewuste extra keuze. Oude opgeslagen combinaties met twee actieve verbindingsstenen blijven behouden. Een vastgezette keuze blijft staan bij een nieuwe kaart of andere set; zonder passende kaart wordt de huidige kaart behouden. Vraagzinnen worden in nieuwe combinaties niet willekeurig samengevoegd met de verbindingsopdracht. Een opdrachtzin komt alleen bij passende werkwoorden voor, zonder tegenstrijdige wie-/tijd-/verbindingsvoorwaarden. Werkwoordsvorm is een extra vraag; het antwoord staat pas bij het voorbeeld.
+
+De Oefenen-voorbereiding, andere spelroutes, grote tongbrekertekst en tijdelijk uitgeschakelde audio blijven ongewijzigd. Kaartspellen is in deze ronde alleen onderzocht. Het hersteladvies geeft geen toestemming om de negen verborgen families vrij te geven.

@@ -517,7 +517,7 @@ async function startTaalworp(setId){
  const sets=Object.values(tw.sets.sets).filter(x=>x.availabilityStatus==='ready'),requested=[].concat(setId);
  const selected=sets.filter(s=>requested.includes(s.id)).map(s=>s.id);if(!selected.length)selected.push('SET_A2_BASIS');
  const changed=JSON.stringify(APP.taalworpSets||[APP.taalworpSet])!==JSON.stringify(selected);
- initTwDice();APP.taalworpDice=twDiceState;APP.taalworpSets=selected;APP.taalworpSet=selected[0];if(changed&&!APP.verbLocked)drawVerb();
+ initTwDice();APP.taalworpDice=twDiceState;APP.taalworpSets=selected;APP.taalworpSet=selected[0];if(changed&&!APP.verbLocked)drawVerb();if(changed)normalizeLanguageDice();
  const label=sets.filter(s=>selected.includes(s.id)).map(s=>s.label).join(' + ');
  setLast('taalworp',`Zinnen bouwen · ${label}`,{setIds:selected});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell taalworp-shell"><div class="game-work card-work">
@@ -534,7 +534,7 @@ async function startTaalworp(setId){
    <p id="twExampleText" class="example-text" role="button" tabindex="0" hidden></p>
   </div>
  </div></div></div>
- ${diceSidebar('taalworp',`${verbSetMenu(sets,selected)}<button class="smallbtn" id="drawVerb">Nieuwe werkwoordkaart</button><button class="smallbtn" id="viewVerbStack">Werkwoorden in deze selectie</button><div class="dice-table-tip"><strong>Zo speel je</strong><p>Kies één of meer sets en pas je selectie toe. Vastgezette kaarten en stenen blijven staan, ook als je andere sets kiest.</p></div>`)}
+ ${diceSidebar('taalworp',`${verbSetMenu(sets,selected)}<label class="tw-both-links"><input id="twBothLinks" type="checkbox" ${APP.taalworpBothLinks?'checked':''}> Beide verbindingen oefenen</label><button class="smallbtn" id="drawVerb">Nieuwe werkwoordkaart</button><button class="smallbtn" id="viewVerbStack">Werkwoorden in deze selectie</button><div class="dice-table-tip"><strong>Zo speel je</strong><p>Kies één of meer sets en pas je selectie toe. Vastgezette kaarten en stenen blijven staan, ook als je andere sets kiest.</p></div>`)}
  </div></div>
 
  ${gameBar(`<button class="primary card-next-primary table-roll" id="primaryGame"><span class="roll-button-die">${softDie({value:5,front:false})}</span><span>GOOIEN</span></button>`)}</div>`;
@@ -542,10 +542,20 @@ async function startTaalworp(setId){
  $('#verbSetPicker').onchange=()=>{$('#applyVerbSets').disabled=!$$('[data-verbset]:checked').length};
  $('#applyVerbSets').onclick=()=>{if(languageBusy)return;const ids=$$('[data-verbset]:checked').map(x=>x.value);if(!ids.length)return;rememberAction('werkwoordsets wijzigen');startTaalworp(ids);$('#verbSetPicker summary').focus()};
  $('#viewVerbStack').onclick=()=>openGameDialog('Werkwoorden in deze selectie',`<p>${esc(label)} · ${currentVerbPool().length} unieke werkwoorden.</p><div class="detail-words">${currentVerbPool().map(v=>`<span>${esc(v.lemma)}</span>`).join('')}</div>`);
+ $('#twBothLinks').onchange=e=>{rememberAction('verbindingen kiezen');APP.taalworpBothLinks=e.target.checked;if(!APP.taalworpBothLinks&&twDiceState.CONNECT_1.active&&twDiceState.CONNECT_2.active){twDiceState.CONNECT_2.active=false;twDiceState.CONNECT_2.locked=false}normalizeLanguageDice();renderLanguageDice();renderVerbCard();save()};
  renderLanguageDice();renderVerbCard();$('#drawVerb').onclick=()=>playTaalworp(true);$('#verbLock').onclick=()=>{APP.verbLocked=!APP.verbLocked;save();renderVerbCard()};$('#twFinish').onclick=()=>{completeTurn();startTaalworp(APP.taalworpSets)};for(const key of ['Help','Example','Goals','Partner','More'])$('#tw'+key).onclick=()=>showDiceContext('taalworp',key);$('#twExampleText').onclick=()=>{$('#twExampleText').hidden=true};$('#twExampleText').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();$('#twExampleText').hidden=true}}
 }
-function languageDieLabel(id,value){
- return id==='TENSE'?({present:'Nu · TT',past:'Verleden · OVT',perfect:'Voltooid · VTT'}[value?.code]||value?.label||''):({'mededelende zin':'Vertelzin','vraagwoordvraag':'Vraagwoord','begin met tijd of plaats':'Tijd/plaats voorop','persoonsvorm':'PV','infinitief':'Infinitief','voltooid deelwoord':'Deelwoord'}[value?.label]||value?.label||'');
+function languageDieLabel(id,value){return TaalworpChoices.label(id,value)}
+function languageChoices(id,verb=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0]){return TaalworpChoices.values(tw.manifest,id,APP.level,verb,twDiceState)}
+function languageValuesFit(verb,keepAll=false){
+ return ['WHO','SENTENCE_TYPE'].every(id=>{const st=twDiceState[id];if(!st?.active||(!keepAll&&!st.locked))return true;return id==='WHO'?TaalworpChoices.subjectFits(st.value,verb):languageChoices(id,verb).some(v=>v.id===st.value.id)});
+}
+function normalizeLanguageDice(){
+ const verb=tw.manifest.verbs[APP.currentVerb];if(!verb)return;
+ for(const id of TW_DICE_IDS){const st=twDiceState[id],choices=languageChoices(id,verb);if(!st||st.locked)continue;
+  if(!choices.length){st.active=false;continue}
+  if(!choices.some(v=>v.id===st.value?.id))st.value=choices[0];
+ }
 }
 function languageDieIcon(i){
  const icons=['<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/>','<circle cx="12" cy="12" r="9"/><path d="M12 6v6l5 2"/>','<path d="M8 7a4 4 0 1 1 7 3c-2 1-3 2-3 5M12 19v1"/>','<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/>','<circle cx="4" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="20" cy="12" r="1"/>','<path d="M4 7h16M4 17h16M8 3v8M16 13v8"/>'];
@@ -554,54 +564,57 @@ function languageDieIcon(i){
 function renderLanguageDice(){
  const fam=tw.manifest.diceFamilies;
  $('#languageStage').innerHTML=TW_DICE_IDS.map((id,i)=>{
-  const st=twDiceState[id],f=fam[id],label=languageDieLabel(id,st.value);
+  const st=twDiceState[id],f=fam[id],label=languageDieLabel(id,st.value),choices=languageChoices(id),name=TaalworpChoices.labels[id];
   return `<div class="langdie" style="--accent:${['#058fe1','#e43735','#1ba25c','#df9f08','#a34de2','#fffefa'][i]}">
-   <div class="langlabel">${esc(f.label)}</div>
-   <div class="die-control"><button class="tw-cube ${st.active?'':'inactive'}" data-die="${id}" aria-pressed="${st.active}" aria-label="${esc(f.label+': '+(st.active?label:'uit')+'. Klik om '+(st.active?'uit':'aan')+' te zetten.')}">
-    <span class="tw-cube-body" aria-hidden="true">${softDie({color:['#058fe1','#e43735','#1ba25c','#df9f08','#a34de2','#fffefa'][i],word:st.active?label:'Uit',words:st.active?f.values.filter(v=>v.releaseEligible!==false).map(v=>languageDieLabel(id,v)):['Uit'],topIcon:languageDieIcon(i)})}</span>
+   <div class="langlabel">${id.startsWith('CONNECT')?'<small>Verbindingswoorden</small>'+(id==='CONNECT_1'?'Hoofdzin':'Bijzin'):esc(name)}</div>
+   <div class="die-control"><button class="tw-cube ${st.active?'':'inactive'}" data-die="${id}" ${!choices.length&&!st.active?'disabled':''} aria-pressed="${st.active}" aria-label="${esc(name+': '+(st.active?label:'uit')+'. Klik om '+(st.active?'uit':'aan')+' te zetten.')}">
+    <span class="tw-cube-body" aria-hidden="true">${softDie({color:['#058fe1','#e43735','#1ba25c','#df9f08','#a34de2','#fffefa'][i],word:st.active?label:'Uit',words:st.active?(choices.length?choices:f.values).map(v=>languageDieLabel(id,v)):['Uit'],topIcon:languageDieIcon(i)})}</span>
    </button>
-   <button class="lockbtn corner-lock ${st.locked?'locked':''}" data-lock="${id}" aria-pressed="${st.locked}" aria-label="${esc(f.label)} ${st.locked?'vrijgeven':'vastzetten'}" title="${st.locked?'Vast — vrijgeven':'Vrij — vastzetten'}" ${st.active?'':'hidden'}>${gameIcon(st.locked?'lock':'unlock')}</button></div>
+   <button class="lockbtn corner-lock ${st.locked?'locked':''}" data-lock="${id}" aria-pressed="${st.locked}" aria-label="${esc(name)} ${st.locked?'vrijgeven':'vastzetten'}" title="${st.locked?'Vast — vrijgeven':'Vrij — vastzetten'}" ${st.active?'':'hidden'}>${gameIcon(st.locked?'lock':'unlock')}</button></div>
   </div>`;
  }).join('');
  SmoothDice.mount();
- $$('[data-die]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const s=twDiceState[b.dataset.die];s.active=!s.active;s.locked=false;renderLanguageDice();renderVerbCard();save()});
+ $$('[data-die]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const id=b.dataset.die,s=twDiceState[id];if(b.disabled)return;rememberAction('taalsteen kiezen');s.active=!s.active;s.locked=false;if(s.active&&twDiceState.SENTENCE_TYPE.active&&twDiceState.SENTENCE_TYPE.locked&&((['WHO','TENSE','CONNECT_1','CONNECT_2'].includes(id)&&twDiceState.SENTENCE_TYPE.value?.recipe==='imperative')||(id.startsWith('CONNECT')&&['yes_no_question','wh_question'].includes(twDiceState.SENTENCE_TYPE.value?.recipe)))){s.active=false;toast('Geef eerst de steen Maak een zin vrij.');return}if(s.active&&id.startsWith('CONNECT')&&!APP.taalworpBothLinks){const other=twDiceState[id==='CONNECT_1'?'CONNECT_2':'CONNECT_1'];other.active=false;other.locked=false}normalizeLanguageDice();renderLanguageDice();renderVerbCard();save()});
  $$('[data-lock]').forEach(b=>b.onclick=()=>{if(languageBusy)return;const s=twDiceState[b.dataset.lock];if(!s.active)return;s.locked=!s.locked;renderLanguageDice();renderVerbCard();save()});
 }
 function currentVerbPool(){const ids=APP.taalworpSets||[APP.taalworpSet||'SET_A2_BASIS'];return [...new Set(ids.flatMap(id=>tw.sets.sets[id]?.recordIds||[]))].map(id=>tw.manifest.verbs[id]).filter(Boolean)}
 function taalworpExample(v,values){
  const rawWho=values.WHO,who=rawWho?.kind==='joker'||!rawWho?{label:'ik',agreementClass:'firstSingular',id:'TW_A2_WIE_IK'}:rawWho;
  const subject=who.label,person=who.agreementClass,plural=person==='plural',tense=values.TENSE?.code||'present',recipe=values.SENTENCE_TYPE?.recipe||'declarative';
- const inverted=['yes_no_question','wh_question','fronted_time_or_place'].includes(recipe);
- const forms=v.forms,features=v.features||{};
+ const inverted=['yes_no_question','wh_question','fronted_time_or_place','fronted_place'].includes(recipe);
+ const forms=v.forms,features=v.features||{},nonhuman=['animal','object'].includes(who.kind),baseComplement=who.complements?.[v.id]??v.defaultComplement??'';
  let finite=tense==='past'?(plural?forms.past.plural:forms.past.singular):(forms.present[person]||forms.present.secondThirdSingular),tail='';
  const motion=['rijden','lopen','vliegen','zwemmen','fietsen','reizen'].includes(forms.infinitive);
- const aux=motion?(/\b(naar|tot|richting)\b/.test(v.defaultComplement||'')?'zijn':'hebben'):(features.perfectAuxiliary==='zijn'?'zijn':'hebben');
+ const aux=motion?(/\b(naar|tot|richting)\b/.test(baseComplement)?'zijn':'hebben'):(features.perfectAuxiliary==='zijn'?'zijn':'hebben');
  const auxiliary=(base,past=false)=>past?(base==='zijn'?(plural?'waren':'was'):(plural?'hadden':'had')):base==='zijn'?(plural?'zijn':person==='firstSingular'?'ben':person==='secondSingular'||person==='formalSingular'?'bent':'is'):(plural?'hebben':person==='firstSingular'?'heb':person==='secondSingular'||person==='formalSingular'?'hebt':'heeft');
  if(tense==='perfect'){finite=auxiliary(aux);tail=forms.participle}
  else if(features.separable){tail=features.particle||'';if(tail&&finite.startsWith(tail))finite=finite.slice(tail.length)}
  if(inverted&&person==='secondSingular'&&tense==='present')finite=forms.present.firstSingular;
  if(inverted&&person==='secondSingular'&&tense==='perfect')finite=aux==='zijn'?'ben':'heb';
  const reflexive=features.reflexiveType&&features.reflexiveType!=='none'?({ik:'me',jij:'je',hij:'zich',zij:'zich',u:'zich',wij:'ons',jullie:'je'}[subject]||'zich'):'';
- let complement=[v.expressionObject||(v.lemma.includes('zorgen maken')?'zorgen':''),v.defaultComplement||''].filter(Boolean).join(' ');
- complement=complement.replace(/\bmijn\b/g,({ik:'mijn',jij:'jouw',hij:'zijn',zij:plural?'hun':'haar',u:'uw',wij:'onze',jullie:'jullie'})[subject]||'mijn');
+ let complement=[v.expressionObject||(v.lemma.includes('zorgen maken')?'zorgen':''),baseComplement].filter(Boolean).join(' ');
+ complement=complement.replace(/\bmijn\b/g,({ik:'mijn',jij:'jouw',hij:'zijn',zij:plural?'hun':'haar',u:'uw',wij:'onze',jullie:'jullie'})[subject]||who.possessive||'zijn');
  if(subject==='wij')complement=complement.replace(/\bonze kind\b/g,'ons kind');
  let words=inverted?[finite,subject,reflexive,complement,tail]:[subject,finite,reflexive,complement,tail];
- if(recipe==='wh_question')words.unshift('waarom');
+ if(recipe==='wh_question')words.unshift(values.SENTENCE_TYPE?.questionWord||'waarom');
  if(recipe==='fronted_time_or_place')words.unshift(tense==='present'?'op dit moment':tense==='past'?'destijds':'inmiddels');
+ if(recipe==='fronted_place'){words=inverted?[finite,subject,reflexive,complement.replace(/\b(?:in|op|bij|naar|uit|van)\s+[^,]+$/, '').trim(),tail]:words;words.unshift('hier')}
+ if(recipe==='imperative'){finite=forms.present.firstSingular;tail=features.separable?features.particle||'':'';if(tail&&finite.startsWith(tail))finite=finite.slice(tail.length);if(forms.infinitive==='zijn')finite='wees';words=[finite,reflexive?'je':'',complement.replace(/\bmijn\b/g,'je'),tail]}
  let sentence=words.filter(Boolean).join(' ');
  if(values.CONNECT_1){
   const link=values.CONNECT_1.label,find=plural?'vinden':subject==='ik'?'vind':'vindt',doForm=plural?'doen':subject==='ik'?'doe':'doet',tell=plural?'vertellen':subject==='ik'?'vertel':'vertelt';
   const clauses={en:`${subject} ${tell} erover`,maar:`${subject} ${auxiliary('hebben')} weinig tijd`,want:`${subject} ${find} dat belangrijk`,of:`${subject} ${doForm} iets anders`,dus:`${subject} ${tell} erover`};
-  sentence+=`, ${link} ${clauses[link]||clauses.en}`;
+  const other={en:'ik kijk toe',maar:'dat gebeurt niet vaak',want:'dat is nodig',of:'dat gebeurt later',dus:'ik wacht even'};
+  sentence+=`, ${link} ${nonhuman?other[link]||other.en:clauses[link]||clauses.en}`;
  }
- if(values.CONNECT_2){const link=values.CONNECT_2.label;sentence+=link==='als'?`, als ${subject} tijd ${auxiliary('hebben')}`:`, omdat ${subject} dat belangrijk ${plural?'vinden':subject==='ik'?'vind':'vindt'}`}
+ if(values.CONNECT_2){const link=values.CONNECT_2.label,clauses={omdat:nonhuman?'dat nodig is':`${subject} dat belangrijk ${plural?'vinden':subject==='ik'?'vind':'vindt'}`,als:'er genoeg tijd is',terwijl:tense==='present'?'ik even wacht':'ik even wachtte',voordat:tense==='present'?'de les begint':'de les begon',nadat:tense==='present'?'de pauze is afgelopen':'de pauze was afgelopen',hoewel:tense==='present'?'het al laat is':'het al laat was',tenzij:'er iets tussenkomt',zodra:'het kan'};sentence+=`, ${link} ${clauses[link]||clauses.omdat}`}
  sentence=sentence[0].toUpperCase()+sentence.slice(1)+(['yes_no_question','wh_question'].includes(recipe)?'?':'.');
  const form=values.VERB_FORM?.code;
  return sentence+(form?`\nGevraagde vorm: ${form==='infinitive'?forms.infinitive:form==='participle'?forms.participle:finite}.`:'');
 }
 let languageBusy=false;
 function initTwDice(){
- if(!tw)return;const low=APP.level.startsWith('Alpha')||['A0','A1','A1+'].includes(APP.level),high=['B1','B2','C1','C2'].includes(APP.level);
+ if(!tw)return;const low=APP.level.startsWith('Alpha')||['A0','A1','A1+'].includes(APP.level),high=['B1','B2','C1','C2'].includes(APP.level);if(APP.taalworpBothLinks===undefined)APP.taalworpBothLinks=!!(twDiceState.CONNECT_1?.active&&twDiceState.CONNECT_2?.active);
  TW_DICE_IDS.forEach(id=>{if(!twDiceState[id])twDiceState[id]={active:id==='WHO'||(!low&&id==='TENSE')||(high&&['SENTENCE_TYPE','CONNECT_1'].includes(id)),locked:false,value:tw.manifest.diceFamilies[id].values[0]}})
 }
 function rollTaalworp(){return playTaalworp(false)}
@@ -612,9 +625,10 @@ async function playTaalworp(cardOnly=false){
  try{
   const reduced=settingsState().reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches;
   const moving=cardOnly?[]:TW_DICE_IDS.filter(id=>twDiceState[id].active&&!twDiceState[id].locked);
-  moving.forEach(id=>{const vals=tw.manifest.diceFamilies[id].values.filter(v=>v.releaseEligible!==false);twDiceState[id].value=vals[Math.floor(Math.random()*vals.length)]});
-  const newCard=!APP.verbLocked||!tw.manifest.verbs[APP.currentVerb];
-  if(newCard)drawVerb();
+  const newCard=(!APP.verbLocked||!tw.manifest.verbs[APP.currentVerb])&&drawVerb(cardOnly);
+  normalizeLanguageDice();
+  moving.forEach(id=>{const vals=languageChoices(id);if(vals.length)twDiceState[id].value=vals[Math.floor(Math.random()*vals.length)]});
+  normalizeLanguageDice();
   renderLanguageDice();renderVerbCard();
   page.setAttribute('aria-busy','true');page.querySelectorAll('button').forEach(b=>b.disabled=true);primary.disabled=true;
   const animations=[];
@@ -631,26 +645,25 @@ async function playTaalworp(cardOnly=false){
   await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
  }finally{
   if(stage.isConnected){languageBusy=false;save();updateUndo()}
-  if(stage.isConnected){page.removeAttribute('aria-busy');page.querySelectorAll('button').forEach(b=>b.disabled=false);primary.disabled=false;$('#drawVerb').disabled=!!APP.verbLocked;}
+  if(stage.isConnected){page.removeAttribute('aria-busy');page.querySelectorAll('button').forEach(b=>b.disabled=false);primary.disabled=false;renderLanguageDice();renderVerbCard();}
  }
 }
-function drawVerb(){const pool=currentVerbPool(),choices=pool.filter(v=>v.id!==APP.currentVerb),v=(choices.length?choices:pool)[Math.floor(Math.random()*(choices.length||pool.length))];APP.currentVerb=v.id;save()}
+function drawVerb(keepAll=false){const pool=currentVerbPool().filter(v=>languageValuesFit(v,keepAll)),choices=pool.filter(v=>v.id!==APP.currentVerb),available=choices.length?choices:pool;if(!available.length)return false;const previous=APP.currentVerb;APP.currentVerb=available[Math.floor(Math.random()*available.length)].id;save();return previous!==APP.currentVerb}
 function languageInstruction(id,value){
  const label=value?.label||'Kies zelf';
- if(id==='WHO')return {title:'Wie?',text:value?.kind==='joker'?'Kies zelf over wie je vertelt.':`Gebruik “${label}”${value?.disambiguation?' ('+value.disambiguation+')':''}.`};
+ if(id==='WHO')return {title:'Wie/wat',text:value?.kind==='joker'?'Kies zelf een persoon, dier of ding dat bij het werkwoord past.':`Gebruik “${label}”${value?.disambiguation?' ('+value.disambiguation+')':''}.`};
  if(id==='TENSE')return {title:'Wanneer?',text:({present:'Vertel wat er nu gebeurt. Gebruik de tegenwoordige tijd.',past:'Vertel wat er vroeger gebeurde. Gebruik de verleden tijd.',perfect:'Vertel wat er is gebeurd. Gebruik hebben of zijn + voltooid deelwoord.'})[value?.code]||label};
- if(id==='SENTENCE_TYPE')return {title:'Welke zin?',text:({declarative:'Maak een vertelzin.',yes_no_question:'Maak een vraag waarop je ja of nee kunt antwoorden.',wh_question:'Begin met een vraagwoord, zoals wie, wat of waarom.',fronted_time_or_place:'Begin je zin met een tijd of een plaats.'})[value?.recipe]||'Kies zelf welke soort zin je maakt.'};
- if(id==='CONNECT_1'||id==='CONNECT_2')return {title:'Verbind',text:`Maak je zin langer met “${label}”.`};
- return {title:'Zoek de vorm',text:`Noem ook de ${label} van het werkwoord.`};
+ if(id==='SENTENCE_TYPE')return {title:'Welke zin?',text:({declarative:'Maak een vertelzin.',yes_no_question:'Maak een vraag waarop je ja of nee kunt antwoorden.',wh_question:'Begin met '+(value?.questionWord||'waarom')+'.',fronted_time_or_place:'Begin met een tijd, bijvoorbeeld vandaag of gisteren.',fronted_place:'Begin met een plaats, bijvoorbeeld hier.',imperative:'Geef iemand een opdracht. Bijvoorbeeld: Werk rustig.'})[value?.recipe]||'Kies zelf welke soort zin je maakt.'};
+ if(id==='CONNECT_1'||id==='CONNECT_2')return {title:TaalworpChoices.labels[id],text:id==='CONNECT_1'?`Verbind twee hoofdzinnen met “${label}”.`:`Maak een bijzin met “${label}”. Zet de werkwoorden achteraan in die bijzin.`};
+ return {title:'Zoek de vorm',text:value?.code==='finite'?'Extra vraag: noem de persoonsvorm in je zin.':`Extra vraag: noem ${value?.code==='infinitive'?'het hele werkwoord':'het voltooid deelwoord'} van de kaart.`};
 }
 function renderVerbCard(){
- if(!tw.manifest.verbs[APP.currentVerb]||(!APP.verbLocked&&!currentVerbPool().some(v=>v.id===APP.currentVerb)))drawVerb();
+ if(!tw.manifest.verbs[APP.currentVerb]||(!APP.verbLocked&&!currentVerbPool().some(v=>v.id===APP.currentVerb)))drawVerb(true);
  const verb=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0];APP.currentVerb=verb.id;
- $('#verbCounter').textContent=currentVerbPool().some(v=>v.id===verb.id)?`${currentVerbPool().findIndex(v=>v.id===verb.id)+1} van ${currentVerbPool().length}`:'Vastgezet · buiten selectie';$('#verbValue').textContent=verb.lemma;$('#verbHint').textContent=verb.primarySense?.gloss||verb.defaultComplement||'';
- const rules=TW_DICE_IDS.filter(id=>twDiceState[id].active).map(id=>({id,...languageInstruction(id,twDiceState[id].value)}));
- $('#twResult').innerHTML=rules.length?`<ul class="sentence-recipe">${rules.map(r=>`<li class="recipe-${r.id}"><strong>${esc(r.title)}</strong><span>${esc(r.text)}</span></li>`).join('')}</ul>`:'<p>Kies zelf wie en wanneer.</p>';
+ $('#verbCounter').textContent=currentVerbPool().some(v=>v.id===verb.id)?`${currentVerbPool().findIndex(v=>v.id===verb.id)+1} van ${currentVerbPool().length}`:'Vastgezet bij je keuze';$('#verbValue').textContent=verb.lemma;$('#verbHint').textContent=(twDiceState.WHO?.active?twDiceState.WHO.value?.complements?.[verb.id]:null)??verb.primarySense?.gloss??verb.defaultComplement??'';
+ $('#twResult').innerHTML=`<dl class="sentence-choices">${TW_DICE_IDS.map(id=>{const st=twDiceState[id],title=id==='CONNECT_1'?'Hoofdzin':id==='CONNECT_2'?'Bijzin':TaalworpChoices.labels[id],value=languageDieLabel(id,st.value);return `<div class="sentence-choice ${st.active?'':'is-off'}"><dt>${id.startsWith('CONNECT')?'<small>Verbindingswoorden</small>':''}${esc(title)}</dt><dd>${st.active?`<strong>${esc(value)}</strong>${id==='VERB_FORM'?`<small>Extra vraag</small>`:''}`:'Uit'}</dd></div>`}).join('')}</dl>`;
  $('#verbLock').innerHTML=gameIcon(APP.verbLocked?'lock':'unlock');$('#verbLock').setAttribute('aria-label',APP.verbLocked?'Werkwoordkaart vrijgeven':'Werkwoordkaart vastzetten');$('#verbLock').title=APP.verbLocked?'Vast — vrijgeven':'Vrij — vastzetten';$('#verbLock').setAttribute('aria-pressed',String(!!APP.verbLocked));
- $('#twExampleText').hidden=true;$('#drawVerb').disabled=!!APP.verbLocked;$('#deckCaption').textContent=APP.verbLocked?'Kaart vast · blijft liggen':'Trek een kaart van de stapel';
+ $('#twExampleText').hidden=true;const canDraw=currentVerbPool().some(v=>v.id!==APP.currentVerb&&languageValuesFit(v,true));$('#drawVerb').disabled=!!APP.verbLocked||!canDraw;$('#drawVerb').title=APP.verbLocked?'Geef eerst de werkwoordkaart vrij.':canDraw?'Trek een andere passende werkwoordkaart.':'Geen andere passende kaart. Geef een steen vrij of kies een andere set.';$('#deckCaption').textContent=APP.verbLocked?'Kaart vast · blijft liggen':'Trek een kaart van de stapel';
 }
 function showTwExample(){
  const v=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0],values=Object.fromEntries(TW_DICE_IDS.filter(id=>twDiceState[id].active).map(id=>[id,twDiceState[id].value]));
