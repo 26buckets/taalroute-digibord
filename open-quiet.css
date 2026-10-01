@@ -346,3 +346,15 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 .dice-table-shell .dice-sidebar .smallbtn,.story-table-shell #storyFinish{font:400 14px/1.4 var(--setup-font);min-height:44px;border-radius:7px;box-shadow:none}
 .dice-table-shell .dice-sidebar h3{font-weight:500}
 @media(max-width:600px){.dice-table-shell .dice-sidebar nav{flex-direction:column}.dice-table-shell .dice-sidebar .typebtn{justify-content:flex-start}}
+
+/* One shared card structure: images, labels, titles and descriptions align. */
+#screen-dice .tile{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:0;min-width:0;font-family:var(--setup-font)}
+#screen-dice .tile-img{flex:none;width:100%;height:180px;background-position:center;background-size:cover}
+#screen-dice .tile-body{flex:1;display:grid;grid-template-rows:24px minmax(52px,auto) minmax(66px,auto);gap:8px;padding:20px;align-content:start}
+#screen-dice .status{justify-self:start;align-self:start;font:500 12px/1.4 var(--setup-font);padding:3px 8px}
+#screen-dice .tile h3{margin:0;line-height:1.3}
+#screen-dice .tile p{margin:0;font:400 15px/1.45 var(--setup-font)}
+.story-count-choices .smallbtn:disabled{opacity:.5;cursor:not-allowed}
+.story-count-help{font:400 14px/1.45 var(--setup-font);margin:8px 0 12px;color:var(--setup-ink)}
+@media(max-width:720px){#screen-dice .tiles{grid-template-columns:1fr}#screen-dice .tile-body{grid-template-rows:24px minmax(52px,auto) minmax(66px,auto)}}
+@media(max-width:720px){#screen-dice .category-head{flex-wrap:wrap;align-items:stretch;gap:12px}#screen-dice .category-head>div{flex-basis:100%;min-width:0}#screen-dice .category-head>.smallbtn{flex:1;min-height:44px}#screen-dice .category-head p{display:block}}

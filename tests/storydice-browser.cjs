@@ -15,7 +15,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   const selectedSets=()=>page.locator('[data-storyset]:checked').evaluateAll(inputs=>inputs.map(x=>x.value));
   const boards=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   await page.locator('[data-category="dice"]').click();
-  assert.match(await page.locator('.tile[data-dicegame="verhaalworp"]').innerText(),/320 beelden · 10 sets/);
+  assert.match(await page.locator('.tile[data-dicegame="verhaalworp"]').innerText(),/3, 6 of 9 stenen/);
   await page.locator('.tile[data-dicegame="verhaalworp"]').click();
   assert.equal(await page.locator('[data-storyset]').count(),10);
   const sets=await page.evaluate(()=>story.collections.map(s=>({id:s.id,label:s.label,count:s.count})));
@@ -34,7 +34,9 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   for(const set of sets){
    await selectSets(set.id);
    const counts=set.count<9?[3,6]:[3,6,9];
-   assert.deepEqual(await page.locator('[data-storycount]').allTextContents(),counts.map(String));
+   assert.deepEqual(await page.locator('[data-storycount]').allTextContents(),['3','6','9']);
+   assert.deepEqual(await page.locator('[data-storycount]:enabled').allTextContents(),counts.map(String));
+   if(!counts.includes(9)){assert.ok(await page.locator('#storyCountHelp').isVisible());assert.match(await page.locator('#storyCountHelp').innerText(),/Kies er een beeldset bij/)}
    for(const count of counts){
     await page.locator(`[data-storycount="${count}"]`).click();
     assert.equal(await page.locator('.story-tile').count(),count);
