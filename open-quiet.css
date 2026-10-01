@@ -358,3 +358,8 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 .story-count-help{font:400 14px/1.45 var(--setup-font);margin:8px 0 12px;color:var(--setup-ink)}
 @media(max-width:720px){#screen-dice .tiles{grid-template-columns:1fr}#screen-dice .tile-body{grid-template-rows:24px minmax(52px,auto) minmax(66px,auto)}}
 @media(max-width:720px){#screen-dice .category-head{flex-wrap:wrap;align-items:stretch;gap:12px}#screen-dice .category-head>div{flex-basis:100%;min-width:0}#screen-dice .category-head>.smallbtn{flex:1;min-height:44px}#screen-dice .category-head p{display:block}}
+
+/* Zinnen bouwen: leave breathing room around the title and instruction. */
+#screen-game .taalworp-shell .card-activity-heading{height:auto;min-height:104px;padding:18px 3.5%;}
+#screen-game .taalworp-shell .card-activity-heading h1{font:500 29px/1.2 var(--setup-font);}
+#screen-game .taalworp-shell .card-activity-heading p{font:400 17px/1.4 var(--setup-font);margin:8px 0 0;}

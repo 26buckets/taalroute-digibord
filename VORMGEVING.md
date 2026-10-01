@@ -184,3 +184,7 @@ Nico heeft het herstel van het dobbelspelmenu en de tien bestaande beeldsets goe
 ## Uniform dobbelspelmenu — 1 oktober 2026
 
 De drie dobbelspelkaarten hebben één vaste opbouw: afbeelding, kort label, titel en korte uitleg, steeds op dezelfde hoogte en met dezelfde binnenruimte. Knoppen mogen de inhoud niet verticaal centreren op basis van tekstlengte. Alle drie hebben een eigen afbeelding; Dobbelen met opdrachten gebruikt assets/landing/dobbelen-opdrachten.png. De bestaande twee afbeeldingen blijven intact. Op smalle schermen staan dezelfde kaarten onder elkaar. De keuze 3, 6 of 9 stenen staat bij Verhaal maken boven de beeldsets. Alle drie keuzes blijven zichtbaar. Is de selectie te klein voor negen unieke beelden, dan blijft 9 zichtbaar maar uitgeschakeld met de tip om een beeldset toe te voegen. Geen dubbele beelden of verzonnen opvulling. Bestaande worpen, aantalkeuze en lesvoorbereiding blijven behouden.
+
+## Zinnen bouwen: ruimte rond de kop — 1 oktober 2026
+
+Nico heeft alleen de ruimte en verzorgde weergave rond de titel/ondertitel direct toegestaan. Deze kop krijgt natuurlijke hoogte, minimaal 104 px, 18 px boven-/onderruimte en rustige instellingen-typografie. Geen afsnijding door de gedeelde vaste kophoogte. De zes stenen, mogelijke uitkomsten, niveaukeuzes, verbindingswoorden en middelste opdrachtkaart blijven in deze ronde inhoudelijk ongewijzigd: daarover is eerst advies gevraagd. Het voorstel is geen toestemming om de inhoud of het werkproces al uit te breiden.
