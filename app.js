@@ -649,6 +649,15 @@ async function playTaalworp(cardOnly=false){
  }
 }
 function drawVerb(keepAll=false){const pool=currentVerbPool().filter(v=>languageValuesFit(v,keepAll)),choices=pool.filter(v=>v.id!==APP.currentVerb),available=choices.length?choices:pool;if(!available.length)return false;const previous=APP.currentVerb;APP.currentVerb=available[Math.floor(Math.random()*available.length)].id;save();return previous!==APP.currentVerb}
+function languageCardInstruction(id,value){
+ const quote=text=>'‘'+text+'’';
+ if(id==='WHO')return value?.kind==='joker'?'Kies zelf wie of wat.':`Gebruik ${quote(value?.label||'ik')}${value?.disambiguation?' ('+(value.agreementClass==='plural'?'meer personen':'één persoon')+')':''}.`;
+ if(id==='TENSE')return {present:'Vertel wat er ‘nu’ gebeurt.',past:'Vertel wat er ‘vroeger’ gebeurde.',perfect:'Vertel wat er ‘is gebeurd’.'}[value?.code]||'Kies zelf wanneer.';
+ if(id==='SENTENCE_TYPE')return {declarative:'Maak een ‘vertelzin’.',yes_no_question:'Stel een ‘ja/nee-vraag’.',wh_question:`Begin met ${quote(value?.questionWord||'waarom')}.`,fronted_time_or_place:'Zet de ‘tijd’ voorop.',fronted_place:'Zet de ‘plaats’ voorop.',imperative:'Geef een ‘opdracht’.'}[value?.recipe]||'Kies zelf de soort zin.';
+ if(id==='CONNECT_1')return `Verbind twee zinnen met ${quote(value?.label||'en')}.`;
+ if(id==='CONNECT_2')return `Maak een bijzin met ${quote(value?.label||'omdat')}.`;
+ return {finite:'Noem de ‘persoonsvorm’ in je zin.',infinitive:'Noem het ‘hele werkwoord’.',participle:'Noem het ‘voltooid deelwoord’.'}[value?.code]||'Noem de werkwoordsvorm.';
+}
 function languageInstruction(id,value){
  const label=value?.label||'Kies zelf';
  if(id==='WHO')return {title:'Wie/wat',text:value?.kind==='joker'?'Kies zelf een persoon, dier of ding dat bij het werkwoord past.':`Gebruik “${label}”${value?.disambiguation?' ('+value.disambiguation+')':''}.`};
@@ -661,7 +670,7 @@ function renderVerbCard(){
  if(!tw.manifest.verbs[APP.currentVerb]||(!APP.verbLocked&&!currentVerbPool().some(v=>v.id===APP.currentVerb)))drawVerb(true);
  const verb=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0];APP.currentVerb=verb.id;
  $('#verbCounter').textContent=currentVerbPool().some(v=>v.id===verb.id)?`${currentVerbPool().findIndex(v=>v.id===verb.id)+1} van ${currentVerbPool().length}`:'Vastgezet bij je keuze';$('#verbValue').textContent=verb.lemma;$('#verbHint').textContent=(twDiceState.WHO?.active?twDiceState.WHO.value?.complements?.[verb.id]:null)??verb.primarySense?.gloss??verb.defaultComplement??'';
- $('#twResult').innerHTML=`<dl class="sentence-choices">${TW_DICE_IDS.map(id=>{const st=twDiceState[id],title=id==='CONNECT_1'?'Hoofdzin':id==='CONNECT_2'?'Bijzin':TaalworpChoices.labels[id],value=languageDieLabel(id,st.value);return `<div class="sentence-choice ${st.active?'':'is-off'}"><dt>${id.startsWith('CONNECT')?'<small>Verbindingswoorden</small>':''}${esc(title)}</dt><dd>${st.active?`<strong>${esc(value)}</strong>${id==='VERB_FORM'?`<small>Extra vraag</small>`:''}`:'Uit'}</dd></div>`}).join('')}</dl>`;
+ $('#twResult').innerHTML=`<dl class="sentence-choices">${TW_DICE_IDS.map(id=>{const st=twDiceState[id],title=id==='CONNECT_1'?'Hoofdzin':id==='CONNECT_2'?'Bijzin':TaalworpChoices.labels[id];return `<div class="sentence-choice recipe-${id} ${st.active?'':'is-off'}"><dt>${id.startsWith('CONNECT')?'<small>Verbindingswoorden</small>':''}${esc(title)}</dt><dd>${st.active?contentPromptHtml(languageCardInstruction(id,st.value)):'Uit'}</dd></div>`}).join('')}</dl>`;
  $('#verbLock').innerHTML=gameIcon(APP.verbLocked?'lock':'unlock');$('#verbLock').setAttribute('aria-label',APP.verbLocked?'Werkwoordkaart vrijgeven':'Werkwoordkaart vastzetten');$('#verbLock').title=APP.verbLocked?'Vast — vrijgeven':'Vrij — vastzetten';$('#verbLock').setAttribute('aria-pressed',String(!!APP.verbLocked));
  $('#twExampleText').hidden=true;const canDraw=currentVerbPool().some(v=>v.id!==APP.currentVerb&&languageValuesFit(v,true));$('#drawVerb').disabled=!!APP.verbLocked||!canDraw;$('#drawVerb').title=APP.verbLocked?'Geef eerst de werkwoordkaart vrij.':canDraw?'Trek een andere passende werkwoordkaart.':'Geen andere passende kaart. Geef een steen vrij of kies een andere set.';$('#deckCaption').textContent=APP.verbLocked?'Kaart vast · blijft liggen':'Trek een kaart van de stapel';
 }

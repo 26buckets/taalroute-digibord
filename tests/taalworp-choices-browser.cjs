@@ -26,6 +26,13 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
   twDiceState.WHO={active:true,locked:true,value:who};APP.taalworpBothLinks=true;APP.taalworpDice=twDiceState;renderLanguageDice();renderVerbCard();save();
   return examples;
  });
+ const instructionStyle=await page.locator('.sentence-choice').evaluateAll(xs=>xs.map(x=>({text:x.querySelector('dd').textContent,colour:getComputedStyle(x).borderLeftColor,width:getComputedStyle(x).borderLeftWidth,background:getComputedStyle(x).backgroundColor,strong:x.querySelector('strong')?.textContent,display:x.querySelector('strong')&&getComputedStyle(x.querySelector('strong')).display})));
+ assert.match(instructionStyle[0].text,/Gebruik.*de machine/);
+ assert.match(instructionStyle[3].text,/Verbind twee zinnen met/);
+ assert.match(instructionStyle[4].text,/Maak een bijzin met/);
+ assert.match(instructionStyle[5].text,/Noem/);
+ assert.deepEqual(instructionStyle.map(x=>x.colour),['rgb(5, 143, 225)','rgb(228, 55, 53)','rgb(27, 162, 92)','rgb(223, 159, 8)','rgb(163, 77, 226)','rgb(126, 140, 154)']);
+ assert.ok(instructionStyle.every(x=>x.width==='3px'&&x.display==='inline'&&x.strong&&x.background==='rgb(255, 253, 250)'));
  assert.deepEqual(examples,['De machine werkt weer goed.','De machine werkte weer goed.','De machine heeft weer goed gewerkt.']);
  const saved=await page.evaluate(()=>{delete APP.taalworpBothLinks;save();return JSON.stringify(twDiceState)});await page.reload();await page.locator('#resumeBtn').click();
  assert.equal(await page.evaluate(()=>JSON.stringify(twDiceState)),saved);assert.equal(await page.evaluate(()=>APP.taalworpBothLinks),true);
@@ -35,7 +42,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  await page.locator('#verbLock').click();assert.equal(await page.locator('#drawVerb').isDisabled(),true);await page.locator('#verbLock').click();
  await page.locator('#twExample').click();assert.match(await page.locator('#gameDialog').innerText(),/machine/);await page.keyboard.press('Escape');
  // All six longest current choices, including both connections, remain visible on a board.
- await page.evaluate(()=>{for(const id of TW_DICE_IDS){const vals=languageChoices(id);if(vals.length){twDiceState[id].value=vals.reduce((a,b)=>languageDieLabel(id,a).length>languageDieLabel(id,b).length?a:b);twDiceState[id].active=true}}renderLanguageDice();renderVerbCard()});
+ await page.evaluate(()=>{for(const id of TW_DICE_IDS){const vals=languageChoices(id);if(vals.length){twDiceState[id].value=vals.reduce((a,b)=>languageCardInstruction(id,a).length>languageCardInstruction(id,b).length?a:b);twDiceState[id].active=true}}renderLanguageDice();renderVerbCard()});
  for(const [width,height] of [[1920,1080],[1440,900],[1366,768]]){
   await page.setViewportSize({width,height});
   const clipped=await page.evaluate(()=>{const original=APP.currentVerb,failures=[];APP.verbLocked=true;for(const verb of Object.values(tw.manifest.verbs)){APP.currentVerb=verb.id;renderVerbCard();const el=document.querySelector('.verb-assignment');if(el.scrollHeight>el.clientHeight+1)failures.push({id:verb.id,lemma:verb.lemma,scroll:el.scrollHeight,height:el.clientHeight})}APP.currentVerb=original;renderVerbCard();return failures});
@@ -47,7 +54,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
   const box=await page.locator('.verb-assignment').evaluate(el=>({scroll:el.scrollHeight,client:el.clientHeight,overflow:document.documentElement.scrollWidth>innerWidth,visible:[...el.querySelectorAll('.sentence-choice')].every(x=>{const a=x.getBoundingClientRect(),b=el.getBoundingClientRect();return a.top>=b.top&&a.bottom<=b.bottom})}));
   assert.ok(!box.overflow,'page overflow '+width);
   if(width>=1366){assert.ok(box.scroll<=box.client+1,'card scroll '+width+' '+JSON.stringify(box));assert.ok(box.visible,'six choices '+width)}
-  if(out)await page.screenshot({path:path.join(out,'zinnen-'+width+'.png')});
+  if(out){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await page.screenshot({path:path.join(out,'zinnen-'+width+'.png')})}
  }
  await page.evaluate(()=>selectLevel('A1'));assert.equal(await page.locator('[data-die="CONNECT_2"]').isDisabled(),true);
  await page.locator('#primaryGame').click();assert.equal(await page.locator('[data-die="CONNECT_2"]').isDisabled(),true);
