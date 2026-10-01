@@ -3,16 +3,16 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
 const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(served+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.json':'application/json','.png':'image/png'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res)});
 (async()=>{
- await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/index.html`,browser=await chromium.launch({headless:true,channel:'chrome'});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=process.env.LIVE_URL||`http://127.0.0.1:${server.address().port}/index.html`,browser=await chromium.launch({headless:true,channel:'chrome'});
  try{
  const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(url+'#kaartspellen');await page.waitForFunction(()=>window.ContentUI&&window.LessonUI);
  assert.deepEqual(await page.locator('#screen-cards.active [data-card-family]').evaluateAll(es=>es.map(e=>e.dataset.cardFamily)),['grammar','quick'],'Direct card link waits for both registered families');await page.locator('#cardMenuHome').click();await page.evaluate(()=>history.replaceState(null,'',location.pathname));
  assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
- assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),4061);
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),4111);
  assert.equal(await page.evaluate(()=>ContentRuntime.items().length),8414,'Unreviewed sources retained');
  // Lesson help is tied to the released items; review metadata stays internal.
- assert.deepEqual(await page.evaluate(()=>Object.fromEntries(['lowan','erk','f','bow'].map(key=>[key,ContentGuidance.summarize(ContentRuntime.filterSource(),key).known.length]))),{lowan:4061,erk:4061,f:4061,bow:4061});
+ assert.deepEqual(await page.evaluate(()=>Object.fromEntries(['lowan','erk','f','bow'].map(key=>[key,ContentGuidance.summarize(ContentRuntime.filterSource(),key).known.length]))),{lowan:4111,erk:4111,f:4111,bow:4111});
  const guidanceAudit=await page.evaluate(()=>{
   const items=ContentRuntime.filterSource(),failures=[];
   for(let start=0;start<items.length;start+=120)for(const key of ['erk','bow']){
@@ -22,7 +22,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   }
   document.querySelector('#gameDialog').close();return failures;
  });
- assert.deepEqual(guidanceAudit,[],'No internal review text in guidance for any of the 4061 released exercises');
+ assert.deepEqual(guidanceAudit,[],'No internal review text in guidance for any of the 4111 released exercises');
  fs.mkdirSync(path.join(root,'tests/artifacts/release'),{recursive:true});
  for(const width of [1440,390]){
   await page.setViewportSize({width,height:900});
@@ -38,7 +38,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   }
  }
  await page.setViewportSize({width:1440,height:1000});
- assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.map(f=>f.id)),['grammar','quick']);
+ assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.map(f=>f.id)),['grammar','conversation','quick']);
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families[0].topics.map(t=>t.id)),['ER','ZULLEN','ZOUDEN','MODAAL']);
  assert.equal(await page.locator('[data-category=words]').isVisible(),true);
  assert.equal(await page.locator('[data-category=words]').isDisabled(),true);
@@ -73,13 +73,13 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  await page.setViewportSize({width:1440,height:1000});
  assert.match(await page.evaluate(()=>{const prior=ContentRuntime.banks().find(b=>b.bank.bank_id==='CB-GRAM-001').previousVersions[0].items[0];try{ContentRuntime.validateContentRefs([ContentRuntime.contentRef(prior)],{historical:true});return ''}catch(e){return e.message}}),/niet beschikbaar/,'Unreviewed historical text cannot reopen through an approved bank ID');
  // All legacy entry points must lead to reviewed preparation or leave state intact.
- for(const code of ['startWords("build")','startWZ()','startTongue()','startC1()']){
+ for(const code of ['startWords("build")','startWZ()']){
   const before=await page.evaluate(()=>JSON.stringify(APP));await page.evaluate(code);assert.equal(await page.evaluate(()=>JSON.stringify(APP)),before,code);
  }
  for(const screen of ['workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
  for(const board of ['rotterdam','zwolle']){await page.evaluate(b=>{CONTENT_VERT001.stop();APP.questionMode='conversation';startBoard(b)},board);assert.ok(await page.locator('#screen-practice.active').isVisible());assert.equal(await page.evaluate(()=>ContentUI.state().variant),board)}
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',focus:'all',subtopic:'all',duration:180}));
- await page.locator('#practiceMix').click();assert.equal(await page.locator('.lesson-mix-option').count(),9);await page.locator('#dialogClose').click();
+ await page.locator('#practiceMix').click();assert.equal(await page.locator('.lesson-mix-option').count(),10);await page.locator('#dialogClose').click();
  for(const filter of [{bank_ids:['CB-WZ-002']},{family_ids:['words']},{topics:['ER','RELATIEVE_BIJZIN']}]){
   assert.notEqual(await page.evaluate(f=>{try{ContentRuntime.filterSource(f);return ''}catch(e){return e.message}},filter),'');
  }
@@ -109,12 +109,13 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  await page.locator('[data-main=play]').click();await page.locator('[data-category=cards]').click();
  assert.ok(await page.locator('#screen-cards.active').isVisible());
  assert.deepEqual(await page.locator('[data-card-family]').evaluateAll(es=>es.map(e=>e.dataset.cardFamily)),['grammar','quick']);
- assert.equal(await page.locator('[data-card-soon]').count(),9);
+ assert.equal(await page.locator('#screen-cards [data-cardgame]').count(),9);
+ assert.equal(await page.locator('[data-card-soon]').count(),0);
  for(const width of [1440,768,390,320]){
   await page.setViewportSize({width,height:900});
   assert.ok(await page.locator('#screen-cards').evaluate(e=>e.scrollWidth<=e.clientWidth),'Menu fits '+width);
   assert.ok(await page.locator('.card-menu-choice').evaluateAll(es=>es.every(e=>{const r=e.getBoundingClientRect();return r.height>=44&&r.left>=0&&r.right<=innerWidth&&e.scrollWidth<=e.clientWidth})),'Readable choices '+width);
-  assert.ok(await page.locator('[data-card-soon]').evaluateAll(es=>es.every(e=>e.disabled&&e.textContent.includes('Binnenkort')&&getComputedStyle(e).filter==='grayscale(1)')));
+  assert.ok(await page.locator('#screen-cards [data-cardgame]').evaluateAll(es=>es.every(e=>!e.disabled&&!e.textContent.includes('Binnenkort'))));
   if(width===1440||width===390)await page.screenshot({path:path.join(root,`tests/artifacts/release/kaartspelmenu-${width}.png`)});
  }
  const unchanged=await page.evaluate(()=>JSON.stringify(APP));await page.locator('[data-card-soon]').evaluateAll(es=>es.forEach(e=>e.click()));assert.equal(await page.evaluate(()=>JSON.stringify(APP)),unchanged);
@@ -246,6 +247,6 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.equal(await lp.locator('#resumeBtn').isVisible(),true);assert.equal(await lp.locator('#resumeBtn').isDisabled(),true);assert.match(await lp.locator('#resumeText').innerText(),/bewaard/);assert.ok(await lp.evaluate(()=>contentRestoreError.message.includes('niet beschikbaar')));
  await lp.evaluate(()=>{goScreen('lessons');return LessonUI.render()});await lp.waitForSelector('#lessonLibrary h1');assert.equal(await lp.locator('[data-lesson-action=resume]').count(),0);
  assert.equal(await lp.evaluate(async()=>(await LessonUI.service.list('recent_session')).length),2,'Both hidden sessions remain stored');
- assert.deepEqual(errors,[]);console.log('PASS: 4061 approved, 4353 retained/hidden; legacy routes, catalog, mixes, six live game/resume routes, old IndexedDB preserved/hidden.');
+ assert.deepEqual(errors,[]);console.log('PASS: 4111 approved, 4303 retained/hidden; legacy routes, catalog, mixes, six live game/resume routes, old IndexedDB preserved/hidden.');
  }finally{await browser.close();await new Promise(r=>server.close(r))}
 })().catch(e=>{console.error(e);process.exitCode=1});

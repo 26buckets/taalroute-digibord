@@ -444,9 +444,10 @@
   if(root.ReleasePolicy?.enabled&&quickBoard&&!quickBoard.disabled){e.preventDefault();e.stopImmediatePropagation();if(boardTaskMode()==='direct')openQuickBoard(quickBoard.dataset.board||quickBoard.dataset.libraryBoard);else open({engine:'BOARD',variant:quickBoard.dataset.board||quickBoard.dataset.libraryBoard});return}
   if(quickBoard&&!quickBoard.disabled&&boardTaskMode()==='direct'){e.preventDefault();e.stopImmediatePropagation();openQuickBoard(quickBoard.dataset.board||quickBoard.dataset.libraryBoard);return}
   const launcher=e.target.closest('[data-board],[data-cardgame],[data-dicegame],[data-wordgame],[data-activity],[data-library-board],[data-library-card],[data-library-word],[data-start-work],#startCabinetActivity');
+  if(launcher?.matches('[data-cardgame]')&&root.ReleasePolicy?.cardAllowed(launcher.dataset.cardgame))return;
   if(launcher&&!launcher.closest('#screen-practice')&&(APP.contentSessionConfig||ContentRuntime.activeSession?.()))CONTENT_VERT001.stop();
  },true);
- try{if(APP.contentSessionConfig)CONTENT_VERT001.restore()}catch(error){root.contentRestoreError=error;ContentRuntime.clearSession()}
+ try{if(APP.contentSessionConfig&&!(root.ReleasePolicy?.enabled&&APP.last?.type==='card'&&ReleasePolicy.cardAllowed(APP.last.data.kind)))CONTENT_VERT001.restore()}catch(error){root.contentRestoreError=error;ContentRuntime.clearSession()}
  root.ContentUI=Object.freeze({levelBadge,open,openQuickBoard,openPilot,openBetweenLines,registerBank,launch,loadSelection,selectionSpec,preferences,editing:()=>editing,clearEditing:()=>{editing=null;externalSpec=null;seedOverride=null},render:renderPage,applyLayout:()=>{recentNew=false;currentLayout=null;renderPage()},start,previewItems,sessionOptions,filters,availability,scopeError,engines,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
 })(typeof globalThis!=='undefined'?globalThis:this);
 

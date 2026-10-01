@@ -3,7 +3,9 @@
  'use strict';
  // Only automated archive tests set this before loading; no URL or saved setting changes the release.
  const enabled=root.DigiBordArchiveReview!==true;
- const versions=Object.freeze({'CB-GRAM-001':'2026-09-24.modals.rest.4','CB-QUICK-014':'2026-09-25.snelvragen.regel.6'});
+ const versions=Object.freeze({'CB-GRAM-001':'2026-09-24.modals.rest.4','CB-QUICK-014':'2026-09-25.snelvragen.regel.6','CB-BETWEEN-LINES-012':'2026-09-23.1'});
+ const cardKinds=Object.freeze(['mission','conversation','verbs','spelling','puzzles','tongue','idioms','story']);
+ const cardAllowed=kind=>!enabled||cardKinds.includes(kind);
  const message='Deze les is nu niet beschikbaar. Je opgeslagen les blijft bewaard.';
  const bankAllowed=bank=>!enabled||versions[bank?.bank_id]===bank?.source_version;
  function sessionAllowed(session){
@@ -15,5 +17,5 @@
   if(!enabled)return true;
   try{return !!spec?.scope_clauses?.length&&spec.scope_clauses.every(scope=>root.ContentRuntime.selectionPool({...spec,scope_clauses:[scope]}).length>0)}catch{return false}
  }
- root.ReleasePolicy=Object.freeze({enabled,versions,message,bankAllowed,sessionAllowed,selectionAllowed});
+ root.ReleasePolicy=Object.freeze({enabled,versions,cardKinds,cardAllowed,message,bankAllowed,sessionAllowed,selectionAllowed});
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -11,7 +11,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  for(const [width,height] of [[1920,1080],[1440,900],[1024,768],[768,1024],[390,844],[320,568]]){
   await page.setViewportSize({width,height});let reference;
   for(const kind of kinds){
-   await page.locator(`[data-ctype="${kind}"]`).click();await page.locator('.card-work').evaluate(e=>e.scrollTop=0);
+   await page.locator(`[data-ctype="${kind}"]`).click();if(kind==='c1-between-lines')await page.evaluate(()=>startC1());await page.locator('.card-work').evaluate(e=>e.scrollTop=0);
    assert.ok(await page.locator('.card-content').evaluate(e=>!['auto','scroll'].includes(getComputedStyle(e).overflowY)),'nested card scroll');
    const actual=await geometry();if(!reference)reference=actual;else assert.deepEqual(actual,reference,`${kind}: moving layout at ${width}`);
    assert.equal(await page.locator('.card-activity-heading select').count(),0);

@@ -411,4 +411,5 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #screen-game .taalworp-shell .sentence-choice.recipe-SENTENCE_TYPE:not(.is-off){border-left-color:#1ba25c;}
 #screen-game .taalworp-shell .sentence-choice.recipe-CONNECT_1:not(.is-off){border-left-color:#df9f08;}
 #screen-game .taalworp-shell .sentence-choice.recipe-CONNECT_2:not(.is-off){border-left-color:#a34de2;}
+#screen-game .card-table-shell .card-instruction .content-required,
 #screen-game .taalworp-shell .sentence-choice dd .content-required{display:inline;padding:0;margin:0;background:none;border:0;border-radius:0;font:inherit;color:inherit;}

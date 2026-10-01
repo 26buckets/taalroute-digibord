@@ -190,6 +190,8 @@ const tableCtx=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families
  esc:s=>String(s??''),collectionItems:()=>data.cardGames.families.map(g=>({...g,type:'cards'}))});
 vm.runInContext(fs.readFileSync(root+'context-tools.js','utf8'),tableCtx);
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function bindCards(')),tableCtx);
+tableCtx.lessonText=s=>s;
+vm.runInContext(source.slice(source.indexOf('function contentPromptHtml('),source.indexOf('function contentTaskText(')),tableCtx);
 vm.runInContext(source.slice(source.indexOf('function startCards('),source.indexOf('/* Woorden en zinnen */')),tableCtx);
 for(const kind of data.cardGames.families.filter(x=>x.id!=='tongue').map(x=>x.id)){
  vm.runInContext(`startCards('${kind}')`,tableCtx);
@@ -268,7 +270,7 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
   vm.runInContext('startCards(kind)',tableCtx);
   const c=family.cards[i],html=tableMount.innerHTML;
   const visible=c.visualRebus?[c.visualRebus.title,c.visualRebus.instruction,c.visualRebus.explanation,...c.visualRebus.context]:[c.title,c.instruction,c.situation];
-  for(const text of [...visible,c.model.text,c.criterion,...c.help.items])assert.ok(html.includes(text),c.id+' missing '+text);
+  for(const text of [...visible,c.model.text,c.criterion,...c.help.items])assert.ok(html.replace(/<[^>]*>/g,'').includes(text),c.id+' missing '+text);
   if(c.actionType==='rebus'){
    assert.ok(c.visualRebus,c.id+' needs its picture');
    assert.equal(c.visualRebus.src,'assets/rebussen/'+c.id+'.png');

@@ -48,7 +48,7 @@
     "test:overview:browser": "node tests/overview-browser.cjs",
     "test:practice:browser": "node tests/practice-advance-browser.cjs && node tests/practice-layout-browser.cjs && node tests/open-quiet-browser.cjs",
     "test:wording:browser": "node tests/wording-browser.cjs",
-    "test:release:browser": "node tests/release-browser.cjs"
+    "test:release:browser": "node tests/release-browser.cjs && node tests/cards-release-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",
