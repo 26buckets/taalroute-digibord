@@ -25,7 +25,7 @@ const METHOD_DATA=[
 ];
 
 const TASK_POOL=[
- {shape:'○',title:'Nieuwe buren',desc:'Vertel kort wie er naast je woont of kies een fictieve buurman.',family:'Verwoorden',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Aanbevolen'},
+ {shape:'○',title:'Nieuwe buren',desc:'Vertel kort over een buurman of buurvrouw.',family:'Verwoorden',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Aanbevolen'},
  {shape:'□',title:'Kennismaken met de buurman',desc:'Vraag hoe iemand heet en stel één vervolgvraag.',family:'In gesprek',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Spreken'},
  {shape:'◇',title:'Vraag om hulp in de buurt',desc:'Vraag iemand om hulp met een praktisch probleem.',family:'Samen regelen',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Samen regelen'},
  {shape:'△',title:'Welke woning kies je?',desc:'Kies tussen twee woningen en geef één reden.',family:'Kiezen en redeneren',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Herhaling'},
