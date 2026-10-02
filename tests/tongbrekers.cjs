@@ -20,7 +20,7 @@ for(const level of bank.levels){
   ctx.APP.cardIndex=999;vm.runInContext('startTongue()',ctx);
   assert.ok(!/undefined|NaN/.test(rendered.html));
   assert.ok(!/cardSupport|cardAttempt|Situatie|Oefentekst|Vervolg|Doel en rollen/.test(rendered.html));
-  if(!expected.length)assert.ok(rendered.html.includes('Geen tongbrekers bij deze filters.'));
+  if(!expected.length){assert.equal(ctx.APP.tongueDifficulty,'');assert.ok(!rendered.html.includes('Geen tongbrekers bij deze filters.'))}
  }
 }
 ctx.APP.level='C2';ctx.APP.tongueDifficulty='';

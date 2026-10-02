@@ -192,7 +192,7 @@ vm.runInContext(fs.readFileSync(root+'context-tools.js','utf8'),tableCtx);
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function bindCards(')),tableCtx);
 tableCtx.lessonText=s=>s;
 vm.runInContext(source.slice(source.indexOf('function contentPromptHtml('),source.indexOf('function contentTaskText(')),tableCtx);
-vm.runInContext(source.slice(source.indexOf('function startCards('),source.indexOf('/* Woorden en zinnen */')),tableCtx);
+vm.runInContext(source.slice(source.indexOf('function cardReadingParts('),source.indexOf('/* Woorden en zinnen */')),tableCtx);
 for(const kind of data.cardGames.families.filter(x=>x.id!=='tongue').map(x=>x.id)){
  vm.runInContext(`startCards('${kind}')`,tableCtx);
  for(const id of ['primaryGame','cardDeck','cardHelp','cardExample','cardGoals','cardPartner','cardSetInfo','cardSupport'])assert.equal((tableMount.innerHTML.match(new RegExp(`id="${id}"`,'g'))||[]).length,1,kind+' '+id);
@@ -270,7 +270,11 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
   vm.runInContext('startCards(kind)',tableCtx);
   const c=family.cards[i],html=tableMount.innerHTML;
   const visible=c.visualRebus?[c.visualRebus.title,c.visualRebus.instruction,c.visualRebus.explanation,...c.visualRebus.context]:[c.title,c.instruction,c.situation];
-  for(const text of [...visible,c.model.text,c.criterion,...c.help.items])assert.ok(html.replace(/<[^>]*>/g,'').includes(text),c.id+' missing '+text);
+  const normalize=s=>s.replace(/\s+/g,' ').replace(/\s+([.,!?;:’”])/g,'$1').replace(/([‘“])\s+/g,'$1').trim(),plain=normalize(html.replace(/<[^>]*>/g,' '));
+  for(const text of [...visible,c.model.text,c.criterion,...c.help.items]){
+   const pieces=text.startsWith('Verhaalwoorden:')?text.replace(/^Verhaalwoorden:\s*/,'').split(/[,–]|\. /u):text.split(/(?<=[.!?])\s+/u);
+   for(const piece of pieces)assert.ok(plain.includes(normalize(piece)),c.id+' missing '+piece);
+  }
   if(c.actionType==='rebus'){
    assert.ok(c.visualRebus,c.id+' needs its picture');
    assert.equal(c.visualRebus.src,'assets/rebussen/'+c.id+'.png');

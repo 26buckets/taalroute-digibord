@@ -115,7 +115,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   await page.setViewportSize({width,height:900});
   assert.ok(await page.locator('#screen-cards').evaluate(e=>e.scrollWidth<=e.clientWidth),'Menu fits '+width);
   assert.ok(await page.locator('.card-menu-choice').evaluateAll(es=>es.every(e=>{const r=e.getBoundingClientRect();return r.height>=44&&r.left>=0&&r.right<=innerWidth&&e.scrollWidth<=e.clientWidth})),'Readable choices '+width);
-  assert.ok(await page.locator('#screen-cards [data-cardgame]').evaluateAll(es=>es.every(e=>!e.disabled&&!e.textContent.includes('Binnenkort'))));
+  assert.ok(await page.locator('#screen-cards [data-cardgame]').evaluateAll(es=>es.every(e=>e.disabled===!cardCount(e.dataset.cardgame)&&!e.textContent.includes('Binnenkort'))));
   if(width===1440||width===390)await page.screenshot({path:path.join(root,`tests/artifacts/release/kaartspelmenu-${width}.png`)});
  }
  const unchanged=await page.evaluate(()=>JSON.stringify(APP));await page.locator('[data-card-soon]').evaluateAll(es=>es.forEach(e=>e.click()));assert.equal(await page.evaluate(()=>JSON.stringify(APP)),unchanged);

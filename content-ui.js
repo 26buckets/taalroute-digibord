@@ -413,9 +413,9 @@
  }
  function start(seed){try{const session=ContentRuntime.createSession(sessionOptions(seed));launch(session);return session}catch(error){toast(error.message||'Deze sessie kan niet worden gestart.');renderPage();return null}}
  function loadSelection(spec,p,{record=null,seed=null,name=spec.name||null}={}){recentNew=true;currentLayout=null;selectionName=name;seedOverride=seed;externalSpec=ContentRuntime.currentSelection(spec);editing=record;state={...state,duration:p.target_duration_seconds,organization:p.organization_mode,engine:p.preferred_game_engine,variant:p.preferred_game_variant};goScreen('practice');renderPage()}
- function openBetweenLines(){
+ function openBetweenLines(level=state.level){
   editing=null;selectionName=null;
-  setState({family:'conversation',topic:'tussen-de-regels',level:['B1','B2'].includes(state.level)?state.level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:'CARDS'},{render:false});
+  setState({family:'conversation',topic:'tussen-de-regels',level:['B1','B2'].includes(level)?level:'B1',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:'CARDS'},{render:false});
   return open({engine:'CARDS'});
  }
  function openQuickBoard(board){

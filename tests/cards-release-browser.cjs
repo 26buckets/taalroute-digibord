@@ -8,11 +8,34 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
  await page.locator('[data-category=cards]').click();
  assert.equal(await page.locator('#screen-cards [data-cardgame]').count(),9);
- assert.equal(await page.locator('#screen-cards [data-cardgame]:disabled').count(),0);
+ assert.equal(await page.locator('#screen-cards [data-cardgame]:disabled').count(),1);
  for(const width of [1440,390,320]){
   await page.setViewportSize({width,height:900});
   assert.ok(await page.locator('.card-menu-choice').evaluateAll(es=>es.every(e=>e.scrollWidth<=e.clientWidth&&e.getBoundingClientRect().height>=44&&e.getBoundingClientRect().right<=innerWidth)));
   if(out){fs.mkdirSync(out,{recursive:true});await page.screenshot({path:path.join(out,`kaartmenu-${width}.png`),fullPage:true})}
+ }
+ await page.setViewportSize({width:1440,height:900});
+ // Route counts and empty choices update without entering a game or resetting the route.
+ for(const [level,verbs,between] of [['A0',5,0],['A1',5,0],['A1+',7,0],['A2',7,0],['B1',6,19],['B2',5,31],['C1',5,0],['C2',5,0]]){
+  await page.locator('#levelSelect').selectOption(level);
+  assert.equal(await page.locator('[data-cardgame="verbs"] .card-menu-count').innerText(),verbs+' kaarten');
+  assert.equal(await page.locator('[data-cardgame="c1-between-lines"]').isDisabled(),between===0);
+  if(between)assert.equal(await page.locator('[data-cardgame="c1-between-lines"] .card-menu-count').innerText(),between+' kaarten');
+ }
+ await page.locator('#levelSelect').selectOption('B2');await page.locator('[data-cardgame="c1-between-lines"]').click();
+ assert.equal(await page.evaluate(()=>ContentUI.state().level),'B2');
+ await page.evaluate(()=>{APP.level='A2';goScreen('cards')});
+ for(const [width,height] of [[1440,900],[1366,768],[390,844]]){
+  await page.setViewportSize({width,height});
+  for(const [kind,title] of [['verbs','Al vertrokken'],['conversation','Wachten zonder ergernis'],['story','Een lekke gieter']]){
+   await page.evaluate(({kind,title})=>{APP.level='A2';APP.cardIndex=cardsFor(kind).findIndex(c=>c.title===title);startCards(kind)},{kind,title});
+   assert.equal(await page.locator('.card-activity-heading span').innerText(),'7 kaarten');
+   assert.equal(await page.locator('#cardSupport').isVisible(),false);
+   if(kind==='verbs'){assert.deepEqual(await page.locator('.card-word-choice').allTextContents(),['heeft','is']);assert.ok(await page.locator('.card-focus').evaluate(e=>parseFloat(getComputedStyle(e).fontSize)>=30))}
+   if(kind==='story'){assert.deepEqual(await page.locator('.card-story-words strong').allTextContents(),['vrijwilliger','buurttuin','gieter']);assert.equal(await page.locator('.card-story-words img,.card-story-words svg').count(),3);assert.equal(await page.locator('#cardRevealed').isVisible(),false)}
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   if(out)await page.screenshot({path:path.join(out,`kaart-${kind}-${width}.png`),fullPage:true});
+  }
  }
  await page.setViewportSize({width:1440,height:900});
  // Leave a prepared lesson intact when playing standalone cards.
@@ -62,7 +85,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
   assert.equal(audit.count,520);assert.deepEqual(audit.failures,[],'All standalone cards '+width);
  }
  await page.setViewportSize({width:1440,height:900});
- await page.evaluate(()=>goScreen('cards'));await page.locator('[data-cardgame="c1-between-lines"]').click();
+ await page.evaluate(()=>{APP.level='B1';goScreen('cards')});await page.locator('[data-cardgame="c1-between-lines"]').click();
  await page.waitForSelector('#screen-practice.active');
  assert.equal(await page.evaluate(()=>ContentUI.state().topic),'tussen-de-regels');
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.find(f=>f.id==='conversation').topics.map(t=>[t.id,t.levels])),[['tussen-de-regels',['B1','B2']]]);

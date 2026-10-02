@@ -413,3 +413,28 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #screen-game .taalworp-shell .sentence-choice.recipe-CONNECT_2:not(.is-off){border-left-color:#a34de2;}
 #screen-game .card-table-shell .card-instruction .content-required,
 #screen-game .taalworp-shell .sentence-choice dd .content-required{display:inline;padding:0;margin:0;background:none;border:0;border-radius:0;font:inherit;color:inherit;}
+
+/* Card choices describe the selected route; the complete stock stays in the set overview. */
+.card-menu-count{max-width:210px;text-align:right;white-space:normal}
+.card-table-shell .typebtn:disabled{color:#6c7885!important;background:#f2f4f6!important;opacity:1;filter:grayscale(1);cursor:default}
+.card-table-shell .cardtypes .typebtn{font-family:var(--setup-font);font-weight:500}
+.card-table-shell .cardtypes .typebtn small{font-size:12px}
+/* Within the existing card: situation, visible exercise and instruction. No changes to tongue text. */
+#screen-game .card-table-shell .card-content.card-readable{display:flex;flex-direction:column;columns:auto;gap:16px;padding:24px 28px;font-family:var(--setup-font)}
+#screen-game .card-readable>h2{font-size:21px;font-weight:500;line-height:1.25;margin:0}
+#screen-game .card-readable .card-reading-main{margin-block:auto;display:flex;flex-direction:column;gap:22px}
+#screen-game .card-readable .card-situation{margin:0;padding:0;background:none;border-radius:0;color:var(--setup-ink)}
+#screen-game .card-readable .card-situation>div{width:100%}
+#screen-game .card-readable .card-situation strong{font-size:15px;font-weight:500;color:var(--setup-muted);margin-bottom:6px}
+#screen-game .card-readable .card-situation p,#screen-game .card-readable .card-situation li{font-size:clamp(22px,1.8vw,30px);line-height:1.4;font-weight:400}
+#screen-game .card-readable .card-situation ul{margin:12px 0 0;padding-left:1.2em}
+#screen-game .card-readable .card-instruction{font-size:clamp(22px,1.8vw,30px);line-height:1.35;font-weight:500;margin:0}
+#screen-game .card-readable .card-focus{font-size:clamp(30px,2.8vw,44px);line-height:1.5;font-weight:500;margin:0;text-wrap:pretty}
+#screen-game .card-readable .card-word-choice{display:inline;padding:3px 8px;border-radius:7px;background:var(--setup-soft);box-decoration-break:clone;-webkit-box-decoration-break:clone;color:var(--setup-blue);font-weight:600}
+#screen-game .card-readable .content-required{display:inline;padding:0;border:0;background:none;color:inherit;font:inherit}
+#screen-game .card-readable .content-required strong{display:inline;font:inherit;font-weight:600;color:inherit}
+.card-story-words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card-story-words>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px 8px;border:1px solid var(--setup-line);border-radius:10px;min-width:0;text-align:center;color:var(--setup-blue)}
+.card-story-words img,.card-story-words .game-icon{width:64px;height:64px;object-fit:contain}
+.card-story-words strong{font-size:clamp(20px,1.8vw,28px);font-weight:500;overflow-wrap:anywhere;line-height:1.25}
+@media(max-width:600px){.card-menu-count{max-width:125px;font-size:12px!important}#screen-game .card-table-shell .card-content.card-readable{padding:20px;gap:14px}#screen-game .card-readable .card-reading-main{gap:18px}.card-story-words{gap:8px}.card-story-words>div{padding:10px 3px}.card-story-words img,.card-story-words .game-icon{width:44px;height:44px}.card-story-words strong{font-size:18px}}
