@@ -19,8 +19,8 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#levelSelect').selectOption('B2_C1');
   assert.equal(await page.locator('.card-activity-heading h1 span').innerText(),'240 kaarten');
   assert.equal(await page.locator('#cardHelp,#cardGoals,#cardPartner,#cardSetInfo,#cardSupport,#cardAttempt,[data-ghelp],[data-grules]').count(),0);
-  await page.locator('#levelSelect').selectOption('A1_A2');assert.equal(await page.locator('.card-counter').innerText(),'1 van 120');await page.locator('#levelSelect').selectOption('A2_B1');assert.equal(await page.locator('.card-counter').innerText(),'1 van 180');await page.locator('#levelSelect').selectOption('B2_C1');
-  const initial=await page.locator('.tongue-text').innerText();
+  await page.locator('#levelSelect').selectOption('A1_A2');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 120');await page.locator('#levelSelect').selectOption('A2_B1');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 180');await page.locator('#levelSelect').selectOption('B2_C1');
+  await page.evaluate(()=>{selectShuffledCard('tongue',cardsFor('tongue'),'reset');startTongue()});const cycleStart=await page.evaluate(()=>APP.cardShuffles.tongue.cycle);
   assert.ok(await page.locator('#tongueRead').isVisible());assert.ok(await page.locator('#tongueRead').isDisabled());
   assert.match(await page.locator('#tongueRead').innerText(),/tijdelijk uit/);
   assert.equal(await page.locator('#tongueRead').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(237, 240, 243)');
@@ -29,19 +29,19 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   assert.deepEqual(await page.evaluate(()=>window.spoken),[]);
   const seen=new Set();
   for(let i=0;i<240;i++){seen.add(await page.locator('.tongue-content').getAttribute('data-card-id'));await page.locator('#primaryGame').click()}
-  assert.equal(seen.size,240);assert.equal(await page.locator('.tongue-text').innerText(),initial);
-  await page.locator('#primaryGame').click();await page.locator('#undoAction').click();assert.equal(await page.locator('.tongue-text').innerText(),initial);
+  assert.equal(seen.size,240);const nextCycle=await page.locator('.tongue-text').innerText();assert.equal(await page.evaluate(()=>APP.cardShuffles.tongue.cycle),cycleStart+1);
+  await page.locator('#primaryGame').click();await page.locator('#undoAction').click();assert.equal(await page.locator('.tongue-text').innerText(),nextCycle);
   for(const level of ['A0_A1','A1_A2','A2_B1','B1_B2','B2_C1'])for(const difficulty of ['','easy','medium','hard']){
    await page.locator('#levelSelect').selectOption(level);await page.locator('#tongueDifficulty').selectOption(difficulty);
    assert.equal(await page.locator('#levelSelect').inputValue(),level);
    const expected=await page.evaluate(()=>cardsFor('tongue').length);
-   assert.equal(await page.locator('.card-counter').innerText(),expected?'1 van '+expected:'0 kaarten');
+   assert.equal(await page.locator('.card-counter').innerText(),expected?(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van '+expected:'0 kaarten');
    assert.equal(await page.locator('#primaryGame').isDisabled(),!expected);
    assert.equal(await page.locator('#tongueRead').isDisabled(),true);
    if(!expected)assert.equal(await page.locator('.tongue-text').innerText(),'Geen tongbrekers bij deze filters.');
   }
-  await page.locator('#tongueDifficulty').selectOption('');await page.locator('#levelSelect').selectOption('A0_A1');assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
-  await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
+  await page.locator('#tongueDifficulty').selectOption('');await page.locator('#levelSelect').selectOption('A0_A1');assert.ok(await page.evaluate(()=>cardsFor('tongue').some(c=>c.id===currentCard().id)));const retainedTongue=await page.locator('.tongue-text').innerText();
+  await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.tongue-text').innerText(),retainedTongue);
   await page.locator('#levelSelect').selectOption('B2_C1');
   const states=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   for(const kind of ['mission','conversation','verbs','spelling','puzzles','idioms','story']){
@@ -57,7 +57,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   for(const [width,height,fontSize] of [[1920,1080,88],[1440,900,72],[1440,800,72],[1440,650,72],[1024,768,51.2],[768,1024,38.4],[390,844,36],[320,568,36]]){
    await page.setViewportSize({width,height});
    for(const sourceNumber of [1,181,210,longest]){
-    await page.evaluate(n=>{APP.cardIndex=cardsFor('tongue').findIndex(c=>c.sourceNumber===n);startTongue()},sourceNumber);
+    await page.evaluate(n=>{APP.cardIndex=cardsFor('tongue').findIndex(c=>c.sourceNumber===n);APP.cardShuffles={};APP.last={type:'card',data:{kind:'tongue'}};startTongue()},sourceNumber);
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`page overflow ${width}`);
     const b=await page.locator('#primaryGame').boundingBox();assert.ok(b.x>=0&&b.x+b.width<=width+1&&b.y+b.height<=height+1,`next clipped ${width}`);
     assert.ok(await page.locator('.tongue-content').evaluate(e=>e.scrollWidth<=e.clientWidth),`text width ${width}`);

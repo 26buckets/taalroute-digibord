@@ -101,7 +101,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  const keptLesson=await page.evaluate(async id=>{await LessonUI.flush();return (await LessonUI.service.list('recent_session')).find(r=>r.recent_session_id===id)},previousLesson.recent_session_id);
  assert.deepEqual(keptLesson,previousLesson,'Standalone games do not overwrite the earlier shared lesson');
  await page.evaluate(id=>LessonUI.handle('resume',id),previousLesson.recent_session_id);await page.waitForSelector('.content-vert001-cards');
- assert.equal(await page.evaluate(()=>APP.cardIndex),1);
+ assert.equal(await page.evaluate(()=>APP.cardShuffles[cardShuffleScope()].position),2);
  // Restored card menu exposes only approved families; upcoming cards cannot launch.
  await page.locator('[data-main=play]').click();await page.locator('[data-category=cards]').click();
  assert.ok(await page.locator('#screen-cards.active').isVisible());
@@ -193,7 +193,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  await page.emulateMedia({reducedMotion:'no-preference'});
  for(const family of ['grammar','quick'])for(const effect of ['draw','slide','turn']){
   await page.evaluate(({family,effect})=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:false,cardAnimation:effect});ContentUI.setState({family,topic:family==='grammar'?'ER':'quick-arrange',level:'B1',engine:'CARDS',variant:null,focus:'all',subtopic:'all',duration:180});ContentUI.start(41)}, {family,effect});
-  const before=await page.evaluate(()=>APP.cardIndex);
+  const before=await page.evaluate(()=>({index:APP.cardIndex,expected:APP.cardShuffles[cardShuffleScope()].queue[0]}));
   const motion=await page.evaluate(()=>{
    document.querySelector('#contentCardDeck').click();
    const card=document.querySelector('.game-card-motion'),animation=card.getAnimations()[0];
@@ -203,7 +203,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
    return {index,afterRepeat:APP.cardIndex,busy:cardBusy,disabled:document.querySelector('#primaryGame').disabled,frames:animation.effect.getKeyframes().map(f=>f.transform),backface:getComputedStyle(card.querySelector('.game-card-back')).backfaceVisibility};
   });
   assert.ok(motion,'A real card animation runs: '+family+' '+effect);
-  assert.equal(motion.index,before+1);assert.equal(motion.afterRepeat,motion.index,'Rapid input cannot skip a card');
+  assert.equal(await page.evaluate(()=>contentSessionCards()[APP.cardIndex].content_item_id),before.expected);assert.equal(motion.afterRepeat,motion.index,'Rapid input cannot skip a card');
   assert.equal(motion.busy,true);assert.equal(motion.disabled,true);assert.equal(motion.backface,'hidden');
   assert.ok(motion.frames.some(f=>f!=='none'),'Card moves');
   if(family==='grammar'&&effect==='draw')await page.screenshot({path:path.join(root,'tests/artifacts/release/kaart-in-beweging.png')});
@@ -219,7 +219,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.deepEqual(await page.evaluate(()=>({index:APP.cardIndex,id:document.querySelector('[data-content-item-id]').dataset.contentItemId})),savedCard,'Resume keeps the animated card');
  for(const pref of [{os:'reduce',app:false},{os:'no-preference',app:true}]){
   await page.emulateMedia({reducedMotion:pref.os});await page.evaluate(app=>settingsPatch({reducedMotion:app}),pref.app);
-  assert.equal(await page.evaluate(async()=>{const before=APP.cardIndex;await nextCard();return APP.cardIndex===(before+1)%contentSessionCards().length&&!cardBusy&&document.querySelector('.game-card-motion').getAnimations().length===0}),true,'Reduced motion skips animation: '+JSON.stringify(pref));
+  assert.equal(await page.evaluate(async()=>{const before=APP.cardShuffles[cardShuffleScope()],expected=before.queue[0],cycle=before.cycle;await nextCard();const after=APP.cardShuffles[cardShuffleScope()];return (expected?after.currentCardId===expected:after.cycle===cycle+1)&&!cardBusy&&document.querySelector('.game-card-motion').getAnimations().length===0}),true,'Reduced motion skips animation: '+JSON.stringify(pref));
  }
  await page.emulateMedia({reducedMotion:'no-preference'});await page.setViewportSize({width:390,height:900});
  await page.evaluate(()=>settingsPatch({reducedMotion:false,cardAnimation:'draw'}));
@@ -233,7 +233,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.equal(await ap.evaluate(async()=>{
   settingsPatch({reducedMotion:true});
   ContentUI.launch(ContentRuntime.createSession({filters:{bank_ids:['CB-MR03-013']},selectedGameEngine:'CARDS',targetDurationSeconds:2160,seed:8}));
-  APP.cardIndex=contentSessionCards().findIndex(i=>i.content_item_id.endsWith('009'));startContentCards();
+  APP.cardIndex=contentSessionCards().findIndex(i=>i.content_item_id.endsWith('009'));APP.cardShuffles={};APP.last={type:'card',data:{kind:'content-vert001'}};startContentCards();
   const field=document.querySelector('#screen-game textarea');field.value='Mijn bewaarde antwoord';field.dispatchEvent(new Event('input',{bubbles:true}));
   await nextCard();await nextCard(-1);
   return document.querySelector('#screen-game textarea').value==='Mijn bewaarde antwoord';

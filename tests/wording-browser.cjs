@@ -17,7 +17,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    const bad=[],seen=new Set();
    for(const kind of CARD_GAMES.map(c=>c.id))for(const c of cardsFor(kind,true)){
     APP.level=kind==='tongue'?'C2':({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[c.routeId]||'C1');
-    APP.cardIndex=cardsFor(kind).findIndex(x=>x.id===c.id);delete APP.cardRound;startCards(kind);seen.add(c.id);
+    APP.cardIndex=cardsFor(kind).findIndex(x=>x.id===c.id);delete APP.cardRound;APP.cardShuffles={};APP.last={type:'card',data:{kind:kind}};startCards(kind);seen.add(c.id);
     if(/\bfictie(?:f|ve)\b|\b(?:denkbeeldige|verzonnen) (?:medewerker|persoon|collega)\b/i.test(document.querySelector('.active-card').textContent))bad.push(c.id);
    }
    for(const kind of CARD_GAMES.map(c=>c.id)){
@@ -28,7 +28,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   });assert.equal(cards.count,570);assert.deepEqual(cards.bad,[]);
   const kept=await page.evaluate(async()=>{
    const c=cardsFor('mission',true).find(c=>c.situation.startsWith('Een fictieve medewerker'));
-   APP.level=({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[c.routeId]);APP.cardIndex=cardsFor('mission').findIndex(x=>x.id===c.id);startCards('mission');await LessonUI.flush();return c.id;
+   APP.level=({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[c.routeId]);APP.cardIndex=cardsFor('mission').findIndex(x=>x.id===c.id);APP.cardShuffles={};APP.last={type:'card',data:{kind:'mission'}};startCards('mission');await LessonUI.flush();return c.id;
   });assert.match(await page.locator('.active-card').innerText(),/Een medewerker/);
   await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.evaluate(()=>currentCard().id),kept);assert.match(await page.locator('.active-card').innerText(),/Een medewerker/);assert.doesNotMatch(await page.locator('.active-card').textContent(),/\bfictie(?:f|ve)\b/i);
   // Retain the actual old lesson reference; only its displayed wording changes.
@@ -45,7 +45,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    text=await page.locator(selector).innerText();assert.ok(!/\bbuur\b/i.test(text));assert.match(text,/buurman/i);
    assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_content_refs),s.selected_content_refs);
   }
-  await page.evaluate(()=>{ContentUI.clearEditing();APP.level='C2';APP.cardKind='tongue';startTongue();APP.cardIndex=cardsFor('tongue').findIndex(c=>c.id==='TR-TONGUE-D240-A2-018');startTongue()});
+  await page.evaluate(()=>{ContentUI.clearEditing();APP.level='C2';APP.cardKind='tongue';startTongue();APP.cardIndex=cardsFor('tongue').findIndex(c=>c.id==='TR-TONGUE-D240-A2-018');APP.cardShuffles={};APP.last={type:'card',data:{kind:'tongue'}};startTongue()});
   assert.equal(await page.locator('.tongue-text').innerText(),'De buurman brengt bruine borden naar boven.');
   const style=await page.locator('.tongue-text').evaluate(e=>({font:getComputedStyle(e).fontSize,line:getComputedStyle(e).lineHeight,weight:getComputedStyle(e).fontWeight}));assert.deepEqual(style,{font:'72px',line:'90px',weight:'700'});
   assert.ok(await page.locator('#tongueRead').isDisabled());assert.match(await page.evaluate(()=>AppWording.audio(currentCard())),/woordkeuze\.mp3$/);assert.equal(await page.evaluate(()=>tongueAudio),null);

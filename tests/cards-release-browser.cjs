@@ -28,7 +28,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  for(const [width,height] of [[1440,900],[1366,768],[390,844]]){
   await page.setViewportSize({width,height});
   for(const [kind,title] of [['verbs','Al vertrokken'],['conversation','Wachten zonder ergernis'],['story','Een lekke gieter']]){
-   await page.evaluate(({kind,title})=>{APP.level='A2';APP.cardIndex=cardsFor(kind).findIndex(c=>c.title===title);startCards(kind)},{kind,title});
+   await page.evaluate(({kind,title})=>{APP.level='A2';APP.cardIndex=cardsFor(kind).findIndex(c=>c.title===title);APP.cardShuffles={};APP.last={type:'card',data:{kind:kind}};startCards(kind)},{kind,title});
    assert.equal(await page.locator('.card-activity-heading span').innerText(),'7 kaarten');
    assert.equal(await page.locator('#cardSupport').isVisible(),false);
    if(kind==='verbs'){assert.deepEqual(await page.locator('.card-word-choice').allTextContents(),['heeft','is']);assert.ok(await page.locator('.card-focus').evaluate(e=>parseFloat(getComputedStyle(e).fontSize)>=30))}
@@ -60,7 +60,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  }
  const kept=await page.evaluate(async id=>{await LessonUI.flush();return (await LessonUI.service.list('recent_session')).find(r=>r.recent_session_id===id)},previous.recent_session_id);
  assert.deepEqual(kept,previous,'Earlier lesson remains intact');
- await page.evaluate(id=>LessonUI.handle('resume',id),previous.recent_session_id);await page.waitForSelector('.content-vert001-cards');assert.equal(await page.evaluate(()=>APP.cardIndex),1);
+ await page.evaluate(id=>LessonUI.handle('resume',id),previous.recent_session_id);await page.waitForSelector('.content-vert001-cards');assert.equal(await page.evaluate(()=>APP.cardShuffles[cardShuffleScope()].position),2);
  // Every standalone card, including all seven routes and every tongue twister.
  for(const width of [1440,390]){
   await page.setViewportSize({width,height:900});
@@ -68,7 +68,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
    const failures=[],seen=new Set();
    for(const kind of ReleasePolicy.cardKinds)for(const c of cardsFor(kind,true)){
     APP.level=kind==='tongue'?'C2':({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[c.routeId]);
-    APP.cardIndex=cardsFor(kind).findIndex(x=>x.id===c.id);delete APP.cardRound;startCards(kind);seen.add(c.id);
+    APP.cardIndex=cardsFor(kind).findIndex(x=>x.id===c.id);delete APP.cardRound;APP.cardShuffles={};APP.last={type:'card',data:{kind:kind}};startCards(kind);seen.add(c.id);
     const node=document.querySelector('[data-card-id]');
     if(node?.dataset.cardId!==c.id||node.scrollWidth>node.clientWidth+1)failures.push(c.id+' render');
     if(kind==='tongue'){if(node.textContent!==AppWording.text(c.text)||!document.querySelector('#tongueRead').disabled)failures.push(c.id+' tongue')}

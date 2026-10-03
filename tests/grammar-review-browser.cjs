@@ -72,7 +72,7 @@ let browser,page;
  }
  await launch('CARDS');await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());const saved=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,index:APP.cardIndex,refs:APP.contentSessionConfig.selected_content_refs}));await page.reload();await page.locator('#resumeBtn').click();await page.locator('#contentCardReveal').waitFor();assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,index:APP.cardIndex,refs:APP.contentSessionConfig.selected_content_refs})),saved);
  // Pin the reported card for the visual check, without editing application data.
- await page.evaluate(()=>{APP.cardIndex=APP.contentSessionConfig.selected_item_ids.indexOf('ER_B2_099');startContentCards()});
+ await page.evaluate(()=>{APP.cardIndex=APP.contentSessionConfig.selected_item_ids.indexOf('ER_B2_099');APP.cardShuffles={};APP.last={type:'card',data:{kind:'content-vert001'}};startContentCards()});
  await page.setViewportSize({width:1630,height:724});await page.screenshot({path:path.join(dir,'reported-card-fixed.png')});
  assert.ok(await page.locator('.content-reading .content-situation p').evaluate(e=>parseFloat(getComputedStyle(e).fontSize)>=22),'Situation remains readable on a large board');
  assert.equal(await page.locator('.content-prompt h2').evaluate(e=>getComputedStyle(e).whiteSpace),'pre-line');

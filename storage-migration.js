@@ -14,3 +14,11 @@
  const snapshot=JSON.stringify({created_at:new Date().toISOString(),values});localStorage.setItem(key,snapshot);if(localStorage.getItem(key)!==snapshot)throw new Error('Reservekopie kon niet worden gecontroleerd.');
  }catch(error){window.DigiStorageBackupError=error}
 })();
+
+// Preserve the app and undo snapshots before adding ID-based card decks.
+(function(){
+ const key='taalroute-card-shuffle-v1-backup';
+ try{if(localStorage.getItem(key)!==null)return;const values={};for(const name of ['taalroute-digibord-v020','taalroute-digibord-v020-undo']){const value=localStorage.getItem(name);if(value!==null)values[name]=value}
+ const snapshot=JSON.stringify({created_at:new Date().toISOString(),values});localStorage.setItem(key,snapshot);if(localStorage.getItem(key)!==snapshot)throw new Error('Reservekopie kon niet worden gecontroleerd.');
+ }catch(error){window.DigiStorageBackupError=error}
+})();

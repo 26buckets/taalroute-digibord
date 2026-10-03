@@ -767,6 +767,33 @@ if(APP.cardBankRevision!==RUNTIME.cardGames.source){
  if(index>=0)APP.cardIndex=index;
  delete APP.cardRound;APP.cardBankRevision=RUNTIME.cardGames.source;save();
 }
+// One deck per standalone family; prepared lessons keep their frozen selection.
+function cardShuffleScope(kind=APP.cardKind,session=contentVertSession()){
+ if(kind!=='content-vert001')return kind;
+ return session?.selected_content_refs?.every(ref=>ref.content_bank_id==='CB-BETWEEN-LINES-012')?'between-lines':'session:'+session.session_id;
+}
+function cardShuffleOptions(kind,list){
+ const content=kind==='content-vert001',family=cardShuffleScope(kind),session=content?contentVertSession():null;
+ const key=c=>content?c.content_item_id:c.id;
+ const known=content?(family==='between-lines'?ContentRuntime.items().filter(c=>c.content_bank_id==='CB-BETWEEN-LINES-012'):list):cardsFor(kind,true);
+ const migrating=!APP.cardShuffles?.[family]&&APP.last?.type==='card'&&APP.last.data.kind===kind;
+ return {family,route:content?(session.display_routes||session.cefr_levels||[]).join('+'):publicRoute(),eligibleIds:list.map(key),knownIds:known.map(key),preferredId:migrating?key(list[((APP.cardIndex||0)%list.length+list.length)%list.length]||{}):null};
+}
+function selectShuffledCard(kind,list,action='resume'){
+ const options=cardShuffleOptions(kind,list);
+ if(!APP.cardShuffles||typeof APP.cardShuffles!=='object'||Array.isArray(APP.cardShuffles))APP.cardShuffles={};
+ const deck=CardShuffle.transition(APP.cardShuffles[options.family],options,action);
+ APP.cardShuffles[options.family]=deck;
+ APP.cardIndex=Math.max(0,list.findIndex(c=>(c.content_item_id||c.id)===deck.currentCardId));
+ return deck;
+}
+function cardShuffleResetButton(){return '<div class="card-order-actions"><button class="smallbtn" id="cardOrderReset">'+gameIcon('shuffle')+'<span>Kaartvolgorde opnieuw beginnen</span></button></div>'}
+function bindCardShuffleReset(){
+ const button=$('#cardOrderReset');if(!button)return;
+ button.onclick=()=>{if(cardBusy)return;openGameDialog('Kaartvolgorde opnieuw beginnen','<p>Begin opnieuw met de kaarten van dit kaartspel. De volgorde van je andere kaartspellen blijft bewaard.</p><button class="smallbtn" id="confirmCardOrderReset">Opnieuw beginnen</button>',()=>{
+  $('#confirmCardOrderReset').onclick=()=>{rememberAction('kaartvolgorde opnieuw beginnen');const kind=APP.cardKind,list=kind==='content-vert001'?contentSessionCards():cardsFor(kind);selectShuffledCard(kind,list,'reset');delete APP.cardRound;$('#gameDialog').close();startCards(kind);save()};
+ })};
+}
 function defaultCardRoute(level=APP.level){return DigiRoutes.resolve(level)}
 function activeCardRoute(){return defaultCardRoute()}
 function cardsFor(kind,all=false,level=APP.level,difficulty=APP.tongueDifficulty){
@@ -802,8 +829,9 @@ function startTongue(){
   if(oldId&&restored<0)toast('Tongbrekers is bijgewerkt. Je vorige kaart valt buiten deze selectie; je begint bij de eerste kaart.');
  }
  APP.cardKind='tongue';APP.cardIndex=list.length?((APP.cardIndex||0)%list.length+list.length)%list.length:0;
+ const deck=selectShuffledCard('tongue',list);
  APP.tongueCardId=list[APP.cardIndex]?.id||null;
- const c=list[APP.cardIndex],counter=list.length?`${APP.cardIndex+1} van ${list.length}`:'0 kaarten';
+ const c=list[APP.cardIndex],counter=list.length?`${deck.position} van ${list.length}`:'0 kaarten';
  setLast('card','Tongbrekers',{kind:'tongue'});
  renderCardTable('tongue',counter,`<div class="card-ribbon" style="--ribbon:#b95979"><strong>Tongbrekers</strong><span class="card-counter">${counter}</span></div><div class="card-content tongue-content" aria-live="polite" ${c?`data-card-id="${c.id}"`:''}><p class="tongue-text">${esc(c?.text||'Geen tongbrekers bij deze filters.')}</p></div>`);
 }
@@ -843,9 +871,9 @@ function cardTools(){const c=currentCard();if(APP.cardKind==='tongue')return `<d
  Partner:{controls:'cardSupport',count:c.participants.min,tip:`${c.participants.min} deelnemers. ${c.prediction?'Leg eerst ieder je eigen keuze op papier vast.':c.partnerMode==='guided_reveal'?'Bekijk wanneer de partnerreactie onthuld mag worden.':'Bekijk de opdracht voor je gesprekspartner.'}`},
  More:{id:'cardSetInfo',tip:'Vervolgopdracht, succescriterium en informatie voor de docent.'}
 })}
-function renderCardTable(kind,counter,front){const item=collectionItems().find(x=>x.type==='cards'&&x.id===kind);$('#gameMount').innerHTML=`<div class="game-shell card-table-shell${kind==='tongue'?' tongue-table':kind==='c1-between-lines'?' c1-table':''}"><div class="game-work card-work">${cardActivityHeader(kind)}<div class="cards-stage">${cardDeck(kind,counter)}<div class="game-card-motion"><article class="active-card">${front}<div class="card-controls">${cardTools()}</div></article><div class="game-card-back card-back-design" style="--deck-color:${item.color}" aria-hidden="true">${cardBack(item.title,'Kaartspel')}</div></div>${cardTypeChoices(kind)}</div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;bindCards(kind)}
+function renderCardTable(kind,counter,front){const item=collectionItems().find(x=>x.type==='cards'&&x.id===kind);$('#gameMount').innerHTML=`<div class="game-shell card-table-shell${kind==='tongue'?' tongue-table':kind==='c1-between-lines'?' c1-table':''}"><div class="game-work card-work">${cardActivityHeader(kind)}<div class="cards-stage">${cardDeck(kind,counter)}<div class="game-card-motion"><article class="active-card">${front}<div class="card-controls">${cardTools()}</div>${kind==='c1-between-lines'?'':cardShuffleResetButton()}</article><div class="game-card-back card-back-design" style="--deck-color:${item.color}" aria-hidden="true">${cardBack(item.title,'Kaartspel')}</div></div>${cardTypeChoices(kind)}</div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;bindCards(kind)}
 function bindCards(kind){
- goScreen('game');bindGameBar(nextCard);const c=currentCard();
+ goScreen('game');bindGameBar(nextCard);bindCardShuffleReset();const c=currentCard();
 
  $$('[data-ctype]').forEach(b=>b.onclick=()=>prepareCards(b.dataset.ctype));
  $('#cardDeck').onclick=nextCard;
@@ -947,11 +975,11 @@ function contentSessionCards(){const session=contentVertSession();return session
 function startContentCards(){
  const session=contentVertSession();if(!session)return toast('Kies eerst de inhoud voor je les.');
  const list=contentSessionCards();if(!list.length)return toast('Deze contentsessie bevat geen kaarten.');
- APP.cardKind='content-vert001';APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
- const item=list[APP.cardIndex],projection=ContentRuntime.project('CARDS',item),policy=projection.answerPolicy,counter=`${APP.cardIndex+1} van ${list.length}`,label=contentSessionLabel(session,item);
+ APP.cardKind='content-vert001';const deck=selectShuffledCard('content-vert001',list);
+ const item=list[APP.cardIndex],projection=ContentRuntime.project('CARDS',item),policy=projection.answerPolicy,counter=`${deck.position} van ${list.length}`,label=contentSessionLabel(session,item);
  setLast('card',label,{kind:'content-vert001',contentItemId:item.content_item_id});
- $('#gameMount').innerHTML=`<div class="game-shell card-table-shell content-vert001-cards${item.reasoning?' reasoning-cards':''}"><div class="game-work card-work"><div class="card-activity-heading"><h1>${esc(contentSessionLabel(session,item,false))}</h1><button class="smallbtn card-menu-open" id="contentCardMenu">${gameIcon('cards')}<span>Kaartspellen</span></button></div><div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="contentCardDeck" aria-label="Volgende kaart trekken"><span class="play-card-back" style="--deck-color:#176b9a"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute">${gameIcon('cards')}<span class="card-family">Volgende kaart</span></span></button></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>${esc(item.title||item.language_function.replaceAll('_',' '))}</strong><span class="card-counter">${counter}</span></div><div class="card-content content-reading" data-content-item-id="${esc(item.content_item_id)}">${contentTaskText(item,{card:true})}${item.reasoning?'':`<button class="smallbtn content-reveal" id="contentCardReveal" aria-expanded="false" aria-controls="contentCardAnswer">${contentAnswerLabel(item)}</button><div id="contentCardAnswer" class="content-answer" hidden>${contentAnswerText(item,policy)}</div>`}</div></article><div class="game-card-back card-back-design" style="--deck-color:#176b9a" aria-hidden="true">${cardBack(contentSessionLabel(session,item,false),'Kaartspel')}</div></div></div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
- goScreen('game');$('#contentCardMenu').onclick=()=>goScreen('cards');bindGameBar(()=>nextCard(1));$('#contentCardDeck').onclick=()=>nextCard(1);if($('#contentCardReveal'))$('#contentCardReveal').onclick=()=>{const box=$('#contentCardAnswer'),open=box.hidden;box.hidden=!open;$('#contentCardReveal').setAttribute('aria-expanded',String(open))};
+ $('#gameMount').innerHTML=`<div class="game-shell card-table-shell content-vert001-cards${item.reasoning?' reasoning-cards':''}"><div class="game-work card-work"><div class="card-activity-heading"><h1>${esc(contentSessionLabel(session,item,false))}</h1><button class="smallbtn card-menu-open" id="contentCardMenu">${gameIcon('cards')}<span>Kaartspellen</span></button></div><div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="contentCardDeck" aria-label="Volgende kaart trekken"><span class="play-card-back" style="--deck-color:#176b9a"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute">${gameIcon('cards')}<span class="card-family">Volgende kaart</span></span></button></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>${esc(item.title||item.language_function.replaceAll('_',' '))}</strong><span class="card-counter">${counter}</span></div><div class="card-content content-reading" data-content-item-id="${esc(item.content_item_id)}">${contentTaskText(item,{card:true})}${item.reasoning?'':`<button class="smallbtn content-reveal" id="contentCardReveal" aria-expanded="false" aria-controls="contentCardAnswer">${contentAnswerLabel(item)}</button><div id="contentCardAnswer" class="content-answer" hidden>${contentAnswerText(item,policy)}</div>`}</div>${cardShuffleResetButton()}</article><div class="game-card-back card-back-design" style="--deck-color:#176b9a" aria-hidden="true">${cardBack(contentSessionLabel(session,item,false),'Kaartspel')}</div></div></div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
+ goScreen('game');bindCardShuffleReset();$('#contentCardMenu').onclick=()=>goScreen('cards');bindGameBar(()=>nextCard(1));$('#contentCardDeck').onclick=()=>nextCard(1);if($('#contentCardReveal'))$('#contentCardReveal').onclick=()=>{const box=$('#contentCardAnswer'),open=box.hidden;box.hidden=!open;$('#contentCardReveal').setAttribute('aria-expanded',String(open))};
 }
 let cardBusy=false;
 async function nextCard(direction=1){
@@ -959,7 +987,12 @@ async function nextCard(direction=1){
  if(cardBusy)return;cardBusy=true;
  try{
   const kind=APP.cardKind;
-  APP.cardIndex=(APP.cardIndex||0)+(direction===-1?-1:1);delete APP.cardRound;
+  const list=kind==='content-vert001'?contentSessionCards():cardsFor(kind);
+  if(!list.length)return;
+  // The retired C1 archive retains its original browsing; public between-lines uses the prepared lesson engine.
+  if(kind==='c1-between-lines')APP.cardIndex=(APP.cardIndex||0)+(direction===-1?-1:1);
+  else selectShuffledCard(kind,list,direction===-1?'previous':'next');
+  delete APP.cardRound;
   if(direction!==-1)completeTurn();startCards(kind);save();
   const card=$('.game-card-motion'),shell=card.closest('.game-shell');
   shell.setAttribute('aria-busy','true');const controls=[...shell.querySelectorAll('button,select')].map(b=>[b,b.disabled]);controls.forEach(([b])=>b.disabled=true);updateUndo();
@@ -1059,7 +1092,7 @@ function startCards(kind){
  if(kind==='c1-between-lines')return startC1();
  const family=CARD_GAMES.find(x=>x.id===kind);if(!family)return toast('Dit kaartspel is niet beschikbaar.');
  const list=cardsFor(kind);if(APP.routeCardMigration!==1.1&&APP.cardRound?.id){const i=list.findIndex(c=>c.id===APP.cardRound.id);if(i>=0)APP.cardIndex=i;APP.routeCardMigration=1.1}if(!list.length)return toast('Deze route bevat geen kaarten.');APP.cardKind=kind;APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
- const c=list[APP.cardIndex],state=cardRound(c),sm=shapeMeta(c.primaryShape),counter=`${APP.cardIndex+1} van ${list.length}`;
+ const deck=selectShuffledCard(kind,list),c=list[APP.cardIndex],state=cardRound(c),sm=shapeMeta(c.primaryShape),counter=`${deck.position} van ${list.length}`;
  setLast('card',`${family.title} · ${c.route}`,{kind});
  const rebus=c.visualRebus,extra=rebus?rebus.context:c.taskData.filter(t=>t!==c.situation);
  const media=c.mediaRequirements.items.map(m=>`<table class="card-input-table"><caption>${esc(m.title)}</caption><thead><tr>${m.headers.map(t=>`<th scope="col">${esc(t)}</th>`).join('')}</tr></thead><tbody>${m.rows.map(row=>`<tr>${row.map(t=>`<td>${esc(t)}</td>`).join('')}</tr>`).join('')}</tbody></table>`).join('');

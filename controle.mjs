@@ -121,7 +121,7 @@ for(const [effect,duration] of [['draw',950],['slide',650],['turn',800],['invali
  animationEnds.splice(0).forEach(f=>f());await pending;
 }
 const cardControls=[{disabled:false}],cardShell={isConnected:true,querySelectorAll:()=>cardControls,setAttribute(){},removeAttribute(){}};
-const cc=vm.createContext({APP:{cardKind:'conversation',cardIndex:0},turns:0,draws:0,save(){},updateUndo(){},
+const cc=vm.createContext({APP:{cardKind:'conversation',cardIndex:0},turns:0,draws:0,save(){},updateUndo(){},cardsFor:()=>[{id:"a"},{id:"b"},{id:"c"}],selectShuffledCard(){cc.APP.cardIndex++},
  $(selector){return selector==='.game-card-motion'?{closest:()=>cardShell}:{}},animateCard:()=>({finished:new Promise(resolve=>animationEnds.push(resolve))})});
 vm.runInContext('function completeTurn(){turns++}function startCards(){draws++}',cc);
 vm.runInContext(source.slice(source.indexOf('let cardBusy=false;'),source.indexOf('function startCards(')),cc);
@@ -185,7 +185,7 @@ console.log('PASS: board footer keeps roll and undo controls unique; mode select
 // All three real card games render the same usable table with one of each control.
 const tableMount={innerHTML:''};
 const tableCtx=vm.createContext({routeLabel:DigiRoutes.label,DigiRoutes,RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0},taskBank:data.taskBank,story:data.storydice,Math,
- $:()=>tableMount,save(){},bindCards(){},setLast(){},toast(message){throw Error(message)},
+ $:()=>tableMount,save(){},selectShuffledCard:()=>({position:1}),cardShuffleResetButton:()=>'<button id="cardOrderReset"></button>',bindCards(){},setLast(){},toast(message){throw Error(message)},
  selectedTaskRoute:()=>data.taskBank.routes[2],adaptTask:c=>c,shapeMeta:id=>data.taskBank.shapes.find(s=>s.id===id),
  cardFan:()=>'<svg></svg>',levelInstruction:()=> 'Vertel in enkele zinnen.',gameIcon:()=>'<svg></svg>',gameBar:html=>html,cardBack:title=>title,
  esc:s=>String(s??''),collectionItems:()=>data.cardGames.families.map(g=>({...g,type:'cards'}))});

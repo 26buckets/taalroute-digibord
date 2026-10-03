@@ -6,7 +6,7 @@ const {chromium}=require('playwright');
  const result=await page.evaluate(()=>{
   const errors=[],norm=s=>s.replace(/\s+/g,' ').trim(),source=JSON.stringify(RUNTIME.cardGames);
   for(const family of CARD_GAMES.filter(f=>!['tongue','c1-between-lines'].includes(f.id)))for(const c of cardsFor(family.id,true)){
-   APP.level=({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'})[c.routeId];APP.cardIndex=cardsFor(family.id).findIndex(x=>x.id===c.id);delete APP.cardRound;startCards(family.id);
+   APP.level=({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'})[c.routeId];APP.cardIndex=cardsFor(family.id).findIndex(x=>x.id===c.id);delete APP.cardRound;APP.cardShuffles={};APP.last={type:'card',data:{kind:family.id}};startCards(family.id);
    const title=document.querySelector('.card-readable>h2'),steps=document.querySelectorAll('.card-actions li');
    if(!title?.textContent||!steps.length)errors.push(c.id+' structure');
    if(['mission','conversation'].includes(family.id)&&!document.querySelector('.card-roles')?.textContent.includes(lessonText(c.conversationPartner).split(';')[0]))errors.push(c.id+' role');
@@ -15,7 +15,7 @@ const {chromium}=require('playwright');
   }
   return {errors,unchanged:source===JSON.stringify(RUNTIME.cardGames)};
  });assert.deepEqual(result,{errors:[],unchanged:true});
- const open=async(kind,id)=>page.evaluate(({kind,id})=>{APP.level='A2';APP.cardIndex=cardsFor(kind).findIndex(c=>c.id===id);delete APP.cardRound;startCards(kind)}, {kind,id});
+ const open=async(kind,id)=>page.evaluate(({kind,id})=>{APP.level='A2';APP.cardIndex=cardsFor(kind).findIndex(c=>c.id===id);delete APP.cardRound;APP.cardShuffles={};APP.last={type:'card',data:{kind:kind}};startCards(kind)}, {kind,id});
  for(const [width,height] of [[1440,900],[390,844]]){
   await page.setViewportSize({width,height});
   for(const [kind,id] of [['mission','TR-FSM-P001-010-R3'],['conversation','TR-CONVERSATION-P001-011-R3'],['verbs','TR-VERBS-P001-011-R3'],['spelling','TR-SPELLING-P001-011-R3'],['puzzles','TR-PUZZLES-P001-011-R3'],['story','TR-STORY-P001-014-R3'],['idioms','TR-IDIOMS-P002-010-R3']]){

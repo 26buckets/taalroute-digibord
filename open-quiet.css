@@ -486,3 +486,8 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #screen-game .content-reading .card-action-line{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:baseline;counter-increment:card-action;margin:12px 0}
 #screen-game .content-reading .card-action-line::before{content:counter(card-action);background:var(--setup-soft);color:var(--setup-blue);border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font:500 16px var(--setup-font)}
 @media(max-width:600px){.card-roles{grid-template-columns:1fr;gap:12px}#screen-game .card-readable .card-focus{overflow-wrap:anywhere}#screen-game .card-actions .card-instruction{font-size:21px}}
+
+/* Explicit deck reset keeps the existing support controls at their full width. */
+.card-order-actions{display:flex;justify-content:center;padding:8px 12px;flex:none}
+.card-order-actions .smallbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;max-width:100%;white-space:normal;font:400 14px/1.4 var(--setup-font);border:1px solid #d7e4ee;border-radius:7px;background:#fff;color:#173752;box-shadow:none}
+.card-order-actions .game-icon{width:20px;height:20px;flex:none;stroke-width:2}

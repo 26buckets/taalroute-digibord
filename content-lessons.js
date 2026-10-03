@@ -19,7 +19,7 @@
   }return true;
  }
  function validBoard(p){return keys(p,['variant','mode','positions','finished','round','turn','pending','used','seatCount'])&&['rotterdam','zwolle'].includes(p.variant)&&['class','groups','pairs','individual'].includes(p.mode)&&nums(p.positions)&&bools(p.finished)&&p.positions.length===p.finished.length&&int(p.round)&&int(p.turn)&&int(p.seatCount)&&Array.isArray(p.used)&&p.used.every(x=>typeof x==='string'&&/^[\w.-]+$/.test(x))&&(!p.pending||keys(p.pending,['actor','position','choice','contentItemId'])&&int(p.pending.actor)&&int(p.pending.position)&&typeof p.pending.choice==='boolean'&&(p.pending.contentItemId===null||typeof p.pending.contentItemId==='string'))}
- const progressAdapters=Object.fromEntries(engines.contentEngines().map(e=>[e.id,{version:e.version,schemaVersion:1,validate:p=>e.id==='BOARD'?validBoard(p):e.id==='CARDS'||e.id==='DICE'?keys(p,['index','lastRoll','turn'])&&int(p.index)&&int(p.lastRoll)&&int(p.turn):validActivity(p)&&p.kind===engineKinds[e.id]}]));
+ const progressAdapters=Object.fromEntries(engines.contentEngines().map(e=>[e.id,{version:e.version,schemaVersion:1,validate:p=>e.id==='BOARD'?validBoard(p):e.id==='CARDS'||e.id==='DICE'?keys(p,e.id==='CARDS'?['index','lastRoll','turn','cardShuffle']:['index','lastRoll','turn'])&&int(p.index)&&int(p.lastRoll)&&int(p.turn)&&(!p.cardShuffle||CardShuffle.valid(p.cardShuffle)):validActivity(p)&&p.kind===engineKinds[e.id]}]));
  service=LessonStorage(runtime,LessonStorageAdapters.createIndexedDBAdapter(indexedDB),undefined,progressAdapters);
  function progress(){
   const s=runtime.activeSession();if(!s||['story','taalworp'].includes(APP.last?.type)||!$('#screen-game.active'))return null;
@@ -32,6 +32,7 @@
   }else if(['CARDS','DICE'].includes(s.selected_game_engine)){
    if(s.selected_game_engine==='CARDS'&&APP.cardKind!=='content-vert001'||s.selected_game_engine==='DICE'&&APP.last?.data.kind!=='content-dice')return null;
    payload={index:s.selected_game_engine==='CARDS'?APP.cardIndex||0:APP.contentDiceIndex||0,lastRoll:s.selected_game_engine==='DICE'?APP.contentDiceLastRoll||0:0,turn:APP.turn.active};
+   if(s.selected_game_engine==='CARDS'&&APP.cardShuffles?.[cardShuffleScope()])payload.cardShuffle=clone(APP.cardShuffles[cardShuffleScope()]);
   }else{payload=DigiActivities.exportProgress();if(!payload||payload.kind!==engineKinds[s.selected_game_engine])return null}
   return {engine_id:s.selected_game_engine,engine_version:engines.get(s.selected_game_engine).version,progress_schema_version:1,state_payload:payload,last_checkpoint_at:new Date().toISOString()};
  }
@@ -50,6 +51,7 @@
    if(count!==v.seatCount||v.positions.length!==count||v.pending?.actor>=count||v.variant!==(s.selected_game_variant||'rotterdam')||v.mode!==s.organization_mode)throw new Error('De groepsindeling of bordindeling is veranderd. Gebruik dezelfde indeling om verder te gaan.');
    if(v.used.some(id=>!s.selected_item_ids.includes(id))||v.pending?.contentItemId&&!s.selected_item_ids.includes(v.pending.contentItemId))throw new Error('Deze voortgang verwijst naar andere opdrachten.');
   }else if(['CARDS','DICE'].includes(p.engine_id)&& (v.index>=s.selected_item_ids.length||v.lastRoll>6))throw new Error('Ongeldige kaartpositie.');
+  if(p.engine_id==='CARDS'&&v.cardShuffle&&(v.cardShuffle.family!==cardShuffleScope('content-vert001',s)||v.cardShuffle.eligible.some(id=>!s.selected_item_ids.includes(id))||v.cardShuffle.currentCardId!==runtime.enginePool('CARDS',s)[v.index]?.content_item_id))throw new Error('Ongeldige bewaarde kaartvolgorde.');
   else if(!['BOARD','CARDS','DICE'].includes(p.engine_id))DigiActivities.validateProgress(v,s);
  }
  async function resumeActive(){const s=runtime.activeSession();await writing;const key='recent-'+s.session_id;try{const record=(await service.list('recent_session',{archived:true})).find(r=>r.recent_session_id===key);if(record)return handle('resume',key);ContentUI.launch(s,{resume:true})}catch(error){showError(error)}}
@@ -66,7 +68,7 @@
    ids.forEach((id,i)=>{if(teamMode(s.organization_mode)){b.groupPositions[id]=v.positions[i];b.groupFinished[id]=v.finished[i]}else{b.positions[id]=v.positions[i];b.finished[id]=v.finished[i]}});
    if(v.pending)b.pending={mode:v.mode,actorId:ids[v.pending.actor],position:v.pending.position,choice:v.pending.choice,task:v.pending.contentItemId?contentBoardTask(runtime.itemForSession(v.pending.contentItemId)):undefined};
    APP.turn.active=v.turn;APP.contentVert001Used??={};APP.contentVert001Used[s.session_id+':BOARD']=[...v.used];
-  }else if(['CARDS','DICE'].includes(p.engine_id)){if(v.index>=s.selected_item_ids.length||v.lastRoll>6)throw new Error('Ongeldige kaartpositie.');if(p.engine_id==='CARDS')APP.cardIndex=v.index;else{APP.contentDiceIndex=v.index;APP.contentDiceLastRoll=v.lastRoll}APP.turn.active=v.turn}
+  }else if(['CARDS','DICE'].includes(p.engine_id)){if(v.index>=s.selected_item_ids.length||v.lastRoll>6)throw new Error('Ongeldige kaartpositie.');if(p.engine_id==='CARDS'){APP.cardIndex=v.index;APP.cardShuffles??={};const scope=cardShuffleScope('content-vert001');if(v.cardShuffle)APP.cardShuffles[scope]=clone(v.cardShuffle);else{const list=runtime.enginePool('CARDS',s);APP.cardShuffles[scope]=CardShuffle.transition(null,{...cardShuffleOptions('content-vert001',list),preferredId:list[v.index]?.content_item_id})}}else{APP.contentDiceIndex=v.index;APP.contentDiceLastRoll=v.lastRoll}APP.turn.active=v.turn}
   else DigiActivities.restoreProgress(v);
  }
  const labelTopic=id=>catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label||id;
