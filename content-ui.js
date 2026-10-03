@@ -124,7 +124,7 @@
  function isMix(t){return (t.sourceTopics||[]).length>1}
  function topicChoices(f){return (f?.topics||[]).filter(t=>!isMix(t)||t.id===state.topic)}
  function topic(){const f=family();return f?.topics.find(x=>x.id===state.topic)||null}
- function durationChoices(){return state.family==='words'?[{seconds:30,label:'30 seconden'},{seconds:60,label:'1 minuut'},...catalog.durations]:catalog.durations}
+ function durationChoices(){return (state.family==='words'||externalSpec?.scope_clauses.some(s=>s.content_family_id==='words'))?[{seconds:30,label:'30 seconden'},{seconds:60,label:'1 minuut'},...catalog.durations]:catalog.durations}
  function microChoices(){const t=topic();return state.family==='words'&&t?[...new Set(routeRows.filter(i=>(t.sourceTopics||[t.id]).includes(i.topic)&&routeOf(i)===state.level).map(i=>routes.classification(i).Microconstructie).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'nl')):[]}
  function focus(){return catalog.focuses.find(x=>x.id===state.focus)||null}
  function engines(){return engineRegistry.contentEngines().map(x=>({id:x.id,label:x.label,description:x.description,variants:x.variants}))}
@@ -189,6 +189,7 @@
   if(state.family!==previousFamily||state.topic!==previousTopic||state.level!==previousLevel)state.microconstructure='';
   if(patch.microconstructure!=null&&microChoices().includes(patch.microconstructure))state.microconstructure=patch.microconstructure;
   if(patch.focus!=null)state.focus=patch.focus;
+  if(!durationChoices().some(d=>d.seconds===state.duration))state.duration=durationChoices()[0].seconds;
   if(patch.microconstructure!=null&&!scopeError()){const seconds=capacitySeconds();if(seconds&&state.duration>seconds)state.duration=[...durationChoices()].reverse().find(d=>d.seconds<=seconds)?.seconds||30}
   if(state.profile&&Object.keys(patch).some(k=>['level','subtopic','focus','production','difficulty'].includes(k)))state.profile='';
   const e=engine();if(e&&!e.variants.some(v=>v.id===state.variant))state.variant=e.variants[0]?.id||null;

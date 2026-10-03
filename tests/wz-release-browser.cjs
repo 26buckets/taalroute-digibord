@@ -47,6 +47,10 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   await page.locator('#practiceStart').click();const guided=await page.evaluate(async()=>{await LessonUI.flush();return APP.contentSessionConfig});
   assert.deepEqual(guided.normalized_selection_spec.filter_spec.microconstructures,[groups[0].micro]);
   await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig),guided);
+  await page.evaluate(()=>{ContentUI.open({family:'grammar'});ContentUI.setState({topic:'ER',level:'B1_B2',difficulty:'all',subtopic:'all',focus:'all'})});
+  assert.equal(await page.evaluate(()=>ContentUI.scopeError()),'','Switching from a short WZ lesson restores a valid grammar duration');
+  await page.evaluate(s=>ContentUI.loadSelection(s.normalized_selection_spec,{target_duration_seconds:60,organization_mode:'class',preferred_game_engine:'CARDS'}),guided);
+  assert.equal(await page.locator('[name=duration]').inputValue(),'60','Short saved WZ lesson remains available after another family');
   for(const width of [1440,390,320]){
    await page.setViewportSize({width,height:1000});await page.locator('[data-main=practice]').click();
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
