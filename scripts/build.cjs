@@ -6,6 +6,7 @@ require('node:child_process').execFileSync(process.execPath,[path.join(__dirname
 require('node:child_process').execFileSync(process.execPath,[path.join(root,'tests/tongbrekers.cjs')],{stdio:'inherit'});
 require('../tests/wording.cjs');
 require('../tests/wz-pb002.cjs');
+require('./import-wz-release.cjs');
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'import-wz-pb003.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(root,'tests/wz-pb003.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'import-wz-pb004.cjs')],{stdio:'inherit'});

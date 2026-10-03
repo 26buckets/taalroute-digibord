@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import DigiRoutes from './route-architecture.js';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
@@ -79,7 +80,7 @@ await vm.runInContext('playTaalworp()',ac);assert.equal(animationCalls.length,0)
 console.log('PASS: draw/flip keyframes, animation locking, held and inactive dice, card-only draw, held card, reduced motion.');
 
 const undoStorage={},undoLevel={value:''};
-const uc=vm.createContext({structuredClone,JSON,STORE:'test',APP:{last:{type:'board'},level:'A2',counter:0},twDiceState:{WHO:{value:'ik'}},boardBusy:false,languageBusy:false,storyBusy:false,
+const uc=vm.createContext({syncLevelSelect(){},structuredClone,JSON,STORE:'test',APP:{last:{type:'board'},level:'A2',counter:0},twDiceState:{WHO:{value:'ik'}},boardBusy:false,languageBusy:false,storyBusy:false,
  localStorage:{getItem:k=>undoStorage[k]||null,setItem:(k,v)=>undoStorage[k]=v},
  document:{addEventListener(){}},$:s=>s==='#levelSelect'?undoLevel:null,currentMode:()=> 'class',settingsPatch(){},selectedTaskRoute:()=>({label:'A1 → A2'}),resumeLast(){},save(){},toast(){}});
 vm.runInContext(source.slice(source.indexOf('let undoHistory=[];'),source.indexOf('function currentMode()')),uc);
@@ -93,7 +94,7 @@ vm.runInContext("rememberAction('worp',true);twDiceState.WHO.value='wij';undoLas
 console.log('PASS: five retained turns, ten separate roll/completion undos, persistence, empty history and original dice restoration.');
 vm.runInContext("for(let i=0;i<12;i++){rememberAction('worp',true);APP.counter++}",uc);
 assert.equal(vm.runInContext('undoHistory.length',uc),1);assert.equal(vm.runInContext('undoHistory[0].steps.length',uc),12);
-const cabinetContext=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',window:{DIGIBORD_DATA:data},tw:{sets:data.taalworpSets,manifest:m},story:data.storydice,taskBank:data.taskBank,APP:{level:'A2'}});
+const cabinetContext=vm.createContext({DigiRoutes,RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',window:{DIGIBORD_DATA:data},tw:{sets:data.taalworpSets,manifest:m},story:data.storydice,taskBank:data.taskBank,APP:{level:'A2'}});
 vm.runInContext(source.slice(source.indexOf('function storyIcons('),source.indexOf('async function startStory(')),cabinetContext);
 vm.runInContext(source.slice(source.indexOf('function collectionItems()'),source.indexOf('function cabinetCover(')),cabinetContext);
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function cardActivityHeader(')),cabinetContext);
@@ -183,7 +184,7 @@ console.log('PASS: board footer keeps roll and undo controls unique; mode select
 
 // All three real card games render the same usable table with one of each control.
 const tableMount={innerHTML:''};
-const tableCtx=vm.createContext({RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0},taskBank:data.taskBank,story:data.storydice,Math,
+const tableCtx=vm.createContext({routeLabel:DigiRoutes.label,DigiRoutes,RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0},taskBank:data.taskBank,story:data.storydice,Math,
  $:()=>tableMount,save(){},bindCards(){},setLast(){},toast(message){throw Error(message)},
  selectedTaskRoute:()=>data.taskBank.routes[2],adaptTask:c=>c,shapeMeta:id=>data.taskBank.shapes.find(s=>s.id===id),
  cardFan:()=>'<svg></svg>',levelInstruction:()=> 'Vertel in enkele zinnen.',gameIcon:()=>'<svg></svg>',gameBar:html=>html,cardBack:title=>title,
@@ -192,7 +193,7 @@ vm.runInContext(fs.readFileSync(root+'context-tools.js','utf8'),tableCtx);
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function bindCards(')),tableCtx);
 tableCtx.lessonText=s=>s;
 vm.runInContext(source.slice(source.indexOf('function contentPromptHtml('),source.indexOf('function contentTaskText(')),tableCtx);
-vm.runInContext(source.slice(source.indexOf('function cardReadingParts('),source.indexOf('/* Woorden en zinnen */')),tableCtx);
+vm.runInContext(source.slice(source.indexOf('const CARD_READING_EDITS='),source.indexOf('/* Woorden en zinnen */')),tableCtx);
 for(const kind of data.cardGames.families.filter(x=>x.id!=='tongue').map(x=>x.id)){
  vm.runInContext(`startCards('${kind}')`,tableCtx);
  for(const id of ['primaryGame','cardDeck','cardHelp','cardExample','cardGoals','cardPartner','cardSetInfo','cardSupport'])assert.equal((tableMount.innerHTML.match(new RegExp(`id="${id}"`,'g'))||[]).length,1,kind+' '+id);
@@ -266,14 +267,15 @@ vm.runInContext(source.slice(source.indexOf('function defaultCardRoute('),source
 for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
  tableCtx.APP.cardRoute='all';
  for(let i=0;i<family.cards.length;i++){
-  tableCtx.APP.level={R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[family.cards[i].routeId];tableCtx.APP.cardIndex=family.cards.filter(c=>c.routeId===family.cards[i].routeId).findIndex(c=>c.id===family.cards[i].id);tableCtx.kind=family.id;
+  tableCtx.APP.level={R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[family.cards[i].routeId];tableCtx.APP.cardIndex=family.cards.filter(c=>DigiRoutes.resolve(c.route)===DigiRoutes.resolve(family.cards[i].route)).findIndex(c=>c.id===family.cards[i].id);tableCtx.kind=family.id;
   vm.runInContext('startCards(kind)',tableCtx);
   const c=family.cards[i],html=tableMount.innerHTML;
-  const visible=c.visualRebus?[c.visualRebus.title,c.visualRebus.instruction,c.visualRebus.explanation,...c.visualRebus.context]:[c.title,c.instruction,c.situation];
+  const edit=vm.runInContext(`CARD_READING_EDITS[${JSON.stringify(c.id)}]`,tableCtx);
+  const visible=c.visualRebus?[c.visualRebus.title,c.visualRebus.instruction,c.visualRebus.explanation,...c.visualRebus.context]:[edit?.title||c.title,...(edit?.steps||[c.instruction]),...(edit?.situation?[...edit.situation,...(c.id==='TR-PUZZLES-P001-011-R3'?['FIETSBELHALTE']:[])]:[c.situation,...c.taskData])];
   const normalize=s=>s.replace(/\s+/g,' ').replace(/\s+([.,!?;:’”])/g,'$1').replace(/([‘“])\s+/g,'$1').trim(),plain=normalize(html.replace(/<[^>]*>/g,' '));
   for(const text of [...visible,c.model.text,c.criterion,...c.help.items]){
    const pieces=text.startsWith('Verhaalwoorden:')?text.replace(/^Verhaalwoorden:\s*/,'').split(/[,–]|\. /u):text.split(/(?<=[.!?])\s+/u);
-   for(const piece of pieces)assert.ok(plain.includes(normalize(piece)),c.id+' missing '+piece);
+   for(const piece of pieces){const expected=normalize(piece.replace(/^(?:De letters staan achter elkaar: |Letters: |Tekstrebus: )/u,'').replace(/[.]$/,''));assert.ok(plain.includes(expected),c.id+' missing '+piece);}
   }
   if(c.actionType==='rebus'){
    assert.ok(c.visualRebus,c.id+' needs its picture');
@@ -289,7 +291,7 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
  for(const route of data.cardGames.routeDefinitions){
   tableCtx.APP.level={R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[route.id];tableCtx.kind=family.id;
   const selected=vm.runInContext('cardsFor(kind)',tableCtx);
-  assert.ok(selected.length);assert.ok(selected.every(c=>c.routeId===route.id));
+  assert.ok(selected.length);assert.ok(selected.every(c=>DigiRoutes.resolve(c.route)===DigiRoutes.resolve(route.label)));
  }
 }
 tableCtx.APP.cardRoute='all';tableCtx.kind='conversation';
@@ -303,13 +305,13 @@ console.log('PASS: all 280 other records render correctly, including ten illustr
 
 // The header keeps the same level and options in and outside card games.
 const levelMenu={dataset:{},setAttribute(){}};
-const menuCtx=vm.createContext({$:()=>levelMenu,APP:{level:'A2',cardRoute:'R2'},CARD_ROUTES:data.cardGames.routeDefinitions,LEVELS:['Alpha A','Alpha B','Alpha C','A0','A1','A2','B1','B2','C1','C2'],esc:s=>s,activeCardRoute:()=>menuCtx.APP.cardRoute});
+const menuCtx=vm.createContext({DigiRoutes,publicRoute:()=>DigiRoutes.resolve(menuCtx.APP.level),$:()=>levelMenu,APP:{level:'A2',cardRoute:'R2'},CARD_ROUTES:data.cardGames.routeDefinitions,LEVELS:['Alpha A','Alpha B','Alpha C','A0','A1','A2','B1','B2','C1','C2'],esc:s=>s,activeCardRoute:()=>menuCtx.APP.cardRoute});
 vm.runInContext(source.slice(source.indexOf('function syncLevelSelect('),source.indexOf('\nfunction resetLevelContent(')),menuCtx);
 vm.runInContext('syncLevelSelect(true)',menuCtx);
-assert.equal(levelMenu.value,'A2');assert.equal((levelMenu.innerHTML.match(/<option/g)||[]).length,menuCtx.LEVELS.length);
-vm.runInContext('syncLevelSelect(false)',menuCtx);assert.equal(levelMenu.value,'A2');assert.equal(levelMenu.dataset.routes,'false');assert.ok(levelMenu.innerHTML.includes('Alpha A'));
+assert.equal(levelMenu.value,'A2_B1');assert.equal((levelMenu.innerHTML.match(/<option/g)||[]).length,DigiRoutes.routes.length);
+vm.runInContext('syncLevelSelect(false)',menuCtx);assert.equal(levelMenu.value,'A2_B1');assert.equal(levelMenu.dataset.routes,'false');assert.ok(levelMenu.innerHTML.includes('Alpha A'));
 assert.ok(!source.includes('id="cardRoute"'));
-console.log('PASS: shared level selector remains unchanged inside and outside card games; all seven routes remain reachable.');
+console.log('PASS: shared level selector remains unchanged inside and outside card games; six central routes remain reachable.');
 
 // All ready sets are selectable once, grouped into Basis, Taalvorm and Thema’s.
 const setCtx=vm.createContext({esc:s=>String(s??''),APP:{},tw:{sets:data.taalworpSets,manifest:m}});
@@ -349,7 +351,7 @@ console.log('PASS: board/button dice keep the angled view; learning dice remain 
 // Imported records replace stale saved task copies; partner/criterion reach the existing support area.
 const updatedTask=data.taskBank.cards.find(c=>c.id==='mx-2-dagelijks-04-diamond');
 const boardNodes=Object.fromEntries(['#contentBoardAnswer','#taskDrawer .context-tools','#taskSupport','#taskMeta','#taskTitle','#taskInput','#taskDrawer','#contentBoardActions','.board-game','#primaryGame','#boardStatus'].map(id=>[id,{textContent:'',innerHTML:'',dataset:{},classList:{add(){},toggle(){}}}]));
-const importCtx=vm.createContext({lessonText:s=>String(s??''),APP:{last:{data:{board:'rotterdam'}},level:'A2',boardStates:{rotterdam:{pending:{task:{id:updatedTask.id,instruction:'Old instruction'}}}}},taskBank:data.taskBank,directBank:data.directBank,boardTaskCards:()=>data.taskBank.cards,selectedTaskRoute:()=>data.taskBank.routes[2],contentVertSession:()=>null,$:s=>boardNodes[s],openGameDialog(title,html){boardNodes['#taskSupport'].innerHTML=html},esc:s=>s,save(){},boardActiveActor:()=>({id:'p0',pos:2,name:'Laila'}),shapeMeta:()=>({symbol:'◇',task:'Regel iets'}),routeTask(){throw Error('Saved ID was lost')},currentMode:()=> 'individual'});
+const importCtx=vm.createContext({routeLabel:()=>DigiRoutes.label("A2"),lessonText:s=>String(s??''),APP:{last:{data:{board:'rotterdam'}},level:'A2',boardStates:{rotterdam:{pending:{task:{id:updatedTask.id,instruction:'Old instruction'}}}}},taskBank:data.taskBank,directBank:data.directBank,boardTaskCards:()=>data.taskBank.cards,selectedTaskRoute:()=>data.taskBank.routes[2],contentVertSession:()=>null,$:s=>boardNodes[s],openGameDialog(title,html){boardNodes['#taskSupport'].innerHTML=html},esc:s=>s,save(){},boardActiveActor:()=>({id:'p0',pos:2,name:'Laila'}),shapeMeta:()=>({symbol:'◇',task:'Regel iets'}),routeTask(){throw Error('Saved ID was lost')},currentMode:()=> 'individual'});
 vm.runInContext(source.slice(source.indexOf('function showBoardSupport('),source.indexOf('async function animateBoardPath(')),importCtx);
 vm.runInContext("showBoardTask('rotterdam',{finishPosition:51});showBoardSupport('partner')",importCtx);
 assert.equal(boardNodes['#taskTitle'].textContent,updatedTask.instruction);

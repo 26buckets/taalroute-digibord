@@ -63,7 +63,7 @@ body.embedded .settings-card{max-width:1380px}
 
         <div class="section"><div class="section-head"><div><h3>Speelwereld en taalroute</h3><p>De kaart en het opdrachtniveau staan los van de pionstand.</p></div></div><div class="section-body grid2">
           <div class="field"><label>Speelwereld</label><select class="select" id="boardSelect"><option>Rotterdam</option><option>Amsterdam</option><option>Utrecht</option><option>Zwolle</option><option>Bos</option><option>Polder</option></select></div>
-          <div class="field"><label>Niveauroute</label><select class="select" id="routeSelect"><option>A0 → A1</option><option>A1 → A1+</option><option>A1 → A2</option><option>A2 → B1</option><option>B1 → B2</option><option>B2 → C1</option><option>C1 → C2</option></select></div>
+          <div class="field"><label>Niveauroute</label><select class="select" id="routeSelect"></select></div>
         </div></div>
 
         <div class="section"><div class="section-head"><div><h3>Werkvorm</h3><p>Wie bereidt voor, spreekt en reageert?</p></div></div><div class="section-body mode-cards">
@@ -145,7 +145,7 @@ body.embedded .settings-card{max-width:1380px}
         <div class="bank-panel" data-bankpanel="didactic">
           <div class="section cardish soft"><div class="section-body grid3">
             <div class="field"><label>Familie</label><select class="select" id="didFamily"><option>Alle families</option><option>Verwoorden</option><option>In gesprek</option><option>Kiezen en redeneren</option><option>Samen regelen</option><option>Relatie en houding</option><option>Begrijpen en doorgeven</option></select></div>
-            <div class="field"><label>Route</label><select class="select" id="didRoute"><option>A0 → A1</option><option>A1 → A1+</option><option selected>A1 → A2</option><option>A2 → B1</option></select></div>
+            <div class="field"><label>Route</label><select class="select" id="didRoute"></select></div>
             <div class="field"><label>Werkvorm</label><select class="select" id="didWork"><option>Alle werkvormen</option><option>Individueel</option><option>Tweetallen</option><option>Groepen</option><option>Klassikaal</option></select></div>
           </div></div>
           <div id="didacticResults"></div>
@@ -250,7 +250,7 @@ body.embedded .settings-card{max-width:1380px}
 </svg>
 
 <script src="../wording.js?v=2026-10-02.gewone-woorden"></script>
-<script src="settings.js?v=2026-10-02.gewone-woorden"></script>
+<script src="../storage-migration.js?v=1.1"></script><script src="../route-architecture.js?v=1.1"></script><script src="settings.js?v=2026-10-02.gewone-woorden"></script>
 <script>
 if(window.parent!==window){document.body.classList.add('embedded')}
 document.querySelector('.back-btn')?.addEventListener('click',()=> {

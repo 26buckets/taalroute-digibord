@@ -6,3 +6,11 @@
   if(localStorage.getItem(key)!==snapshot)throw new Error('Reservekopie kon niet worden gecontroleerd.');
  }catch(error){window.DigiStorageBackupError=error}
 })();
+
+// Keep every previous preference and roll before the additive route migration.
+(function(){
+ const key='taalroute-route-v1.1-backup';
+ try{if(localStorage.getItem(key)!==null)return;const values={};for(let i=0;i<localStorage.length;i++){const name=localStorage.key(i);if(name.startsWith('taalroute-')&&!name.includes('backup'))values[name]=localStorage.getItem(name)}
+ const snapshot=JSON.stringify({created_at:new Date().toISOString(),values});localStorage.setItem(key,snapshot);if(localStorage.getItem(key)!==snapshot)throw new Error('Reservekopie kon niet worden gecontroleerd.');
+ }catch(error){window.DigiStorageBackupError=error}
+})();

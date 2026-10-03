@@ -7,7 +7,8 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  await page.locator('[data-category="cards"]').click();
  const kinds=await page.locator('[data-ctype]').evaluateAll(nodes=>nodes.map(n=>n.dataset.ctype));
  const selectors=['#app>header .mainnav','#app>header .header-actions','#levelSelect','.card-activity-heading','.game-card-motion','.active-card','.card-ribbon','.card-controls','.cardtypes','.gamebar','#primaryGame','#undoAction','[data-goptions]'];
- const geometry=()=>page.evaluate(selectors=>selectors.map(s=>{const r=document.querySelector(s).getBoundingClientRect();const keys=innerWidth<1100&&!s.includes('header')&&!['#levelSelect','.gamebar','#primaryGame','#undoAction','[data-goptions]'].includes(s)?['x','width']:['x','y','width','height'];return [s,...keys.map(k=>Math.round(r[k]))]}),selectors);
+ const geometry=()=>page.evaluate(selectors=>selectors.map(s=>{const r=document.querySelector(s).getBoundingClientRect();// Text cards grow to keep larger titles, roles and steps readable. Table anchors and navigation stay fixed.
+ const content=['.game-card-motion','.active-card','.card-controls'].includes(s);const keys=content?(s==='.card-controls'?['x','width']:['x','y','width']):innerWidth<1100&&!s.includes('header')&&!['#levelSelect','.gamebar','#primaryGame','#undoAction','[data-goptions]'].includes(s)?['x','width']:['x','y','width','height'];return [s,...keys.map(k=>Math.round(r[k]))]}),selectors);
  for(const [width,height] of [[1920,1080],[1440,900],[1024,768],[768,1024],[390,844],[320,568]]){
   await page.setViewportSize({width,height});let reference;
   for(const kind of kinds){

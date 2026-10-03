@@ -8,7 +8,7 @@ assert.deepEqual(bank,JSON.parse(read('imports/tongbrekers-240-20260921/tongbrek
 assert.equal(read('data/tongbrekers.js'),read('imports/tongbrekers-240-20260921/tongbrekers-240.js'));
 assert.equal(read('data/tongbrekers-audio.json'),read('imports/tongbrekers-240-20260921/tongbrekers-audio-240.json'));
 const source=read('app.js');let rendered;
-const ctx=vm.createContext({RUNTIME:runtime,CARD_GAMES:runtime.cardGames.families,APP:{level:'A2',cardIndex:0},window:{},$$:()=>[],activeCardRoute:()=>ctx.APP.cardRoute||'all',esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>rendered={kind,count,html}});
+const ctx=vm.createContext({DigiRoutes:require('../route-architecture.js'),RUNTIME:runtime,CARD_GAMES:runtime.cardGames.families,APP:{level:'A2',cardIndex:0},window:{},$$:()=>[],activeCardRoute:()=>ctx.APP.cardRoute||'all',esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>rendered={kind,count,html}});
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function cardActivityHeader(')),ctx);
 for(const level of bank.levels){
  ctx.APP.level=level;
@@ -26,7 +26,7 @@ for(const level of bank.levels){
 ctx.APP.level='C2';ctx.APP.tongueDifficulty='';
 for(let i=0;i<240;i++){ctx.APP.cardIndex=i;vm.runInContext('startTongue()',ctx);assert.ok(rendered.html.includes(bank.cards.filter(c=>c.type==='tongbreker')[i].text))}
 assert.equal(vm.runInContext("cardsFor('tongue',true).length",ctx),240);
-for(const family of runtime.cardGames.families.filter(f=>f.id!=='tongue'))for(const route of runtime.cardGames.routeDefinitions){ctx.APP.cardRoute=route.id;ctx.kind=family.id;assert.deepEqual(Array.from(vm.runInContext('cardsFor(kind)',ctx),c=>c.id),Array.from(family.cards.filter(c=>c.routeId===route.id),c=>c.id))}
+for(const family of runtime.cardGames.families.filter(f=>f.id!=='tongue'))for(const route of runtime.cardGames.routeDefinitions){ctx.APP.cardRoute=ctx.DigiRoutes.resolve(route.label);ctx.kind=family.id;assert.deepEqual(Array.from(vm.runInContext('cardsFor(kind)',ctx),c=>c.id),Array.from(family.cards.filter(c=>ctx.DigiRoutes.resolve(c.route)===ctx.DigiRoutes.resolve(route.label)),c=>c.id))}
 // Bank upgrades preserve the old selected ID, other games and filters. Removed IDs get an explicit notice.
 const messages=[],savedBoards={rotterdam:{position:12}};
 ctx.toast=m=>messages.push(m);

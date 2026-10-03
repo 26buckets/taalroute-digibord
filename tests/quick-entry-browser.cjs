@@ -11,7 +11,7 @@ const server=http.createServer((req,res)=>{const f=path.resolve(served,'.'+decod
   await page.evaluate(()=>goScreen('boards'));const before=await page.evaluate(()=>JSON.stringify({boards:APP.boardStates,last:APP.last,turn:APP.turn,used:APP.boardTaskUsed}));
   await page.locator(`#screen-boards [data-board=${board}]`).click();
   assert.ok(await page.locator('#screen-practice.active').isVisible());const state=await page.evaluate(()=>ContentUI.state());
-  assert.equal(state.topic,'quick-answer');assert.equal(state.level,'A2');assert.equal(state.variant,board);assert.equal(state.engine,'BOARD');assert.equal(state.organization,'groups');assert.equal(state.focus,'all');assert.equal(state.difficulty,'all');
+  assert.equal(state.topic,'quick-answer');assert.equal(state.level,'A2_B1');assert.equal(state.variant,board);assert.equal(state.engine,'BOARD');assert.equal(state.organization,'groups');assert.equal(state.focus,'all');assert.equal(state.difficulty,'all');
   assert.equal(await page.evaluate(()=>JSON.stringify({boards:APP.boardStates,last:APP.last,turn:APP.turn,used:APP.boardTaskUsed})),before,'Preparing does not alter saved game');
   assert.ok(await page.locator('[data-practice-step=level]').evaluate(e=>e.open));
   assert.ok(await page.evaluate(()=>ContentUI.previewItems().every(i=>i.version===QuickReview.version&&i.topic==='quick-answer')));
@@ -20,9 +20,9 @@ const server=http.createServer((req,res)=>{const f=path.resolve(served,'.'+decod
  await page.evaluate(()=>ContentUI.setSeedOverride(17));const entryIds=await page.evaluate(()=>ContentUI.previewItems().map(i=>i.content_item_id));
  await page.evaluate(()=>{ContentUI.clearEditing();ContentUI.open({family:'quick',topic:'quick-answer',level:'A2',engine:'BOARD',variant:'zwolle'});ContentUI.setSeedOverride(17)});
  assert.deepEqual(await page.evaluate(()=>ContentUI.previewItems().map(i=>i.content_item_id)),entryIds);
- // Higher levels remain explicit empty choices, never a hidden fallback to A1/B1.
+ // Historical C2 uses the top public route; only reviewed tasks in that route are offered.
  await page.evaluate(()=>{APP.level='C2';goScreen('boards')});await page.locator('#screen-boards [data-board=rotterdam]').click();
- assert.equal(await page.evaluate(()=>ContentUI.state().level),'C2');assert.ok(await page.locator('#practiceStart').isDisabled());assert.match(await page.locator('.practice-warning').innerText(),/niet beschikbaar/);
+ assert.equal(await page.evaluate(()=>ContentUI.state().level),'B2_C1');assert.ok(await page.evaluate(()=>ContentUI.previewItems().every(i=>DigiRoutes.classification(i).displayRoute==='B2_C1')));
  // The dynamic activity library uses the same entry, without starting or clearing the old game.
  await page.evaluate(()=>{APP.level='A2';goScreen('activities')});await page.locator('[data-library-board=zwolle]').click();assert.equal(await page.evaluate(()=>ContentUI.state().variant),'zwolle');
  // Retained classic source task (with changed wording in the new bank) remains exact through preparation/cancel/reload.
@@ -53,6 +53,6 @@ const server=http.createServer((req,res)=>{const f=path.resolve(served,'.'+decod
  await page.evaluate(()=>{APP.questionMode='conversation';goScreen('boards')});await page.locator('#screen-boards [data-board=rotterdam]').click();await page.locator('.board-game').waitFor();assert.equal(await page.evaluate(()=>ContentRuntime.activeSession()),null);
  assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam.positions),old.board.positions);assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam.groupPositions),old.board.groupPositions);
  assert.deepEqual(errors,[]);
- console.log('PASS quick entry: Rotterdam/Zwolle/library, same reviewed selection, cleared draft filters, honest C2 empty state, unchanged classic task/pawns on cancel+reload, new lesson+resume, preserved active shared session and conversation route.');
+ console.log('PASS quick entry: Rotterdam/Zwolle/library, same reviewed selection, cleared draft filters, legacy C2 mapped to the top reviewed route, unchanged classic task/pawns on cancel+reload, new lesson+resume, preserved active shared session and conversation route.');
  }finally{await browser.close();await new Promise(r=>server.close(r))}
 })().catch(e=>{console.error(e);process.exitCode=1});

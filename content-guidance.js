@@ -41,18 +41,19 @@
   }
   return {entries,known,missing,levels,status};
  }
+ function routeDisplay(value){return globalThis.DigiRoutes?DigiRoutes.ordered([].concat(value||[])).map(DigiRoutes.label):value}
  function statusLabel(summary){return ({'Nog niet gekoppeld':'Geen advies','Deels gekoppeld':'Deels beschikbaar','Gekoppeld':'Beschikbaar','Meerdere':'Meerdere niveaus'})[summary.status]||summary.status}
- function buttons(items,selected=null){return Object.entries(sections).map(([key,s])=>`<button type="button" data-guidance="${key}" ${selected?`aria-pressed="${selected===key}"`:''} aria-label="${s.name} · ${s.label}: ${esc(statusLabel(summarize(items,key)))}" ${selected?'':'aria-haspopup="dialog"'}><span class="guidance-icon guidance-${key}" aria-hidden="true"></span><span>${s.label}</span></button>`).join('')}
+ function buttons(items,selected=null){return Object.entries(sections).map(([key,s])=>`<button type="button" data-guidance="${key}" ${selected?`aria-pressed="${selected===key}"`:''} aria-label="${s.name} · ${s.label}: ${esc(key==='erk'&&globalThis.DigiRoutes?routeDisplay(summarize(items,key).levels).join(', ')||statusLabel(summarize(items,key)):statusLabel(summarize(items,key)))}" ${selected?'':'aria-haspopup="dialog"'}><span class="guidance-icon guidance-${key}" aria-hidden="true"></span><span>${s.label}</span></button>`).join('')}
  function row(items){return `<div class="guidance-row" role="group" aria-label="Uitleg bij deze oefeningen">${buttons(items)}</div>`}
  function details(entry,key){
   const m=entry.mapping;
   if(m.status==='not_applicable')return facts([['Niveau','Niet van toepassing'],['Toelichting',m.evidence]]);
-  if(m.status==='source_route')return facts([['Leerroute',m.routes],['Doel',m.goal],['Toelichting',m.evidence]]);
-  return facts([...Object.entries(sections[key].fields).map(([field,label])=>[m.status==='source_level'&&field==='levels'?'Niveau uit de bron':label,m[field]]),['Waarom dit niveau?',entry.item.level_review?.reason?.split(' Deze inhoud is daarom verplaatst')[0]]])+(m.status==='source_level'?`<p>${esc(m.evidence)}</p>`:'');
+  if(m.status==='source_route')return facts([['Leerroute',routeDisplay(m.routes)],['Doel',m.goal],['Toelichting',m.evidence]]);
+  return facts([...Object.entries(sections[key].fields).map(([field,label])=>[m.status==='source_level'&&field==='levels'?'Niveau uit de bron':label,key==='erk'&&field==='levels'?routeDisplay(m[field]):m[field]]),['Waarom dit niveau?',entry.item.level_review?.reason?.split(' Deze inhoud is daarom verplaatst')[0]]])+(m.status==='source_level'?`<p>${esc(m.evidence)}</p>`:'');
  }
  function content(items,key){
   const summary=summarize(items,key),s=sections[key];
-  let body=`<h3 id="guidanceHeading" tabindex="-1">${s.name} · ${s.label}</h3><p>${s.intro}</p><p class="guidance-status">${esc(statusLabel(summary))}</p>`;
+  let body=`<h3 id="guidanceHeading" tabindex="-1">${s.name} · ${s.label}</h3><p>${s.intro}</p><p class="guidance-status">${esc(key==='erk'&&globalThis.DigiRoutes?routeDisplay(summary.levels).join(', ')||statusLabel(summary):statusLabel(summary))}</p>`;
   if(!items.length)return body+'<p>Kies eerst de inhoud die je wilt oefenen.</p>';
   if(summary.missing)body+=`<p>${summary.missing===items.length?'Bij deze oefeningen is deze informatie niet beschikbaar.':`Bij ${summary.missing} van de ${items.length} oefeningen is deze informatie niet beschikbaar.`} Je kunt ze wel gebruiken.</p>`;
   if(key==='bow'){

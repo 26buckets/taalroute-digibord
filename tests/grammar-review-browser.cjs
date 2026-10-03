@@ -46,8 +46,8 @@ let browser,page;
   const prompt=ContentRuntime.displayPrompt(item),node=document.createElement('div');node.innerHTML=contentPromptHtml(prompt);
   return {id:item.content_item_id,bank:item.content_bank_id,prompt:lessonText(prompt),text:node.textContent,words:[...node.querySelectorAll('strong')].map(e=>e.textContent),unsafe:!!node.querySelector('script,img,iframe'),required:/\b(?:Begin met|Reageer met|Vul .+ in:|Kies:|Gebruik:|Herschrijf met)\b/.test(prompt)};
  }));
- assert.equal(emphasisAudit.length,4111);
- assert.equal(emphasisAudit.filter(i=>i.words.length).length,1570);
+ assert.equal(emphasisAudit.length,6630);
+ assert.equal(emphasisAudit.filter(i=>!i.bank.startsWith('CB-WZ-')&&i.words.length).length,1570);
  for(const item of emphasisAudit){assert.equal(item.text,item.prompt,item.id+' exact instruction retained');assert.ok(!item.unsafe,item.id+' safe markup');assert.ok(item.words.every(w=>w.trim()),item.id+' no empty emphasis');if(item.required)assert.ok(item.words.length,item.id+' named instruction emphasized');}
  fs.writeFileSync(path.join(dir,'emphasis-audit.json'),JSON.stringify(emphasisAudit,null,2));
  console.log('PASS all '+emphasisAudit.length+' published instructions: '+emphasisAudit.filter(i=>i.words.length).length+' with explicit emphasis; text and release scope retained.');

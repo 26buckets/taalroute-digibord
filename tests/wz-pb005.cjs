@@ -1,3 +1,4 @@
+const routes=require('../route-architecture.js');
 const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 const {bank,review,originals,output}=require('../scripts/import-wz-pb005.cjs'),adapt=require('../content-bank-adapters.js'),{createContentRuntime}=require('../content-runtime.js'),guidance=require('../content-guidance.js');
 assert.equal(fs.readFileSync(require.resolve('../data/wz-pb005.js'),'utf8'),output);
@@ -18,12 +19,12 @@ for(const item of bank.items){
 }
 assert.deepEqual(levels,{A2:372,B1:324});assert.equal(Object.values(review.items).filter(r=>r.status==='DUPLICATE').length,424);
 for(const [id,r] of Object.entries(review.items)){if(id.startsWith('WZ_032_')||id.startsWith('WZ_041_'))assert.equal(r.level,'B1');if(r.status==='DUPLICATE'){assert.equal(runtime.itemById(id),null);assert.ok(runtime.itemById(r.duplicate_of),id+' resolves to playable original');}}
-for(const topic of [...new Set(bank.items.map(i=>i.topic))])for(const level of [...new Set(bank.items.filter(i=>i.topic===topic).map(i=>i.cefr_level))]){
+for(const topic of [...new Set(bank.items.map(i=>i.topic))])for(const level of [...new Set(bank.items.filter(i=>i.topic===topic&&routes.selectable(i)).map(i=>routes.classification(i).displayRoute))]){
  const filters={bank_ids:[bank.bank_id],topics:[topic],levels:[level]},duration=Math.min(300,runtime.filterSource(filters).reduce((s,i)=>s+i.estimated_duration_seconds,0));
  const a=runtime.createSession({filters,selectedGameEngine:'CARDS',seed:39,targetDurationSeconds:duration}),b=runtime.createSession({selectionSpec:runtime.specFromFilters(filters),selectedGameEngine:'BOARD',seed:39,targetDurationSeconds:duration});assert.deepEqual(a.selected_item_ids,b.selected_item_ids);assert.ok(a.selected_item_ids.length>1);assert.deepEqual(runtime.restoreSession(a).selected_item_ids,a.selected_item_ids);
 }
-for(const level of ['A0→A1','A1','A2'])assert.equal(runtime.filterSource({topics:['WZ_029'],levels:[level]}).length,0);
-assert.ok(runtime.filterSource({topics:['WZ_029'],levels:['B1']}).length>50);
+for(const level of ['ALPHA_AC','A0_A1','A1_A2'])assert.equal(runtime.filterSource({topics:['WZ_029'],levels:[level]}).length,0);
+assert.ok(runtime.filterSource({topics:['WZ_029'],levels:['A2_B1']}).every(i=>routes.selectable(i)&&routes.classification(i).displayRoute==='A2_B1'));
 assert.equal(require('../data/wz-pb004.js').items.find(i=>i.content_item_id==='WZ_024_V10').model_answer,'Ik ga het formulier invullen.');assert.equal(require('../data/wz-pb004.js').items.find(i=>i.content_item_id==='WZ_029_V02').model_answer,'Ik zie het kind dat buiten speelt.');
 const old=runtime.createSession({filters:{topics:['WZ_001'],levels:['A0→A1']},selectedGameEngine:'CARDS',targetDurationSeconds:300});assert.deepEqual(runtime.restoreSession(old).selected_item_ids,old.selected_item_ids);
 console.log('PASS WZ PB005: 1120 reviewed rows, 696 tasks, 424 resolved duplicates, 2559 combined WZ, all relative/passive source rows B1, teacher review, old bank preservation, both routes, restored lessons and guidance.');

@@ -34,14 +34,14 @@ assert.equal(runtime.items().length,840);assert.equal(new Set(runtime.items().ma
 assert.equal(supplement.items.filter(i=>i.answerType==='OPEN').length,48);assert.equal(supplement.items.filter(i=>i.requiresTeacherReview).length,6);
 const unsafe=structuredClone(supplement);unsafe.items[0].review.sourceReview3='OPEN';assert.throws(()=>adapt(unsafe),/niet vrijgegeven/);
 for(const topic of ['WZ_009','WZ_010'])for(const difficulty of ['basis','midden','hoog']){
- const filters={family_ids:['words'],topics:[topic],levels:['A0→A1'],difficulty},options={filters,seed:24,targetDurationSeconds:300,selectedGameEngine:'CARDS'};
- const pool=runtime.filterSource(filters);assert.equal(pool.length,{basis:25,midden:28,hoog:27}[difficulty]);
+ const filters={family_ids:['words'],topics:[topic],levels:['A1_A2'],difficulty},options={filters,seed:24,targetDurationSeconds:300,selectedGameEngine:'CARDS'};
+ const pool=runtime.filterSource(filters);assert.equal(pool.length,(topic==='WZ_009'?{basis:25,midden:25,hoog:10}:{basis:25,midden:28,hoog:27})[difficulty]);
  const a=runtime.createSession(options);assert.deepEqual(runtime.createSession({...options,selectedGameEngine:'BOARD'}).selected_item_ids,a.selected_item_ids);assert.deepEqual(runtime.createSession({...options,selectedGameEngine:'WHEEL'}).selected_item_ids,a.selected_item_ids);
  assert.deepEqual(runtime.restoreSession(a).selected_item_ids,a.selected_item_ids);
- const next=runtime.createSession({...options,recentItemIds:a.selected_item_ids});assert.ok(next.selected_item_ids.every(id=>!a.selected_item_ids.includes(id)),'No early repeats when enough items remain');
+ const next=runtime.createSession({...options,recentItemIds:a.selected_item_ids});if(pool.filter(i=>!a.selected_item_ids.includes(i.content_item_id)).reduce((n,i)=>n+i.estimated_duration_seconds,0)>=300)assert.ok(next.selected_item_ids.every(id=>!a.selected_item_ids.includes(id)),'No early repeats when enough free items remain');else assert.ok(next.selected_item_ids.every(id=>pool.some(i=>i.content_item_id===id)),'Exhausted free pool never falls back to guided items');
  assert.deepEqual(new Set(a.selected_item_ids.map(id=>runtime.itemById(id).language_function)),new Set(pool.map(i=>i.language_function)),'Balanced exercise types include open production');
  assert.ok(!runtime.fullCoverageEngines(filters).includes('DICE'));assert.ok(runtime.fullCoverageEngines(filters,'groups').includes('QUIZ'));
- assert.ok(runtime.fullCoverageEngines({...filters,language_functions:['Bouw']}).includes('SEQUENCE'));
+ assert.equal(runtime.fullCoverageEngines({...filters,language_functions:['Bouw']}).includes('SEQUENCE'),!(topic==='WZ_009'&&difficulty==='hoog'));
  assert.throws(()=>runtime.createSession({...options,selectedGameEngine:'DICE'}),/spelvorm/);
 }
 const old=runtime.createSession({filters:{topics:['WZ_001'],levels:['A0→A1']},selectedGameEngine:'CARDS',targetDurationSeconds:300});assert.deepEqual(runtime.restoreSession(old).selected_item_ids,old.selected_item_ids);

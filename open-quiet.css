@@ -1,18 +1,46 @@
 /* Open en rustig — shared presentation for preparation and every settings page.
    Deliberately scoped: game cards and the fixed large tongue twisters stay separate. */
 :root{--setup-ink:#173752;--setup-muted:#5c7386;--setup-blue:#126ab3;--setup-soft:#e7f3fe;--setup-line:#d7e4ee;--setup-font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+/* One card structure, including the separate preparation button. Text stays complete. */
+#screen-boards .tiles{grid-auto-rows:1fr}
+.activity-entry>.tile{flex:1;display:flex;flex-direction:column;align-items:stretch;padding:0;min-width:0}
+.activity-entry>.tile .tile-img{flex:none;width:100%}
+.activity-entry>.tile .tile-body{flex:1}
+.activity-entry>.smallbtn{flex:none}
+/* Keep the existing brand and navigation within the viewport. */
+#app:not(:has(#screen-game.active .board-game))>header{grid-template-columns:auto minmax(0,1fr) auto}
+#app>header .brand{gap:10px;min-width:0}
+#app>header .product{display:flex;align-items:center;gap:5px}
+#app>header .beta-label{margin:0;font-weight:500}
+@media(min-width:901px) and (max-width:1280px){
+ #app>header{padding-left:16px;padding-right:16px}
+ #app>header .header-brand-logo{width:110px}
+ #app>header .brand{gap:7px}
+ #app>header .product{font-size:16px}
+ #app>header .mainnav{gap:2px}
+ #app>header .mainnav .navitem{padding:8px 6px;gap:5px}
+}
+@media(max-width:900px){
+ #app>header .brand{gap:6px}
+ #app>header .brand-sep{display:block;height:20px}
+ #app>header .product{font-size:12px;gap:3px}
+ #app>header .beta-label{font-size:9px;padding:2px 4px}
+}
+@media(max-width:600px){#screen-boards .tiles{grid-template-columns:1fr}}
+@media(min-width:901px) and (max-width:1000px){#app>header .header-brand-logo{width:80px}}
+@media(max-width:374px){#app>header .header-brand-logo{width:40px}#app>header .brand{gap:4px}#app>header .product{font-size:11px}#app>header .beta-label{font-size:8px}}
 .gamecard:disabled p{display:block}
 .resume:disabled{cursor:default}
-#app:not(:has(#screen-game.active))>header .mainnav .navitem{min-height:44px}
+#app:not(:has(#screen-game.active .board-game))>header .mainnav .navitem{min-height:44px}
 #screen-mycollection .simple-card[hidden],.gamecard .arrowbubble[hidden]{display:none}
 /* Keep navigation labels visible outside games, including the former 650–720px gap. */
 @media(max-width:900px){
- #app:not(:has(#screen-game.active)){grid-template-rows:112px minmax(0,1fr)}
- #app:not(:has(#screen-game.active))>header{display:grid;grid-template-columns:1fr auto;grid-template-rows:58px 54px;gap:0;padding:0 12px}
- #app:not(:has(#screen-game.active))>header .mainnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-row:2;grid-column:1/-1;gap:2px;width:100%;height:100%}
- #app:not(:has(#screen-game.active))>header .mainnav .navitem{font-size:12px;line-height:1.2;white-space:normal;justify-content:center;padding:4px;gap:4px;min-height:44px;height:auto}
- #app:not(:has(#screen-game.active))>header .mainnav .navitem svg{width:18px;height:18px;flex-shrink:0}
- #app:not(:has(#screen-game.active))>header .header-actions{grid-column:2;grid-row:1}
+ #app:not(:has(#screen-game.active .board-game)){grid-template-rows:112px minmax(0,1fr)}
+ #app:not(:has(#screen-game.active .board-game))>header{display:grid;grid-template-columns:1fr auto;grid-template-rows:58px 54px;gap:0;padding:0 12px}
+ #app:not(:has(#screen-game.active .board-game))>header .mainnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-row:2;grid-column:1/-1;gap:2px;width:100%;height:100%}
+ #app:not(:has(#screen-game.active .board-game))>header .mainnav .navitem{font-size:12px;line-height:1.2;white-space:normal;justify-content:center;padding:4px;gap:4px;min-height:44px;height:auto}
+ #app:not(:has(#screen-game.active .board-game))>header .mainnav .navitem svg{width:18px;height:18px;flex-shrink:0}
+ #app:not(:has(#screen-game.active .board-game))>header .header-actions{grid-column:2;grid-row:1}
 }
 #screen-practice,.settings-page{font:400 15px/1.45 var(--setup-font);color:var(--setup-ink);background:#fff}
 #screen-practice :is(button,select,input),.settings-page :is(button,select,input){font-family:var(--setup-font)}
@@ -421,8 +449,8 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 .card-table-shell .cardtypes .typebtn small{font-size:12px}
 /* Within the existing card: situation, visible exercise and instruction. No changes to tongue text. */
 #screen-game .card-table-shell .card-content.card-readable{display:flex;flex-direction:column;columns:auto;gap:16px;padding:24px 28px;font-family:var(--setup-font)}
-#screen-game .card-readable>h2{font-size:21px;font-weight:500;line-height:1.25;margin:0}
-#screen-game .card-readable .card-reading-main{margin-block:auto;display:flex;flex-direction:column;gap:22px}
+#screen-game .card-readable>h2{font-size:clamp(28px,2.3vw,36px);font-weight:500;line-height:1.25;margin:0}
+#screen-game .card-readable .card-reading-main{margin-block:0;display:flex;flex-direction:column;gap:22px}
 #screen-game .card-readable .card-situation{margin:0;padding:0;background:none;border-radius:0;color:var(--setup-ink)}
 #screen-game .card-readable .card-situation>div{width:100%}
 #screen-game .card-readable .card-situation strong{font-size:15px;font-weight:500;color:var(--setup-muted);margin-bottom:6px}
@@ -438,3 +466,23 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 .card-story-words img,.card-story-words .game-icon{width:64px;height:64px;object-fit:contain}
 .card-story-words strong{font-size:clamp(20px,1.8vw,28px);font-weight:500;overflow-wrap:anywhere;line-height:1.25}
 @media(max-width:600px){.card-menu-count{max-width:125px;font-size:12px!important}#screen-game .card-table-shell .card-content.card-readable{padding:20px;gap:14px}#screen-game .card-readable .card-reading-main{gap:18px}.card-story-words{gap:8px}.card-story-words>div{padding:10px 3px}.card-story-words img,.card-story-words .game-icon{width:44px;height:44px}.card-story-words strong{font-size:18px}}
+
+/* Fixed card hierarchy: title, roles, situation, task; answers remain in the existing tools. */
+#screen-game .card-readable .card-situation h3,
+#screen-game .card-actions h3{font-size:17px;font-weight:500;line-height:1.4;color:var(--setup-muted);margin:0 0 10px}
+#screen-game .card-readable .card-situation p,
+#screen-game .card-readable .card-situation li{font-size:clamp(20px,1.6vw,26px);line-height:1.45}
+#screen-game .card-readable .card-situation ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.card-roles{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin:0;padding:0 0 18px;border-bottom:1px solid var(--setup-line)}
+.card-roles dt{font-size:17px;font-weight:500;color:var(--setup-blue);margin-bottom:6px}
+.card-roles dd{margin:0;font-size:clamp(20px,1.6vw,26px);line-height:1.4;overflow-wrap:break-word}
+#screen-game .card-actions .card-instruction{list-style:none;counter-reset:card-action;padding:0;margin:0;display:grid;gap:12px;font-size:clamp(21px,1.7vw,28px);font-weight:400;line-height:1.4}
+#screen-game .card-actions li{counter-increment:card-action;display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:baseline}
+#screen-game .card-actions li::before{content:counter(card-action);background:var(--setup-soft);color:var(--setup-blue);border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:500}
+#screen-game .card-actions li>span{min-width:0}
+#screen-game .card-readable .supportbox{font-family:var(--setup-font)}
+#screen-game .card-readable .supportbox p,#screen-game .card-readable .supportbox li{font-size:20px;line-height:1.45;font-weight:400}
+#screen-game .content-reading .card-action-lines{counter-reset:card-action}
+#screen-game .content-reading .card-action-line{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;align-items:baseline;counter-increment:card-action;margin:12px 0}
+#screen-game .content-reading .card-action-line::before{content:counter(card-action);background:var(--setup-soft);color:var(--setup-blue);border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font:500 16px var(--setup-font)}
+@media(max-width:600px){.card-roles{grid-template-columns:1fr;gap:12px}#screen-game .card-readable .card-focus{overflow-wrap:anywhere}#screen-game .card-actions .card-instruction{font-size:21px}}

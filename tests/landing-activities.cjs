@@ -12,6 +12,18 @@ const {chromium}=require('playwright');
  const feedback=async text=>{await page.waitForFunction(t=>document.querySelector('#na-feedback').textContent.includes(t),text)};
  try{
   await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.LANDING_TEST_URL||require('node:url').pathToFileURL(require('node:path').resolve(__dirname,'../index.html')).href);
+  await page.locator('[data-category="boards"]').click();
+  for(const width of [320,390,720,900,901,1024,1200,1440]){
+   await page.setViewportSize({width,height:900});
+   const sizes=await page.locator('#screen-boards .tile').evaluateAll(es=>es.map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
+   assert.ok(Math.abs(sizes[0].width-sizes[1].width)<1&&Math.abs(sizes[0].height-sizes[1].height)<1,'Equal board cards at '+width);
+   for(const selector of ['.beta-label','.mainnav .navitem','#curriculumContext','#levelSelect','#fullscreenBtn','#settingsBtn']){
+    assert.ok(await page.locator('#appHeader '+selector).evaluateAll(es=>es.every(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.left>=0&&r.right<=innerWidth+1})),selector+' remains visible at '+width);
+   }
+   assert.ok(await page.evaluate(()=>document.querySelector('.beta-label').getBoundingClientRect().right<=document.querySelector('.header-actions').getBoundingClientRect().left),'Brand and controls do not overlap at '+width);
+   if(output&&[390,1440].includes(width))await page.screenshot({path:output+'/speelborden-'+width+'.png'});
+  }
+  await page.setViewportSize({width:1920,height:1080});await page.locator('[data-main="play"]').click();
   assert.deepEqual(await page.locator('.gamecard h2').allTextContents(),['Speelborden','Dobbelspellen','Kaartspellen','Woorden en zinnen','Meer manieren om te oefenen','Live']);
   assert.deepEqual(await page.locator('.new-workforms [data-activity]').evaluateAll(es=>es.map(e=>e.dataset.activity)),ids);
   assert.equal(await page.locator('#workformDecks .activity-tile').count(),8);
@@ -43,7 +55,7 @@ const {chromium}=require('playwright');
   await open('rangschikken');for(const i of [3,2,1,0])await click('step',i);await next();await feedback('nog niet');for(let i=0;i<4;i++)await click('remove-step',0);for(let i=0;i<4;i++)await click('step',i);await next();await feedback('volgorde klopt!');await next();
   await open('categorieenquiz');for(let i=0;i<30;i++){await click('question',i);const answer=await page.evaluate(i=>window.DIGIBORD_ACTIVITIES.quiz[i].answer,i);await click('quiz-answer',i===0?1:answer);await feedback(i===0?'Nog niet':'Goed!');await next()}assert.deepEqual(await page.locator('.na-scoreboard strong').allTextContents(),['2900','3000']);assert.equal(await page.locator('.na-quiz-board button:enabled').count(),0);await next();assert.equal(await page.locator('.na-quiz-board button:enabled').count(),30);
   await open('raad-het-woord');await page.locator('#na-guess').fill('auto');await page.locator('#na-guess-form button').click();await feedback('nog niet');await click('hint',0);assert.equal(await page.locator('.na-clues li').count(),2);await page.locator('#na-guess').fill('De fiets!');await page.locator('#na-guess-form button').click();await feedback('Goed geraden');await next();await click('reveal',0);assert.equal(await page.locator('.na-word').innerText(),'sleutel');await page.locator('#activityUndo').click();assert.equal(await page.locator('#na-guess').count(),1);
-  await page.locator('#levelSelect').selectOption('B1');assert.match(await page.locator('#na-level').innerText(),/vervolgvraag/);await page.locator('[data-main="play"]').click();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.new-activity .card-ribbon strong').innerText(),'Raad het woord');
+  await page.locator('#levelSelect').selectOption('B1_B2');assert.match(await page.locator('#na-level').innerText(),/vervolgvraag/);await page.locator('[data-main="play"]').click();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.new-activity .card-ribbon strong').innerText(),'Raad het woord');
   for(const id of ids.filter(id=>id!=='categorieenquiz')){
    await open(id);const count=id==='draaiwiel'?5:30;assert.equal(await page.locator('#na-set option').count(),count+(id==='draaiwiel'?1:0));
    await page.locator('#na-set').selectOption(String(count-1));if(id!=='draaiwiel')assert.equal(await page.locator('.card-counter').innerText(),`${count} / ${count}`);else assert.equal(await page.locator('#na-set').inputValue(),String(count-1));

@@ -30,7 +30,7 @@ let browser;
  const cardId=await page.locator('.content-vert001-cards [data-content-item-id]').getAttribute('data-content-item-id');
  assert.equal(cardId,session.selected_item_ids[0]);
  assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/^Grammatica Er$/);
- assert.equal(await page.locator('#levelSelect option:checked').textContent(),'B1');
+ assert.equal(await page.locator('#levelSelect option:checked').textContent(),'B1 → B2');
  assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,cardId));
 
  await page.evaluate(()=>CONTENT_VERT001.dice());

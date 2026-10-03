@@ -1,3 +1,4 @@
+const routes=require('../route-architecture.js');
 const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
 const {bank,review,originals,output}=require('../scripts/import-wz-pb003.cjs'),adapt=require('../content-bank-adapters.js'),{createContentRuntime}=require('../content-runtime.js'),guidance=require('../content-guidance.js');
 assert.equal(fs.readFileSync(require.resolve('../data/wz-pb003.js'),'utf8'),output);
@@ -18,7 +19,7 @@ for(const item of bank.items){
 assert.deepEqual(levels,{A1:393,A2:32});assert.equal(Object.values(review.items).filter(r=>r.status==='DUPLICATE').length,215);
 for(const [id,r] of Object.entries(review.items))if(r.status==='DUPLICATE'){assert.equal(runtime.itemById(id),null);assert.ok(runtime.itemById(r.duplicate_of),id+' resolves to playable original');}
 for(let n=11;n<=18;n++){
- const topic='WZ_0'+n;for(const level of [...new Set(bank.items.filter(i=>i.topic===topic).map(i=>i.cefr_level))]){
+ const topic='WZ_0'+n;for(const level of [...new Set(bank.items.filter(i=>i.topic===topic&&routes.selectable(i)).map(i=>routes.classification(i).displayRoute))]){
  const filters={topics:[topic],levels:[level]},duration=Math.min(300,runtime.filterSource(filters).reduce((s,i)=>s+i.estimated_duration_seconds,0));
  const a=runtime.createSession({filters,selectedGameEngine:'CARDS',seed:39,targetDurationSeconds:duration}),b=runtime.createSession({selectionSpec:runtime.specFromFilters(filters),selectedGameEngine:'BOARD',seed:39,targetDurationSeconds:duration});assert.deepEqual(a.selected_item_ids,b.selected_item_ids);assert.ok(a.selected_item_ids.length>1);assert.deepEqual(runtime.restoreSession(a).selected_item_ids,a.selected_item_ids);
  }

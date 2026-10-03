@@ -16,14 +16,14 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  }
  await page.setViewportSize({width:1440,height:900});
  // Route counts and empty choices update without entering a game or resetting the route.
- for(const [level,verbs,between] of [['A0',5,0],['A1',5,0],['A1+',7,0],['A2',7,0],['B1',6,19],['B2',5,31],['C1',5,0],['C2',5,0]]){
+ for(const [level,verbs,between] of [['A0_A1',5,0],['A1_A2',12,0],['A2_B1',7,0],['B1_B2',6,19],['B2_C1',10,31]]){
   await page.locator('#levelSelect').selectOption(level);
   assert.equal(await page.locator('[data-cardgame="verbs"] .card-menu-count').innerText(),verbs+' kaarten');
   assert.equal(await page.locator('[data-cardgame="c1-between-lines"]').isDisabled(),between===0);
   if(between)assert.equal(await page.locator('[data-cardgame="c1-between-lines"] .card-menu-count').innerText(),between+' kaarten');
  }
- await page.locator('#levelSelect').selectOption('B2');await page.locator('[data-cardgame="c1-between-lines"]').click();
- assert.equal(await page.evaluate(()=>ContentUI.state().level),'B2');
+ await page.locator('#levelSelect').selectOption('B2_C1');await page.locator('[data-cardgame="c1-between-lines"]').click();
+ assert.equal(await page.evaluate(()=>ContentUI.state().level),'B2_C1');
  await page.evaluate(()=>{APP.level='A2';goScreen('cards')});
  for(const [width,height] of [[1440,900],[1366,768],[390,844]]){
   await page.setViewportSize({width,height});
@@ -74,7 +74,9 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
     if(kind==='tongue'){if(node.textContent!==AppWording.text(c.text)||!document.querySelector('#tongueRead').disabled)failures.push(c.id+' tongue')}
     else{
      const prompt=document.querySelector('.card-instruction');
-     if(prompt.textContent!==AppWording.text(c.visualRebus?.instruction||c.instruction))failures.push(c.id+' prompt');
+     const shown=[...prompt.querySelectorAll('li')].map(li=>li.textContent).join(' ');
+     const expected=c.visualRebus?.instruction||CARD_READING_EDITS[c.id]?.steps.join(' ')||c.instruction;
+     if(shown.replace(/\s+/g,' ').trim()!==AppWording.text(expected).replace(/\s+/g,' ').trim())failures.push(c.id+' prompt');
      const text=document.querySelector('.active-card').textContent;
      if(/\bbuur\b|\bpilot\b|AI-redactie|reviewronde/i.test(text))failures.push(c.id+' wording');
      if(!text.includes(AppWording.text(c.model.text)))failures.push(c.id+' model');
@@ -88,7 +90,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  await page.evaluate(()=>{APP.level='B1';goScreen('cards')});await page.locator('[data-cardgame="c1-between-lines"]').click();
  await page.waitForSelector('#screen-practice.active');
  assert.equal(await page.evaluate(()=>ContentUI.state().topic),'tussen-de-regels');
- assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.find(f=>f.id==='conversation').topics.map(t=>[t.id,t.levels])),[['tussen-de-regels',['B1','B2']]]);
+ assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.find(f=>f.id==='conversation').topics.map(t=>[t.id,t.levels])),[['tussen-de-regels',['B1_B2','B2_C1']]]);
  await page.evaluate(()=>{const filters={bank_ids:['CB-BETWEEN-LINES-012']};ContentUI.launch(ContentRuntime.createSession({filters,selectedGameEngine:'CARDS',targetDurationSeconds:ContentRuntime.filterSource(filters).reduce((n,i)=>n+i.estimated_duration_seconds,0),seed:9}))});
  const between=await page.evaluate(async()=>{
   const ids=new Set(),levels={},failures=[];
@@ -106,7 +108,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  for(const engine of ['BOARD','WHEEL']){await page.evaluate(engine=>ContentUI.launch(ContentRuntime.createSession({filters:{bank_ids:['CB-BETWEEN-LINES-012'],levels:['B1']},selectedGameEngine:engine,selectedGameVariant:engine==='BOARD'?'rotterdam':undefined,targetDurationSeconds:600,seed:9})),engine);assert.ok(await page.locator('#screen-game.active').isVisible())}
  // A direct old C1 launcher must use the improved preparation as well.
  await page.evaluate(()=>startC1());assert.equal(await page.evaluate(()=>ContentUI.state().topic),'tussen-de-regels');
- assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),4111);
- assert.equal(await page.evaluate(()=>ContentRuntime.items().length),8414);
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),6630);
+ assert.equal(await page.evaluate(()=>ContentRuntime.items().length),9415);
  assert.deepEqual(errors,[]);console.log('PASS: 570 reviewed cards, nine menu choices, 520 standalone renders at two widths, 50 corrected B1/B2 cards, all standalone reload/resume, retained shared lesson, three between-lines engines, disabled audio and unchanged hidden banks.');
 }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

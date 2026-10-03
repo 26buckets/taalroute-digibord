@@ -9,10 +9,10 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  await page.goto(url+'#kaartspellen');await page.waitForFunction(()=>window.ContentUI&&window.LessonUI);
  assert.deepEqual(await page.locator('#screen-cards.active [data-card-family]').evaluateAll(es=>es.map(e=>e.dataset.cardFamily)),['grammar','quick'],'Direct card link waits for both registered families');await page.locator('#cardMenuHome').click();await page.evaluate(()=>history.replaceState(null,'',location.pathname));
  assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
- assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),4111);
- assert.equal(await page.evaluate(()=>ContentRuntime.items().length),8414,'Unreviewed sources retained');
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),6630);
+ assert.equal(await page.evaluate(()=>ContentRuntime.items().length),9415,'Unreviewed sources retained');
  // Lesson help is tied to the released items; review metadata stays internal.
- assert.deepEqual(await page.evaluate(()=>Object.fromEntries(['lowan','erk','f','bow'].map(key=>[key,ContentGuidance.summarize(ContentRuntime.filterSource(),key).known.length]))),{lowan:4111,erk:4111,f:4111,bow:4111});
+ assert.deepEqual(await page.evaluate(()=>Object.fromEntries(['lowan','erk','f','bow'].map(key=>[key,ContentGuidance.summarize(ContentRuntime.filterSource(),key).known.length]))),{lowan:6630,erk:6630,f:6630,bow:6630});
  const guidanceAudit=await page.evaluate(()=>{
   const items=ContentRuntime.filterSource(),failures=[];
   for(let start=0;start<items.length;start+=120)for(const key of ['erk','bow']){
@@ -22,7 +22,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   }
   document.querySelector('#gameDialog').close();return failures;
  });
- assert.deepEqual(guidanceAudit,[],'No internal review text in guidance for any of the 4111 released exercises');
+ assert.deepEqual(guidanceAudit,[],'No internal review text in guidance for any of the 6630 released exercises');
  fs.mkdirSync(path.join(root,'tests/artifacts/release'),{recursive:true});
  for(const width of [1440,390]){
   await page.setViewportSize({width,height:900});
@@ -38,13 +38,12 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   }
  }
  await page.setViewportSize({width:1440,height:1000});
- assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.map(f=>f.id)),['grammar','conversation','quick']);
+ assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families.map(f=>f.id)),['grammar','words','conversation','quick']);
  assert.deepEqual(await page.evaluate(()=>DIGIBORD_CONTENT_CATALOG.families[0].topics.map(t=>t.id)),['ER','ZULLEN','ZOUDEN','MODAAL']);
  assert.equal(await page.locator('[data-category=words]').isVisible(),true);
- assert.equal(await page.locator('[data-category=words]').isDisabled(),true);
- assert.match(await page.locator('[data-category=words]').innerText(),/Binnenkort/);
- assert.equal(await page.locator('[data-category=words]').evaluate(e=>getComputedStyle(e).filter),'grayscale(1)');
- assert.equal(await page.locator('[data-category=words] .arrowbubble').isVisible(),false);
+ assert.equal(await page.locator('[data-category=words]').isDisabled(),false);
+ assert.doesNotMatch(await page.locator('[data-category=words]').innerText(),/Binnenkort/);
+ assert.equal(await page.locator('[data-category=words] .arrowbubble').isVisible(),true);
  assert.doesNotMatch(await page.locator('body').innerText(),/nog niet (?:volledig )?nagekeken/i);
  assert.equal(await page.locator('.gamecard-live').isVisible(),true);
  assert.equal(await page.locator('.gamecard-live').isDisabled(),true);
@@ -61,9 +60,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   }
   await page.locator('[data-main=play]').click();
   const nav=await page.locator('.mainnav .navitem').evaluateAll(es=>es.map(el=>{const r=el.getBoundingClientRect();return {width:r.width,height:r.height,left:r.left,right:r.right,font:parseFloat(getComputedStyle(el).fontSize)}}));
-  const cover=await page.locator('[data-category=words]').boundingBox(),badge=await page.locator('#words-status').boundingBox();
-  assert.ok(badge&&badge.x>=cover.x&&badge.x+badge.width<=cover.x+cover.width&&badge.y>=cover.y&&badge.y+badge.height<=cover.y+cover.height,'Soon label remains inside the cover at '+width);
-  if(width===1440){fs.mkdirSync(path.join(root,'tests/artifacts/release'),{recursive:true});await page.locator('[data-category=words]').screenshot({path:path.join(root,'tests/artifacts/release/woorden-binnenkort.png')});}
+  if(width===1440){fs.mkdirSync(path.join(root,'tests/artifacts/release'),{recursive:true});await page.locator('[data-category=words]').screenshot({path:path.join(root,'tests/artifacts/release/woorden-beschikbaar.png')});}
   assert.equal(nav.length,4);assert.ok(nav.every(r=>r.width>=44&&r.height>=44&&r.left>=0&&r.right<=width&&r.font>=12),`Navigation visible at ${width}: ${JSON.stringify(nav)}`);
  }
  await page.locator('[data-main=lessons]').click();await page.waitForSelector('#lessonLibrary h1');
@@ -79,8 +76,8 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  for(const screen of ['workforms','activities','words','collection']){await page.evaluate(id=>goScreen(id),screen);assert.ok(await page.locator('#screen-practice.active').isVisible(),screen)}
  for(const board of ['rotterdam','zwolle']){await page.evaluate(b=>{CONTENT_VERT001.stop();APP.questionMode='conversation';startBoard(b)},board);assert.ok(await page.locator('#screen-practice.active').isVisible());assert.equal(await page.evaluate(()=>ContentUI.state().variant),board)}
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'CARDS',focus:'all',subtopic:'all',duration:180}));
- await page.locator('#practiceMix').click();assert.equal(await page.locator('.lesson-mix-option').count(),10);await page.locator('#dialogClose').click();
- for(const filter of [{bank_ids:['CB-WZ-002']},{family_ids:['words']},{topics:['ER','RELATIEVE_BIJZIN']}]){
+ await page.locator('#practiceMix').click();assert.ok(await page.locator('.lesson-mix-option').count()>10);await page.locator('#dialogClose').click();
+ for(const filter of [{bank_ids:['CB-GRAM-002']},{family_ids:['reading']},{topics:['ER','RELATIEVE_BIJZIN']}]){
   assert.notEqual(await page.evaluate(f=>{try{ContentRuntime.filterSource(f);return ''}catch(e){return e.message}},filter),'');
  }
  // Three dice routes: two standalone games and the unchanged shared preparation.
@@ -241,12 +238,12 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
   await nextCard();await nextCard(-1);
   return document.querySelector('#screen-game textarea').value==='Mijn bewaarde antwoord';
  }),true,'Archived draft survives next and previous card');
- const saved=await ap.evaluate(async()=>{const item=ContentRuntime.items().find(i=>i.content_bank_id==='CB-WZ-002');const session=ContentRuntime.createSession({filters:{bank_ids:[item.content_bank_id],topics:[item.topic],levels:[item.cefr_level]},engines:['CARDS'],selectedGameEngine:'CARDS',targetDurationSeconds:180});ContentUI.launch(session);await LessonUI.flush();return {session:APP.contentSessionConfig,boards:APP.boardStates};});
+ const saved=await ap.evaluate(async()=>{const item=ContentRuntime.items().find(i=>i.content_bank_id==='CB-WZ-002');const session=ContentRuntime.createSession({filters:{bank_ids:[item.content_bank_id],topics:[item.topic],levels:[DigiRoutes.classification(item).displayRoute]},engines:['CARDS'],selectedGameEngine:'CARDS',targetDurationSeconds:180});ContentUI.launch(session);await LessonUI.flush();return {session:APP.contentSessionConfig,boards:APP.boardStates};});
  const storageState=await archive.storageState({indexedDB:true});const live=await browser.newContext({storageState});const lp=await live.newPage();await lp.goto(url);await lp.waitForFunction(()=>window.LessonUI);
  assert.deepEqual(await lp.evaluate(()=>({session:APP.contentSessionConfig,boards:APP.boardStates})),saved);
  assert.equal(await lp.locator('#resumeBtn').isVisible(),true);assert.equal(await lp.locator('#resumeBtn').isDisabled(),true);assert.match(await lp.locator('#resumeText').innerText(),/bewaard/);assert.ok(await lp.evaluate(()=>contentRestoreError.message.includes('niet beschikbaar')));
  await lp.evaluate(()=>{goScreen('lessons');return LessonUI.render()});await lp.waitForSelector('#lessonLibrary h1');assert.equal(await lp.locator('[data-lesson-action=resume]').count(),0);
  assert.equal(await lp.evaluate(async()=>(await LessonUI.service.list('recent_session')).length),2,'Both hidden sessions remain stored');
- assert.deepEqual(errors,[]);console.log('PASS: 4111 approved, 4303 retained/hidden; legacy routes, catalog, mixes, six live game/resume routes, old IndexedDB preserved/hidden.');
+ assert.deepEqual(errors,[]);console.log('PASS: 6630 freely selectable, 179 guided, other sources retained/hidden; legacy routes, catalog, mixes, six live game/resume routes, old IndexedDB preserved/hidden.');
  }finally{await browser.close();await new Promise(r=>server.close(r))}
 })().catch(e=>{console.error(e);process.exitCode=1});

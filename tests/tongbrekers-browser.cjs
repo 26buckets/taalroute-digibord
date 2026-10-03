@@ -16,10 +16,10 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
   await page.locator('[data-main="play"]').click();await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="tongue"]').click();
-  await page.locator('#levelSelect').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('B2_C1');
   assert.equal(await page.locator('.card-activity-heading h1 span').innerText(),'240 kaarten');
   assert.equal(await page.locator('#cardHelp,#cardGoals,#cardPartner,#cardSetInfo,#cardSupport,#cardAttempt,[data-ghelp],[data-grules]').count(),0);
-  await page.locator('#levelSelect').selectOption('A1');assert.equal(await page.locator('.card-counter').innerText(),'1 van 120');await page.locator('#levelSelect').selectOption('A2');assert.equal(await page.locator('.card-counter').innerText(),'1 van 180');await page.locator('#levelSelect').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('A1_A2');assert.equal(await page.locator('.card-counter').innerText(),'1 van 120');await page.locator('#levelSelect').selectOption('A2_B1');assert.equal(await page.locator('.card-counter').innerText(),'1 van 180');await page.locator('#levelSelect').selectOption('B2_C1');
   const initial=await page.locator('.tongue-text').innerText();
   assert.ok(await page.locator('#tongueRead').isVisible());assert.ok(await page.locator('#tongueRead').isDisabled());
   assert.match(await page.locator('#tongueRead').innerText(),/tijdelijk uit/);
@@ -31,7 +31,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   for(let i=0;i<240;i++){seen.add(await page.locator('.tongue-content').getAttribute('data-card-id'));await page.locator('#primaryGame').click()}
   assert.equal(seen.size,240);assert.equal(await page.locator('.tongue-text').innerText(),initial);
   await page.locator('#primaryGame').click();await page.locator('#undoAction').click();assert.equal(await page.locator('.tongue-text').innerText(),initial);
-  for(const level of ['A0','A1','A2','B1','B2','C1','C2'])for(const difficulty of ['','easy','medium','hard']){
+  for(const level of ['A0_A1','A1_A2','A2_B1','B1_B2','B2_C1'])for(const difficulty of ['','easy','medium','hard']){
    await page.locator('#levelSelect').selectOption(level);await page.locator('#tongueDifficulty').selectOption(difficulty);
    assert.equal(await page.locator('#levelSelect').inputValue(),level);
    const expected=await page.evaluate(()=>cardsFor('tongue').length);
@@ -40,15 +40,15 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    assert.equal(await page.locator('#tongueRead').isDisabled(),true);
    if(!expected)assert.equal(await page.locator('.tongue-text').innerText(),'Geen tongbrekers bij deze filters.');
   }
-  await page.locator('#tongueDifficulty').selectOption('');await page.locator('#levelSelect').selectOption('A0');assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
+  await page.locator('#tongueDifficulty').selectOption('');await page.locator('#levelSelect').selectOption('A0_A1');assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
   await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.tongue-text').innerText(),'Pim pakt papier.');
-  await page.locator('#levelSelect').selectOption('C2');
+  await page.locator('#levelSelect').selectOption('B2_C1');
   const states=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   for(const kind of ['mission','conversation','verbs','spelling','puzzles','idioms','story']){
    await page.locator('[data-ctype="'+kind+'"]').click();assert.equal(await page.locator('#cardHelp').count(),1);assert.equal(await page.locator('#levelSelect').getAttribute('data-routes'),'false');
    await page.locator('#primaryGame').click();assert.ok(await page.locator('#cardAttempt').isVisible());
   }
-  await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),'C2');
+  await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),'B2_C1');
   await page.locator('#settingsBtn').click();await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open'));assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
   await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();await page.waitForFunction(()=>!document.querySelector('#settingsOverlay').classList.contains('open'));assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),states);

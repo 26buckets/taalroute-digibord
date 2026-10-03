@@ -108,7 +108,7 @@ async function check(page, label) {
     assert.equal(await page.evaluate(()=>APP.boardStates.rotterdam.classPos),position,'each Space rolls exactly once');
   }
   const positions=await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions));
-  for(const level of ['B1','Alpha A']){
+  for(const level of ['B1_B2','ALPHA_AC']){
     await page.locator('#levelSelect').selectOption(level);
     assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true,'level change keeps fullscreen');
     assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');

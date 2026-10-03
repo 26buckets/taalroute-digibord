@@ -1,3 +1,23 @@
+# WZ-vrijgave — 3 oktober 2026
+
+Opdracht van Nico: sluit de 2.698 goedgekeurde WZ-opdrachten aan, publiceer en voer daarna de livecontrole uit. Dit vult de eerdere vrijgave aan.
+
+| Leerroute | Vrij oefenen | Gericht oefenen | Actief |
+|---|---:|---:|---:|
+| A0 → A1 | 535 | 0 | 535 |
+| A1 → A2 | 1.276 | 93 | 1.369 |
+| A2 → B1 | 708 | 86 | 794 |
+| Totaal | 2.519 | 179 | 2.698 |
+
+862 afgewezen records blijven buiten selectie. De vijf oorspronkelijke banken en historische versies blijven bewaard. Nieuwe lessen gebruiken uitsluitend versie `2026-10-03.wz.release.1`. Oude WZ-lessen worden niet stilzwijgend vervangen; ze blijven opgeslagen en zijn zonder vrijgave van hun eigen tekstversie niet speelbaar. Bestaande vrijgegeven grammatica-, Snelvragen- en kaartlessen blijven behouden.
+
+## Bediening
+
+Spelen → Woorden en zinnen opent de bestaande gezamenlijke voorbereiding. Onder Oefenen staat dezelfde inhoud bij Woorden en zinnen. Onderwerp, leerroute en spel blijven de vaste stappen. Bij Oefendoel betekent Vrij oefenen uitsluitend FREE. Een concreet oefendoel selecteren maakt alleen de passende GUIDED-opdrachten toegankelijk. De keuze wordt in de les en voortgang bewaard. Kleine sets kunnen 30 seconden of 1 minuut oefenen; de bestaande langere duren blijven beschikbaar. Open opdrachten worden samen besproken, zonder automatische goed/foutbeoordeling.
+
+
+## Historisch publicatiebesluit (vervangen waar hierboven aangevuld)
+
 # DigiBord 1.25 — alleen nagekeken inhoud
 
 Besluit van Nico, 25 september 2026. Publiceer de nieuwe voorbereiding, selectie en instellingen met uitsluitend de volledig nagekeken inhoud voor docenten.

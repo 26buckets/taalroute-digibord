@@ -3,7 +3,10 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const STORE='taalroute-digibord-v020', SETTINGS_STORE='taalroute-poc0141-settings';
 let APP={last:null,level:'A2',boardStates:{rotterdam:{},zwolle:{}},turn:{mode:'individual',active:0},sound:true,storyCount:3};
 try{APP={...APP,...JSON.parse(localStorage.getItem(STORE)||'{}')}}catch{}
-function save(){if(globalThis.DigiStorageBackupError)return;try{localStorage.setItem(STORE,JSON.stringify(APP));window.LessonUI?.checkpoint()}catch{toast('Bewaren is niet beschikbaar in deze browser.')}}
+APP=DigiRoutes.migrateApp(APP,window.DIGIBORD_DATA);
+function publicRoute(){return DigiRoutes.resolve(APP.level)}
+function routeLabel(value=APP.level){return DigiRoutes.label(value)}
+function save(){if(globalThis.DigiStorageBackupError)return;APP.displayRoute=publicRoute();try{localStorage.setItem(STORE,JSON.stringify(APP));window.LessonUI?.checkpoint()}catch{toast('Bewaren is niet beschikbaar in deze browser.')}}
 function esc(value){return (globalThis.AppWording?.text(value)??String(value??'')).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function safeColor(value){return /^#[0-9a-f]{3,8}$/i.test(value)?value:'#2389e8'}
 function lessonText(value){return globalThis.AppWording?.text(value)??String(value??'')}
@@ -31,7 +34,7 @@ function undoLastAction(){
  if(gameIsBusy())return toast('De beweging wordt eerst afgerond.');
  const group=undoHistory.at(-1),snap=group?.steps.pop();if(!snap)return;
  if(!group.steps.length)undoHistory.pop();else group.closed=false;APP=structuredClone(snap.app);twDiceState=structuredClone(snap.dice);
- settingsPatch({pawnMode:snap.mode,route:selectedTaskRoute().label});$('#levelSelect').value=APP.level;
+ settingsPatch({pawnMode:snap.mode,route:selectedTaskRoute().label});syncLevelSelect();
  resumeLast(true);
  if(snap.word){wordRound=validWZRound(snap.word.round)?structuredClone(snap.word.round):snap.word.round?.version===3&&Array.isArray(snap.word.round.selected)?structuredClone(snap.word.round):newSentenceRound();startWords(wordRound.version===4?'wz':'build')}
  if($('#cardSupport')){const box=$('#cardSupport');box.classList.toggle('open',!!snap.support);box.dataset.section=snap.supportSection||'help';$('#cardHelp')?.setAttribute('aria-expanded',!!snap.support&&box.dataset.section==='help');$('#cardExample')?.setAttribute('aria-expanded',!!snap.support&&box.dataset.section==='example')}
@@ -84,8 +87,8 @@ $('#collectionStorySets').onclick=()=>openCabinet('story');
 $$('[data-home]').forEach(b=>b.onclick=home);$$('[data-category]').forEach(b=>b.onclick=()=>goScreen(b.dataset.category));$$('[data-open-main]').forEach(b=>b.onclick=()=>goScreen(b.dataset.openMain));$$('.navitem').forEach(b=>b.onclick=()=>goScreen(b.dataset.main==='play'?'play':b.dataset.main));
 
 let settingsRouteAtOpen;
-function openSettings(){if(globalThis.DigiStorageBackupError)return toast('Maak eerst ruimte vrij voor de reservekopie.');settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label.replace('→',' → ')});settingsRouteAtOpen=settingsState().route;const frame=$('#settingsOverlay iframe');frame.onload=()=>$('#settingsOverlay').classList.add('open');frame.src='settings/index.html'}
-function closeSettings(){const selected=settingsState().route;if(selected&&selected!==settingsRouteAtOpen){const route=CARD_ROUTES.findIndex(r=>r.label.replaceAll(' ','')===selected.replaceAll(' ',''));selectLevel(['A0','A1','A1+','A2','B1','B2','C1'][route]||APP.level)}$('#settingsOverlay').classList.remove('open');if($('#screen-practice').classList.contains('active'))globalThis.ContentUI?.applyLayout();refreshCurrentGame()}
+function openSettings(){if(globalThis.DigiStorageBackupError)return toast('Maak eerst ruimte vrij voor de reservekopie.');settingsPatch({route:routeLabel()});settingsRouteAtOpen=settingsState().route;const frame=$('#settingsOverlay iframe');frame.onload=()=>$('#settingsOverlay').classList.add('open');frame.src='settings/index.html'}
+function closeSettings(){const selected=settingsState().route;if(selected&&selected!==settingsRouteAtOpen)selectLevel(DigiRoutes.resolve(selected));$('#settingsOverlay').classList.remove('open');if($('#screen-practice').classList.contains('active'))globalThis.ContentUI?.applyLayout();refreshCurrentGame()}
 function syncFullscreen(){
  const active=!!document.fullscreenElement,button=$('#fullscreenBtn');
  button.setAttribute('aria-pressed',String(active));button.setAttribute('aria-label',active?'Volledig scherm verlaten':'Volledig scherm');button.title=button.getAttribute('aria-label');
@@ -112,7 +115,7 @@ function updateResume(){
 $('#resumeBtn').onclick=()=>{if(!APP.last)return toast('Start eerst een spel.');resumeLast()};
 function resumeLast(fromMemory=false){
  if(globalThis.ReleasePolicy?.enabled&&APP.last?.type==='card'&&ReleasePolicy.cardAllowed(APP.last.data?.kind))return startCards(APP.last.data.kind);
- if(APP.last?.type==='taalworp')return startTaalworp(APP.last.data.setIds||APP.last.data.setId||'SET_A2_BASIS');
+ if(APP.last?.type==='taalworp')return startTaalworp(APP.last.data.setIds||APP.last.data.setId||'SET_A2_BASIS',{resume:true});
  if(APP.last?.type==='story')return startStory(APP.last.data.collections||APP.last.data.collection||'basis');
  if(globalThis.ReleasePolicy?.enabled&&!ReleasePolicy.sessionAllowed(APP.contentSessionConfig))return toast(ReleasePolicy.message);
  if(fromMemory){if(APP.contentSessionConfig)globalThis.ContentRuntime?.restoreSession(APP.contentSessionConfig);else globalThis.ContentRuntime?.clearSession();}
@@ -227,7 +230,7 @@ function contentVertHistory(engine,session){APP.contentVert001Used??={};const ke
 function contentSessionLabel(session,item,includeLevel=true){
  const topic=session?.topic||item?.topic||'GRAMMATICA',level=session?.cefr_level||item?.cefr_level||APP.level;
  const label=window.DIGIBORD_CONTENT_CATALOG?.families.flatMap(f=>f.topics).find(t=>t.id===topic)?.label||topic;
- return (topic==='MODAAL'?'Modale werkwoorden':(session?.content_family==='grammar'?'Grammatica ':'')+label)+(includeLevel?' · '+level:'');
+ return (topic==='MODAAL'?'Modale werkwoorden':(session?.content_family==='grammar'?'Grammatica ':'')+label)+(includeLevel?' · '+(session?.display_routes?.map(routeLabel).join(' + ')||routeLabel(level)):'');
 }
 function contentBoardTask(item){
  const session=contentVertSession(),projection=ContentRuntime.project('BOARD',item),choices=item.options.length?'Keuzes: '+item.options.join(' · '):item.context||'Geef een passend antwoord.',label=contentSessionLabel(session,item);
@@ -403,7 +406,7 @@ function showBoardTask(board,route){
  const session=contentVertSession(),pendingItem=session&&s.pending?.task?.contentItemId?ContentRuntime.itemForSession(s.pending.task.contentItemId):null;
  const task=session?(pendingItem?contentBoardTask(pendingItem):routeTask(pos,route)):(boardTaskCards().find(c=>c.id===s.pending?.task?.id&&c.routeId===selectedTaskRoute().id)||routeTask(pos,route)),sm=((task.exerciseMode==='direct'?directBank.shapes:taskBank.shapes).find(sh=>sh.id===task.shape)||shapeMeta(task.shape));
  s.pending={mode:currentMode(),actorId:actor.id,task,position:pos,choice:false};save();
- $('#taskMeta').textContent=task.contentItemId?`${contentSessionLabel(session,pendingItem,false)} · VAK ${pos}`:`${sm.symbol} ${sm.task.toUpperCase()} · ${task.exerciseMode==='direct'?'SNELVRAAG':'GESPREK'} · VAK ${pos} · ${APP.level}`;
+ $('#taskMeta').textContent=task.contentItemId?`${contentSessionLabel(session,pendingItem,false)} · VAK ${pos}`:`${sm.symbol} ${sm.task.toUpperCase()} · ${task.exerciseMode==='direct'?'SNELVRAAG':'GESPREK'} · VAK ${pos} · ${routeLabel()}`;
  $('#taskDrawer').dataset.taskId=task.id;$('#taskDrawer').dataset.questionMode=task.exerciseMode==='direct'?'direct':'conversation';
  const partnerButton=$('#taskPartner');
  if(partnerButton){const direct=task.exerciseMode==='direct',label=direct?'Voor de voorlezer':'Voor de gesprekspartner';partnerButton.setAttribute('aria-label',label);const tool=partnerButton.closest('.context-tool');tool.dataset.tipLabel=label;tool.dataset.tip=direct?'Lees de vraag voor en luister naar het antwoord.':'Bekijk hoe je meedoet, luistert en reageert.'}
@@ -511,18 +514,20 @@ function verbSetMenu(sets,selected){
  const label=sets.filter(s=>selected.includes(s.id)).map(s=>s.label).join(' + ');
  return `<span class="dice-set-label">Werkwoordsets mengen</span><details class="story-set-picker" id="verbSetPicker"><summary>${esc(label)}<small>${selected.length} ${selected.length===1?'set':'sets'} · ${currentVerbPool().length} unieke werkwoorden</small></summary><div class="verb-set-options">${groups.map(([id,label,color])=>`<details class="verb-set-group" style="--set-color:${color}"><summary>${label}<small>${sets.filter(s=>groupOf(s)===id).length} sets</small></summary><fieldset data-verbgroup="${id}"><legend class="sr-only">${label}</legend>${sets.filter(s=>groupOf(s)===id).map(s=>`<label><input type="checkbox" data-verbset value="${s.id}" ${selected.includes(s.id)?'checked':''}><span>${esc(s.label)}<small>${s.recordIds.length} werkwoorden</small></span></label>`).join('')}</fieldset></details>`).join('')}</div><button class="smallbtn" id="applyVerbSets">Selectie toepassen</button></details>`;
 }
-async function startTaalworp(setId){
+async function startTaalworp(setId,{resume=false}={}){
  if(contentVertSession()){await window.LessonUI?.flush();ContentRuntime.clearSession()}
  languageBusy=false;
  if(!tw){toast('Taalworp-data ontbreekt in deze distributie.');return;}
+ if(!DigiRoutes.executionLevel(APP.level))return toast('Kies eerst een route.');
+ if(resume&&APP.currentVerb&&!tw.manifest.verbs[APP.currentVerb])return toast('Deze bewaarde werkwoordkaart is niet beschikbaar.');
  const sets=Object.values(tw.sets.sets).filter(x=>x.availabilityStatus==='ready'),requested=[].concat(setId);
  const selected=sets.filter(s=>requested.includes(s.id)).map(s=>s.id);if(!selected.length)selected.push('SET_A2_BASIS');
  const changed=JSON.stringify(APP.taalworpSets||[APP.taalworpSet])!==JSON.stringify(selected);
- initTwDice();APP.taalworpDice=twDiceState;APP.taalworpSets=selected;APP.taalworpSet=selected[0];if(changed&&!APP.verbLocked)drawVerb();if(changed)normalizeLanguageDice();
+ initTwDice();APP.taalworpDice=twDiceState;APP.taalworpSets=selected;APP.taalworpSet=selected[0];if(changed&&!resume&&!APP.verbLocked)drawVerb();if(changed&&!resume)normalizeLanguageDice();
  const label=sets.filter(s=>selected.includes(s.id)).map(s=>s.label).join(' + ');
  setLast('taalworp',`Zinnen bouwen · ${label}`,{setIds:selected});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell taalworp-shell"><div class="game-work card-work">
-  <div class="card-activity-heading"><div><h1>Zinnen bouwen <span>${esc(APP.level)}</span></h1><p>Maak samen een zin. Gooi, denk, spreek!</p></div></div>
+  <div class="card-activity-heading"><div><h1>Zinnen bouwen <span>${esc(routeLabel())}</span></h1><p>Maak samen een zin. Gooi, denk, spreek!</p></div></div>
   <div class="dice-table-stage"><div class="dice-page taalworp-page"><div class="tw-tabletop"><div class="table-playfield"><section class="language-tray"><div class="card-ribbon" style="--ribbon:#176b9a">${gameIcon('verbs')}<strong>Jouw worp</strong></div><div class="language-tray-heading"><p>Gooi de stenen. Gebruik de uitkomsten in je zin.</p></div><div class="language-stage" id="languageStage"></div></section>
   <div class="verbcard">
    
@@ -544,10 +549,10 @@ async function startTaalworp(setId){
  $('#applyVerbSets').onclick=()=>{if(languageBusy)return;const ids=$$('[data-verbset]:checked').map(x=>x.value);if(!ids.length)return;rememberAction('werkwoordsets wijzigen');startTaalworp(ids);$('#verbSetPicker summary').focus()};
  $('#viewVerbStack').onclick=()=>openGameDialog('Werkwoorden in deze selectie',`<p>${esc(label)} · ${currentVerbPool().length} unieke werkwoorden.</p><div class="detail-words">${currentVerbPool().map(v=>`<span>${esc(v.lemma)}</span>`).join('')}</div>`);
  $('#twBothLinks').onchange=e=>{rememberAction('verbindingen kiezen');APP.taalworpBothLinks=e.target.checked;if(!APP.taalworpBothLinks&&twDiceState.CONNECT_1.active&&twDiceState.CONNECT_2.active){twDiceState.CONNECT_2.active=false;twDiceState.CONNECT_2.locked=false}normalizeLanguageDice();renderLanguageDice();renderVerbCard();save()};
- renderLanguageDice();renderVerbCard();$('#drawVerb').onclick=()=>playTaalworp(true);$('#verbLock').onclick=()=>{APP.verbLocked=!APP.verbLocked;save();renderVerbCard()};$('#twFinish').onclick=()=>{completeTurn();startTaalworp(APP.taalworpSets)};for(const key of ['Help','Example','Goals','Partner','More'])$('#tw'+key).onclick=()=>showDiceContext('taalworp',key);$('#twExampleText').onclick=()=>{$('#twExampleText').hidden=true};$('#twExampleText').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();$('#twExampleText').hidden=true}}
+ renderLanguageDice();renderVerbCard(resume);$('#drawVerb').onclick=()=>playTaalworp(true);$('#verbLock').onclick=()=>{APP.verbLocked=!APP.verbLocked;save();renderVerbCard()};$('#twFinish').onclick=()=>{completeTurn();startTaalworp(APP.taalworpSets)};for(const key of ['Help','Example','Goals','Partner','More'])$('#tw'+key).onclick=()=>showDiceContext('taalworp',key);$('#twExampleText').onclick=()=>{$('#twExampleText').hidden=true};$('#twExampleText').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();$('#twExampleText').hidden=true}}
 }
 function languageDieLabel(id,value){return TaalworpChoices.label(id,value)}
-function languageChoices(id,verb=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0]){return TaalworpChoices.values(tw.manifest,id,APP.level,verb,twDiceState)}
+function languageChoices(id,verb=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0]){return TaalworpChoices.values(tw.manifest,id,DigiRoutes.executionLevel(APP.level),verb,twDiceState)}
 function languageValuesFit(verb,keepAll=false){
  return ['WHO','SENTENCE_TYPE'].every(id=>{const st=twDiceState[id];if(!st?.active||(!keepAll&&!st.locked))return true;return id==='WHO'?TaalworpChoices.subjectFits(st.value,verb):languageChoices(id,verb).some(v=>v.id===st.value.id)});
 }
@@ -615,7 +620,7 @@ function taalworpExample(v,values){
 }
 let languageBusy=false;
 function initTwDice(){
- if(!tw)return;const low=APP.level.startsWith('Alpha')||['A0','A1','A1+'].includes(APP.level),high=['B1','B2','C1','C2'].includes(APP.level);if(APP.taalworpBothLinks===undefined)APP.taalworpBothLinks=!!(twDiceState.CONNECT_1?.active&&twDiceState.CONNECT_2?.active);
+ if(!tw)return;const level=DigiRoutes.executionLevel(APP.level)||'',low=level.startsWith('Alpha')||['A0','A1','A1+'].includes(level),high=['B1','B2','C1','C2'].includes(level);if(APP.taalworpBothLinks===undefined)APP.taalworpBothLinks=!!(twDiceState.CONNECT_1?.active&&twDiceState.CONNECT_2?.active);
  TW_DICE_IDS.forEach(id=>{if(!twDiceState[id])twDiceState[id]={active:id==='WHO'||(!low&&id==='TENSE')||(high&&['SENTENCE_TYPE','CONNECT_1'].includes(id)),locked:false,value:tw.manifest.diceFamilies[id].values[0]}})
 }
 function rollTaalworp(){return playTaalworp(false)}
@@ -667,8 +672,8 @@ function languageInstruction(id,value){
  if(id==='CONNECT_1'||id==='CONNECT_2')return {title:TaalworpChoices.labels[id],text:id==='CONNECT_1'?`Verbind twee hoofdzinnen met “${label}”.`:`Maak een bijzin met “${label}”. Zet de werkwoorden achteraan in die bijzin.`};
  return {title:'Zoek de vorm',text:value?.code==='finite'?'Extra vraag: noem de persoonsvorm in je zin.':`Extra vraag: noem ${value?.code==='infinitive'?'het hele werkwoord':'het voltooid deelwoord'} van de kaart.`};
 }
-function renderVerbCard(){
- if(!tw.manifest.verbs[APP.currentVerb]||(!APP.verbLocked&&!currentVerbPool().some(v=>v.id===APP.currentVerb)))drawVerb(true);
+function renderVerbCard(preserveCurrent=false){
+ if(!tw.manifest.verbs[APP.currentVerb]||(!preserveCurrent&&!APP.verbLocked&&!currentVerbPool().some(v=>v.id===APP.currentVerb)))drawVerb(true);
  const verb=tw.manifest.verbs[APP.currentVerb]||currentVerbPool()[0];APP.currentVerb=verb.id;
  $('#verbCounter').textContent=currentVerbPool().some(v=>v.id===verb.id)?`${currentVerbPool().findIndex(v=>v.id===verb.id)+1} van ${currentVerbPool().length}`:'Vastgezet bij je keuze';$('#verbValue').textContent=verb.lemma;$('#verbHint').textContent=(twDiceState.WHO?.active?twDiceState.WHO.value?.complements?.[verb.id]:null)??verb.primarySense?.gloss??verb.defaultComplement??'';
  $('#twResult').innerHTML=`<dl class="sentence-choices">${TW_DICE_IDS.map(id=>{const st=twDiceState[id],title=id==='CONNECT_1'?'Hoofdzin':id==='CONNECT_2'?'Bijzin':TaalworpChoices.labels[id];return `<div class="sentence-choice recipe-${id} ${st.active?'':'is-off'}"><dt>${id.startsWith('CONNECT')?'<small>Verbindingswoorden</small>':''}${esc(title)}</dt><dd>${st.active?contentPromptHtml(languageCardInstruction(id,st.value)):'Uit'}</dd></div>`}).join('')}</dl>`;
@@ -715,7 +720,7 @@ async function startStory(collection){
  const label=sets.filter(s=>collection.includes(s.id)).map(s=>s.label).join(' + ');
  setLast('story',`Verhaal maken · ${label}`,{collections:collection});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell dice-table-shell story-table-shell"><div class="game-work card-work">
- <div class="card-activity-heading"><div><h1>Verhaal maken <span>${esc(APP.level)}</span></h1><p>Gooi beeldstenen en vertel samen een verhaal.</p></div></div>
+ <div class="card-activity-heading"><div><h1>Verhaal maken <span>${esc(routeLabel())}</span></h1><p>Gooi beeldstenen en vertel samen een verhaal.</p></div></div>
  <div class="dice-table-stage"><section class="story-stage"><header class="story-prompt"><div class="card-ribbon" style="--ribbon:#176b9a">${gameIcon('story')}<strong>Vertel een verhaal</strong><span class="card-counter" id="storyCounter"></span></div><div class="story-prompt-body"><p id="storyPromptCount">Gebruik de beelden op de voorkant van de stenen.</p></div></header><div class="storygrid count-${APP.storyCount}" id="storyGrid"></div><div class="storyhelp">${contextTools('story',{Help:{tip:'Hulp bij het verbinden van de actieve beelden.'},Example:{tip:'Een vertelopzet met jullie huidige beelden.'}})}<button class="smallbtn" id="storyFinish">Beurt afronden</button></div></section>
  ${diceSidebar('story',`<span class="dice-set-label">Aantal stenen</span><div class="story-count-choices" role="group" aria-label="Aantal stenen">${[3,6,9].map(n=>`<button class="smallbtn ${APP.storyCount===n?'active':''}" data-storycount="${n}" aria-label="${n} stenen" aria-pressed="${APP.storyCount===n}" ${counts.includes(n)?'':'disabled aria-describedby="storyCountHelp"'}>${n}</button>`).join('')}</div>${counts.includes(9)?'':'<p id="storyCountHelp" class="story-count-help">Wil je 9 stenen? Kies er een beeldset bij.</p>'}<span class="dice-set-label">Beeldsets mengen</span><details class="story-set-picker" id="storySet"><summary>${esc(label)}<small>${collection.length} ${collection.length===1?'set':'sets'} · ${storyIcons().length} beelden</small></summary><fieldset><legend>Kies één of meer sets</legend>${sets.map(({id,label,count})=>`<label><input type="checkbox" data-storyset value="${id}" ${collection.includes(id)?'checked':''}><span>${esc(label)}<small>${count} beelden</small></span></label>`).join('')}</fieldset><button class="smallbtn" id="applyStorySets">Selectie toepassen</button></details><button class="smallbtn" id="storySets">Over de beeldsets</button><div class="dice-table-tip"><strong>Zo speel je</strong><p>Het woord staat onder de steen. Grijze stenen doen niet mee. Vastgezette beelden blijven staan als je andere sets kiest.</p></div>`)}
  </div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame"><span class="roll-button-die">${softDie({value:5,front:false})}</span><span>GOOIEN</span></button>`)}</div>`;
@@ -762,17 +767,19 @@ if(APP.cardBankRevision!==RUNTIME.cardGames.source){
  if(index>=0)APP.cardIndex=index;
  delete APP.cardRound;APP.cardBankRevision=RUNTIME.cardGames.source;save();
 }
-function defaultCardRoute(level=APP.level){return /^Alpha|^A0/.test(level)?'R0':({A1:'R1','A1+':'R2',A2:'R3',B1:'R4',B2:'R5',C1:'R6',C2:'R6'}[level]||'R0')}
+function defaultCardRoute(level=APP.level){return DigiRoutes.resolve(level)}
 function activeCardRoute(){return defaultCardRoute()}
 function cardsFor(kind,all=false,level=APP.level,difficulty=APP.tongueDifficulty){
+ const legacy=APP.legacyCardPool;
+ if(!all&&legacy&&legacy.kind===kind&&legacy.sourceLevel===level){const records=kind==='tongue'?RUNTIME.tongueBank.cards:CARD_GAMES.find(f=>f.id===kind)?.cards||[];return legacy.ids.map(id=>records.find(c=>c.id===id)).filter(c=>c&&(kind!=='tongue'||!difficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[difficulty]??true)))}
  if(kind==='c1-between-lines')return RUNTIME.c1BetweenLines.cards.filter(c=>all||!APP.c1Domain||c.domainId===Number(APP.c1Domain));
- if(kind==='tongue'){const bank=RUNTIME.tongueBank;return bank.cards.filter(c=>c.type==='tongbreker'&&(all||(bank.levels.indexOf(c.entryLevel)<=bank.levels.indexOf(tongueLevel(level))&&(!difficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[difficulty]??true)))))}
- const list=CARD_GAMES.find(x=>x.id===kind)?.cards||[],route=level===APP.level?activeCardRoute():defaultCardRoute(level);return all||route==='all'?list:list.filter(c=>c.routeId===route);
+ if(kind==='tongue'){const bank=RUNTIME.tongueBank;return bank.cards.filter(c=>c.type==='tongbreker'&&(all||(DigiRoutes.resolve(level)!=='ALPHA_AC'&&(bank.levels.indexOf(c.entryLevel)<=bank.levels.indexOf(tongueLevel(level))&&(!difficulty||({easy:c.difficulty<=2,medium:c.difficulty===3,hard:c.difficulty>=4}[difficulty]??true))))))}
+ const list=CARD_GAMES.find(x=>x.id===kind)?.cards||[],route=level===APP.level?activeCardRoute():defaultCardRoute(level);return all||route==='all'?list:list.filter(c=>DigiRoutes.resolve(c.route)===route);
 }
-function tongueLevel(level=APP.level){return RUNTIME.tongueBank.levels.includes(level)?level:level==='A1+'?'A1':'A0'}
-function cardCount(kind,level=APP.level){return kind==='c1-between-lines'?(['B1','B2'].includes(level)?ContentRuntime.filterSource({bank_ids:['CB-BETWEEN-LINES-012'],levels:[level]}).length:0):cardsFor(kind,false,level,'').length}
+function tongueLevel(level=APP.level){level=DigiRoutes.routes.find(r=>r.id===level)?.executionLevel||level;return RUNTIME.tongueBank.levels.includes(level)?level:level==='A1+'?'A1':'A0'}
+function cardCount(kind,level=APP.level){return kind==='c1-between-lines'?(ContentRuntime.filterSource({bank_ids:['CB-BETWEEN-LINES-012'],levels:[DigiRoutes.resolve(level)]}).length):cardsFor(kind,false,level,'').length}
 function cardAvailability(kind){const n=cardCount(kind);return n?`${n} kaarten`:'Niet beschikbaar op dit niveau'}
-function cardRouteLabel(kind){return kind==='tongue'?'Tot en met '+(RUNTIME.tongueBank.levels.indexOf(tongueLevel())>=3?'B1':tongueLevel()):CARD_ROUTES.find(r=>r.id===activeCardRoute()).label}
+function cardRouteLabel(){return routeLabel()}
 function tongueFilters(){return `<label class="card-filter">Moeilijkheid<select id="tongueDifficulty">${[['','Alles'],['easy','Makkelijk'],['medium','Gemiddeld'],['hard','Lastig']].map(([v,label])=>{const n=cardsFor('tongue',false,APP.level,v).length;return `<option value="${v}" ${(APP.tongueDifficulty||'')===v?'selected':''} ${n?'':'disabled'}>${label} · ${n}</option>`}).join('')}</select></label>`}
 let tongueAudio=null;
 function stopTongueAudio(){
@@ -818,7 +825,7 @@ function renderCardMenu(){
  const canResume=APP.last?.type==='card'&&(ReleasePolicy.cardAllowed(APP.last.data.kind)||ReleasePolicy.sessionAllowed(APP.contentSessionConfig));
  const available=DIGIBORD_CONTENT_CATALOG.families.filter(f=>['grammar','quick'].includes(f.id));
  const labels={mission:'Spreekmissies',story:'Verhalen vertellen'};
- $('#screen-cards').innerHTML=`<div class="card-menu-shell"><div class="category-head"><h1>Kaartspellen</h1><button class="smallbtn" id="cardMenuHome">${gameIcon('undo')}<span>Spelen</span></button></div>${canResume?`<button class="smallbtn card-menu-resume" id="cardMenuResume">${gameIcon('cards')}<span>Verder met je kaarten</span></button>`:''}<h2>Kies je kaarten</h2><nav class="card-menu-list" aria-label="Beschikbare kaartspellen">${available.map(f=>`<button class="card-menu-choice" data-card-family="${esc(f.id)}">${gameIcon(f.id==='grammar'?'notebook':'bulb')}<span><strong>${esc(f.label)}</strong><small>${f.id==='grammar'?'Er, zullen en zouden':'Vertel, stel een vraag, kies en regel iets'}</small></span><b aria-hidden="true">›</b></button>`).join('')}</nav><h2>Meer kaartspellen</h2><div class="card-menu-list">${CARD_GAMES.map(item=>`<button class="card-menu-choice" data-cardgame="${esc(item.id)}" ${cardCount(item.id)?'':'disabled'}>${gameIcon(item.icon)}<span><strong>${esc(labels[item.id]||item.title)}</strong><small>${item.id==='c1-between-lines'?'B1 · B2':esc(cardRouteLabel(item.id))}</small></span><small class="card-menu-count">${esc(cardAvailability(item.id))}</small></button>`).join('')}</div></div>`;
+ $('#screen-cards').innerHTML=`<div class="card-menu-shell"><div class="category-head"><h1>Kaartspellen</h1><button class="smallbtn" id="cardMenuHome">${gameIcon('undo')}<span>Spelen</span></button></div>${canResume?`<button class="smallbtn card-menu-resume" id="cardMenuResume">${gameIcon('cards')}<span>Verder met je kaarten</span></button>`:''}<h2>Kies je kaarten</h2><nav class="card-menu-list" aria-label="Beschikbare kaartspellen">${available.map(f=>`<button class="card-menu-choice" data-card-family="${esc(f.id)}">${gameIcon(f.id==='grammar'?'notebook':'bulb')}<span><strong>${esc(f.label)}</strong><small>${f.id==='grammar'?'Er, zullen en zouden':'Vertel, stel een vraag, kies en regel iets'}</small></span><b aria-hidden="true">›</b></button>`).join('')}</nav><h2>Meer kaartspellen</h2><div class="card-menu-list">${CARD_GAMES.map(item=>`<button class="card-menu-choice" data-cardgame="${esc(item.id)}" ${cardCount(item.id)?'':'disabled'}>${gameIcon(item.icon)}<span><strong>${esc(labels[item.id]||item.title)}</strong><small>${item.id==='c1-between-lines'?'B1 → B2 · B2 → C1':esc(cardRouteLabel(item.id))}</small></span><small class="card-menu-count">${esc(cardAvailability(item.id))}</small></button>`).join('')}</div></div>`;
  $$('#screen-cards [data-cardgame]').forEach(b=>b.onclick=()=>prepareCards(b.dataset.cardgame));
  $('#cardMenuHome').onclick=home;
  if(canResume)$('#cardMenuResume').onclick=()=>resumeLast(true);
@@ -864,7 +871,7 @@ function bindCards(kind){
   return;
  }
  const state=cardRound(c);
- $('#cardSetInfo').onclick=()=>openGameDialog('Meer bij deze kaart',`<h3>Vervolg</h3><p>${esc(c.followUp.instruction)}</p><h3>Waar let je op?</h3><p>${esc(c.criterion)}</p><h3>Voor de docent</h3><p>${esc(c.teacherNote)}</p><details><summary>Voorlezen</summary><p>${esc(c.visualRebus?c.visualRebus.alt+' '+c.visualRebus.instruction:c.mediaRequirements.readAloudText)}</p><p>${esc(c.mediaRequirements.fallback)}</p></details><p>${c.participants.min} deelnemers · ${esc(c.route)} · ${esc(c.difficultyWithinRoute)}</p><button class="smallbtn" id="cardViewSet">Bekijk alle ${cardsFor(kind,true).length} kaarten</button>`,()=>{$('#cardViewSet').onclick=()=>{$('#gameDialog').close();openCabinetSet('cards',kind)}});
+ $('#cardSetInfo').onclick=()=>openGameDialog('Meer bij deze kaart',`<h3>Vervolg</h3><p>${esc(c.followUp.instruction)}</p><h3>Waar let je op?</h3><p>${esc(c.criterion)}</p><h3>Voor de docent</h3><p>${esc(c.teacherNote)}</p><details><summary>Voorlezen</summary><p>${esc(c.visualRebus?c.visualRebus.alt+' '+c.visualRebus.instruction:c.mediaRequirements.readAloudText)}</p><p>${esc(c.mediaRequirements.fallback)}</p></details><p>${c.participants.min} deelnemers · ${esc(routeLabel(c.route))} · ${esc(c.difficultyWithinRoute)}</p><button class="smallbtn" id="cardViewSet">Bekijk alle ${cardsFor(kind,true).length} kaarten</button>`,()=>{$('#cardViewSet').onclick=()=>{$('#gameDialog').close();openCabinetSet('cards',kind)}});
  for(const [id,section] of [['cardHelp','help'],['cardExample','example'],['cardGoals','goals'],['cardPartner','partner']])$('#'+id).onclick=()=>{const box=$('#cardSupport'),open=!(box.classList.contains('open')&&box.dataset.section===section);box.dataset.section=section;box.classList.toggle('open',open);for(const [name,key] of [['Help','help'],['Example','example'],['Goals','goals'],['Partner','partner']])$('#card'+name).setAttribute('aria-expanded',String(open&&section===key));if(open)box.scrollIntoView({block:'nearest'})};
  $('#cardAttempt').onclick=()=>{rememberAction('eigen poging afronden');state.attempted=true;save();unlockContextTool('cardExample');unlockContextTool('cardHelp');$('#cardAttempt').setAttribute('aria-pressed','true')};
  if($('#predictionReady'))$('#predictionReady').onclick=()=>{rememberAction('voorspelling vastleggen');state.predictionReady=true;save();$('#predictionDiscussion').hidden=false;$('#predictionReady').textContent='Beiden hebben gekozen ✓';$('#predictionReady').setAttribute('aria-pressed','true');$('#cardAttempt').disabled=false};
@@ -911,7 +918,7 @@ function contentPromptHtml(prompt){
   return esc(sentence);
  }).join('');
 }
-function contentTaskText(item,options){if(item.reasoning)return ReasoningTasks.render(item,options);return `${contentSituation(item)}<section class="content-prompt"><h3>De opdracht</h3><h2>${contentPromptHtml(ContentRuntime.displayPrompt(item))}</h2>${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`}
+function contentTaskText(item,options){if(item.reasoning)return ReasoningTasks.render(item,options);const prompt=ContentRuntime.displayPrompt(item),task=options?.card?cardActionSteps(prompt).map(t=>`<span class="card-action-line"><span>${contentPromptHtml(t)}</span></span>`).join(' '):contentPromptHtml(prompt);return `${contentSituation(item)}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`}
 function contentAnswerLabel(item){return !item.model_answer?'Bespreek samen':ContentRuntime.answerPolicy(item).modelIsExample?'Bekijk een mogelijk antwoord':'Bekijk het antwoord'}
 function contentAnswerText(item,policy){return `${policy.modelAnswer?`<section><h3>${policy.modelIsExample?'Een mogelijk antwoord':'Antwoord'}</h3><p>${esc(policy.modelAnswer)}</p></section>`:''}<section><h3>Bespreek samen</h3><p>${esc(item.explanation||item.learning_goal)}</p></section>`}
 let contentDiceBusy=false;
@@ -943,7 +950,7 @@ function startContentCards(){
  APP.cardKind='content-vert001';APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
  const item=list[APP.cardIndex],projection=ContentRuntime.project('CARDS',item),policy=projection.answerPolicy,counter=`${APP.cardIndex+1} van ${list.length}`,label=contentSessionLabel(session,item);
  setLast('card',label,{kind:'content-vert001',contentItemId:item.content_item_id});
- $('#gameMount').innerHTML=`<div class="game-shell card-table-shell content-vert001-cards${item.reasoning?' reasoning-cards':''}"><div class="game-work card-work"><div class="card-activity-heading"><h1>${esc(contentSessionLabel(session,item,false))}</h1><button class="smallbtn card-menu-open" id="contentCardMenu">${gameIcon('cards')}<span>Kaartspellen</span></button></div><div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="contentCardDeck" aria-label="Volgende kaart trekken"><span class="play-card-back" style="--deck-color:#176b9a"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute">${gameIcon('cards')}<span class="card-family">Volgende kaart</span></span></button></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>${esc(item.title||item.language_function.replaceAll('_',' '))}</strong><span class="card-counter">${counter}</span></div><div class="card-content content-reading" data-content-item-id="${esc(item.content_item_id)}">${contentTaskText(item)}${item.reasoning?'':`<button class="smallbtn content-reveal" id="contentCardReveal" aria-expanded="false" aria-controls="contentCardAnswer">${contentAnswerLabel(item)}</button><div id="contentCardAnswer" class="content-answer" hidden>${contentAnswerText(item,policy)}</div>`}</div></article><div class="game-card-back card-back-design" style="--deck-color:#176b9a" aria-hidden="true">${cardBack(contentSessionLabel(session,item,false),'Kaartspel')}</div></div></div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
+ $('#gameMount').innerHTML=`<div class="game-shell card-table-shell content-vert001-cards${item.reasoning?' reasoning-cards':''}"><div class="game-work card-work"><div class="card-activity-heading"><h1>${esc(contentSessionLabel(session,item,false))}</h1><button class="smallbtn card-menu-open" id="contentCardMenu">${gameIcon('cards')}<span>Kaartspellen</span></button></div><div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="contentCardDeck" aria-label="Volgende kaart trekken"><span class="play-card-back" style="--deck-color:#176b9a"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute">${gameIcon('cards')}<span class="card-family">Volgende kaart</span></span></button></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>${esc(item.title||item.language_function.replaceAll('_',' '))}</strong><span class="card-counter">${counter}</span></div><div class="card-content content-reading" data-content-item-id="${esc(item.content_item_id)}">${contentTaskText(item,{card:true})}${item.reasoning?'':`<button class="smallbtn content-reveal" id="contentCardReveal" aria-expanded="false" aria-controls="contentCardAnswer">${contentAnswerLabel(item)}</button><div id="contentCardAnswer" class="content-answer" hidden>${contentAnswerText(item,policy)}</div>`}</div></article><div class="game-card-back card-back-design" style="--deck-color:#176b9a" aria-hidden="true">${cardBack(contentSessionLabel(session,item,false),'Kaartspel')}</div></div></div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>`)}</div>`;
  goScreen('game');$('#contentCardMenu').onclick=()=>goScreen('cards');bindGameBar(()=>nextCard(1));$('#contentCardDeck').onclick=()=>nextCard(1);if($('#contentCardReveal'))$('#contentCardReveal').onclick=()=>{const box=$('#contentCardAnswer'),open=box.hidden;box.hidden=!open;$('#contentCardReveal').setAttribute('aria-expanded',String(open))};
 }
 let cardBusy=false;
@@ -961,13 +968,35 @@ async function nextCard(direction=1){
  }finally{cardBusy=false;updateUndo()}
 }
 async function prepareCards(kind){
- if(globalThis.ReleasePolicy?.enabled&&!cardCount(kind))return toast('Niet beschikbaar op dit niveau. Kies een ander niveau.');
+ if(globalThis.ReleasePolicy?.enabled&&!cardCount(kind,publicRoute()))return toast('Niet beschikbaar op dit niveau. Kies een ander niveau.');
+ if(APP.legacyCardPool){delete APP.legacyCardPool;APP.cardIndex=0;delete APP.cardRound}
  if(kind==='c1-between-lines')return ContentUI.openBetweenLines(APP.level);
  if(contentVertSession()){await window.LessonUI?.flush();ContentRuntime.clearSession()}
  if(APP.cardKind!==kind){APP.cardIndex=0;delete APP.cardRound}
  return startCards(kind);
 }
-// Presentation only: retain the original card text and reveal protocol.
+// Card presentation stays separate from source records, answers and saved progress.
+// These short instructions were reviewed against their original situation and partner script.
+const CARD_READING_EDITS={
+ 'TR-FSM-P001-010-R3':{situation:['Je wilt zaterdag met een boormachine werken.','Je wilt die lenen bij het buurthuis.','Je kunt vrijdag tussen 15.00 en 17.00 uur langskomen.'],steps:['Vraag hoe je de boormachine kunt lenen.','Vraag wanneer je hem kunt ophalen en terugbrengen.','Vraag of je moet betalen.']},
+ 'TR-CONVERSATION-P001-011-R3':{steps:['Bedenk samen één verbetering.','Leg uit welk probleem je daarmee oplost.','Vraag wat lastig kan zijn aan jullie plan.']},
+ 'TR-VERBS-P001-011-R3':{title:'De trein is weg',steps:['Kies het woord dat past.','Vertel de ander waarom je wacht.']},
+ 'TR-SPELLING-P001-011-R3':{steps:['Kies hoe je het woord schrijft.','Leg uit wat voor formulier het is.']},
+ 'TR-PUZZLES-P001-011-R3':{title:'Zoek een woord',situation:[],steps:['Zoek een woord van drie letters dat je kunt laten rinkelen. De letters staan naast elkaar.','Wijs de eerste en de laatste letter aan. Zeg het woord.']},
+ 'TR-STORY-P001-014-R3':{steps:['Vertel hoe de groep weer bij elkaar komt.','Laat iedereen om de beurt iets toevoegen aan het verhaal.']},
+ 'TR-IDIOMS-P002-010-R3':{title:'Maak één woord',steps:['Zet de drie delen aan elkaar. Zeg het woord.','Bel de klantenservice. Spreek af wanneer zij jou kunnen bellen.']}
+};
+function cardActionSteps(text){
+ // Split only before a new explicit action. Keep quoted options, times and conditions together.
+ return String(text||'').trim().split(/(?<=[.!?])\s+(?=(?:Vraag|Kies|Zeg|Vertel|Leg|Bespreek|Vergelijk|Maak|Noem|Wijs|Lees|Schrijf|Reageer|Controleer|Gebruik|Geef|Laat|Stel|Vat|Speel|Bekijk|Los|Herschrijf|Onderzoek|Voorspel|Zet|Benoem|Bedenk|Herhaal|Erken|Breng|Herstel|Regel|Verhelder|Beoordeel|Luister)\b)/u).filter(Boolean);
+}
+function cardStepsHtml(steps){return `<section class="card-actions"><h3>Wat doe je?</h3><ol class="card-instruction">${steps.map(t=>`<li><span>${contentPromptHtml(t)}</span></li>`).join('')}</ol></section>`}
+function cardRolesHtml(c,kind){
+ if(!['mission','conversation'].includes(kind))return '';
+ const leader=c.participants.roles[0]==='gespreksleider',other=lessonText(c.conversationPartner).replace(/; de docent kan deze rol overnemen\.$/,'');
+ return `<dl class="card-roles"><div><dt>Jij</dt><dd>${leader?'Je leidt het gesprek.':'Je begint het gesprek.'}</dd></div><div><dt>${c.participants.max>2?'De anderen':'De ander'}</dt><dd>${esc(other)}</dd></div></dl>`;
+}
+
 function cardReadingParts(c,kind){
  let situation=c.situation,focus='',words=[];
  if(kind==='story'){
@@ -976,6 +1005,14 @@ function cardReadingParts(c,kind){
  }else if(['verbs','spelling'].includes(kind)){
   const match=situation.match(/(?:Kies[^.!?:]*:|Vul[^.!?:]*:|(?:Op de kaart|Op een kaartje|In een bericht|Op een uitnodiging) staat:|De zin (?:is|luidt):)\s*/u);
   if(match){focus=situation.slice(match.index);situation=situation.slice(0,match.index).trim()}
+ }
+ if(kind==='puzzles'){
+  const match=situation.match(/^(?:De letters staan achter elkaar: |Letters: )([^.!?]+)[.]\s*/u);
+  if(match){focus=match[1];situation=situation.slice(match[0].length)}
+ }
+ if(kind==='idioms'&&situation.startsWith('Tekstrebus: ')){
+  const match=situation.match(/^Tekstrebus: ([^.]+)\.\s*/u);
+  if(match){focus=match[1];situation=situation.slice(match[0].length)}
  }
  const extra=c.taskData.filter(t=>t!==c.situation&&t!==situation&&!focus.includes(t)&&!(words.length&&t.replace(/\s+/g,' ').trim()===c.situation.slice(0,c.situation.indexOf('.')+1)));
  return {situation,focus,words,extra};
@@ -1007,7 +1044,11 @@ function cardReadingHtml(c,kind){
   const at=focus.indexOf(':')+1;
   exercise=esc(focus.slice(0,at))+' '+focus.slice(at).trim().split(' / ').map(t=>`<span class="card-word-choice">${esc(t)}</span>`).join(' / ');
  }
- return `<div class="card-reading-main">${words.length?`<div class="card-story-words" aria-label="Verhaalwoorden">${words.map(w=>`<div>${cardWordPicture(w)}<strong>${esc(w)}</strong></div>`).join('')}</div>`:''}${situation||extra.length?`<div class="card-situation"><div><strong>${c.practiceText?'Oefentekst':'Situatie'}</strong>${situation?`<p>${contentPromptHtml(situation)}</p>`:''}${extra.length?`<ul>${extra.map(t=>`<li>${contentPromptHtml(t)}</li>`).join('')}</ul>`:''}</div></div>`:''}${focus?`<p class="card-focus">${exercise}</p>`:''}<p class="card-instruction">${contentPromptHtml(c.instruction)}</p></div>`;
+ const parts=situation?[...new Intl.Segmenter('nl',{granularity:'sentence'}).segment(situation)].map(p=>p.segment.trim()):[];
+ const edit=CARD_READING_EDITS[c.id],lines=edit?.situation||[...parts,...extra];
+ const situationHtml=lines.length?`<section class="card-situation"><div><h3>${c.practiceText?'Oefentekst':kind==='puzzles'||kind==='idioms'&&focus?'Lees dit':'De situatie'}</h3>${lines.length===1?`<p>${contentPromptHtml(lines[0])}</p>`:`<ul>${lines.map(t=>`<li>${contentPromptHtml(t)}</li>`).join('')}</ul>`}</div></section>`:'';
+ const focusHtml=focus?`<p class="card-focus">${exercise}</p>`:'';
+ return `<div class="card-reading-main">${cardRolesHtml(c,kind)}${words.length?`<div class="card-story-words" aria-label="Verhaalwoorden">${words.map(w=>`<div>${cardWordPicture(w)}<strong>${esc(w)}</strong></div>`).join('')}</div>`:''}${kind==='puzzles'||kind==='idioms'&&focus?focusHtml+situationHtml:situationHtml+focusHtml}${cardStepsHtml(edit?.steps||cardActionSteps(c.instruction))}</div>`;
 }
 function startCards(kind){
  if(globalThis.ReleasePolicy?.enabled&&kind!=='content-vert001'&&!ReleasePolicy.cardAllowed(kind))return kind==='c1-between-lines'?ContentUI.openBetweenLines():toast(ReleasePolicy.message);
@@ -1017,16 +1058,16 @@ function startCards(kind){
  if(kind==='tongue')return startTongue();
  if(kind==='c1-between-lines')return startC1();
  const family=CARD_GAMES.find(x=>x.id===kind);if(!family)return toast('Dit kaartspel is niet beschikbaar.');
- const list=cardsFor(kind);if(!list.length)return toast('Deze route bevat geen kaarten.');APP.cardKind=kind;APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
+ const list=cardsFor(kind);if(APP.routeCardMigration!==1.1&&APP.cardRound?.id){const i=list.findIndex(c=>c.id===APP.cardRound.id);if(i>=0)APP.cardIndex=i;APP.routeCardMigration=1.1}if(!list.length)return toast('Deze route bevat geen kaarten.');APP.cardKind=kind;APP.cardIndex=((APP.cardIndex||0)%list.length+list.length)%list.length;
  const c=list[APP.cardIndex],state=cardRound(c),sm=shapeMeta(c.primaryShape),counter=`${APP.cardIndex+1} van ${list.length}`;
  setLast('card',`${family.title} · ${c.route}`,{kind});
  const rebus=c.visualRebus,extra=rebus?rebus.context:c.taskData.filter(t=>t!==c.situation);
  const media=c.mediaRequirements.items.map(m=>`<table class="card-input-table"><caption>${esc(m.title)}</caption><thead><tr>${m.headers.map(t=>`<th scope="col">${esc(t)}</th>`).join('')}</tr></thead><tbody>${m.rows.map(row=>`<tr>${row.map(t=>`<td>${esc(t)}</td>`).join('')}</tr>`).join('')}</tbody></table>`).join('');
  const delayed=c.partnerMode==='guided_reveal',reveal=c.reveal||(delayed?{label:'Toon de partnerreactie',text:c.partnerPrompt,after:c.partnerDelivery.revealAt}:null);
- const partner=c.prediction?`<div class="card-step"><strong>Eerst ieder een eigen keuze</strong><p>${esc(c.prediction.instruction)}</p><button class="smallbtn" id="predictionReady" aria-pressed="${state.predictionReady}">${state.predictionReady?'Beiden hebben gekozen ✓':'Beiden hebben hun keuze vastgelegd'}</button><div id="predictionDiscussion" ${state.predictionReady?'':'hidden'}><p>${esc(c.partnerPrompt)}</p></div></div>`:!delayed?`<div class="card-step"><strong>Voor de gesprekspartner · ${c.participants.min} deelnemers</strong><p>${esc(c.partnerPrompt)}</p></div>`:'';
+ const partner=c.prediction?`<div class="card-step"><strong>Eerst ieder een eigen keuze</strong><p>${esc(c.prediction.instruction)}</p><button class="smallbtn" id="predictionReady" aria-pressed="${state.predictionReady}">${state.predictionReady?'Beiden hebben gekozen ✓':'Beiden hebben hun keuze vastgelegd'}</button><div id="predictionDiscussion" ${state.predictionReady?'':'hidden'}><p>${esc(c.partnerPrompt)}</p></div></div>`:!delayed?`<div class="card-step"><strong>Wat doet de ander?</strong><p>${esc(c.partnerPrompt)}</p></div>`:'';
  const revealHtml=reveal?`<div class="card-step"><p>Onthullen: ${esc(c.reveal?'na '+reveal.after:reveal.after)}. De onthulling is zichtbaar voor iedereen.</p><button class="smallbtn" id="cardReveal" aria-expanded="${state.revealed}" aria-controls="cardRevealed">${esc(reveal.label)}</button><p id="cardRevealed" ${state.revealed?'':'hidden'}>${esc(reveal.text)}</p></div>`:'';
  const closed=c.closedStep.enabled?`<form id="closedChoice" class="card-step"><fieldset><legend>${esc(c.closedStep.prompt)}</legend>${c.closedStep.options.map(o=>`<label><input type="radio" name="choice" value="${esc(o.id)}" required ${state.choice===o.id?'checked':''}> ${esc(o.label)}</label>`).join('')}<button class="smallbtn" type="submit">Controleer deze keuze</button></fieldset><p id="closedFeedback" role="status">${state.choice?esc(c.closedStep.explanation):''}</p></form>`:'';
- renderCardTable(kind,counter,`<div class="card-ribbon" style="--ribbon:${sm.color}"><span class="card-shape" aria-hidden="true">${esc(sm.symbol)}</span><strong>${esc(sm.task)}</strong><span class="card-counter">${esc(c.route)} · ${counter}</span></div><div class="card-content ${rebus?'':'card-readable'}" data-card-id="${esc(c.id)}"><h2 style="color:${sm.color}">${esc(rebus?.title||c.title)}</h2>${rebus?`<button class="rebus-preview" id="cardRebus" aria-label="Vergroot de rebus">${rebusImage(c)}<span>Vergroot de rebus</span></button>`:''}${rebus?`<p class="card-instruction">${contentPromptHtml(rebus.instruction)}</p><div class="card-situation"><div><strong>Kijk en puzzel</strong><p>Benoem de plaatjes. Voer de letteraanwijzingen uit. Lees van links naar rechts.</p>${extra.length?`<ul>${extra.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}</div></div>`:cardReadingHtml(c,kind)}${media}${closed}<div class="supportbox" id="cardSupport" data-section="help" aria-live="polite"><div data-support="goals"><strong>Doel en rollen</strong><p>${esc(c.goal)}</p><p>Met: ${esc(c.conversationPartner)}</p><p>${c.participants.min} deelnemers: ${c.participants.roles.map(esc).join(', ')}</p></div><div data-support="partner">${partner}${revealHtml}</div><div data-support="help"><strong>Hulp</strong><ul>${c.help.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>${c.practiceText?'<p>De docent mag eerst voordoen. Verstaanbaarheid gaat voor snelheid.</p>':''}</div><div data-support="example"><strong>${c.answerType==='hybrid'?'Oplossing en uitleg':'Mogelijk voorbeeld'}</strong>${rebus?`<p>${esc(rebus.explanation)}</p>`:''}<p>${esc(c.model.text)}</p><p class="card-feedback-note">${esc(c.criterion)}</p></div></div></div>`);
+ renderCardTable(kind,counter,`<div class="card-ribbon" style="--ribbon:${sm.color}"><span class="card-shape" aria-hidden="true">${esc(sm.symbol)}</span><strong>${esc(sm.task)}</strong><span class="card-counter">${esc(routeLabel(c.route))} · ${counter}</span></div><div class="card-content card-readable" data-card-id="${esc(c.id)}"><h2 style="color:${sm.color}">${esc(CARD_READING_EDITS[c.id]?.title||rebus?.title||c.title)}</h2>${rebus?`<button class="rebus-preview" id="cardRebus" aria-label="Vergroot de rebus">${rebusImage(c)}<span>Vergroot de rebus</span></button>`:''}${rebus?`${cardStepsHtml(cardActionSteps(rebus.instruction))}<div class="card-situation"><div><strong>Kijk en puzzel</strong><p>Benoem de plaatjes. Voer de letteraanwijzingen uit. Lees van links naar rechts.</p>${extra.length?`<ul>${extra.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}</div></div>`:cardReadingHtml(c,kind)}${media}${closed}<div class="supportbox" id="cardSupport" data-section="help" aria-live="polite"><div data-support="goals"><strong>Doel en rollen</strong><p>${esc(c.goal)}</p><p>Met: ${esc(c.conversationPartner)}</p><p>${c.participants.min} deelnemers: ${c.participants.roles.map(esc).join(', ')}</p></div><div data-support="partner">${partner}${revealHtml}</div><div data-support="help"><strong>Hulp</strong><ul>${c.help.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>${c.practiceText?'<p>De docent mag eerst voordoen. Verstaanbaarheid gaat voor snelheid.</p>':''}</div><div data-support="example"><strong>${c.answerType==='hybrid'?'Oplossing en uitleg':'Mogelijk voorbeeld'}</strong>${rebus?`<p>${esc(rebus.explanation)}</p>`:''}<p>${esc(c.model.text)}</p><p class="card-feedback-note">${esc(c.criterion)}</p></div></div></div>`);
 }
 
 /* Woorden en zinnen */
@@ -1037,7 +1078,7 @@ $('[data-start-work]').onclick=()=>{if(!tw)return toast('Taalworp wordt geladen.
 
 /* The cards cabinet uses real set data and CSS covers, not a flattened mockup. */
 function collectionItems(){
- const cardItems=CARD_GAMES.map(({id,title,description,color,pilot})=>({id,type:'cards',title,description,symbol:'◌',color,meta:cardsFor(id,true).length+(id==='c1-between-lines'?' kaarten · B1/B2 · 5 onderdelen':id==='tongue'?' tongbrekers · A0–C2':' kaarten · 7 taalroutes')}));
+ const cardItems=CARD_GAMES.map(({id,title,description,color,pilot})=>({id,type:'cards',title,description,symbol:'◌',color,meta:cardsFor(id,true).length+(id==='c1-between-lines'?' kaarten · B1/B2 · 5 onderdelen':id==='tongue'?' tongbrekers · A0 → C1':' kaarten · vijf taalroutes')}));
  const images=story.collections.filter(s=>s.status==='ready').map(({id,label,count})=>({id,type:'story',title:label,description:`Kies ${storyCounts(id).join(', ').replace(/, ([^,]*)$/, ' of $1')} beeldstenen voor je verhaal.`,symbol:'✦',color:'#237e85',meta:count+' beelden',image:storyIcons(id)[0]?.file}));
  const verbs=Object.values(tw.sets.sets).filter(x=>x.availabilityStatus==='ready').map((x,i)=>({id:x.id,type:'verbs',title:x.label,description:x.description,symbol:['✦','Aa','↗','◌'][i%4],color:'#187bbb',meta:x.recordIds.length+' kaarten · '+x.level}));
  return [...cardItems,...images,...verbs,...(window.DIGIBORD_DATA.cardCatalog||[])];
@@ -1047,7 +1088,7 @@ function cabinetSetInfo(type,id){
  if(type==='verbs'){const set=tw.sets.sets[id],records=set.recordIds.map(key=>tw.manifest.verbs[key]).filter(Boolean);return {...item,records,activity:'Taalworp',format:'Werkwoorden op tekstkaarten',how:'Een kaart geeft het werkwoord. De gekleurde dobbelstenen bepalen wie, tijd en zinsvorm. Samen maak je een passende zin.',samples:Array.from({length:Math.min(6,records.length)},(_,i)=>records[Math.floor(i*(records.length-1)/5)].lemma)}}
  if(type==='story'){const records=storyIcons(id);return {...item,records,activity:'Verhaalworp',format:'Afbeeldingen op beeldstenen',how:'Gooi de beeldstenen en vertel een verhaal met de actieve beelden. Je kunt stenen uitzetten of vasthouden.',samples:records.slice(0,6)}}
 
- const records=cardsFor(id,true);if(id==='c1-between-lines'){const reviewed=ContentRuntime.items().filter(i=>i.topic==='tussen-de-regels').map(i=>({id:i.content_item_id,level:i.cefr_level,expression:i.title,question:i.prompt}));return {...item,records:reviewed,activity:item.title,format:'B1 · B2',how:'Kies een niveau en een spel. Bespreek de betekenis en bekijk daarna de uitleg.',samples:reviewed};}if(id==='tongue')return {...item,description:records.length+' tongbrekers',records,activity:item.title,format:'Tongbrekers',how:'',samples:records};return {...item,records,activity:item.title,format:'Tekstkaarten met hulp en een voorbeeldantwoord',how:id==='mission'?'Je krijgt een praktische taalopdracht. Speel de situatie met een ander en bekijk zo nodig het voorbeeld.':'Gebruik de vraag of opdracht om een gesprek te beginnen. Vertel, vraag door en laat anderen reageren.',samples:records.slice(0,3)};
+ const records=cardsFor(id,true);if(id==='c1-between-lines'){const reviewed=ContentRuntime.items().filter(i=>i.topic==='tussen-de-regels').map(i=>({id:i.content_item_id,level:i.cefr_level,expression:i.title,question:i.prompt}));return {...item,records:reviewed,activity:item.title,format:'B1 → B2 · B2 → C1',how:'Kies een niveau en een spel. Bespreek de betekenis en bekijk daarna de uitleg.',samples:reviewed};}if(id==='tongue')return {...item,description:records.length+' tongbrekers',records,activity:item.title,format:'Tongbrekers',how:'',samples:records};return {...item,records,activity:item.title,format:'Tekstkaarten met hulp en een voorbeeldantwoord',how:id==='mission'?'Je krijgt een praktische taalopdracht. Speel de situatie met een ander en bekijk zo nodig het voorbeeld.':'Gebruik de vraag of opdracht om een gesprek te beginnen. Vertel, vraag door en laat anderen reageren.',samples:records.slice(0,3)};
 }
 function openCabinetSet(type,id){
  if(globalThis.ReleasePolicy?.enabled&&!(type==='cards'&&(ReleasePolicy.cardAllowed(id)||id==='c1-between-lines')))return toast(ReleasePolicy.message);
@@ -1060,7 +1101,7 @@ function openCabinetSet(type,id){
  goScreen('collection',type==='cards'?id:null);const section=$('#screen-collection');
  const pictures=type==='story';
  const preview=type==='verbs'?`<div class="detail-words">${info.samples.map(w=>`<span>${esc(w)}</span>`).join('')}</div><details class="set-all-records"><summary>Bekijk alle ${info.records.length} werkwoorden</summary><div class="detail-words">${info.records.map(v=>`<span>${esc(v.lemma)}</span>`).join('')}</div></details>`:pictures?`<div class="detail-pictures">${info.samples.map(x=>`<figure><img src="${x.file}" alt="${esc(x.label)}"><figcaption>${esc(x.label)}</figcaption></figure>`).join('')}</div>`:`<div class="detail-text-cards">${info.records.map(c=>`<article><small>${esc(c.level||c.entryLevel||c.route)}</small><h3>${esc(c.expression||c.text||c.visualRebus?.title||c.title)}</h3>${rebusImage(c)}<p>${esc(c.text?'':c.question||c.visualRebus?.instruction||c.instruction)}</p></article>`).join('')}</div>`;
- section.innerHTML=`<button class="smallbtn" id="backToCabinet">← Terug naar de kaartenkast</button><div class="set-detail"><aside class="set-detail-cover">${cabinetCover(info)}<span>${esc(info.meta)}</span></aside><div class="set-detail-main"><span class="eyebrow">${esc(info.format)}</span><h1 tabindex="-1" id="setDetailTitle">${esc(info.title)}</h1><p class="set-detail-description">${esc(info.description)}</p><p>${esc(info.how)}</p><div class="set-start-row"><button class="primary" id="startCabinetActivity">Start ${esc(info.activity)}</button>${type==='story'?`<label>Aantal stenen <select id="setStoryCount">${storyCounts(id).map(n=>`<option value="${n}">${n} stenen</option>`).join('')}</select></label>`:''}<span>${type==='cards'?(id==='c1-between-lines'?'B1 · B2':id==='tongue'?'A0–C2':'Alle 7 taalroutes'):'Niveau: '+esc(APP.level)}</span></div><div class="set-preview"><h2>Dit zit in deze set</h2>${preview}</div></div></div>`;
+ section.innerHTML=`<button class="smallbtn" id="backToCabinet">← Terug naar de kaartenkast</button><div class="set-detail"><aside class="set-detail-cover">${cabinetCover(info)}<span>${esc(info.meta)}</span></aside><div class="set-detail-main"><span class="eyebrow">${esc(info.format)}</span><h1 tabindex="-1" id="setDetailTitle">${esc(info.title)}</h1><p class="set-detail-description">${esc(info.description)}</p><p>${esc(info.how)}</p><div class="set-start-row"><button class="primary" id="startCabinetActivity">Start ${esc(info.activity)}</button>${type==='story'?`<label>Aantal stenen <select id="setStoryCount">${storyCounts(id).map(n=>`<option value="${n}">${n} stenen</option>`).join('')}</select></label>`:''}<span>${type==='cards'?(id==='c1-between-lines'?'B1 → B2 · B2 → C1':id==='tongue'?'A0 → C1':'Vijf taalroutes'):'Niveau: '+esc(APP.level)}</span></div><div class="set-preview"><h2>Dit zit in deze set</h2>${preview}</div></div></div>`;
  $('#backToCabinet').onclick=()=>goScreen(globalThis.ReleasePolicy?.enabled?'cards':'collection');$('#startCabinetActivity').onclick=()=>startCabinetActivity(info,Number($('#setStoryCount')?.value||3));section.scrollTop=0;$('#setDetailTitle').focus();
 }
 window.CONTENT_VERT001={
@@ -1111,7 +1152,7 @@ function renderCollection(){
  const items=collectionItems(),section=$('#screen-collection');
  section.innerHTML=`<div class="cabinet-heading"><div><span class="eyebrow">SPELEN / KAARTENKAST</span><h1>Kaartspellen</h1><p>Alle kaartensets op één plek. Kies een spel of bekijk het materiaal op Drive.</p></div><button class="smallbtn" id="cabinetBackToPlay">← Spelen</button></div>
  <p class="cabinet-motion-note">Klik op een stapel om een kaart af te pakken. De kaartbeweging kies je bij <button class="smallbtn" id="cabinetMotionSettings">Instellingen</button>.</p><div class="cabinet-filters" role="group" aria-label="Soort materiaal"><button class="cabinet-filter active" data-cabinet="all" aria-pressed="true">Alles <b>${items.length}</b></button><button class="cabinet-filter" data-cabinet="cards" aria-pressed="false">Kaartspellen <b>${items.filter(x=>x.type==='cards').length}</b></button><button class="cabinet-filter" data-cabinet="verbs" aria-pressed="false">Werkwoordkaarten <b>23</b></button><button class="cabinet-filter" data-cabinet="story" aria-pressed="false">Beeldsets <b>${items.filter(x=>x.type==='story').length}</b></button><button class="cabinet-filter" data-cabinet="source" aria-pressed="false">Op Drive <b>${items.filter(x=>x.type==='source').length}</b></button><label class="cabinet-search"><span class="sr-only">Zoek een set</span><input id="cabinetSearch" type="search" placeholder="Zoek een set…"></label></div>
- <div class="cabinet-note"><span id="cabinetCount" aria-live="polite"></span><span>Niveau voor opdrachten: <b>${esc(APP.level)}</b> · kies bovenaan</span></div><div class="cabinet-grid" id="cabinetGrid"></div>`;
+ <div class="cabinet-note"><span id="cabinetCount" aria-live="polite"></span><span>Niveau voor opdrachten: <b>${esc(routeLabel())}</b> · kies bovenaan</span></div><div class="cabinet-grid" id="cabinetGrid"></div>`;
  let type=cabinetType;$('#cabinetSearch').value=cabinetQuery;function filter(){const query=$('#cabinetSearch').value.toLocaleLowerCase('nl'),shown=items.filter(x=>(type==='all'||x.type===type)&&(x.title+' '+x.description).toLocaleLowerCase('nl').includes(query));$('#cabinetCount').textContent=shown.length+' items · '+shown.filter(x=>x.type!=='source').length+' speelbaar';$('#cabinetGrid').innerHTML=shown.length?shown.map(x=>`<article class="cabinet-item"><button class="cabinet-cover-trigger" data-preview-id="${x.id}" data-preview-type="${x.type}" aria-label="${x.type==='source'?'Bekijk bron voor':'Speel kaartbeweging af voor'} ${esc(x.title)}">${cabinetCover(x)}</button><span class="cabinet-copy"><small>${{cards:'SPEELBAAR · KAARTSPEL',story:'SPEELBAAR · BEELDSET',verbs:'SPEELBAAR · TAALWORP',source:'OP DRIVE'}[x.type]}</small><strong>${esc(x.title)}</strong><span>${esc(x.meta)}</span><span class="cabinet-description">${esc(x.description)}</span></span><button class="cabinet-open" data-cabinet-id="${x.id}" data-cabinet-type="${x.type}">${x.type==='source'?'Bekijk bron':'Bekijk inhoud'} <b aria-hidden="true">↗</b></button></article>`).join(''):'<p class="cabinet-empty">Geen set gevonden. Probeer een andere naam of kies Alle sets.</p>';
  section.querySelectorAll('[data-preview-id]').forEach(b=>b.onclick=()=>b.dataset.previewType==='source'?openCabinetSet('source',b.dataset.previewId):playCabinetEffect(b.querySelector('.cabinet-deck'),cabinetSetInfo(b.dataset.previewType,b.dataset.previewId)));
  section.querySelectorAll('[data-cabinet-id]').forEach(b=>b.onclick=()=>openCabinetSet(b.dataset.cabinetType,b.dataset.cabinetId));}
@@ -1120,8 +1161,8 @@ function renderCollection(){
 }
 /* Shared classroom controls */
 const LEVELS=['Alpha A','Alpha B','Alpha C','A0','A1','A1+','A2','B1','B2','C1','C2'];
-function selectedTaskRoute(){return taskBank.routes[APP.level.startsWith('Alpha')||APP.level==='A0'?0:APP.level==='A1'?1:['A1+','A2'].includes(APP.level)?2:3]}
-function levelInstruction(){const session=globalThis.ContentRuntime?.activeSession?.();if(session?.selected_game_engine)return 'Volg de opdracht op de kaart. Bespreek het antwoord samen en gebruik zo nodig het voorbeeld.';return APP.level.startsWith('Alpha')?'Wijs aan en zeg het woord. De docent kan voorlezen.':APP.level==='A0'?'Gebruik een woord of een korte vaste zin.':APP.level==='A1'?'Maak een korte zin.':APP.level==='A1+'?'Maak enkele korte zinnen en voeg een detail toe.':APP.level==='A2'?'Vertel in enkele zinnen en geef een reden.':APP.level==='B1'?'Leg je antwoord uit en stel een vervolgvraag.':APP.level==='B2'?'Onderbouw je antwoord en bespreek een tegenargument.':APP.level==='C1'?'Nuanceer je standpunt en pas je register aan je gesprekspartner aan.':'Formuleer precies, bespreek impliciete aannames en herformuleer voor een ander publiek.'}
+function selectedTaskRoute(){const level=DigiRoutes.executionLevel(APP.level)||'';return taskBank.routes[level.startsWith('Alpha')||level==='A0'?0:level==='A1'?1:['A1+','A2'].includes(level)?2:3]}
+function levelInstruction(){const session=globalThis.ContentRuntime?.activeSession?.();if(session?.selected_game_engine)return 'Volg de opdracht op de kaart. Bespreek het antwoord samen en gebruik zo nodig het voorbeeld.';const level=DigiRoutes.executionLevel(APP.level);if(!level)return 'Kies eerst een route.';return level.startsWith('Alpha')?'Wijs aan en zeg het woord. De docent kan voorlezen.':level==='A0'?'Gebruik een woord of een korte vaste zin.':level==='A1'?'Maak een korte zin.':level==='A1+'?'Maak enkele korte zinnen en voeg een detail toe.':level==='A2'?'Vertel in enkele zinnen en geef een reden.':level==='B1'?'Leg je antwoord uit en stel een vervolgvraag.':level==='B2'?'Onderbouw je antwoord en bespreek een tegenargument.':level==='C1'?'Nuanceer je standpunt en pas je register aan je gesprekspartner aan.':'Formuleer precies, bespreek impliciete aannames en herformuleer voor een ander publiek.'}
 function adaptTask(c){return{...c,input:[c.input,levelInstruction()].filter(Boolean).join(' ')}}
 function openGameDialog(title,body,bind){
  const dlg=$('#gameDialog');$('#dialogTitle').textContent=lessonText(title);$('#dialogBody').innerHTML=body;
@@ -1142,23 +1183,23 @@ function currentGameRules(){
 function refreshCurrentGame(){if($('#screen-game').classList.contains('active'))resumeLast(true)}
 function syncLevelSelect(cards=$('#screen-game').classList.contains('active')&&APP.last?.type==='card'){
  const select=$('#levelSelect'),session=$('#screen-game.active')&&globalThis.ContentRuntime?.activeSession?.();
- if(session){select.disabled=true;select.setAttribute('aria-label','Niveau van deze les');select.innerHTML=`<option>${esc(session.cefr_levels.join(' + '))}</option>`;return}
- const fixed=cards&&APP.cardKind==='c1-between-lines';
- select.disabled=fixed;select.dataset.tongue=select.dataset.routes='false';
- select.setAttribute('aria-label',fixed?'Niveau Nederlands tussen de regels':'Niveau');
- select.innerHTML=fixed?'<option value="C1">C1</option>':LEVELS.map(l=>`<option value="${l}">${esc(CARD_ROUTES[['A0','A1','A1+','A2','B1','B2','C1'].indexOf(l)]?.label||l)}</option>`).join('');
- if(cards&&globalThis.ReleasePolicy?.cardAllowed(APP.cardKind))for(const option of select.options){const n=cardCount(APP.cardKind,option.value);option.disabled=!n;option.textContent=APP.cardKind==='tongue'?`${option.value} · ${n} kaarten`:option.textContent+(option.value==='C2'?' (zelfde kaarten als C1)':'');}
- select.value=fixed?'C1':APP.level;
+ if(session){select.disabled=true;select.setAttribute('aria-label','Route van deze les');select.innerHTML=`<option>${esc(DigiRoutes.ordered(session.display_routes||session.cefr_levels||[session.cefr_level]).map(routeLabel).join(' + '))}</option>`;return}
+ select.disabled=false;select.dataset.tongue=select.dataset.routes='false';select.setAttribute('aria-label','Route');
+ select.innerHTML=DigiRoutes.routes.map(r=>`<option value="${r.id}">${esc(r.label)}</option>`).join('');
+ if(cards&&globalThis.ReleasePolicy?.cardAllowed(APP.cardKind))for(const option of select.options){const n=option.value===publicRoute()&&APP.legacyCardPool?.kind===APP.cardKind?cardsFor(APP.cardKind).length:cardCount(APP.cardKind,option.value);option.disabled=!n;option.textContent+=' · '+n+' kaarten'}
+ select.value=publicRoute();
 }
 function resetLevelContent(){
+ delete APP.legacyCardPool;
  delete APP.cardRoute;delete APP.tongueLevel;APP.cardIndex=0;delete APP.cardRound;twDiceState={};
  for(const state of Object.values(APP.boardStates))if(state.pending)delete state.pending.task;
 }
 function selectLevel(level){
- if(!LEVELS.includes(level))return;
+ const route=DigiRoutes.resolve(level);if(route===DigiRoutes.REVIEW)return;
+ const executionLevel=DigiRoutes.routes.find(r=>r.id===level)?.executionLevel||level;
  if($('#screen-game.active')&&APP.last?.type==='card'&&globalThis.ReleasePolicy?.cardAllowed(APP.cardKind)&&!cardCount(APP.cardKind,level))return;
- if(APP.level!==level){APP.level=level;resetLevelContent()}
- settingsPatch({route:CARD_ROUTES.find(r=>r.id===defaultCardRoute()).label.replace('→',' → ')});save();syncLevelSelect();refreshCurrentGame();
+ if(APP.level!==executionLevel){APP.level=executionLevel;APP.displayRoute=route;resetLevelContent()}
+ settingsPatch({route:routeLabel()});save();syncLevelSelect();refreshCurrentGame();
  if($('#screen-collection').classList.contains('active'))renderCollection();
  if($('#screen-cards').classList.contains('active'))renderCardMenu();
 }

@@ -15,12 +15,12 @@ let browser;
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
  await page.locator('[data-main="practice"]').click();await page.waitForSelector('#screen-practice.active .practice-layout');
- assert.equal(await page.evaluate(()=>ContentUI.state().topic),'ER');assert.equal(await page.evaluate(()=>ContentUI.state().level),'B1');
+ assert.equal(await page.evaluate(()=>ContentUI.state().topic),'ER');assert.equal(await page.evaluate(()=>ContentUI.state().level),'B1_B2');
  assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),325);
  assert.equal(await page.locator('select[name=organization] option[value=pairs]').count(),1);
 
  // No silent fallback for invalid selections.
- await page.evaluate(()=>ContentUI.setState({level:'C1'}));
+ await page.evaluate(()=>ContentUI.setState({level:'ALPHA_AC'}));
  assert.equal(await page.locator('#practiceStart').isDisabled(),true);assert.match(await page.locator('.practice-warning').textContent(),/niveau.*niet beschikbaar/i);
  assert.match(await page.evaluate(()=>{try{ContentUI.sessionOptions(7);return''}catch(e){return e.message}}),/niveau.*niet beschikbaar/i);
  await page.evaluate(()=>ContentUI.setState({topic:'NIET_BESTAAND'}));
