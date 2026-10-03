@@ -9,7 +9,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  try{
  const p=await b.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
  p.on('pageerror',e=>errors.push(e.message));
- await p.goto('http://127.0.0.1:'+server.address().port+'/index.html');
+ await p.addInitScript(()=>{window.DigiBordArchiveReview=true});await p.goto('http://127.0.0.1:'+server.address().port+'/index.html');
  // Fresh boards default to direct questions; settings and inline help preserve the game.
  await p.evaluate(()=>startBoard('rotterdam'));
  await p.getByRole('button',{name:'Bordopties',exact:true}).click();
@@ -52,10 +52,11 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
    APP.questionMode=c.exerciseMode==='direct'?'direct':'conversation';
    APP.boardStates.rotterdam.pending={task:{id:c.id,instruction:'OUDE TEKST'}};
    showBoardTask('rotterdam',routeCache.rotterdam);
-   if($('#taskTitle').textContent!==c.instruction||$('#taskInput').textContent!==c.input)fail(c.id+' renderer');
+   if($('#taskTitle').textContent!==AppWording.text(c.instruction)||$('#taskInput').textContent!==AppWording.text(c.input))fail(c.id+' renderer');
+   if(/\bbuur\b/i.test($('#taskDrawer').textContent))fail(c.id+' wording');
    if($('#gameDialog').open)fail(c.id+' example visible before request');
-   showBoardSupport('support');if(!$('#dialogBody').textContent.includes(c.support))fail(c.id+' help');$('#gameDialog').close();showBoardSupport('partner');if(!$('#dialogBody').textContent.includes(c.partner))fail(c.id+' partner');$('#gameDialog').close();
-   showBoardSupport('model');if(!$('#dialogBody').textContent.includes(c.model)||!$('#dialogBody').textContent.includes(c.criterion))fail(c.id+' example');$('#gameDialog').close();count++;
+   showBoardSupport('support');if(!$('#dialogBody').textContent.includes(AppWording.text(c.support)))fail(c.id+' help');$('#gameDialog').close();showBoardSupport('partner');if(!$('#dialogBody').textContent.includes(AppWording.text(c.partner)))fail(c.id+' partner');$('#gameDialog').close();
+   showBoardSupport('model');if(!$('#dialogBody').textContent.includes(AppWording.text(c.model))||!$('#dialogBody').textContent.includes(AppWording.text(c.criterion)))fail(c.id+' example');$('#gameDialog').close();count++;
   }
   // Every card can be drawn; nothing repeats before the route/shape/mode deck is exhausted.
   for(const mode of ['conversation','direct','mixed'])for(const r of taskBank.routes)for(const shape of taskBank.shapes){
@@ -80,7 +81,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
   await p.getByRole('button',{name:'Bordopties',exact:true}).click();await p.locator('#questionMode').selectOption(mode);
   assert.deepEqual(await p.evaluate(()=>({positions:JSON.stringify(APP.boardStates.rotterdam.positions),groups:JSON.stringify(APP.boardStates.rotterdam.groupPositions),classPos:APP.boardStates.rotterdam.classPos,turn:JSON.stringify(APP.turn)})),before);
  }
- await p.locator('#levelSelect').selectOption('A1');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
+ await p.locator('#levelSelect').selectOption('A1_A2');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
  // Check real UI selections and long help on small and large screens.
  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
  for(const [width,height]of [[1440,900],[1024,768],[390,844]]){

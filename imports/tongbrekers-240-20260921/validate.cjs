@@ -23,7 +23,7 @@ for(const c of bank.cards){
 assert.equal(audio.items.filter(x=>x.status==='reuse_exact_text').length,94);assert.equal(audio.items.filter(x=>x.status==='generated_for_240').length,140);assert.equal(audio.items.filter(x=>x.status==='recovered_existing_history').length,6);assert.equal(audio.recordingRequired,0);
 // Validate the full source package with the production filter and renderer.
 const app=fs.readFileSync(path.join(root,'app.js'),'utf8');let rendered='';
-const ctx=vm.createContext({RUNTIME:{tongueBank:bank},CARD_GAMES:[],APP:{level:'A2'},$$:()=>[],esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>{rendered=html}});
+const ctx=vm.createContext({DigiRoutes:require('../../route-architecture.js'),RUNTIME:{tongueBank:bank},CARD_GAMES:[],APP:{level:'A2'},$$:()=>[],esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>{rendered=html}});
 vm.runInContext(app.slice(app.indexOf('function cardsFor('),app.indexOf('function cardActivityHeader(')),ctx);
 for(const [level,total] of Object.entries({A0:60,A1:120,A2:180,B1:240,B2:240,C1:240,C2:240})){
  ctx.APP.level=level;ctx.APP.tongueDifficulty='';assert.equal(vm.runInContext("cardsFor('tongue').length",ctx),total);

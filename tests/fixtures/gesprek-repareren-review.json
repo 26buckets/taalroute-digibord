@@ -1,0 +1,950 @@
+{
+ "version": "2026-09-23.1",
+ "source_url": "https://drive.google.com/file/d/1vZfDOUrCX_MY9o8ur6BBk637hRvfE2HY/view",
+ "manifest_url": "https://docs.google.com/document/d/1ogFUSJGT40hj1nuRfKbSJ720aoNY-b4Zpov9gtErAEc/edit",
+ "source_sha256": "00ecb8e7857e328e434ddae3acb69d18f820f9aea814e02b854a55cff8a622f3",
+ "source_level": "C1",
+ "source_status": "FROZEN v1.0 volgens bronmanifest. Lokale review herstelt verkeerde positieverwijzingen in vier uitlegteksten, onnodige beloften en te stellige claims.",
+ "scope": "Eigen lokale AI-redactie en taakgericht niveauadvies. Geschreven keuzevragen, geen luisteropnamen of zelfstandige gespreksproef. Geen officiële ERK-toets, menselijke review of lesproef; Drive-bron ongewijzigd.",
+ "actual_answer_counts": {
+  "A": 17,
+  "B": 17,
+  "C": 16
+ },
+ "reviewed_answer_counts": {
+  "A": 17,
+  "B": 17,
+  "C": 16
+ },
+ "items": {
+  "C1_GR_001": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Zeg ook wat je wél bedoelde. De ander kan daarna aangeven of het duidelijk is. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Zeg ook wat je wél bedoelde. De ander kan daarna aangeven of het duidelijk is.",
+   "patch": {
+    "prompt": "Welke reactie maakt je bedoeling duidelijk zonder de ander de schuld te geven?",
+    "explanation": "De gekozen reactie zegt dat het om de ruimte in de planning gaat, niet om te weinig inzet. Zij legt de fout niet automatisch bij de collega.",
+    "note": "Zeg ook wat je wél bedoelde. De ander kan daarna aangeven of het duidelijk is."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen reactie zegt dat het om de ruimte in de planning gaat, niet om te weinig inzet. Zij legt de fout niet automatisch bij de collega."
+  },
+  "C1_GR_002": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Vraag zo nodig welk deel onduidelijk is; alleen langzamer of langer praten helpt niet altijd. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Vraag zo nodig welk deel onduidelijk is; alleen langzamer of langer praten helpt niet altijd.",
+   "patch": {
+    "prompt": "Wat kan helpen als deze uitleg niet duidelijk wordt?",
+    "explanation": "Een andere opbouw en een duidelijk kernpunt kunnen helpen als de formulering verwarring geeft. Controleer daarna of de ander je begrijpt.",
+    "note": "Vraag zo nodig welk deel onduidelijk is; alleen langzamer of langer praten helpt niet altijd."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Een andere opbouw en een duidelijk kernpunt kunnen helpen als de formulering verwarring geeft. Controleer daarna of de ander je begrijpt."
+  },
+  "C1_GR_003": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Je bedoeling en hoe je woorden overkomen kunnen verschillen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Je bedoeling en hoe je woorden overkomen kunnen verschillen.",
+   "patch": {
+    "prompt": "Wat bereik je met ‘Dat kwam anders over dan bedoeld’?",
+    "explanation": "Je erkent dat je woorden anders zijn ontvangen en kunt je boodschap opnieuw uitleggen. Je trekt daarmee niet automatisch je standpunt in.",
+    "note": "Je bedoeling en hoe je woorden overkomen kunnen verschillen."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat je woorden anders zijn ontvangen en kunt je boodschap opnieuw uitleggen. Je trekt daarmee niet automatisch je standpunt in."
+  },
+  "C1_GR_004": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Maak eerst duidelijk op welk punt ieder reageert. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Maak eerst duidelijk op welk punt ieder reageert.",
+   "patch": {
+    "prompt": "Welk misverstand maakt deze zin zichtbaar?",
+    "explanation": "De één bespreekt de planning en de ander de kwaliteit. Dat verschil benoemen helpt; het bewijst niet dat iemand onwillig is of niet luistert.",
+    "note": "Maak eerst duidelijk op welk punt ieder reageert.",
+    "options": [
+     "De constatering dat één van beide sprekers onvoldoende luistert naar de ander.",
+     "Ze bespreken verschillende punten, terwijl ze denken dat ze op hetzelfde punt reageren.",
+     "De vaststelling dat beide standpunten inhoudelijk onverenigbaar zijn."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De één bespreekt de planning en de ander de kwaliteit. Dat verschil benoemen helpt; het bewijst niet dat iemand onwillig is of niet luistert."
+  },
+  "C1_GR_005": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Je eigen uitleg van de woorden kan verkeerd zijn, ook als je reactie begrijpelijk was. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Je eigen uitleg van de woorden kan verkeerd zijn, ook als je reactie begrijpelijk was.",
+   "patch": {
+    "prompt": "Wat doe je met ‘Ik denk dat ik je verkeerd begrepen heb’?",
+    "explanation": "Je erkent dat je zelf een verkeerde uitleg aan de woorden gaf. Dat kan helpen om samen het misverstand te herstellen.",
+    "note": "Je eigen uitleg van de woorden kan verkeerd zijn, ook als je reactie begrijpelijk was.",
+    "options": [
+     "Je zegt dat de ander onduidelijk sprak.",
+     "Je vraagt de ander zijn woorden terug te nemen.",
+     "Je erkent dat je zelf de woorden verkeerd hebt begrepen en maakt ruimte voor herstel."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat je zelf een verkeerde uitleg aan de woorden gaf. Dat kan helpen om samen het misverstand te herstellen."
+  },
+  "C1_GR_006": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Noem je kernpunt, zonder alleen te zeggen dat de ander je niet begrijpt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Noem je kernpunt, zonder alleen te zeggen dat de ander je niet begrijpt.",
+   "patch": {
+    "prompt": "Welke reactie brengt je kernpunt terug?",
+    "explanation": "De gekozen reactie noemt opnieuw wie welk risico draagt. Alleen verwijten dat de ander je punt mist zou dat niet duidelijk maken.",
+    "note": "Noem je kernpunt, zonder alleen te zeggen dat de ander je niet begrijpt."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen reactie noemt opnieuw wie welk risico draagt. Alleen verwijten dat de ander je punt mist zou dat niet duidelijk maken."
+  },
+  "C1_GR_007": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Maak de instructie concreter en controleer of zij nu duidelijk is. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Maak de instructie concreter en controleer of zij nu duidelijk is.",
+   "patch": {
+    "prompt": "Hoe kun je de onduidelijke instructie herstellen?",
+    "explanation": "Je erkent dat jouw formulering niet precies genoeg was en maakt de instructie duidelijker. Daarna kun je het begrip controleren.",
+    "note": "Maak de instructie concreter en controleer of zij nu duidelijk is."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat jouw formulering niet precies genoeg was en maakt de instructie duidelijker. Daarna kun je het begrip controleren."
+  },
+  "C1_GR_008": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Beloof geen nieuwe datum of oplossing om een misverstand weg te nemen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Beloof geen nieuwe datum of oplossing om een misverstand weg te nemen.",
+   "patch": {
+    "prompt": "Welke reactie bewaart dat vandaag niet haalbaar is, zonder iets nieuws te beloven?",
+    "explanation": "De gekozen reactie beperkt de boodschap tot vandaag niet haalbaar en geen definitieve afwijzing. Zij belooft geen oplossing of nieuwe datum.",
+    "note": "Beloof geen nieuwe datum of oplossing om een misverstand weg te nemen.",
+    "options": [
+     "“U hebt mijn antwoord strenger geïnterpreteerd dan nodig.”",
+     "“Mijn bedoeling was niet om het verzoek af te wijzen.”",
+     "“Vandaag is het niet haalbaar. Dat is geen definitieve afwijzing van uw verzoek.”"
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen reactie beperkt de boodschap tot vandaag niet haalbaar en geen definitieve afwijzing. Zij belooft geen oplossing of nieuwe datum."
+  },
+  "C1_GR_009": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Een bezwaar tegen één voorwaarde is niet hetzelfde als tegen het hele voorstel zijn. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Een bezwaar tegen één voorwaarde is niet hetzelfde als tegen het hele voorstel zijn.",
+   "patch": {
+    "prompt": "Wat corrigeer je met ‘Ik trok te snel een conclusie’?",
+    "explanation": "Je had een bezwaar tegen één voorwaarde gelezen als afwijzing van het hele voorstel. Je corrigeert die te brede conclusie.",
+    "note": "Een bezwaar tegen één voorwaarde is niet hetzelfde als tegen het hele voorstel zijn.",
+    "options": [
+     "Je vraagt hem om alsnog volledig voor of tegen te kiezen.",
+     "Je laat zien dat zijn eerdere uitleg inhoudelijk tegenstrijdig was.",
+     "Je corrigeert dat je zijn bezwaar ten onrechte als afwijzing van het hele voorstel zag."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je had een bezwaar tegen één voorwaarde gelezen als afwijzing van het hele voorstel. Je corrigeert die te brede conclusie."
+  },
+  "C1_GR_010": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Een voorbeeld helpt je kernpunt, maar kan het ook naar de achtergrond duwen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Bedoeling uitleggen",
+   "source_section": "Misverstand en interpretatie herstellen",
+   "goal": "Een voorbeeld helpt je kernpunt, maar kan het ook naar de achtergrond duwen.",
+   "patch": {
+    "prompt": "Hoe maak je het verschil tussen je voorbeeld en je kernpunt duidelijk?",
+    "explanation": "Je maakt duidelijk waarvoor het voorbeeld diende en noemt opnieuw het punt over risicoverdeling.",
+    "note": "Een voorbeeld helpt je kernpunt, maar kan het ook naar de achtergrond duwen.",
+    "options": [
+     "Het voorbeeld verder toelichten totdat de ander het volledig accepteert.",
+     "Het voorbeeld intrekken en alleen nog abstract over risicoverdeling praten.",
+     "Zeggen dat het een voorbeeld was en opnieuw uitleggen wat je kernpunt is."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je maakt duidelijk waarvoor het voorbeeld diende en noemt opnieuw het punt over risicoverdeling."
+  },
+  "C1_GR_011": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Reageer niet op alle drie de onderdelen als nog niet duidelijk is welk deel wordt betwist. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Reageer niet op alle drie de onderdelen als nog niet duidelijk is welk deel wordt betwist.",
+   "patch": {
+    "prompt": "Waarom helpt het om eerst naar het bedoelde onderdeel te vragen?",
+    "explanation": "Je vraagt welk deel niet klopt voordat je op de kritiek reageert. Zo verklein je de kans dat jullie verschillende onderdelen bespreken.",
+    "note": "Reageer niet op alle drie de onderdelen als nog niet duidelijk is welk deel wordt betwist."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je vraagt welk deel niet klopt voordat je op de kritiek reageert. Zo verklein je de kans dat jullie verschillende onderdelen bespreken."
+  },
+  "C1_GR_012": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Laat ook ruimte voor de mogelijkheid dat beide onderdelen bedoeld zijn. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Laat ook ruimte voor de mogelijkheid dat beide onderdelen bedoeld zijn.",
+   "patch": {
+    "prompt": "Welke vraag maakt duidelijk wat anders moet?",
+    "explanation": "De gekozen vraag noemt de onderbouwing, de planning én beide als mogelijkheden. De manager bepaalt wat hij bedoelt.",
+    "note": "Laat ook ruimte voor de mogelijkheid dat beide onderdelen bedoeld zijn."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen vraag noemt de onderbouwing, de planning én beide als mogelijkheden. De manager bepaalt wat hij bedoelt."
+  },
+  "C1_GR_013": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Vraag wat iemand met een woord bedoelt voordat je denkt dat jullie het eens zijn. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Vraag wat iemand met een woord bedoelt voordat je denkt dat jullie het eens zijn.",
+   "patch": {
+    "prompt": "Welke vraag helpt als haalbaar voor beiden iets anders betekent?",
+    "explanation": "Vraag welke voorwaarden voor deze spreker bepalen of iets haalbaar is: het budget, de tijd of nog iets anders.",
+    "note": "Vraag wat iemand met een woord bedoelt voordat je denkt dat jullie het eens zijn.",
+    "options": [
+     "Besluiten dat beide definities even geldig zijn en doorgaan.",
+     "Een ander woord voor haalbaar voorstellen.",
+     "Vragen wat haalbaar voor de spreker betekent: binnen budget, op tijd of nog iets anders."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Vraag welke voorwaarden voor deze spreker bepalen of iets haalbaar is: het budget, de tijd of nog iets anders."
+  },
+  "C1_GR_014": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Vraag om een moment én om de benodigde informatie, zonder zelf een nieuwe afspraak te maken. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Vraag om een moment én om de benodigde informatie, zonder zelf een nieuwe afspraak te maken.",
+   "patch": {
+    "prompt": "Welke vraag maakt later duidelijker zonder zelf een afspraak op te leggen?",
+    "explanation": "De gekozen vraag vraagt wanneer het onderwerp terugkomt en wanneer er genoeg informatie voor een besluit moet zijn. Zij legt zelf geen datum vast.",
+    "note": "Vraag om een moment én om de benodigde informatie, zonder zelf een nieuwe afspraak te maken.",
+    "context": "Een afspraak luidt: “We bekijken dit later opnieuw.” Voor de planning moet duidelijk worden wanneer het onderwerp terugkomt en wanneer er genoeg informatie moet zijn om een besluit te nemen.",
+    "options": [
+     "“Na welke stap of rond welk moment bekijken we dit opnieuw? Wanneer moet er genoeg informatie zijn om een besluit te nemen?”",
+     "“Kunnen we dit volgende week opnieuw bespreken?”",
+     "“Laten we het voorlopig laten rusten.”"
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen vraag vraagt wanneer het onderwerp terugkomt en wanneer er genoeg informatie voor een besluit moet zijn. Zij legt zelf geen datum vast."
+  },
+  "C1_GR_015": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Controleer voor welke mensen de verandering geldt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Controleer voor welke mensen de verandering geldt.",
+   "patch": {
+    "prompt": "Wat controleer je met ‘Geldt dat voor iedereen’?",
+    "explanation": "Je controleert of de verandering voor alle genoemde groepen geldt, niet of zij allemaal dezelfde mening hebben.",
+    "note": "Controleer voor welke mensen de verandering geldt.",
+    "options": [
+     "De toon van de mededeling.",
+     "De volgorde van de invoering.",
+     "Voor welke groepen mensen de verandering geldt."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je controleert of de verandering voor alle genoemde groepen geldt, niet of zij allemaal dezelfde mening hebben."
+  },
+  "C1_GR_016": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Een eigen oordeel en een weergegeven oordeel van iemand anders zijn niet hetzelfde. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Een eigen oordeel en een weergegeven oordeel van iemand anders zijn niet hetzelfde.",
+   "patch": {
+    "prompt": "Wat controleer je door te vragen van wie het standpunt is?",
+    "explanation": "Je controleert of de collega zelf dit oordeel geeft, het oordeel van Finance weergeeft of beide. Dat zegt nog niet of het oordeel klopt.",
+    "note": "Een eigen oordeel en een weergegeven oordeel van iemand anders zijn niet hetzelfde.",
+    "title": "Van wie is dit standpunt?",
+    "options": [
+     "Wat financieel verantwoord precies betekent.",
+     "Of dit het eigen oordeel van de collega is, dat van Finance, of beide.",
+     "Of het financiële advies al een formeel besluit is."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je controleert of de collega zelf dit oordeel geeft, het oordeel van Finance weergeeft of beide. Dat zegt nog niet of het oordeel klopt."
+  },
+  "C1_GR_017": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Noem mogelijke betekenissen, maar laat ook ruimte voor iets anders. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Noem mogelijke betekenissen, maar laat ook ruimte voor iets anders.",
+   "patch": {
+    "prompt": "Welke vraag laat de ander aangeven welk risico hij bedoelt?",
+    "explanation": "De gekozen vraag noemt de eerder besproken risico’s en houdt andere mogelijkheden open. Zij legt niet alvast één uitleg op.",
+    "note": "Noem mogelijke betekenissen, maar laat ook ruimte voor iets anders."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen vraag noemt de eerder besproken risico’s en houdt andere mogelijkheden open. Zij legt niet alvast één uitleg op."
+  },
+  "C1_GR_018": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Controleer eerst om welke afspraak het gaat. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Controleer eerst om welke afspraak het gaat.",
+   "patch": {
+    "prompt": "Wat wil je eerst weten met ‘Welke afspraak bedoel je’?",
+    "explanation": "Je wilt eerst weten welke afspraak wordt bedoeld. Pas daarna kun je bespreken of ervan is afgeweken.",
+    "note": "Controleer eerst om welke afspraak het gaat.",
+    "options": [
+     "De ander vragen alle afspraken opnieuw op te sommen.",
+     "Het gesprek formeler maken.",
+     "Welke afspraak wordt bedoeld, voordat je bespreekt of ervan is afgeweken."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je wilt eerst weten welke afspraak wordt bedoeld. Pas daarna kun je bespreken of ervan is afgeweken."
+  },
+  "C1_GR_019": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Klaar kan inhoudelijk af zijn betekenen, maar ook al goedgekeurd zijn. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Klaar kan inhoudelijk af zijn betekenen, maar ook al goedgekeurd zijn.",
+   "patch": {
+    "prompt": "Wat controleer je met ‘Wanneer noem je dit klaar’?",
+    "explanation": "Je vraagt wat af moet zijn om het dossier klaar te noemen. De datum vrijdag verandert daarmee niet automatisch.",
+    "note": "Klaar kan inhoudelijk af zijn betekenen, maar ook al goedgekeurd zijn.",
+    "options": [
+     "Wat er precies af of goedgekeurd moet zijn.",
+     "De deadline zelf.",
+     "De verantwoordelijkheid voor het dossier."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je vraagt wat af moet zijn om het dossier klaar te noemen. De datum vrijdag verandert daarmee niet automatisch."
+  },
+  "C1_GR_020": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Daar kan naar één oorzaak, beide oorzaken of iets anders verwijzen. Vraag het na. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Doorvragen",
+   "source_section": "Ambiguïteit en referentie verduidelijken",
+   "goal": "Daar kan naar één oorzaak, beide oorzaken of iets anders verwijzen. Vraag het na.",
+   "patch": {
+    "prompt": "Hoe controleer je waar daar naar verwijst?",
+    "explanation": "De gekozen vraag controleert wat daar betekent zonder één oorzaak of een keuze tussen oorzaken af te dwingen.",
+    "note": "Daar kan naar één oorzaak, beide oorzaken of iets anders verwijzen. Vraag het na.",
+    "title": "Waar verwijst daar naar?",
+    "options": [
+     "Beide oorzaken tegelijk bespreken.",
+     "Vragen of de spreker één oorzaak, beide of iets anders bedoelt.",
+     "De spreker vragen een voorkeur uit te spreken."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen vraag controleert wat daar betekent zonder één oorzaak of een keuze tussen oorzaken af te dwingen."
+  },
+  "C1_GR_021": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Een gemist niet kan de boodschap omkeren. Dit is een geschreven situatie, geen luisteropname. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Een gemist niet kan de boodschap omkeren. Dit is een geschreven situatie, geen luisteropname.",
+   "patch": {
+    "prompt": "Waarom moet je eerst vragen of er niet werd gezegd?",
+    "explanation": "Kunnen concluderen en niet kunnen concluderen betekenen iets anders. Vraag welk van beide werd gezegd voordat je reageert.",
+    "note": "Een gemist niet kan de boodschap omkeren. Dit is een geschreven situatie, geen luisteropname.",
+    "context": "In een online overleg hoor je: “We kunnen ... concluderen dat de maatregel werkt.” Het geluid valt even weg. Je weet niet of er ook niet werd gezegd.",
+    "options": [
+     "Omdat een gemist niet de betekenis van de uitspraak kan omkeren.",
+     "Omdat ontkenningen vooral bepalen hoe beleefd een uitspraak klinkt.",
+     "Omdat je zonder ontkenning niet weet wie de uitspraak deed."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Kunnen concluderen en niet kunnen concluderen betekenen iets anders. Vraag welk van beide werd gezegd voordat je reageert."
+  },
+  "C1_GR_022": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Een klein verbindingswoord kan de relatie tussen twee delen veranderen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Een klein verbindingswoord kan de relatie tussen twee delen veranderen.",
+   "patch": {
+    "prompt": "Waarom is dit ene woord belangrijk?",
+    "explanation": "Woorden zoals als, nadat of omdat geven een andere relatie tussen starten en de vergunning. Een ontbrekend woord kan dus de afspraak veranderen.",
+    "note": "Een klein verbindingswoord kan de relatie tussen twee delen veranderen.",
+    "options": [
+     "Het kan bepalen of je een voorwaarde, een volgorde in de tijd of een reden hoort.",
+     "Het verandert alleen de stijl van de zin.",
+     "Het bepaalt uitsluitend de beleefdheid."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Woorden zoals als, nadat of omdat geven een andere relatie tussen starten en de vergunning. Een ontbrekend woord kan dus de afspraak veranderen."
+  },
+  "C1_GR_023": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Controleer eerst of je de woorden goed hebt gehoord; bespreek daarna wat je ervan vindt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Controleer eerst of je de woorden goed hebt gehoord; bespreek daarna wat je ervan vindt.",
+   "patch": {
+    "prompt": "Wat controleer je met ‘Heb ik goed gehoord dat…’?",
+    "explanation": "Je controleert eerst welke boodschap je hebt gehoord. Dat is nog geen instemming of inhoudelijk bezwaar.",
+    "note": "Controleer eerst of je de woorden goed hebt gehoord; bespreek daarna wat je ervan vindt.",
+    "options": [
+     "Je geeft al aan dat je het oneens bent.",
+     "Je controleert wat je gehoord hebt voordat je er een oordeel over geeft.",
+     "Je vraagt de spreker om juridisch bewijs."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je controleert eerst welke boodschap je hebt gehoord. Dat is nog geen instemming of inhoudelijk bezwaar."
+  },
+  "C1_GR_024": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Een algemene vraag om herhaling kan ook helpen. Hier kun je precies het gemiste verschil navragen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Een algemene vraag om herhaling kan ook helpen. Hier kun je precies het gemiste verschil navragen.",
+   "patch": {
+    "prompt": "Waarom helpt een gerichte vraag naar vóór of na hier?",
+    "explanation": "Vóór of na verandert de volgorde van de handelingen. Een gerichte vraag kan precies dit verschil ophelderen; opnieuw laten herhalen blijft ook mogelijk.",
+    "note": "Een algemene vraag om herhaling kan ook helpen. Hier kun je precies het gemiste verschil navragen.",
+    "options": [
+     "Omdat vóór en na een andere volgorde aangeven en dus tot andere handelingen kunnen leiden.",
+     "Omdat een gerichte vraag altijd beleefder is dan een open vraag.",
+     "Omdat de exacte formulering juridisch verplicht letterlijk moet worden herhaald."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Vóór of na verandert de volgorde van de handelingen. Een gerichte vraag kan precies dit verschil ophelderen; opnieuw laten herhalen blijft ook mogelijk."
+  },
+  "C1_GR_025": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Ga niet zelf invullen wie iets vindt als dat deel wegviel. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Ga niet zelf invullen wie iets vindt als dat deel wegviel.",
+   "patch": {
+    "prompt": "Wat moet je eerst controleren?",
+    "explanation": "Je vraagt van wie het oordeel komt. Het kan om de spreker of om Juridische Zaken gaan; dat mag je bij een geluidsstoring niet zelf invullen.",
+    "note": "Ga niet zelf invullen wie iets vindt als dat deel wegviel."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je vraagt van wie het oordeel komt. Het kan om de spreker of om Juridische Zaken gaan; dat mag je bij een geluidsstoring niet zelf invullen."
+  },
+  "C1_GR_026": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Zonder de voorwaarde kun je niet goed bepalen wanneer de afspraak geldt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Zonder de voorwaarde kun je niet goed bepalen wanneer de afspraak geldt.",
+   "patch": {
+    "prompt": "Waarom moet je de gemiste voorwaarde navragen?",
+    "explanation": "De voorwaarde bepaalt wanneer de afspraak geldt. Alleen de hoofdzin horen kan daardoor tot een onjuiste uitleg leiden.",
+    "note": "Zonder de voorwaarde kun je niet goed bepalen wanneer de afspraak geldt.",
+    "options": [
+     "Voorwaarden zijn alleen grammaticale details.",
+     "Een voorwaarde kan bepalen wanneer de afspraak geldt.",
+     "De hoofdzin blijft altijd geldig, ook zonder voorwaarde."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De voorwaarde bepaalt wanneer de afspraak geldt. Alleen de hoofdzin horen kan daardoor tot een onjuiste uitleg leiden."
+  },
+  "C1_GR_027": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Eén punt controleren betekent niet dat je alles in twijfel trekt of al met alles instemt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Eén punt controleren betekent niet dat je alles in twijfel trekt of al met alles instemt.",
+   "patch": {
+    "prompt": "Wat maakt ‘Ik wil één ding controleren’ duidelijk?",
+    "explanation": "Je kondigt aan dat je één datum wilt controleren. Dat maakt de vraag gericht; het garandeert niet hoe de ander reageert.",
+    "note": "Eén punt controleren betekent niet dat je alles in twijfel trekt of al met alles instemt.",
+    "options": [
+     "Je suggereert dat de rest van de uitleg waarschijnlijk ook fouten bevat.",
+     "Je geeft aan dat je alleen die datum wilt controleren.",
+     "Je neemt de gespreksleiding over om de uitleg af te ronden."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je kondigt aan dat je één datum wilt controleren. Dat maakt de vraag gericht; het garandeert niet hoe de ander reageert."
+  },
+  "C1_GR_028": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Bewaar alle voorwaarden en maak ze niet strenger dan de spreker bedoelde. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Bewaar alle voorwaarden en maak ze niet strenger dan de spreker bedoelde.",
+   "patch": {
+    "prompt": "Wat kan er misgaan als je een voorwaarde zo samenvat?",
+    "explanation": "Alleen als kan een strengere noodzakelijke voorwaarde maken. Ook kun je bij het samenvatten andere voorwaarden laten verdwijnen. Controleer of de ander je samenvatting herkent.",
+    "note": "Bewaar alle voorwaarden en maak ze niet strenger dan de spreker bedoelde.",
+    "options": [
+     "Dat je de voorwaarde strenger maakt of andere voorwaarden weglaat.",
+     "Dat je altijd te beleefd klinkt.",
+     "Dat je de beurt te snel teruggeeft."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Alleen als kan een strengere noodzakelijke voorwaarde maken. Ook kun je bij het samenvatten andere voorwaarden laten verdwijnen. Controleer of de ander je samenvatting herkent."
+  },
+  "C1_GR_029": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Laat de oorspronkelijke spreker de bedoelde afspraak bevestigen; kies niet op meerderheid. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Laat de oorspronkelijke spreker de bedoelde afspraak bevestigen; kies niet op meerderheid.",
+   "patch": {
+    "prompt": "Wat kan de gespreksleider als eerste doen?",
+    "explanation": "Door beide gehoorde versies te benoemen kan de oorspronkelijke spreker precies aangeven wat bedoeld was.",
+    "note": "Laat de oorspronkelijke spreker de bedoelde afspraak bevestigen; kies niet op meerderheid."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Door beide gehoorde versies te benoemen kan de oorspronkelijke spreker precies aangeven wat bedoeld was."
+  },
+  "C1_GR_030": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Vraag om de oorspronkelijke woorden, niet alleen om een nieuwe samenvatting. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Goed verstaan",
+   "source_section": "Verstaanbaarheid en bevestiging herstellen",
+   "goal": "Vraag om de oorspronkelijke woorden, niet alleen om een nieuwe samenvatting.",
+   "patch": {
+    "prompt": "Hoe controleer je de exacte afspraak?",
+    "explanation": "Letterlijk laten herhalen en bevestigen helpt het verschil tussen mag en moet te controleren. Een andere formulering kan dat verschil juist veranderen.",
+    "note": "Vraag om de oorspronkelijke woorden, niet alleen om een nieuwe samenvatting.",
+    "options": [
+     "Een globale samenvatting maken.",
+     "De bedoeling afleiden uit de toon.",
+     "De spreker vragen de oorspronkelijke zin letterlijk te herhalen en te bevestigen."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Letterlijk laten herhalen en bevestigen helpt het verschil tussen mag en moet te controleren. Een andere formulering kan dat verschil juist veranderen."
+  },
+  "C1_GR_031": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Een verzoek om uit te praten garandeert niet dat je die ruimte krijgt; blijf ook ruimte voor de ander laten. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Een verzoek om uit te praten garandeert niet dat je die ruimte krijgt; blijf ook ruimte voor de ander laten.",
+   "patch": {
+    "prompt": "Welke reactie geeft je ruimte om af te maken én laat ruimte voor de ander?",
+    "explanation": "De gekozen reactie vraagt ruimte om de zin af te maken en laat daarna ruimte voor de reactie van de ander.",
+    "note": "Een verzoek om uit te praten garandeert niet dat je die ruimte krijgt; blijf ook ruimte voor de ander laten.",
+    "options": [
+     "“Mag ik mijn zin even afmaken? Daarna hoor ik graag je reactie.”",
+     "“Je moet me nu eerst laten uitpraten.”",
+     "“Je conclusie klopt niet, dus ik begin opnieuw.”"
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen reactie vraagt ruimte om de zin af te maken en laat daarna ruimte voor de reactie van de ander."
+  },
+  "C1_GR_032": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Controleer samen bij welk punt jullie waren gebleven. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Controleer samen bij welk punt jullie waren gebleven.",
+   "patch": {
+    "prompt": "Welke vraag helpt de draad samen weer op te pakken?",
+    "explanation": "De gekozen vraag noemt de twee open punten. Zo kun je samen nagaan waar het gesprek onderbroken werd.",
+    "note": "Controleer samen bij welk punt jullie waren gebleven."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen vraag noemt de twee open punten. Zo kun je samen nagaan waar het gesprek onderbroken werd."
+  },
+  "C1_GR_033": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Achtergrondinformatie kan nuttig zijn zonder je vraag te beantwoorden. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Achtergrondinformatie kan nuttig zijn zonder je vraag te beantwoorden.",
+   "patch": {
+    "prompt": "Welke reactie brengt de onbeantwoorde vraag terug?",
+    "explanation": "Je erkent de achtergrond en herhaalt de nog open vraag: waarom vandaag? Alleen om een korter antwoord vragen maakt dat niet duidelijk.",
+    "note": "Achtergrondinformatie kan nuttig zijn zonder je vraag te beantwoorden.",
+    "title": "Mijn vraag was nog…"
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent de achtergrond en herhaalt de nog open vraag: waarom vandaag? Alleen om een korter antwoord vragen maakt dat niet duidelijk."
+  },
+  "C1_GR_034": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Teruggaan naar het probleem is niet hetzelfde als alle oplossingen afwijzen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Teruggaan naar het probleem is niet hetzelfde als alle oplossingen afwijzen.",
+   "patch": {
+    "prompt": "Wat doe je met ‘Volgens mij waren we nog bij het probleem’?",
+    "explanation": "Je gaat terug naar het nog onduidelijke probleem, voordat jullie verdergaan met oplossingen.",
+    "note": "Teruggaan naar het probleem is niet hetzelfde als alle oplossingen afwijzen.",
+    "options": [
+     "Teruggaan naar het probleem dat nog niet duidelijk genoeg is besproken.",
+     "Alle oplossingen inhoudelijk afwijzen.",
+     "Vragen om de vergadering te beëindigen."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je gaat terug naar het nog onduidelijke probleem, voordat jullie verdergaan met oplossingen."
+  },
+  "C1_GR_035": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Je kunt je eigen antwoord bijsturen als je van de vraag afdwaalt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Je kunt je eigen antwoord bijsturen als je van de vraag afdwaalt.",
+   "patch": {
+    "prompt": "Wat herstel je met ‘Laat me teruggaan naar de vraag’?",
+    "explanation": "Je brengt je eigen antwoord terug naar de vraag die gesteld was.",
+    "note": "Je kunt je eigen antwoord bijsturen als je van de vraag afdwaalt.",
+    "options": [
+     "De formulering van de vraag.",
+     "Je brengt je eigen antwoord terug naar de vraag.",
+     "De positie van de andere spreker."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je brengt je eigen antwoord terug naar de vraag die gesteld was."
+  },
+  "C1_GR_036": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Noem het bedoelde punt; alleen wat je net zei kan nog onduidelijk zijn. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Noem het bedoelde punt; alleen wat je net zei kan nog onduidelijk zijn.",
+   "patch": {
+    "prompt": "Wat maakt ‘Ik wil reageren op je opmerking over de kosten’ duidelijk?",
+    "explanation": "Door de opmerking over de kosten te noemen wordt duidelijk waarop je reageert. Alleen wat je net zei zou bij meerdere punten nog vaag zijn.",
+    "note": "Noem het bedoelde punt; alleen wat je net zei kan nog onduidelijk zijn.",
+    "title": "Je opmerking over de kosten",
+    "context": "Er lopen meerdere gesprekspunten door elkaar. Je wilt reageren op de opmerking over de kosten en duidelijk maken waarop je reactie aansluit.",
+    "options": [
+     "Een nieuwe beurt opeisen zonder inhoudelijk verband.",
+     "Het vorige punt afsluiten.",
+     "Op welke eerdere opmerking je reactie aansluit."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Door de opmerking over de kosten te noemen wordt duidelijk waarop je reageert. Alleen wat je net zei zou bij meerdere punten nog vaag zijn."
+  },
+  "C1_GR_037": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Maak duidelijk welk ene punt nog aandacht nodig heeft. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Maak duidelijk welk ene punt nog aandacht nodig heeft.",
+   "patch": {
+    "prompt": "Wat doe je met ‘Eén punt voordat we doorgaan’?",
+    "explanation": "Je vraagt even ruimte voor de onduidelijke voorwaarde voordat de groep naar het volgende onderwerp gaat.",
+    "note": "Maak duidelijk welk ene punt nog aandacht nodig heeft.",
+    "options": [
+     "Ze vraagt even ruimte om de onduidelijke voorwaarde te bespreken voordat de groep doorgaat.",
+     "Ze heropent de volledige discussie.",
+     "Ze maakt het volgende onderwerp minder belangrijk."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je vraagt even ruimte voor de onduidelijke voorwaarde voordat de groep naar het volgende onderwerp gaat."
+  },
+  "C1_GR_038": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Na een korte verduidelijking kan de spreker verder met het onderbroken punt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Na een korte verduidelijking kan de spreker verder met het onderbroken punt.",
+   "patch": {
+    "prompt": "Wat doe je met ‘Helder. Dan terug naar je oorspronkelijke punt’?",
+    "explanation": "Je geeft aan dat de tussenvraag beantwoord is en nodigt de spreker uit verder te gaan met het eerdere punt.",
+    "note": "Na een korte verduidelijking kan de spreker verder met het onderbroken punt.",
+    "title": "Terug naar je oorspronkelijke punt",
+    "options": [
+     "Je sluit het onderwerp van de verduidelijkingsvraag inhoudelijk af en beëindigt het gesprek.",
+     "Je sluit de tussenvraag af en brengt het gesprek terug naar het eerdere punt.",
+     "Je vraagt de spreker zijn hele argument opnieuw te beginnen."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je geeft aan dat de tussenvraag beantwoord is en nodigt de spreker uit verder te gaan met het eerdere punt."
+  },
+  "C1_GR_039": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Een conclusie kan te vroeg komen als een deel van je antwoord nog ontbreekt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Een conclusie kan te vroeg komen als een deel van je antwoord nog ontbreekt.",
+   "patch": {
+    "prompt": "Hoe kun je ruimte krijgen voor het ontbrekende deel van je antwoord?",
+    "explanation": "Je vraagt ruimte om het ontbrekende deel te vertellen, zodat de interviewer zijn conclusie op het volledige antwoord kan baseren.",
+    "note": "Een conclusie kan te vroeg komen als een deel van je antwoord nog ontbreekt.",
+    "options": [
+     "De conclusie meteen tegenspreken.",
+     "Het gespreksonderwerp veranderen.",
+     "Ruimte vragen om het ontbrekende deel van je antwoord te geven voordat een conclusie wordt getrokken."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je vraagt ruimte om het ontbrekende deel te vertellen, zodat de interviewer zijn conclusie op het volledige antwoord kan baseren."
+  },
+  "C1_GR_040": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Kom terug op een punt om het te verduidelijken, niet alleen om het laatste woord te krijgen. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Verder praten",
+   "source_section": "Beurt, draad en gespreksstructuur herstellen",
+   "goal": "Kom terug op een punt om het te verduidelijken, niet alleen om het laatste woord te krijgen.",
+   "patch": {
+    "prompt": "Waarom kan het hier helpen om op je eerste punt terug te komen?",
+    "explanation": "De reacties laten zien dat het onderscheid nog niet helder is. Teruggaan kan dat verduidelijken; het maakt de andere reacties niet automatisch ongeldig.",
+    "note": "Kom terug op een punt om het te verduidelijken, niet alleen om het laatste woord te krijgen.",
+    "context": "Na meerdere reacties blijkt dat jouw oorspronkelijke onderscheid nog niet duidelijk is. Het blijft belangrijk voor het gesprek."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De reacties laten zien dat het onderscheid nog niet helder is. Teruggaan kan dat verduidelijken; het maakt de andere reacties niet automatisch ongeldig."
+  },
+  "C1_GR_041": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: Erken hoe je woorden overkomen; alleen zeggen dat je het anders bedoelde is niet altijd genoeg. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Erken hoe je woorden overkomen; alleen zeggen dat je het anders bedoelde is niet altijd genoeg.",
+   "patch": {
+    "prompt": "Hoe kun je je scherpe toon herstellen?",
+    "explanation": "Je erkent dat de toon scherp overkwam en formuleert je inhoud zorgvuldiger. Geef de ander ook ruimte om te zeggen wat hem raakte.",
+    "note": "Erken hoe je woorden overkomen; alleen zeggen dat je het anders bedoelde is niet altijd genoeg."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat de toon scherp overkwam en formuleert je inhoud zorgvuldiger. Geef de ander ook ruimte om te zeggen wat hem raakte."
+  },
+  "C1_GR_042": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Bespreek concreet gedrag of werk. Persoonlijke aanvallen hoeven niet te worden geaccepteerd. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Bespreek concreet gedrag of werk. Persoonlijke aanvallen hoeven niet te worden geaccepteerd.",
+   "patch": {
+    "prompt": "Hoe breng je de feedback terug naar de inhoud?",
+    "explanation": "Je richt de feedback op concreet gedrag, criteria en resultaten. Alleen zeggen dat het niet persoonlijk bedoeld is, is daarvoor niet genoeg.",
+    "note": "Bespreek concreet gedrag of werk. Persoonlijke aanvallen hoeven niet te worden geaccepteerd."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je richt de feedback op concreet gedrag, criteria en resultaten. Alleen zeggen dat het niet persoonlijk bedoeld is, is daarvoor niet genoeg."
+  },
+  "C1_GR_043": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Een gedeeld doel betekent niet dat het verschil over de aanpak al is opgelost. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Een gedeeld doel betekent niet dat het verschil over de aanpak al is opgelost.",
+   "patch": {
+    "prompt": "Wat maakt ‘We verschillen over de aanpak, niet over het doel’ duidelijk?",
+    "explanation": "Jullie willen hetzelfde resultaat, maar kiezen een andere aanpak. Dat preciezer benoemen kan helpen zonder het verschil weg te praten.",
+    "note": "Een gedeeld doel betekent niet dat het verschil over de aanpak al is opgelost.",
+    "context": "Twee collega’s klinken alsof ze fundamenteel tegenover elkaar staan. Ze willen hetzelfde eindresultaat, maar verschillen over de aanpak.",
+    "options": [
+     "Ze maakt duidelijk dat het verschil over de aanpak gaat, terwijl het doel gedeeld wordt.",
+     "Ze ontkent dat er überhaupt een verschil is.",
+     "Ze beslist welke aanpak beter is."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Jullie willen hetzelfde resultaat, maar kiezen een andere aanpak. Dat preciezer benoemen kan helpen zonder het verschil weg te praten."
+  },
+  "C1_GR_044": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Je weet niet vanzelf wat iemand bedoelde. Erken dat je een bedoeling invulde zonder voldoende grond. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Je weet niet vanzelf wat iemand bedoelde. Erken dat je een bedoeling invulde zonder voldoende grond.",
+   "patch": {
+    "prompt": "Welke reactie herstelt dat je zelf een bedoeling hebt ingevuld?",
+    "explanation": "Je erkent dat je een bedoeling hebt ingevuld die de collega niet had uitgesproken. Daarna kun je het technische bezwaar bespreken zonder die aanname als feit te behandelen.",
+    "note": "Je weet niet vanzelf wat iemand bedoelde. Erken dat je een bedoeling invulde zonder voldoende grond.",
+    "title": "Ik vulde je bedoeling zelf in"
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat je een bedoeling hebt ingevuld die de collega niet had uitgesproken. Daarna kun je het technische bezwaar bespreken zonder die aanname als feit te behandelen."
+  },
+  "C1_GR_045": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Controleer je nieuwe samenvatting bij de ander, zodat je niet opnieuw zijn standpunt invult. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Controleer je nieuwe samenvatting bij de ander, zodat je niet opnieuw zijn standpunt invult.",
+   "patch": {
+    "prompt": "Hoe herstel je dat je het standpunt te sterk hebt samengevat?",
+    "explanation": "Je erkent dat je samenvatting te stellig was en controleert of het om twijfel over één onderdeel gaat. Dat hoeft geen afwijzing van het hele plan te zijn.",
+    "note": "Controleer je nieuwe samenvatting bij de ander, zodat je niet opnieuw zijn standpunt invult.",
+    "title": "Je standpunt te sterk samengevat",
+    "options": [
+     "“Ik maakte je standpunt stelliger dan je het formuleerde. Klopt het dat je twijfelt over één onderdeel, zonder het hele plan af te wijzen?”",
+     "“Maar je twijfels komen uiteindelijk toch neer op tegen zijn.”",
+     "“Dan laat ik mijn samenvatting maar helemaal los.”"
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat je samenvatting te stellig was en controleert of het om twijfel over één onderdeel gaat. Dat hoeft geen afwijzing van het hele plan te zijn."
+  },
+  "C1_GR_046": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Je eigen reactie erkennen betekent niet dat de toon van de ander altijd passend was. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Je eigen reactie erkennen betekent niet dat de toon van de ander altijd passend was.",
+   "patch": {
+    "prompt": "Wat herstel je door je eigen reactie op de toon te erkennen?",
+    "explanation": "Je erkent dat je al op de toon reageerde voordat je het inhoudelijke punt goed onderzocht had. Dat maakt ruimte om het punt alsnog te bespreken.",
+    "note": "Je eigen reactie erkennen betekent niet dat de toon van de ander altijd passend was.",
+    "title": "Ik reageerde eerst op je toon",
+    "options": [
+     "Je erkent dat je al op de toon reageerde en maakt ruimte om de inhoud alsnog te bespreken.",
+     "Je vraagt de ander zijn toon eerst te veranderen voordat het gesprek verder kan.",
+     "Je trekt je eerdere inhoudelijke bezwaren volledig in."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je erkent dat je al op de toon reageerde voordat je het inhoudelijke punt goed onderzocht had. Dat maakt ruimte om het punt alsnog te bespreken."
+  },
+  "C1_GR_047": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Teruggaan naar de inhoud kan helpen. Bij aanhoudende persoonlijke aanvallen kan een pauze nodig zijn. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Teruggaan naar de inhoud kan helpen. Bij aanhoudende persoonlijke aanvallen kan een pauze nodig zijn.",
+   "patch": {
+    "prompt": "Hoe breng je de argumenten weer in beeld?",
+    "explanation": "De gekozen reactie brengt de argumenten weer in beeld. Zij bewijst niet dat de spanning al weg is of dat je elke persoonlijke aanval moet verdragen.",
+    "note": "Teruggaan naar de inhoud kan helpen. Bij aanhoudende persoonlijke aanvallen kan een pauze nodig zijn.",
+    "options": [
+     "De discussie stoppen omdat emoties altijd schadelijk zijn.",
+     "Het inhoudelijke verschil weer bespreken en persoonlijke reacties onderscheiden van argumenten.",
+     "Vaststellen wie de persoonlijke toon begon."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De gekozen reactie brengt de argumenten weer in beeld. Zij bewijst niet dat de spanning al weg is of dat je elke persoonlijke aanval moet verdragen."
+  },
+  "C1_GR_048": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Wijs een bezwaar niet alleen af vanwege wie het zegt; controleer ook de inhoud. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Wijs een bezwaar niet alleen af vanwege wie het zegt; controleer ook de inhoud.",
+   "patch": {
+    "explanation": "De vraag vraagt om het bezwaar ook inhoudelijk te beoordelen. Dat zegt hij altijd is op zichzelf geen inhoudelijk tegenargument.",
+    "note": "Wijs een bezwaar niet alleen af vanwege wie het zegt; controleer ook de inhoud.",
+    "title": "Het bezwaar los van de persoon",
+    "options": [
+     "De relatie tussen beide personen.",
+     "De geloofwaardigheid van de spreker.",
+     "Het bezwaar op de inhoud beoordelen in plaats van het alleen vanwege de persoon af te wijzen."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. De vraag vraagt om het bezwaar ook inhoudelijk te beoordelen. Dat zegt hij altijd is op zichzelf geen inhoudelijk tegenargument."
+  },
+  "C1_GR_049": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: Een concrete onduidelijkheid, gemist woord of eenvoudig misverstand herkennen in een gegeven situatie. Taak: De aankondiging alleen lost niets op: benoem daarna de onjuiste aanname en wat je wél bedoelt. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "canonical",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "De aankondiging alleen lost niets op: benoem daarna de onjuiste aanname en wat je wél bedoelt.",
+   "patch": {
+    "prompt": "Wat kan helpen aan ‘Ik wil één misverstand uit de weg ruimen’?",
+    "explanation": "Je kondigt één gerichte correctie aan. Daarna moet je nog uitleggen welke aanname onjuist is en wat je standpunt wel is.",
+    "note": "De aankondiging alleen lost niets op: benoem daarna de onjuiste aanname en wat je wél bedoelt."
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je kondigt één gerichte correctie aan. Daarna moet je nog uitleggen welke aanname onjuist is en wat je standpunt wel is."
+  },
+  "C1_GR_050": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Standpunt, bedoeling, samenhang of spanning in het gesprek zorgvuldig onderscheiden. Taak: Zoek samen wat jullie werkelijk delen; veronderstel geen overeenstemming die er niet is. Dit is een keuzevraag met duidelijke opties; geen bewijs van zelfstandig C1-gespreksherstel.",
+   "scoring": "discuss",
+   "section": "Spanning verminderen",
+   "source_section": "Spanning, toon en relationeel herstel",
+   "goal": "Zoek samen wat jullie werkelijk delen; veronderstel geen overeenstemming die er niet is.",
+   "patch": {
+    "prompt": "Wat is het doel van opnieuw kijken naar wat jullie delen?",
+    "explanation": "Je zoekt opnieuw welke uitgangspunten werkelijk gedeeld worden. Daarna kunnen de resterende verschillen besproken worden zonder die te verbergen.",
+    "note": "Zoek samen wat jullie werkelijk delen; veronderstel geen overeenstemming die er niet is.",
+    "title": "Wat delen we nog?",
+    "options": [
+     "Eerdere verschillen tijdelijk buiten beeld houden zodat een compromis sneller kan worden gesloten.",
+     "Samen nagaan welke uitgangspunten jullie delen, voordat jullie de verschillen opnieuw bespreken.",
+     "De discussie beëindigen op de punten waar overeenstemming bestaat."
+    ]
+   },
+   "change_reason": "Eenvoudige vraagtaal en uitleg. Betekenis, antwoord en taakniveau opnieuw beoordeeld. Je zoekt opnieuw welke uitgangspunten werkelijk gedeeld worden. Daarna kunnen de resterende verschillen besproken worden zonder die te verbergen."
+  }
+ }
+}

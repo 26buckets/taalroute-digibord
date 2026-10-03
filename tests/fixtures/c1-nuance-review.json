@@ -1,0 +1,686 @@
+{
+  "version": "2026-09-22.1",
+  "source_sha256": "39357b3d6f5b5525e0388d77f9c7eaa7436727365956bf18b7c1c1d4ba26b56b",
+  "source_url": "https://drive.google.com/file/d/11UCnlRwX9MPEL1dcjnDjAXDgGPyC7aol/view",
+  "scope": "AI-redactie en technische toelating voor lokaal oefenen; geen onafhankelijke menselijke review, ERK-toets of lespilot.",
+  "source_level": "C1",
+  "source_answer_counts_claimed": {
+    "A": 27,
+    "B": 27,
+    "C": 26
+  },
+  "actual_answer_counts": {
+    "A": 33,
+    "B": 26,
+    "C": 21
+  },
+  "items": {
+    "C1_NU_001": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Eigenlijk”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_002": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Wel”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_003": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Toch”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_004": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Even”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_005": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Maar”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_006": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Nog”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {
+        "note": "“Ik ben niet overtuigd” kan definitiever klinken. Ook zonder nog kan aanvullende informatie iemands oordeel veranderen."
+      },
+      "change_reason": "Te stellige uitleg over woordbetekenis genuanceerd."
+    },
+    "C1_NU_007": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Helemaal”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_008": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Misschien”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_009": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Op zich”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_010": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Best”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_011": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Gewoon”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_012": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Nou”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_013": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Hooguit”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_014": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Blijkbaar”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_015": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Kennelijk”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_016": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Overigens”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_017": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Trouwens”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_018": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Juist”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_019": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Toevallig”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_020": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Sowieso”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_021": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Voor zover”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_022": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Alleen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_023": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Eerder”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_024": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Vrij”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {
+        "options": [
+          "Het maakt de eigenschap absoluut.",
+          "Het verzacht de eigenschap tot vrijwel afwezig.",
+          "Het geeft een zekere mate aan, ongeveer “tamelijk technisch”."
+        ],
+        "explanation": "Voor een bijvoeglijk naamwoord kan vrij de mate aangeven. Hoe sterk die mate klinkt, hangt af van het woord, de situatie en de intonatie."
+      },
+      "change_reason": "Te stellige uitleg over woordbetekenis genuanceerd."
+    },
+    "C1_NU_025": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Enigszins”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_026": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Wellicht”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_027": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Allesbehalve”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_028": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Allerminst”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_029": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Immers”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_030": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Desondanks”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_031": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Daarentegen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_032": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Overwegend”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_033": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Nagenoeg”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {
+        "note": "Nagenoeg klinkt vaak formeler dan bijna. Dat maakt het niet automatisch preciezer: beide laten een kleine marge open."
+      },
+      "change_reason": "Te stellige uitleg over woordbetekenis genuanceerd."
+    },
+    "C1_NU_034": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Weliswaar”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_035": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Feitelijk”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_036": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “In principe”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_037": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Vooralsnog”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_038": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Ogenschijnlijk”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_039": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Vermoedelijk”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_NU_040": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Doorgaans”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "canonical",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_041": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een collega corrigeren”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_042": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Formeel bezwaar maken”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Tijdens een formele vergadering ben je het niet eens met een voorgestelde conclusie. Vooral de aanname over de kosten vind je onvoldoende onderbouwd. Je wilt duidelijk bezwaar maken, maar de bespreking openhouden."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_043": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Informeel professioneel contact”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_044": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Kritiek aan een leidinggevende”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Je vindt de voorgestelde planning niet haalbaar: vooral de laatste twee fasen zijn te krap gepland. Je wilt dat duidelijk zeggen tegen je leidinggevende en meteen aangeven waar je probleem zit."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_045": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Directer herformuleren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_046": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Diplomatieker herformuleren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Je eerste reactie is: “Dit plan is niet realistisch.” Er is volgens jou te weinig tijd voor de uitvoering. Je wilt dezelfde inhoud diplomatieker formuleren voor een overleg."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_047": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een klant informeren bij onzekerheid”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_048": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Het woord teruggeven”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_049": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Kritiek op geleverd werk”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_050": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Een extra taak afwijzen”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_051": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Zakelijke mailtoon”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Je vraagt iemand buiten je eigen team om uiterlijk vrijdag een document toe te sturen. Je kent deze persoon nauwelijks. Jullie willen het document maandag bespreken."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_052": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Collegiale mailtoon”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Je mailt een directe collega met wie je dagelijks samenwerkt. Je vraagt om een bestand dat je die middag nodig hebt voor een overleg."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_053": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een besluit inhoudelijk betwisten”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_054": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Samenvatten zonder overeenstemming te suggereren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Na een stevige discussie zijn twee belangrijke bezwaren duidelijk geworden: de kosten en de uitvoerbaarheid. De deelnemers zijn het nog niet eens over de oplossing."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_055": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Een collega om inhoudelijke hulp vragen”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_056": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Sterke instemming formuleren”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_057": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Voorzichtige instemming formuleren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_058": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Twijfel in een formele bespreking”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_059": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Twijfel bij een directe collega”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_060": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een werkbaar compromis voorstellen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_061": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Verantwoordelijkheid vastleggen”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_062": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een probleem opschalen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_063": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Onzekerheid precies formuleren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_064": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Een te stellige uitspraak herstellen”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_065": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een misverstand herstellen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_066": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Kritiek ontvangen”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_067": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Specifiek complimenteren”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Een collega heeft een ingewikkelde presentatie helder opgebouwd. Vooral de vergelijking van drie opties maakte het besluit goed te volgen. Je wilt feedback geven die meer zegt dan alleen “goed gedaan”."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_068": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een verzoek van een klant weigeren”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_069": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een alternatief voorstel inbrengen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_070": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een gevoelig onderwerp zorgvuldig uitstellen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_071": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Een zijspoor erkennen en terugkeren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_072": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Een gevoelige feitelijke correctie”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_073": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Een duidelijke grens stellen”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_074": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een formele vergadering openen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_075": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Een informeel teamoverleg openen”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_076": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Een indirecte opdracht herkennen”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_077": {
+      "level": "B1",
+      "level_reason": "Lesadvies voor “Een indirect verzoek herkennen”: een expliciete betekenis of alledaagse reactie herkennen. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_078": {
+      "level": "B2",
+      "level_reason": "Lesadvies voor “Zakelijk samenvatten”: context, woordbetekenis en passende toon vergelijken. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {
+        "context": "Na een uitgebreide bespreking wil je twee gemaakte afspraken nauwkeurig vastleggen: de pilot begint op 1 oktober en zes weken later volgt een evaluatie."
+      },
+      "change_reason": "Benodigde feiten vooraf zichtbaar gemaakt; het antwoord hoeft geen ontbrekende informatie te verzinnen."
+    },
+    "C1_REG_079": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Een voorlopige conclusie formuleren”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    },
+    "C1_REG_080": {
+      "level": "C1",
+      "level_reason": "Lesadvies voor “Een standpunt stevig verdedigen”: impliciete houding, een voorbehoud of een precieze formulering onderscheiden. Beoordeling van deze korte keuzeopdracht, geen bewijs van volledige niveauvaardigheid.",
+      "scoring": "discuss",
+      "review": "GO",
+      "patch": {},
+      "change_reason": "Brontekst behouden; niveau en antwoordbeoordeling per opdracht beoordeeld."
+    }
+  }
+}

@@ -11,8 +11,8 @@ const FAMILIES=[
  {id:'relatie',name:'Relatie en houding',color:'#bf852b',actions:['Bedanken','Excuses aanbieden','Feliciteren','Geruststellen','Begrip tonen','Advies geven','Instemmen','Weigeren']},
  {id:'doorgeven',name:'Begrijpen en doorgeven',color:'#3c8b9f',actions:['Uitleg vragen','Begrip controleren','Jezelf verbeteren','Iets anders zeggen','Doorgeven','Ideeën verbinden','Bemiddelen','Je toon aanpassen']}
 ];
-const ROUTES=['A0 → A1','A1 → A1+','A1 → A2','A2 → B1','B1 → B2','B2 → C1','C1 → C2'];
-const ROUTE_STATUS={'A0 → A1':'available','A1 → A1+':'available','A1 → A2':'available','A2 → B1':'available','B1 → B2':'concept','B2 → C1':'concept','C1 → C2':'concept'};
+const ROUTES=DigiRoutes.routes.map(r=>r.label);
+const ROUTE_STATUS=Object.fromEntries(ROUTES.map(r=>[r,['A0_A1','A1_A2','A2_B1'].includes(DigiRoutes.resolve(r))?'available':'concept']));
 const SOUNDS=[{"id": "original", "label": "Origineel", "duration": 1.045, "description": "Het oorspronkelijke DigiBord rolgeluid. Helder, ritmisch en herkenbaar."}, {"id": "felt", "label": "Zacht op vilt", "duration": 1.2, "description": "Rustiger en zachter. Geschikt voor een stille lesomgeving."}, {"id": "wood", "label": "Klassiek op hout", "duration": 1.35, "description": "Een duidelijk klassiek dobbelsteengeluid met houten resonantie."}, {"id": "cup", "label": "Dobbelbeker en rollen", "duration": 1.65, "description": "Langere beweging met een hoorbare beker en uitrol."}, {"id": "board", "label": "Licht op het spelbord", "duration": 1.05, "description": "Kort en licht. Minder nadrukkelijk tijdens klassikaal gebruik."}];
 
 const METHOD_DATA=[
@@ -25,8 +25,8 @@ const METHOD_DATA=[
 ];
 
 const TASK_POOL=[
- {shape:'○',title:'Nieuwe buren',desc:'Vertel kort wie er naast je woont of kies een fictieve buur.',family:'Verwoorden',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Aanbevolen'},
- {shape:'□',title:'Kennismaken met de buur',desc:'Vraag hoe iemand heet en stel één vervolgvraag.',family:'In gesprek',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Spreken'},
+ {shape:'○',title:'Nieuwe buren',desc:'Vertel kort over een buurman of buurvrouw.',family:'Verwoorden',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Aanbevolen'},
+ {shape:'□',title:'Kennismaken met de buurman',desc:'Vraag hoe iemand heet en stel één vervolgvraag.',family:'In gesprek',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Spreken'},
  {shape:'◇',title:'Vraag om hulp in de buurt',desc:'Vraag iemand om hulp met een praktisch probleem.',family:'Samen regelen',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Samen regelen'},
  {shape:'△',title:'Welke woning kies je?',desc:'Kies tussen twee woningen en geef één reden.',family:'Kiezen en redeneren',topic:'Wonen',level:'A1 → A2',method:'kleurrijker',section:'Herhaling'},
  {shape:'○',title:'Terugblik op de les',desc:'Vertel drie dingen die je vandaag hebt geoefend.',family:'Verwoorden',topic:'Dagelijks leven',level:'A1 → A2',method:'vanstart',section:'Aanbevolen'},
@@ -43,6 +43,7 @@ const TASK_POOL=[
 
 const defaults={
  page:'people',
+ practiceLayout:'topic',
  participants:DEFAULT_NAMES.map((name,i)=>({id:'p'+(i+1),name,present:true,group:'Groep '+(i<4?1:2),color:PAWN_COLORS[i%PAWN_COLORS.length]})),
  workMode:'classSpeaker',
  pawnMode:'class',
@@ -71,12 +72,15 @@ try{state={...structuredClone(defaults),...JSON.parse(localStorage.getItem(STORA
 if(!Array.isArray(state.participants))state.participants=structuredClone(defaults.participants);
 if(!Array.isArray(state.savedGroups))state.savedGroups=structuredClone(defaults.savedGroups);
 if(!state.didactic)state.didactic=structuredClone(defaults.didactic);
+state.sourceRoute??=state.route;state.route=DigiRoutes.label(state.route);
+state.didactic.sourceRoute??=state.didactic.route;state.didactic.route=DigiRoutes.label(state.didactic.route);
+for(const id of ['routeSelect','didRoute'])qs('#'+id).innerHTML=DigiRoutes.routes.map(r=>`<option>${r.label}</option>`).join('');
 
 function save(){localStorage.setItem(STORAGE,JSON.stringify(state))}
 function qs(s){return document.querySelector(s)}
 function qsa(s){return [...document.querySelectorAll(s)]}
 function toast(msg){const t=qs('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),1800)}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function esc(s){return (globalThis.AppWording?.text(s)??String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function icon(id){return `<svg class="lucide"><use href="#i-${id}"/></svg>`}
 
 /* Tooltips */
@@ -218,13 +222,13 @@ function renderTaskGroups(tasks){
   order.map(sec=>{const a=tasks.filter(t=>t.section===sec);if(!a.length)return'';return `<section class="task-section"><div class="task-section-head"><strong>${sec}</strong><span>${a.length}</span></div><div class="task-list">${a.map(taskRow).join('')}</div></section>`}).join('')
  }</div>`;
 }
-function taskRow(t){return `<div class="task-row"><div class="task-shape">${t.shape}</div><div class="task-copy"><strong>${t.title}</strong><span>${t.desc}</span></div><div class="task-tag">${t.level}</div><button class="use-btn" data-use="${esc(t.title)}">Gebruik</button></div>`}
+function taskRow(t){return `<div class="task-row"><div class="task-shape">${t.shape}</div><div class="task-copy"><strong>${t.title}</strong><span>${t.desc}</span></div><div class="task-tag">${DigiRoutes.label(t.level)}</div><button class="use-btn" data-use="${esc(t.title)}">Gebruik</button></div>`}
 function bindUseButtons(){qsa('[data-use]').forEach(b=>b.onclick=()=>toast(`“${b.dataset.use}” gekoppeld aan het huidige vak.`))}
 ['#didFamily','#didRoute','#didWork'].forEach(id=>qs(id).onchange=renderDidacticResults);
 function renderDidacticResults(){
  const fam=qs('#didFamily').value,route=qs('#didRoute').value;
- let tasks=TASK_POOL.filter(t=>(fam==='Alle families'||t.family===fam)&&t.level===route);
- if(!tasks.length)tasks=TASK_POOL.filter(t=>fam==='Alle families'||t.family===fam).slice(0,5);
+ let tasks=TASK_POOL.filter(t=>(fam==='Alle families'||t.family===fam)&&DigiRoutes.resolve(t.level)===DigiRoutes.resolve(route));
+
  qs('#didacticResults').innerHTML=renderTaskGroups(tasks.map(t=>({...t,section:'Aanbevolen'})));
  bindUseButtons();
 }
@@ -254,12 +258,12 @@ function renderDidacticDetail(f){
  <div class="detail-grid"><div class="detail-item"><div class="label">Doel</div><div class="value">${goal(a,r)}</div></div><div class="detail-item"><div class="label">Taalsteun</div><div class="value">${support(r)}</div></div><div class="detail-item"><div class="label">Voorbeeld</div><div class="value">${example(a,r)}</div></div><div class="detail-item"><div class="label">Werkvorm</div><div class="value">${workform(r)}</div></div><div class="detail-item" style="grid-column:1/-1"><div class="label">Docenttip</div><div class="value">Laat eerst zelfstandig proberen, geef één gerichte aanwijzing en laat daarna opnieuw proberen.</div></div></div>
  <div class="detail-actions"><button class="primary" id="toBank">Bekijk concrete opdrachten</button><button class="secondary" id="useAction">Gebruik op huidig vak</button></div>`;
  qsa('[data-route]').forEach(b=>b.onclick=()=>{state.didactic.route=b.dataset.route;save();renderDidacticDetail(f)});
- qs('#toBank').onclick=()=>{state.bankTab='didactic';showPage('tasks');qs('#didFamily').value=f.name;qs('#didRoute').value=['A0 → A1','A1 → A1+','A1 → A2','A2 → B1'].includes(r)?r:'A2 → B1';renderBank()};
+ qs('#toBank').onclick=()=>{state.bankTab='didactic';showPage('tasks');qs('#didFamily').value=f.name;qs('#didRoute').value=r;renderBank()};
  qs('#useAction').onclick=()=>toast(a+' gekoppeld aan het huidige vak.');
 }
 function description(a){return a==='Afronden'?'Sluit een gesprek passend af en bevestig waar nodig de gemaakte afspraak.':`Oefen ${a.toLowerCase()} in een betekenisvolle situatie.`}
 function goal(a,r){return a==='Afronden'&&r==='A1 → A2'?'Rond een gesprek af nadat jullie een afspraak hebben gemaakt. Herhaal tijd en neem afscheid.':`${a} op een manier die past bij ${r}.`}
-function support(r){return {'A0 → A1':'Voordoen, vaste korte zin en visuele steun.','A1 → A1+':'Korte zinsstarter en één vervolgvraag.','A1 → A2':'Kernwoorden en één bruikbare zinsstarter.','A2 → B1':'Gegevens blijven zichtbaar, steun wordt beperkt.','B1 → B2':'Ontwerpvoorbeeld met nuance.','B2 → C1':'Ontwerpvoorbeeld met precieze formulering.','C1 → C2':'Ontwerpvoorbeeld met hoge mate van nuance.'}[r]}
+function support(r){if(DigiRoutes.resolve(r)==='ALPHA_AC')return 'Kies bestaande Alpha-inhoud met de docent.';return {'A0 → A1':'Voordoen, vaste korte zin en visuele steun.','A1 → A1+':'Korte zinsstarter en één vervolgvraag.','A1 → A2':'Kernwoorden en één bruikbare zinsstarter.','A2 → B1':'Gegevens blijven zichtbaar, steun wordt beperkt.','B1 → B2':'Ontwerpvoorbeeld met nuance.','B2 → C1':'Ontwerpvoorbeeld met precieze formulering.','C1 → C2':'Ontwerpvoorbeeld met hoge mate van nuance.'}[r]}
 function example(a,r){return a==='Afronden'&&r==='A1 → A2'?'Dan zie ik u dinsdag om tien uur. Bedankt en tot dan.':`Voorbeeldformulering voor ${a.toLowerCase()} op ${r}.`}
 function workform(r){return r==='A0 → A1'?'Klassikaal met begeleiding of tweetallen.':'Tweetallen, groepen of klassikaal met één spreker.'}
 
@@ -300,7 +304,8 @@ qs('#numbersToggle').onclick=()=>{state.showNumbers=!state.showNumbers;save();re
 qs('#connectionsToggle').onclick=()=>{state.showConnections=!state.showConnections;save();renderDisplay()};
 qsa('[data-iconstyle]').forEach(b=>b.onclick=()=>{state.iconStyle=b.dataset.iconstyle;save();renderDisplay()});
 qs('#cardAnimation').onchange=e=>{state.cardAnimation=e.target.value;save();renderDisplay()};
-function renderDisplay(){qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle))}
+qs('#practiceLayout').onchange=e=>{state.practiceLayout=e.target.value;save()};
+function renderDisplay(){qs('#practiceLayout').value=['topic','level','goal','game','recent'].includes(state.practiceLayout)?state.practiceLayout:'topic';qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle))}
 
 /* Backup and other */
 qs('#backupDownload').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Taalroute-DigiBord-V01-5-settings.json';a.click();URL.revokeObjectURL(a.href)};

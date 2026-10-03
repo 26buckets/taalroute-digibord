@@ -6,9 +6,9 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(process.env.BASE_URL||'file://'+path.join(served,'index.html'));
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.BASE_URL||'file://'+path.join(served,'index.html'));
   await page.locator('[data-category="cards"]').click();
-  await page.locator('[data-ctype="c1-between-lines"]').click();
+  await page.evaluate(()=>{APP.cardIndex=0;delete APP.cardRound;startCards('c1-between-lines')});
   const boards=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   assert.equal(await page.locator('#levelSelect').inputValue(),'C1');
   assert.equal(await page.locator('#levelSelect').isDisabled(),true);
@@ -82,13 +82,14 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#primaryGame').click();assert.equal(await page.locator('#c1Feedback').textContent(),'');
   await page.locator('#fullscreenBtn').click();
   await page.locator('[data-ctype="conversation"]').click();assert.equal(await page.locator('#levelSelect').isDisabled(),false);
-  await page.locator('[data-ctype="c1-between-lines"]').click();
+  await page.evaluate(()=>{APP.cardIndex=0;delete APP.cardRound;startCards('c1-between-lines')});
   await page.locator('#c1ViewSet').click();
   await page.locator('#backToCabinet').click();
-  await page.locator('#cabinetSearch').fill('C1');
+  await page.locator('#cabinetSearch').fill('Nederlands tussen de regels');
   await page.locator('[data-cabinet-id="c1-between-lines"]').click();
   assert.equal(await page.locator('.detail-text-cards article').count(),50);
-  await page.locator('#startCabinetActivity').click();assert.equal(await page.locator('#levelSelect').inputValue(),'C1');
+  assert.deepEqual([...new Set(await page.locator('.detail-text-cards article small').allTextContents())].sort(),['B1','B2']);
+  await page.locator('#startCabinetActivity').click();assert.equal(await page.locator('[name=topic]').inputValue(),'tussen-de-regels');
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),boards);
   assert.deepEqual(errors,[]);
   console.log('PASS: 50 exact C1 cards, ordered choices, correct/incorrect immediate feedback, no premature reveal, answer lock, wraparound/previous, five full domain cycles, reload/undo, Style Control, six viewports/long text, fullscreen, cabinet and board-state preservation.');

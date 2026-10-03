@@ -1,0 +1,874 @@
+{
+  "title": "Verbanden begrijpen en uitleggen",
+  "version": "2026-09-23.mr03-herstel.1",
+  "count": 12,
+  "scope": "Herstel van de twaalf bestaande MR03-taken; geen nieuwe taken. Voorbeeldantwoorden zijn aangevuld als docentensteun. Lokale AI-redactie, geen onafhankelijke menselijke beoordeling of klasproef.",
+  "items": [
+    {
+      "id": "VERB.C1C2.002A.001",
+      "title": "Een controle minder",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "De gemeente schafte de tweede dossiercontrole af. In de eerste week werden drie onvolledige aanvragen goedgekeurd.",
+      "prompt": "Welk verband is hier mogelijk? Leg uit wat je uit deze tekst wel en niet zeker weet.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Het wegvallen van de tweede controle kan ertoe hebben geleid dat onvolledige aanvragen niet werden opgemerkt. De tekst zegt dat drie onvolledige aanvragen zijn goedgekeurd, maar bewijst niet dat het afschaffen van die controle de oorzaak was.",
+        "acceptance_points": [
+          "Verbindt het wegvallen van de controle aan een mogelijke verklaring voor de goedkeuringen.",
+          "Maakt duidelijk dat die verklaring niet bewezen is.",
+          "Andere verklaringen zijn alleen mogelijkheden, geen vaststaande feiten. Ook een gemotiveerde conclusie dat de oorzaak onbekend is, past."
+        ],
+        "avoid": "Een antwoord hoeft niet te zeggen dat het afschaffen van de controle de fouten zeker veroorzaakte. Ook afwezigheid van een oorzakelijk verband is niet bewezen.",
+        "next_step": "Laat aangeven welke informatie ontbreekt om de oorzaak vast te stellen.",
+        "reference_words": "hierdoor; als gevolg daarvan",
+        "reference_words_required": false
+      },
+      "hint": "Welke informatie zou je nodig hebben om zeker te weten waarom dit gebeurde?",
+      "presentation": {
+        "layout": "bronblokken",
+        "source_blocks": [
+          "De gemeente schafte de tweede dossiercontrole af.",
+          "In de eerste week werden drie onvolledige aanvragen goedgekeurd."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": true,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.001",
+        "source_role": "CALIBRATIE",
+        "source_state": "ST1",
+        "source_phase": "MR03.F1",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Leg uit welk verband tussen beide mededelingen ligt. Je hoeft geen verbindingswoord te gebruiken.",
+          "after": "Welk verband is hier mogelijk? Leg uit wat je uit deze tekst wel en niet zeker weet.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.002",
+      "title": "Te laat geleverd",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "De leverancier verkleinde de veiligheidsvoorraad aanzienlijk. Twee onverwacht grote bestellingen konden niet op tijd worden geleverd.",
+      "prompt": "Hoe kunnen deze feiten samenhangen? Is de oorzaak van de vertraging hiermee zeker?",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Met een kleinere voorraad waren de grote bestellingen misschien moeilijker op tijd te leveren. Dat is een mogelijke verklaring. Uit de tekst weten we niet zeker waarom de leveringen te laat waren.",
+        "acceptance_points": [
+          "Legt een mogelijk verband tussen de kleinere voorraad, de grote bestellingen en de late levering.",
+          "Houdt de verklaring voorzichtig: de oorzaak is niet vastgesteld.",
+          "Andere mogelijke oorzaken mogen genoemd worden, maar niet als nieuwe feiten. Een oorzaak noemen is niet verplicht als het antwoord de onzekerheid goed uitlegt."
+        ],
+        "avoid": "Niet eisen dat alleen de kleinere voorraad de oorzaak was. Geen verzonnen productieproblemen of vervoersproblemen als feiten accepteren.",
+        "next_step": "Laat een stellige verklaring omzetten in een mogelijke verklaring.",
+        "reference_words": "daardoor; hierdoor",
+        "reference_words_required": false
+      },
+      "hint": "Wat staat er over de levering, en wat ontbreekt over de oorzaak?",
+      "presentation": {
+        "layout": "bronblokken",
+        "source_blocks": [
+          "De leverancier verkleinde de veiligheidsvoorraad aanzienlijk.",
+          "Twee onverwacht grote bestellingen konden niet op tijd worden geleverd."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": true,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.002",
+        "source_role": "CALIBRATIE",
+        "source_state": "ST1",
+        "source_phase": "MR03.F1",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Maak duidelijk hoe beide feiten met elkaar samenhangen.",
+          "after": "Hoe kunnen deze feiten samenhangen? Is de oorzaak van de vertraging hiermee zeker?",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.003",
+      "title": "Dubbel ingepland",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "Drie projectteams kregen ieder een eigen planning, maar niemand beheerde nog het totaaloverzicht. Twee teams reserveerden dezelfde specialist op hetzelfde moment.",
+      "prompt": "Hoe kunnen deze gebeurtenissen samenhangen? Leg uit wat je wel en niet zeker weet.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Zonder totaaloverzicht zagen de teams misschien niet dat de specialist al was ingepland. Dat kan de dubbele reservering verklaren, maar de tekst bewijst niet dat dit de oorzaak was.",
+        "acceptance_points": [
+          "Benoemt het ontbrekende totaaloverzicht en de dubbele reservering.",
+          "Presenteert het verband als een mogelijke verklaring of legt uit waarom geen oorzaak vaststaat.",
+          "Wijst geen persoon als schuldige aan zonder informatie uit de tekst."
+        ],
+        "avoid": "Niet verplichten tot één zekere oorzaak. Het bestaan van de dubbele reservering is wel gegeven.",
+        "next_step": "Laat scheiden wat er gebeurde en wat een mogelijke verklaring is.",
+        "reference_words": "daardoor; met als gevolg dat",
+        "reference_words_required": false
+      },
+      "hint": "Welke rol kan het totaaloverzicht hebben gespeeld?",
+      "presentation": {
+        "layout": "bronblokken",
+        "source_blocks": [
+          "Drie projectteams kregen ieder een eigen planning, maar niemand beheerde nog het totaaloverzicht.",
+          "Twee teams reserveerden dezelfde specialist op hetzelfde moment."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": true,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.003",
+        "source_role": "BRUG",
+        "source_state": "ST1",
+        "source_phase": "MR03.F1",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Welke relationele stap moet de lezer zelf maken?",
+          "after": "Hoe kunnen deze gebeurtenissen samenhangen? Leg uit wat je wel en niet zeker weet.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.004",
+      "title": "Metingen vergelijken",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "Drie onafhankelijke metingen geven vrijwel dezelfde uitkomst. De meetfouten blijven klein en de resultaten veranderen nauwelijks wanneer de proef wordt herhaald.",
+      "prompt": "Welke conclusie past bij deze metingen? Leg ook uit wat je hiermee nog niet kunt vaststellen.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "De uitkomsten liggen bij deze proeven dicht bij elkaar en veranderen weinig bij herhaling. Volgens de tekst zijn de meetfouten klein. Dit ondersteunt dat de uitkomst onder deze omstandigheden goed te herhalen is. Het bewijst niet dat de methode onder alle omstandigheden dezelfde kwaliteit heeft.",
+        "acceptance_points": [
+          "Gebruikt zowel de vergelijkbare uitkomsten als de herhaling in de conclusie.",
+          "Mag benoemen dat de bron kleine meetfouten meldt; verzint geen cijfers of meetprocedure.",
+          "Beperkt de conclusie tot de beschreven proeven. Meer dan één passende, begrensde conclusie is mogelijk."
+        ],
+        "avoid": "Herhaalbaarheid niet gelijkstellen aan algemene geldigheid. De vermelde kleine meetfouten niet negeren of tegenspreken; de juistheid van die bronclaim kan met deze tekst alleen niet onafhankelijk worden gecontroleerd.",
+        "next_step": "Laat een algemene conclusie beperken tot de beschreven proeven.",
+        "reference_words": "op basis hiervan; hieruit volgt dat",
+        "reference_words_required": false
+      },
+      "hint": "Gaat je conclusie over deze proeven of over alle mogelijke omstandigheden?",
+      "presentation": {
+        "layout": "bronblokken",
+        "source_blocks": [
+          "Drie onafhankelijke metingen geven vrijwel dezelfde uitkomst.",
+          "De meetfouten blijven klein en de resultaten veranderen nauwelijks wanneer de proef wordt herhaald."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": true,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.004",
+        "source_role": "C2_KERN",
+        "source_state": "ST2",
+        "source_phase": "MR03.F2",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Welke conclusie is op basis hiervan verdedigbaar?",
+          "after": "Welke conclusie past bij deze metingen? Leg ook uit wat je hiermee nog niet kunt vaststellen.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.005",
+      "title": "Twee opties afwegen",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "Voor deze eerste selectie tellen alleen drie criteria: kosten, invoertijd en storingsrisico. Optie A kost minder, kan eerder worden ingevoerd en had in de pilot niet meer storingen dan optie B.",
+      "prompt": "Wat pleit bij deze eerste selectie voor optie A? Wat weet je nog niet over het storingsrisico?",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "A kost minder en kan eerder worden ingevoerd. Dat pleit voorlopig voor A. In de pilot had A niet meer storingen dan B, maar daarmee weten we nog niet of het toekomstige storingsrisico even groot of kleiner is.",
+        "acceptance_points": [
+          "Betrekt kosten, invoertijd en de waargenomen storingen bij de afweging.",
+          "Onderscheidt storingen in deze pilot van toekomstig storingsrisico.",
+          "Een voorlopige voorkeur voor A of gemotiveerd uitstel van de keuze kan passen; geen algemeen oordeel dat A in alles beter is."
+        ],
+        "avoid": "Gelijke aantallen storingen bewijzen geen gelijk risico. Proefduur, gebruik en vergelijkbaarheid zijn niet gegeven.",
+        "next_step": "Laat uitleggen wat nog onderzocht moet worden voor een definitieve keuze.",
+        "reference_words": "alles afwegend; op basis hiervan; dit pleit voor",
+        "reference_words_required": false
+      },
+      "hint": "Zeggen storingen tijdens één proef alles over latere storingen?",
+      "presentation": {
+        "layout": "bronblokken",
+        "source_blocks": [
+          "Voor deze eerste selectie tellen alleen drie criteria: kosten, invoertijd en storingsrisico.",
+          "Optie A kost minder, kan eerder worden ingevoerd en had in de pilot niet meer storingen dan optie B."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": true,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.005",
+        "source_role": "C2_KERN",
+        "source_state": "ST2",
+        "source_phase": "MR03.F2",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Welke voorlopige conclusie volgt binnen deze drie criteria? Formuleer ook de beperking van die conclusie.",
+          "after": "Wat pleit bij deze eerste selectie voor optie A? Wat weet je nog niet over het storingsrisico?",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.006",
+      "title": "Waar zit de vertraging?",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "Medewerkers uit drie afdelingen noemen dezelfde vertraging. De incidentregistratie laat zien dat die vertraging telkens op hetzelfde overdrachtsmoment ontstaat.",
+      "prompt": "Welke conclusie over het knelpunt ligt voor de hand?",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Het knelpunt lijkt bij het overdrachtsmoment te liggen: drie afdelingen melden dezelfde vertraging en de registratie laat die telkens daar zien. Waarom het daar misgaat en wie daarvoor verantwoordelijk is, staat niet in de tekst.",
+        "acceptance_points": [
+          "Benoemt het overdrachtsmoment als waarschijnlijk knelpunt.",
+          "Onderbouwt dit met de meldingen en de registratie.",
+          "Maakt van de locatie van het knelpunt geen bewezen oorzaak of schuldvraag."
+        ],
+        "avoid": "Geen schuldige of volledige oorzakelijke verklaring eisen of erbij verzinnen.",
+        "next_step": "Laat benoemen welke informatie nog nodig is om de oorzaak te onderzoeken.",
+        "reference_words": "op grond daarvan; hieruit volgt dat",
+        "reference_words_required": false
+      },
+      "hint": "Op welk punt wijzen de meldingen en de registratie?",
+      "presentation": {
+        "layout": "bronblokken",
+        "source_blocks": [
+          "Medewerkers uit drie afdelingen noemen dezelfde vertraging.",
+          "De incidentregistratie laat zien dat die vertraging telkens op hetzelfde overdrachtsmoment ontstaat."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": true,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.006",
+        "source_role": "BRUG",
+        "source_state": "ST2",
+        "source_phase": "MR03.F2",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.007",
+      "title": "Voordeel en nadeel",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "Het voorstel verlaagt de kosten aanzienlijk. De organisatie wordt afhankelijker van één leverancier.",
+      "prompt": "Verbind de zinnen. Laat het voordeel en het nadeel zien. Houd de betekenis hetzelfde.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Het voorstel verlaagt de kosten aanzienlijk, maar de organisatie wordt afhankelijker van één leverancier.",
+        "acceptance_points": [
+          "Behoudt de aanzienlijke kostenverlaging en de grotere afhankelijkheid van één leverancier.",
+          "Maakt het tegenwicht tussen voordeel en nadeel duidelijk.",
+          "Een andere natuurlijke verbinding, zoals daar staat tegenover dat, is ook goed."
+        ],
+        "avoid": "Geen zeldzaam verbindingswoord eisen. Afhankelijker betekent niet dat de organisatie volledig afhankelijk wordt.",
+        "next_step": "Laat controleren of beide oorspronkelijke punten even sterk zijn gebleven.",
+        "reference_words": "maar; echter; daar staat tegenover dat",
+        "reference_words_required": false
+      },
+      "hint": "Hoe kun je het voordeel noemen en daarna het nadeel?",
+      "presentation": {
+        "layout": "twee_zinnen",
+        "source_blocks": [
+          "Het voorstel verlaagt de kosten aanzienlijk.",
+          "De organisatie wordt afhankelijker van één leverancier."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": false,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.007",
+        "source_role": "BRUG",
+        "source_state": "ST1",
+        "source_phase": "MR03.F3",
+        "source_support": "S1",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Maak het verband expliciet met een bestaand middel zonder de inhoud sterker of zwakker te maken.",
+          "after": "Verbind de zinnen. Laat het voordeel en het nadeel zien. Houd de betekenis hetzelfde.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.008",
+      "title": "Toch een goede presentatie",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "De voorbereidingstijd was zeer beperkt. De presentatie was volledig, helder en goed onderbouwd.",
+      "prompt": "Verbind de zinnen. Laat zien waarom de goede presentatie verrassend is.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Hoewel de voorbereidingstijd zeer beperkt was, was de presentatie volledig, helder en goed onderbouwd.",
+        "acceptance_points": [
+          "Behoudt de zeer beperkte voorbereidingstijd en alle drie de positieve kenmerken.",
+          "Laat zien dat de goede presentatie niet vanzelfsprekend is bij zo weinig voorbereidingstijd.",
+          "Ook een natuurlijke formulering met toch, desondanks of ook al kan passen."
+        ],
+        "avoid": "Niet beoordelen op één verplicht woord. Een gewone opsomming zonder het verrassende verband is nog onvoldoende.",
+        "next_step": "Laat uitleggen hoe de gekozen verbinding het verrassende resultaat laat zien.",
+        "reference_words": "hoewel; desondanks; ook al",
+        "reference_words_required": false
+      },
+      "hint": "Wat zou je bij zo weinig voorbereidingstijd kunnen verwachten?",
+      "presentation": {
+        "layout": "twee_zinnen",
+        "source_blocks": [
+          "De voorbereidingstijd was zeer beperkt.",
+          "De presentatie was volledig, helder en goed onderbouwd."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": false,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.008",
+        "source_role": "BRUG",
+        "source_state": "ST1",
+        "source_phase": "MR03.F3",
+        "source_support": "S1",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Maak de tegenverwachting expliciet.",
+          "after": "Verbind de zinnen. Laat zien waarom de goede presentatie verrassend is.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.009",
+      "title": "Een tekst vloeiender maken",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": "C1",
+      "extension_note": "Bruikbaar voor verdieping bij C1; geen afzonderlijk C1-item of bewezen C2-taak.",
+      "context": "De controle werd te laat uitgevoerd. Daarom werd de fout pas na verzending ontdekt. Hierdoor moest het volledige bestand opnieuw worden verwerkt. Om die reden liep de rapportage verdere vertraging op.",
+      "prompt": "Schrijf deze tekst natuurlijker. Laat onnodige verbindingswoorden weg. Houd de oorzaken en gevolgen duidelijk.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Doordat de controle te laat werd uitgevoerd, werd de fout pas na verzending ontdekt. Het volledige bestand moest opnieuw worden verwerkt, waardoor de rapportage verdere vertraging opliep.",
+        "acceptance_points": [
+          "Behoudt de late controle, de ontdekking na verzending, het opnieuw verwerken van het volledige bestand en de verdere vertraging.",
+          "Houdt de gegeven keten van oorzaken en gevolgen duidelijk.",
+          "Beoordeel natuurlijkheid en betekenisbehoud. Er is geen minimumaantal te schrappen woorden; schrappen mag het verband niet onduidelijk maken."
+        ],
+        "avoid": "De bron benoemt de oorzaken hier uitdrukkelijk. Anders dan bij 001–003 hoeft de cursist die gegeven verbanden niet als onbekend te behandelen.",
+        "next_step": "Laat de herschreven tekst vergelijken met alle vier oorspronkelijke punten.",
+        "reference_words": "bestaande gevolgmiddelen; niet allemaal noodzakelijk",
+        "reference_words_required": false
+      },
+      "hint": "Welke verbanden blijven duidelijk zonder dat je ze telkens opnieuw benoemt?",
+      "presentation": {
+        "layout": "zinstrips",
+        "source_blocks": [
+          "De controle werd te laat uitgevoerd.",
+          "Daarom werd de fout pas na verzending ontdekt.",
+          "Hierdoor moest het volledige bestand opnieuw worden verwerkt.",
+          "Om die reden liep de rapportage verdere vertraging op."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": false,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [
+          {
+            "block": 1,
+            "start": 0,
+            "end": 6,
+            "text": "Daarom"
+          },
+          {
+            "block": 2,
+            "start": 0,
+            "end": 8,
+            "text": "Hierdoor"
+          },
+          {
+            "block": 3,
+            "start": 0,
+            "end": 12,
+            "text": "Om die reden"
+          }
+        ],
+        "marker_editing_required": true
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.009",
+        "source_role": "C2_KERN",
+        "source_state": "ST2",
+        "source_phase": "MR03.F4",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Herschrijf dit natuurlijker. Behoud de causale lijn, maar verwijder relationele markering die niet nodig is.",
+          "after": "Schrijf deze tekst natuurlijker. Laat onnodige verbindingswoorden weg. Houd de oorzaken en gevolgen duidelijk.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.010",
+      "title": "Minder kantoorruimte",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": "C1",
+      "extension_note": "Bruikbaar voor verdieping bij C1; geen afzonderlijk C1-item of bewezen C2-taak.",
+      "context": "De bezetting van het kantoor is gemiddeld laag. Daarnaast willen veel medewerkers twee dagen per week thuiswerken. Bovendien loopt volgend kwartaal het huurcontract van een extra verdieping af. Daarom kan de organisatie waarschijnlijk met minder kantoorruimte werken. Uitbreiding van hybride werken lijkt daarmee een mogelijkheid; of dit praktisch uitvoerbaar is, moet nog worden onderzocht.",
+      "prompt": "Schrijf deze tekst natuurlijker. Behoud de drie gegevens en formuleer je conclusie voorzichtig. Maak duidelijk wat nog onderzocht moet worden.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "Het kantoor is gemiddeld weinig bezet en veel medewerkers willen twee dagen per week thuiswerken. Volgend kwartaal loopt ook het huurcontract van een extra verdieping af. De organisatie kan daarom waarschijnlijk met minder kantoorruimte werken. Uitbreiding van hybride werken lijkt een mogelijkheid, maar de praktische uitvoerbaarheid moet nog worden onderzocht.",
+        "acceptance_points": [
+          "Behoudt de lage gemiddelde bezetting, de wens van veel medewerkers om twee dagen thuis te werken en het aflopende huurcontract volgend kwartaal.",
+          "Behoudt de onzekerheid: waarschijnlijk minder ruimte nodig en hybride werken als mogelijkheid.",
+          "Onderscheidt de ruimtebehoefte van de nog te onderzoeken praktische uitvoerbaarheid van hybride werken."
+        ],
+        "avoid": "Geen besluit tot invoering toevoegen. Minder kantoorruimte bewijst niet dat alle voorwaarden voor hybride werken vervuld zijn. Niet belonen op alleen het aantal geschrapte woorden.",
+        "next_step": "Laat controleren of woorden als waarschijnlijk en lijkt niet ongemerkt verdwenen zijn.",
+        "reference_words": "daarnaast; bovendien; daarom; kortom, maar niet allemaal noodzakelijk",
+        "reference_words_required": false
+      },
+      "hint": "Welke conclusie ondersteunen de gegevens, en wat moet nog onderzocht worden?",
+      "presentation": {
+        "layout": "zinstrips",
+        "source_blocks": [
+          "De bezetting van het kantoor is gemiddeld laag.",
+          "Daarnaast willen veel medewerkers twee dagen per week thuiswerken.",
+          "Bovendien loopt volgend kwartaal het huurcontract van een extra verdieping af.",
+          "Daarom kan de organisatie waarschijnlijk met minder kantoorruimte werken.",
+          "Uitbreiding van hybride werken lijkt daarmee een mogelijkheid; of dit praktisch uitvoerbaar is, moet nog worden onderzocht."
+        ],
+        "columns": [],
+        "optional_hint_count": 1,
+        "hint_default_visible": false,
+        "answer_space_after_reading": false,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [
+          {
+            "block": 1,
+            "start": 0,
+            "end": 9,
+            "text": "Daarnaast"
+          },
+          {
+            "block": 2,
+            "start": 0,
+            "end": 9,
+            "text": "Bovendien"
+          },
+          {
+            "block": 3,
+            "start": 0,
+            "end": 6,
+            "text": "Daarom"
+          }
+        ],
+        "marker_editing_required": true
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.010",
+        "source_role": "C2_KERN",
+        "source_state": "ST2",
+        "source_phase": "MR03.F4",
+        "source_support": "S1 naar S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Herschrijf dit natuurlijker. Behoud de argumentatieve lijn en de voorzichtige conclusie, maar markeer niet ieder verband expliciet.",
+          "after": "Schrijf deze tekst natuurlijker. Behoud de drie gegevens en formuleer je conclusie voorzichtig. Maak duidelijk wat nog onderzocht moet worden.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        },
+        {
+          "field": "context",
+          "before": "De bezetting van het kantoor is gemiddeld laag. Daarnaast willen veel medewerkers twee dagen per week thuiswerken. Bovendien loopt volgend kwartaal het huurcontract van een extra verdieping af. Daarom kan de organisatie waarschijnlijk met minder kantoorruimte werken. Kortom, uitbreiding van hybride werken lijkt praktisch uitvoerbaar.",
+          "after": "De bezetting van het kantoor is gemiddeld laag. Daarnaast willen veel medewerkers twee dagen per week thuiswerken. Bovendien loopt volgend kwartaal het huurcontract van een extra verdieping af. Daarom kan de organisatie waarschijnlijk met minder kantoorruimte werken. Uitbreiding van hybride werken lijkt daarmee een mogelijkheid; of dit praktisch uitvoerbaar is, moet nog worden onderzocht.",
+          "reason": "De oorspronkelijke slotzin presenteerde uitbreiding van hybride werken met kortom als samenvatting van minder kantoorruimte. Dat is een andere conclusie. De mogelijkheid blijft voorzichtig genoemd; praktische uitvoerbaarheid wordt niet als vastgesteld gepresenteerd."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.011",
+      "title": "Meer dan één uitleg",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": "C1",
+      "extension_note": "Bruikbaar voor verdieping bij C1; geen afzonderlijk C1-item of bewezen C2-taak.",
+      "context": "De directie stelde de beslissing uit. De markt veranderde snel. Er is geen verdere context.",
+      "prompt": "Hoe kunnen deze gebeurtenissen samenhangen? Geef twee mogelijke verklaringen. Welke extra informatie heb je nodig om te kiezen?",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "De snelle marktverandering kan aanleiding zijn geweest om de beslissing uit te stellen. Het kan ook zijn dat het uitstel een andere reden had en de markt in dezelfde periode veranderde. Om te kiezen, moeten we bijvoorbeeld weten waarom de directie uitstelde en wanneer zij van de veranderingen wist.",
+        "acceptance_points": [
+          "Geeft minstens twee verschillende mogelijke lezingen die niet strijdig zijn met de tekst.",
+          "Houdt beide lezingen voorlopig en benoemt welke extra informatie ze kan onderscheiden.",
+          "Een mogelijke aanleiding of oorzaak en een samenloop in de tijd kunnen passen; geen verband is met deze tekst als zeker gegeven."
+        ],
+        "avoid": "Ontbrekende context is hier bewust onderdeel van de taak. Geen vaste oorzaak, intentie of precieze tijdsvolgorde opleggen.",
+        "next_step": "Laat bij elke lezing één concrete vraag noemen waarmee je die kunt onderzoeken.",
+        "reference_words": "meerdere bestaande relaties mogelijk",
+        "reference_words_required": false
+      },
+      "hint": null,
+      "presentation": {
+        "layout": "twee_kolommen",
+        "source_blocks": [
+          "De directie stelde de beslissing uit.",
+          "De markt veranderde snel.",
+          "Er is geen verdere context."
+        ],
+        "columns": [
+          "Mogelijke uitleg",
+          "Wat weten we nog niet zeker?"
+        ],
+        "optional_hint_count": 0,
+        "hint_default_visible": false,
+        "answer_space_after_reading": false,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.011",
+        "source_role": "C2_KERN",
+        "source_state": "ST1",
+        "source_phase": "MR03.F5",
+        "source_support": "S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Welke relationele interpretaties zijn verdedigbaar? Kies niet automatisch één antwoord. Leg uit welke extra informatie nodig is om het verband vast te stellen.",
+          "after": "Hoe kunnen deze gebeurtenissen samenhangen? Geef twee mogelijke verklaringen. Welke extra informatie heb je nodig om te kiezen?",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    },
+    {
+      "id": "VERB.C1C2.002A.012",
+      "title": "Daarna of daardoor?",
+      "version": "2026-09-23.mr03-herstel.1",
+      "level": "B2",
+      "level_status": "eigen voorlopig oefenadvies; geen formele niveautoets",
+      "extension_level": null,
+      "extension_note": null,
+      "context": "De arts wijzigde het behandelplan. De klachten namen daarna af.",
+      "prompt": "Wat weten we over de volgorde van de gebeurtenissen? Weten we ook zeker waardoor de klachten afnamen? Leg uit wat de tekst wel en niet bewijst.",
+      "answer_mode": "open_docentbeoordeling",
+      "auto_score": false,
+      "correct_answer": null,
+      "teacher": {
+        "example_answer": "De klachten namen af nadat de arts het behandelplan had gewijzigd. Die volgorde staat in de tekst. De wijziging kan hebben geholpen, maar de tekst bewijst niet dat die de afname veroorzaakte. Andere oorzaken zijn hiermee ook niet vastgesteld.",
+        "acceptance_points": [
+          "Benoemt de gegeven volgorde: eerst de wijziging, daarna de afname van klachten.",
+          "Onderscheidt die volgorde van een niet bewezen oorzakelijk verband.",
+          "Sluit een mogelijk effect van de wijziging niet uit; verzint geen andere oorzaak als feit."
+        ],
+        "avoid": "Dit is een oefening in tekstbegrip. Geen oordeel over een behandeling of persoonlijk medisch advies vragen.",
+        "next_step": "Laat uitleggen wat verandert als je daarna vervangt door daardoor.",
+        "reference_words": "daarna versus daardoor",
+        "reference_words_required": false
+      },
+      "hint": null,
+      "presentation": {
+        "layout": "twee_kolommen",
+        "source_blocks": [
+          "De arts wijzigde het behandelplan.",
+          "De klachten namen daarna af."
+        ],
+        "columns": [
+          "Mogelijke uitleg",
+          "Wat weten we nog niet zeker?"
+        ],
+        "optional_hint_count": 0,
+        "hint_default_visible": false,
+        "answer_space_after_reading": false,
+        "examples_after_own_attempt": true,
+        "teacher_default_visible": false,
+        "selectable_markers": [],
+        "marker_editing_required": false
+      },
+      "source_ref": {
+        "url": "https://docs.google.com/spreadsheets/d/1U2kSpoxmIsfX98r6Gj87nEAC8xy3PAA1KHsTgvVzbQk/edit",
+        "edition": "0.3",
+        "source_file": "bron-edition-0.3.json",
+        "source_sha256": "8f5c43958d6a292b449f77428efef9b58e92acf557a192ee642f8f902a409ce2",
+        "id": "VERB.C1C2.002A.012",
+        "source_role": "C2_KERN",
+        "source_state": "ST1",
+        "source_phase": "MR03.F5",
+        "source_support": "S0",
+        "source_status": "PILOT_EDITION_0.3_VASTGELEGD"
+      },
+      "changes": [
+        {
+          "field": "teacher_assessment",
+          "reason": "Meerdere onderbouwde antwoorden toelaten; bewijs, onzekerheid en betekenisbehoud per taak expliciet gemaakt."
+        },
+        {
+          "field": "prompt",
+          "before": "Kunnen we hieruit alleen een tijdsrelatie afleiden, of ook een oorzakelijk verband? Leg uit wat de tekst wel en niet bewijst.",
+          "after": "Wat weten we over de volgorde van de gebeurtenissen? Weten we ook zeker waardoor de klachten afnamen? Leg uit wat de tekst wel en niet bewijst.",
+          "reason": "Gewone woorden en een heldere, bij de bewijsgrens passende opdracht."
+        }
+      ],
+      "review_status": "LOKAAL_HERSTELD",
+      "integration_status": "NOG_NIET_AANGESLOTEN"
+    }
+  ]
+}

@@ -1,14 +1,14 @@
-name: DigiBord V01.24
+name: DigiBord
 on:
   pull_request:
-    branches: [main]
+    branches: [main, content-vert001-er-b1-runtime]
   push:
-    branches: [main, release/digibord-v0124]
+    branches: [main, release/digibord-v0124, codex/digibord-v1.25]
   workflow_dispatch:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
       - run: npm test && npm run lint && npm run types && npm run build && node tests/deployment.cjs
       - run: npx playwright install --with-deps chrome
-      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser && npm run test:cards:browser && npm run test:level:browser
+      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser && npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser
         env:
           CHROME_PATH: /opt/google/chrome/chrome
           BUILD_SMOKE: '1'

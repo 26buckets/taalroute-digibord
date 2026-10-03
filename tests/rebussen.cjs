@@ -19,6 +19,8 @@ const ctx = vm.createContext({CARD_GAMES:games.families, APP:{cardIndex:0},
  cardsFor:()=>ctx.list, cardRound:()=>({attempted:false}), shapeMeta:()=>({color:'#123456',symbol:'△',task:'Kies'}),
  setLast(){}, toast:msg=>assert.fail(msg), esc:s=>String(s??''), renderCardTable:(kind,counter,html)=>{rendered=html}});
 vm.runInContext(source.slice(source.indexOf('function rebusImage('), source.indexOf('function cardTools(')),ctx);
+ctx.lessonText=s=>s;
+vm.runInContext(source.slice(source.indexOf('function contentPromptHtml('),source.indexOf('function contentTaskText(')),ctx);
 vm.runInContext(source.slice(source.indexOf('function startCards('), source.indexOf('/* Woorden en zinnen */')),ctx);
 for (const c of rebuses) {
  assert.equal(c.visualRebus.src, 'assets/rebussen/'+c.id+'.png');

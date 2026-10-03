@@ -1,0 +1,679 @@
+{
+ "version": "2026-09-23.1",
+ "source_url": "https://drive.google.com/file/d/18YMv-HEjQYPy2in8YDBhvFcuUMDMvL1A/view",
+ "manifest_url": "https://docs.google.com/document/d/1dttU9ojLdLqmgxgmo1ngL67IsZbx5TF3tjg_IcggE8w/edit",
+ "source_sha256": "f67ee001fb14cf3a200d70175371f308335496f533be0ce3eba66e1dc5e8c4e2",
+ "source_level": "C1",
+ "source_status": "FROZEN v1.0 volgens bronmanifest; tekst bevat de voorafgaande Reviewronde 2 HERSTELD. Lokale review herstelt onder meer antwoordletter 039.",
+ "scope": "Eigen lokale AI-redactie en taakgericht niveauadvies. Geen officiële ERK-toets, menselijke review of lesproef. De vastgezette Drive-bron blijft ongewijzigd.",
+ "actual_answer_counts": {
+  "A": 17,
+  "B": 17,
+  "C": 16
+ },
+ "reviewed_answer_counts": {
+  "A": 18,
+  "B": 17,
+  "C": 15
+ },
+ "items": {
+  "C1_HI_001": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een speelse lezing onderscheiden van een scherpe aanval zonder een glimlach als bewijs te nemen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Een speelse lezing onderscheiden van een scherpe aanval zonder een glimlach als bewijs te nemen.",
+   "patch": {
+    "prompt": "Wat bedoelt de spreker en hoe kan dat overkomen?",
+    "explanation": "De positieve woorden passen niet bij het te laat komen. De glimlach kan de opmerking speels laten klinken, maar sluit scherpe kritiek niet uit.",
+    "note": "Let ook op de relatie en de reactie van de ander. Een glimlach alleen bewijst niet dat de grap goed valt."
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. Een glimlach kan speelsheid ondersteunen, maar bewijst geen vriendelijke bedoeling of goede ontvangst."
+  },
+  "C1_HI_002": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Het contrast tussen positieve woorden en zichtbare problemen herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Het contrast tussen positieve woorden en zichtbare problemen herkennen.",
+   "patch": {
+    "prompt": "Waaraan herken je dat dit waarschijnlijk ironisch is?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_003": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Zelfgerichte ironie herkennen bij een eigen fout. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Zelfgerichte ironie herkennen bij een eigen fout.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_004": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een ongewenste situatie herkennen achter tegengestelde woorden. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Een ongewenste situatie herkennen achter tegengestelde woorden.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_005": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een vlakke toon en positieve woorden verbinden met een slechte start. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Een vlakke toon en positieve woorden verbinden met een slechte start.",
+   "patch": {
+    "prompt": "Waardoor klinkt “Mooi begin” hier ironisch?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_006": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een negatieve verwachting afleiden uit een chaotisch begin. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Een negatieve verwachting afleiden uit een chaotisch begin.",
+   "patch": {
+    "prompt": "Wat betekent “Dat belooft wat” in deze situatie?",
+    "note": "Dezelfde woorden kunnen door de situatie positief of negatief bedoeld zijn."
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. De lestip beschrijft de vaardigheid zonder de bronreeks automatisch C1 te noemen."
+  },
+  "C1_HI_007": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De mogelijke verbindende functie van een grap over een gezamenlijke fout herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "De mogelijke verbindende functie van een grap over een gezamenlijke fout herkennen.",
+   "patch": {
+    "prompt": "Wat kan deze grap doen voor het gesprek?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_008": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Het mogelijke doelwit van ironie onderscheiden: voorstel, situatie of persoon. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Het mogelijke doelwit van ironie onderscheiden: voorstel, situatie of persoon.",
+   "patch": {
+    "prompt": "Waarom hoeft “Geweldig idee” hier geen aanval op de persoon te zijn?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_009": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Zucht, stem en handelingen als aanwijzingen voor ironie combineren. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Zucht, stem en handelingen als aanwijzingen voor ironie combineren.",
+   "patch": {
+    "explanation": "De zucht, vlakke stem en extra handelingen maken duidelijk waarom handig hier waarschijnlijk juist onhandig betekent."
+   },
+   "change_reason": "Het vakwoord paralinguïstisch vervangen door concrete aanwijzingen."
+  },
+  "C1_HI_010": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een luchtige reactie op eigen pech herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Ironie",
+   "source_section": "Ironie en omkering",
+   "goal": "Een luchtige reactie op eigen pech herkennen.",
+   "patch": {
+    "prompt": "Waarom kan iemand zo reageren op zijn eigen pech?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_011": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Onderdrijving als grap onderscheiden van het werkelijk kleiner maken van een probleem. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Onderdrijving als grap onderscheiden van het werkelijk kleiner maken van een probleem.",
+   "patch": {
+    "prompt": "Waarom lijkt de spreker hier een grap te maken over de ernst van het probleem?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_012": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Fouten erkennen met een milde formulering herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Fouten erkennen met een milde formulering herkennen.",
+   "patch": {
+    "prompt": "Hoe erkent de spreker zijn fouten met deze milde woorden?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_013": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een grappige afzwakking van duidelijk hoge werkdruk herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Een grappige afzwakking van duidelijk hoge werkdruk herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_014": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Overdrijving als uitdrukking van een gevoel herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Overdrijving als uitdrukking van een gevoel herkennen.",
+   "patch": {
+    "prompt": "Wat laat de spreker met deze overdrijving merken?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_015": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Het samenspel van sterke overdrijving en een afzwakkend woord uitleggen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Het samenspel van sterke overdrijving en een afzwakkend woord uitleggen.",
+   "patch": {
+    "prompt": "Welke woorden zorgen samen voor het grappige effect?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_016": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Beheerste kritiek onderscheiden van het ontkennen van ernst. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Beheerste kritiek onderscheiden van het ontkennen van ernst.",
+   "patch": {
+    "note": "Dit kan een droge grap zijn, maar ook serieuze, beheerste kritiek. Zonder meer aanwijzingen weet je dat niet zeker."
+   },
+   "change_reason": "Een terughoudende negatieve beoordeling is niet automatisch humor."
+  },
+  "C1_HI_017": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De verhouding tussen milde vergelijking en stevige kritiek begrijpen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "De verhouding tussen milde vergelijking en stevige kritiek begrijpen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_018": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een grinnik en een groot verschil als aanwijzingen voor een grap gebruiken. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Een grinnik en een groot verschil als aanwijzingen voor een grap gebruiken.",
+   "patch": {
+    "options": [
+     "Hij begrijpt werkelijk niet hoeveel werk het is.",
+     "Hij probeert de wijzigingen formeel kleiner te maken om minder te betalen.",
+     "Hij maakt waarschijnlijk een grap door de hoeveelheid werk veel kleiner voor te stellen."
+    ],
+    "note": "De grinnik ondersteunt de lezing als grap. Hij bewijst niet dat de opdrachtgever het werk serieus neemt; let ook op de verdere reactie."
+   },
+   "change_reason": "De interpretatie blijft waarschijnlijk; een grinnik bewijst de bedoeling niet."
+  },
+  "C1_HI_019": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Overdrijving en lachen als aanwijzingen voor humor herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "Overdrijving en lachen als aanwijzingen voor humor herkennen.",
+   "patch": {
+    "prompt": "Welke aanwijzingen maken een grappige overdrijving hier waarschijnlijk?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_020": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De mogelijke verzachtende functie van een grap over eigen verdwalen herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Overdrijven en afzwakken",
+   "source_section": "Understatement en overdrijving",
+   "goal": "De mogelijke verzachtende functie van een grap over eigen verdwalen herkennen.",
+   "patch": {
+    "prompt": "Hoe kan deze milde beschrijving de toerist helpen?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_021": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Positieve woorden door toon en situatie als persoonlijke kritiek beoordelen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "Positieve woorden door toon en situatie als persoonlijke kritiek beoordelen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_022": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Relatie en toon meewegen bij het verschil tussen plagen en aanvallen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "Relatie en toon meewegen bij het verschil tussen plagen en aanvallen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_023": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De mogelijke vernederende werking van persoonsgericht sarcasme uitleggen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "De mogelijke vernederende werking van persoonsgericht sarcasme uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_024": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De samenhang tussen herhaling, gezag en toon beoordelen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "De samenhang tussen herhaling, gezag en toon beoordelen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_025": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De rol van vriendschap en toon beoordelen zonder goede ontvangst te garanderen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "De rol van vriendschap en toon beoordelen zonder goede ontvangst te garanderen.",
+   "patch": {
+    "options": [
+     "De vertrouwde relatie en speelse toon kunnen de kritiek luchtig laten klinken.",
+     "De woorden zijn grammaticaal positief.",
+     "De vertrouwde relatie maakt het onnodig om op de reactie van de ander te letten."
+    ],
+    "note": "Ook tussen vrienden kan een grap verkeerd vallen. Let op of de ander het plagen prettig vindt."
+   },
+   "change_reason": "De onlogische afleider over kookfouten vervangen; vriendschap garandeert geen goede ontvangst."
+  },
+  "C1_HI_026": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Onderscheiden hoe eenzelfde grap steunend of kleinerend kan overkomen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "Onderscheiden hoe eenzelfde grap steunend of kleinerend kan overkomen.",
+   "patch": {
+    "options": [
+     "Of de oorspronkelijke fout per mail of in een chatbericht is gemaakt.",
+     "Of de opmerking uitnodigt om samen om de fout te lachen, of de collega juist belachelijk maakt.",
+     "Of de fout formeel als onprofessioneel kan worden geclassificeerd."
+    ]
+   },
+   "change_reason": "De foutieve formulering meelaadt en de onduidelijke verwijzing hersteld."
+  },
+  "C1_HI_027": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De scherpte van ironie beoordelen in een boze gezagsrelatie. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "De scherpte van ironie beoordelen in een boze gezagsrelatie.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_028": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Speelse groepshumor herkennen zonder instemming van het doelwit te veronderstellen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "Speelse groepshumor herkennen zonder instemming van het doelwit te veronderstellen.",
+   "patch": {
+    "options": [
+     "De vergissing past bij het spel en het team reageert met lachen, wat kan wijzen op speelse plagerij.",
+     "De zin bevat geen negatieve woorden en kan daarom niet kwetsend zijn.",
+     "Bij een quiz gelden fouten niet als echte fouten."
+    ],
+    "explanation": "Het spel en het lachen kunnen wijzen op plagen zonder zwaar verwijt. Controleer ook hoe degene die de fout maakte reageert."
+   },
+   "change_reason": "Lachen van een groep is geen bewijs dat de betrokkene de grap prettig vindt."
+  },
+  "C1_HI_029": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De invloed van relatie en toon op de scherpte van een opmerking uitleggen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "De invloed van relatie en toon op de scherpte van een opmerking uitleggen.",
+   "patch": {
+    "explanation": "Handig betekent hier juist onhandig. De lach en hun relatie ondersteunen een speelse uitleg, maar de reactie van de ander blijft belangrijk."
+   },
+   "change_reason": "De uitleg gebruikt concrete signalen in plaats van vaktermen."
+  },
+  "C1_HI_030": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De omgekeerde beschrijving van weinig enthousiasme herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Plagen en kwetsen",
+   "source_section": "Sarcasme, plagen en relationele spanning",
+   "goal": "De omgekeerde beschrijving van weinig enthousiasme herkennen.",
+   "patch": {
+    "prompt": "Wat maakt de vriend grappig aan de vlakke reactie?",
+    "note": "De grap werkt doordat beide gesprekspartners kunnen merken dat de reactie juist weinig enthousiast was."
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. Het Engelse mismatch in de toelichting vervangen."
+  },
+  "C1_HI_031": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een klacht met zelfspot herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Een klacht met zelfspot herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_032": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een positief zelfoordeel bij eigen onhandigheid als grap begrijpen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Een positief zelfoordeel bij eigen onhandigheid als grap begrijpen.",
+   "patch": {
+    "prompt": "Wat bereikt hij door zichzelf juist een natuurtalent te noemen?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_033": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Doen alsof een ongelukje gepland was als zelfspot herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Doen alsof een ongelukje gepland was als zelfspot herkennen.",
+   "patch": {
+    "prompt": "Hoe maakt je uitspraak een grap van het ongelukje?",
+    "explanation": "Je doet voor de grap alsof het zichtbare ongelukje gepland was. Zo kun je het ongemakkelijke moment luchtiger maken.",
+    "note": "Je lacht hier om jezelf door te doen alsof de fout bij het plan hoorde."
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. Achtergebleven redactienotitie over het herschikken van antwoordletters verwijderd."
+  },
+  "C1_HI_034": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De eigen verantwoordelijkheid achter een grap over een slechte keuze herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "De eigen verantwoordelijkheid achter een grap over een slechte keuze herkennen.",
+   "patch": {
+    "prompt": "Wat kan deze grap over je eigen keuze doen?"
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden."
+  },
+  "C1_HI_035": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een grap over lagere verwachtingen van jezelf herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Een grap over lagere verwachtingen van jezelf herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_036": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Beknopte ironie over eigen onhandigheid herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Beknopte ironie over eigen onhandigheid herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_037": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een zakelijke negatieve formulering als droge zelfspot onderscheiden van een neutrale evaluatie. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Een zakelijke negatieve formulering als droge zelfspot onderscheiden van een neutrale evaluatie.",
+   "patch": {
+    "prompt": "Hoe maakt de spreker hier op een droge manier een grap over zijn fout?",
+    "options": [
+     "Je benoemt droog dat je poging om tijd te winnen juist extra tijd kostte, en maakt zo een grap over je eigen fout.",
+     "Je ontkent dat je een fout hebt gemaakt en bespreekt alleen de planning.",
+     "Je geeft een neutrale procesevaluatie zonder humoristische zelfgerichtheid."
+    ]
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. Het bedoelde antwoord gebruikt gewone woorden in plaats van herkadert en negatieve evaluatie."
+  },
+  "C1_HI_038": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De rol van duidelijk in een zichtbaar onjuiste bewering uitleggen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "De rol van duidelijk in een zichtbaar onjuiste bewering uitleggen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_039": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een grap over het eigen belmoment onderscheiden van een verwijt aan de ander. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Een grap over het eigen belmoment onderscheiden van een verwijt aan de ander.",
+   "patch": {
+    "letter": "A",
+    "note": "Een grap over jezelf kan dezelfde woorden gebruiken als een scherpe opmerking over iemand anders. Let op over wie de spreker het heeft."
+   },
+   "change_reason": "De bron wijst ten onrechte C aan; A beantwoordt de vraag. Geen antwoordopties herschikt om de bronverdeling te behouden."
+  },
+  "C1_HI_040": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Erkenning van een eigen fout achter tegengestelde woorden herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Lachen om jezelf",
+   "source_section": "Zelfspot en droge humor",
+   "goal": "Erkenning van een eigen fout achter tegengestelde woorden herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_041": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Herkennen wanneer de bedoeling zonder meer aanwijzingen onzeker blijft. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "Herkennen wanneer de bedoeling zonder meer aanwijzingen onzeker blijft.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_042": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Bedoeling en het effect op de ander onderscheiden. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "Bedoeling en het effect op de ander onderscheiden.",
+   "patch": {
+    "options": [
+     "De opmerking kan niet kwetsend zijn omdat zij als grap bedoeld was.",
+     "De gekwetste persoon heeft de humor verkeerd begrepen.",
+     "Ook als iets als grap bedoeld is, kan de ander zich gekwetst voelen."
+    ]
+   },
+   "change_reason": "Een goede bedoeling niet als vastgesteld feit aannemen."
+  },
+  "C1_HI_043": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De invloed van timing op de ontvangst van een grap herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "De invloed van timing op de ontvangst van een grap herkennen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_044": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Herstel van een letterlijk opgevatte ironische uitspraak herkennen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "Herstel van een letterlijk opgevatte ironische uitspraak herkennen.",
+   "patch": {
+    "prompt": "Wat maakt de spreker hiermee duidelijk?",
+    "options": [
+     "Hij trekt zijn oorspronkelijke mening volledig in.",
+     "Hij legt uit dat zijn woorden niet letterlijk bedoeld waren en probeert zo het misverstand te herstellen.",
+     "Hij verwijt de ander dat die geen gevoel voor humor heeft."
+    ],
+    "explanation": "Zeggen dat iets ironisch bedoeld was kan helpen als de ander de woorden letterlijk heeft opgevat.",
+    "note": "Vooral als je elkaar nog niet goed kent, kan een korte uitleg helpen."
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. Vraag en uitleg over herstel gebruiken gewone woorden."
+  },
+  "C1_HI_045": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De invloed van machtsverschil op de vrijheid om humor af te wijzen beoordelen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "De invloed van machtsverschil op de vrijheid om humor af te wijzen beoordelen.",
+   "patch": {
+    "note": "Iemand kan zich minder vrij voelen om een grap af te wijzen als de spreker zijn leidinggevende is. Dat maakt niet elke grap van een leidinggevende ongepast."
+   },
+   "change_reason": "De lestip benoemt macht en verhouding zonder vaktaal."
+  },
+  "C1_HI_046": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: De verschillende lezingen van schriftelijke ironie bij weinig gedeelde context afwegen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "De verschillende lezingen van schriftelijke ironie bij weinig gedeelde context afwegen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_047": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Ruimte om samen te lachen onderscheiden van onbeperkte toestemming. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "Ruimte om samen te lachen onderscheiden van onbeperkte toestemming.",
+   "patch": {
+    "explanation": "Door zelf een grap over de fout te maken kan iemand ruimte geven om samen te lachen. Dat is geen onbeperkte toestemming om door te gaan of de grap scherper te maken."
+   },
+   "change_reason": "Zelfspot is geen algemene toestemming om iemand te blijven uitlachen."
+  },
+  "C1_HI_048": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: Een passend herstel kiezen wanneer een grap niet wordt begrepen. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "Een passend herstel kiezen wanneer een grap niet wordt begrepen.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, bedoeld antwoord en niveau gecontroleerd. Bespreek de interpretatie met de docent."
+  },
+  "C1_HI_049": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: Een mogelijk serieus bezwaar achter herhaalde humor onderscheiden van bewijs dat het bezwaar klopt. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "Een mogelijk serieus bezwaar achter herhaalde humor onderscheiden van bewijs dat het bezwaar klopt.",
+   "patch": {
+    "context": "Een medewerker maakt iedere week dezelfde “grap” over een proces dat hij onwerkbaar vindt. De inhoud van de grap is steeds dat niemand ermee kan werken."
+   },
+   "change_reason": "De situatie presenteert onwerkbaarheid als de mening van de medewerker, niet als een al bewezen feit."
+  },
+  "C1_HI_050": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: De bedoeling openhouden als aanwijzingen voor ironie ontbreken. Dit advies betreft de vraag met gegeven context, niet zelfstandig humor gebruiken.",
+   "scoring": "discuss",
+   "section": "Een grap begrijpen",
+   "source_section": "Context, passendheid en herstel",
+   "goal": "De bedoeling openhouden als aanwijzingen voor ironie ontbreken.",
+   "patch": {
+    "prompt": "Wat kun je het beste doen zolang je twijfelt?",
+    "explanation": "Als er te weinig aanwijzingen zijn, is het zorgvuldiger om nog geen conclusie te trekken over de bedoeling.",
+    "note": "Je kunt ook rustig vragen of de ander het serieus bedoelt."
+   },
+   "change_reason": "De vraag gebruikt gewone woorden; de gevraagde betekenis blijft behouden. Uitleg en lestip zonder vaktaal of automatische C1-claim."
+  }
+ }
+}

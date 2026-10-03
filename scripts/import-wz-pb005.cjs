@@ -1,0 +1,2 @@
+const adapt=require('../content-bank-adapters.js');
+module.exports=require('./reviewed-wz-bank.cjs')({number:'005',spreadsheetId:'1t489Zc7L936fPy8oxRMfipJ3hjhaKQoMYQdyLoLX7-s',sourceCount:1120,itemCount:696,previous:[...adapt(require('../Lessen/woorden-zinnen.json')).items,...adapt(require('../data/wz-pb002.js')).items,...require('../data/wz-pb003.js').items,...require('../data/wz-pb004.js').items]},require.main===module);
