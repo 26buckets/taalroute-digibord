@@ -35,7 +35,7 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  await page.locator('[data-category=words]').click();
  assert.match(await page.locator('[data-category=words]').innerText(),/Grammatica en zinsbouw/);
  const categories=await page.evaluate(()=>GrammarCatalog.categories.map(c=>c.label));
- assert.deepEqual(await page.locator('.grammar-category>summary strong').allTextContents(),categories);
+ assert.deepEqual(await page.locator('.grammar-category>span:first-child').allTextContents(),categories);
  assert.equal(await page.locator('[data-choose-family=words],[data-choose-family=grammar]').count(),0);
  for(const [query,expected] of Object.entries({'omdat':'g-reden','verleden tijd':'g-werkwoordstijden','die dat':'g-relatieve-zinnen','vraagwoorden':'g-vraagwoorden','inversie':'g-inversie','niet geen':'g-niet-geen'})){
   await page.locator('#practiceTopicSearch').fill(query);assert.ok(await page.locator(`[data-choose-topic="${expected}"]`).isVisible(),query);
@@ -46,8 +46,8 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  const subjects=await page.evaluate(()=>GrammarCatalog.subjects.map(s=>({id:s.id,category:GrammarCatalog.categories.find(c=>c.id===s.categories[0]).label})));
  for(const subject of subjects){
   await page.evaluate(()=>ContentUI.open({family:GrammarCatalog.familyId}));
-  const category=page.locator('.grammar-category').filter({has:page.locator('summary strong').getByText(subject.category,{exact:true})});
-  await category.locator('summary').click();await category.locator(`[data-choose-topic="${subject.id}"]`).click();
+  const category=page.locator('.grammar-category').filter({hasText:subject.category});
+  await category.click();assert.equal(await page.locator('.grammar-category').count(),0,'only the selected category is shown');assert.equal(await page.locator('.grammar-catalog svg').evaluateAll(es=>es.filter(e=>!e.children.length).length),0,'no missing icons');assert.equal(await page.locator('.grammar-goal .practice-level').count(),0,'levels come after the goal');await page.locator(`[data-choose-topic="${subject.id}"]`).click();
   assert.equal(await page.locator('[data-practice-step][open]').getAttribute('data-practice-step'),'level',subject.id+' reached in two choices');
  }
  // The third step exposes exercise types as well as the compatible game surfaces.
@@ -85,8 +85,45 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  const out=process.env.EVIDENCE_DIR||path.join(__dirname,'artifacts/grammar-catalog');fs.mkdirSync(out,{recursive:true});
  for(const width of [320,390,768,1440,1920]){
   await page.setViewportSize({width,height:1000});assert.equal(await page.locator('.grammar-category').count(),9);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no overflow '+width);
-  assert.ok(await page.locator('.grammar-category>summary').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().height>=44)));
+  assert.ok(await page.locator('.grammar-category').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().height>=44)));
   if([390,1440].includes(width))await page.screenshot({path:path.join(out,'catalog-'+width+'.png'),fullPage:true});
+ }
+ // Page scrolling must work over short and long goal lists and other expanded families.
+ async function scrollOver(row){
+  await row.scrollIntoViewIfNeeded();
+  // Wait for Chromium to commit the replaced list before hit-testing a wheel gesture.
+  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  const box=await row.boundingBox();
+  await page.mouse.move(box.x+box.width/2,box.y+box.height/2);
+  const before=await page.locator('#screen-practice').evaluate(e=>e.scrollTop);
+  await page.mouse.wheel(0,220);
+  await page.waitForFunction(before=>document.querySelector('#screen-practice').scrollTop>before+20,before);
+ }
+ for(const width of [390,1440]){
+  await page.setViewportSize({width,height:700});
+  // Load at the target device size: Chromium retains stale compositor hit regions after emulated viewport resizing.
+  await page.reload();await page.waitForFunction(()=>window.ContentUI);
+  for(const category of ['grammar-1','grammar-2','grammar-4']){
+   await page.evaluate(()=>ContentUI.open({family:GrammarCatalog.familyId}));
+   const before=await page.evaluate(()=>ContentUI.selectionSpec());
+   await page.locator(`[data-grammar-category="${category}"]`).click();
+   assert.deepEqual(await page.evaluate(()=>ContentUI.selectionSpec()),before,'browsing does not change the lesson');
+   assert.equal(await page.locator('#grammarCategoryTitle').evaluate(e=>e===document.activeElement),true);
+   await scrollOver(page.locator('.grammar-goal').first());
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+   if(category==='grammar-1')await page.screenshot({path:path.join(out,'goals-'+width+'.png'),fullPage:true});
+   // Search also finds other categories; clearing it returns to the category being browsed.
+   await page.locator('#practiceTopicSearch').fill('die dat');
+   assert.ok(await page.locator('[data-choose-topic=g-relatieve-zinnen]').isVisible());
+   await page.locator('#practiceTopicSearch').fill('');
+   assert.equal(await page.locator('#grammarCategoryTitle').count(),1);
+   await page.locator('[data-grammar-back]').click();
+   assert.equal(await page.locator('.grammar-category').count(),9);
+   assert.equal(await page.locator(`[data-grammar-category="${category}"]`).evaluate(e=>e===document.activeElement),true);
+  }
+  const group=page.locator('.practice-topic-group').first();
+  await group.locator('summary').click();await scrollOver(group.locator('.practice-topic-row').first());
+  await page.locator('#practiceStart').scrollIntoViewIfNeeded();assert.ok(await page.locator('#practiceStart').isVisible(),'lower controls remain reachable');
  }
  assert.deepEqual(errors,[]);
  fs.writeFileSync(path.join(out,'reachability.json'),JSON.stringify({base:baseline.base,available:audit.available.length,reachable:audit.reachable.length,subjects:audit.subjects,groups:audit.groups.length,guidedGroups:audit.groups.filter(g=>g.micro).length,sourceHash:hash(audit.all),refsHash:hash(audit.refs),errors},null,2));

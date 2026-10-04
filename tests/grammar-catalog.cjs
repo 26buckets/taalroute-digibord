@@ -17,3 +17,5 @@ catalog.registerBank({items:[{topic:'KUNNEN',cefr_level:'A1',language_function:'
 assert.equal(catalog.families.find(f=>f.id==='grammar').topics.find(t=>t.id==='KUNNEN').label,'Kunnen','missing topic_label never leaks ID');
 assert.equal(catalog.families.find(f=>f.id==='grammar').topics.find(t=>t.id==='GRAM_PB003').label,'Onderwerp niet beschikbaar');
 console.log('PASS grammar mapping: 60 source topics, 39 subjects, nine categories, synonyms and missing/technical labels.');
+
+for(const subject of guide.subjects){assert.ok(subject.goal&&subject.example,subject.id+' has a concrete goal and example');assert.ok(guide.matches(subject,subject.goal));assert.ok(guide.matches(subject,subject.example));}
