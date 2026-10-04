@@ -101,6 +101,8 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  }
  for(const width of [390,1440]){
   await page.setViewportSize({width,height:700});
+  // Load at the target device size: Chromium retains stale compositor hit regions after emulated viewport resizing.
+  await page.reload();await page.waitForFunction(()=>window.ContentUI);
   for(const category of ['grammar-1','grammar-2','grammar-4']){
    await page.evaluate(()=>ContentUI.open({family:GrammarCatalog.familyId}));
    const before=await page.evaluate(()=>ContentUI.selectionSpec());
