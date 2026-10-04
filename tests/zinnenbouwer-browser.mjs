@@ -19,6 +19,7 @@ async function setup(page,type='sentenceBuild'){
   await page.screenshot({path:new URL('settings-desktop.png',out).pathname});
   await page.setViewportSize({width:390,height:844});
   assert.ok(await page.locator('[data-settings]').evaluate(e=>e.scrollWidth<=e.clientWidth));
+  await page.locator('[data-settings]').evaluate(e=>e.scrollTo(0,0));await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
   await page.screenshot({path:new URL('settings-mobile.png',out).pathname});
   await page.setViewportSize({width:1440,height:1000});
  }
