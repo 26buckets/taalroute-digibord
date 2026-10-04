@@ -32,7 +32,7 @@ jobs:
       matrix:
         include:
           - name: shared-runtime
-            command: npm run smoke
+            command: npm run smoke:core
           - name: cards-and-preservation
             command: npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser && npm run test:shuffle:browser && npm run test:p0:browser && npm run test:rebuses:browser
           - name: activities-and-release-gates
@@ -54,13 +54,39 @@ jobs:
         env:
           CHROME_PATH: /opt/google/chrome/chrome
           BUILD_SMOKE: '1'
+  grammar:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6]
+    name: grammar (${{ matrix.shard }}/6)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chrome
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-dist
+          path: dist/
+      - run: node tests/grammar-review-browser.cjs
+        env:
+          BUILD_SMOKE: '1'
+          GRAMMAR_SHARD: ${{ matrix.shard }}/6
   verify:
     if: always()
-    needs: [build, browser]
+    needs: [build, browser, grammar]
     runs-on: ubuntu-latest
     steps:
       - name: Require every regression gate
         env:
           BUILD_RESULT: ${{ needs.build.result }}
           BROWSER_RESULT: ${{ needs.browser.result }}
-        run: test "$BUILD_RESULT" = success && test "$BROWSER_RESULT" = success
+          GRAMMAR_RESULT: ${{ needs.grammar.result }}
+        run: test "$BUILD_RESULT" = success && test "$BROWSER_RESULT" = success && test "$GRAMMAR_RESULT" = success
