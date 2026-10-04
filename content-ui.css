@@ -212,3 +212,14 @@
 .content-engine-dice.card-table-shell .active-card{height:100%;min-height:0;max-height:100%;overflow:hidden}
 .content-engine-dice.card-table-shell .active-card .content-reading{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
 .content-engine-dice .content-reading:focus-visible{outline:2px solid #126ab3;outline-offset:-3px}
+
+/* Teacher grammar catalog: retain preparation layout and quiet settings controls. */
+.grammar-catalog h2{font-size:17px;font-weight:500;margin:12px 0}
+.grammar-shortcuts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.grammar-shortcuts button{min-height:44px;font-size:14px;font-weight:400;border-radius:7px;box-shadow:none}
+.grammar-shortcuts button[aria-expanded=true]{background:#e7f3fe;color:#126ab3}
+.grammar-quick-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #d7e4ee}
+.grammar-quick-row strong,.grammar-quick-row small{display:block;overflow-wrap:anywhere}
+.grammar-quick-row strong{font-weight:500}.grammar-quick-row small{font-size:13px}
+.grammar-category summary strong{font-weight:500}.grammar-category button{min-height:44px}
+@media(max-width:520px){.grammar-quick-row{align-items:flex-start;flex-direction:column}.grammar-catalog .practice-topic-row{flex-wrap:wrap}.grammar-catalog .practice-labels{margin-left:0}}

@@ -61,7 +61,7 @@ function teamInfo(mode,ppl=participants()){
 function goScreen(id,cardPreview=null){
  if(globalThis.ReleasePolicy?.enabled&&['words','workforms','activities','collection','curriculum'].includes(id)&&!(id==='collection'&&(ReleasePolicy.cardAllowed(cardPreview)||cardPreview==='c1-between-lines'))){
   if(!globalThis.ContentUI)return;
-  return ContentUI.open({engine:({workforms:'WHEEL',activities:'WHEEL'})[id]});
+  return ContentUI.open({...(id==='words'?{family:GrammarCatalog.familyId}:{}),engine:({workforms:'WHEEL',activities:'WHEEL'})[id]});
  }
  stopTongueAudio();
  if(id==='cards'){if(!globalThis.ReleasePolicy?.enabled)return startCards(APP.cardKind||'conversation');renderCardMenu()}
@@ -229,7 +229,7 @@ function contentVertSession(){return window.ContentRuntime?.activeSession?.()||n
 function contentVertHistory(engine,session){APP.contentVert001Used??={};const key=session.session_id+':'+engine;APP.contentVert001Used[key]??=[];return APP.contentVert001Used[key]}
 function contentSessionLabel(session,item,includeLevel=true){
  const topic=session?.topic||item?.topic||'GRAMMATICA',level=session?.cefr_level||item?.cefr_level||APP.level;
- const label=window.DIGIBORD_CONTENT_CATALOG?.families.flatMap(f=>f.topics).find(t=>t.id===topic)?.label||topic;
+ const label=window.GrammarCatalog?.label(topic,window.DIGIBORD_CONTENT_CATALOG?.families.flatMap(f=>f.topics).find(t=>t.id===topic)?.label)||'Oefening';
  return (topic==='MODAAL'?'Modale werkwoorden':(session?.content_family==='grammar'?'Grammatica ':'')+label)+(includeLevel?' · '+(session?.display_routes?.map(routeLabel).join(' + ')||routeLabel(level)):'');
 }
 function contentBoardTask(item){

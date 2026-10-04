@@ -1,4 +1,5 @@
 (function(root){
+ const labels=root.GrammarCatalog||(typeof require==='function'?require('../grammar-catalog.js'):null);
  const sub=(id,label,levels)=>({id,label,levels});
  const profiles=(topic)=>['A2','B1','B2'].map(level=>({id:'SP_GRAM_'+topic+'_'+level,label:({ER:'Er',ZULLEN:'Zullen',ZOUDEN:'Zouden',MODAAL:'Zullen en zouden'}[topic]||topic)+' '+level+' compleet',level}));
  const catalog={
@@ -55,11 +56,11 @@
     for(const fn of ['all',...new Set(rows.map(i=>i.language_function))]){
      const added=fn==='all'?levels:[...new Set(rows.filter(i=>i.language_function===fn).map(i=>i.cefr_level))],existing=prior.subtopics.find(s=>s.id===fn);
      if(existing)existing.levels=[...new Set([...(existing.levels||prior.levels),...added])].sort();
-     else prior.subtopics.push(sub(fn,fn==='all'?'Alles':fn,added));
+     else prior.subtopics.push(sub(fn,fn==='all'?'Alles':labels.label(fn),added));
     }
     continue;
    }
-   family.topics.push({id:topicId,label:rows[0].topic_label||topicId,sourceTopics:[topicId],familyTags:[],levels,profiles:[],subtopics:[sub('all','Alles',levels),...[...new Set(rows.map(i=>i.language_function))].map(fn=>sub(fn,fn,[...new Set(rows.filter(i=>i.language_function===fn).map(i=>i.cefr_level))].sort()))]});
+   family.topics.push({id:topicId,label:labels.label(topicId,rows[0].topic_label),sourceTopics:[topicId],familyTags:[],levels,profiles:[],subtopics:[sub('all','Alles',levels),...[...new Set(rows.map(i=>i.language_function))].map(fn=>sub(fn,labels.label(fn),[...new Set(rows.filter(i=>i.language_function===fn).map(i=>i.cefr_level))].sort()))]});
   }
   return family;
  };

@@ -71,11 +71,11 @@
   }else if(['CARDS','DICE'].includes(p.engine_id)){if(v.index>=s.selected_item_ids.length||v.lastRoll>6)throw new Error('Ongeldige kaartpositie.');if(p.engine_id==='CARDS'){APP.cardIndex=v.index;APP.cardShuffles??={};const scope=cardShuffleScope('content-vert001');if(v.cardShuffle)APP.cardShuffles[scope]=clone(v.cardShuffle);else{const list=runtime.enginePool('CARDS',s);APP.cardShuffles[scope]=CardShuffle.transition(null,{...cardShuffleOptions('content-vert001',list),preferredId:list[v.index]?.content_item_id})}}else{APP.contentDiceIndex=v.index;APP.contentDiceLastRoll=v.lastRoll}APP.turn.active=v.turn}
   else DigiActivities.restoreProgress(v);
  }
- const labelTopic=id=>catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label||id;
- function description(spec){try{spec=runtime.currentSelection(spec)}catch{}return spec.scope_clauses.map(c=>(c.topic_ids.length?c.topic_ids.map(labelTopic).join(', '):'Alle onderwerpen')+' · '+(DigiRoutes.ordered(c.cefr_levels).map(DigiRoutes.label).join(', ')||'Alle beschikbare niveaus')).join(' + ')}
+ const labelTopic=id=>ContentUI.topicLabel(id);
+ function description(spec){try{spec=runtime.currentSelection(spec)}catch{}return spec.scope_clauses.map(c=>(c.topic_ids.length?[...new Set(c.topic_ids.map(labelTopic))].join(', '):'Alle onderwerpen')+' · '+(DigiRoutes.ordered(c.cefr_levels).map(DigiRoutes.label).join(', ')||'Alle beschikbare niveaus')).join(' + ')}
  function selectionLabels(spec,name=''){
   try{spec=runtime.currentSelection(spec)}catch{}
-  return spec.scope_clauses.map(c=>`<div class="lesson-scope"><span>${esc(name===c.topic_ids.map(labelTopic).join(', ')?'':c.topic_ids.length?c.topic_ids.map(labelTopic).join(', '):'Alle onderwerpen')}</span><span class="practice-labels">${c.cefr_levels.map(ContentUI.levelBadge).join('')||'Alle beschikbare niveaus'}</span></div>`).join('');
+  return spec.scope_clauses.map(c=>`<div class="lesson-scope"><span>${esc(name===[...new Set(c.topic_ids.map(labelTopic))].join(', ')?'':c.topic_ids.length?[...new Set(c.topic_ids.map(labelTopic))].join(', '):'Alle onderwerpen')}</span><span class="practice-labels">${c.cefr_levels.map(ContentUI.levelBadge).join('')||'Alle beschikbare niveaus'}</span></div>`).join('');
  }
  const action=(kind,id,label,disabled=false)=>`<button class="smallbtn" type="button" data-lesson-action="${kind}" data-id="${esc(id)}" ${disabled?'disabled':''}>${esc(label)}</button>`;
  async function render(){
@@ -93,18 +93,56 @@
    if(root.DigiStorageBackupError)showError(new Error('De reservekopie van 1.24 kon niet worden gemaakt. Maak ruimte vrij voordat je gegevens bewaart.'));
   }catch(error){mount.innerHTML='<h1>Mijn lessen</h1>';showError(error)}
  }
+ // Reuse saved selections and actual session history; no second favorites store.
+ function renderQuickRoutes(mount){
+  if(!mount)return;
+  mount.innerHTML='<div class="grammar-shortcuts">'+['Veel gebruikt','Recent gebruikt','Favorieten'].map((label,index)=>`<button class="smallbtn" type="button" data-grammar-quick="${index}" aria-expanded="false" aria-controls="grammarQuickResults">${esc(label)}</button>`).join('')+'</div><div id="grammarQuickResults" aria-live="polite" hidden></div>';
+  let request=0;
+  mount.querySelectorAll('[data-grammar-quick]').forEach(button=>button.onclick=async()=>{
+   const ticket=++request,results=mount.querySelector('#grammarQuickResults'),wasOpen=button.getAttribute('aria-expanded')==='true';
+   mount.querySelectorAll('button').forEach(b=>b.setAttribute('aria-expanded','false'));
+   results.hidden=wasOpen;if(wasOpen)return;
+   button.setAttribute('aria-expanded','true');results.textContent='Lessen laden…';
+   try{
+    await writing;
+    const isGrammar=spec=>{try{return runtime.selectionPool(runtime.currentSelection(spec)).some(i=>root.GrammarCatalog.subjects.some(s=>runtime.inTopic(i,s.sources)))}catch{return false}};
+    let rows=[];
+    if(button.dataset.grammarQuick==='2'){
+     const [favorites,lessons,mixes]=await Promise.all(['favorite','saved_selection','mix_profile'].map(k=>service.list(k)));
+     for(const favorite of favorites){
+      const record=favorite.ref_type==='saved_selection'?lessons.find(r=>r.saved_selection_id===favorite.ref_id):favorite.ref_type==='mix_profile'?mixes.find(r=>r.mix_profile_id===favorite.ref_id):null;
+      if(!record)continue;
+      const spec=record.selection_spec||record;if(!isGrammar(spec)||root.ReleasePolicy?.enabled&&!root.ReleasePolicy.selectionAllowed(spec))continue;
+      rows.push({name:record.name,detail:description(spec),action:favorite.ref_type==='saved_selection'?'edit':'mix-open',id:favorite.ref_id});
+     }
+    }else{
+     const recent=(await service.list('recent_session')).filter(r=>(!root.ReleasePolicy?.enabled||root.ReleasePolicy.sessionAllowed(r.session_config_snapshot))&&isGrammar(r.session_config_snapshot.normalized_selection_spec)).sort((a,b)=>b.last_active_at.localeCompare(a.last_active_at));
+     const groups=new Map();
+     for(const record of recent){const session=record.session_config_snapshot,spec=session.normalized_selection_spec,key=JSON.stringify(spec);let row=groups.get(key);if(row){row.count++;continue}
+      row={name:[...new Set((session.topic_ids||[session.topic]).map(labelTopic))].join(', '),detail:description(spec),action:'other',id:record.recent_session_id,count:1};groups.set(key,row);
+     }
+     rows=[...groups.values()];if(button.dataset.grammarQuick==='0')rows.sort((a,b)=>b.count-a.count);
+    }
+    if(!mount.isConnected||ticket!==request)return;
+    results.innerHTML=rows.slice(0,8).map(r=>`<div class="grammar-quick-row"><div><strong>${esc(r.name)}</strong><small>${esc(button.dataset.grammarQuick==='0'?r.count+' keer gestart op dit apparaat':r.detail)}</small></div>${action(r.action,r.id,'Kies oefenvorm')}</div>`).join('')||(button.dataset.grammarQuick==='2'?'<p>Bewaar een les en markeer die in Mijn lessen als favoriet.</p>':'<p>Hier verschijnen je gestarte grammaticalessen op dit apparaat.</p>');
+   }catch{if(mount.isConnected&&ticket===request)results.innerHTML='<p role="alert">Je lessen konden niet worden geladen. Probeer het opnieuw.</p>'}
+  });
+ }
  function kindId(type){return type==='saved_selection'?'saved_selection_id':'mix_profile_id'}
  function saveDraft(update=false){
-  const editing=ContentUI.editing(),spec=ContentUI.selectionSpec(),prefs=ContentUI.preferences(),name=editing?.name||spec.scope_clauses.map(c=>c.topic_ids.map(labelTopic).join(', ')||'Mijn les').join(' + ');
+  const editing=ContentUI.editing(),spec=ContentUI.selectionSpec(),prefs=ContentUI.preferences(),name=editing?.name||spec.scope_clauses.map(c=>[...new Set(c.topic_ids.map(labelTopic))].join(', ')||'Mijn les').join(' + ');
   openGameDialog(update?'Les opslaan':'Bewaar als les',`<form id="lessonSaveForm" class="lesson-form"><label>Naam<input id="lessonName" maxlength="160" value="${esc(name)}" required></label><p>Je bewaart de keuzes. Start maakt steeds een nieuwe les met passende opdrachten.</p><p id="lessonSaveError" role="alert"></p><button class="primary">${update?'Opslaan':'Bewaar als nieuwe les'}</button></form>`,()=>{$('#lessonSaveForm').onsubmit=async e=>{e.preventDefault();try{if(root.DigiStorageBackupError)throw new Error('Maak eerst ruimte vrij voor de reservekopie.');const input={name:$('#lessonName').value,selection_spec:spec,execution_preferences:prefs};const result=update?await service.updateSavedSelection(editing.saved_selection_id,input,editing.record_revision):await service.saveSelection(input);$('#gameDialog').close();ContentUI.loadSelection(result.selection_spec,result.execution_preferences,{record:result});toast('Les bewaard.')}catch(error){$('#lessonSaveError').textContent=error.message}}});
  }
  async function favoriteGame(engine,variant){try{await service.addFavorite(variant?'game_variant':'game_engine',engine+(variant?'/'+variant:''));toast('Spelvorm toegevoegd aan favorieten.')}catch(error){showError(error)}}
  function openMix(existing=null,record=null){
   if(existing)existing=runtime.currentSelection(existing);
-  const options=catalog.families.flatMap(f=>f.topics.map(t=>({family:f.id,topic:t.id,label:t.label,levels:t.levels}))),chosen=existing?.scope_clauses||[];
-  openGameDialog('Mix maken',`<form id="lessonMixForm" class="lesson-form"><label>Naam<input id="mixName" maxlength="160" value="${esc(record?.name||'Mijn mix')}" required></label><label>Zoek onderwerp<input id="mixSearch" type="search" placeholder="Bijvoorbeeld ER of hoofdzin"></label><div class="lesson-mix-options">${options.map((o,i)=>{const c=chosen.find(c=>c.content_family_id===o.family&&(c.topic_ids.includes(o.topic)||o.topic==='MODAAL'&&c.topic_ids.includes('ZULLEN')&&c.topic_ids.includes('ZOUDEN')));return `<label class="lesson-mix-option" data-search="${esc(o.label.toLocaleLowerCase('nl'))}"><input type="checkbox" name="mixTopic" value="${i}" ${c?'checked':''}><span>${esc(o.label)}</span><select aria-label="Niveau voor ${esc(o.label)}" data-mix-level="${i}">${o.levels.map(l=>`<option value="${esc(l)}" ${c?.cefr_levels.some(v=>DigiRoutes.resolve(v)===l)?'selected':''}>${esc(DigiRoutes.label(l))}</option>`).join('')}</select><select aria-label="Nadruk op ${esc(o.label)}" data-mix-weight="${i}"><option value="1">Normaal</option><option value="2" ${c?.weight===2?'selected':''}>Meer nadruk</option></select></label>`}).join('')}</div><label>Verdeling<select id="mixDistribution"><option value="equal">Gelijk verdelen</option><option value="weighted" ${existing?.distribution_spec.mode==='weighted'?'selected':''}>Gebruik mijn nadruk</option></select></label><label>Moeilijkheid<select id="mixDifficulty">${catalog.difficulties.map(d=>`<option value="${esc(d.id)}" ${(existing?.filter_spec?.difficulty||'all')===d.id?'selected':''}>${esc(d.label)}</option>`).join('')}</select></label><p>Het niveau kies je per onderwerp.</p><p id="mixError" role="alert"></p><button class="primary">${record?'Mix opslaan':'Bewaar mix en kies spelvorm'}</button></form>`,()=>{
+  const chosen=existing?.scope_clauses||[];
+  // Keep saved scopes exact: a merged teacher subject must not widen an old selection.
+  const retained=chosen.map((scope,index)=>({scope,label:'Huidige keuze '+(index+1)+': '+([...new Set(scope.topic_ids.map(labelTopic))].join(', ')||'Alle onderwerpen'),levels:['__saved__',...DigiRoutes.ordered(runtime.selectionPool({...existing,scope_clauses:[{...scope,cefr_levels:[]}]}).map(i=>DigiRoutes.classification(i).displayRoute))]}));
+  const options=[...retained,...ContentUI.teacherEntries().map(({family:f,topic:t})=>({family:f.id,topic:t.id,sources:t.sourceTopics||[t.id],sourceFamily:t.sourceFamilies?null:f.id,label:t.label,levels:t.levels})).filter(o=>!chosen.some(c=>c.content_family_id===o.sourceFamily&&c.topic_ids.length===o.sources.length&&o.sources.every(id=>c.topic_ids.includes(id))))];
+  openGameDialog('Mix maken',`<form id="lessonMixForm" class="lesson-form"><label>Naam<input id="mixName" maxlength="160" value="${esc(record?.name||'Mijn mix')}" required></label><label>Zoek onderwerp<input id="mixSearch" type="search" placeholder="Bijvoorbeeld er of hoofdzin"></label><div class="lesson-mix-options">${options.map((o,i)=>{const c=o.scope;return `<label class="lesson-mix-option" data-search="${esc(o.label.toLocaleLowerCase('nl'))}"><input type="checkbox" name="mixTopic" value="${i}" ${c?'checked':''}><span>${esc(o.label)}</span><select aria-label="Niveau voor ${esc(o.label)}" data-mix-level="${i}">${o.levels.map(l=>`<option value="${esc(l)}" ${l==='__saved__'?'selected':''}>${esc(l==='__saved__'?(DigiRoutes.ordered(c.cefr_levels).map(DigiRoutes.label).join(' + ')||'Alle bewaarde niveaus'):DigiRoutes.label(l))}</option>`).join('')}</select><select aria-label="Nadruk op ${esc(o.label)}" data-mix-weight="${i}"><option value="1">Normaal</option>${c&&![1,2].includes(c.weight)?`<option value="${esc(c.weight)}" selected>Bewaarde nadruk</option>`:''}<option value="2" ${c?.weight===2?'selected':''}>Meer nadruk</option></select></label>`}).join('')}</div><label>Verdeling<select id="mixDistribution"><option value="equal">Gelijk verdelen</option><option value="weighted" ${existing?.distribution_spec.mode==='weighted'?'selected':''}>Gebruik mijn nadruk</option></select></label><label>Moeilijkheid<select id="mixDifficulty">${catalog.difficulties.map(d=>`<option value="${esc(d.id)}" ${(existing?.filter_spec?.difficulty||'all')===d.id?'selected':''}>${esc(d.label)}</option>`).join('')}</select></label><p>Het niveau kies je per onderwerp.</p><p id="mixError" role="alert"></p><button class="primary">${record?'Mix opslaan':'Bewaar mix en kies spelvorm'}</button></form>`,()=>{
    $('#mixSearch').oninput=e=>document.querySelectorAll('[data-search]').forEach(el=>{el.hidden=!el.dataset.search.includes(e.target.value.toLocaleLowerCase('nl'))});
-   $('#lessonMixForm').onsubmit=async e=>{e.preventDefault();try{const scope_clauses=[...document.querySelectorAll('[name=mixTopic]:checked')].map(input=>{const i=Number(input.value),o=options[i];return {scope_id:'scope-'+o.family+'-'+o.topic,content_family_id:o.family,content_bank_ids:[],topic_ids:o.topic==='MODAAL'?['ZULLEN','ZOUDEN']:[o.topic],cefr_levels:[$('[data-mix-level="'+i+'"]').value],subtopic_ids:[],interaction_type_ids:[],weight:Number($('[data-mix-weight="'+i+'"]').value)}});const input={name:$('#mixName').value,scope_clauses,filter_spec:{...(existing?.filter_spec||{}),difficulty:$('#mixDifficulty').value},distribution_spec:{mode:$('#mixDistribution').value},compatibility_policy:'compatible_only',execution_defaults:ContentUI.preferences()};const mix=record?await service.updateMixProfile(record.mix_profile_id,input,record.record_revision):await service.createMixProfile(input);$('#gameDialog').close();ContentUI.loadSelection(mix,mix.execution_defaults);toast('Mix bewaard.')}catch(error){$('#mixError').textContent=error.message}};
+   $('#lessonMixForm').onsubmit=async e=>{e.preventDefault();try{const scope_clauses=[...document.querySelectorAll('[name=mixTopic]:checked')].map(input=>{const i=Number(input.value),o=options[i];const level=$('[data-mix-level="'+i+'"]').value;return {...(o.scope||{scope_id:'scope-'+o.family+'-'+o.topic,content_family_id:o.sourceFamily,content_bank_ids:[],topic_ids:o.sources,subtopic_ids:[],interaction_type_ids:[]}),cefr_levels:level==='__saved__'?o.scope.cefr_levels:[level],weight:Number($('[data-mix-weight="'+i+'"]').value)}});const input={name:$('#mixName').value,scope_clauses,filter_spec:{...(existing?.filter_spec||{}),difficulty:$('#mixDifficulty').value},distribution_spec:{mode:$('#mixDistribution').value},compatibility_policy:'compatible_only',execution_defaults:ContentUI.preferences()};const mix=record?await service.updateMixProfile(record.mix_profile_id,input,record.record_revision):await service.createMixProfile(input);$('#gameDialog').close();ContentUI.loadSelection(mix,mix.execution_defaults);toast('Mix bewaard.')}catch(error){$('#mixError').textContent=error.message}};
   });
  }
  async function handle(actionName,key){
@@ -130,7 +168,7 @@
  }
  document.addEventListener('click',event=>{const b=event.target.closest('[data-lesson-action]');if(b&&!b.disabled)handle(b.dataset.lessonAction,b.dataset.id)});
  $('[data-main="lessons"]')?.addEventListener('click',render);
- root.LessonUI={service,progressAdapters,checkpoint,validateProgress,resumeActive,restoreProgress,saveDraft,favoriteGame,openMix,render,handle,flush:async()=>{await Promise.resolve();await writing}};
+ root.LessonUI={renderQuickRoutes,service,progressAdapters,checkpoint,validateProgress,resumeActive,restoreProgress,saveDraft,favoriteGame,openMix,render,handle,flush:async()=>{await Promise.resolve();await writing}};
  // Each established game keeps its original entry and gains the same content-first preparation.
  for(const tile of document.querySelectorAll('[data-activity],[data-board],[data-library-board]')){
   const engine=tile.dataset.board||tile.dataset.libraryBoard?'BOARD':Object.keys(engineKinds).find(e=>engineKinds[e]===tile.dataset.activity);

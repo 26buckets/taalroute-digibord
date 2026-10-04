@@ -12,6 +12,18 @@ vm.runInNewContext(migration,{window:{},localStorage:storage});const backup=valu
 const failed={window:{},localStorage:{...storage,getItem:()=>null,setItem:()=>{throw new Error('Quota')}}};vm.runInNewContext(migration,failed);assert.ok(failed.window.DigiStorageBackupError);assert.equal(values.get('unrelated'),'untouched');
 (async()=>{
  const spec=runtime.specFromFilters({topics:['ER'],levels:['B1']}),prefs={target_duration_seconds:300,organization_mode:'class',preferred_game_engine:'CARDS',preferred_game_variant:'content-pb001'};
+ // Short catalog selections must remain saveable without accepting arbitrary durations.
+ const tinyBank=structuredClone(require('../data/content-vert001-er-b1.js'));tinyBank.items=[{...tinyBank.items[0],estimated_duration_seconds:20}];
+ tinyBank.item_count=1;delete tinyBank.source_sha256;
+ const tinyRuntime=require('../content-runtime.js').createContentRuntime(tinyBank),tiny=factory(tinyRuntime,require('../lesson-storage-adapter.js').createMemoryAdapter());
+ const tinySpec=tinyRuntime.specFromFilters({}),shortPrefs={...prefs,target_duration_seconds:20};
+ const short=await tiny.saveSelection({name:'Korte oefening',selection_spec:tinySpec,execution_preferences:shortPrefs});
+ assert.equal((await tiny.resolveSavedSelection(short.saved_selection_id)).status,'READY');
+ for(const seconds of [30,60])assert.equal((await tiny.saveSelection({name:'Korte les',selection_spec:tinySpec,execution_preferences:{...prefs,target_duration_seconds:seconds}})).execution_preferences.target_duration_seconds,seconds);
+ await tiny.updateSavedSelection(short.saved_selection_id,{execution_preferences:shortPrefs},1);
+ const shortMix=await tiny.createMixProfile({name:'Kort',...tinySpec,execution_defaults:shortPrefs});
+ await tiny.updateMixProfile(shortMix.mix_profile_id,{execution_defaults:shortPrefs},1);
+ for(const seconds of [0,7,20.5,-1,'20',NaN,Infinity])await assert.rejects(()=>tiny.saveSelection({name:'Ongeldig',selection_spec:tinySpec,execution_preferences:{...prefs,target_duration_seconds:seconds}}));
  const saved=await service.saveSelection({name:'ER B1',selection_spec:spec,execution_preferences:prefs});
  assert.equal(JSON.stringify(saved).includes('selected_item_ids'),false);
  const s=await service.createSessionFromSelection(saved.saved_selection_id,{seed:3});

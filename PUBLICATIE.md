@@ -13,7 +13,7 @@ Opdracht van Nico: sluit de 2.698 goedgekeurde WZ-opdrachten aan, publiceer en v
 
 ## Bediening
 
-Spelen → Woorden en zinnen opent de bestaande gezamenlijke voorbereiding. Onder Oefenen staat dezelfde inhoud bij Woorden en zinnen. Onderwerp, leerroute en spel blijven de vaste stappen. Bij Oefendoel betekent Vrij oefenen uitsluitend FREE. Een concreet oefendoel selecteren maakt alleen de passende GUIDED-opdrachten toegankelijk. De keuze wordt in de les en voortgang bewaard. Kleine sets kunnen 30 seconden of 1 minuut oefenen; de bestaande langere duren blijven beschikbaar. Open opdrachten worden samen besproken, zonder automatische goed/foutbeoordeling.
+Spelen → Grammatica en zinsbouw opent dezelfde docentcatalogus als Oefenen: negen categorieën, onderwerp, niveau, oefenvorm en starten. Grammatica en Woorden en zinnen delen één vindstructuur; hun bronbanken en vrijgave blijven intact. Bij Oefendoel betekent Vrij oefenen uitsluitend FREE. Een concreet oefendoel selecteren maakt alleen de passende GUIDED-opdrachten toegankelijk. De keuze wordt in de les en voortgang bewaard. Kleine selecties kunnen hun werkelijke duur onder 30 seconden gebruiken. Open opdrachten worden samen besproken, zonder automatische goed/foutbeoordeling. Zie [de informatiearchitectuur](docs/GRAMMATICA-CATALOGUS.md) en [de volledige mapping](docs/GRAMMATICA-MAPPING.md).
 
 
 ## Historisch publicatiebesluit (vervangen waar hierboven aangevuld)
