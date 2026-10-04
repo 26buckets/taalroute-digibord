@@ -59,7 +59,7 @@ function teamInfo(mode,ppl=participants()){
  return{count:settingsState().groupCount||4,prefix:'g',label:'Groep'};
 }
 function goScreen(id,cardPreview=null){
- if(globalThis.ReleasePolicy?.enabled&&['words','activities','collection','curriculum'].includes(id)&&!(id==='collection'&&(ReleasePolicy.cardAllowed(cardPreview)||cardPreview==='c1-between-lines'))){
+ if(globalThis.ReleasePolicy?.enabled&&['words','workforms','activities','collection','curriculum'].includes(id)&&!(id==='collection'&&(ReleasePolicy.cardAllowed(cardPreview)||cardPreview==='c1-between-lines'))){
   if(!globalThis.ContentUI)return;
   return ContentUI.open({engine:({workforms:'WHEEL',activities:'WHEEL'})[id]});
  }
@@ -1281,7 +1281,5 @@ window.addEventListener('keydown',e=>{
 });
 
 if(location.hash==='#kaartenkast'||location.hash==='#kaartspellen')window.addEventListener('DOMContentLoaded',()=>goScreen('cards'),{once:true});
-
-if(location.hash==='#werkvormen')window.addEventListener('DOMContentLoaded',()=>goScreen('workforms'),{once:true});
 
 installContextTooltips();

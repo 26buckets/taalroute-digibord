@@ -19,7 +19,7 @@ export class LiveClient {
   socket.onopen=()=>socket.send(JSON.stringify({type:'auth',token:this.credentials.token}));
   socket.onmessage=e=>{
    let data;try{data=JSON.parse(e.data);}catch{return;}
-   if(data.type==='error'){this.onConnection('error',data.message);if(['AUTH','CLOSED','UNKNOWN'].includes(data.code)){this.stopped=true;socket.close();}return;}
+   if(data.type==='error'){const terminal=['AUTH','CLOSED','UNKNOWN'].includes(data.code);if(terminal){this.stopped=true;socket.close();}this.onConnection(terminal?'ended':'error',data.message);return;}
    if(data.type==='snapshot'){
     clearTimeout(timeout);this.attempt=0;this.onConnection('connected');
     if(data.state.revision>=this.revision){this.revision=data.state.revision;this.onSnapshot(data.state);}

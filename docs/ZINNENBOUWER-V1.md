@@ -12,7 +12,7 @@ Style Control is in deze repository een CSS-/browsertestcontract, geen component
 
 ## Bouwbesluiten en bestanden
 
-- Nieuwe `zinnenbouwer.html` docentpagina en `meedoen.html` minimale deelnemerspagina. De eigen tegel in de werkvormencatalogus opent direct het bewaarde bord; instellingen staan in een docentdialoog. De oude Live-tegel en zijn contract blijven staan. De nieuwe Start Live-actie staat in Zinnenbouwer, zoals gevraagd. Afzonderlijke pagina's passen bij de bestaande instellingenroute en isoleren legacy globale spelstate.
+- Nieuwe `zinnenbouwer.html` docentpagina en `meedoen.html` minimale deelnemerspagina. De eigen landingspagina op /zinnenbouwer biedt zes zinsvormen en hervatten; instellingen staan in een docentdialoog. De eerdere toevoeging aan de DigiBord-catalogus is op verzoek verwijderd. De oude Live-tegel en zijn contract blijven staan. De nieuwe Start Live-actie staat in Zinnenbouwer, zoals gevraagd. Afzonderlijke pagina's passen bij de bestaande instellingenroute en isoleren legacy globale spelstate.
 - `zinnenbouwer/model.mjs`: versieerbaar functies-/werkwoordmodel en invoercontrole. `grammar.mjs`: pure, afzonderlijke regels; geen UI, netwerk, AI of lijst voorbeeldzinnen. `exercise.mjs`: projecties op één activiteit. `review.mjs`: canonieke groepering.
 - `board.mjs` en `style.css`: gedeelde kaartweergave, Pointer Events voor muis/touch, klikken en toetsenbord als alternatief, undo. `teacher.mjs` en `participant.mjs`: hun eigen schermflow. `live-client.mjs`: verbinding, herstel en foutmeldingen.
 - `session.mjs`: sessiestatus, ronde, idempotente antwoorden en rolgebonden projecties. `worker/live.mjs`: één Durable Object per korte code, servervalidatie met dezelfde motor, WebSockets, docenttoken, tijdelijke deelnemertokens, automatische gegevensverwijdering. Geen accounts/profielen. Dit is de noodzakelijke uitbreiding van de bestaande statische hosting; geen externe database of tweede backend.
@@ -23,7 +23,7 @@ Style Control is in deze repository een CSS-/browsertestcontract, geen component
 
 Eerst model en motor met unit tests; dan klassikaal en vier oefenvormen; daarna Live, mobiel, bespreken/vergelijking/nieuwe ronde; dan regressie. GO alleen met werkende kerncriteria, groene build en relevante bestaande regressie. Geen publicatie zonder expliciete opdracht. Een lokale browser-/touchsimulatie is geen fysieke telefoon- of klasproef.
 
-V1 toetst zinsdelen/posities en expliciet opgegeven werkwoordvormen. De docent levert passende woorden en vervoegingen. Congruentie, betekenis en toekomstige bijzinnen/complexere werkwoordgroepen zijn geen impliciete V1-beloften. Het model reserveert de gevraagde vormen; niet-ondersteunde grammatica wordt expliciet geweigerd.
+V1 toetst zinsdelen/posities en expliciet opgegeven werkwoordvormen. De docent levert passende woorden en vervoegingen. Congruentie, betekenis en geneste bijzinnen/complexere werkwoordgroepen zijn geen impliciete V1-beloften. Het model reserveert de gevraagde vormen; niet-ondersteunde grammatica wordt expliciet geweigerd.
 
 ## Uitgewerkte grenzen
 
@@ -63,16 +63,24 @@ De browsertest controleert de positie van de kaart tijdens echte muis- en gesimu
 
 ## Direct openen en docentinstellingen — correctie 4 oktober 2026
 
-Op Nico’s expliciete verzoek is de verplichte vierstapsvoorbereiding vervangen. Zinnenbouwer opent nu rechtstreeks op het bord en hervat de laatste geldige zin en volgorde op dit apparaat. Bij het eerste gebruik staat ‘Ik werk morgen thuis’ klaar. De docent kan optioneel via Docentinstellingen de onderdelen, woorden en oefenvorm aanpassen. Het dialoogvenster werkt met een aparte conceptkopie: Annuleren, Escape en herladen laten de bewaarde activiteit intact. Nieuwe zin is een bewuste docentactie. Ongeldige instellingen kunnen niet worden toegepast. Tijdens Live kan de actieve activiteit niet worden aangepast.
+Op Nico’s expliciete verzoek is de verplichte vierstapsvoorbereiding vervangen. Na keuze op de eigen landing opent Zinnenbouwer rechtstreeks op het bord. Verder met je zin hervat de laatste geldige zin en volgorde op dit apparaat; herladen van #bord bewaart het bord. De docent kan optioneel via Docentinstellingen de onderdelen, woorden en oefenvorm aanpassen. Het dialoogvenster werkt met een aparte conceptkopie: Annuleren, Escape en herladen laten de bewaarde activiteit intact. Nieuwe zin is een bewuste docentactie. Ongeldige instellingen kunnen niet worden toegepast. Tijdens Live kan de actieve activiteit niet worden aangepast.
 
-De werkvormencatalogus opent weer als catalogus, met een eigen Zinnenbouwer-tegel die het bord direct opent. De tekstlink in Oefenen is verwijderd. Terug naar de werkvormen gaat naar dezelfde catalogus. De overige werkvormen blijven hun bestaande vrijgavecontrole en voorbereidingsingang gebruiken; Raad het woord blijft uitgeschakeld. Dit geeft geen inhoudsbanken vrij.
+De eerder toegevoegde catalogustegel en routeaanpassing zijn op Nico’s latere verzoek teruggedraaid. De tekstlink in Oefenen is verwijderd. De eigen landing opent op /zinnenbouwer; Terug naar DigiBord gaat naar de oorspronkelijke hoofdpagina. Bestaande werkvormen houden hun oorspronkelijke route en vrijgavecontrole.
 
 De woordkaarten hebben een duidelijke kaartvorm, gescheiden functielabel, groot woord en sleepgreep. De labels blijven ook bij deelnemers zichtbaar, conform Nico’s antwoord; alleen de instellingen zijn voor de docent. Meedoen heeft geen instellingen, onderdeelkeuzes of invoerwizard. De controle omvat directe ingang, herladen, heen/terug, annuleren, vier oefenvormen, Live-hervatten, deelnemers zonder instellingen en behoud van drag-and-drop.
 
-Bij de eerdere lokale oplevering had de aanvullende oudere `tests/release-browser.cjs` nog een achterhaalde telling van 6.630. De actuele DigiBord-branch is vóór publicatie samengevoegd en bevat inmiddels het bijgewerkte contract. `npm run test:e1:browser` controleert de actuele R25-vrijgave. De nieuwe publieke ingang en uitgeschakelde RIDDLE-ingangen worden afzonderlijk gecontroleerd in `tests/zinnenbouwer-browser.mjs`.
+Bij de eerdere lokale oplevering had de aanvullende oudere `tests/release-browser.cjs` nog een achterhaalde telling van 6.630. De actuele DigiBord-branch is vóór publicatie samengevoegd en bevat inmiddels het bijgewerkte contract. `npm run test:e1:browser` controleert de actuele R25-vrijgave. De eigen landing, zes zinsvormen en het Live-traject worden afzonderlijk gecontroleerd in `tests/zinnenbouwer-browser.mjs`.
 
 ## Bestaande kaartstijl — correctie 4 oktober 2026
 
-Nico heeft expliciet gevraagd dezelfde kaartopbouw als de actuele DigiBord-kaarten te gebruiken en het resultaat te publiceren. De online kaartweergave en `card-table.css` zijn als referentie bekeken: crème kaartvlak (#fffdfa), volle gekleurde kopstrook, ronde hoeken en gelaagde papieren rand. Deze stijl is toegepast op de woordkaartjes en hun catalogusminiaturen, met de rustige instellingen-typografie en bestaande blauwe bediening. De schermindeling, woordinhoud, labels, docentinstellingen en sleepbediening blijven behouden.
+Nico heeft expliciet gevraagd dezelfde kaartopbouw als de actuele DigiBord-kaarten te gebruiken en het resultaat te publiceren. De online kaartweergave en `card-table.css` zijn als referentie bekeken: crème kaartvlak (#fffdfa), volle gekleurde kopstrook, ronde hoeken en gelaagde papieren rand. Deze stijl is toegepast op de woordkaartjes, met de rustige instellingen-typografie en bestaande blauwe bediening. De schermindeling, woordinhoud, labels, docentinstellingen en sleepbediening blijven behouden.
 
 Vóór publicatie is de actuele branch tot en met 24931f2 geïntegreerd. De bevroren 570-kaartenbaseline, de 80 brongebonden herstelde rebussen en de 40 geblokkeerde Story Cards blijven behouden. P0 toetst 610 actieve kaarten. Geen bronmanifest of borgingshash is voor deze stijlwijziging aangepast.
+
+## Uitbreiding op expliciet verzoek — 4 oktober 2026
+
+De nieuwe opdracht vervangt de oorspronkelijke beperking tot hoofdzinnen: de eigen rustige landing biedt hoofdzin, inversie, ja/nee-vraagzin, bijzin, hoofdzin met bijzin en voltooide tijd. Elk voorbeeld is direct bruikbaar, met dezelfde vier oefenvormen en docentinstellingen. Het bestaande DigiBord houdt zijn standaard catalogus en routes. De kaartstijl blijft ongewijzigd: blauwe functiestrook, crèmekleurig vlak, papieren rand.
+
+De gedeelde motor controleert één bijzin, werkwoorden achteraan, en twee aaneengesloten zinsblokken. Staat de bijzin voorop, dan volgt inversie in de hoofdzin. De infinitief en het voltooid deelwoord worden ondersteund; vervoeging en betekenis blijven docentkeuzes. Geen automatische taalkundige of niveautoekenning.
+
+Live start nu met een zichtbaar sessiescherm boven het bord; tijdens wachten is het bord verborgen. QR, sessiecode en Start ronde staan samen. Na sluiten of een verlopen/ongeldig docenttoken worden de sessiegegevens gewist en kan direct een nieuwe sessie starten. Regressies toetsen dit op desktop en mobiel en doorlopen ook een samengestelde zin met een echte deelnemer.

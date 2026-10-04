@@ -1,4 +1,4 @@
-import {labels,enabled} from './model.mjs';
+import {componentLabel,enabled} from './model.mjs';
 import {shuffle,respectsFixed} from './exercise.mjs';
 export const escapeHtml = value => String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const button = (id,text,extra='') => `<button type="button" data-action="${id}" ${extra}>${text}</button>`;
@@ -38,7 +38,7 @@ export class SentenceBoard {
  mix(){this.setOrder([...this.exercise.fixed,...shuffle(this.order.filter(id=>!this.exercise.fixed.includes(id)))],true,shuffle(this.bankOrder));}
  card(id) {
   const c=this.model.components.find(c=>c.id===id),fixed=this.exercise.fixed.includes(id);
-  return `<button type="button" class="zb-card" data-card="${id}" aria-pressed="${this.selected===id}" aria-label="${escapeHtml(labels[c.type]+': '+c.value+(fixed?', staat vast':''))}" ${this.locked?'disabled':''} data-fixed="${fixed}"><span class="zb-card-label">${labels[c.type]}${fixed?' · vast':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h.01M15 5h.01M9 12h.01M15 12h.01M9 19h.01M15 19h.01"/></svg>'}</span><strong>${escapeHtml(c.value)}</strong></button>`;
+  return `<button type="button" class="zb-card" data-card="${id}" aria-pressed="${this.selected===id}" aria-label="${escapeHtml(componentLabel(this.model,c)+': '+c.value+(fixed?', staat vast':''))}" ${this.locked?'disabled':''} data-fixed="${fixed}"><span class="zb-card-label">${componentLabel(this.model,c)}${fixed?' · vast':'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h.01M15 5h.01M9 12h.01M15 12h.01M9 19h.01M15 19h.01"/></svg>'}</span><strong>${escapeHtml(c.value)}</strong></button>`;
  }
  render() {
   this.cancel();

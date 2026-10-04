@@ -248,11 +248,6 @@ window.DigiActivities = (() => {
  const assets=['DRAAIWIEL','MEMORY','KOPPELEN','SORTEREN','RANGSCHIKKEN','CATEGORIEENQUIZ','RAAD_HET_WOORD','MEER_ACTIVITEITEN'];
  const tiles=[...content.games.map(([id,title])=>({id,title})),{id:'library',title:'Meer activiteiten'}];
  $('#workformDecks').innerHTML=tiles.map((t,i)=>`<button type="button" class="activity-tile" ${t.id==='library'?'data-activities-library':`data-activity="${t.id}"`}><span class="photo-frame"><img src="assets/activities/DIGIBORD_ACT_${assets[i]}_VOLWASSEN_FINAL_${i===5?'v02':'v01'}.png" alt="" width="1536" height="1024"></span><strong>${esc(t.title)}</strong></button>`).join('');
- // Zinnenbouwer opens its own saved board; the other entries retain reviewed preparation.
- $('#workformDecks').insertAdjacentHTML('afterbegin',`<a class="activity-tile activity-zinnenbouwer" href="zinnenbouwer.html"><span class="photo-frame zb-tile-preview" aria-hidden="true"><span class="zb-mini-row"><span><small>Onderwerp</small>Ik</span><span><small>Persoonsvorm</small>werk</span></span><span class="zb-mini-row"><span><small>Tijd</small>morgen</span><span><small>Plaats</small>thuis</span></span></span><strong>Zinnenbouwer</strong></a>`);
- if(globalThis.ReleasePolicy?.enabled){
-  const riddle=$('#workformDecks [data-activity="raad-het-woord"]');riddle.disabled=true;riddle.querySelector('.photo-frame').insertAdjacentHTML('beforeend','<span class="activity-soon">Binnenkort</span>');
- }
  const entry=(attr,id,title,icon)=>`<button type="button" class="smallbtn" ${attr}="${esc(id)}">${gameIcon(icon)}<span>${esc(title)}</span></button>`;
  const group=(title,body)=>`<section class="activity-library-group"><h2>${esc(title)}</h2><div class="activity-library-grid">${body}</div></section>`;
  $('#activityLibrary').innerHTML=[

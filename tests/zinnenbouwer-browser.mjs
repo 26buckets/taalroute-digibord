@@ -9,7 +9,7 @@ const teacher=await browser.newPage({viewport:{width:1440,height:1000}});track(t
 const action=(page,id)=>page.locator(`[data-action="${id}"]`).click();
 const order=async page=>{await page.locator('[data-zone="sentence"]').waitFor();return page.locator('[data-zone="sentence"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card));};
 async function setup(page,type='sentenceBuild'){
- await page.goto(base+'/zinnenbouwer.html');await action(page,'edit');await action(page,'new');
+ await page.goto(base+'/zinnenbouwer.html');await page.locator('[data-template=main]').click();await action(page,'edit');await action(page,'new');
  for(const id of ['time','place','secondVerb'])await page.locator(`[data-enable="${id}"]`).check();
  await action(page,'apply-settings');assert.ok(await page.locator('[data-settings-error]').innerText());
  for(const [id,value] of Object.entries({subject:'ik',finiteVerb:'wil',time:'morgen',place:'thuis',secondVerb:'werken'}))await page.locator(`[data-value="${id}"]`).fill(value);
@@ -37,24 +37,22 @@ async function arrange(page,ids){
 }
 const normal=['subject','finiteVerb','time','place','secondVerb'],inverted=['time','finiteVerb','subject','place','secondVerb'];
 try{
- await teacher.goto(base+'/index.html');await teacher.locator('#screen-play [data-category="workforms"]').click();
- assert.equal(await teacher.locator('#screen-workforms.active').isVisible(),true);
- assert.equal(await teacher.locator('#screen-practice.active').count(),0);
+ await teacher.goto(base+'/zinnenbouwer');
+ assert.equal(await teacher.locator('.zb-choice').count(),6);
+ assert.equal(await teacher.locator('[data-board]').count(),0);
  await teacher.screenshot({path:new URL('entry-desktop.png',out).pathname,fullPage:true});
  for(const width of [390,320,1024]){
-  await teacher.setViewportSize({width,height:844});
-  assert.ok(await teacher.locator('.activity-zinnenbouwer').evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1;}));
-  assert.ok(await teacher.locator('.zb-tile-preview').evaluate(e=>{const r=e.getBoundingClientRect();return [...e.querySelectorAll('.zb-mini-row>span')].every(c=>{const b=c.getBoundingClientRect();return b.top>=r.top&&b.bottom<=r.bottom+1;});}));
+  await teacher.setViewportSize({width,height:844});assert.ok(await teacher.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   if(width===390)await teacher.screenshot({path:new URL('entry-mobile.png',out).pathname,fullPage:true});
  }
  await teacher.setViewportSize({width:1440,height:1000});
- assert.equal(await teacher.locator('#workformDecks [data-activity="raad-het-woord"]').isEnabled(),false);assert.equal(await teacher.locator('#workformDecks [data-practice-engine="RIDDLE"]').isEnabled(),false);
- await teacher.locator('#workformDecks a[href="zinnenbouwer.html"]').click();
- assert.deepEqual(await order(teacher),['subject','finiteVerb','time','place']);assert.equal(await teacher.locator('[data-settings]').isVisible(),false);
+ for(const key of ['inversion','question','subordinate','compound','perfect','main']){
+  await teacher.locator('[data-template="'+key+'"]').click();await action(teacher,'solution');assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'correct');await action(teacher,'home');
+ }
+ await action(teacher,'resume');
  await teacher.locator('[data-card="time"]').focus();await teacher.keyboard.press('ArrowLeft');const remembered=await order(teacher);
  await teacher.reload();assert.deepEqual(await order(teacher),remembered);
- await teacher.getByRole('link',{name:'Terug naar de werkvormen'}).click();await teacher.locator('#screen-workforms.active').waitFor();
- await teacher.locator('#workformDecks a[href="zinnenbouwer.html"]').click();assert.deepEqual(await order(teacher),remembered);
+ await teacher.goto(base+'/zinnenbouwer');assert.equal(await teacher.locator('[data-board]').count(),0);await action(teacher,'resume');assert.deepEqual(await order(teacher),remembered);
  await action(teacher,'edit');await teacher.locator('[data-value="subject"]').fill('jij');await teacher.getByRole('button',{name:'Annuleren',exact:true}).click();
  assert.equal(await teacher.locator('[data-card="subject"] strong').innerText(),'ik');assert.deepEqual(await order(teacher),remembered);
  await action(teacher,'edit');await teacher.locator('[data-value="subject"]').fill('zij');await teacher.keyboard.press('Escape');assert.equal(await teacher.locator('[data-settings]').isVisible(),false);assert.equal(await teacher.locator('[data-card="subject"] strong').innerText(),'ik');
@@ -99,7 +97,9 @@ try{
  // Failure path must preserve classroom functionality.
  await teacher.route('**/api/live/sessions',r=>r.abort());await action(teacher,'live');await teacher.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('klassikaal'));
  await action(teacher,'clear');assert.equal((await order(teacher)).length,0);await action(teacher,'solution');assert.deepEqual(await order(teacher),normal);await teacher.unroute('**/api/live/sessions');
- await action(teacher,'live');await teacher.locator('[data-action="start"]').waitFor();assert.equal(await teacher.locator('[data-qr] svg').count(),1);
+ await action(teacher,'live');await teacher.locator('[data-action="start"]:enabled').waitFor();
+ for(const [width,height] of [[1366,768],[390,844]]){await teacher.setViewportSize({width,height});await teacher.locator('[data-live] h2').scrollIntoViewIfNeeded();assert.equal(await teacher.locator('[data-class-board]').isVisible(),false);assert.ok(await teacher.locator('[data-action=start]').evaluate(e=>{const r=e.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight;}),`Start ronde outside viewport ${width}x${height}`);await teacher.screenshot({path:new URL(width===390?'live-mobile.png':'live-desktop.png',out).pathname,fullPage:true});}
+ await teacher.setViewportSize({width:1440,height:1000});assert.equal(await teacher.locator('[data-qr] svg').count(),1);
  const code=(await teacher.locator('.zb-code').innerText()).trim();assert.match(code,/^\d{6}$/);
  const contexts=[],pages=[];
  for(let i=0;i<3;i++){
@@ -162,7 +162,7 @@ try{
  await action(teacher,'review');await action(teacher,'again-mix');for(const p of pages)await p.locator('[data-action="submit"]').waitFor();
  // Reload host credentials: same session and no lost participant count.
  await teacher.reload();await teacher.waitForFunction(()=>document.querySelector('[data-counts]')?.textContent.includes('3 deelnemers'));
- assert.equal((await teacher.locator('.zb-code').innerText()).trim(),code);
+ assert.equal((await teacher.locator('.zb-code').textContent()).trim(),code);
  for(const [width,height] of [[1920,1080],[1366,768],[390,844],[320,568]]){
   await teacher.setViewportSize({width,height});assert.ok(await teacher.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   for(const b of await teacher.locator('button:visible').all()){const box=await b.boundingBox();assert.ok(box.height>=44&&box.width>=44,'touch target '+await b.innerText());}
@@ -171,6 +171,11 @@ try{
  await action(teacher,'close');await pages[0].getByText('De sessie is afgelopen',{exact:true}).waitFor();
  const closed=await contexts[0].newPage();await closed.goto(base+'/meedoen.html?code='+code);await closed.locator('form button').click();await closed.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('gesloten'));
  const unknown=await browser.newPage();await unknown.goto(base+'/meedoen.html?code=000000');await unknown.locator('form button').click();await unknown.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('niet bekend'));
- assert.deepEqual(errors,[]);await fs.writeFile(new URL('results.json',out),JSON.stringify({status:'PASS',clients:4,exercises:4,directEntry:true,autoResume:true,teacherSettings:true,participantLabels:true,mouseDrag:true,touchDrag:true,fingerTracking:true,insertionMarker:true,bankDrop:true,dragCancellation:true,fixedCards:true,edgeScroll:true,offlineDraft:true,reconnect:true,grouping:true,explicitComparison:true,newRounds:true,hostReload:true,closed:true,unknown:true,viewports:[1920,1366,390,320],errors},null,2));
- console.log('PASS: direct entry/return/resume, teacher-only settings/cancel, participant labels, four exercises, teacher/mouse/keyboard, native touch, three mobile clients, offline/reload, realtime grouping, explicit compare, new rounds, host reload, closure, unknown code, four sizes.');
+ // A closed stored host session must recover to a fresh, usable session.
+ const stale={code,token:'invalid-token'};await teacher.evaluate(c=>sessionStorage.setItem('taalroute-zinnenbouwer-host',JSON.stringify(c)),stale);await teacher.reload();
+ await teacher.locator('[data-action=live]:enabled').waitFor();await action(teacher,'home');await teacher.locator('[data-template=compound]').click();await action(teacher,'live');await teacher.locator('[data-action=start]:enabled').waitFor();
+ const compoundCode=(await teacher.locator('.zb-code').innerText()).trim();const cp=await browser.newPage();track(cp);await cp.goto(base+'/meedoen.html?code='+compoundCode);await cp.locator('form button').click();await cp.getByText('Wacht op de docent',{exact:true}).waitFor();await action(teacher,'start');await cp.locator('[data-board]').waitFor();
+ await arrange(cp,['sub-conjunction','sub-subject','sub-rest','sub-finiteVerb','finiteVerb','subject','place']);await action(cp,'submit');await teacher.waitForFunction(()=>document.querySelector('[data-counts]').textContent.includes('1 antwoorden'));await action(teacher,'review');await teacher.locator('.zb-group').waitFor();assert.match(await teacher.locator('.zb-group').innerText(),/Omdat ik ziek ben, blijf ik thuis/);await action(teacher,'close');
+ assert.deepEqual(errors,[]);await fs.writeFile(new URL('results.json',out),JSON.stringify({status:'PASS',clients:4,exercises:4,landing:true,sentenceTypes:6,resume:true,visibleLiveLobby:true,staleSessionRecovery:true,compoundLive:true,teacherSettings:true,participantLabels:true,mouseDrag:true,touchDrag:true,fingerTracking:true,insertionMarker:true,bankDrop:true,dragCancellation:true,fixedCards:true,edgeScroll:true,offlineDraft:true,reconnect:true,grouping:true,explicitComparison:true,newRounds:true,hostReload:true,closed:true,unknown:true,viewports:[1920,1366,390,320],errors},null,2));
+ console.log('PASS: landing/six sentence types/resume, visible Live lobby, stale-session recovery, compound Live, teacher-only settings/cancel, participant labels, four exercises, teacher/mouse/keyboard, native touch, three mobile clients, offline/reload, realtime grouping, explicit compare, new rounds, host reload, closure, unknown code, four sizes.');
 }finally{await browser.close();}
