@@ -53,7 +53,7 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  // The third step exposes exercise types as well as the compatible game surfaces.
  await page.evaluate(()=>{ContentUI.open({family:GrammarCatalog.familyId});ContentUI.setState({topic:'g-er',level:'A1_A2',engine:'CARDS',duration:30,difficulty:'all'})});
  await page.locator('[data-practice-step=game]>summary').click();
- await page.locator('[data-practice-step=game] input[name=focus][value=fill]').check();
+ await page.locator('[data-practice-step=game] .practice-choice:has(input[name=focus][value=fill])').click();
  assert.ok(await page.evaluate(()=>ContentRuntime.selectionPool(ContentUI.selectionSpec()).every(i=>i.exercise_type==='invullen')));
  assert.ok(await page.locator('#practiceStart').isEnabled());
  // Every guided selection goes through the actual selector, then can start.
