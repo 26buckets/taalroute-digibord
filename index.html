@@ -19,7 +19,7 @@
 <div id="app">
 <header id="appHeader">
   <div class="brand"><img class="header-brand-logo" src="assets/brand/taalroute.svg" alt="Taalroute"><div class="brand-sep"></div><div class="product">DigiBord <span class="beta-label">Bèta</span></div></div>
-  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Oefenen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Mijn lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Mijn collectie</button></nav>
+  <nav class="mainnav"><button class="navitem active" data-main="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-7H9v7H3z"/></svg>Spelen</button><button class="navitem" data-main="practice"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>Les samenstellen</button><button class="navitem" data-main="lessons"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg>Mijn lessen</button><button class="navitem" data-main="mycollection"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h6l3 3h9v13H3zM3 7h18"/></svg>Voortgang en groepen</button></nav>
   <div class="header-actions">
     <button class="curriculum-context" id="curriculumContext" type="button" popovertarget="curriculumPanel" aria-controls="curriculumPanel" aria-expanded="false" aria-label="Curriculum bekijken" title="Curriculum bekijken"><svg class="ui-icon curriculum-book-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 5 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-3-1-6-2-10 1v16"/></svg><span class="curriculum-button-label">Curriculum</span><svg class="curriculum-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     <label class="level-pill"><span class="sr-only">Niveau</span><select id="levelSelect" aria-label="Niveau"><option>Alpha A</option><option>Alpha B</option><option>Alpha C</option><option>A0</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option><option>C2</option></select></label>
@@ -36,7 +36,7 @@
     <div class="hero">
       <h1>Kies je spel</h1>
       <p>Samen met taal aan de slag.</p>
-      <button type="button" class="practice-mobile-launch" data-practice-open>Oefenen <span>Stel je sessie samen</span></button>
+      <button type="button" class="practice-mobile-launch" data-practice-open>Les samenstellen <span>Kies inhoud en spelvorm</span></button>
       <div class="scribble">Taal opent<br>de wereld!</div>
     </div>
 
@@ -94,7 +94,7 @@
 
 <section class="screen content-practice-page" id="screen-practice">
   <div class="practice-shell">
-    <div class="practice-head"><div><h1>Maak je les klaar</h1></div><button class="smallbtn" data-home>← Spelen</button></div>
+    <div class="practice-head"><div><h1>Les samenstellen</h1></div><button class="smallbtn" data-home>← Spelen</button></div>
     <div id="contentPracticeApp"></div>
   </div>
 </section>
@@ -155,7 +155,7 @@
   </div>
 </details></section>
 
-<section class="screen simple-page" id="screen-mycollection"><h1>Mijn collectie</h1><p>Je beeldsets, bewaarde voortgang en groepen.</p><div class="simple-grid"><div class="simple-card"><h3>Verhaal maken</h3><p>320 beelden in tien speelbare sets.</p><button class="smallbtn" id="collectionStorySets">Bekijk de beeldsets</button></div><div class="simple-card"><h3>Verder spelen</h3><p>Ga verder met je laatst gespeelde spel.</p><button class="smallbtn" id="collectionResume">Hervat mijn spel</button></div><div class="simple-card"><h3>Mijn groepen</h3><p>Beheer de deelnemers en je bewaarde groepen.</p><button class="smallbtn" data-open-settings>Open instellingen</button></div></div></section>
+<section class="screen simple-page" id="screen-mycollection"><h1>Voortgang en groepen</h1><p>Je beeldsets, bewaarde voortgang en groepen.</p><div class="simple-grid"><div class="simple-card"><h3>Verhaal maken</h3><p>320 beelden in tien speelbare sets.</p><button class="smallbtn" id="collectionStorySets">Bekijk de beeldsets</button></div><div class="simple-card"><h3>Verder spelen</h3><p>Ga verder met je laatst gespeelde spel.</p><button class="smallbtn" id="collectionResume">Hervat mijn spel</button></div><div class="simple-card"><h3>Mijn groepen</h3><p>Beheer de deelnemers en je bewaarde groepen.</p><button class="smallbtn" data-open-settings>Open instellingen</button></div></div></section>
 <section class="screen simple-page" id="screen-collection">
   <h1>Kaartenkast</h1><p>Je spellen, taalsets en deelnemers bij elkaar.</p>
   <div class="simple-grid">

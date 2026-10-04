@@ -53,7 +53,7 @@ window.DigiActivities = (() => {
   return s;
  }
  function start(id,setId){
-  if(globalThis.ReleasePolicy?.enabled&&!ContentRuntime.activeSession()?.game_engines.includes(engineIds[id]))return ContentUI.open({engine:({draaiwiel:'WHEEL',categorieenquiz:'QUIZ',rangschikken:'SEQUENCE',koppelen:'MATCH',memory:'MEMORY',sorteren:'SORT','raad-het-woord':'RIDDLE'})[id]});
+  if(globalThis.ReleasePolicy?.enabled&&!ContentRuntime.activeSession()?.game_engines.includes(engineIds[id]))return ContentUI.openGame({engine:({draaiwiel:'WHEEL',categorieenquiz:'QUIZ',rangschikken:'SEQUENCE',koppelen:'MATCH',memory:'MEMORY',sorteren:'SORT','raad-het-woord':'RIDDLE'})[id]});
   if(!content.games.some(g=>g[0]===id))return;
   const setIndex=setId===undefined?-1:content.pictureSets.findIndex(s=>s.id===setId&&s.forms.includes(id));
   if(setId!==undefined&&setIndex<0)return;

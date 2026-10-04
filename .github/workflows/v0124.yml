@@ -32,7 +32,7 @@ jobs:
       matrix:
         include:
           - name: shared-runtime
-            command: npm run smoke:core && npm run test:grammar-catalog:browser
+            command: npm run smoke:core && npm run test:grammar-catalog:browser && npm run test:navigation:browser
           - name: cards-and-preservation
             command: npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser && npm run test:shuffle:browser && npm run test:p0:browser && npm run test:rebuses:browser
           - name: activities-and-release-gates

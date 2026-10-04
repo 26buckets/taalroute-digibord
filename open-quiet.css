@@ -526,3 +526,17 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 
 /* Keep restored rebus images within the existing card fit on tablets and phones. */
 @media(max-width:1099px){#screen-game .card-viewport .rebus-preview img{max-height:230px;object-fit:contain}}
+
+/* Keep entry context readable without changing the existing page composition. */
+#screen-practice .practice-head .practice-breadcrumb:not([hidden]){display:block;margin:8px 0 0;font-size:14px;color:var(--setup-muted)}
+#screen-practice .practice-librarybar[hidden],#screen-practice #grammarQuickRoutes[hidden]{display:none}
+@media(max-width:1000px){
+ #contentPracticeApp .practice-topic-row{display:grid;grid-template-columns:minmax(0,1fr) auto;overflow-wrap:normal}
+ #contentPracticeApp .practice-topic-row>.practice-labels{grid-column:1;grid-row:2;justify-content:flex-start;flex-wrap:wrap}
+ #contentPracticeApp .practice-topic-row>span:last-child{grid-column:2;grid-row:1}
+}
+@media(max-width:600px){
+ #app:not(:has(#screen-game.active .board-game)){grid-template-rows:128px minmax(0,1fr)}
+ #app:not(:has(#screen-game.active .board-game))>header{grid-template-rows:58px 70px}
+ #app:not(:has(#screen-game.active .board-game))>header .mainnav .navitem{flex-direction:column;gap:3px;padding:2px;overflow-wrap:normal}
+}

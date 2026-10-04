@@ -38,3 +38,7 @@ GitHub: gebruik branch `codex/digibord-v1.25` van `26buckets/taalroute-digibord`
 De volledige bronvoorraad, eerdere verslagen en chat-afspraken staan op Drive:
 https://drive.google.com/drive/folders/1LertxIY2VeDDWewY4dZK6JOGjdZ6Vu25
 Lees de nieuwste START-HIER en publicatie-aanvulling vóór verderwerken. Git bevat de app en tests; Drive bevat ook de volledige projectoverdracht, boekanalyses en overige bronnen buiten de repository.
+
+## Navigatievervolg — 4 oktober 2026
+
+Het vervolg op de grammaticacatalogus maakt de kaart-, bord- en dobbelingangen contextueel, met behoud van niveau en een terugknop naar de eigen categorie. Oefenen heet Les samenstellen; Mijn collectie heet Voortgang en groepen. De algemene catalogus behoudt de oefenvormkeuze, de kaartingang gebruikt dezelfde catalogus met Kaarten als vaste spelvorm. Dit vervangt de eerdere beschrijving van alle ingangen als dezelfde algemene voorbereiding. Zie [NAVIGATIE.md](docs/NAVIGATIE.md). Samen met de catalogus integreren; geen zelfstandige publicatie op een oudere basis.
