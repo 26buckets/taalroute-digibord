@@ -230,3 +230,7 @@ De gezamenlijke voorbereide kaarten gebruiken dezelfde genummerde opdrachtregels
 Speelbordkeuzes behouden één kaartstructuur: dezelfde beeldhoogte, gelijk uitgelijnde labels en titels, volledige uitleg en dezelfde kaarthoogte. De losse knop Kies inhoud hoort bij die structuur en staat bij kaarten naast elkaar op dezelfde hoogte. Gebruik de beschikbare ruimte van de hoogste kaart; kap tekst niet af. Op smalle schermen staan deze kaarten onder elkaar.
 
 Het bestaande Taalroute-logo, de scheidingslijn en DigiBord met het Bèta-label blijven samen zichtbaar in de gewone header. Het Bèta-label is productinformatie en mag niet als systeemtaal worden verwijderd. De vier hoofdnavigatieknoppen en de headerbediening blijven bereikbaar zonder overlap, ook in kaart- en dobbelspellen op smalle schermen. Het bestaande compacte speelbordmenu blijft behouden. De voorbereiding, spelinhoud, kaartanimatie, grote tongbrekertekst en uitgeschakelde audio blijven staan.
+
+## Grammaticale keuzehulp — 4 oktober 2026
+
+Op expliciet verzoek van Nico: binnen de bestaande voorbereiding opent één grammaticale categorie tegelijk. Concrete oefendoelen krijgen een voorbeeldzin en een secundaire grammaticale term. Niveau volgt na het doel. Alle onderwerplijsten scrollen mee met de pagina; de oude interne scroll van inhoudsgroepen vervalt. Lettertypes, rustige gewichten, bestaande navigatie, spellen en grote projectietekst blijven behouden.

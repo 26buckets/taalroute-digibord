@@ -15,7 +15,8 @@ let browser,page;
   }
   for(let round=0;round<4;round++)for(const topic of ['g-er','g-zullen','g-zouden']){
    const topicStep=page.locator('[data-practice-step=topic]');if(!await topicStep.evaluate(e=>e.open))await activate(topicStep.locator(':scope > summary'));
-   const choice=page.locator(`[data-choose-topic="${topic}"]`),group=choice.locator('..');if(!await group.evaluate(e=>e.open))await activate(group.locator(':scope > summary'));
+   if(!await page.locator(`[data-choose-topic="${topic}"]`).count()){if(await page.locator('[data-grammar-back]').count())await activate(page.locator('[data-grammar-back]'));await activate(page.locator(`[data-grammar-category="${topic==='g-er'?'grammar-5':'grammar-4'}"]`),round>=2&&!touch?round:false)}
+   const choice=page.locator(`[data-choose-topic="${topic}"]`);
    await activate(choice,round>=2&&!touch?round:false);await expectStep('level',`${touch} ${topic} topic advances`);
    // Never open the next step in the test: its choices must already be visible.
    // Use released routes: R25 limits Zullen to B1_B2; do not assume legacy A2/B1 options.
