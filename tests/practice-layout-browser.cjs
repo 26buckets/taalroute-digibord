@@ -4,7 +4,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
 let browser,page;
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true;if(!localStorage.getItem('taalroute-poc0141-settings'))localStorage.setItem('taalroute-poc0141-settings',JSON.stringify({practiceLayout:'topic'}))});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
  assert.equal(await page.locator('[data-practice-step][open]').getAttribute('data-practice-step'),'topic');
  assert.equal(await page.locator('#inventoryResults').innerHTML(),'','Inventory stays lazy');assert.equal(await page.locator('.practice-topic-group[open]').count(),0);
  assert.equal(await page.locator('.practice-topic-group').count(),6); // R25 E1 catalog, with the old Quick bank removed.

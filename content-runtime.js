@@ -64,6 +64,7 @@
   f.bank_ids=list(filters.bank_ids);f.family_ids=list(filters.family_ids);f.microconstructures=list(filters.microconstructures);
   if(f.microconstructures.some(x=>typeof x!=='string'||!items().some(i=>routes.classification(i).Microconstructie===x)))fail('BLOCKED_CONTENT_STATUS','Onbekende grammaticale constructie.');
   if(f.bank_ids.some(id=>!banks.has(id))||f.family_ids.some(id=>![...banks.values()].some(b=>b.familyId===id)))fail('BLOCKED_MISSING_REFERENCE','Deze inhoudsbank of familie is niet beschikbaar.');
+  f.free_play_gate=filters.free_play_gate??'all';if(!['all','FREE','GUIDED'].includes(f.free_play_gate))fail('BLOCKED_SCHEMA_VERSION','Ongeldige keuze voor begeleiding.');
   f.productive_or_receptive=filters.productive_or_receptive??'all';f.difficulty=filters.difficulty??'all';
   if(!['all','productief','receptief'].includes(f.productive_or_receptive)||!['all','basis','midden','hoog'].includes(f.difficulty))fail('BLOCKED_SCHEMA_VERSION','Ongeldige productievorm of moeilijkheid in contentselectie.');
   if(globalThis.ReleasePolicy?.enabled){
@@ -77,7 +78,7 @@
  function inTopic(item,topics){return topics.includes(item.topic)||memberships(item).some(m=>topics.includes(m.topic));}
  function matches(item,f){
   const c=routes.classification(item);
-  return (!f.topics.length||inTopic(item,f.topics))&&(!f.levels.length||f.levels.some(level=>routes.routes.some(r=>r.id===level)||Object.hasOwn(c,'Nieuwe route')?routes.resolve(level)===c.displayRoute:level===item.cefr_level))&&(!f.bank_ids.length||(f.bank_ids.includes(item.content_bank_id)||memberships(item).some(m=>f.bank_ids.includes(m.bank_id))))&&(!f.family_ids.length||(f.family_ids.includes(itemBanks.get(item.content_item_id).familyId)||memberships(item).some(m=>f.family_ids.includes(m.family_id))))&&
+  return (f.free_play_gate==='all'||(c.FreePlayGate||'FREE')===f.free_play_gate)&&(!f.topics.length||inTopic(item,f.topics))&&(!f.levels.length||f.levels.some(level=>routes.routes.some(r=>r.id===level)||Object.hasOwn(c,'Nieuwe route')?routes.resolve(level)===c.displayRoute:level===item.cefr_level))&&(!f.bank_ids.length||(f.bank_ids.includes(item.content_bank_id)||memberships(item).some(m=>f.bank_ids.includes(m.bank_id))))&&(!f.family_ids.length||(f.family_ids.includes(itemBanks.get(item.content_item_id).familyId)||memberships(item).some(m=>f.family_ids.includes(m.family_id))))&&
    (!f.family_tags.length||f.family_tags.every(t=>item.technical_tags.includes(t)))&&(!f.language_functions.length||f.language_functions.includes(item.language_function))&&(!f.exercise_types.length||f.exercise_types.includes(item.exercise_type))&&(!f.interaction_types.length||f.interaction_types.includes(item.interaction_type))&&(!f.support_levels.length||f.support_levels.includes(item.support_level))&&(!f.oral_or_written.length||f.oral_or_written.includes(item.oral_or_written))&&
    (f.productive_or_receptive==='all'||f.productive_or_receptive===item.productive_or_receptive||f.productive_or_receptive==='productief'&&item.productive_or_receptive==='productief_geleid')&&(f.difficulty==='all'||f.difficulty===item.difficulty);
  }
@@ -118,7 +119,7 @@
   if(new Set(scopes.map(s=>s.scope_id)).size!==scopes.length||scopes.some(s=>!Number.isFinite(s.weight)||s.weight<=0))fail('BLOCKED_SCHEMA_VERSION','Ongeldige mixverdeling.');
   for(const s of scopes)for(const k of ['minimum_items','maximum_items','minimum_duration_seconds','maximum_duration_seconds'])if(s[k]!==undefined&&(!Number.isInteger(s[k])||s[k]<0))fail('BLOCKED_SCHEMA_VERSION','Ongeldige selectiegrens.');
   const filter=spec.filter_spec||{},distribution=spec.distribution_spec||{mode:'equal'};
-  const filterKeys=['production_mode','difficulty','support_level','oral_or_written','exercise_type_ids','family_tags','microconstructures'];
+  const filterKeys=['production_mode','difficulty','support_level','oral_or_written','exercise_type_ids','family_tags','microconstructures','free_play_gate'];
   if(Object.keys(filter).some(k=>!filterKeys.includes(k)))fail('BLOCKED_SCHEMA_VERSION','Deze selectiefilter wordt nog niet ondersteund.');
   if(Object.keys(distribution).some(k=>k!=='mode'))fail('BLOCKED_SCHEMA_VERSION','Deze verdelingsregel wordt nog niet ondersteund.');
   for(const scope of scopes){if(scope.minimum_items>(scope.maximum_items??Infinity)||scope.minimum_duration_seconds>(scope.maximum_duration_seconds??Infinity))fail('BLOCKED_CAPACITY','De minimale verdeling is groter dan het maximum.');}
@@ -141,8 +142,8 @@
   }
   return spec;
  }
- function filtersForScope(scope,spec){const f=spec.filter_spec;return {family_ids:scope.content_family_id?[scope.content_family_id]:[],bank_ids:scope.content_bank_ids,topics:scope.topic_ids,levels:scope.cefr_levels,language_functions:scope.subtopic_ids,interaction_types:scope.interaction_type_ids,exercise_types:f.exercise_type_ids||[],family_tags:f.family_tags||[],microconstructures:f.microconstructures||[],productive_or_receptive:f.production_mode||'all',difficulty:f.difficulty||'all',support_levels:f.support_level?list(f.support_level):[],oral_or_written:f.oral_or_written?list(f.oral_or_written):[]}}
- function specFromFilters(filters){const f=normalizeFilters(filters);return normalizeSelection({scope_clauses:[{scope_id:'selection',content_family_id:f.family_ids[0]||null,content_bank_ids:f.bank_ids,topic_ids:f.topics,cefr_levels:f.levels,subtopic_ids:f.language_functions,interaction_type_ids:f.interaction_types}],filter_spec:{microconstructures:f.microconstructures,exercise_type_ids:f.exercise_types,family_tags:f.family_tags,production_mode:f.productive_or_receptive,difficulty:f.difficulty},distribution_spec:{mode:'equal'}})}
+ function filtersForScope(scope,spec){const f=spec.filter_spec;return {family_ids:scope.content_family_id?[scope.content_family_id]:[],bank_ids:scope.content_bank_ids,topics:scope.topic_ids,levels:scope.cefr_levels,language_functions:scope.subtopic_ids,interaction_types:scope.interaction_type_ids,exercise_types:f.exercise_type_ids||[],family_tags:f.family_tags||[],microconstructures:f.microconstructures||[],free_play_gate:f.free_play_gate||'all',productive_or_receptive:f.production_mode||'all',difficulty:f.difficulty||'all',support_levels:f.support_level?list(f.support_level):[],oral_or_written:f.oral_or_written?list(f.oral_or_written):[]}}
+ function specFromFilters(filters){const f=normalizeFilters(filters);return normalizeSelection({scope_clauses:[{scope_id:'selection',content_family_id:f.family_ids[0]||null,content_bank_ids:f.bank_ids,topic_ids:f.topics,cefr_levels:f.levels,subtopic_ids:f.language_functions,interaction_type_ids:f.interaction_types}],filter_spec:{...(f.free_play_gate!=='all'?{free_play_gate:f.free_play_gate}:{}),microconstructures:f.microconstructures,exercise_type_ids:f.exercise_types,family_tags:f.family_tags,production_mode:f.productive_or_receptive,difficulty:f.difficulty},distribution_spec:{mode:'equal'}})}
  function scopePools(spec){return spec.scope_clauses.map(scope=>({scope,pool:filterSource(filtersForScope(scope,spec))}))}
  function selectionPool(spec){return [...new Map(scopePools(normalizeSelection(spec)).flatMap(s=>s.pool.map(i=>[i.content_item_id,i]))).values()]}
  function compatibleSelectionEngines(spec,mode){const pool=selectionPool(spec);return currentEngines().filter(e=>engineRegistry.supportsOrganization(e,mode)&&setCompatibility(pool,e))}

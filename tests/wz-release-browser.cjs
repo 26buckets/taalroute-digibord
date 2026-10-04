@@ -8,7 +8,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   await page.waitForFunction(()=>window.ContentUI&&window.WZReviewed);
   assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
   assert.deepEqual(await page.evaluate(()=>({all:ContentRuntime.availableForPreparation().length,free:ContentRuntime.filterSource().length,version:WZReviewed.version})),{all:11338,free:9578,version:'2026-10-03.wz.release.1'});
-  await page.locator('[data-category=words]').click();assert.equal(await page.evaluate(()=>ContentUI.state().family),'words');
+  await page.locator('[data-category=words]').click();assert.equal(await page.evaluate(()=>ContentUI.state().family),'grammar');
   // Every approved item is projectable in the three shared games, using its real renderer.
   assert.deepEqual(await page.evaluate(()=>{
    const items=ContentRuntime.availableForPreparation().filter(i=>i.domain==='WORDS'),problems=[];
@@ -22,7 +22,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   // Verify the real selector, including each guided-only group and sparse groups.
   const groups=await page.evaluate(()=>[...new Map(ContentRuntime.availableForPreparation().filter(i=>i.domain==='WORDS'&&i.FreePlayGate==='GUIDED').map(i=>[i.topic+'|'+i['Nieuwe route']+'|'+i.Microconstructie,{topic:i.topic,level:DigiRoutes.classification(i).displayRoute,micro:i.Microconstructie}])).values()]);
   for(const group of groups){
-   await page.evaluate(g=>{ContentUI.open({family:'words'});ContentUI.setState({topic:g.topic,level:g.level,engine:'CARDS',duration:180,difficulty:'all',focus:'all',subtopic:'all'});},group);
+   await page.evaluate(g=>{ContentUI.open({family:'words'});ContentUI.setState({family:'words',topic:g.topic,level:g.level,engine:'CARDS',duration:180,difficulty:'all',focus:'all',subtopic:'all'});},group);
    assert.ok(await page.locator('[name=microconstructure]').count());
    await page.selectOption('[name=microconstructure]',group.micro);
    const detail=await page.evaluate(()=>({error:ContentUI.scopeError(),micro:ContentUI.selectionSpec().filter_spec.microconstructures,ids:ContentRuntime.selectionPool(ContentUI.selectionSpec()).map(i=>i.content_item_id),duration:ContentUI.state().duration,disabled:document.querySelector('#practiceStart').disabled}));
@@ -43,7 +43,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
    assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex})),before);
   }
   // Guided selection is kept in both the saved draft and the session across reload.
-  await page.evaluate(g=>{CONTENT_VERT001.stop();ContentUI.open({family:'words'});ContentUI.setState({topic:g.topic,level:g.level,engine:'CARDS',duration:60,difficulty:'all',focus:'all'});ContentUI.setState({microconstructure:g.micro});},groups[0]);
+  await page.evaluate(g=>{CONTENT_VERT001.stop();ContentUI.open({family:'words'});ContentUI.setState({family:'words',topic:g.topic,level:g.level,engine:'CARDS',duration:60,difficulty:'all',focus:'all'});ContentUI.setState({microconstructure:g.micro});},groups[0]);
   await page.locator('#practiceStart').click();const guided=await page.evaluate(async()=>{await LessonUI.flush();return APP.contentSessionConfig});
   assert.deepEqual(guided.normalized_selection_spec.filter_spec.microconstructures,[groups[0].micro]);
   await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig),guided);

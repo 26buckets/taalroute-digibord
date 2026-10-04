@@ -43,7 +43,7 @@ const TASK_POOL=[
 
 const defaults={
  page:'people',
- practiceLayout:'topic',
+ practiceLayout:'level',
  participants:DEFAULT_NAMES.map((name,i)=>({id:'p'+(i+1),name,present:true,group:'Groep '+(i<4?1:2),color:PAWN_COLORS[i%PAWN_COLORS.length]})),
  workMode:'classSpeaker',
  pawnMode:'class',

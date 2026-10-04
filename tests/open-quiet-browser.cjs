@@ -4,7 +4,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
 let browser,page;
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true;if(!localStorage.getItem('taalroute-poc0141-settings'))localStorage.setItem('taalroute-poc0141-settings',JSON.stringify({practiceLayout:'topic'}))});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
  assert.equal(await page.locator('[data-practice-step=topic] .practice-open-title').innerText(),'Wat wil je oefenen?');
  assert.ok(await page.evaluate(()=>document.querySelector('#practiceForm').compareDocumentPosition(document.querySelector('.practice-inventory'))&Node.DOCUMENT_POSITION_FOLLOWING));
  await page.locator('.practice-topic-group').first().locator('summary').click();

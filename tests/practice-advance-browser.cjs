@@ -7,7 +7,7 @@ let browser,page;
  const errors=[];
  for(const touch of [false,true]){
   page=await browser.newPage({viewport:{width:touch?390:1440,height:1000},hasTouch:touch,reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));
-  await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
+  await page.addInitScript(()=>localStorage.setItem('taalroute-poc0141-settings',JSON.stringify({practiceLayout:'topic'})));await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
   async function activate(locator,keyboard=false){if(keyboard){await locator.focus();await locator.press(keyboard===3?'Enter':'Space')}else if(touch)await locator.tap();else await locator.click()}
   async function expectStep(step,label){
    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
@@ -15,10 +15,11 @@ let browser,page;
   }
   for(let round=0;round<4;round++)for(const topic of ['ER','ZULLEN','ZOUDEN']){
    const topicStep=page.locator('[data-practice-step=topic]');if(!await topicStep.evaluate(e=>e.open))await activate(topicStep.locator(':scope > summary'));
-   const choice=page.locator(`[data-choose-topic="${topic}"]`),group=choice.locator('..');if(!await group.evaluate(e=>e.open))await activate(group.locator(':scope > summary'));
+   const id=await page.evaluate(topic=>DIGIBORD_CONTENT_CATALOG.families.find(f=>f.id==='grammar').topics.find(t=>t.navigationCategory&&t.sourceTopics.includes(topic)&&t.rows.some(i=>DigiRoutes.classification(i).FreePlayGate==='FREE')).id,topic);
+   const choice=page.locator(`[data-choose-topic="${id}"]`);for(const group of await page.locator('.practice-topic-group').filter({has:choice}).all())if(!await group.evaluate(e=>e.open))await activate(group.locator(':scope > summary'));
    await activate(choice,round>=2&&!touch?round:false);await expectStep('level',`${touch} ${topic} topic advances`);
    // Never open the next step in the test: its choices must already be visible.
-   // Use released routes: R25 limits Zullen to B1_B2; do not assume legacy A2/B1 options.
+   // Choose only routes actually available for the selected concrete goal.
    const levels=await page.locator('input[name=level]').evaluateAll(es=>es.map(e=>e.value));assert.ok(levels.length);
    const selected=await page.evaluate(()=>ContentUI.state().level),level=round<2?levels[round%levels.length]:levels.includes(selected)?selected:levels[0];
    const input=page.locator(`input[name=level][value="${level}"]`),label=input.locator('..');
