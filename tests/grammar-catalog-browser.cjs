@@ -90,7 +90,10 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  }
  // Page scrolling must work over short and long goal lists and other expanded families.
  async function scrollOver(row){
-  await row.scrollIntoViewIfNeeded();const box=await row.boundingBox();
+  await row.scrollIntoViewIfNeeded();
+  // Wait for Chromium to commit the replaced list before hit-testing a wheel gesture.
+  await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+  const box=await row.boundingBox();
   await page.mouse.move(box.x+box.width/2,box.y+box.height/2);
   const before=await page.locator('#screen-practice').evaluate(e=>e.scrollTop);
   await page.mouse.wheel(0,220);
