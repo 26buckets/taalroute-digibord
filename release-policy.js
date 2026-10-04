@@ -5,11 +5,11 @@
  const enabled=root.DigiBordArchiveReview!==true;
  const versions=Object.freeze({'CB-GRAM-001':'2026-09-24.modals.rest.4','CB-QUICK-014':'2026-09-25.snelvragen.regel.6','CB-BETWEEN-LINES-012':'2026-09-23.1'});
  const wzVersion='2026-10-03.wz.release.1';
- const releasedVersions=Object.freeze({...versions,...Object.fromEntries(['001','002','003','004','005'].map(n=>['CB-WZ-'+n,wzVersion]))});
- const cardKinds=Object.freeze(['mission','conversation','verbs','spelling','puzzles','tongue','idioms','story']);
+ const releasedVersions=Object.freeze({...versions,...Object.fromEntries(['001','002','003','004','005'].map(n=>['CB-WZ-'+n,wzVersion])),...Object.fromEntries(Object.values(root.E1Release?.banks||{}).map(b=>[b.bank_id,b.source_version]))});
+ const cardKinds=Object.freeze(['mission','conversation','verbs','spelling','puzzles','tongue','idioms',...(!root.E1Release?['story']:[])]);
  const cardAllowed=kind=>!enabled||cardKinds.includes(kind);
  const message='Deze les is nu niet beschikbaar. Je opgeslagen les blijft bewaard.';
- const bankAllowed=bank=>!enabled||releasedVersions[bank?.bank_id]===bank?.source_version;
+ const bankAllowed=bank=>!enabled||(!(root.E1Release&&bank?.bank_id==='CB-QUICK-014')&&releasedVersions[bank?.bank_id]===bank?.source_version);
  function sessionAllowed(session){
   if(!enabled)return true;
   if(!session?.selected_item_ids?.length||!session.selected_content_refs?.length)return false;

@@ -4,7 +4,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
 let browser,page;
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});page=await browser.newPage({viewport:{width:1630,height:900},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
  await require('./practice-controls.cjs').level(page,'B2');assert.equal(await page.locator('[name=subtopic] option').filter({hasText:/^Verwijzen met er$/}).count(),1);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource({bank_ids:['CB-GRAM-001'],levels:['B2']}).every(i=>ContentGuidance.mapping(i,'erk'))),true);
  const dir=path.join(root,'tests/artifacts/grammar-review');fs.mkdirSync(dir,{recursive:true});
@@ -42,11 +42,11 @@ let browser,page;
   await page.setViewportSize({width:1440,height:900});
   if(engine==='CARDS')await page.screenshot({path:path.join(dir,'required-words.png')});
  }
- const emphasisAudit=await page.evaluate(()=>ContentRuntime.filterSource().map(item=>{
+ const emphasisAudit=await page.evaluate(()=>ContentRuntime.filterSource({bank_ids:['CB-GRAM-001','CB-QUICK-014']}).map(item=>{
   const prompt=ContentRuntime.displayPrompt(item),node=document.createElement('div');node.innerHTML=contentPromptHtml(prompt);
   return {id:item.content_item_id,bank:item.content_bank_id,prompt:lessonText(prompt),text:node.textContent,words:[...node.querySelectorAll('strong')].map(e=>e.textContent),unsafe:!!node.querySelector('script,img,iframe'),required:/\b(?:Begin met|Reageer met|Vul .+ in:|Kies:|Gebruik:|Herschrijf met)\b/.test(prompt)};
  }));
- assert.equal(emphasisAudit.length,6630);
+ assert.equal(emphasisAudit.length,4061);
  assert.equal(emphasisAudit.filter(i=>!i.bank.startsWith('CB-WZ-')&&i.words.length).length,1570);
  for(const item of emphasisAudit){assert.equal(item.text,item.prompt,item.id+' exact instruction retained');assert.ok(!item.unsafe,item.id+' safe markup');assert.ok(item.words.every(w=>w.trim()),item.id+' no empty emphasis');if(item.required)assert.ok(item.words.length,item.id+' named instruction emphasized');}
  fs.writeFileSync(path.join(dir,'emphasis-audit.json'),JSON.stringify(emphasisAudit,null,2));

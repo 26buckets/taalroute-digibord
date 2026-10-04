@@ -21,6 +21,8 @@
  const executionLevel=value=>/^(Alpha [ABC]|A[012]|A1\+|[BC][12])$/.test(value)?value:routes.find(r=>r.id===resolve(value))?.executionLevel||null;
  const ordered=values=>routes.filter(r=>values.some(v=>resolve(v)===r.id)).map(r=>r.id);
  function classification(item){
+  const canonical=item.e1_canonical?item:globalThis.E1Release?.existingMetadata[item.content_item_id];
+  if(canonical)return {e1_canonical:true,sourceLevel:item.cefr_level,displayRoute:resolve(canonical.route),Microconstructie:canonical.microconstructure,FreePlayGate:canonical.free_play_gate};
   const sourceLevel=item.sourceLevel??item.cefr_level??item.level??item.Niveau??item.route;
   const record=audit?.records[item.source_ref?.source_id]||audit?.records[item.content_item_id]||audit?.records[item.id];
   const fields=Object.hasOwn(item,'Nieuwe route')?item:record||(Object.hasOwn(item,'FreePlayGate')?item:null);
@@ -28,6 +30,7 @@
  }
  function selectable(item,selectedMicroconstructures=[]){
   const c=classification(item);if(c.displayRoute===REVIEW)return false;
+  if(c.e1_canonical)return c.FreePlayGate==='FREE'||c.FreePlayGate==='GUIDED'&&selectedMicroconstructures.includes(c.Microconstructie);
   if(!Object.hasOwn(c,'Nieuwe route'))return true;
   if(c.FreePlayGate==='FREE')return c.ComplexityBudget===1;
   return c.FreePlayGate==='GUIDED'&&[1,2].includes(c.ComplexityBudget)&&selectedMicroconstructures.includes(c.Microconstructie);

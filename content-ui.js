@@ -2,7 +2,7 @@
  'use strict';
  const catalog=root.DIGIBORD_CONTENT_CATALOG,engineRegistry=root.GameEngineRegistry;
  if(!catalog||!root.ContentRuntime||!engineRegistry)return;
- function registerBank(bank,metadata){if(!root.DigiBordArchiveReview&&root.WZReviewed?.banks[bank?.bank_id]){ContentGuidance.registerHistorical(bank);metadata={...metadata,previousVersions:[bank]};bank=root.WZReviewed.banks[bank.bank_id]}const original=bank;bank=root.ConversationReview?.revise(bank)||bank;if(bank!==original){const prior=root.ConversationReview.revise(original,true);metadata={...metadata,previousVersions:[original,prior]};ContentGuidance.registerHistorical(original);ContentGuidance.registerHistorical(prior)}ContentRuntime.registerBank(bank,metadata);catalog.registerBank(bank,metadata);if(bank.guidance)ContentGuidance.register(bank.guidance);if(root.ContentUI){topicIndex=null;gameChoices.clear()}}
+ function registerBank(bank,metadata){if(root.E1Release&&!root.DigiBordArchiveReview&&bank?.bank_id==='CB-QUICK-014'){ContentGuidance.registerHistorical(bank);return;}if(!root.DigiBordArchiveReview&&root.WZReviewed?.banks[bank?.bank_id]){ContentGuidance.registerHistorical(bank);metadata={...metadata,previousVersions:[bank]};bank=root.WZReviewed.banks[bank.bank_id]}const original=bank;bank=root.ConversationReview?.revise(bank)||bank;if(bank!==original){const prior=root.ConversationReview.revise(original,true);metadata={...metadata,previousVersions:[original,prior]};ContentGuidance.registerHistorical(original);ContentGuidance.registerHistorical(prior)}const canonical=!root.DigiBordArchiveReview&&root.E1Release?.banks[bank?.bank_id];if(canonical&&bank!==canonical){metadata={...metadata,previousVersions:[bank,...(metadata?.previousVersions||[])]};bank=canonical;}ContentRuntime.registerBank(bank,metadata);catalog.registerBank(bank,metadata);if(bank.guidance)ContentGuidance.register(bank.guidance);if(root.ContentUI){topicIndex=null;gameChoices.clear()}}
  registerBank(ContentBankAdapters(WORD_CONTENT),{familyId:'words',label:'Woorden en zinnen',defaultDifficulty:'basis',description:'Begin met een korte zin en voeg daarna meer informatie toe.'});
  registerBank(root.WZ_PB003,{familyId:'words',excludedEngines:['DICE','MATCH','MEMORY','SORT']});
  registerBank(root.WZ_PB004,{familyId:'words',excludedEngines:['DICE','MATCH','MEMORY','SORT']});
@@ -93,12 +93,18 @@
  ContentGuidance.registerHistorical(root.GrammarReview.zullenMix(root.DIGIBORD_CONTENT_VERT001));
  ContentGuidance.registerHistorical(root.GrammarReview.modalBridge(root.DIGIBORD_CONTENT_VERT001));
  ContentGuidance.registerHistorical(root.GrammarReview.zoudenMix(root.DIGIBORD_CONTENT_VERT001));
+ if(root.E1Release&&!root.DigiBordArchiveReview){
+  const registered=new Set(ContentRuntime.banks().map(e=>e.bank.bank_id));
+  for(const b of Object.values(root.E1Release.banks))if(!registered.has(b.bank_id))registerBank(b,{familyId:b.family_id,excludedEngines:['DICE','MATCH','MEMORY','SORT','SEQUENCE','RIDDLE'],label:b.family_id==='quick'?'Snelvragen':b.bank_name});
+  catalog.registerBank(ContentRuntime.banks().find(e=>e.bank.bank_id==='CB-GRAM-001').bank,{familyId:'grammar'});
+  for(const [id,refs] of Object.entries(root.E1Release.reuse)){const item=ContentRuntime.itemById(id);if(!item)throw new Error('Ontbrekende bronreferentie: '+id);for(const ref of refs)catalog.registerBank({family_id:'grammar',items:[{...item,topic:ref.topic,topic_label:ref.topic_label}]},{familyId:'grammar'});}
+ }
  ContentGuidance.complete(ContentRuntime.items());
  catalog.families.find(f=>f.id==='grammar').topics.push({id:'MODAAL_ALLES',label:'Mix: alle modale werkwoorden',sourceTopics:['KUNNEN','MOETEN','MOGEN','WILLEN','HOEVEN','ZULLEN','ZOUDEN'],familyTags:['MODAAL'],levels:['A1','A2','B1','B2'],profiles:[],subtopics:[{id:'all',label:'Alles',levels:['A1','A2','B1','B2']}]});
  if(root.ReleasePolicy?.enabled){
   const available=ContentRuntime.availableForPreparation(),families=new Map(ContentRuntime.banks().map(b=>[b.bank.bank_id,b.familyId]));
   catalog.families=catalog.families.map(f=>({...f,topics:f.topics.filter(t=>t.id!=='MODAAL_ALLES').map(t=>{
-   const rows=available.filter(i=>families.get(i.content_bank_id)===f.id&&(t.sourceTopics||[t.id]).includes(i.topic)&&(t.familyTags||[]).every(tag=>i.technical_tags.includes(tag)));
+   const rows=available.filter(i=>(families.get(i.content_bank_id)===f.id||(root.E1Release?.reuse[i.content_item_id]||[]).some(m=>m.family_id===f.id))&&ContentRuntime.inTopic(i,t.sourceTopics||[t.id])&&(t.familyTags||[]).every(tag=>i.technical_tags.includes(tag)));
    return {...t,levels:[...new Set(rows.map(i=>i.cefr_level))].sort(),subtopics:t.subtopics.filter(s=>s.id==='all'||rows.some(i=>i.language_function===s.id))};
   }).filter(t=>t.levels.length)})).filter(f=>f.topics.length);
  }
@@ -107,7 +113,7 @@
  const routeOf=item=>routes.classification(item).displayRoute;
  const routeRows=root.ReleasePolicy?.enabled?ContentRuntime.availableForPreparation():ContentRuntime.items();
  for(const f of catalog.families)for(const t of f.topics){
-  const rows=routeRows.filter(i=>(t.sourceTopics||[t.id]).includes(i.topic));
+  const rows=routeRows.filter(i=>ContentRuntime.inTopic(i,t.sourceTopics||[t.id]));
   t.levels=routes.ordered(rows.map(routeOf));
   for(const sub of t.subtopics||[])sub.levels=routes.ordered(rows.filter(i=>sub.id==='all'||i.language_function===sub.id).map(routeOf));
   for(const profile of t.profiles||[]){profile.sourceLevel??=profile.level;profile.level=routes.resolve(profile.sourceLevel)}
@@ -124,8 +130,8 @@
  function isMix(t){return (t.sourceTopics||[]).length>1}
  function topicChoices(f){return (f?.topics||[]).filter(t=>!isMix(t)||t.id===state.topic)}
  function topic(){const f=family();return f?.topics.find(x=>x.id===state.topic)||null}
- function durationChoices(){return (state.family==='words'||externalSpec?.scope_clauses.some(s=>s.content_family_id==='words'))?[{seconds:30,label:'30 seconden'},{seconds:60,label:'1 minuut'},...catalog.durations]:catalog.durations}
- function microChoices(){const t=topic();return state.family==='words'&&t?[...new Set(routeRows.filter(i=>(t.sourceTopics||[t.id]).includes(i.topic)&&routeOf(i)===state.level).map(i=>routes.classification(i).Microconstructie).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'nl')):[]}
+ function durationChoices(){return (root.E1Release||state.family==='words'||externalSpec?.scope_clauses.some(s=>s.content_family_id==='words'))?[{seconds:30,label:'30 seconden'},{seconds:60,label:'1 minuut'},...catalog.durations]:catalog.durations}
+ function microChoices(){const t=topic();return t?[...new Set(routeRows.filter(i=>ContentRuntime.inTopic(i,t.sourceTopics||[t.id])&&routeOf(i)===state.level).map(i=>routes.classification(i).Microconstructie).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'nl')):[]}
  function focus(){return catalog.focuses.find(x=>x.id===state.focus)||null}
  function engines(){return engineRegistry.contentEngines().map(x=>({id:x.id,label:x.label,description:x.description,variants:x.variants}))}
  function engine(){return engines().find(x=>x.id===state.engine)||null}
@@ -153,7 +159,7 @@
   return {
    family_ids:[state.family],topics:t.sourceTopics||[t.id],levels:[state.level],family_tags:t.familyTags||[],
    language_functions:state.subtopic==='all'?[]:[state.subtopic],exercise_types:focus().exerciseTypes,
-   microconstructures:state.family==='words'&&state.microconstructure?[state.microconstructure]:[],
+   microconstructures:state.microconstructure?[state.microconstructure]:[],
    productive_or_receptive:state.production,difficulty:state.difficulty
   };
  }
@@ -280,7 +286,7 @@
   if(!topicIndex)topicIndex=catalog.families.flatMap(f=>{
    const bankIds=new Set(ContentRuntime.banks().filter(b=>b.familyId===f.id).map(b=>b.bank.bank_id));
    const items=ContentRuntime.availableForPreparation().filter(i=>bankIds.has(i.content_bank_id));
-   return f.topics.filter(t=>!isMix(t)).map(t=>({family:f,topic:t,rows:items.filter(i=>(t.sourceTopics||[t.id]).includes(i.topic)&&(t.familyTags||[]).every(tag=>i.technical_tags.includes(tag)))})).filter(e=>e.rows.length);
+   return f.topics.filter(t=>!isMix(t)).map(t=>({family:f,topic:t,rows:items.filter(i=>ContentRuntime.inTopic(i,t.sourceTopics||[t.id])&&(t.familyTags||[]).every(tag=>i.technical_tags.includes(tag)))})).filter(e=>e.rows.length);
   });
   return topicIndex;
  }
@@ -435,7 +441,7 @@
  function loadSelection(spec,p,{record=null,seed=null,name=spec.name||null}={}){recentNew=true;currentLayout=null;selectionName=name;seedOverride=seed;externalSpec=ContentRuntime.currentSelection(spec);editing=record;state={...state,duration:p.target_duration_seconds,organization:p.organization_mode,engine:p.preferred_game_engine,variant:p.preferred_game_variant};goScreen('practice');renderPage()}
  function openBetweenLines(level=state.level){
   editing=null;selectionName=null;
-  setState({family:'conversation',topic:'tussen-de-regels',level:['B1_B2','B2_C1'].includes(routes.resolve(level))?routes.resolve(level):'B1_B2',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:'CARDS'},{render:false});
+  setState({family:'conversation',topic:'tussen-de-regels',level:(root.E1Release?['A2_B1','B1_B2']:['B1_B2','B2_C1']).includes(routes.resolve(level))?routes.resolve(level):(root.E1Release?'A2_B1':'B1_B2'),subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:'CARDS'},{render:false});
   return open({engine:'CARDS'});
  }
  function openQuickBoard(board){
@@ -443,7 +449,7 @@
   editing=null;selectionName=null;externalSpec=null;seedOverride=null;
   // A source route is not an ERK level. Higher levels stay unavailable instead of silently becoming A1.
   const level=routes.resolve(APP.level);
-  setState({family:'quick',topic:'quick-answer',level,profile:'',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:currentMode(),engine:'BOARD',variant:board},{render:false});
+  setState({family:'quick',topic:root.E1Release?'vertel':'quick-answer',level,profile:'',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:currentMode(),engine:'BOARD',variant:board},{render:false});
   open({engine:'BOARD',variant:board});openStep='level';renderPage();focusStep();
  }
  function open(preset={}){

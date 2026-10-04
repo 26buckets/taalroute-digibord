@@ -48,10 +48,11 @@
     "test:overview:browser": "node tests/overview-browser.cjs",
     "test:practice:browser": "node tests/practice-advance-browser.cjs && node tests/practice-layout-browser.cjs && node tests/open-quiet-browser.cjs",
     "test:wording:browser": "node tests/wording-browser.cjs",
-    "test:release:browser": "node tests/release-browser.cjs && node tests/cards-release-browser.cjs",
+    "test:release:browser": "npm run test:e1:browser",
     "test:routes": "node tests/route-architecture.cjs && node tests/route-architecture-browser.cjs",
     "test:wz-release:browser": "node tests/wz-release-browser.cjs",
-    "test:shuffle:browser": "node tests/card-shuffle-browser.cjs"
+    "test:shuffle:browser": "node tests/card-shuffle-browser.cjs",
+    "test:e1:browser": "node tests/e1-release-browser.cjs && node tests/e1-memory-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",
