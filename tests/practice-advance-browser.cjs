@@ -13,7 +13,7 @@ let browser,page;
    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    assert.deepEqual(await page.locator('[data-practice-step][open]').evaluateAll(es=>es.map(e=>e.dataset.practiceStep)),step?[step]:[],label);
   }
-  for(let round=0;round<4;round++)for(const topic of ['ER','ZULLEN','ZOUDEN']){
+  for(let round=0;round<4;round++)for(const topic of ['g-er','g-zullen','g-zouden']){
    const topicStep=page.locator('[data-practice-step=topic]');if(!await topicStep.evaluate(e=>e.open))await activate(topicStep.locator(':scope > summary'));
    const choice=page.locator(`[data-choose-topic="${topic}"]`),group=choice.locator('..');if(!await group.evaluate(e=>e.open))await activate(group.locator(':scope > summary'));
    await activate(choice,round>=2&&!touch?round:false);await expectStep('level',`${touch} ${topic} topic advances`);

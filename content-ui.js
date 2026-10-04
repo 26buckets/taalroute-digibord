@@ -2,7 +2,7 @@
  'use strict';
  const catalog=root.DIGIBORD_CONTENT_CATALOG,engineRegistry=root.GameEngineRegistry;
  if(!catalog||!root.ContentRuntime||!engineRegistry)return;
- function registerBank(bank,metadata){if(root.E1Release&&!root.DigiBordArchiveReview&&bank?.bank_id==='CB-QUICK-014'){ContentGuidance.registerHistorical(bank);return;}if(!root.DigiBordArchiveReview&&root.WZReviewed?.banks[bank?.bank_id]){ContentGuidance.registerHistorical(bank);metadata={...metadata,previousVersions:[bank]};bank=root.WZReviewed.banks[bank.bank_id]}const original=bank;bank=root.ConversationReview?.revise(bank)||bank;if(bank!==original){const prior=root.ConversationReview.revise(original,true);metadata={...metadata,previousVersions:[original,prior]};ContentGuidance.registerHistorical(original);ContentGuidance.registerHistorical(prior)}const canonical=!root.DigiBordArchiveReview&&root.E1Release?.banks[bank?.bank_id];if(canonical&&bank!==canonical){metadata={...metadata,previousVersions:[bank,...(metadata?.previousVersions||[])]};bank=canonical;}ContentRuntime.registerBank(bank,metadata);catalog.registerBank(bank,metadata);if(bank.guidance)ContentGuidance.register(bank.guidance);if(root.ContentUI){topicIndex=null;gameChoices.clear()}}
+ function registerBank(bank,metadata){if(root.E1Release&&!root.DigiBordArchiveReview&&bank?.bank_id==='CB-QUICK-014'){ContentGuidance.registerHistorical(bank);return;}if(!root.DigiBordArchiveReview&&root.WZReviewed?.banks[bank?.bank_id]){ContentGuidance.registerHistorical(bank);metadata={...metadata,previousVersions:[bank]};bank=root.WZReviewed.banks[bank.bank_id]}const original=bank;bank=root.ConversationReview?.revise(bank)||bank;if(bank!==original){const prior=root.ConversationReview.revise(original,true);metadata={...metadata,previousVersions:[original,prior]};ContentGuidance.registerHistorical(original);ContentGuidance.registerHistorical(prior)}const canonical=!root.DigiBordArchiveReview&&root.E1Release?.banks[bank?.bank_id];if(canonical&&bank!==canonical){metadata={...metadata,previousVersions:[bank,...(metadata?.previousVersions||[])]};bank=canonical;}ContentRuntime.registerBank(bank,metadata);catalog.registerBank(bank,metadata);if(bank.guidance)ContentGuidance.register(bank.guidance);if(root.ContentUI){if(!root.DigiBordArchiveReview)root.GrammarCatalog.project(catalog,ContentRuntime,root.DigiRoutes);topicIndex=null;gameChoices.clear()}}
  registerBank(ContentBankAdapters(WORD_CONTENT),{familyId:'words',label:'Woorden en zinnen',defaultDifficulty:'basis',description:'Begin met een korte zin en voeg daarna meer informatie toe.'});
  registerBank(root.WZ_PB003,{familyId:'words',excludedEngines:['DICE','MATCH','MEMORY','SORT']});
  registerBank(root.WZ_PB004,{familyId:'words',excludedEngines:['DICE','MATCH','MEMORY','SORT']});
@@ -118,10 +118,14 @@
   for(const sub of t.subtopics||[])sub.levels=routes.ordered(rows.filter(i=>sub.id==='all'||i.language_function===sub.id).map(routeOf));
   for(const profile of t.profiles||[]){profile.sourceLevel??=profile.level;profile.level=routes.resolve(profile.sourceLevel)}
  }
+ const grammar=root.GrammarCatalog;
+ if(!root.DigiBordArchiveReview)grammar.project(catalog,ContentRuntime,routes);
+ const teacherFamilies=()=>catalog.families.filter(f=>root.DigiBordArchiveReview||!grammar.sourceFamilies.includes(f.id));
+ const topicLabel=id=>grammar.label(id,catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label);
  let externalSpec=null,editing=null,moreOpen=false,guidanceOpen=false,selectionName=null;
  const $=s=>document.querySelector(s);
  const esc=value=>(globalThis.AppWording?.text(value)??String(value??'')).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const defaults={family:'grammar',topic:'ER',profile:'',level:'B1_B2',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:null,variant:null};
+ const defaults={family:root.DigiBordArchiveReview?'grammar':grammar.familyId,topic:root.DigiBordArchiveReview?'ER':'g-er',profile:'',level:'B1_B2',subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:600,organization:'class',engine:null,variant:null};
  let state={microconstructure:'',...defaults,...(APP.contentUiDraft||{})},seedOverride=null,previewSeed=Math.floor(Date.now()%4294967295);
  if(root.ReleasePolicy?.enabled&&!catalog.families.some(f=>f.id===state.family&&f.topics.some(t=>t.id===state.topic)))state={...defaults};
  if(state.family==='conversation'&&state.level==='C1'&&catalog.families.find(f=>f.id==='conversation')?.topics.some(t=>t.id===state.topic&&!t.levels.includes('C1')&&t.levels.includes('B2')))state.level='B2';
@@ -130,7 +134,12 @@
  function isMix(t){return (t.sourceTopics||[]).length>1}
  function topicChoices(f){return (f?.topics||[]).filter(t=>!isMix(t)||t.id===state.topic)}
  function topic(){const f=family();return f?.topics.find(x=>x.id===state.topic)||null}
- function durationChoices(){return (root.E1Release||state.family==='words'||externalSpec?.scope_clauses.some(s=>s.content_family_id==='words'))?[{seconds:30,label:'30 seconden'},{seconds:60,label:'1 minuut'},...catalog.durations]:catalog.durations}
+ function durationChoices(){
+  const choices=(root.E1Release||state.family==='words'||externalSpec?.scope_clauses.some(s=>s.content_family_id==='words'))?[{seconds:30,label:'30 seconden'},{seconds:60,label:'1 minuut'},...catalog.durations]:catalog.durations;
+  // A released one-item selection may be shorter than the standard 30 seconds.
+  if(!root.DigiBordArchiveReview)try{const pool=externalSpec?ContentRuntime.selectionPool(externalSpec):ContentRuntime.filterSource(rawFilters()),seconds=pool.reduce((n,i)=>n+i.estimated_duration_seconds,0);if(seconds>0&&seconds<choices[0].seconds)return [{seconds,label:seconds+' seconden'},...choices]}catch{/* Invalid saved choices are reported by scopeError. */}
+  return choices;
+ }
  function microChoices(){const t=topic();return t?[...new Set(routeRows.filter(i=>ContentRuntime.inTopic(i,t.sourceTopics||[t.id])&&routeOf(i)===state.level).map(i=>routes.classification(i).Microconstructie).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'nl')):[]}
  function focus(){return catalog.focuses.find(x=>x.id===state.focus)||null}
  function engines(){return engineRegistry.contentEngines().map(x=>({id:x.id,label:x.label,description:x.description,variants:x.variants}))}
@@ -153,11 +162,11 @@
   return'';
  }
  function emptyAvailability(){return Object.freeze({source_count:0,source_duration_seconds:0,common_count:0,common_duration_seconds:0,engines:Object.freeze(Object.fromEntries(engines().map(e=>[e.id,Object.freeze({count:0,duration_seconds:0,adapter_count:0})])))})}
- function filters(){
-  const error=scopeError();if(error)throw new Error(error);
+ function filters(){const error=scopeError();if(error)throw new Error(error);return rawFilters()}
+ function rawFilters(){
   const t=topic();
   return {
-   family_ids:[state.family],topics:t.sourceTopics||[t.id],levels:[state.level],family_tags:t.familyTags||[],
+   family_ids:t.sourceFamilies?[]:[state.family],bank_ids:t.sourceFamilies?ContentRuntime.banks().filter(b=>t.sourceFamilies.includes(b.familyId)).map(b=>b.bank.bank_id):[],topics:t.sourceTopics||[t.id],levels:[state.level],family_tags:t.familyTags||[],
    language_functions:state.subtopic==='all'?[]:[state.subtopic],exercise_types:focus().exerciseTypes,
    microconstructures:state.microconstructure?[state.microconstructure]:[],
    productive_or_receptive:state.production,difficulty:state.difficulty
@@ -196,7 +205,7 @@
   if(patch.microconstructure!=null&&microChoices().includes(patch.microconstructure))state.microconstructure=patch.microconstructure;
   if(patch.focus!=null)state.focus=patch.focus;
   if(!durationChoices().some(d=>d.seconds===state.duration))state.duration=durationChoices()[0].seconds;
-  if(patch.microconstructure!=null&&!scopeError()){const seconds=capacitySeconds();if(seconds&&state.duration>seconds)state.duration=[...durationChoices()].reverse().find(d=>d.seconds<=seconds)?.seconds||30}
+  if((patch.microconstructure!=null||state.topic!==previousTopic)&&!scopeError()){const seconds=capacitySeconds();if(seconds&&state.duration>seconds)state.duration=[...durationChoices()].reverse().find(d=>d.seconds<=seconds)?.seconds||30}
   if(state.profile&&Object.keys(patch).some(k=>['level','subtopic','focus','production','difficulty'].includes(k)))state.profile='';
   const e=engine();if(e&&!e.variants.some(v=>v.id===state.variant))state.variant=e.variants[0]?.id||null;
   persist();if(render)renderPage();
@@ -224,7 +233,7 @@
  function renderSummary(a,compatible,capacity){
   const t=topic(),e=engine(),variant=e?.variants.find(v=>v.id===state.variant),minutes=Math.round(capacity/60),selected=previewItems(),selectedCount=selected.length,selectedSeconds=selected.reduce((n,i)=>n+i.estimated_duration_seconds,0),error=scopeError();
   const blocker=error||(!a.source_count?'Geen inhoud gevonden voor deze selectie.':!compatible.length?'Er is nog geen passend spel voor deze oefening.':capacity<state.duration?`Je hebt oefeningen voor ongeveer ${minutes} minuten. Kies een kortere duur of kies meer inhoud.`:selectedSeconds>state.duration+Math.max(0,...selected.map(i=>i.estimated_duration_seconds))?'Deze mix heeft meer tijd nodig. Kies minder onderwerpen of een langere duur.':!state.engine?'Kies nog een spelvorm.':!compatible.includes(state.engine)?'Deze spelvorm past niet bij de volledige selectie. Kies een andere spelvorm of pas de inhoud aan.':'');
-  return `<aside class="practice-summary"><h2>Je les</h2><div class="practice-chosen">${esc(externalSpec?editing?.name||selectionName||'Mijn mix':t?.label||state.topic)} ${externalSpec?'':levelBadge(state.level)}<span>· ${esc(e?.label||'Kies een spel')}</span></div><div class="practice-summary-fields">${selectField('duration','Tijd',durationChoices().map(d=>({id:d.seconds,label:d.label})),state.duration)}${selectField('organization','Met wie?',catalog.organizations,state.organization)}</div><details class="practice-facts"><summary>${icon('clipboard')}Les bekijken</summary><dl>${externalSpec?`<div><dt>Inhoud</dt><dd>${externalSpec.scope_clauses.map(c=>esc(c.topic_ids.map(id=>catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label||id).join(', ')+' · '+routes.ordered(c.cefr_levels).map(levelLabel).join(', '))).join('<br>')}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(d=>d.id===externalSpec.filter_spec.difficulty)?.label||'Gemengd')}</dd></div>`:`${state.microconstructure?`<div><dt>Oefendoel</dt><dd>${esc(state.microconstructure)}</dd></div>`:''}<div><dt>Onderdeel</dt><dd>${esc(topicSubtopics().find(x=>x.id===state.subtopic)?.label||state.subtopic)}</dd></div><div><dt>Oefening</dt><dd>${esc(focus()?.label||state.focus)}</dd></div><div><dt>Antwoord</dt><dd>${esc(catalog.productionModes.find(x=>x.id===state.production)?.label||state.production)}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(x=>x.id===state.difficulty)?.label||state.difficulty)}</dd></div>`}<div><dt>Duur</dt><dd>${esc(durationChoices().find(x=>x.seconds===state.duration)?.label||state.duration)}</dd></div><div><dt>Met wie?</dt><dd>${esc(catalog.organizations.find(x=>x.id===state.organization)?.label||state.organization)}</dd></div><div><dt>Spel</dt><dd>${esc(e?.label||'Nog kiezen')}${variant&&e?.variants.length>1?' · '+esc(variant.label):''}</dd></div></dl></details><div class="practice-count"><strong>${selectedCount}</strong><span>opdrachten in deze les</span></div>${blocker?`<p class="practice-warning" role="status">${esc(blocker)}</p>`:`<p class="practice-ready" role="status">Klaar om te starten.</p>`}<button type="button" class="primary practice-start" id="practiceStart" ${blocker?'disabled':''}>${icon('play')}Start les</button><button type="button" class="smallbtn lesson-save" id="practiceSave" ${scopeError()?'disabled':''}>${icon('save')}Bewaar${editing?' als nieuwe les':''}</button>${editing?'<button type="button" class="smallbtn lesson-save" id="practiceUpdate">Wijzigingen opslaan</button>':''}${state.engine?`<button type="button" class="smallbtn lesson-save" id="practiceFavorite">${icon('heart')}Favoriet</button>`:''}<button type="button" class="smallbtn lesson-save" id="practiceMix">${icon('shuffle')}Mix maken</button></aside>`;
+  return `<aside class="practice-summary"><h2>Je les</h2><div class="practice-chosen">${esc(externalSpec?editing?.name||selectionName||'Mijn mix':t?.label||topicLabel(state.topic))} ${externalSpec?'':levelBadge(state.level)}<span>· ${esc(e?.label||'Kies een spel')}</span></div><div class="practice-summary-fields">${selectField('duration','Tijd',durationChoices().map(d=>({id:d.seconds,label:d.label})),state.duration)}${selectField('organization','Met wie?',catalog.organizations,state.organization)}</div><details class="practice-facts"><summary>${icon('clipboard')}Les bekijken</summary><dl>${externalSpec?`<div><dt>Inhoud</dt><dd>${externalSpec.scope_clauses.map(c=>esc([...new Set(c.topic_ids.map(topicLabel))].join(', ')+' · '+routes.ordered(c.cefr_levels).map(levelLabel).join(', '))).join('<br>')}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(d=>d.id===externalSpec.filter_spec.difficulty)?.label||'Gemengd')}</dd></div>`:`${state.microconstructure?`<div><dt>Oefendoel</dt><dd>${esc(grammar.label(state.microconstructure))}</dd></div>`:''}<div><dt>Onderdeel</dt><dd>${esc(topicSubtopics().find(x=>x.id===state.subtopic)?.label||grammar.label(state.subtopic))}</dd></div><div><dt>Oefening</dt><dd>${esc(focus()?.label||state.focus)}</dd></div><div><dt>Antwoord</dt><dd>${esc(catalog.productionModes.find(x=>x.id===state.production)?.label||state.production)}</dd></div><div><dt>Moeilijkheid</dt><dd>${esc(catalog.difficulties.find(x=>x.id===state.difficulty)?.label||state.difficulty)}</dd></div>`}<div><dt>Duur</dt><dd>${esc(durationChoices().find(x=>x.seconds===state.duration)?.label||state.duration)}</dd></div><div><dt>Met wie?</dt><dd>${esc(catalog.organizations.find(x=>x.id===state.organization)?.label||state.organization)}</dd></div><div><dt>Spel</dt><dd>${esc(e?.label||'Nog kiezen')}${variant&&e?.variants.length>1?' · '+esc(variant.label):''}</dd></div></dl></details><div class="practice-count"><strong>${selectedCount}</strong><span>opdrachten in deze les</span></div>${blocker?`<p class="practice-warning" role="status">${esc(blocker)}</p>`:`<p class="practice-ready" role="status">Klaar om te starten.</p>`}<button type="button" class="primary practice-start" id="practiceStart" ${blocker?'disabled':''}>${icon('play')}Start les</button><button type="button" class="smallbtn lesson-save" id="practiceSave" ${scopeError()?'disabled':''}>${icon('save')}Bewaar${editing?' als nieuwe les':''}</button>${editing?'<button type="button" class="smallbtn lesson-save" id="practiceUpdate">Wijzigingen opslaan</button>':''}${state.engine?`<button type="button" class="smallbtn lesson-save" id="practiceFavorite">${icon('heart')}Favoriet</button>`:''}<button type="button" class="smallbtn lesson-save" id="practiceMix">${icon('shuffle')}Mix maken</button></aside>`;
  }
  function openPilot(){
   externalSpec=null;editing=null;
@@ -241,16 +250,18 @@
   const query=inventoryQuery.toLocaleLowerCase('nl').trim().split(/\s+/).filter(Boolean);
   return indexedTopics().map(entry=>{
    const {family:f,topic:t}=entry,haystack=[f.label,t.label,...(t.subtopics||[]).map(s=>s.label)].join(' ').toLocaleLowerCase('nl');
-   return {...entry,rows:query.every(word=>haystack.includes(word))?entry.rows.filter(i=>!inventoryLevel||routeOf(i)===inventoryLevel):[]};
+   return {...entry,rows:(f.id===grammar.familyId?grammar.matches(t,inventoryQuery):query.every(word=>haystack.includes(word)))?entry.rows.filter(i=>!inventoryLevel||routeOf(i)===inventoryLevel):[]};
   }).filter(entry=>entry.rows.length);
  }
  function renderInventory(){
   const mount=$('#inventoryResults');if(!mount)return;
   const entries=inventoryRows(),ids=new Set(entries.flatMap(e=>e.rows.map(i=>i.content_item_id)));
   $('#inventoryCount').textContent=`${inventoryLevel?'Beschikbaar bij '+levelLabel(inventoryLevel):'Beschikbaar op alle niveaus'}${inventoryQuery?' · zoekresultaat':''}: ${ids.size.toLocaleString('nl-NL')} opdrachten`;
-  mount.innerHTML=entries.length?catalog.families.map(f=>{
+  mount.innerHTML=entries.length?teacherFamilies().map(f=>{
    const group=entries.filter(e=>e.family===f);if(!group.length)return '';
-   return `<details class="inventory-family" name="inventory-family"><summary>${esc(f.label)}<small>${group.length} ${group.length===1?'onderwerp':'onderwerpen'}</small></summary><div class="inventory-topics">${group.map(({topic:t,rows})=>`<article class="inventory-topic"><div><h3>${esc(t.label)}</h3><small>${rows.length.toLocaleString('nl-NL')} opdrachten</small>${(t.sourceTopics||[]).length>1?' <span class="practice-type-label">Mix</span>':''}${f.id==='connections'?' <span class="practice-status-label">Proefles</span>':''}</div><div class="practice-labels" aria-label="Kies het niveau voor ${esc(t.label)}">${routes.ordered(rows.map(routeOf)).map(l=>`<button type="button" class="inventory-pick" data-inventory-family="${esc(f.id)}" data-inventory-topic="${esc(t.id)}" data-inventory-level="${esc(l)}" aria-label="Kies ${esc(t.label)}, ${esc(levelLabel(l))}">${levelBadge(l)}</button>`).join('')}</div></article>`).join('')}</div></details>`;
+   const row=({topic:t,rows})=>`<article class="inventory-topic"><div><h3>${esc(t.label)}</h3><small>${rows.length.toLocaleString('nl-NL')} opdrachten</small>${f.id!==grammar.familyId&&(t.sourceTopics||[]).length>1?' <span class="practice-type-label">Mix</span>':''}${f.id==='connections'?' <span class="practice-status-label">Proefles</span>':''}</div><div class="practice-labels" aria-label="Kies het niveau voor ${esc(t.label)}">${routes.ordered(rows.map(routeOf)).map(l=>`<button type="button" class="inventory-pick" data-inventory-family="${esc(f.id)}" data-inventory-topic="${esc(t.id)}" data-inventory-level="${esc(l)}" aria-label="Kies ${esc(t.label)}, ${esc(levelLabel(l))}">${levelBadge(l)}</button>`).join('')}</div></article>`;
+   if(f.id===grammar.familyId)return `<section class="grammar-inventory"><h3>${esc(f.label)}</h3>${inventoryQuery?group.map(row).join(''):grammar.categories.map(c=>{const topics=group.filter(e=>e.topic.categories.includes(c.id));return topics.length?`<details class="inventory-family" name="inventory-family"><summary>${esc(c.label)}<small>${topics.length} onderwerpen</small></summary><div class="inventory-topics">${topics.map(row).join('')}</div></details>`:''}).join('')}</section>`;
+   return `<details class="inventory-family" name="inventory-family"><summary>${esc(f.label)}<small>${group.length} ${group.length===1?'onderwerp':'onderwerpen'}</small></summary><div class="inventory-topics">${group.map(row).join('')}</div></details>`;
   }).join(''):'<p class="practice-note">Geen aangesloten inhoud gevonden. Kies een ander niveau of wis de filters.</p>';
   mount.querySelectorAll('.inventory-family').forEach(details=>details.addEventListener('toggle',()=>{if(details.open)mount.querySelectorAll('.inventory-family').forEach(other=>{if(other!==details)other.open=false})}));
   mount.querySelectorAll('[data-inventory-topic]').forEach(button=>button.onclick=()=>{
@@ -274,19 +285,19 @@
  const layoutLabels={topic:'Onderwerp eerst',level:'Niveau eerst',goal:'Lesdoel eerst',game:'Spel eerst',recent:'Eerder gebruikt'};
  const familyIcons={grammar:'verbs',words:'spelling',riddles:'search',connections:'sequence',conversation:'conversation',reading:'rules',quick:'bulb'};
  const goals=[
-  {id:'sentences',label:'Zinnen maken',icon:'verbs',includes:e=>['grammar','words','connections'].includes(e.family.id)},
+  {id:'sentences',label:'Zinnen maken',icon:'verbs',includes:e=>['grammar','words','grammar-guide','connections'].includes(e.family.id)},
   {id:'words',label:'Woorden oefenen',icon:'spelling',includes:e=>e.family.id==='riddles'||['betekenis-woorden','betekenisnuances'].includes(e.topic.id)},
   {id:'conversation',label:'Een gesprek voeren',icon:'conversation',includes:e=>e.family.id==='conversation'||(e.family.id==='quick'&&e.topic.id!=='quick-tell')},
   {id:'text',label:'Een tekst begrijpen',icon:'rules',includes:e=>e.family.id==='reading'||e.topic.id==='tussen-de-regels'},
   {id:'tell',label:'Vertellen en uitleggen',icon:'story',includes:e=>e.topic.id==='quick-tell'}
  ];
  let currentLayout=null,openStep='topic',chosenGoal='sentences',topicQuery='',topicIndex=null,gameChoices=new Map();
- function practiceLayout(){const saved=settingsState().practiceLayout,value=recentNew&&saved==='recent'?'topic':saved;return Object.hasOwn(layoutLabels,value)?value:'topic'}
+ function practiceLayout(){if(!root.DigiBordArchiveReview&&[grammar.familyId,...grammar.sourceFamilies].includes(state.family))return 'topic';const saved=settingsState().practiceLayout,value=recentNew&&saved==='recent'?'topic':saved;return Object.hasOwn(layoutLabels,value)?value:'topic'}
  function indexedTopics(){
-  if(!topicIndex)topicIndex=catalog.families.flatMap(f=>{
+  if(!topicIndex)topicIndex=teacherFamilies().flatMap(f=>{
    const bankIds=new Set(ContentRuntime.banks().filter(b=>b.familyId===f.id).map(b=>b.bank.bank_id));
-   const items=ContentRuntime.availableForPreparation().filter(i=>bankIds.has(i.content_bank_id));
-   return f.topics.filter(t=>!isMix(t)).map(t=>({family:f,topic:t,rows:items.filter(i=>ContentRuntime.inTopic(i,t.sourceTopics||[t.id])&&(t.familyTags||[]).every(tag=>i.technical_tags.includes(tag)))})).filter(e=>e.rows.length);
+   const items=ContentRuntime.availableForPreparation().filter(i=>f.id===grammar.familyId||bankIds.has(i.content_bank_id)||(root.E1Release?.reuse[i.content_item_id]||[]).some(m=>m.family_id===f.id));
+   return f.topics.filter(t=>f.id===grammar.familyId||!isMix(t)).map(t=>({family:f,topic:t,rows:items.filter(i=>ContentRuntime.inTopic(i,t.sourceTopics||[t.id])&&(t.familyTags||[]).every(tag=>i.technical_tags.includes(tag)))})).filter(e=>e.rows.length);
   });
   return topicIndex;
  }
@@ -313,17 +324,22 @@
  function focusStep(){const step=document.querySelector('[data-practice-step="'+openStep+'"]>summary')||document.querySelector('#practiceStart');step?.focus({preventScroll:true})}
  function rowsForTopics(){
   const entries=routeEntries(),query=topicQuery.trim().toLocaleLowerCase('nl');
-  return catalog.families.map(f=>{
-   const topics=entries.filter(e=>e.family.id===f.id&&(!query||[f.label,e.topic.label,...(e.topic.subtopics||[]).map(s=>s.label)].join(' ').toLocaleLowerCase('nl').includes(query)));
+  return teacherFamilies().map(f=>{
+   const topics=entries.filter(e=>e.family.id===f.id&&(!query||grammar.matches(e.topic,query)||f.label.toLocaleLowerCase('nl').includes(query)));
    if(!topics.length)return '';
+   if(f.id===grammar.familyId)return renderGrammarTopics(topics,query);
    return `<details class="practice-topic-group" ${query?'open':'name="practice-topics"'}><summary>${icon(familyIcons[f.id]||'layers')}<strong>${esc(f.label)}</strong><small>${topics.length}</small></summary>${topics.map(e=>`<button type="button" class="practice-topic-row" data-choose-topic="${esc(e.topic.id)}" data-choose-family="${esc(f.id)}" aria-pressed="${state.topic===e.topic.id&&state.family===f.id}"><span>${esc(e.topic.label)}${e.focusByLevel&&Object.values(e.focusByLevel).some(id=>id!=='all')?`<small class="practice-focus-label">${[...new Set(Object.values(e.focusByLevel))].map(id=>esc(catalog.focuses.find(f=>f.id===id).label)).join(' · ')}</small>`:''}</span><span class="practice-labels">${e.levels.map(levelBadge).join('')}</span><span aria-hidden="true">›</span></button>`).join('')}</details>`;
   }).join('')||'<p class="practice-note">Geen onderwerp gevonden. Wis je zoekwoord of kies een ander spel.</p>';
+ }
+ function renderGrammarTopics(entries,query){
+  const row=e=>`<button type="button" class="practice-topic-row" data-choose-topic="${esc(e.topic.id)}" data-choose-family="${grammar.familyId}" aria-pressed="${state.topic===e.topic.id}"><span>${esc(e.topic.label)}</span><span class="practice-labels">${e.levels.map(levelBadge).join('')}</span><span aria-hidden="true">›</span></button>`;
+  return `<section class="grammar-catalog" aria-label="Grammatica en zinsbouw"><h2>Grammatica en zinsbouw</h2>${query?entries.map(row).join(''):grammar.categories.map(c=>{const topics=entries.filter(e=>e.topic.categories.includes(c.id));return `<details class="practice-topic-group grammar-category" name="practice-topics"><summary>${icon('verbs')}<strong>${esc(c.label)}</strong><small>${topics.length}</small></summary>${topics.map(row).join('')||'<p class="practice-note">Er zijn hier nog geen oefeningen beschikbaar.</p>'}</details>`}).join('')}</section>`;
  }
  function renderSteps(a,compatible,capacity){
   const own=indexedTopics().find(e=>e.family.id===state.family&&e.topic.id===state.topic);
   const availableLevels=currentLayout==='level'?routes.ordered(indexedTopics().flatMap(topicLevels)):own?(currentLayout==='game'&&state.engine?gameEntries(state.engine).find(e=>e.topic.id===own.topic.id&&e.family.id===own.family.id)?.levels||[]:topicLevels(own)):topic()?.levels||[];
   const parts={
-   topic:{title:'Onderwerp',value:topic()?.label||'Kies een onderwerp',icon:'tag',body:`<label class="practice-topic-search">${icon('search')}<input type="search" id="practiceTopicSearch" aria-label="Zoek een onderwerp" placeholder="Zoek een onderwerp" value="${esc(topicQuery)}"></label><div id="practiceTopicRows">${rowsForTopics()}</div>`},
+   topic:{title:'Onderwerp',value:topic()?.label||'Kies een onderwerp',icon:'tag',body:`<label class="practice-topic-search">${icon('search')}<input type="search" id="practiceTopicSearch" aria-label="Zoek een onderwerp" placeholder="Bijvoorbeeld omdat, verleden tijd of inversie" value="${esc(topicQuery)}"></label><div id="practiceTopicRows">${rowsForTopics()}</div>`},
    level:{title:'Niveau',value:levelLabel(state.level),icon:'chart',body:choiceGroup('level','Kies een niveau',availableLevels.map(id=>({id,label:levelLabel(id)})),state.level)},
    goal:{title:'Lesdoel',value:goals.find(g=>g.id===chosenGoal)?.label,icon:'mission',body:goals.filter(g=>indexedTopics().some(g.includes)).map(g=>`<button type="button" class="practice-topic-row" data-practice-goal="${g.id}" aria-pressed="${g.id===chosenGoal}">${icon(g.icon)}<span>${g.label}</span><span aria-hidden="true">›</span></button>`).join('')},
    game:{title:'Spel',value:engine()?.label||'Kies een spel',icon:'cards',body:currentLayout==='game'?`<div class="practice-game-first">${engines().filter(g=>gameEntries(g.id).length).map(g=>`<button type="button" class="practice-topic-row" data-choose-engine="${g.id}" aria-pressed="${g.id===state.engine}">${engineIcon(g.id)}<span>${esc(g.label)}</span><span aria-hidden="true">›</span></button>`).join('')}</div>`:renderEngines(a,compatible,capacity)}
@@ -334,7 +350,7 @@
   try{
    await LessonUI.flush();const records=(await LessonUI.service.list('recent_session')).filter(r=>!root.ReleasePolicy?.enabled||root.ReleasePolicy.sessionAllowed(r.session_config_snapshot)).sort((a,b)=>(b.last_active_at||'').localeCompare(a.last_active_at||'')).slice(0,12);
    if(!mount.isConnected)return;
-   mount.innerHTML=records.map(r=>{const s=r.session_config_snapshot,titles=(s.topic_ids||[s.topic]).map(id=>catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label||id);return `<article class="practice-recent-row"><div><h3>${esc(titles.join(', '))}</h3><span>${esc(engines().find(e=>e.id===s.selected_game_engine)?.label||'Les')} · ${esc(new Date(r.last_active_at).toLocaleDateString('nl-NL'))}</span></div><div class="practice-labels">${(s.display_routes||s.cefr_levels||[s.cefr_level]).map(levelBadge).join('')}</div><div class="lesson-actions"><button type="button" class="smallbtn" data-lesson-action="resume" data-id="${esc(r.recent_session_id)}">Hervatten</button><button type="button" class="smallbtn" data-lesson-action="other" data-id="${esc(r.recent_session_id)}">Opnieuw kiezen</button></div></article>`}).join('')||'<p>Je hebt hier nog geen lessen gestart.</p>';
+   mount.innerHTML=records.map(r=>{const s=r.session_config_snapshot,titles=[...new Set((s.topic_ids||[s.topic]).map(topicLabel))];return `<article class="practice-recent-row"><div><h3>${esc(titles.join(', '))}</h3><span>${esc(engines().find(e=>e.id===s.selected_game_engine)?.label||'Les')} · ${esc(new Date(r.last_active_at).toLocaleDateString('nl-NL'))}</span></div><div class="practice-labels">${(s.display_routes||s.cefr_levels||[s.cefr_level]).map(levelBadge).join('')}</div><div class="lesson-actions"><button type="button" class="smallbtn" data-lesson-action="resume" data-id="${esc(r.recent_session_id)}">Hervatten</button><button type="button" class="smallbtn" data-lesson-action="other" data-id="${esc(r.recent_session_id)}">Opnieuw kiezen</button></div></article>`}).join('')||'<p>Je hebt hier nog geen lessen gestart.</p>';
   }catch{if(mount.isConnected)mount.innerHTML='<p role="alert">Je eerdere lessen konden niet worden geladen. Probeer het opnieuw via Mijn lessen.</p>'}
  }
  function renderPage(){
@@ -348,15 +364,15 @@
   if(e&&!state.variant)state.variant=e.variants[0]?.id||null;
   const f=family(),t=topic(),profileItems=[{id:'',label:'Zelf samenstellen'},...(t?.profiles||[]).filter(p=>indexedTopics().find(e=>e.topic.id===t.id&&e.family.id===state.family)?.rows.some(i=>routeOf(i)===p.level)).map(p=>({id:p.id,label:p.label}))];
   mount.innerHTML=`<form class="practice-layout" id="practiceForm"><div class="practice-config">
-   <section class="practice-panel practice-steps">${externalSpec?`<p>${esc(externalSpec.scope_clauses.map(c=>c.topic_ids.map(id=>catalog.families.flatMap(f=>f.topics).find(t=>t.id===id)?.label||id).join(', ')+' · '+routes.ordered(c.cefr_levels).map(levelLabel).join(', ')).join(' + '))}</p><button type="button" class="smallbtn" id="practiceEditMix">Inhoud aanpassen</button>`:renderSteps(a,compatible,capacity)}</section>
+   <section class="practice-panel practice-steps">${!root.DigiBordArchiveReview?'<div id="grammarQuickRoutes" aria-label="Snelle routes"></div>':''}${externalSpec?`<p>${esc(externalSpec.scope_clauses.map(c=>[...new Set(c.topic_ids.map(topicLabel))].join(', ')+' · '+routes.ordered(c.cefr_levels).map(levelLabel).join(', ')).join(' + '))}</p><button type="button" class="smallbtn" id="practiceEditMix">Inhoud aanpassen</button>`:renderSteps(a,compatible,capacity)}</section>
    ${externalSpec?`<section class="practice-panel">${renderEngines(a,compatible,capacity)}</section>`:''}
-   <section class="practice-panel practice-lesson">${!externalSpec&&microChoices().length?selectField('microconstructure','Oefendoel',[{id:'',label:'Vrij oefenen'},...microChoices().map(id=>({id,label:id}))],state.microconstructure):''}${!externalSpec&&topicSubtopics().length>1?selectField('subtopic','Onderdeel',topicSubtopics(),state.subtopic):''}${e?.variants.length>1?selectField('variant','Spelvariant',e.variants,state.variant):''}</section>
+   <section class="practice-panel practice-lesson">${!externalSpec&&microChoices().length?selectField('microconstructure','Oefendoel',[{id:'',label:'Vrij oefenen'},...microChoices().map(id=>({id,label:grammar.label(id)}))],state.microconstructure):''}${!externalSpec&&topicSubtopics().length>1?selectField('subtopic','Onderdeel',topicSubtopics(),state.subtopic):''}${e?.variants.length>1?selectField('variant','Spelvariant',e.variants,state.variant):''}</section>
    ${externalSpec?'':`<details class="practice-panel practice-more" ${moreOpen?'open':''}><summary>${icon('options')}Meer opties</summary>${selectField('profile','Lesvoorstel',profileItems,state.profile)}${choiceGroup('focus','Oefening',catalog.focuses,state.focus)}${f?.selection_dimensions?.production==='not_applicable'?'':choiceGroup('production','Spreken en begrijpen',catalog.productionModes,state.production)}${f?.selection_dimensions?.difficulty==='not_applicable'?'':choiceGroup('difficulty','Moeilijkheid',catalog.difficulties,state.difficulty)}</details>`}
    </div>${renderSummary(a,compatible,capacity)}<section class="practice-panel practice-help"></section></form><div class="practice-librarybar">${overview()}<span class="practice-layout-label">${esc(layoutLabels[currentLayout])}</span></div>`;
   const selectedItems=previewItems(),panel=mount.querySelector('.practice-help');
   if(selectedItems[0])panel.insertAdjacentHTML('beforeend',`<details class="practice-preview"><summary>${icon('eye')}Bekijk een opdracht</summary><article class="content-reading">${contentTaskText(selectedItems[0],{preview:true})}${selectedItems[0].reasoning?'':`<details><summary>${contentAnswerLabel(selectedItems[0])}</summary>${contentAnswerText(selectedItems[0],ContentRuntime.answerPolicy(selectedItems[0]))}</details>`}</article></details>`);
   panel.insertAdjacentHTML('beforeend',`<details class="practice-guidance" ${guidanceOpen?'open':''}><summary>${icon('help')}Bij deze les</summary><section aria-label="Uitleg bij de gekozen les">${ContentGuidance.row(selectedItems)}</section></details>`);
-  ContentGuidance.bind(panel,selectedItems);bind();bindOverview();bindSteps();
+  ContentGuidance.bind(panel,selectedItems);bind();bindOverview();bindSteps();if(!root.DigiBordArchiveReview)root.LessonUI?.renderQuickRoutes($('#grammarQuickRoutes'));
   }finally{renderCache=null}
  }
  // A new lesson from the recent list uses the default route for this visit only.
@@ -474,14 +490,14 @@
   if(launcher&&!launcher.closest('#screen-practice')&&(APP.contentSessionConfig||ContentRuntime.activeSession?.()))CONTENT_VERT001.stop();
  },true);
  try{if(APP.contentSessionConfig&&!(root.ReleasePolicy?.enabled&&APP.last?.type==='card'&&ReleasePolicy.cardAllowed(APP.last.data.kind)))CONTENT_VERT001.restore()}catch(error){root.contentRestoreError=error;ContentRuntime.clearSession()}
- root.ContentUI=Object.freeze({levelBadge,open,openQuickBoard,openPilot,openBetweenLines,registerBank,launch,loadSelection,selectionSpec,preferences,editing:()=>editing,clearEditing:()=>{editing=null;externalSpec=null;seedOverride=null},render:renderPage,applyLayout:()=>{recentNew=false;currentLayout=null;renderPage()},start,previewItems,sessionOptions,filters,availability,scopeError,engines,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
+ root.ContentUI=Object.freeze({teacherEntries:indexedTopics,topicLabel,levelBadge,open,openQuickBoard,openPilot,openBetweenLines,registerBank,launch,loadSelection,selectionSpec,preferences,editing:()=>editing,clearEditing:()=>{editing=null;externalSpec=null;seedOverride=null},render:renderPage,applyLayout:()=>{recentNew=false;currentLayout=null;renderPage()},start,previewItems,sessionOptions,filters,availability,scopeError,engines,state:()=>({...state}),setState:(patch,options)=>setState(patch,options),setSeedOverride:value=>{seedOverride=value}});
 })(typeof globalThis!=='undefined'?globalThis:this);
 
 if(globalThis.ReleasePolicy?.enabled){
  document.querySelectorAll('[data-main="curriculum"],[data-main="collection"],[data-open-main="curriculum"],[data-open-main="collection"]').forEach(el=>{el.hidden=true;el.style.display='none'});
  const words=document.querySelector('[data-category="words"]');
  words.disabled=false;words.querySelector('.arrowbubble').hidden=false;words.removeAttribute('aria-describedby');
- words.addEventListener('click',event=>{event.preventDefault();event.stopImmediatePropagation();ContentUI.open({family:'words'})},true);
+ words.addEventListener('click',event=>{event.preventDefault();event.stopImmediatePropagation();ContentUI.open({family:GrammarCatalog.familyId})},true);
  document.querySelector('#collectionStorySets').closest('.simple-card').hidden=true;
  document.querySelector('#screen-mycollection>p').textContent='Je bewaarde voortgang en groepen.';
  updateResume();

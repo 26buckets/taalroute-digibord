@@ -24,7 +24,7 @@ const {chromium}=require('playwright');
    if(output&&[390,1440].includes(width))await page.screenshot({path:output+'/speelborden-'+width+'.png'});
   }
   await page.setViewportSize({width:1920,height:1080});await page.locator('[data-main="play"]').click();
-  assert.deepEqual(await page.locator('.gamecard h2').allTextContents(),['Speelborden','Dobbelspellen','Kaartspellen','Woorden en zinnen','Meer manieren om te oefenen','Live']);
+  assert.deepEqual(await page.locator('.gamecard h2').allTextContents(),['Speelborden','Dobbelspellen','Kaartspellen','Grammatica en zinsbouw','Meer manieren om te oefenen','Live']);
   assert.deepEqual(await page.locator('.new-workforms [data-activity]').evaluateAll(es=>es.map(e=>e.dataset.activity)),ids);
   assert.equal(await page.locator('#workformDecks .activity-tile').count(),8);
   assert.deepEqual(await page.locator('#workformDecks strong').allTextContents(),['Draaiwiel','Memory','Koppelen','Sorteren','Rangschikken','Categorieënquiz','Raad het woord','Meer activiteiten']);

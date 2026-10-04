@@ -255,7 +255,7 @@ window.DigiActivities = (() => {
   group('Kaarten, missies en gesprekken',CARD_GAMES.map(g=>entry('data-library-card',g.id,g.title,g.icon)).join('')+entry('data-library-cabinet','all','Alle kaartensets','cards')),
   group('Speelborden',Array.from(document.querySelectorAll('#screen-boards [data-board]')).map(b=>entry('data-library-board',b.dataset.board,b.querySelector('h3').textContent,'mission')).join('')),
   group('Dobbelspellen',entry('data-dicegame','taalworp','Taalworp','verbs')+entry('data-dicegame','story','Verhaalworp','story')),
-  group('Woorden en zinnen',entry('data-library-word','goals','Kies een taaldoel','spelling')),
+  group('Grammatica en zinsbouw',entry('data-library-word','goals','Kies een taaldoel','spelling')),
   group('Gedeelde activiteitensets',content.pictureSets.map(set=>`<article class="activity-shared-set"><h3>${esc(set.title)}</h3><div>${set.forms.map(id=>`<button type="button" class="smallbtn" data-activity="${id}" data-set="${esc(set.id)}">${esc(content.games.find(g=>g[0]===id)[1])}</button>`).join('')}</div></article>`).join(''))
  ].join('');
  document.addEventListener('click',e=>{
