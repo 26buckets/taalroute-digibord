@@ -488,6 +488,38 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 @media(max-width:600px){.card-roles{grid-template-columns:1fr;gap:12px}#screen-game .card-readable .card-focus{overflow-wrap:anywhere}#screen-game .card-actions .card-instruction{font-size:21px}}
 
 /* Explicit deck reset keeps the existing support controls at their full width. */
-.card-order-actions{display:flex;justify-content:center;padding:8px 12px;flex:none}
-.card-order-actions .smallbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;max-width:100%;white-space:normal;font:400 14px/1.4 var(--setup-font);border:1px solid #d7e4ee;border-radius:7px;background:#fff;color:#173752;box-shadow:none}
-.card-order-actions .game-icon{width:20px;height:20px;flex:none;stroke-width:2}
+/* Cards occupy the available screen; the reset is a single quiet icon beside Next. */
+.card-viewport .primary-slot{gap:8px;align-items:center}
+.card-viewport #cardOrderReset{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;min-height:44px;padding:0;border:1px solid #d7e4ee;border-radius:7px;background:#fff;color:#173752;box-shadow:none}
+.card-viewport #cardOrderReset .game-icon{width:20px;height:20px;stroke-width:2}
+.card-viewport #cardOrderReset:focus-visible{outline:3px solid #126ab3;outline-offset:2px}
+#screen-game .card-viewport .card-work{overflow:hidden}
+#screen-game .card-viewport .card-activity-heading{display:flex;flex-wrap:nowrap}
+#screen-game .card-viewport .card-activity-heading h1{flex:1;min-width:0;width:auto}
+#screen-game .card-viewport .cards-stage{flex:1;min-height:0;grid-template-rows:minmax(0,1fr);overflow:visible}
+#screen-game .card-viewport .game-card-motion,#screen-game .card-viewport .active-card{height:100%;min-height:0;max-height:100%}
+#screen-game .card-viewport .active-card{overflow:hidden}
+#screen-game .card-viewport .card-content{flex:1;min-height:0;overflow:visible}
+#screen-game .card-viewport .cardtypes{max-height:100%;overflow:auto}
+.card-viewport #cardMenuOpen{display:none}
+@media(min-width:851px){.card-viewport .gamebar{grid-template-columns:minmax(0,1fr) 320px minmax(0,1fr)}}
+@media(max-width:1200px) and (min-width:851px){.card-viewport .gamebar{grid-template-columns:minmax(0,1fr) 280px minmax(0,1fr)}}
+@media(max-width:850px){
+ #screen-game .card-viewport .card-activity-heading{height:58px;min-height:58px;padding:8px 14px;gap:8px}
+ #screen-game .card-viewport .card-activity-heading h1{font-size:21px;gap:8px}
+ #screen-game .card-viewport .cards-stage{grid-template-columns:minmax(0,1fr);padding:8px 14px 18px;gap:0}
+ #screen-game .card-viewport .cardtypes,#screen-game .card-viewport .deckpanel{display:none}
+ .card-viewport #cardMenuOpen{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:0}
+ .card-viewport #cardMenuOpen .game-icon{width:20px;height:20px}
+ #screen-game .card-viewport .card-ribbon{height:54px;min-height:54px;padding:8px 14px}
+ #screen-game .card-viewport .card-controls{height:66px;flex-basis:66px;padding:8px}
+ .card-viewport .gamebar{grid-template-columns:minmax(0,1fr) 250px}
+ .card-viewport .card-next-primary{width:198px}
+}
+@media(max-width:560px){
+ .card-viewport .gamebar{grid-template-columns:minmax(0,1fr) 206px}
+ .card-viewport .card-next-primary{width:154px;font-size:12px;gap:4px}
+ .card-viewport .primary-slot{gap:6px}
+ #screen-game .card-viewport .card-activity-heading h1 span{display:none}
+ .card-viewport .card-control-row>#tongueRead{padding:8px;font-size:12px}
+}

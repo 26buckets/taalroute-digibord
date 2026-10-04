@@ -22,7 +22,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#levelSelect').selectOption('A1_A2');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 120');await page.locator('#levelSelect').selectOption('A2_B1');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 180');await page.locator('#levelSelect').selectOption('B2_C1');
   await page.evaluate(()=>{selectShuffledCard('tongue',cardsFor('tongue'),'reset');startTongue()});const cycleStart=await page.evaluate(()=>APP.cardShuffles.tongue.cycle);
   assert.ok(await page.locator('#tongueRead').isVisible());assert.ok(await page.locator('#tongueRead').isDisabled());
-  assert.match(await page.locator('#tongueRead').innerText(),/tijdelijk uit/);
+  assert.equal(await page.locator('#tongueRead').innerText(),'Voorlezen');
   assert.equal(await page.locator('#tongueRead').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(237, 240, 243)');
   await page.locator('#tongueRead').evaluate(e=>e.click());
   await page.evaluate(()=>readTongue(currentCard(),document.querySelector('#tongueRead')));
@@ -52,7 +52,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#settingsBtn').click();await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open'));assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
   await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();await page.waitForFunction(()=>!document.querySelector('#settingsOverlay').classList.contains('open'));assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),states);
-  // Frozen classroom typography: short windows must not shrink the sentence.
+  // Preserve the base typography; the viewport fits the whole sentence on short windows.
   const longest=await page.evaluate(()=>cardsFor('tongue').reduce((a,b)=>a.text.length>b.text.length?a:b).sourceNumber);
   for(const [width,height,fontSize] of [[1920,1080,88],[1440,900,72],[1440,800,72],[1440,650,72],[1024,768,51.2],[768,1024,38.4],[390,844,36],[320,568,36]]){
    await page.setViewportSize({width,height});
@@ -73,6 +73,6 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.evaluate(()=>openCabinetSet('cards','tongue'));assert.equal(await page.locator('.detail-text-cards article').count(),240);assert.equal(await page.locator('.detail-text-cards').innerText().then(t=>t.includes('Mila maakt soep.')),false);
   await page.locator('#startCabinetActivity').click();assert.ok(await page.locator('.tongue-table').isVisible());
   assert.deepEqual(await page.evaluate(()=>window.spoken),[],'No tongue audio played through any route');
-  assert.deepEqual(errors,[]);console.log('PASS: real navigation, 240-card cycle, undo, 28 filter combinations, empty states, retained audio with playback disabled across all routes, reload, all seven other games, Style Control, unchanged board state, frozen large typography at eight viewports including short windows and longest text, fullscreen and cabinet.');
+  assert.deepEqual(errors,[]);console.log('PASS: real navigation, 240-card cycle, undo, 28 filter combinations, empty states, retained audio with playback disabled across all routes, reload, all seven other games, Style Control, unchanged board state, base typography and whole-card fit at eight viewports including short windows and longest text, fullscreen and cabinet.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
