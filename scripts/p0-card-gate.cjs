@@ -2,8 +2,10 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'..'),dir=path.join(root,'tests/fixtures/p0'),manifest=require('../tests/fixtures/p0/manifest.json');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const stable=v=>JSON.stringify(v&&typeof v==='object'?Array.isArray(v)?v.map(x=>JSON.parse(stable(x))):Object.fromEntries(Object.keys(v).sort().map(k=>[k,JSON.parse(stable(v[k]))])):v);
-const restored=require('../tests/fixtures/p0-restored-rebuses-80.json'),routes=require('../route-architecture.js');
-const restoredExpected=restored.cards.map(record=>({id:record.id,family:'idioms',record,free:[routes.resolve(record.route)],guided:[routes.resolve(record.route)]}));
+const restored=require('../tests/fixtures/p0-restored-rebuses-80.json');
+// Freeze the approved projections independently of the runtime resolver, so a mapping regression fails.
+const restoredRoutes={A1:'A1_A2',A2:'A2_B1',B1:'B1_B2',B2:'B2_C1'};
+const restoredExpected=restored.cards.map(record=>({id:record.id,family:'idioms',record,free:[restoredRoutes[record.route]],guided:[restoredRoutes[record.route]]}));
 const mediaManifest={...require('../tests/fixtures/p0/media.json'),...restored.media};
 const families=manifest.families.map(f=>require(path.join(dir,f+'.json'))),expected=[...families.flatMap(f=>f.approved),...restoredExpected],historical=families.flatMap(f=>f.historical);
 function compare(actual,reference=expected){
