@@ -61,7 +61,7 @@ function teamInfo(mode,ppl=participants()){
 function goScreen(id,cardPreview=null){
  if(globalThis.ReleasePolicy?.enabled&&['words','workforms','activities','collection','curriculum'].includes(id)&&!(id==='collection'&&(ReleasePolicy.cardAllowed(cardPreview)||cardPreview==='c1-between-lines'))){
   if(!globalThis.ContentUI)return;
-  return ContentUI.open({...(id==='words'?{family:GrammarCatalog.familyId}:{}),engine:({workforms:'WHEEL',activities:'WHEEL'})[id]});
+  return ContentUI.openGame({...(id==='words'?{family:GrammarCatalog.familyId}:{}),engine:({workforms:'WHEEL',activities:'WHEEL'})[id]},'play');
  }
  stopTongueAudio();
  if(id==='cards'){if(!globalThis.ReleasePolicy?.enabled)return startCards(APP.cardKind||'conversation');renderCardMenu()}
@@ -320,7 +320,7 @@ function boardOptionInfo(label,description){
 }
 function boardOptionTitle(id,label,description){return `<span class="board-option-title"><label for="${id}">${label}</label>${boardOptionInfo(label,description)}</span>`}
 function startBoard(board){
- if(globalThis.ReleasePolicy?.enabled&&!ContentRuntime.activeSession())return ContentUI.open({engine:'BOARD',variant:board});
+ if(globalThis.ReleasePolicy?.enabled&&!ContentRuntime.activeSession())return ContentUI.openGame({engine:'BOARD',variant:board},'boards');
  const route=routeCache[board];if(!route)return toast('Dit bord is niet beschikbaar.');
  const img=route.sourceAsset||`assets/boards/${board}.png`,s=boardState(board,route);boardBusy=false;
  boardActiveActor(board);setLast('board',`${route.label||board[0].toUpperCase()+board.slice(1)} · Speelbord`,{board});
@@ -505,7 +505,7 @@ function completeBoardTurn(board,route){
 document.addEventListener('click',e=>{const b=e.target.closest('[data-dicegame]');if(!b||b.disabled||gameIsBusy())return;b.dataset.dicegame==='taalworp'?startTaalworp(APP.taalworpSets||APP.taalworpSet||'SET_A2_BASIS'):startStory(APP.storyCollections||APP.storyCollection||'basis')});
 let twDiceState=APP.taalworpDice||{};
 const TW_DICE_IDS=['WHO','TENSE','SENTENCE_TYPE','CONNECT_1','CONNECT_2','VERB_FORM'];
-document.addEventListener('click',e=>{if(e.target.closest('[data-dice-preparation]')&&!gameIsBusy()){ContentUI.clearEditing();ContentUI.open({engine:'DICE'})}});
+document.addEventListener('click',e=>{if(e.target.closest('[data-dice-preparation]')&&!gameIsBusy()){ContentUI.clearEditing();ContentUI.openGame({engine:'DICE'},'dice')}});
 if(!globalThis.ReleasePolicy?.enabled)$('#screen-dice [data-dice-preparation]').hidden=true;
 function diceSidebar(kind,controls){return `<aside class="cardtypes dice-sidebar"><h3>Dobbelspellen</h3><nav aria-label="Kies een dobbelspel"><button class="typebtn ${kind==='taalworp'?'active':''}" data-dicegame="taalworp" aria-pressed="${kind==='taalworp'}">${gameIcon('verbs')}<span>Zinnen bouwen</span></button><button class="typebtn ${kind==='story'?'active':''}" data-dicegame="story" aria-pressed="${kind==='story'}">${gameIcon('story')}<span>Verhaal maken</span></button>${globalThis.ReleasePolicy?.enabled?`<button class="typebtn" data-dice-preparation>${gameIcon('dice')}<span>Dobbelen met opdrachten</span></button>`:''}</nav><div class="dice-set-controls">${controls}</div></aside>`}
 function verbSetMenu(sets,selected){
@@ -875,17 +875,17 @@ function startC1(){
 function currentCard(){return cardsFor(APP.cardKind)[APP.cardIndex||0]}
 function cardRound(c){if(APP.cardRound?.id!==c.id||APP.cardRound?.bankRevision!==RUNTIME.cardGames.source)APP.cardRound={id:c.id,bankRevision:RUNTIME.cardGames.source,attempted:false,predictionReady:false,revealed:false};return APP.cardRound}
 $$('[data-cardgame]').forEach(b=>b.onclick=()=>prepareCards(b.dataset.cardgame));
-function cardModeControl(){return globalThis.E1Release?`<label class="card-filter">Oefenen<select id="cardGuidedMode"><option value="free" ${APP.cardGuided?'':'selected'}>Vrij oefenen</option><option value="guided" ${APP.cardGuided?'selected':''}>Met begeleiding</option></select></label>`:'';}
+function cardModeControl(){return globalThis.E1Release?`<label class="card-filter">Begeleiding<select id="cardGuidedMode"><option value="free" ${APP.cardGuided?'':'selected'}>Vrij oefenen</option><option value="guided" ${APP.cardGuided?'selected':''}>Met begeleiding</option></select></label>`:'';}
 function renderCardMenu(){
  const canResume=APP.last?.type==='card'&&(ReleasePolicy.cardAllowed(APP.last.data.kind)||ReleasePolicy.sessionAllowed(APP.contentSessionConfig));
- const available=DIGIBORD_CONTENT_CATALOG.families.filter(f=>['grammar','quick'].includes(f.id));
+ const available=[GrammarCatalog.familyId,'quick'].map(id=>DIGIBORD_CONTENT_CATALOG.families.find(f=>f.id===id)).filter(Boolean);
  const labels={mission:'Spreekmissies',story:'Verhalen vertellen'};
- $('#screen-cards').innerHTML=`<div class="card-menu-shell"><div class="category-head"><h1>Kaartspellen</h1><button class="smallbtn" id="cardMenuHome">${gameIcon('undo')}<span>Spelen</span></button></div>${canResume?`<button class="smallbtn card-menu-resume" id="cardMenuResume">${gameIcon('cards')}<span>Verder met je kaarten</span></button>`:''}<h2>Kies je kaarten</h2><nav class="card-menu-list" aria-label="Beschikbare kaartspellen">${available.map(f=>`<button class="card-menu-choice" data-card-family="${esc(f.id)}">${gameIcon(f.id==='grammar'?'notebook':'bulb')}<span><strong>${esc(f.label)}</strong><small>${f.id==='grammar'?(globalThis.E1Release?'Kies een grammaticaonderwerp':'Er, zullen en zouden'):'Vertel, stel een vraag, kies en regel iets'}</small></span><b aria-hidden="true">›</b></button>`).join('')}</nav><h2>Meer kaartspellen</h2>${cardModeControl()}<div class="card-menu-list">${CARD_GAMES.map(item=>`<button class="card-menu-choice" data-cardgame="${esc(item.id)}" ${cardCount(item.id)?'':'disabled'}>${gameIcon(item.icon)}<span><strong>${esc(labels[item.id]||item.title)}</strong><small>${item.id==='c1-between-lines'?(globalThis.E1Release?'A2 → B1 · B1 → B2':'B1 → B2 · B2 → C1'):esc(cardRouteLabel(item.id))}</small></span><small class="card-menu-count">${esc(cardAvailability(item.id))}</small></button>`).join('')}</div></div>`;
+ $('#screen-cards').innerHTML=`<div class="card-menu-shell"><div class="category-head"><h1>Kaartspellen</h1><button class="smallbtn" id="cardMenuHome">${gameIcon('undo')}<span>Spelen</span></button></div>${canResume?`<button class="smallbtn card-menu-resume" id="cardMenuResume">${gameIcon('cards')}<span>Verder met je kaarten</span></button>`:''}<h2>Kies je kaarten</h2><nav class="card-menu-list" aria-label="Beschikbare kaartspellen">${available.map(f=>`<button class="card-menu-choice" data-card-family="${esc(f.id)}">${gameIcon(f.id===GrammarCatalog.familyId?'notebook':'bulb')}<span><strong>${esc(f.label)}</strong><small>${f.id===GrammarCatalog.familyId?(globalThis.E1Release?'Kies een grammaticaonderwerp':'Er, zullen en zouden'):'Vertel, stel een vraag, kies en regel iets'}</small></span><b aria-hidden="true">›</b></button>`).join('')}</nav><h2>Meer kaartspellen</h2>${cardModeControl()}<div class="card-menu-list">${CARD_GAMES.map(item=>`<button class="card-menu-choice" data-cardgame="${esc(item.id)}" ${cardCount(item.id)?'':'disabled'}>${gameIcon(item.icon)}<span><strong>${esc(labels[item.id]||item.title)}</strong><small>${item.id==='c1-between-lines'?(globalThis.E1Release?'A2 → B1 · B1 → B2':'B1 → B2 · B2 → C1'):esc(cardRouteLabel(item.id))}</small></span><small class="card-menu-count">${esc(cardAvailability(item.id))}</small></button>`).join('')}</div></div>`;
  $$('#screen-cards [data-cardgame]').forEach(b=>b.onclick=()=>prepareCards(b.dataset.cardgame));
  $('#cardMenuHome').onclick=home;
  if($('#cardGuidedMode'))$('#cardGuidedMode').onchange=e=>{APP.cardGuided=e.target.value==='guided';save();renderCardMenu()};
  if(canResume)$('#cardMenuResume').onclick=()=>resumeLast(true);
- $$('#screen-cards [data-card-family]').forEach(b=>b.onclick=()=>{ContentUI.clearEditing();ContentUI.open({family:b.dataset.cardFamily,engine:'CARDS'})});
+ $$('#screen-cards [data-card-family]').forEach(b=>b.onclick=()=>{ContentUI.clearEditing();ContentUI.openGame({family:b.dataset.cardFamily,engine:'CARDS'},'cards')});
 }
 function cardActivityHeader(kind){const item=CARD_GAMES.find(x=>x.id===kind);return `<div class="card-activity-heading"><h1>${esc(item.title)} <span>${cardsFor(kind).length} kaarten</span></h1><button class="smallbtn card-menu-open" id="cardMenuOpen" aria-label="Kaartspellen" title="Kaartspellen">${gameIcon('cards')}</button></div>`}
 function cardTypeChoices(kind){return `<aside class="cardtypes"><h3>Kaartspellen</h3><nav aria-label="Kies een kaartspel">${CARD_GAMES.map(item=>`<button class="typebtn ${kind===item.id?'active':''}" data-ctype="${item.id}" aria-pressed="${kind===item.id}" ${globalThis.ReleasePolicy?.enabled&&!cardCount(item.id)?'disabled':''}>${gameIcon(item.icon)}<span>${esc(item.title)}<small>${esc(cardAvailability(item.id))}</small></span></button>`).join('')}</nav></aside>`}

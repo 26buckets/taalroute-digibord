@@ -61,7 +61,8 @@
     "test:p0:browser": "node tests/p0-cards-browser.cjs",
     "test:rebuses:browser": "node tests/rebus-answers-browser.cjs",
     "smoke:core": "node tests/content-guidance-browser.cjs && node tests/board-browser.cjs && node tests/content-vert001-browser.cjs && node tests/content-ui-browser.cjs && node tests/v125-browser.cjs && node tests/quick-entry-browser.cjs",
-    "test:grammar-catalog:browser": "node tests/grammar-catalog-browser.cjs && node tests/grammar-mix-browser.cjs"
+    "test:grammar-catalog:browser": "node tests/grammar-catalog-browser.cjs && node tests/grammar-mix-browser.cjs",
+    "test:navigation:browser": "node tests/navigation-browser.cjs"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "5.20261004.1",
