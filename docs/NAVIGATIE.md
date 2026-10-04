@@ -4,7 +4,7 @@ Opdracht: pas het goedgekeurde navigatievoorstel toe en sluit aan op de nieuwe d
 
 ## Aansluiting op de catalogus
 
-Deze wijziging bouwt voort op `codex/grammar-teacher-catalog`, PR #31, gecontroleerde basis `116d9e7`. De negen categorieën, 39 onderwerpen, synoniemen, oefensoorten, bronmapping en bereikbaarheid blijven van `GrammarCatalog` afkomstig. De kaartingang gebruikt dezelfde geprojecteerde `grammar-guide`-familie, niet opnieuw de onderliggende familie `grammar`.
+Deze wijziging bouwt voort op `codex/grammar-teacher-catalog`, PR #31, gecontroleerde basis `64644be`. De negen categorieën, 39 onderwerpen, synoniemen, oefensoorten, bronmapping en bereikbaarheid blijven van `GrammarCatalog` afkomstig. De kaartingang gebruikt dezelfde geprojecteerde `grammar-guide`-familie, niet opnieuw de onderliggende familie `grammar`. De correctie voor oude opgeslagen mixen is meegenomen: bewerken behoudt de exacte bronnen, niveaus, weging en aantallen.
 
 De navigatiewijziging vormt een vervolg op de catalogus-PR. Publiceer of merge haar niet los op een oudere basis. Controleer vóór integratie opnieuw de laatste cataloguscommit en voer de beide browsercontroles samen uit.
 
