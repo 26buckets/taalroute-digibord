@@ -6,7 +6,7 @@ on:
     branches: [main, release/digibord-v0124, codex/digibord-v1.25]
   workflow_dispatch:
 jobs:
-  verify:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -18,7 +18,49 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chrome
       - run: npm test && npm run lint && npm run types && npm run build && node tests/deployment.cjs
-      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser && npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser && npm run test:shuffle:browser && npm run test:p0:browser && npm run test:rebuses:browser && npm run test:wz-release:browser
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-dist
+          path: dist/
+          retention-days: 3
+  browser:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: shared-runtime
+            command: npm run smoke
+          - name: cards-and-preservation
+            command: npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser && npm run test:shuffle:browser && npm run test:p0:browser && npm run test:rebuses:browser
+          - name: activities-and-release-gates
+            command: npm run test:activities && npm run test:banks:browser && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser && npm run test:wz-release:browser
+    name: browser (${{ matrix.name }})
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chrome
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-dist
+          path: dist/
+      - run: ${{ matrix.command }}
         env:
           CHROME_PATH: /opt/google/chrome/chrome
           BUILD_SMOKE: '1'
+  verify:
+    if: always()
+    needs: [build, browser]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every regression gate
+        env:
+          BUILD_RESULT: ${{ needs.build.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+        run: test "$BUILD_RESULT" = success && test "$BROWSER_RESULT" = success
