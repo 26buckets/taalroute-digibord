@@ -58,6 +58,9 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  await page.locator('[data-main=practice]').click();assert.equal(await page.locator('#screen-practice h1').innerText(),'Les samenstellen');
  assert.equal(await page.locator('[data-practice-step=game]').count(),1);
  assert.equal(await page.locator('[data-main=mycollection]').innerText(),'Voortgang en groepen');
+ // The separate mobile preparation shortcut inherits the same selected route.
+ await page.setViewportSize({width:390,height:1000});await page.locator('[data-main=play]').click();
+ await page.locator('[data-practice-open]').click();assert.equal(await page.evaluate(()=>ContentUI.state().level),'B1_B2');
  // No source or active session rewrite; exactly resume the earlier cards after reload.
  await page.reload();await page.locator('#resumeBtn').click();
  assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,groups:APP.groups})),session);

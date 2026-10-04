@@ -526,7 +526,7 @@
  }
  document.querySelector('[data-main="practice"]')?.addEventListener('click',()=>{entryContext=null;recentNew=false;currentLayout=null;if(!root.DigiBordArchiveReview&&!externalSpec)setState({level:routes.resolve(APP.level)},{render:false});renderPage()});
  document.addEventListener('click',e=>{
-  const direct=e.target.closest('[data-practice-open]');if(direct&&!direct.disabled){e.preventDefault();open();return}
+  const direct=e.target.closest('[data-practice-open]');if(direct&&!direct.disabled){e.preventDefault();open({level:routes.resolve(APP.level)});return}
   const entry=e.target.closest('[data-practice-engine]');if(entry&&!entry.disabled){e.preventDefault();openGame({engine:entry.dataset.practiceEngine,variant:entry.dataset.practiceVariant});return}
  },true);
  document.addEventListener('click',e=>{
