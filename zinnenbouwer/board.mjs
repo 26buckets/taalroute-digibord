@@ -16,6 +16,7 @@ export class SentenceBoard {
   this.root.addEventListener('pointermove',e=>this.move(e));
   this.root.addEventListener('pointerup',e=>this.up(e));
   this.root.addEventListener('pointercancel',()=>this.cancel());
+  this.root.addEventListener('lostpointercapture',()=>this.cancel());
   this.render();
  }
  setOrder(order,remember=true,bankOrder=this.bankOrder) {
@@ -40,8 +41,8 @@ export class SentenceBoard {
   return `<button type="button" class="zb-card" data-card="${id}" aria-pressed="${this.selected===id}" aria-label="${escapeHtml(labels[c.type]+': '+c.value+(fixed?', staat vast':''))}" ${this.locked?'disabled':''} data-fixed="${fixed}"><span>${labels[c.type]}${fixed?' · vast':''}</span><strong>${escapeHtml(c.value)}</strong></button>`;
  }
  render() {
-  const chosen=this.selected&&this.model.components.find(c=>c.id===this.selected),movable=chosen&&!this.exercise.fixed.includes(chosen.id),index=this.order.indexOf(this.selected);
-  this.root.innerHTML=`<p class="zb-instruction">${escapeHtml(this.exercise.instruction)}</p><p class="zb-hint">Sleep een kaart, of tik erop. Gebruik de pijlen om een gekozen kaart te verplaatsen.</p><section aria-label="Bouwzone" class="zb-zone" data-zone="sentence">${this.order.map(id=>this.card(id)).join('')||'<span class="zb-empty">Leg hier je zin</span>'}</section><div class="zb-card-actions" aria-label="Gekozen kaart"><span>${chosen?escapeHtml(chosen.value):'Kies een kaart'}</span>${button('left','← Naar links',!movable||index<=this.exercise.fixed.length?'disabled':'')}${button('right','Naar rechts →',!movable||index<0||index===this.order.length-1?'disabled':'')}${button('return','Terugleggen',!movable||index<0?'disabled':'')}</div><section aria-label="Beschikbare kaarten" class="zb-zone zb-bank" data-zone="bank">${this.bankOrder.filter(id=>!this.order.includes(id)).map(id=>this.card(id)).join('')||'<span class="zb-empty">Alle kaarten liggen in de zin</span>'}</section><p class="zb-sr" role="status" aria-live="polite" data-board-status></p>`;
+  this.cancel();
+  this.root.innerHTML=`<p class="zb-instruction">${escapeHtml(this.exercise.instruction)}</p><p class="zb-hint">Pak een kaart en sleep hem naar de gewenste plek.</p><p class="zb-sr">Met het toetsenbord: Enter legt een kaart in de zin, de pijltoetsen verplaatsen de kaart en Delete legt hem terug. Escape breekt slepen af.</p><section aria-label="Bouwzone" class="zb-zone" data-zone="sentence">${this.order.map(id=>this.card(id)).join('')||'<span class="zb-empty">Leg hier je zin</span>'}</section><section aria-label="Beschikbare kaarten" class="zb-zone zb-bank" data-zone="bank">${this.bankOrder.filter(id=>!this.order.includes(id)).map(id=>this.card(id)).join('')||'<span class="zb-empty">Alle kaarten liggen in de zin</span>'}</section><p class="zb-sr" role="status" aria-live="polite" data-board-status></p>`;
   if(this.locked)this.root.querySelectorAll('button').forEach(b=>b.disabled=true);
  }
  click(e) {
@@ -49,41 +50,90 @@ export class SentenceBoard {
   if(this.locked)return;
   const card=e.target.closest('[data-card]');
   if(card){const id=card.dataset.card;this.selected=id;if(!this.order.includes(id))this.place(id);else this.render();this.focus(id);return;}
-  const action=e.target.closest('[data-action]')?.dataset.action;
-  const index=this.order.indexOf(this.selected);
-  if(action==='left')this.place(this.selected,index-1);
-  if(action==='right')this.place(this.selected,index+1);
-  if(action==='return')this.setOrder(this.order.filter(id=>id!==this.selected));
-  if(action)this.focus(this.selected);
+
  }
  key(e) {
+  if(e.key==='Escape'&&this.drag){e.preventDefault();this.cancel();return;}
+  this.suppressClick=false;
   const id=e.target.closest('[data-card]')?.dataset.card;if(!id||this.locked)return;
   const index=this.order.indexOf(id);
   if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();this.selected=id;this.place(id,index+(e.key==='ArrowLeft'?-1:1));this.focus(id);}
   if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();this.setOrder(this.order.filter(x=>x!==id));this.focus(id);}
  }
- focus(id){/** @type {HTMLButtonElement} */(this.root.querySelector(`[data-card="${id}"]`))?.focus();}
+ focus(id){/** @type {HTMLButtonElement} */(this.root.querySelector(`[data-card="${id}"]`))?.focus({preventScroll:true});}
  down(e) {
-  const card=e.target.closest('[data-card]');if(!card||this.locked||e.button!==0||card.dataset.fixed==='true')return;
-  this.drag={id:card.dataset.card,x:e.clientX,y:e.clientY,pointer:e.pointerId,moved:false};
+  const card=e.target.closest('[data-card]');if(!card||this.locked||this.drag||e.button!==0||!e.isPrimary||card.dataset.fixed==='true')return;
+  this.suppressClick=false;
+  const rect=card.getBoundingClientRect();
+  this.drag={id:card.dataset.card,card,x:e.clientX,y:e.clientY,startX:e.clientX,startY:e.clientY,offsetX:e.clientX-rect.left,offsetY:e.clientY-rect.top,pointer:e.pointerId,moved:false};
   card.setPointerCapture(e.pointerId);
  }
  move(e) {
-  if(!this.drag||this.drag.pointer!==e.pointerId)return;
-  if(Math.hypot(e.clientX-this.drag.x,e.clientY-this.drag.y)>7){this.drag.moved=true;e.preventDefault();this.root.querySelector(`[data-card="${this.drag.id}"]`)?.classList.add('zb-dragging');
-   this.root.querySelectorAll('.zb-drop').forEach(el=>el.classList.remove('zb-drop'));
-   document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-card],[data-zone]')?.classList.add('zb-drop');
+  const drag=this.drag;if(!drag||drag.pointer!==e.pointerId)return;
+  drag.x=e.clientX;drag.y=e.clientY;
+  if(!drag.moved&&Math.hypot(drag.x-drag.startX,drag.y-drag.startY)<7)return;
+  e.preventDefault();
+  if(!drag.moved){
+   drag.moved=true;
+   const rect=drag.card.getBoundingClientRect();
+   this.ghost=/** @type {HTMLElement} */(drag.card.cloneNode(true));
+   this.ghost.removeAttribute('data-card');this.ghost.removeAttribute('aria-pressed');this.ghost.setAttribute('aria-hidden','true');this.ghost.setAttribute('tabindex','-1');
+   this.ghost.classList.add('zb-drag-ghost');this.ghost.style.width=rect.width+'px';this.ghost.style.height=rect.height+'px';
+   this.marker=document.createElement('div');this.marker.className='zb-insertion';this.marker.setAttribute('aria-hidden','true');
+   this.root.append(this.ghost,this.marker);drag.card.classList.add('zb-dragging');
+   this.scrollFrame=requestAnimationFrame(time=>this.scrollDrag(time));
   }
+  this.previewDrop();
+ }
+ // Choose a boundary in the nearest wrapped row, including the space between cards.
+ dropTarget() {
+  const {x,y,id}=this.drag,zone=/** @type {HTMLElement} */(document.elementFromPoint(x,y)?.closest('[data-zone]'));
+  if(!zone||!this.root.contains(zone))return null;
+  const cards=Array.from(zone.querySelectorAll('[data-card]')).filter(c=>c.getAttribute('data-card')!==id).map(c=>({id:c.getAttribute('data-card'),rect:c.getBoundingClientRect()}));
+  let index=0;
+  if(cards.length&&y>Math.max(...cards.map(c=>c.rect.bottom)))index=cards.length;
+  else if(cards.length&&y>=cards[0].rect.top){
+   const nearest=cards.reduce((a,b)=>Math.max(a.rect.top-y,y-a.rect.bottom,0)<=Math.max(b.rect.top-y,y-b.rect.bottom,0)?a:b);
+   const row=cards.filter(c=>Math.abs(c.rect.top-nearest.rect.top)<2);
+   const next=row.find(c=>x<c.rect.left+c.rect.width/2);
+   index=next?cards.indexOf(next):cards.indexOf(row[row.length-1])+1;
+  }
+  if(zone.dataset.zone==='sentence')index=Math.max(this.exercise.fixed.length,index);
+  const next=cards[index],previous=cards[index-1],rect=next?.rect||previous?.rect||zone.getBoundingClientRect();
+  return {zone,index,left:next?rect.left-7:previous?rect.right+3:rect.left+12,top:rect.top+(cards.length?-8:12),height:cards.length?rect.height+16:rect.height-24};
+ }
+ previewDrop() {
+  const drag=this.drag;
+  this.ghost.style.left=(drag.x-drag.offsetX)+'px';this.ghost.style.top=(drag.y-drag.offsetY)+'px';
+  this.root.querySelectorAll('.zb-drop').forEach(el=>el.classList.remove('zb-drop'));
+  const target=this.dropTarget();this.marker.hidden=!target;
+  if(target){target.zone.classList.add('zb-drop');Object.assign(this.marker.style,{left:target.left+'px',top:target.top+'px',height:target.height+'px'});}
+ }
+ scrollDrag(time) {
+  if(!this.drag?.moved||!this.root.isConnected){this.cancel();return;}
+  const edge=64,y=this.drag.y,speed=y<edge?-Math.min(1,(edge-y)/edge):y>innerHeight-edge?Math.min(1,(y-innerHeight+edge)/edge):0;
+  if(speed){window.scrollBy(0,speed*Math.min(32,time-(this.scrollTime||time))*0.65);this.previewDrop();}
+  this.scrollTime=time;this.scrollFrame=requestAnimationFrame(t=>this.scrollDrag(t));
  }
  up(e) {
-  if(!this.drag)return;const drag=this.drag;this.cancel();if(!drag.moved)return;
-  this.suppressClick=true;setTimeout(()=>{this.suppressClick=false;},0);
-  const target=document.elementFromPoint(e.clientX,e.clientY),zone=/** @type {HTMLElement} */(target?.closest('[data-zone]'));
-  if(!zone||!this.root.contains(zone))return;
+  if(!this.drag||this.drag.pointer!==e.pointerId)return;
+  const drag=this.drag;drag.x=e.clientX;drag.y=e.clientY;
+  const target=drag.moved?this.dropTarget():null;this.cancel();if(!drag.moved)return;
+  this.suppressClick=true;
+  if(!target)return;
   this.selected=drag.id;
-  if(zone.dataset.zone==='bank')this.setOrder(this.order.filter(id=>id!==drag.id));
-  else {const card=/** @type {HTMLElement} */(target.closest('[data-card]')),without=this.order.filter(id=>id!==drag.id);let i=without.length;if(card&&card.dataset.card!==drag.id){const r=card.getBoundingClientRect();i=without.indexOf(card.dataset.card)+(e.clientX>r.left+r.width/2?1:0);}this.place(drag.id,i);}
+  if(target.zone.dataset.zone==='bank'){
+   const bank=this.bankOrder.filter(id=>!this.order.includes(id)&&id!==drag.id);bank.splice(target.index,0,drag.id);
+   this.setOrder(this.order.filter(id=>id!==drag.id),true,[...bank,...this.order.filter(id=>id!==drag.id)]);
+  }else this.place(drag.id,target.index);
   this.focus(drag.id);
+  this.root.querySelector('[data-board-status]').textContent=this.order.includes(drag.id)?`Kaart geplaatst op plek ${this.order.indexOf(drag.id)+1}.`:'Kaart teruggelegd.';
  }
- cancel(){this.drag=null;this.root.querySelectorAll('.zb-dragging,.zb-drop').forEach(el=>el.classList.remove('zb-dragging','zb-drop'));}
+ cancel(){
+  const drag=this.drag;this.drag=null;if(drag?.moved)this.suppressClick=true;
+  if(drag?.card.hasPointerCapture(drag.pointer))drag.card.releasePointerCapture(drag.pointer);
+  cancelAnimationFrame(this.scrollFrame);this.scrollTime=0;
+  this.ghost?.remove();this.marker?.remove();
+  this.root.querySelectorAll('.zb-dragging,.zb-drop').forEach(el=>el.classList.remove('zb-dragging','zb-drop'));
+ }
 }

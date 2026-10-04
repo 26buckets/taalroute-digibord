@@ -54,3 +54,9 @@ Installeer met `npm ci`; voer `npm run dev:live` uit en open `/zinnenbouwer.html
 Unit: `npm run test:zinnenbouwer`. Met de lokale server actief: `npm run test:zinnenbouwer:live` en `npm run test:zinnenbouwer:browser`. `LIVE_TEST_URL` kan een andere test-origin kiezen. `npm run types`, `npm run lint`, `npm test`, `npm run build` omvatten de nieuwe code naast bestaande controles. Browserbewijs staat in `test-results/zinnenbouwer`.
 
 Publicatie is niet uitgevoerd. De noodzakelijke nieuwe Durable Object-binding/migratie staat in `wrangler.jsonc`; een toekomstige publicatie moet zowel deze worker als de nieuwe statische build publiceren. Alleen dist kopiëren naar statische hosting biedt klassikaal gebruik maar geen Live. Bestaande statische routes blijven via de ASSETS-binding lopen. Geen externe AI-, login- of databasevoorziening nodig.
+
+## Direct slepen — aanvulling 4 oktober 2026
+
+Kaarten volgen nu direct de vinger of muis met behoud van het vastpakpunt. Een invoegstreep toont de plaats in de zin of kaartenbank, ook bij meerdere regels. Loslaten plaatst de kaart; aan de schermrand scrolt de pagina mee. Vaste kaarten blijven staan. Loslaten buiten de zones, Escape en touch-annulering wijzigen de volgorde niet. De zichtbare schuifknoppen zijn verwijderd. Tappen en toetsenbordbediening blijven toegankelijk: Enter toevoegen, pijlen verplaatsen, Delete terugleggen. Dezelfde controller bedient docent en deelnemer. Geen nieuwe afhankelijkheden.
+
+De browsertest controleert de positie van de kaart tijdens echte muis- en gesimuleerde native touchbewegingen, invoegstreep, terugleggen, annuleren, vaste kaarten en randscrollen op een klein scherm. Een fysieke digibord-/telefoonproef blijft niet uitgevoerd.

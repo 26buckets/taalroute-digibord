@@ -17,11 +17,11 @@ async function setup(page,type='sentenceBuild'){
  await action(page,'next');await page.locator(`[data-mode="${type}"]`).click();await action(page,'next');await action(page,'class');
 }
 async function arrange(page,ids){
- // Only visible UI: empty the movable row, then tap the desired cards.
+ // Keyboard alternative: empty the movable row, then tap the desired cards.
  for(const id of await order(page)){
   const card=page.locator(`[data-zone="sentence"] [data-card="${id}"]`);
   if(await card.getAttribute('data-fixed')==='true')continue;
-  await card.click();await action(page,'return');
+  await card.focus();await page.keyboard.press('Delete');
  }
  for(const id of ids)if(!(await order(page)).includes(id))await page.locator(`[data-zone="bank"] [data-card="${id}"]`).click();
 }
@@ -30,16 +30,37 @@ try{
  await teacher.goto(base+'/index.html');await teacher.locator('#screen-play [data-category="workforms"]').click();
  assert.equal(await teacher.locator('#screen-practice a[href="zinnenbouwer.html"]').isVisible(),true);
  await setup(teacher);const initialBank=await teacher.locator('[data-zone="bank"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card));await action(teacher,'mix');assert.notDeepEqual(await teacher.locator('[data-zone="bank"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card)),initialBank);await action(teacher,'undo');assert.deepEqual(await teacher.locator('[data-zone="bank"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card)),initialBank);await arrange(teacher,normal);assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'correct');
+ // Drop into the bank and back into the sentence without move buttons.
+ let bank=await teacher.locator('[data-zone="bank"]').boundingBox();
+ await teacher.locator('[data-card="secondVerb"]').dragTo(teacher.locator('[data-zone="bank"]'),{targetPosition:{x:bank.width/2,y:bank.height/2}});
+ assert.deepEqual(await order(teacher),normal.slice(0,-1));
+ const cancelledBank=await teacher.locator('[data-zone="bank"] [data-card="secondVerb"]').boundingBox();
+ await teacher.mouse.move(cancelledBank.x+30,cancelledBank.y+30);await teacher.mouse.down();await teacher.mouse.move(cancelledBank.x+50,cancelledBank.y+40);await teacher.keyboard.press('Escape');await teacher.mouse.up();assert.deepEqual(await order(teacher),normal.slice(0,-1));
+ await teacher.locator('[data-zone="bank"] [data-card="secondVerb"]').dragTo(teacher.locator('[data-card="place"]'),{targetPosition:{x:120,y:40}});
+ assert.deepEqual(await order(teacher),normal);
+ // Escape and a release outside both zones preserve the original order.
+ let moving=await teacher.locator('[data-card="time"]').boundingBox();
+ await teacher.mouse.move(moving.x+30,moving.y+30);await teacher.mouse.down();await teacher.mouse.move(moving.x+70,moving.y+50);
+ await teacher.keyboard.press('Escape');assert.equal(await teacher.locator('.zb-drag-ghost').count(),0);await teacher.mouse.up();assert.deepEqual(await order(teacher),normal);
+ await teacher.mouse.move(moving.x+30,moving.y+30);await teacher.mouse.down();await teacher.mouse.move(5,5);await teacher.mouse.up();assert.deepEqual(await order(teacher),normal);
  // Real mouse drag, with intermediate pointermove events.
  const source=await teacher.locator('[data-zone="sentence"] [data-card="time"]').boundingBox(),dest=await teacher.locator('[data-zone="sentence"] [data-card="subject"]').boundingBox();
- await teacher.mouse.move(source.x+source.width/2,source.y+source.height/2);await teacher.mouse.down();await teacher.mouse.move(dest.x+8,dest.y+dest.height/2,{steps:12});await teacher.mouse.up();
+ await teacher.mouse.move(source.x+source.width/2,source.y+source.height/2);await teacher.mouse.down();await teacher.mouse.move(dest.x+8,dest.y+dest.height/2,{steps:12});
+ const floating=await teacher.locator('.zb-drag-ghost').boundingBox();
+ assert.ok(Math.abs(floating.x+source.width/2-(dest.x+8))<2);assert.ok(Math.abs(floating.y+source.height/2-(dest.y+dest.height/2))<2);
+ assert.equal(await teacher.locator('.zb-insertion').isVisible(),true);assert.equal(await teacher.locator('.zb-card-actions').count(),0);
+ await teacher.screenshot({path:new URL('drag-desktop.png',out).pathname});await teacher.mouse.up();assert.equal(await teacher.locator('.zb-drag-ghost').count(),0);
  assert.deepEqual(await order(teacher),['time','subject','finiteVerb','place','secondVerb']);assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'incorrect');
  await teacher.locator('[data-card="finiteVerb"]').focus();await teacher.keyboard.press('ArrowLeft');assert.deepEqual(await order(teacher),inverted);assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'correctAlternative');
  await action(teacher,'undo');assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'incorrect');await action(teacher,'solution');assert.deepEqual(await order(teacher),normal);
  await teacher.screenshot({path:new URL('teacher-desktop.png',out).pathname,fullPage:true});
  for(const type of ['reorder','completeSentence','repairSentence']){
   await setup(teacher,type);
-  if(type==='completeSentence'){assert.equal(await teacher.locator('[data-fixed="true"]').count(),4);await arrange(teacher,normal);}
+  if(type==='completeSentence'){
+   assert.equal(await teacher.locator('[data-fixed="true"]').count(),4);
+   const fixedBefore=await order(teacher);await teacher.locator('[data-fixed="true"]').first().dragTo(teacher.locator('[data-zone="bank"]'));assert.deepEqual(await order(teacher),fixedBefore);assert.equal(await teacher.locator('.zb-drag-ghost').count(),0);
+   await arrange(teacher,normal);
+  }
   else {if(type==='repairSentence')assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'incorrect');await arrange(teacher,inverted);}
   assert.match(await teacher.locator('[data-feedback]').getAttribute('data-status'),/^correct/);
  }
@@ -62,8 +83,35 @@ try{
  const from=await pages[0].locator('[data-zone="sentence"] [data-card="time"]').boundingBox(),to=await pages[0].locator('[data-zone="sentence"] [data-card="subject"]').boundingBox();
  await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:from.x+from.width/2,y:from.y+from.height/2}]});
  for(let step=1;step<=8;step++)await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:from.x+from.width/2+(to.x+5-from.x-from.width/2)*step/8,y:from.y+from.height/2+(to.y+to.height/2-from.y-from.height/2)*step/8}]});
+ await pages[0].waitForFunction(({x,y})=>{const r=document.querySelector('.zb-drag-ghost')?.getBoundingClientRect();return r&&Math.abs(r.x-x)<2&&Math.abs(r.y-y)<2;},{x:to.x+5-from.width/2,y:to.y+to.height/2-from.height/2});
+ const touchFloating=await pages[0].locator('.zb-drag-ghost').boundingBox();
+ assert.ok(Math.abs(touchFloating.x+from.width/2-(to.x+5))<2,JSON.stringify({touchFloating,from,to}));assert.ok(Math.abs(touchFloating.y+from.height/2-(to.y+to.height/2))<2);
+ assert.equal(await pages[0].locator('.zb-insertion').isVisible(),true);
+ await pages[0].screenshot({path:new URL('drag-mobile.png',out).pathname});
  await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
  assert.deepEqual(await order(pages[0]),['time','subject','finiteVerb','place','secondVerb']);await arrange(pages[0],normal);
+ // Picking up the only card on the last wrapped row and dropping it there keeps its position.
+ const lastRow=await pages[0].locator('[data-card="secondVerb"]').boundingBox();
+ await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:lastRow.x+30,y:lastRow.y+30}]});
+ await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:lastRow.x+45,y:lastRow.y+35}]});
+ await pages[0].locator('.zb-drag-ghost').waitFor();await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert.deepEqual(await order(pages[0]),normal);
+ // A native touch cancellation must restore the card without changing the sentence.
+ const cancelFrom=await pages[0].locator('[data-card="subject"]').boundingBox();
+ await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:cancelFrom.x+30,y:cancelFrom.y+30}]});
+ await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:cancelFrom.x+70,y:cancelFrom.y+60}]});
+ await pages[0].locator('.zb-drag-ghost').waitFor();await touch.send('Input.dispatchTouchEvent',{type:'touchCancel',touchPoints:[]});
+ await pages[0].locator('.zb-drag-ghost').waitFor({state:'detached'});assert.deepEqual(await order(pages[0]),normal);
+ // At the screen edge, keep dragging while the page reveals the lower bank.
+ await pages[0].setViewportSize({width:320,height:568});await pages[0].evaluate(()=>window.scrollTo(0,0));
+ const scrollFrom=await pages[0].locator('[data-card="subject"]').boundingBox();
+ await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:scrollFrom.x+30,y:scrollFrom.y+30}]});
+ await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:150,y:560}]});
+ await pages[0].waitForFunction(()=>scrollY>40);
+ const lowerBank=await pages[0].locator('[data-zone="bank"]').boundingBox();
+ await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:150,y:Math.min(480,lowerBank.y+30)}]});
+ await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ assert.deepEqual(await order(pages[0]),normal.slice(1));
+ await pages[0].setViewportSize({width:390,height:844});await arrange(pages[0],normal);await pages[0].evaluate(()=>window.scrollTo(0,0));
  await pages[0].screenshot({path:new URL('participant-mobile.png',out).pathname,fullPage:true});
  // Interrupt the real network, preserve order, reload offline draft after reconnect.
  await contexts[0].setOffline(true);await pages[0].waitForTimeout(1200);assert.deepEqual(await order(pages[0]),normal);
@@ -91,6 +139,6 @@ try{
  await action(teacher,'close');await pages[0].getByText('De sessie is afgelopen',{exact:true}).waitFor();
  const closed=await contexts[0].newPage();await closed.goto(base+'/meedoen.html?code='+code);await closed.locator('form button').click();await closed.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('gesloten'));
  const unknown=await browser.newPage();await unknown.goto(base+'/meedoen.html?code=000000');await unknown.locator('form button').click();await unknown.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('niet bekend'));
- assert.deepEqual(errors,[]);await fs.writeFile(new URL('results.json',out),JSON.stringify({status:'PASS',clients:4,exercises:4,mouseDrag:true,touchDrag:true,offlineDraft:true,reconnect:true,grouping:true,explicitComparison:true,newRounds:true,hostReload:true,closed:true,unknown:true,viewports:[1920,1366,390,320],errors},null,2));
+ assert.deepEqual(errors,[]);await fs.writeFile(new URL('results.json',out),JSON.stringify({status:'PASS',clients:4,exercises:4,mouseDrag:true,touchDrag:true,fingerTracking:true,insertionMarker:true,bankDrop:true,dragCancellation:true,fixedCards:true,edgeScroll:true,offlineDraft:true,reconnect:true,grouping:true,explicitComparison:true,newRounds:true,hostReload:true,closed:true,unknown:true,viewports:[1920,1366,390,320],errors},null,2));
  console.log('PASS: four exercises, teacher/mouse/keyboard, native touch, three mobile clients, offline/reload, realtime grouping, explicit compare, new rounds, host reload, closure, unknown code, four sizes.');
 }finally{await browser.close();}
