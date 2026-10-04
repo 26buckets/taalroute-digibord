@@ -514,7 +514,7 @@
   const subject=definition.subjects.find(s=>s.id===id||s.sources.includes(id));
   if(subject)return subject.label;
   const text=String(fallback||id||'').trim();
-  if(!text||/\b(?:WZ|GRAM|CB|PB|SP|IT)[_-]|_\d|^[A-Z\d]+(?:_[A-Z\d]+)+$/.test(text))return 'Onderwerp niet beschikbaar';
+  if(!text||/\b(?:WZ|GRAM|CB|PB|SP|IT)[ _-]|_\d|^[A-Z\d]+(?:_[A-Z\d]+)+$/.test(text))return 'Onderwerp niet beschikbaar';
   return text===text.toUpperCase()?text[0]+text.slice(1).toLocaleLowerCase('nl'):text.replace(/_/g,' ');
  }
  function matches(topic,query){

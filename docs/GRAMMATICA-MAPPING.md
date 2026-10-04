@@ -125,3 +125,28 @@ De archiefversies gebruikten enkele gedeelde topic-ID’s in latere WZ-banken. O
 | CB-GRAM-003 | MOGEN | Mogen |
 | CB-GRAM-003 | WILLEN | Willen |
 | CB-GRAM-003 | HOEVEN | Hoeven |
+
+## Aanvullende bestaande E1-vindroutes
+
+Onderstaande verwijzingen gebruiken dezelfde beschikbare bronrecords via de bestaande E1-lidmaatschappen. De aantallen zijn verwijzingen en mogen niet bij de unieke voorraad worden opgeteld.
+
+| Bronbank | Primair brontopic | Bestaand verwijstopic | Extra docentonderwerp | Categorieën | Beschikbare verwijzingen |
+|---|---|---|---|---|---:|
+| CB-WZ-003 | WZ_013 | WERKWOORDSTIJDEN | Werkwoordstijden | Werkwoorden en tijden | 40 |
+| CB-WZ-003 | WZ_015 | LIDWOORDEN_ADJECTIEVEN_NEGATIE | Lidwoorden, bijvoeglijke naamwoorden en ontkenning | Woorden in de zin; Niet, geen en er | 40 |
+| CB-WZ-003 | WZ_018 | WOORDVOLGORDE | Woordvolgorde | Zinnen maken | 1 |
+| CB-WZ-004 | WZ_019 | WOORDVOLGORDE | Woordvolgorde | Zinnen maken | 40 |
+| CB-WZ-004 | WZ_020 | WOORDVOLGORDE | Woordvolgorde | Zinnen maken | 8 |
+| CB-WZ-004 | WZ_022 | SCHEIDBARE_WERKWOORDEN_TE_INFINITIEF | Scheidbare werkwoorden en te + infinitief | Werkwoorden en tijden; Bijzinnen en verbindingen | 40 |
+| CB-WZ-004 | WZ_023 | WERKWOORDSTIJDEN | Werkwoordstijden | Werkwoorden en tijden | 40 |
+| CB-WZ-004 | WZ_025 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 30 |
+| CB-WZ-004 | WZ_026 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 50 |
+| CB-WZ-004 | WZ_027 | SCHEIDBARE_WERKWOORDEN_TE_INFINITIEF | Scheidbare werkwoorden en te + infinitief | Werkwoorden en tijden; Bijzinnen en verbindingen | 40 |
+| CB-WZ-004 | WZ_030 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 40 |
+| CB-WZ-005 | WZ_031 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 32 |
+| CB-WZ-005 | WZ_033 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 32 |
+| CB-WZ-005 | WZ_034 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 15 |
+| CB-WZ-005 | WZ_035 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 32 |
+| CB-WZ-005 | WZ_037 | VOEGWOORDEN_EN_BIJZINNEN | Hoofdzinnen en bijzinnen combineren | Bijzinnen en verbindingen; Zinnen maken | 16 |
+| CB-WZ-005 | WZ_039 | SCHEIDBARE_WERKWOORDEN_TE_INFINITIEF | Scheidbare werkwoorden en te + infinitief | Werkwoorden en tijden; Bijzinnen en verbindingen | 50 |
+| CB-WZ-002 | WZ_010 | WOORDVOLGORDE | Woordvolgorde | Zinnen maken | 71 |

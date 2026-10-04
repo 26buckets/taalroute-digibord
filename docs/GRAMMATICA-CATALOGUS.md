@@ -16,7 +16,7 @@ Eén ingang **Grammatica en zinsbouw**, zowel vanaf Spelen als in Oefenen. De be
 8. Woorden in de zin
 9. Formuleren en samenhang
 
-Een docent bereikt een bekend onderwerp met twee inhoudelijke keuzes: categorie → onderwerp. Zoeken geeft direct onderwerpen zonder extra categoriekeuze. Daarna volgen niveau → oefenvorm → starten. Het criterium maximaal drie keuzes betreft het bereiken van het onderwerp; de niveau- en oefenvormkeuze blijven expliciet. Een eerder ingestelde niveau-eerstweergave maakt van grammatica geen niveaubibliotheek meer. Instellingen voor andere inhoud en archiefcontroles blijven behouden.
+Een docent bereikt een bekend onderwerp met twee inhoudelijke keuzes: categorie → onderwerp. Zoeken geeft direct onderwerpen zonder extra categoriekeuze. Daarna volgen niveau → oefenvorm → starten. Bij Oefenvorm kiest de docent een beschikbare soort oefening, zoals invullen, herkennen of herschrijven, en de passende spelweergave. Het criterium maximaal drie keuzes betreft het bereiken van het onderwerp; de niveau- en oefenvormkeuze blijven expliciet. Een eerder ingestelde niveau-eerstweergave maakt van grammatica geen niveaubibliotheek meer. Instellingen voor andere inhoud en archiefcontroles blijven behouden.
 
 Niveau filtert de gekozen inhoud. Alleen niveaus met beschikbare opdrachten worden aangeboden, met behoud van de zes bestaande routes en de individuele classificatie. GUIDED vraagt nog altijd een bewust gekozen Oefendoel; Vrij oefenen bevat uitsluitend FREE. Een kleine selectie onder 30 seconden krijgt een passende korte duur, zodat een geldige individuele opdracht niet door de duurkeuze onstartbaar wordt.
 

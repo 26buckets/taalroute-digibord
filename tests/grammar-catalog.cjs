@@ -11,6 +11,7 @@ for(const row of topics){
 for(const [query,ids] of Object.entries({'omdat':['g-reden','g-bijzinnen'],'verleden tijd':['g-voltooide-tijd','g-werkwoordstijden'],'die dat':['g-relatieve-zinnen'],'vraagwoorden':['g-vraagwoorden'],'inversie':['g-inversie'],'niet geen':['g-niet-geen']}))for(const id of ids)assert.ok(guide.matches(guide.subjects.find(s=>s.id===id),query),query+' '+id);
 assert.ok(guide.matches(guide.subjects.find(s=>s.id==='g-inversie'),'  INVERSIE! '));
 assert.equal(guide.label('MOETEN'),'Moeten');assert.equal(guide.label('WZ_009'),'Er');assert.equal(guide.label('GRAM_PB003'),'Onderwerp niet beschikbaar');
+for(const code of ['WZ PB002','GRAM PB 003','CB-GRAM-005','WZ_999','UNKNOWN_TOPIC'])assert.equal(guide.label(code),'Onderwerp niet beschikbaar');
 const catalog=require('../data/content-catalog.js');
 catalog.registerBank({items:[{topic:'KUNNEN',cefr_level:'A1',language_function:'kunnen_als_vaardigheid'},{topic:'GRAM_PB003',cefr_level:'B1',language_function:'x'}]},{familyId:'grammar'});
 assert.equal(catalog.families.find(f=>f.id==='grammar').topics.find(t=>t.id==='KUNNEN').label,'Kunnen','missing topic_label never leaks ID');
