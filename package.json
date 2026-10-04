@@ -54,7 +54,8 @@
     "test:shuffle:browser": "node tests/card-shuffle-browser.cjs",
     "test:e1:browser": "node tests/e1-release-browser.cjs && node tests/e1-memory-browser.cjs",
     "test:p0": "node tests/p0-card-gate.cjs && node tests/rebussen.cjs && node scripts/p0-card-gate.cjs",
-    "test:p0:browser": "node tests/p0-cards-browser.cjs"
+    "test:p0:browser": "node tests/p0-cards-browser.cjs",
+    "test:rebuses:browser": "node tests/rebus-answers-browser.cjs"
   },
   "devDependencies": {
     "eslint": "9.39.4",

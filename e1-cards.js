@@ -11,6 +11,7 @@
    const visualRebus=previous.get(c.id)?.visualRebus;
    return visualRebus?{...c,visualRebus}:c;
   });
+  if(family.id==='idioms')family.cards.push(...root.RestoredRebuses);
  }
  data.cardGames.source=e1.version;
  for(const card of data.tongueBank.cards){const entry=Object.entries(e1.tongues).find(([,m])=>m.text===card.text),meta=entry?.[1];if(!meta)throw new Error('Ontbrekende canonieke tongbreker: '+card.id);card.canonical_id=entry[0];card.finalRoute=meta.route;card.finalLevel=meta.level;card.freePlayGate=meta.gate;}

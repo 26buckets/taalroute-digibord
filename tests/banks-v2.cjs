@@ -31,6 +31,8 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  await p.reload();await p.evaluate(()=>resumeLast());await p.getByRole('button',{name:'Bordopties',exact:true}).click();
  assert.equal(await p.locator('#optDark').isChecked(),true);assert.equal(await p.locator('#optSound').isChecked(),false);
  await p.setViewportSize({width:390,height:844});
+ // Finish the responsive resize before tapping; its pending handler closes tooltips.
+ await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
  await p.getByRole('button',{name:'Uitleg: Donkere modus',exact:true}).click();
  assert.equal(await p.locator('#contextTooltip').isVisible(),true,'tap opens explanation');
  assert.equal(await p.locator('#contextTooltip').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight}),true);
