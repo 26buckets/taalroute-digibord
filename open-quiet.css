@@ -523,3 +523,6 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
  #screen-game .card-viewport .card-activity-heading h1 span{display:none}
  .card-viewport .card-control-row>#tongueRead{padding:8px;font-size:12px}
 }
+
+/* Keep restored rebus images within the existing card fit on tablets and phones. */
+@media(max-width:1099px){#screen-game .card-viewport .rebus-preview img{max-height:230px;object-fit:contain}}

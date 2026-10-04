@@ -271,9 +271,9 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
   vm.runInContext('startCards(kind)',tableCtx);
   const c=family.cards[i],html=tableMount.innerHTML;
   const edit=vm.runInContext(`CARD_READING_EDITS[${JSON.stringify(c.id)}]`,tableCtx);
-  const visible=c.visualRebus?[c.visualRebus.title,c.visualRebus.instruction,c.visualRebus.explanation,...c.visualRebus.context]:[edit?.title||c.title,...(edit?.steps||[c.instruction]),...(edit?.situation?[...edit.situation,...(c.id==='TR-PUZZLES-P001-011-R3'?['FIETSBELHALTE']:[])]:[c.situation,...c.taskData])];
+  const visible=c.visualRebus?[c.visualRebus.title,'Los de rebus op.',c.visualRebus.explanation,...c.visualRebus.context]:[edit?.title||c.title,...(edit?.steps||[c.instruction]),...(edit?.situation?[...edit.situation,...(c.id==='TR-PUZZLES-P001-011-R3'?['FIETSBELHALTE']:[])]:[c.situation,...c.taskData])];
   const normalize=s=>s.replace(/\s+/g,' ').replace(/\s+([.,!?;:’”])/g,'$1').replace(/([‘“])\s+/g,'$1').trim(),plain=normalize(html.replace(/<[^>]*>/g,' '));
-  for(const text of [...visible,c.model.text,c.criterion,...c.help.items]){
+  for(const text of [...visible,c.model.text,c.criterion,...(c.visualRebus?[]:c.help.items)]){
    const pieces=text.startsWith('Verhaalwoorden:')?text.replace(/^Verhaalwoorden:\s*/,'').split(/[,–]|\. /u):text.split(/(?<=[.!?])\s+/u);
    for(const piece of pieces){const expected=normalize(piece.replace(/^(?:De letters staan achter elkaar: |Letters: |Tekstrebus: )/u,'').replace(/[.]$/,''));assert.ok(plain.includes(expected),c.id+' missing '+piece);}
   }
@@ -283,10 +283,10 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
    assert.ok(fs.existsSync(root+c.visualRebus.src));
    assert.ok(html.includes('id="cardRebus"'));
    assert.ok(html.includes('src="'+c.visualRebus.src+'"'));
-   assert.ok(!html.includes(c.situation),c.id+' still shows the old word rebus');
+   assert.ok(!html.split('<div class="supportbox"')[0].includes(c.situation),c.id+' source solution appears before reveal');
   }
   assert.ok(html.includes(`data-card-id="${c.id}"`));
-  assert.equal(/\bdisabled\b/.test(html.match(/<button[^>]*id="cardExample"[^>]*>/)[0]),c.model.showWhen!=='before_during_after_attempt',c.id+' model timing');
+  assert.equal(/\bdisabled\b/.test(html.match(/<button[^>]*id="cardExample"[^>]*>/)[0]),!!c.visualRebus||c.model.showWhen!=='before_during_after_attempt',c.id+' model timing');
  }
  for(const route of data.cardGames.routeDefinitions){
   tableCtx.APP.level={R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[route.id];tableCtx.kind=family.id;

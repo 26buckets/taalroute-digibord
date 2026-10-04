@@ -20,6 +20,8 @@ for(const [before,after] of [
 // E1.0 sources are immutable under Nico's R25 instruction; wording is applied at display time.
 const e1Path=path.join(root,'data/e1-release.js');
 if(fs.existsSync(e1Path)){const e1=require(e1Path);assert.equal(e1.source_sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'tests/fixtures/e1-release-source.json'))).digest('hex'));for(const bank of Object.values(e1.banks))for(const item of bank.items)for(const key of ['prompt','context','model_answer','feedback_correct','feedback_incorrect','explanation','help'])assert.ok(!/\bfictie(?:f|ve)\b|\bbuur\b/i.test(wording.text(item[key])),item.content_item_id+' '+key);}
+// Restored Taalmix records are exact historical sources; retain their hash and normalize only the visible text.
+for(const c of require('./fixtures/p0-restored-rebuses-80.json').cards)for(const text of [c.instruction,c.situation,c.goal,c.model.text,...c.help.items])assert.ok(!/\bbuur\b|\bfictie(?:f|ve)\b/i.test(wording.text(text)),c.id+' normalized historical wording');
 const files=[...fs.readdirSync(root).filter(f=>/\.(js|html)$/.test(f)&&f!=='wording.js'),...fs.readdirSync(path.join(root,'data')).filter(f=>/\.(js|json)$/.test(f)).map(f=>'data/'+f).filter(f=>f!=='data/e1-release.js'),'settings/settings.js','settings/index.html'];
 const editorialRetained=require('./fixtures/wording-editorial-retained-sources.json');
 for(const file of [...files,...fs.readdirSync(path.join(root,'Lessen')).filter(f=>/\.(js|json)$/.test(f)).map(f=>'Lessen/'+f)]){

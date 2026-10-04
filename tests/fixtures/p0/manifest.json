@@ -1,0 +1,38 @@
+{
+  "historicalCount": 570,
+  "activeCount": 530,
+  "blockedCount": 40,
+  "baselineCommit": "8d764b404f146702c4646542c0de79215fbde8ec",
+  "initialRelease": "8147769aa0eab1b0c710b193f7af395128ac1f56",
+  "currentRelease": "f21103512bfa3ce65871bf5b77cd08c0161032f0",
+  "canonicalDrive": "1Gm9SgeC6vpnEeIWdlseYUnmxHpwrJhSK",
+  "canonicalHash": "1f0faba04dfbd2e276240a07ed3d9338ff7c417a5fe64d8124c507c3b89d84cb",
+  "families": [
+    "between",
+    "conversation",
+    "mission",
+    "idioms",
+    "puzzles",
+    "spelling",
+    "story",
+    "tongue",
+    "verbs"
+  ],
+  "hashes": {
+    "between.json": "6fc2159243cc531c1ba59beb4d124c1f3bdc472d1831420cb81ba46f35875246",
+    "cards-audit-drive.json": "cdfac0d487187025845748c868ce065b1d83eba44495addcd6e880438ce96852",
+    "closure-matrix.json": "f4ebb811424356de8102e6c4d6e02fd91ce03effd4cc8a84e8e422cca7439330",
+    "conversation.json": "5808831cfd5f21f19b39b854f33570b3c553e4427e5a93ac150d6e1ed3fe532a",
+    "idioms.json": "b4613c05161fb2998299a9a92b1bf144bb2fcf7d43ad13edc5d67a3f4c3d43ec",
+    "media.json": "1d3fa4d88c6450af3095ba16b339c70cd16e41b2bd5a6438d7e79d3a04708cf1",
+    "mission.json": "8b47166c35b441c623e1bd6f8320c71ba9c1502fddf38d9d65e195a3be131a9f",
+    "puzzles.json": "a0458df907b1394eab33b82016683799910c264e1124f51792ed1eee48e6eef7",
+    "rebus-drive-evidence.json": "914e45d8ac85aced39a43404f112dc5d6571ada63993e96bdb4b706be1aebab7",
+    "released-570.json": "b163d2deedae9a62f837286f2d8fb86f8909bdd84fee7798b7609031574610b2",
+    "released-card-games.json": "6880be45215a3177515b68075fd324a1f12b1f43ab67ee907e9ce18d6ea9d57f",
+    "spelling.json": "b0d600bc151ad2f00b55a49caf7528f0a1c1bafede7503479a0768eaf9b1fb84",
+    "story.json": "f93df5a32ceea6662b20179e0824049ddfbf01097a3acdbbef98cf28020a8879",
+    "tongue.json": "7b805a86abdcfed949251d3338deb9a68a8e780f779ad04d9531a4d348e388ad",
+    "verbs.json": "320ad52923bc389563939ace2e364432d8d82a1685cebfd64f19526559023582"
+  }
+}

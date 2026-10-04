@@ -8,7 +8,7 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,9 +16,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test && npm run lint && npm run types && npm run build && node tests/deployment.cjs
       - run: npx playwright install --with-deps chrome
-      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser && npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser
+      - run: npm test && npm run lint && npm run types && npm run build && node tests/deployment.cjs
+      - run: npm run test:activities && npm run test:banks:browser && npm run smoke && npm run test:tongue:browser && npm run test:story:browser && npm run test:wz:browser && npm run test:c1:browser && npm run test:taalworp:browser && npm run test:cards:browser && npm run test:level:browser && npm run test:release:browser && npm run test:shuffle:browser && npm run test:p0:browser && npm run test:rebuses:browser && npm run test:wz-release:browser
         env:
           CHROME_PATH: /opt/google/chrome/chrome
           BUILD_SMOKE: '1'

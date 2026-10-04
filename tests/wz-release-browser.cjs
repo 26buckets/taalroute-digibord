@@ -7,7 +7,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   await page.goto(process.env.LIVE_URL||'file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
   await page.waitForFunction(()=>window.ContentUI&&window.WZReviewed);
   assert.equal(await page.evaluate(()=>ReleasePolicy.enabled),true);
-  assert.deepEqual(await page.evaluate(()=>({all:ContentRuntime.availableForPreparation().length,free:ContentRuntime.filterSource().length,version:WZReviewed.version})),{all:6809,free:6630,version:'2026-10-03.wz.release.1'});
+  assert.deepEqual(await page.evaluate(()=>({all:ContentRuntime.availableForPreparation().length,free:ContentRuntime.filterSource().length,version:WZReviewed.version})),{all:11338,free:9578,version:'2026-10-03.wz.release.1'});
   await page.locator('[data-category=words]').click();assert.equal(await page.evaluate(()=>ContentUI.state().family),'words');
   // Every approved item is projectable in the three shared games, using its real renderer.
   assert.deepEqual(await page.evaluate(()=>{

@@ -1,6 +1,7 @@
 const fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),dist=path.join(root,'dist');
 require('./import-e1-release.cjs');
+require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'p0-card-gate.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'import-gram-pb001.cjs')],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'check-banks.cjs'),root],{stdio:'inherit'});
 require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'words-content.cjs')],{stdio:'inherit'});
@@ -95,3 +96,5 @@ for(const name of ['assets','data','settings','zinnenbouwer','banken-manifest.js
  fs.cpSync(path.join(root,name),path.join(dist,name),{recursive:true,filter:file=>!(/\.(md|txt)$/i.test(file))&&path.basename(file)!=='tsconfig.json'&&!['kaartenkast_160.json','kaartenkast_180.json','.DS_Store'].includes(path.basename(file))});
 }
 console.log('PASS: clean V01.25 static build in dist/.');
+
+require('node:child_process').execFileSync(process.execPath,[path.join(__dirname,'p0-card-gate.cjs'),'--dist'],{stdio:'inherit'});
