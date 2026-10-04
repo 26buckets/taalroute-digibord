@@ -47,13 +47,13 @@ De basiscommit bevatte drie oudere browsertests met verwachtingen van vóór R25
 
 Geen inhoudsbank, release-policy, borgingshash, bestaande grammaticaregel of opslagmigratie aangepast.
 
-## Lokale uitvoering en latere publicatie
+## Lokale uitvoering en publicatie
 
 Installeer met `npm ci`; voer `npm run dev:live` uit en open `/zinnenbouwer.html`. Dit start uitsluitend een lokale Cloudflare-runtime. Voor een telefoon op hetzelfde netwerk moet de pagina via het LAN-adres van de computer worden geopend; localhost in een QR verwijst anders naar de telefoon zelf. In de publieke app gebruikt de QR vanzelf de publieke origin.
 
 Unit: `npm run test:zinnenbouwer`. Met de lokale server actief: `npm run test:zinnenbouwer:live` en `npm run test:zinnenbouwer:browser`. `LIVE_TEST_URL` kan een andere test-origin kiezen. `npm run types`, `npm run lint`, `npm test`, `npm run build` omvatten de nieuwe code naast bestaande controles. Browserbewijs staat in `test-results/zinnenbouwer`.
 
-Publicatie is niet uitgevoerd. De noodzakelijke nieuwe Durable Object-binding/migratie staat in `wrangler.jsonc`; een toekomstige publicatie moet zowel deze worker als de nieuwe statische build publiceren. Alleen dist kopiëren naar statische hosting biedt klassikaal gebruik maar geen Live. Bestaande statische routes blijven via de ASSETS-binding lopen. Geen externe AI-, login- of databasevoorziening nodig.
+Publicatie is op 4 oktober 2026 expliciet opgedragen. De noodzakelijke nieuwe Durable Object-binding/migratie staat in `wrangler.jsonc`; publiceer zowel deze worker als de gecontroleerde statische build. De daadwerkelijke publicatieversie en publieke controles staan in het opleverrapport. Alleen dist kopiëren naar statische hosting biedt klassikaal gebruik maar geen Live. Bestaande statische routes blijven via de ASSETS-binding lopen. Geen externe AI-, login- of databasevoorziening nodig.
 
 ## Direct slepen — aanvulling 4 oktober 2026
 
@@ -69,4 +69,10 @@ De werkvormencatalogus opent weer als catalogus, met een eigen Zinnenbouwer-tege
 
 De woordkaarten hebben een duidelijke kaartvorm, gescheiden functielabel, groot woord en sleepgreep. De labels blijven ook bij deelnemers zichtbaar, conform Nico’s antwoord; alleen de instellingen zijn voor de docent. Meedoen heeft geen instellingen, onderdeelkeuzes of invoerwizard. De controle omvat directe ingang, herladen, heen/terug, annuleren, vier oefenvormen, Live-hervatten, deelnemers zonder instellingen en behoud van drag-and-drop.
 
-De aanvullende oudere `tests/release-browser.cjs` stopt op zijn ongewijzigde verwachting van 6.630 vrijgegeven opdrachten, terwijl de vastgezette R25-bron en `tests/e1-release-browser.cjs` 9.578 FREE-opdrachten voorschrijven. Dit is een al verouderd testcontract, geen nieuwe inhoudsvrijgave. Deze oude suite is niet als geslaagd gerapporteerd. De nieuwe publieke ingang en uitgeschakelde RIDDLE-ingangen worden afzonderlijk gecontroleerd in `tests/zinnenbouwer-browser.mjs`; de actuele R25-vrijgavecontrole blijft leidend.
+Bij de eerdere lokale oplevering had de aanvullende oudere `tests/release-browser.cjs` nog een achterhaalde telling van 6.630. De actuele DigiBord-branch is vóór publicatie samengevoegd en bevat inmiddels het bijgewerkte contract. `npm run test:e1:browser` controleert de actuele R25-vrijgave. De nieuwe publieke ingang en uitgeschakelde RIDDLE-ingangen worden afzonderlijk gecontroleerd in `tests/zinnenbouwer-browser.mjs`.
+
+## Bestaande kaartstijl — correctie 4 oktober 2026
+
+Nico heeft expliciet gevraagd dezelfde kaartopbouw als de actuele DigiBord-kaarten te gebruiken en het resultaat te publiceren. De online kaartweergave en `card-table.css` zijn als referentie bekeken: crème kaartvlak (#fffdfa), volle gekleurde kopstrook, ronde hoeken en gelaagde papieren rand. Deze stijl is toegepast op de woordkaartjes en hun catalogusminiaturen, met de rustige instellingen-typografie en bestaande blauwe bediening. De schermindeling, woordinhoud, labels, docentinstellingen en sleepbediening blijven behouden.
+
+Vóór publicatie is de actuele branch tot en met 24931f2 geïntegreerd. De bevroren 570-kaartenbaseline, de 80 brongebonden herstelde rebussen en de 40 geblokkeerde Story Cards blijven behouden. P0 toetst 610 actieve kaarten. Geen bronmanifest of borgingshash is voor deze stijlwijziging aangepast.
