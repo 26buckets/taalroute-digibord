@@ -48,8 +48,9 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  const rendered=await page.evaluate(()=>{
   for(const item of WZ_ITEMS){
    const pool=wzPool({goalId:item.goalId,type:item.type,band:item.band});
-   wordRound=newWZRound({goalId:item.goalId,type:item.type,band:item.band,round:pool.findIndex(i=>i.id===item.id)+1});startWZ();
-   if(!document.querySelector('.card-instruction').textContent.includes(item.instruction))throw Error(item.id+' instruction');
+   // Inspect retained legacy records without reclassifying them as new released selections.
+   wordRound={version:4,source:item.source,level:'',clueCount:1,revealed:false,goalId:item.goalId,type:item.type,band:item.band,context:'',round:pool.findIndex(i=>i.id===item.id)+1,itemId:item.id,bankOrder:(item.tokens||[]).map((_,i)=>i),optionOrder:item.options.map(o=>o.id),selected:[],response:'',choice:null,status:'initial',checked:false,feedback:'',support:null,arranging:false,moveId:null};startWZ();
+   if(!document.querySelector('.card-instruction').textContent.includes(AppWording.text(item.instruction)))throw Error(item.id+' instruction');
    if(item.type==='Bouw'&&document.querySelectorAll('#spokenWords [role=listitem]').length!==item.tokens.length)throw Error(item.id+' tokens');
    if(item.type==='Kies'&&document.querySelectorAll('[data-wz-option]').length!==item.options.length)throw Error(item.id+' options');
    if(item.answerType==='OPEN'&&!document.querySelector('#wordCheck').hidden)throw Error(item.id+' check');
@@ -62,7 +63,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  for(const goal of await page.locator('[data-word-archive]').evaluateAll(bs=>bs.map(b=>b.dataset.wordArchive))){
   await page.locator(`[data-word-archive="${goal}"]`).click();
   assert.equal(await page.evaluate(()=>wordItem().source),'PRAATPAD_WORDS');
-  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>APP.level));
+  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>DigiRoutes.resolve(APP.level)));
   await page.locator('#wzGoalsBack').click();
  }
  await page.locator('[data-word-archive="WS_OMSCHRIJVEN"]').click();
@@ -84,10 +85,10 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  assert.equal(await page.locator('#wordClues li').count(),1);
  assert.equal(await page.locator('#wordTarget').innerText(),'');
  await page.locator('#undoAction').click();assert.equal(await page.locator('#wordClues li').count(),3);
- for(const level of ['A1','A2','B1','B2']){
-  await page.locator('#wzLevel').selectOption(level);
-  assert.equal(await page.evaluate(()=>wordItem().level),level);
-  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>APP.level));
+ for(const route of ['A1_A2','A2_B1','B1_B2','B2_C1']){
+  await page.locator('#wzLevel').selectOption(route);
+  assert.equal(await page.evaluate(()=>DigiRoutes.resolve(wordItem().level)),route);
+  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>DigiRoutes.resolve(APP.level)));
  }
  assert.equal(await page.evaluate(()=>{
   const cards=WORD_ITEMS.filter(i=>i.source==='PRAATPAD_WORDS');

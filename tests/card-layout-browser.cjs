@@ -15,7 +15,7 @@ const {chromium}=require('playwright');
  for(const [width,height]of [[1920,1080],[1440,900],[1366,768],[1440,650],[1024,768],[768,1024],[390,844],[320,568]]){
   await page.setViewportSize({width,height});
   for(const kind of await page.evaluate(()=>ReleasePolicy.cardKinds)){
-   await page.evaluate(k=>{goScreen('cards');selectLevel('B2_C1');prepareCards(k)},kind);await check();
+   await page.evaluate(k=>{APP.cardGuided=true;goScreen('cards');selectLevel('B2_C1');prepareCards(k)},kind);await check();
    if(kind==='tongue'){
     await page.evaluate(()=>{APP.cardIndex=cardsFor('tongue').indexOf(cardsFor('tongue').reduce((a,b)=>a.text.length>b.text.length?a:b));APP.cardShuffles={};APP.last={type:'card',data:{kind:'tongue'}};startTongue()});await check();
     assert.equal(await page.locator('#tongueRead').innerText(),'Voorlezen');assert.equal(await page.locator('#tongueRead').isDisabled(),true);
@@ -30,5 +30,5 @@ const {chromium}=require('playwright');
  await page.setViewportSize({width:1440,height:900});await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!!document.fullscreenElement);await check();await page.locator('#primaryGame').click();await check();await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!document.fullscreenElement);await check();
  const before=await page.evaluate(()=>structuredClone(APP.cardShuffles));await page.locator('#cardOrderReset').click();await page.locator('#dialogClose').click();assert.deepEqual(await page.evaluate(()=>APP.cardShuffles),before);
  await page.locator('#cardOrderReset').click();await page.locator('#confirmCardOrderReset').click();await check();assert.equal(await page.evaluate(()=>APP.cardShuffles.tongue.position),1);
- assert.deepEqual(errors,[]);console.log('PASS: eight standalone families and prepared cards fit without scrolling at eight screen sizes; long tongue twisters, revealed help/answers, compact reset + confirmation, disabled Voorlezen, mobile card menu, resize and fullscreen.');
+ assert.deepEqual(errors,[]);console.log('PASS: seven released standalone families and prepared cards fit without scrolling at eight screen sizes; long tongue twisters, revealed help/answers, compact reset + confirmation, disabled Voorlezen, mobile card menu, resize and fullscreen.');
 }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

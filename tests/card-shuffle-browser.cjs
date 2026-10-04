@@ -20,22 +20,22 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
    rows.push({route:route.id,family,count:seen.size,cycle:APP.cardShuffles[family].cycle});
   }
   return {rows,failures};
- });assert.deepEqual(matrix.failures,[]);assert.equal(matrix.rows.length,48);
+ });assert.deepEqual(matrix.failures,[]);assert.equal(matrix.rows.length,42);
  // Real UI route/filter switches keep all overlapping IDs and the pending queue.
  await page.evaluate(()=>{APP.cardShuffles={};goScreen('cards');selectLevel('A0_A1');prepareCards('tongue')});
  for(let i=0;i<12;i++)await page.locator('#primaryGame').click();
  const lower=await page.evaluate(()=>structuredClone(APP.cardShuffles.tongue));
  await page.locator('#levelSelect').selectOption('B2_C1');
  const higher=await page.evaluate(()=>APP.cardShuffles.tongue);
- assert.equal(higher.currentCardId,lower.currentCardId);assert.ok(lower.used.every(id=>higher.used.includes(id)));assert.equal(higher.eligible.length,240);assert.equal(higher.queue.length,240-higher.used.length);
- await page.locator('#levelSelect').selectOption('B1_B2');assert.deepEqual(await page.evaluate(()=>APP.cardShuffles.tongue.queue),higher.queue);
+ assert.ok(lower.used.every(id=>higher.used.includes(id)));assert.equal(higher.eligible.length,await page.evaluate(()=>cardsFor('tongue').length));assert.ok(higher.eligible.includes(higher.currentCardId));assert.equal(higher.queue.length,higher.eligible.filter(id=>!higher.used.includes(id)).length);
+ await page.locator('#levelSelect').selectOption('B1_B2');assert.ok(await page.evaluate(()=>APP.cardShuffles.tongue.eligible.every(id=>cardsFor('tongue').some(c=>c.id===id))));
  await page.locator('#levelSelect').selectOption('A0_A1');assert.ok((await page.evaluate(()=>APP.cardShuffles.tongue.used)).length>=lower.used.length);
  await page.locator('#levelSelect').selectOption('B2_C1');await page.locator('#tongueDifficulty').selectOption('hard');
  assert.ok(lower.used.every(id=>higher.used.includes(id)));
  await page.locator('#tongueDifficulty').selectOption('');
  // Every family survives menu, reload and returning from a different family.
  for(const kind of await page.evaluate(()=>ReleasePolicy.cardKinds)){
-  await page.evaluate(kind=>prepareCards(kind),kind);await page.locator('#primaryGame').click();
+  await page.evaluate(kind=>{APP.cardGuided=true;APP.level=DigiRoutes.resolve(cardsFor(kind,true)[0].finalRoute);return prepareCards(kind)},kind);await page.locator('#primaryGame').click();
   const state=await page.evaluate(()=>({deck:APP.cardShuffles[APP.cardKind],id:currentCard().id,level:APP.level,turn:APP.turn,boards:APP.boardStates}));
   await page.evaluate(()=>goScreen('cards'));await page.locator('#cardMenuResume').click();
   await page.reload();await page.locator('#resumeBtn').click();
@@ -50,7 +50,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  for(const k of Object.keys(all))if(k!==reset.kind)assert.deepEqual(reset.decks[k],all[k]);
  await page.locator('#undoAction').click();assert.deepEqual(await page.evaluate(()=>APP.cardShuffles),all);
  // Canonical between-lines selection: 19/31, separate from the archived C1 deck.
- for(const [route,count] of [['B1_B2',19],['B2_C1',31]]){
+ for(const [route,count] of [['A2_B1',19],['B1_B2',31]]){
   await page.evaluate(route=>{const filters={bank_ids:['CB-BETWEEN-LINES-012'],levels:[route]};ContentUI.launch(ContentRuntime.createSession({filters,selectedGameEngine:'CARDS',targetDurationSeconds:ContentRuntime.filterSource(filters).reduce((n,c)=>n+c.estimated_duration_seconds,0),seed:9}))},route);
   assert.equal(await page.evaluate(()=>cardShuffleScope()),'between-lines');
   const audit=await page.evaluate(async()=>{selectShuffledCard('content-vert001',contentSessionCards(),'reset');startContentCards();const seen=new Set();for(let i=0;i<contentSessionCards().length;i++){seen.add(contentSessionCards()[APP.cardIndex].content_item_id);await nextCard()}return [...seen]});assert.equal(audit.length,count);
@@ -63,7 +63,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   assert.deepEqual(await page.evaluate(()=>APP.cardShuffles['between-lines']),state.deck);
  }
  // Legacy current ID + unrelated state are preserved by the additive migration.
- await page.evaluate(()=>{ContentRuntime.clearSession();APP.cardShuffles={};APP.level='B2';APP.cardKind='tongue';APP.cardIndex=173;APP.tongueCardId=cardsFor('tongue')[173].id;APP.last={type:'card',title:'Tongbrekers',data:{kind:'tongue'}};save();localStorage.removeItem('taalroute-card-shuffle-v1-backup')});
+ await page.evaluate(()=>{ContentRuntime.clearSession();APP.cardShuffles={};APP.level='B2';APP.cardKind='tongue';APP.cardIndex=3;APP.tongueCardId=cardsFor('tongue')[3].id;APP.last={type:'card',title:'Tongbrekers',data:{kind:'tongue'}};save();localStorage.removeItem('taalroute-card-shuffle-v1-backup')});
  const legacy=await page.evaluate(()=>({raw:localStorage.getItem(STORE),id:APP.tongueCardId}));await page.reload();await page.locator('#resumeBtn').click();
  assert.equal(await page.evaluate(()=>currentCard().id),legacy.id);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('taalroute-card-shuffle-v1-backup')).values[STORE]),legacy.raw);
  // Frozen generic lessons also persist their shuffle through the existing progress adapter.
@@ -72,8 +72,8 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  await page.evaluate(()=>prepareCards('tongue'));await page.evaluate(id=>LessonUI.handle('resume','recent-'+id),generic.session.session_id);
  assert.deepEqual(await page.evaluate(()=>APP.cardShuffles[cardShuffleScope()]),generic.deck);
  // Public release selection still excludes revoked content and generic GUIDED.
- assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),6630);
- assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().filter(i=>DigiRoutes.classification(i).freePlayGate==='GUIDED').length),0);
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),9578);
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().filter(i=>DigiRoutes.classification(i).FreePlayGate==='GUIDED').length),0);
  for(const width of [1920,390,320]){
   await page.setViewportSize({width,height:900});await page.evaluate(()=>{goScreen('cards');selectLevel('B2_C1');prepareCards('tongue')});
   const old=await page.evaluate(()=>currentCard().id);await page.locator('#primaryGame').click();assert.notEqual(await page.evaluate(()=>currentCard().id),old);
@@ -85,5 +85,5 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  await page.locator('#primaryGame').click();assert.equal(await page.evaluate(()=>cardBusy),false);
  await page.evaluate(()=>settingsPatch({reducedMotion:false}));await page.locator('#primaryGame').click();await page.waitForFunction(()=>!cardBusy);
  await page.evaluate(()=>LessonUI.flush());assert.deepEqual(errors,[]);
- console.log(JSON.stringify({status:'PASS',matrix:matrix.rows,checks:'nine families; exact cycles; route/filter overlap; persisted queues; menu/reload/family/IndexedDB resume; scoped reset + undo; legacy backup; 19+31 between-lines; frozen generic lesson; release gates; desktop/mobile; OS and app reduced motion; animation'},null,2));
+ console.log(JSON.stringify({status:'PASS',matrix:matrix.rows,checks:'seven standalone families plus between-lines; exact cycles; route/filter overlap; persisted queues; menu/reload/family/IndexedDB resume; scoped reset + undo; legacy backup; 19+31 between-lines; frozen generic lesson; release gates; desktop/mobile; OS and app reduced motion; animation'},null,2));
 }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

@@ -4,15 +4,15 @@ const {chromium}=require('playwright');
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.BASE_URL||'file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
  await page.locator('[data-category="cards"]').click();
- for(const [level,route,tongue] of [['A0_A1','R0','A0'],['A1_A2','R1','A1'],['A2_B1','R3','A2'],['B2_C1','R5','B2']]){
+ for(const [level,tongue] of [['A0_A1','A0'],['A1_A2','A1'],['A2_B1','A2'],['B2_C1','B2']]){
   await page.locator('[data-ctype="conversation"]').click();await page.locator('#levelSelect').selectOption(level);
   const options=await page.locator('#levelSelect option').evaluateAll(es=>es.map(e=>e.value));
-  assert.equal(await page.evaluate(()=>currentCard().routeId),route);
+  assert.equal(await page.evaluate(()=>DigiRoutes.resolve(currentCard().route)),level);
   await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),level);assert.equal(await page.evaluate(()=>tongueLevel()),tongue);
   await page.locator('[data-ctype="c1-between-lines"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),level);assert.equal(await page.evaluate(()=>DigiRoutes.resolve(APP.level)),level);
   await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),level);assert.deepEqual(await page.locator('#levelSelect option').evaluateAll(es=>es.map(e=>e.value)),options);
   await page.reload();assert.equal(await page.locator('#levelSelect').inputValue(),level);
-  await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="conversation"]').click();assert.equal(await page.evaluate(()=>currentCard().routeId),route);
+  await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="conversation"]').click();assert.equal(await page.evaluate(()=>DigiRoutes.resolve(currentCard().route)),level);
  }
  await page.locator('[data-ctype="tongue"]').click();await page.locator('#levelSelect').selectOption('A0_A1');
  await page.locator('[data-ctype="conversation"]').click();assert.equal(await page.evaluate(()=>currentCard().routeId),'R0');

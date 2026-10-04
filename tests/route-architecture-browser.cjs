@@ -7,7 +7,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  page.on('pageerror',e=>errors.push(e.message));
  await page.goto('file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
  assert.deepEqual(await page.locator('#levelSelect option').evaluateAll(es=>es.map(e=>e.value)),ids);
- assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),6630);
+ assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),9578);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().filter(i=>i.domain==='WORDS').length),2519);
  assert.equal(await page.evaluate(()=>ContentRuntime.items().filter(i=>DigiRoutes.classification(i).displayRoute===DigiRoutes.REVIEW).length),30);
  await page.locator('#settingsBtn').click();
@@ -28,7 +28,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   assert.deepEqual(await page.evaluate(()=>APP.taalworpLegacySnapshot.dice),before.dice);
   assert.equal(await page.locator('#levelSelect').inputValue(),level==='C2'?'B2_C1':'A1_A2');
   assert.ok(!(await page.locator('.card-activity-heading').innerText()).includes('C2'));
-  await page.evaluate(()=>{startCards('conversation');save()});
+  await page.evaluate(()=>{APP.cardGuided=true;startCards('conversation');save()});
   const card=await page.evaluate(()=>{delete APP.routeCardMigration;save();return currentCard().id});
   await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.evaluate(()=>currentCard().id),card);
  }
@@ -44,6 +44,6 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   if(process.env.SCREENSHOT_DIR){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'routes-'+width+'.png'),fullPage:true})}
  }
  assert.deepEqual(errors,[]);
- console.log('PASS routes browser: six shared routes, 6630 unchanged released items, 30 unresolved hidden, settings/preparation, exact A1+/C2 dice+card resume, backup and desktop/mobile.');
+ console.log('PASS routes browser: six shared routes, 9578 E1 free items, 30 unresolved hidden, settings/preparation, exact A1+/C2 dice+card resume, backup and desktop/mobile.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});
