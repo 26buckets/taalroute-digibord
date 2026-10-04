@@ -3,8 +3,13 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
 const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(served+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res)});
 let browser,page;
 (async()=>{
- await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});page=await browser.newPage({viewport:{width:1630,height:900},reducedMotion:'reduce'});page.setDefaultTimeout(30000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});const errors=[];
+ async function freshPage(){
+  if(page)await page.close();
+  page=await browser.newPage({viewport:{width:1630,height:900},reducedMotion:'reduce'});page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+ }
+ await freshPage();await page.locator('[data-main=practice]').click();
  await require('./practice-controls.cjs').level(page,'B2');assert.equal(await page.locator('[name=subtopic] option').filter({hasText:/^Verwijzen met er$/}).count(),1);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource({bank_ids:['CB-GRAM-001'],levels:['B2']}).every(i=>ContentGuidance.mapping(i,'erk'))),true);
  const dir=path.join(root,'tests/artifacts/grammar-review');fs.mkdirSync(dir,{recursive:true});
@@ -81,6 +86,9 @@ let browser,page;
  const scope=process.env.REVIEW_WORKSET;const targetIds=scope?await page.evaluate(version=>ContentRuntime.items().filter(i=>i.version===version).map(i=>i.content_item_id),scope):reviewed;if(scope)assert.equal(targetIds.length,120);
  let completed=0;
  for(const id of targetIds)for(const engine of ['CARDS','BOARD','WHEEL','QUIZ','DICE']){
+  // Every scenario launches an independent lesson; bound accumulated DOM/storage across thousands of lessons.
+  // The actual reload/resume assertions above retain their original uninterrupted browser session.
+  if(completed&&completed%300===0)await freshPage();
   if(completed%100===0)console.log('Grammar progress',completed,'of',targetIds.length*5,id,engine);completed++;
   await launch(engine,id);
   if(engine==='BOARD'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));}
@@ -125,4 +133,4 @@ let browser,page;
  }
  console.log('PASS '+targetIds.length+' reviewed grammar tasks on five game surfaces: '+targetIds.length*5+' rendered situations, instructions, hidden open examples, models, explanations, no horizontal clipping.');
  assert.deepEqual(errors,[]);console.log('PASS B2 browser: actual dialogues and context on cards/board/wheel/quiz/dice, hidden examples, plain labels, guidance, 390/1024/1630px and exact saved progress.');
-})().catch(async e=>{console.error(e);if(page)console.error(await page.locator('body').innerText());process.exitCode=1}).finally(async()=>{await browser?.close();await new Promise(r=>server.close(r))});
+})().catch(async e=>{console.error(e);if(page)console.error(await page.locator('body').innerText().catch(()=>'<crashed page unavailable>'));process.exitCode=1}).finally(async()=>{await browser?.close();await new Promise(r=>server.close(r))});
