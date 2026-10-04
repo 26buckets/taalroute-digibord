@@ -59,7 +59,8 @@
     "test:zinnenbouwer:live": "node --test tests/zinnenbouwer-live.mjs",
     "test:p0": "node tests/p0-card-gate.cjs && node tests/rebussen.cjs && node scripts/p0-card-gate.cjs",
     "test:p0:browser": "node tests/p0-cards-browser.cjs",
-    "test:rebuses:browser": "node tests/rebus-answers-browser.cjs"
+    "test:rebuses:browser": "node tests/rebus-answers-browser.cjs",
+    "smoke:core": "node tests/content-guidance-browser.cjs && node tests/board-browser.cjs && node tests/content-vert001-browser.cjs && node tests/content-ui-browser.cjs && node tests/v125-browser.cjs && node tests/quick-entry-browser.cjs"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "5.20261004.1",

@@ -84,12 +84,21 @@ let browser,page;
  await page.setViewportSize({width:1630,height:900});
  const reviewed=await page.evaluate(()=>Object.keys({...GrammarReview.referenceReview,...GrammarReview.passiveReview,...GrammarReview.existenceReview,...GrammarReview.appearanceReview,...GrammarReview.reportingReview,...GrammarReview.argumentReview,...GrammarReview.probabilityReview,...GrammarReview.expectationReview,...GrammarReview.certaintyReview,...GrammarReview.deliberationReview,...GrammarReview.boundaryReview,...GrammarReview.pastReview,...GrammarReview.messageReview,...GrammarReview.inferenceReview,...GrammarReview.opinionReview,...GrammarReview.consequenceReview,...GrammarReview.a2Review,...GrammarReview.mixedReview,...GrammarReview.b1RestReview,...GrammarReview.zullenA2Review,...GrammarReview.zullenMixReview,...GrammarReview.modalBridgeReview,...GrammarReview.zoudenMixReview,...GrammarReview.zoudenRestReview}));
  const scope=process.env.REVIEW_WORKSET;const targetIds=scope?await page.evaluate(version=>ContentRuntime.items().filter(i=>i.version===version).map(i=>i.content_item_id),scope):reviewed;if(scope)assert.equal(targetIds.length,120);
+ const shard=process.env.GRAMMAR_SHARD;
+ if(!scope)assert.equal(targetIds.length,1440,'Full grammar coverage before sharding');
+ let selectedIds=targetIds;
+ if(shard){
+  const match=/^(\d+)\/(\d+)$/.exec(shard);assert.ok(match,'GRAMMAR_SHARD must be index/total');
+  const part=Number(match[1]),total=Number(match[2]);assert.ok(part>=1&&part<=total&&total<=targetIds.length);
+  selectedIds=targetIds.filter((_,i)=>i%total===part-1);
+  console.log('Grammar shard',shard,':',selectedIds.length,'of',targetIds.length,'IDs, all five game surfaces');
+ }
  let completed=0;
- for(const id of targetIds)for(const engine of ['CARDS','BOARD','WHEEL','QUIZ','DICE']){
+ for(const id of selectedIds)for(const engine of ['CARDS','BOARD','WHEEL','QUIZ','DICE']){
   // Every scenario launches an independent lesson; bound accumulated DOM/storage across thousands of lessons.
   // The actual reload/resume assertions above retain their original uninterrupted browser session.
   if(completed&&completed%300===0)await freshPage();
-  if(completed%100===0)console.log('Grammar progress',completed,'of',targetIds.length*5,id,engine);completed++;
+  if(completed%100===0)console.log('Grammar progress',completed,'of',selectedIds.length*5,id,engine);completed++;
   await launch(engine,id);
   if(engine==='BOARD'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));}
   if(engine==='WHEEL'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);}
@@ -120,7 +129,7 @@ let browser,page;
   assert.ok(await end.evaluate(e=>{const r=e.getBoundingClientRect(),bar=document.querySelector('.gamebar')?.getBoundingClientRect();return r.bottom<=Math.min(innerHeight,bar?.top||innerHeight)+1}), 'Long explanation stays reachable');
  }
  await page.screenshot({path:path.join(dir,'long-answer-scrolled.png')});await page.setViewportSize({width:1630,height:900});
- const orderIds=await page.evaluate(ids=>ids.filter(id=>ContentRuntime.itemById(id).exercise_type==='zinnen_leggen'),targetIds);
+ const orderIds=await page.evaluate(ids=>ids.filter(id=>ContentRuntime.itemById(id).exercise_type==='zinnen_leggen'),selectedIds);
  for(const id of orderIds){
   await launch('SEQUENCE',id);
   const item=await page.evaluate(id=>ContentRuntime.itemById(id),id);
@@ -131,6 +140,7 @@ let browser,page;
   await page.waitForFunction(()=>document.querySelector('#na-feedback').textContent.length>0);
   assert.equal(await page.locator('#na-feedback').innerText(),'De volgorde klopt! '+item.explanation,id+' sequence explanation');
  }
- console.log('PASS '+targetIds.length+' reviewed grammar tasks on five game surfaces: '+targetIds.length*5+' rendered situations, instructions, hidden open examples, models, explanations, no horizontal clipping.');
+ assert.equal(completed,selectedIds.length*5);
+ console.log('PASS '+selectedIds.length+' reviewed grammar tasks on five game surfaces'+(shard?' (shard '+shard+')':'')+': '+completed+' rendered situations, instructions, hidden open examples, models, explanations, no horizontal clipping.');
  assert.deepEqual(errors,[]);console.log('PASS B2 browser: actual dialogues and context on cards/board/wheel/quiz/dice, hidden examples, plain labels, guidance, 390/1024/1630px and exact saved progress.');
 })().catch(async e=>{console.error(e);if(page)console.error(await page.locator('body').innerText().catch(()=>'<crashed page unavailable>'));process.exitCode=1}).finally(async()=>{await browser?.close();await new Promise(r=>server.close(r))});
