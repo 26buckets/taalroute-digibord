@@ -7,14 +7,24 @@ const browser=await chromium.launch({headless:true,channel:'chrome'}),errors=[];
 const track=page=>page.on('pageerror',e=>errors.push(e.message));
 const teacher=await browser.newPage({viewport:{width:1440,height:1000}});track(teacher);
 const action=(page,id)=>page.locator(`[data-action="${id}"]`).click();
-const order=page=>page.locator('[data-zone="sentence"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card));
+const order=async page=>{await page.locator('[data-zone="sentence"]').waitFor();return page.locator('[data-zone="sentence"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card));};
 async function setup(page,type='sentenceBuild'){
- await page.goto(base+'/zinnenbouwer.html');await action(page,'new');
+ await page.goto(base+'/zinnenbouwer.html');await action(page,'edit');await action(page,'new');
  for(const id of ['time','place','secondVerb'])await page.locator(`[data-enable="${id}"]`).check();
- await action(page,'next');await action(page,'next');assert.ok(await page.locator('[data-error]').innerText());
+ await action(page,'apply-settings');assert.ok(await page.locator('[data-settings-error]').innerText());
  for(const [id,value] of Object.entries({subject:'ik',finiteVerb:'wil',time:'morgen',place:'thuis',secondVerb:'werken'}))await page.locator(`[data-value="${id}"]`).fill(value);
  await page.locator('[data-lemma="finiteVerb"]').fill('willen');
- await action(page,'next');await page.locator(`[data-mode="${type}"]`).click();await action(page,'next');await action(page,'class');
+ await page.locator('[data-mode-select]').selectOption(type);
+ if(type==='sentenceBuild'){
+  await page.screenshot({path:new URL('settings-desktop.png',out).pathname});
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.locator('[data-settings]').evaluate(e=>e.scrollWidth<=e.clientWidth));
+  await page.screenshot({path:new URL('settings-mobile.png',out).pathname});
+  await page.setViewportSize({width:1440,height:1000});
+ }
+ await action(page,'apply-settings');
+ assert.equal(await page.locator('[data-settings]').isVisible(),false);
+
 }
 async function arrange(page,ids){
  // Keyboard alternative: empty the movable row, then tap the desired cards.
@@ -28,7 +38,28 @@ async function arrange(page,ids){
 const normal=['subject','finiteVerb','time','place','secondVerb'],inverted=['time','finiteVerb','subject','place','secondVerb'];
 try{
  await teacher.goto(base+'/index.html');await teacher.locator('#screen-play [data-category="workforms"]').click();
- assert.equal(await teacher.locator('#screen-practice a[href="zinnenbouwer.html"]').isVisible(),true);
+ assert.equal(await teacher.locator('#screen-workforms.active').isVisible(),true);
+ assert.equal(await teacher.locator('#screen-practice.active').count(),0);
+ await teacher.screenshot({path:new URL('entry-desktop.png',out).pathname,fullPage:true});
+ for(const width of [390,320,1024]){
+  await teacher.setViewportSize({width,height:844});
+  assert.ok(await teacher.locator('.activity-zinnenbouwer').evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1;}));
+  assert.ok(await teacher.locator('.zb-tile-preview').evaluate(e=>{const r=e.getBoundingClientRect();return [...e.querySelectorAll('.zb-mini-row>span')].every(c=>{const b=c.getBoundingClientRect();return b.top>=r.top&&b.bottom<=r.bottom+1;});}));
+  if(width===390)await teacher.screenshot({path:new URL('entry-mobile.png',out).pathname,fullPage:true});
+ }
+ await teacher.setViewportSize({width:1440,height:1000});
+ assert.equal(await teacher.locator('#workformDecks [data-activity="raad-het-woord"]').isEnabled(),false);assert.equal(await teacher.locator('#workformDecks [data-practice-engine="RIDDLE"]').isEnabled(),false);
+ await teacher.locator('#workformDecks a[href="zinnenbouwer.html"]').click();
+ assert.deepEqual(await order(teacher),['subject','finiteVerb','time','place']);assert.equal(await teacher.locator('[data-settings]').isVisible(),false);
+ await teacher.locator('[data-card="time"]').focus();await teacher.keyboard.press('ArrowLeft');const remembered=await order(teacher);
+ await teacher.reload();assert.deepEqual(await order(teacher),remembered);
+ await teacher.getByRole('link',{name:'Terug naar de werkvormen'}).click();await teacher.locator('#screen-workforms.active').waitFor();
+ await teacher.locator('#workformDecks a[href="zinnenbouwer.html"]').click();assert.deepEqual(await order(teacher),remembered);
+ await action(teacher,'edit');await teacher.locator('[data-value="subject"]').fill('jij');await teacher.getByRole('button',{name:'Annuleren',exact:true}).click();
+ assert.equal(await teacher.locator('[data-card="subject"] strong').innerText(),'ik');assert.deepEqual(await order(teacher),remembered);
+ await action(teacher,'edit');await teacher.locator('[data-value="subject"]').fill('zij');await teacher.keyboard.press('Escape');assert.equal(await teacher.locator('[data-settings]').isVisible(),false);assert.equal(await teacher.locator('[data-card="subject"] strong').innerText(),'ik');
+ await action(teacher,'edit');await action(teacher,'new');await teacher.getByRole('button',{name:'Annuleren',exact:true}).click();
+ await teacher.reload();assert.deepEqual(await order(teacher),remembered);assert.equal(await teacher.locator('[data-card="subject"] strong').innerText(),'ik');
  await setup(teacher);const initialBank=await teacher.locator('[data-zone="bank"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card));await action(teacher,'mix');assert.notDeepEqual(await teacher.locator('[data-zone="bank"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card)),initialBank);await action(teacher,'undo');assert.deepEqual(await teacher.locator('[data-zone="bank"] [data-card]').evaluateAll(es=>es.map(e=>e.dataset.card)),initialBank);await arrange(teacher,normal);assert.equal(await teacher.locator('[data-feedback]').getAttribute('data-status'),'correct');
  // Drop into the bank and back into the sentence without move buttons.
  let bank=await teacher.locator('[data-zone="bank"]').boundingBox();
@@ -77,6 +108,7 @@ try{
  }
  await teacher.waitForFunction(()=>document.querySelector('[data-counts]').textContent.includes('3 deelnemers'));
  await action(teacher,'start');for(const p of pages)await p.locator('[data-board]').waitFor();
+ assert.equal(await pages[0].locator('[data-action="edit"], [data-enable], [data-value], [data-mode-select]').count(),0);assert.match(await pages[0].locator('[data-card="subject"]').getAttribute('aria-label'),/Onderwerp/);
  await arrange(pages[0],normal);await arrange(pages[1],normal);await arrange(pages[2],['time','subject','finiteVerb','place','secondVerb']);
  // Native touch events through CDP verify the shared Pointer Events implementation.
  const touch=await contexts[0].newCDPSession(pages[0]);
@@ -106,7 +138,7 @@ try{
  const scrollFrom=await pages[0].locator('[data-card="subject"]').boundingBox();
  await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:scrollFrom.x+30,y:scrollFrom.y+30}]});
  await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:150,y:560}]});
- await pages[0].waitForFunction(()=>scrollY>40);
+ await pages[0].waitForFunction(()=>scrollY>40&&document.querySelector('[data-zone="bank"]').getBoundingClientRect().top<innerHeight-140);
  const lowerBank=await pages[0].locator('[data-zone="bank"]').boundingBox();
  await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:150,y:Math.min(480,lowerBank.y+30)}]});
  await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
@@ -139,6 +171,6 @@ try{
  await action(teacher,'close');await pages[0].getByText('De sessie is afgelopen',{exact:true}).waitFor();
  const closed=await contexts[0].newPage();await closed.goto(base+'/meedoen.html?code='+code);await closed.locator('form button').click();await closed.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('gesloten'));
  const unknown=await browser.newPage();await unknown.goto(base+'/meedoen.html?code=000000');await unknown.locator('form button').click();await unknown.waitForFunction(()=>document.querySelector('[data-error]').textContent.includes('niet bekend'));
- assert.deepEqual(errors,[]);await fs.writeFile(new URL('results.json',out),JSON.stringify({status:'PASS',clients:4,exercises:4,mouseDrag:true,touchDrag:true,fingerTracking:true,insertionMarker:true,bankDrop:true,dragCancellation:true,fixedCards:true,edgeScroll:true,offlineDraft:true,reconnect:true,grouping:true,explicitComparison:true,newRounds:true,hostReload:true,closed:true,unknown:true,viewports:[1920,1366,390,320],errors},null,2));
- console.log('PASS: four exercises, teacher/mouse/keyboard, native touch, three mobile clients, offline/reload, realtime grouping, explicit compare, new rounds, host reload, closure, unknown code, four sizes.');
+ assert.deepEqual(errors,[]);await fs.writeFile(new URL('results.json',out),JSON.stringify({status:'PASS',clients:4,exercises:4,directEntry:true,autoResume:true,teacherSettings:true,participantLabels:true,mouseDrag:true,touchDrag:true,fingerTracking:true,insertionMarker:true,bankDrop:true,dragCancellation:true,fixedCards:true,edgeScroll:true,offlineDraft:true,reconnect:true,grouping:true,explicitComparison:true,newRounds:true,hostReload:true,closed:true,unknown:true,viewports:[1920,1366,390,320],errors},null,2));
+ console.log('PASS: direct entry/return/resume, teacher-only settings/cancel, participant labels, four exercises, teacher/mouse/keyboard, native touch, three mobile clients, offline/reload, realtime grouping, explicit compare, new rounds, host reload, closure, unknown code, four sizes.');
 }finally{await browser.close();}

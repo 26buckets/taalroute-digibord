@@ -135,7 +135,7 @@
  for(const tile of document.querySelectorAll('[data-activity],[data-board],[data-library-board]')){
   const engine=tile.dataset.board||tile.dataset.libraryBoard?'BOARD':Object.keys(engineKinds).find(e=>engineKinds[e]===tile.dataset.activity);
   if(!engine||tile.dataset.set||tile.closest('#gameMount'))continue;
-  const button=document.createElement('button');button.type='button';button.className='smallbtn';button.dataset.practiceEngine=engine;if(engine==='BOARD')button.dataset.practiceVariant=tile.dataset.board||tile.dataset.libraryBoard;button.textContent='Kies inhoud';button.setAttribute('aria-label','Kies inhoud voor '+(engines.get(engine)?.label||'dit spel'));
+  const button=document.createElement('button');button.type='button';button.className='smallbtn';button.disabled=tile.disabled;button.dataset.practiceEngine=engine;if(engine==='BOARD')button.dataset.practiceVariant=tile.dataset.board||tile.dataset.libraryBoard;button.textContent='Kies inhoud';button.setAttribute('aria-label','Kies inhoud voor '+(engines.get(engine)?.label||'dit spel'));
   const wrapper=document.createElement('div');wrapper.className='activity-entry';tile.before(wrapper);wrapper.append(tile,button);
  }
  const diceHead=$('#screen-dice .category-head'),wordsHead=$('#screen-words .category-head');
