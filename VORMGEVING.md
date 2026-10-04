@@ -234,3 +234,7 @@ Het bestaande Taalroute-logo, de scheidingslijn en DigiBord met het Bèta-label 
 ## Grammaticale keuzehulp — 4 oktober 2026
 
 Op expliciet verzoek van Nico: binnen de bestaande voorbereiding opent één grammaticale categorie tegelijk. Concrete oefendoelen krijgen een voorbeeldzin en een secundaire grammaticale term. Niveau volgt na het doel. Alle onderwerplijsten scrollen mee met de pagina; de oude interne scroll van inhoudsgroepen vervalt. Lettertypes, rustige gewichten, bestaande navigatie, spellen en grote projectietekst blijven behouden.
+
+## Grammatica visueel groeperen — 5 oktober 2026
+
+Nico vraagt om meer onderscheid en rustig kleurgebruik in de doelenlijst. Binnen de bestaande eenkolomsroute krijgen categorieën en oefendoelen losse lichtblauwe vlakken met tussenruimte. Het doel staat in een blauwe kop, de voorbeeldzin in grotere gewone tekst en de grammaticale term op een klein wit label. De gekozen optie heeft een blauwe rand en een Lucide-vinkje; kleur is niet het enige selectiesignaal. Dit vervangt voor deze keuzelijst de eerdere vlakke lijstweergave. Onderwerpen, volgorde, navigatie, broninhoud, lesopslag, paginascroll en de bestaande spel- en projectietekst blijven behouden.

@@ -222,11 +222,18 @@
 .grammar-quick-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #d7e4ee}
 .grammar-quick-row strong,.grammar-quick-row small{display:block;overflow-wrap:anywhere}
 .grammar-quick-row strong{font-weight:500}.grammar-quick-row small{font-size:13px}
-.grammar-category summary strong{font-weight:500}.grammar-category button{min-height:44px}
 @media(max-width:520px){.grammar-quick-row{align-items:flex-start;flex-direction:column}.grammar-catalog .practice-topic-row{flex-wrap:wrap}.grammar-catalog .practice-labels{margin-left:0}}
 
-.grammar-goal strong{display:block;font-weight:500}
-.grammar-example{display:block;margin-top:5px;color:#344e62;line-height:1.5}
-.grammar-term{display:block;margin-top:5px;color:#526779;font-size:13px;line-height:1.4}
+/* Separate choices visually; color distinguishes the goal, example and grammar term. */
+#contentPracticeApp .grammar-catalog .grammar-category{margin:8px 0;border:1px solid #d7e4ee;border-radius:7px;background:#eef6fd;color:#173752;font-size:16px;font-weight:500}
+#contentPracticeApp .grammar-catalog .grammar-goal{margin:12px 0;padding:16px 18px;border:1px solid #d7e4ee;border-radius:7px;background:#f2f7fc;align-items:flex-start;flex-wrap:nowrap}
+#contentPracticeApp .grammar-catalog .grammar-goal:hover,#contentPracticeApp .grammar-catalog .grammar-category:hover{background:#eaf3fb;border-color:#97bddb}
+#contentPracticeApp .grammar-catalog .grammar-goal[aria-pressed=true]{background:#e1f0fc;border-color:#126ab3}
+#contentPracticeApp .grammar-catalog .grammar-goal strong{display:block;color:#126ab3;font-size:17px;font-weight:500;line-height:1.4}
+.grammar-example{display:block;margin-top:9px;color:#173752;font-size:16px;line-height:1.5}
+.grammar-term{display:inline-block;box-sizing:border-box;max-width:100%;margin-top:10px;padding:4px 8px;border-radius:4px;background:#fff;color:#526779;font-size:13px;line-height:1.45}
+#contentPracticeApp .grammar-catalog .grammar-goal>span:last-child,#contentPracticeApp .grammar-catalog .grammar-category>span:last-child{display:grid;place-items:center;flex:none;width:30px;height:30px;border:1px solid #d7e4ee;border-radius:50%;background:#fff;color:#126ab3;font-size:20px;line-height:1}
+#contentPracticeApp .grammar-catalog .grammar-goal[aria-pressed=true]>span:last-child{background:#126ab3;border-color:#126ab3;color:#fff;font-size:0}
+#contentPracticeApp .grammar-catalog .grammar-goal[aria-pressed=true]>span:last-child::after{content:'';width:18px;height:18px;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m20 6-11 11-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
 .grammar-breadcrumb{margin:14px 0 0;color:#526779;font-size:13px}
 .grammar-catalog .grammar-back{min-height:44px}
