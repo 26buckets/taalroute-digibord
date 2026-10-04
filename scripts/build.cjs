@@ -91,7 +91,7 @@ require('./c1-bank.cjs');
 require('./dice-texture-assets.cjs');
 fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(dist);
 // Runtime only: historical sources, reports, tests and the archived app are not published.
-for(const name of ['assets','data','settings','banken-manifest.json','_redirects','_headers',...fs.readdirSync(root).filter(n=>/\.(html|css|js)$/.test(n))]){
- fs.cpSync(path.join(root,name),path.join(dist,name),{recursive:true,filter:file=>!(/\.(md|txt)$/i.test(file))&&!['kaartenkast_160.json','kaartenkast_180.json','.DS_Store'].includes(path.basename(file))});
+for(const name of ['assets','data','settings','zinnenbouwer','banken-manifest.json','_redirects','_headers',...fs.readdirSync(root).filter(n=>/\.(html|css|js)$/.test(n))]){
+ fs.cpSync(path.join(root,name),path.join(dist,name),{recursive:true,filter:file=>!(/\.(md|txt)$/i.test(file))&&path.basename(file)!=='tsconfig.json'&&!['kaartenkast_160.json','kaartenkast_180.json','.DS_Store'].includes(path.basename(file))});
 }
 console.log('PASS: clean V01.25 static build in dist/.');

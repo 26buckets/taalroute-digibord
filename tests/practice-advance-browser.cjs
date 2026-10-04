@@ -18,7 +18,9 @@ let browser,page;
    const choice=page.locator(`[data-choose-topic="${topic}"]`),group=choice.locator('..');if(!await group.evaluate(e=>e.open))await activate(group.locator(':scope > summary'));
    await activate(choice,round>=2&&!touch?round:false);await expectStep('level',`${touch} ${topic} topic advances`);
    // Never open the next step in the test: its choices must already be visible.
-   const level=round===0?'A2':round===1?'B1':await page.evaluate(()=>ContentUI.state().level);
+   // Use released routes: R25 limits Zullen to B1_B2; do not assume legacy A2/B1 options.
+   const levels=await page.locator('input[name=level]').evaluateAll(es=>es.map(e=>e.value));assert.ok(levels.length);
+   const selected=await page.evaluate(()=>ContentUI.state().level),level=round<2?levels[round%levels.length]:levels.includes(selected)?selected:levels[0];
    const input=page.locator(`input[name=level][value="${level}"]`),label=input.locator('..');
    await activate(round>=2&&!touch?input:label,round>=2&&!touch?round:false);await expectStep('game',`${touch} ${topic} ${level} level advances`);
    const engine=round===0?'CARDS':round===1?'WHEEL':'CARDS',gameInput=page.locator(`input[name=engine][value="${engine}"]`);

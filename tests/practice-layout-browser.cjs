@@ -7,7 +7,7 @@ let browser,page;
  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
  assert.equal(await page.locator('[data-practice-step][open]').getAttribute('data-practice-step'),'topic');
  assert.equal(await page.locator('#inventoryResults').innerHTML(),'','Inventory stays lazy');assert.equal(await page.locator('.practice-topic-group[open]').count(),0);
- assert.equal(await page.locator('.practice-topic-group').count(),7);
+ assert.equal(await page.locator('.practice-topic-group').count(),6); // R25 E1 catalog, with the old Quick bank removed.
  await controls.topic(page,'ER');assert.equal(await page.locator('[data-practice-step][open]').getAttribute('data-practice-step'),'level');assert.equal(await page.evaluate(()=>document.activeElement.parentElement.dataset.practiceStep),'level','Keyboard focus moves to the next step');
  await controls.level(page,'B1');assert.equal(await page.locator('[data-practice-step][open]').getAttribute('data-practice-step'),'game','Clicking the already selected level advances too');
  await controls.game(page,'.practice-engine:has(input[value=CARDS])');assert.equal(await page.locator('[data-practice-step][open]').count(),0);assert.equal(await page.locator('#practiceStart').isEnabled(),true);
@@ -22,7 +22,8 @@ let browser,page;
  await controls.openStep(page,'goal');await page.locator('[data-practice-goal=words]').click();assert.ok(await page.locator('[data-choose-topic="betekenis-woorden"]').count());assert.equal(await page.locator('[data-choose-topic=ER]').count(),0);
  await preference('game');await page.locator('[data-choose-engine=CARDS]').click();await controls.topic(page,'ER');await controls.level(page,'B1');assert.deepEqual(await page.evaluate(()=>ContentRuntime.createSession(ContentUI.sessionOptions(852)).selected_item_ids),baseline);
  await controls.openStep(page,'game');await page.locator('[data-choose-engine=SEQUENCE]').click();assert.match(await page.locator('[data-choose-topic=ER]').textContent(),/Zin bouwen/);await controls.topic(page,'ER');await controls.level(page,'B1');await page.locator('select[name=duration]').selectOption('300');assert.equal(await page.evaluate(()=>ContentUI.state().focus),'order');assert.equal(await page.locator('#practiceStart').isEnabled(),true);
- for(const engine of ['MATCH','MEMORY','DICE','RIDDLE']){
+ assert.equal(await page.locator('[data-choose-engine=RIDDLE]').count(),0,'R25 has no selectable riddle bank');
+ for(const engine of ['MATCH','MEMORY','DICE']){
   await controls.openStep(page,'game');await page.locator(`[data-choose-engine=${engine}]`).click();const first=page.locator('[data-choose-topic]').first();assert.ok(await first.count());const id=await first.getAttribute('data-choose-topic');await controls.topic(page,id);await controls.level(page,await page.evaluate(()=>ContentUI.state().level));assert.equal(await page.evaluate(()=>ContentUI.scopeError()),'');assert.ok(await page.evaluate(()=>ContentUI.sessionOptions(8).selectedGameEngine));
  }
  await preference('recent');await page.locator('#practiceRecent').getByText('Je hebt hier nog geen lessen gestart.').waitFor();await page.locator('#practiceNew').click();assert.equal(await page.locator('[data-practice-step][open]').getAttribute('data-practice-step'),'topic');assert.equal(await page.evaluate(()=>settingsState().practiceLayout),'recent');
