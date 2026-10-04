@@ -28,7 +28,7 @@ Niveau filtert de gekozen inhoud. Alleen niveaus met beschikbare opdrachten word
 
 Een onderwerp kan in meerdere categorieën staan. De onderliggende selectie is identiek. Ook E1-hergebruik via `E1Release.reuse` telt mee; een verwijzing wordt geen tweede opdracht. Het bestaande runtimefilter blijft verantwoordelijk voor bankvrijgave, versies, revocatie, FREE/GUIDED, niveau en spelgeschiktheid.
 
-De oorspronkelijke catalogus blijft intern beschikbaar voor oude concepten en lessen. Opgeslagen sessies behouden hun exacte bronverwijzingen, seed, kaartvolgorde, groepsgegevens en voortgang. De archiefbrowser behoudt zijn bestaande broncontroles; hij is geen docentinstelling.
+De oorspronkelijke catalogus blijft intern beschikbaar voor oude concepten en lessen. Opgeslagen sessies behouden hun exacte bronverwijzingen, seed, kaartvolgorde, groepsgegevens en voortgang. Bij het bewerken staan bestaande mixkeuzes aangevinkt als Huidige keuze. Hun oorspronkelijke families, banken, topics, niveaus, wegingen en selectiegrenzen blijven exact bewaard; een samengevoegd docentonderwerp verbreedt een oude selectie niet stilzwijgend. De archiefbrowser behoudt zijn bestaande broncontroles; hij is geen docentinstelling.
 
 ## Labels en zoeken
 
@@ -50,6 +50,6 @@ Alle routes passen de bestaande vrijgavecontrole opnieuw toe. Lege lijsten en op
 
 `tests/grammar-catalog.cjs` controleert de complete topicmapping, negen categorieën, zoektermen en ontbrekende/technische labels. `tests/grammar-catalog-browser.cjs` vergelijkt alle oorspronkelijke bronvelden en onveranderlijke verwijzingen met de vóór wijziging vastgelegde hashes. Hij controleert bereikbaarheid van elk beschikbaar ID via echte selectiespecificaties, alle guided-keuzes via de UI, spelgeschiktheid, categorieën, zoekresultaten, deduplicatie, opslag/hervatten, favorieten en breedtes 320–1920 px.
 
-De baseline `tests/fixtures/grammar-catalog-baseline.json` is geen nieuwe inhoudsnorm. Verander hem niet om verlies te maskeren. Een nieuwe bronvrijgave vraagt een onderbouwde nieuwe inventarisatie. De bestaande inhouds-, P0-, E1-, bronbank-, lint-, type-, build- en browserpoorten blijven verplicht.
+De baseline `tests/fixtures/grammar-catalog-baseline.json` is geen nieuwe inhoudsnorm. Verander hem niet om verlies te maskeren. Een nieuwe bronvrijgave vraagt een onderbouwde nieuwe inventarisatie. `tests/grammar-mix-browser.cjs` bewaakt daarnaast het ongewijzigd opslaan en bijwerken van oude mixen en het maken van nieuwe docentmixen. De bestaande inhouds-, P0-, E1-, bronbank-, lint-, type-, build- en browserpoorten blijven verplicht.
 
 PR’s naar `codex/digibord-v1.25` draaien dezelfde volledige CI-poort als de bestaande releasebranch. De nieuwe catalogusregressie draait ook op de gebouwde `dist/`. Alleen `dist/` kan worden gepubliceerd; een reviewbranch of PR publiceert de app niet. Publicatie en merge volgen de bestaande regels na een volledig groene poort.
