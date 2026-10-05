@@ -527,3 +527,22 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 
 /* Keep restored rebus images within the existing card fit on tablets and phones. */
 @media(max-width:1099px){#screen-game .card-viewport .rebus-preview img{max-height:230px;object-fit:contain}}
+
+/* Content entrances stay reachable while a topic is open. */
+#contentPracticeApp .practice-family-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+#contentPracticeApp .practice-family-nav button{display:flex;align-items:center;gap:7px;white-space:normal;text-align:left}
+#contentPracticeApp .practice-family-nav svg,#contentPracticeApp .practice-startmixes summary svg{width:18px;height:18px;flex:none;margin:0}
+#contentPracticeApp .practice-family-nav button[aria-pressed=true]{background:var(--setup-soft);border-color:var(--setup-blue);color:var(--setup-blue)}
+#contentPracticeApp .practice-startmixes{border-bottom:1px solid var(--setup-line);padding:0 0 12px;margin-bottom:4px}
+#contentPracticeApp .practice-startmixes>summary{display:flex;gap:8px;align-items:center;min-height:44px;font-size:14px;cursor:pointer}
+#contentPracticeApp .practice-startmixes>p{font-size:14px;line-height:1.5}
+#contentPracticeApp .practice-mix-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#contentPracticeApp .practice-mix-card{position:relative;padding:20px;border:1px solid var(--setup-line);border-radius:8px;background:#f0f7fd;min-width:0}
+#contentPracticeApp .practice-mix-card h3{font-size:17px;font-weight:500;line-height:1.4;padding-right:24px;margin:8px 0}
+#contentPracticeApp .practice-mix-card p,#contentPracticeApp .practice-mix-card li{font-size:14px;line-height:1.5}
+#contentPracticeApp .practice-mix-card ul{padding-left:18px}.mix-art{position:absolute;right:16px;top:16px;color:#b5d6ef}.mix-art svg{width:32px;height:32px}
+#contentPracticeApp .practice-mix-card button{background:#fff}
+/* Keep native select semantics while giving the chevron a consistent inset. */
+#contentPracticeApp select,.settings-page select{appearance:none;padding-right:42px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23415f79' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-position:right 14px center;background-size:18px;background-repeat:no-repeat}
+@media(forced-colors:active){#contentPracticeApp select,.settings-page select{appearance:auto;background-image:none}}
+@media(max-width:760px){#contentPracticeApp .practice-mix-grid{grid-template-columns:1fr}}

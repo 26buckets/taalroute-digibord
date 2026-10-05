@@ -87,7 +87,7 @@ $('#collectionStorySets').onclick=()=>openCabinet('story');
 $$('[data-home]').forEach(b=>b.onclick=home);$$('[data-category]').forEach(b=>b.onclick=()=>goScreen(b.dataset.category));$$('[data-open-main]').forEach(b=>b.onclick=()=>goScreen(b.dataset.openMain));$$('.navitem').forEach(b=>b.onclick=()=>goScreen(b.dataset.main==='play'?'play':b.dataset.main));
 
 let settingsRouteAtOpen;
-function openSettings(){if(globalThis.DigiStorageBackupError)return toast('Maak eerst ruimte vrij voor de reservekopie.');settingsPatch({route:routeLabel()});settingsRouteAtOpen=settingsState().route;const frame=$('#settingsOverlay iframe');frame.onload=()=>$('#settingsOverlay').classList.add('open');frame.src='settings/index.html'}
+function openSettings(page){if(globalThis.DigiStorageBackupError)return toast('Maak eerst ruimte vrij voor de reservekopie.');settingsPatch({route:routeLabel(),...(['tasks','didactic'].includes(page)?{page}:{})});settingsRouteAtOpen=settingsState().route;const frame=$('#settingsOverlay iframe');frame.onload=()=>$('#settingsOverlay').classList.add('open');frame.src='settings/index.html'}
 function closeSettings(){const selected=settingsState().route;if(selected&&selected!==settingsRouteAtOpen)selectLevel(DigiRoutes.resolve(selected));$('#settingsOverlay').classList.remove('open');if($('#screen-practice').classList.contains('active'))globalThis.ContentUI?.applyLayout();refreshCurrentGame()}
 function syncFullscreen(){
  const active=!!document.fullscreenElement,button=$('#fullscreenBtn');
@@ -101,7 +101,7 @@ $('#fullscreenBtn').onclick=async e=>{
  syncFullscreen();
 };
 document.addEventListener('fullscreenchange',syncFullscreen);syncFullscreen();
-$('#settingsBtn').innerHTML=gameIcon('settings');$('#settingsBtn').onclick=openSettings;$$('[data-open-settings]').forEach(b=>b.onclick=openSettings);
+$('#settingsBtn').innerHTML=gameIcon('settings');$('#settingsBtn').onclick=openSettings;$$('[data-open-settings]').forEach(b=>b.onclick=()=>openSettings(b.dataset.settingsPage));
 window.addEventListener('message',e=>{if(e.source===$('#settingsOverlay iframe').contentWindow&&e.data?.type==='taalroute-close-settings'){closeSettings();toast('Instellingen bijgewerkt.')}});
 
 function setLast(type,label,data={}){APP.last={type,label,data};save();updateResume()}

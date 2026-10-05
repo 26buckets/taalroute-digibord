@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Taalroute DigiBord · V01.25 Instellingen</title>
 <link rel="stylesheet" href="settings.css">
-<link rel="stylesheet" href="../open-quiet.css?v=1.25-open-quiet-1">
+<link rel="stylesheet" href="../open-quiet.css?v=2026-10-05.overview">
+<link rel="stylesheet" href="content-overview.css?v=2026-10-05.1">
 <style>
 body.embedded .topbar{display:none}
 body.embedded .app{grid-template-rows:minmax(0,1fr)}
@@ -38,7 +39,7 @@ body.embedded .settings-card{max-width:1380px}
         <button class="nav-btn" data-page="saved"><svg class="lucide"><use href="#i-users-round"/></svg>Bewaarde groepen</button>
 
         <div class="nav-group">Inhoud</div>
-        <button class="nav-btn" data-page="tasks"><svg class="lucide"><use href="#i-library"/></svg>Actuele opdrachtenbank</button>
+        <button class="nav-btn" data-page="tasks"><svg class="lucide"><use href="#i-library"/></svg>Inhoudsoverzicht</button>
         <button class="nav-btn" data-page="didactic"><svg class="lucide"><use href="#i-graduation"/></svg>Didactische uitleg</button>
         <button class="nav-btn" data-page="print"><svg class="lucide"><use href="#i-printer"/></svg>Lessen en printen</button>
 
@@ -125,52 +126,8 @@ body.embedded .settings-card{max-width:1380px}
         <div class="saved-grid" id="savedGrid"></div>
       </section>
 
-      <section class="page wide" data-page="tasks">
-        <div class="page-header">
-          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-library"/></svg></span><div><h2>Actuele opdrachtenbank</h2><p class="page-lead">960 opdrachten zijn de inhoud, niet de navigatie. Kies de ingang die past bij hoe je lesgeeft.</p></div></div>
-          <span class="page-meta">960 opdrachten</span>
-        </div>
-
-        <div class="bank-tabs">
-          <button class="bank-tab active" data-banktab="method">Mijn methode</button>
-          <button class="bank-tab" data-banktab="didactic">Didactisch zoeken</button>
-          <button class="bank-tab" data-banktab="free">Vrij zoeken</button>
-        </div>
-
-        <div class="bank-panel active" data-bankpanel="method">
-          <div class="method-grid" id="methodGrid"></div>
-          <div id="methodBrowser"></div>
-        </div>
-
-        <div class="bank-panel" data-bankpanel="didactic">
-          <div class="section cardish soft"><div class="section-body grid3">
-            <div class="field"><label>Familie</label><select class="select" id="didFamily"><option>Alle families</option><option>Verwoorden</option><option>In gesprek</option><option>Kiezen en redeneren</option><option>Samen regelen</option><option>Relatie en houding</option><option>Begrijpen en doorgeven</option></select></div>
-            <div class="field"><label>Route</label><select class="select" id="didRoute"></select></div>
-            <div class="field"><label>Werkvorm</label><select class="select" id="didWork"><option>Alle werkvormen</option><option>Individueel</option><option>Tweetallen</option><option>Groepen</option><option>Klassikaal</option></select></div>
-          </div></div>
-          <div id="didacticResults"></div>
-        </div>
-
-        <div class="bank-panel" data-bankpanel="free">
-          <div class="section cardish soft"><div class="section-body grid2">
-            <div class="field"><label>Zoeken</label><input class="input" id="freeSearch" placeholder="Bijvoorbeeld: huisarts, werk, afspraak"></div>
-            <div class="field"><label>Onderwerp</label><select class="select" id="freeTopic"><option>Alle onderwerpen</option><option>Kennismaken</option><option>Wonen</option><option>Gezondheid</option><option>Werk</option><option>Onderweg</option><option>Winkelen</option></select></div>
-          </div></div>
-          <div id="freeResults"></div>
-        </div>
-      </section>
-
-      <section class="page wide" data-page="didactic">
-        <div class="page-header">
-          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-graduation"/></svg></span><div><h2>Didactische uitleg</h2><p class="page-lead">Van communicatieve familie naar taalhandeling, route en concrete opdracht.</p></div></div>
-          <span class="page-meta">6 families · 48 handelingen</span>
-        </div>
-        <div class="didactic-layout">
-          <div class="didactic-column"><div class="didactic-column-head"><strong>1. Familie</strong><span>Communicatieve functie</span></div><div class="didactic-list" id="familyList"></div></div>
-          <div class="didactic-column"><div class="didactic-column-head"><strong>2. Handeling</strong><span>Acht per familie</span></div><div class="didactic-list" id="actionList"></div></div>
-          <div class="didactic-column"><div class="didactic-column-head"><strong>3. Uitwerking</strong><span>Kies één route tegelijk</span></div><div class="didactic-detail" id="didacticDetail"></div></div>
-        </div>
-      </section>
+      <section class="page wide" data-page="tasks"><div class="page-header"><div class="page-title"><div><h2>Inhoudsoverzicht</h2><p class="page-lead">Bekijk wat beschikbaar is en zet een passende les klaar.</p></div></div></div><div id="contentOverview"></div></section>
+      <section class="page wide" data-page="didactic"><div class="page-header"><div class="page-title"><div><h2>Didactische uitleg</h2><p class="page-lead">Leerdoel, voorbeelden en taalsteun bij de beschikbare oefeningen.</p></div></div></div><div id="contentDidactic"></div></section>
 
       <section class="page" data-page="print">
         <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-printer"/></svg></span><div><h2>Lessen en printen</h2><p class="page-lead">Maak een compacte docentversie of print materiaal voor parallel werken.</p></div></div></div>
@@ -250,7 +207,7 @@ body.embedded .settings-card{max-width:1380px}
 </svg>
 
 <script src="../wording.js?v=2026-10-02.gewone-woorden"></script>
-<script src="../storage-migration.js?v=1.1"></script><script src="../route-architecture.js?v=1.1"></script><script src="settings.js?v=2026-10-02.gewone-woorden"></script>
+<script src="../storage-migration.js?v=1.1"></script><script src="../route-architecture.js?v=1.1"></script><script src="content-overview.js?v=2026-10-05.1"></script><script src="settings.js?v=2026-10-05.overview"></script>
 <script>
 if(window.parent!==window){document.body.classList.add('embedded')}
 document.querySelector('.back-btn')?.addEventListener('click',()=> {
