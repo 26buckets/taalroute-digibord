@@ -19,11 +19,12 @@
   if(kind&&!types.length)throw new Error('Deze soort oefening is hier niet beschikbaar.');
   return runtime().normalizeSelection({scope_clauses:[scope(entry,route)],filter_spec:{exercise_type_ids:types,microconstructures:micro?[micro]:[],...(!micro?{free_play_gate:'FREE'}:{}),family_tags:entry.topic.familyTags||[]},distribution_spec:{mode:'equal'}});
  }
+ function lessonDuration(seconds){const choices=[30,60,...root.DIGIBORD_CONTENT_CATALOG.durations.map(d=>d.seconds)].filter(n=>n<=Math.min(600,seconds));return choices.length?Math.max(...choices):seconds}
  function prepare(family,topic,route,options={}){
   const entry=find(family,topic),spec=selection(entry,route,options),pool=runtime().selectionPool(spec),engines=runtime().compatibleSelectionEngines(spec,'class');
   if(!pool.length||!engines.length)throw new Error('Kies een andere oefening of een ander oefendoel.');
   const engine=engines.includes('CARDS')?'CARDS':engines[0],seconds=pool.reduce((s,i)=>s+i.estimated_duration_seconds,0);
-  if(root.document.querySelector('#settingsOverlay.open'))root.closeSettings();root.ContentUI.loadSelection(spec,{target_duration_seconds:Math.min(600,seconds),organization_mode:'class',preferred_game_engine:engine,preferred_game_variant:root.GameEngineRegistry.get(engine).variants[0]?.id||null},{name:title(entry)});
+  if(root.document.querySelector('#settingsOverlay.open'))root.closeSettings();root.ContentUI.loadSelection(spec,{target_duration_seconds:lessonDuration(seconds),organization_mode:'class',preferred_game_engine:engine,preferred_game_variant:root.GameEngineRegistry.get(engine).variants[0]?.id||null},{name:title(entry)});
  }
  // Deliberate topic choices per route. Counts determine availability, never a silent level fallback.
  const recipes={
@@ -47,7 +48,7 @@
   if(chosen.length<2)return null;
   const spec=runtime().normalizeSelection({scope_clauses:chosen.map(e=>scope(e,route)),filter_spec:{free_play_gate:'FREE'},distribution_spec:{mode:'equal'}});
   const engines=runtime().compatibleSelectionEngines(spec,'class');if(!engines.length)return null;
-  const pool=runtime().selectionPool(spec),seconds=pool.reduce((s,i)=>s+i.estimated_duration_seconds,0),duration=Math.min(600,seconds),engine=engines.includes('CARDS')?'CARDS':engines[0];
+  const pool=runtime().selectionPool(spec),seconds=pool.reduce((s,i)=>s+i.estimated_duration_seconds,0),duration=lessonDuration(seconds),engine=engines.includes('CARDS')?'CARDS':engines[0];
   const preview=runtime().selectItems({selectionSpec:spec,targetDurationSeconds:duration,engines:[engine],seed:20261005});
   const mix={route,title:recipe.title,name:'Startmix '+routes().label(route),entries:chosen,spec,engines,pool,count:preview.length,duration,kinds:[...new Set(pool.map(kindOf))].map(id=>kinds().find(k=>k.id===id).label),preferences:{target_duration_seconds:duration,organization_mode:'class',preferred_game_engine:engine,preferred_game_variant:root.GameEngineRegistry.get(engine).variants[0]?.id||null}};mixCache.set(route,mix);return mix;
  }

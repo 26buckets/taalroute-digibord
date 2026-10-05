@@ -6,12 +6,12 @@ let browser,page;
  await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});page=await browser.newPage({viewport:{width:1440,height:1100},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(process.env.LIVE_URL||`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
  const audit=await page.evaluate(()=>{
-  const a=ContentOverview,failures=[],same=(x,y)=>JSON.stringify([...new Set(x.map(i=>i.content_item_id))].sort())===JSON.stringify([...new Set(y.map(i=>i.content_item_id))].sort());let scopes=0;
+  const a=ContentOverview,failures=[],same=(x,y)=>JSON.stringify([...new Set(x.map(i=>i.content_item_id))].sort())===JSON.stringify([...new Set(y.map(i=>i.content_item_id))].sort());let scopes=0,shortSelection=null;
   for(const entry of a.entries())for(const route of DigiRoutes.routes){
    const expected=entry.rows.filter(i=>DigiRoutes.classification(i).displayRoute===route.id);if(!expected.length)continue;
    const pool=ContentRuntime.selectionPool(a.selection(entry,route.id));
    if(!same(pool,expected.filter(i=>DigiRoutes.classification(i).FreePlayGate!=='GUIDED')))failures.push(entry.topic.id+':free:'+route.id);
-   for(const micro of [...new Set(expected.map(i=>DigiRoutes.classification(i).Microconstructie).filter(Boolean))]){const actual=ContentRuntime.selectionPool(a.selection(entry,route.id,{micro}));if(!same(actual,expected.filter(i=>DigiRoutes.classification(i).Microconstructie===micro)))failures.push(entry.topic.id+':goal:'+route.id);scopes++}
+   for(const micro of [...new Set(expected.map(i=>DigiRoutes.classification(i).Microconstructie).filter(Boolean))]){const actual=ContentRuntime.selectionPool(a.selection(entry,route.id,{micro}));const seconds=actual.reduce((n,i)=>n+i.estimated_duration_seconds,0);if(!shortSelection&&seconds>30&&seconds<600&&![60,180,300].includes(seconds)&&ContentRuntime.setCompatibility(actual,'CARDS'))shortSelection={family:entry.family.id,topic:entry.topic.id,route:route.id,micro};if(!same(actual,expected.filter(i=>DigiRoutes.classification(i).Microconstructie===micro)))failures.push(entry.topic.id+':goal:'+route.id);scopes++}
    const c=a.counts(expected);if(c.free+c.guided!==c.total)failures.push('gate total');
    const kinds=a.kinds().map(k=>expected.filter(i=>a.kindOf(i)===k.id));if(kinds.reduce((n,p)=>n+p.length,0)!==expected.length)failures.push('exercise types');
    scopes++;
@@ -34,7 +34,7 @@ let browser,page;
    }
    recipes.push({route:r.id,count:m.count,subjects:m.entries.map(e=>e.topic.id)});
   }
-  return {failures,scopes,unique,example,recipes,materials:a.materials(),unsupported:!a.startMix('ALPHA_AC')&&!a.startMix('bad-route')};
+  return {failures,scopes,unique,example,recipes,shortSelection,materials:a.materials(),unsupported:!a.startMix('ALPHA_AC')&&!a.startMix('bad-route')};
  });
  assert.deepEqual(audit.failures,[]);assert.ok(audit.scopes>200);assert.equal(audit.example.recognize,12);assert.equal(audit.example.order,14);assert.equal(audit.example.correct,12);assert.equal(audit.example.rewrite,18);assert.equal(audit.example.produce,24);assert.equal(audit.recipes.length,5);assert.ok(audit.unsupported);assert.equal(audit.materials.sets.length,23);assert.equal(audit.materials.images,320);assert.equal(audit.materials.collections.length,10);assert.equal(audit.materials.cards.reduce((n,c)=>n+c.count,0),560);
  // The existing 610 active P0 cards include 50 shared Between-lines cards, counted with exercises.
@@ -46,6 +46,7 @@ let browser,page;
  // Guided choices stay opt-in, and the preparation agrees with the shown selection.
  const target=await page.evaluate(()=>{const e=ContentOverview.entries().find(e=>e.rows.some(ContentOverview.guided)),i=e.rows.find(ContentOverview.guided);return {family:e.family.id,topic:e.topic.id,route:ContentOverview.routeOf(i),micro:DigiRoutes.classification(i).Microconstructie}});
  await page.evaluate(x=>ContentOverview.open(x),target);await frame.locator('#ovMicro').waitFor();await frame.locator('#ovMicro').selectOption(target.micro);await frame.locator('[data-ov-prepare]').click();assert.ok(await page.evaluate(()=>ContentRuntime.selectionPool(ContentUI.selectionSpec()).some(ContentOverview.guided)));
+ assert.ok(audit.shortSelection);await page.evaluate(x=>ContentOverview.prepare(x.family,x.topic,x.route,{micro:x.micro}),audit.shortSelection);assert.equal(await page.locator('[name=duration]').inputValue(),String(await page.evaluate(()=>ContentUI.preferences().target_duration_seconds)));
  // No examples disappear behind the pagination; switching explanation and counts preserves filters.
  await page.evaluate(()=>ContentOverview.open({family:'grammar-guide',topic:'g-hoofdzin',route:'A0_A1'}));await frame.locator('.ov-example').first().waitFor();for(let i=0;i<6;i++)await frame.locator('[data-ov-more]').click();assert.equal(await frame.locator('.ov-example').count(),80);assert.equal(await frame.locator('[data-ov-more]').count(),0);
  const dir=path.join(root,'tests/artifacts/content-overview');fs.mkdirSync(dir,{recursive:true});
