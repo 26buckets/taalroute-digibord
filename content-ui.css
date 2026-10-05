@@ -233,7 +233,7 @@
 .grammar-example{display:block;margin-top:9px;color:#173752;font-size:16px;line-height:1.5}
 .grammar-term{display:inline-block;box-sizing:border-box;max-width:100%;margin-top:10px;padding:4px 8px;border-radius:4px;background:#fff;color:#526779;font-size:13px;line-height:1.45}
 #contentPracticeApp .grammar-catalog .grammar-goal>span:last-child,#contentPracticeApp .grammar-catalog .grammar-category>span:last-child{display:grid;place-items:center;flex:none;width:30px;height:30px;border:1px solid #d7e4ee;border-radius:50%;background:#fff;color:#126ab3;font-size:20px;line-height:1}
-#contentPracticeApp .grammar-catalog .grammar-goal[aria-pressed=true]>span:last-child{background:#126ab3;border-color:#126ab3;color:#fff;font-size:0}
+#contentPracticeApp .grammar-catalog .grammar-goal[aria-pressed=true]>span:last-child{display:flex;align-items:center;justify-content:center;background:#126ab3;border-color:#126ab3;color:#fff;font-size:0}
 #contentPracticeApp .grammar-catalog .grammar-goal[aria-pressed=true]>span:last-child::after{content:'';width:18px;height:18px;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m20 6-11 11-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
 .grammar-breadcrumb{margin:14px 0 0;color:#526779;font-size:13px}
 .grammar-catalog .grammar-back{min-height:44px}
