@@ -108,9 +108,10 @@
 #contentPracticeApp .practice-facts summary,#contentPracticeApp .practice-more summary,#contentPracticeApp .practice-help summary,#contentPracticeApp .practice-inventory>summary{font-size:13px;font-weight:400;min-height:44px;padding:10px 0;color:var(--setup-muted)}
 #contentPracticeApp .practice-facts dd{font-weight:400}
 #contentPracticeApp .practice-more{border-top:1px solid var(--setup-line);padding-top:4px}
-#contentPracticeApp .practice-more[open]{display:grid;gap:18px}
-#contentPracticeApp .practice-more[open]>summary{margin-bottom:0}
-#contentPracticeApp .practice-more .practice-field{margin:0}
+#contentPracticeApp .practice-more[open]>summary{margin-bottom:18px}
+#contentPracticeApp .practice-more>.practice-field{margin:24px 0 0}
+#contentPracticeApp .practice-more>summary,#contentPracticeApp .practice-more legend{display:flex;align-items:center;gap:7px}
+#contentPracticeApp .practice-more :is(summary,legend,.practice-select>span)>svg{width:18px;height:18px;flex:none;margin:0}
 #contentPracticeApp .practice-help{grid-column:1/-1;display:flex;align-items:flex-start;flex-wrap:wrap;gap:0 28px;margin:0}
 #contentPracticeApp .practice-help details{max-width:100%;margin:0}
 #contentPracticeApp .practice-help details[open]{flex-basis:100%}

@@ -238,3 +238,7 @@ Op expliciet verzoek van Nico: binnen de bestaande voorbereiding opent één gra
 ## Grammatica visueel groeperen — 5 oktober 2026
 
 Nico vraagt om meer onderscheid en rustig kleurgebruik in de doelenlijst. Binnen de bestaande eenkolomsroute krijgen categorieën en oefendoelen losse lichtblauwe vlakken met tussenruimte. Het doel staat in een blauwe kop, de voorbeeldzin in grotere gewone tekst en de grammaticale term op een klein wit label. De gekozen optie heeft een blauwe rand en een Lucide-vinkje; kleur is niet het enige selectiesignaal. Dit vervangt voor deze keuzelijst de eerdere vlakke lijstweergave. Onderwerpen, volgorde, navigatie, broninhoud, lesopslag, paginascroll en de bestaande spel- en projectietekst blijven behouden.
+
+## Meer opties: gelijke iconen en tussenruimte — 5 oktober 2026
+
+Op verzoek van Nico gebruiken de kopjes binnen Meer opties dezelfde 18 px Lucide-iconen. Elke volgende keuzegroep krijgt 24 px ruimte boven de kop, zodat onder meer Moeilijkheid losstaat van de knoppen bij Spreken en begrijpen. Deze ruimte staat op de groepen zelf: een grid-gap op details verdeelt de inhoud niet in alle browsers. De bestaande volgorde, keuzes en het omslaan van knoppen op mobiele schermen blijven behouden.
