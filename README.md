@@ -1,6 +1,18 @@
-# Taalroute DigiBord V01.24
+# Actuele DigiBord 1.25
+
+Gebruik branch `codex/digibord-v1.25`. De volledige voorbereiding, selectie, rustige instellingen en 4.061 nagekeken opdrachten staan hier. Overige inhoud is behouden maar verborgen in de app. Lees [PUBLICATIE.md](PUBLICATIE.md) voor de publicatiegrens, tests en Drive-overdracht. Oudere documentatie hieronder beschrijft de voorafgaande basis.
+
+---
+
+# Taalroute DigiBord V01.25
 
 De volledige actuele app, met curriculum, kaartspellen, speelborden, dobbelspellen, woorden en zinnen en de vernieuwde opdrachtenbanken.
+
+## Nieuwe motor in 1.25
+
+Twee docentroutes komen samen in één voorbereiding. Grammatica, Woorden en zinnen en de bestaande woordraadsels gebruiken één selectie; tien spelvormen worden uitsluitend aangeboden wanneer ze de hele gekozen inhoud ondersteunen. Mijn lessen bewaart keuzes, recente sessies, favorieten en mixen op dit apparaat. De bestaande 1.24-opslag krijgt vóór de eerste wijziging een gecontroleerde reservekopie.
+
+Zie [bouw- en overdrachtsnotitie](DIGIBORD-V1.25.md) voor bronstatus, bankregistratie, opslag, controles en grenzen.
 
 ## Ontwikkelen en controleren
 

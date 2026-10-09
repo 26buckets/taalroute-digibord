@@ -22,8 +22,8 @@ assert.ok(otherItems.every(item=>!runtime.compatibility(item,'SEQUENCE').compati
 
 assert.deepEqual(runtime.fullCoverageEngines({topics:['ER'],levels:['B1']},'class'),['BOARD','WHEEL','CARDS','DICE']);
 assert.deepEqual(runtime.fullCoverageEngines({topics:['ER'],levels:['B1']},'groups'),['BOARD','WHEEL','CARDS','DICE','QUIZ']);
-assert.deepEqual(runtime.fullCoverageEngines({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},'class'),['BOARD','WHEEL','CARDS','DICE','SEQUENCE']);
-assert.deepEqual(runtime.fullCoverageEngines({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},'groups'),['BOARD','WHEEL','CARDS','DICE','QUIZ','SEQUENCE']);
+assert.deepEqual(runtime.fullCoverageEngines({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},'class'),['BOARD','WHEEL','CARDS','DICE','MEMORY','MATCH','SEQUENCE']);
+assert.deepEqual(runtime.fullCoverageEngines({topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},'groups'),['BOARD','WHEEL','CARDS','DICE','QUIZ','MEMORY','MATCH','SEQUENCE']);
 
 const session=runtime.createSession({seed:220902,targetDurationSeconds:300,engines:['BOARD','WHEEL','CARDS','DICE','QUIZ','SEQUENCE'],filters:{topics:['ER'],levels:['B1'],exercise_types:['zinnen_leggen']},selectionTopic:'ER',organizationMode:'groups',selectedGameEngine:'SEQUENCE',selectedGameVariant:'rangschikken'});
 assert.equal(session.selected_game_engine,'SEQUENCE');

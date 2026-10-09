@@ -1,0 +1,692 @@
+{
+  "pilot": {
+    "range": "'Pilotitems Edition 0.3'!A1:P20",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "ID",
+        "Taaktype",
+        "State",
+        "Steun",
+        "Broncontext",
+        "Definitieve opdracht",
+        "Primaire relationele lezing",
+        "Bestaande expliciete referentie",
+        "Expliciet antwoord verplicht",
+        "Alternatieve lezing mogelijk",
+        "Validatoraccent",
+        "Review 1 verwerking",
+        "Pilotstatus",
+        "Didactische rol",
+        "Fase",
+        "Edition 0.3 status"
+      ],
+      [
+        "VERB.C1C2.002A.001",
+        "Impliciet gevolg herkennen",
+        "ST1",
+        "S1 naar S0",
+        "De gemeente schafte de tweede dossiercontrole af. In de eerste week werden drie onvolledige aanvragen goedgekeurd.",
+        "Leg uit welk verband tussen beide mededelingen ligt. Je hoeft geen verbindingswoord te gebruiken.",
+        "Direct gevolg",
+        "hierdoor; als gevolg daarvan",
+        "NEE",
+        "NEE",
+        "Context moet het causale gevolg dragen. Een natuurlijk impliciet antwoord is correct.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "CALIBRATIE",
+        "MR03.F1",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.002",
+        "Impliciet gevolg herkennen",
+        "ST1",
+        "S1 naar S0",
+        "De leverancier verkleinde de veiligheidsvoorraad aanzienlijk. Twee onverwacht grote bestellingen konden niet op tijd worden geleverd.",
+        "Maak duidelijk hoe beide feiten met elkaar samenhangen.",
+        "Causaal gevolg",
+        "daardoor; hierdoor",
+        "NEE",
+        "NEE",
+        "Causaliteit moet uit de twee feiten volgen. Geen zeldzaam middel bevoordelen.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "CALIBRATIE",
+        "MR03.F1",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.003",
+        "Impliciet gevolg herkennen",
+        "ST1",
+        "S1 naar S0",
+        "Drie projectteams kregen ieder een eigen planning, maar niemand beheerde nog het totaaloverzicht. Twee teams reserveerden dezelfde specialist op hetzelfde moment.",
+        "Welke relationele stap moet de lezer zelf maken?",
+        "Gevolg vanuit organisatorische oorzaak",
+        "daardoor; met als gevolg dat",
+        "NEE",
+        "NEE",
+        "De tweede situatie moet als gevolg van de organisatorische inrichting worden geïnterpreteerd.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "BRUG",
+        "MR03.F1",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.004",
+        "Impliciete conclusie herkennen",
+        "ST2",
+        "S1 naar S0",
+        "Drie onafhankelijke metingen geven vrijwel dezelfde uitkomst. De meetfouten blijven klein en de resultaten veranderen nauwelijks wanneer de proef wordt herhaald.",
+        "Welke conclusie is op basis hiervan verdedigbaar?",
+        "Argumentatieve gevolgtrekking",
+        "op basis hiervan; hieruit volgt dat",
+        "NEE",
+        "NEE",
+        "Conclusie mag niet sterker zijn dan het beschikbare bewijs.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "C2_KERN",
+        "MR03.F2",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.005",
+        "Impliciete conclusie herkennen",
+        "ST2",
+        "S1 naar S0",
+        "Voor deze eerste selectie tellen alleen drie criteria: kosten, invoertijd en storingsrisico. Optie A kost minder, kan eerder worden ingevoerd en had in de pilot niet meer storingen dan optie B.",
+        "Welke voorlopige conclusie volgt binnen deze drie criteria? Formuleer ook de beperking van die conclusie.",
+        "Afweging naar voorlopige conclusie",
+        "alles afwegend; op basis hiervan; dit pleit voor",
+        "NEE",
+        "JA, als de beperking goed wordt gemotiveerd",
+        "De conclusie moet expliciet beperkt blijven tot de drie gegeven criteria. Geen algemene superioriteitsclaim over optie A.",
+        "HERZIEN_NA_REVIEW_1",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "C2_KERN",
+        "MR03.F2",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.006",
+        "Impliciete conclusie herkennen",
+        "ST2",
+        "S1 naar S0",
+        "Medewerkers uit drie afdelingen noemen dezelfde vertraging. De incidentregistratie laat zien dat die vertraging telkens op hetzelfde overdrachtsmoment ontstaat.",
+        "Welke conclusie over het knelpunt ligt voor de hand?",
+        "Bewijs naar gevolgtrekking",
+        "op grond daarvan; hieruit volgt dat",
+        "NEE",
+        "NEE",
+        "Een knelpunt bij het overdrachtsmoment is verdedigbaar; een volledige causale verklaring is niet automatisch bewezen.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "BRUG",
+        "MR03.F2",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.007",
+        "Impliciet naar expliciet",
+        "ST1",
+        "S1",
+        "Het voorstel verlaagt de kosten aanzienlijk. De organisatie wordt afhankelijker van één leverancier.",
+        "Maak het verband expliciet met een bestaand middel zonder de inhoud sterker of zwakker te maken.",
+        "Tegenstelling of tegenwicht",
+        "maar; echter; daar staat tegenover dat",
+        "JA",
+        "JA, mits de gekozen discoursefunctie klopt",
+        "Alleen bestaande canonieke middelen. Betekenis en claimsterkte moeten gelijk blijven.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "BRUG",
+        "MR03.F3",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.008",
+        "Impliciet naar expliciet",
+        "ST1",
+        "S1",
+        "De voorbereidingstijd was zeer beperkt. De presentatie was volledig, helder en goed onderbouwd.",
+        "Maak de tegenverwachting expliciet.",
+        "Concessie",
+        "hoewel; desondanks; ook al",
+        "JA",
+        "JA, meerdere concessieve realisaties mogelijk",
+        "De gekozen vorm moet echte tegenverwachting uitdrukken, niet alleen gewone tegenstelling.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "BRUG",
+        "MR03.F3",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.009",
+        "Overmarkering verminderen",
+        "ST2",
+        "S1 naar S0",
+        "De controle werd te laat uitgevoerd. Daarom werd de fout pas na verzending ontdekt. Hierdoor moest het volledige bestand opnieuw worden verwerkt. Om die reden liep de rapportage verdere vertraging op.",
+        "Herschrijf dit natuurlijker. Behoud de causale lijn, maar verwijder relationele markering die niet nodig is.",
+        "Causale keten",
+        "bestaande gevolgmiddelen; niet allemaal noodzakelijk",
+        "NEE",
+        "JA, meerdere natuurlijke herformuleringen",
+        "Minder expliciete markering mag de causale keten niet onduidelijk maken. Geen inhoud toevoegen.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "C2_KERN",
+        "MR03.F4",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.010",
+        "Overmarkering verminderen",
+        "ST2",
+        "S1 naar S0",
+        "De bezetting van het kantoor is gemiddeld laag. Daarnaast willen veel medewerkers twee dagen per week thuiswerken. Bovendien loopt volgend kwartaal het huurcontract van een extra verdieping af. Daarom kan de organisatie waarschijnlijk met minder kantoorruimte werken. Kortom, uitbreiding van hybride werken lijkt praktisch uitvoerbaar.",
+        "Herschrijf dit natuurlijker. Behoud de argumentatieve lijn en de voorzichtige conclusie, maar markeer niet ieder verband expliciet.",
+        "Toevoeging plus voorzichtige gevolgtrekking",
+        "daarnaast; bovendien; daarom; kortom, maar niet allemaal noodzakelijk",
+        "NEE",
+        "JA, meerdere coherente reducties mogelijk",
+        "De drie gegevens ondersteunen gezamenlijk een voorzichtige praktische conclusie. Overmarkering verminderen zonder logische steunpunten te verwijderen.",
+        "HERZIEN_NA_REVIEW_1",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "C2_KERN",
+        "MR03.F4",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.011",
+        "Gemotiveerde ambiguïteit",
+        "ST1",
+        "S0",
+        "De directie stelde de beslissing uit. De markt veranderde snel. Er is geen verdere context.",
+        "Welke relationele interpretaties zijn verdedigbaar? Kies niet automatisch één antwoord. Leg uit welke extra informatie nodig is om het verband vast te stellen.",
+        "Tijd, aanleiding of oorzaak mogelijk",
+        "meerdere bestaande relaties mogelijk",
+        "NEE",
+        "JA",
+        "Meer dan één lezing accepteren wanneer die gemotiveerd is. Geen causaal verband opleggen zonder bewijs.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "C2_KERN",
+        "MR03.F5",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ],
+      [
+        "VERB.C1C2.002A.012",
+        "Gemotiveerde ambiguïteit",
+        "ST1",
+        "S0",
+        "De arts wijzigde het behandelplan. De klachten namen daarna af.",
+        "Kunnen we hieruit alleen een tijdsrelatie afleiden, of ook een oorzakelijk verband? Leg uit wat de tekst wel en niet bewijst.",
+        "Tijd zekerder dan causaliteit",
+        "daarna versus daardoor",
+        "NEE",
+        "JA",
+        "Temporele opvolging is gegeven; causaliteit is zonder extra bewijs niet vastgesteld.",
+        "ONGEWIJZIGD",
+        "PILOT_EDITION_0.3_VASTGELEGD",
+        "C2_KERN",
+        "MR03.F5",
+        "PILOT_EDITION_0.3_VASTGELEGD"
+      ]
+    ]
+  },
+  "pilotReview": {
+    "range": "'Review 2 per item'!A1:P20",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "ID",
+        "Didactische rol",
+        "C2 belasting",
+        "Taakmodus",
+        "State",
+        "Steunpad",
+        "Ambiguïteit",
+        "Overmarkering",
+        "DigiBord weergave",
+        "Review 2 oordeel",
+        "Didactische toelichting"
+      ],
+      [
+        "VERB.C1C2.002A.001",
+        "CALIBRATIE",
+        "LAAG",
+        "RECONSTRUCTIE",
+        "ST1",
+        "S1>S0",
+        "GEEN",
+        "GEEN",
+        "Twee tekstkaarten plus open vraag; relationele referentie alleen docentlaag.",
+        "PASS",
+        "Goede nulmeting voor impliciet causaal verband, maar op zichzelf geen C2 bewijs."
+      ],
+      [
+        "VERB.C1C2.002A.002",
+        "CALIBRATIE",
+        "LAAG_TOT_MIDDEL",
+        "RECONSTRUCTIE",
+        "ST1",
+        "S1>S0",
+        "GEEN",
+        "GEEN",
+        "Twee tekstkaarten; geen antwoordopties tonen.",
+        "PASS",
+        "Eenvoudig voor C2, bewust behouden als kalibratie en instap."
+      ],
+      [
+        "VERB.C1C2.002A.003",
+        "BRUG",
+        "MIDDEL",
+        "RECONSTRUCTIE",
+        "ST1",
+        "S1>S0",
+        "GEEN",
+        "GEEN",
+        "Context in drie korte blokken; daarna relationele vraag.",
+        "PASS",
+        "Meer causale inferentie nodig dan bij 001 en 002."
+      ],
+      [
+        "VERB.C1C2.002A.004",
+        "C2_KERN",
+        "HOOG",
+        "RECONSTRUCTIE",
+        "ST2",
+        "S1>S0",
+        "GEEN",
+        "GEEN",
+        "Drie bewijskaarten en één conclusieveld.",
+        "PASS",
+        "Sterke bewijs naar conclusie taak met begrenzing van claimsterkte."
+      ],
+      [
+        "VERB.C1C2.002A.005",
+        "C2_KERN",
+        "HOOG",
+        "RECONSTRUCTIE",
+        "ST2",
+        "S1>S0",
+        "BEGRENSDE_AMBIGUITEIT",
+        "GEEN",
+        "Drie criteriakaarten; conclusie en beperking als twee aparte antwoordvelden.",
+        "PASS",
+        "Echte C2 belasting door afweging én expliciete beperking van de conclusie."
+      ],
+      [
+        "VERB.C1C2.002A.006",
+        "BRUG",
+        "MIDDEL_TOT_HOOG",
+        "RECONSTRUCTIE",
+        "ST2",
+        "S1>S0",
+        "GEEN",
+        "GEEN",
+        "Bronnen en incidentpatroon visueel apart; conclusieveld daarna.",
+        "PASS",
+        "Sterke inferentie, maar minder open dan 004 en 005."
+      ],
+      [
+        "VERB.C1C2.002A.007",
+        "BRUG",
+        "MIDDEL",
+        "PRODUCTIEVE_TRANSFORMATIE",
+        "ST1",
+        "S1",
+        "MEERDERE_REALISATIES",
+        "GEEN",
+        "Twee zinsblokken; geen connectorlijst zichtbaar; voorbeelden pas na bespreking.",
+        "PASS",
+        "Productief, maar de relationele opdracht is expliciet en daardoor niet zelfstandig C2 kernbewijs."
+      ],
+      [
+        "VERB.C1C2.002A.008",
+        "BRUG",
+        "MIDDEL",
+        "PRODUCTIEVE_TRANSFORMATIE",
+        "ST1",
+        "S1",
+        "MEERDERE_REALISATIES",
+        "GEEN",
+        "Twee zinsblokken; explicitering mondeling of kort schriftelijk.",
+        "PASS",
+        "Goede controle op concessie versus gewone tegenstelling."
+      ],
+      [
+        "VERB.C1C2.002A.009",
+        "C2_KERN",
+        "HOOG",
+        "PRODUCTIEVE_TRANSFORMATIE",
+        "ST2",
+        "S1>S0",
+        "MEERDERE_GO_PADDEN",
+        "OVERMARKERING",
+        "Vier zinstrips; markers kunnen afzonderlijk worden gemarkeerd of verborgen.",
+        "PASS",
+        "Sterk C2 bewijs: correctie kan juist bestaan uit minder expliciete cohesie."
+      ],
+      [
+        "VERB.C1C2.002A.010",
+        "C2_KERN",
+        "HOOG",
+        "PRODUCTIEVE_TRANSFORMATIE",
+        "ST2",
+        "S1>S0",
+        "MEERDERE_GO_PADDEN",
+        "OVERMARKERING",
+        "Vijf zinstrips; één voor één tonen. Geen volledige alinea in klein letterbeeld.",
+        "PASS_NA_VERWERKING",
+        "Reparatiepunt gesloten in Pilot Edition 0.3: de bronzin gebruikt nu de correcte constructie 'Kortom, uitbreiding van hybride werken lijkt praktisch uitvoerbaar.' De taak meet weer uitsluitend cohesie en overmarkering."
+      ],
+      [
+        "VERB.C1C2.002A.011",
+        "C2_KERN",
+        "HOOG",
+        "AMBIGUITEITSANALYSE",
+        "ST1",
+        "S0",
+        "KERNTAAK",
+        "GEEN",
+        "Split screen: mogelijke lezingen links, benodigde extra informatie rechts.",
+        "PASS",
+        "Sterke C2 taak door onzekerheid te tolereren en bewijsgrenzen expliciet te maken."
+      ],
+      [
+        "VERB.C1C2.002A.012",
+        "C2_KERN",
+        "HOOG",
+        "AMBIGUITEITSANALYSE",
+        "ST1",
+        "S0",
+        "KERNTAAK",
+        "GEEN",
+        "Twee kolommen: wat weten we wel, wat is niet bewezen.",
+        "PASS",
+        "Sterke precisietaak die temporele opvolging van causaliteit scheidt."
+      ]
+    ]
+  },
+  "contract": {
+    "range": "'DigiBord contract v0.3'!A1:H40",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "Onderdeel",
+        "Contract",
+        "Status"
+      ],
+      [
+        "Algemeen",
+        "Eén taak per bord. Broncontext, opdracht en antwoordruimte zijn visueel gescheiden.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Antwoordmodel",
+        "Geen automatische exacte stringcontrole. Meerdere natuurlijke formuleringen en impliciete antwoorden kunnen correct zijn.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Docentlaag",
+        "Canonieke expliciete referenties en validatoraccent zijn docentdata en standaard niet zichtbaar voor cursisten.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Hints S1",
+        "Maximaal één strategische hint op aanvraag. Geen connectorlijst standaard tonen.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "S0",
+        "Alleen context, communicatief doel en noodzakelijke broninformatie tonen.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Items 001 tot en met 006",
+        "Werk met losse bronkaarten of korte tekstblokken. Conclusieveld pas na bronlezing tonen.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Items 007 en 008",
+        "Twee zinsblokken naast elkaar of onder elkaar. Voorbeelden pas na eigen poging tonen.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Items 009 en 010",
+        "Gebruik zinstrips. Laat markers visueel selecteerbaar of verwijderbaar zijn. Geen dichte alinea.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Items 011 en 012",
+        "Gebruik een tweekolomsweergave: verdedigbare lezing tegenover wat nog niet bewezen is.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Feedback",
+        "Eén primaire vervolgstap: relatie, bewijsgrens, betekenisbehoud of natuurlijkheid.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "Verboden",
+        "Geen beloning voor zeldzamer signaalwoord, geen verplichte connector waar impliciete cohesie correct is, geen stilzwijgende causaliteitsclaim.",
+        "VASTGELEGD_EDITION_0.3"
+      ]
+    ]
+  },
+  "state": {
+    "range": "'Statecontract v0.3'!A1:H40",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "Code",
+        "Minimale context",
+        "Items",
+        "Didactische functie",
+        "Validatorregel",
+        "Niet toegestaan",
+        "Status"
+      ],
+      [
+        "MR03.ST1",
+        "Eén relationeel relevante claim, passage, situatie of gekoppeld feitenpaar.",
+        "001, 002, 003, 007, 008, 011, 012",
+        "Lokale relationele inferentie, explicitering of ambiguïteitsanalyse.",
+        "De gekozen lezing moet door de beschikbare context worden gedragen.",
+        "Geen extra oorzaak, gevolg of intentie verzinnen.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "MR03.ST2",
+        "Minimaal twee relevante punten, bewijselementen of schakels in een discourseketen.",
+        "004, 005, 006, 009, 010",
+        "Bewijsweging, gevolgtrekking of cohesie over meerdere propositionele elementen.",
+        "Alle gebruikte informatie moet traceerbaar blijven en de conclusie mag niet sterker zijn dan het bewijs.",
+        "Geen bronpunt stil negeren wanneer het de inferentie beïnvloedt.",
+        "VASTGELEGD_EDITION_0.3"
+      ],
+      [
+        "MR03.STATE.GUARD",
+        "Stategrens",
+        "Alle 12",
+        "MR03 pilot bewijst ST1 en ST2; ST3 is niet vereist voor deze macrorecipe pilot.",
+        "Bij wijziging van relevante context moet de relationele beoordeling opnieuw plaatsvinden.",
+        "Geen stale conclusie of stale connector behouden na contextwijziging.",
+        "VASTGELEGD_EDITION_0.3"
+      ]
+    ]
+  },
+  "decisions": {
+    "range": "'Edition 0.3 besluiten'!A1:F40",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "Besluit",
+        "Edition 0.3 status",
+        "Toelichting"
+      ],
+      [
+        "Taak 010",
+        "GESLOTEN",
+        "Bronzin gecorrigeerd naar correcte kortom constructie."
+      ],
+      [
+        "Didactische rolverdeling",
+        "VASTGELEGD",
+        "2 kalibratie, 4 brug, 6 C2 kern."
+      ],
+      [
+        "Didactische fasen",
+        "VASTGELEGD",
+        "MR03.F1 tot en met MR03.F5."
+      ],
+      [
+        "Steuncontract",
+        "VASTGELEGD",
+        "S1 naar S0 met bewuste S1 uitzondering voor 007 en 008."
+      ],
+      [
+        "Statecontract",
+        "VASTGELEGD",
+        "ST1 en ST2 vormen het MR03 pilotcontract."
+      ],
+      [
+        "DigiBord presentatiecontract",
+        "VASTGELEGD",
+        "Kaarten, zinstrips, tweekolomsweergave, docentlaag en hints vastgelegd."
+      ],
+      [
+        "Opschalingsstatus",
+        "GO_VOOR_GECONTROLEERDE_MR03_OPSCHALING",
+        "Voldoende pilotbewijs voor gecontroleerde uitbreiding."
+      ],
+      [
+        "Volledige MR03 bank",
+        "NIET GESTART",
+        "Buiten deze poort."
+      ],
+      [
+        "MR04 productie",
+        "NIET GESTART",
+        "Buiten deze poort."
+      ],
+      [
+        "C1 productie",
+        "NIET GESTART",
+        "Buiten deze poort."
+      ],
+      [
+        "Massaproductie",
+        "NO GO",
+        "Niet vrijgegeven."
+      ],
+      [
+        "Nieuwe verbindingswoorden",
+        "0",
+        "Niet geproduceerd."
+      ],
+      [
+        "Nieuwe Signal IDs",
+        "0",
+        "Niet geproduceerd."
+      ],
+      [
+        "Nieuwe meaning senses",
+        "0",
+        "Niet geproduceerd."
+      ],
+      [
+        "Nieuwe grammaticale constructies",
+        "0",
+        "Niet geproduceerd."
+      ]
+    ]
+  },
+  "pilotScale": {
+    "range": "'Opschalingsbesluit v0.3'!A1:H30",
+    "majorDimension": "ROWS",
+    "values": [
+      [
+        "Criterium",
+        "Status",
+        "Toelichting"
+      ],
+      [
+        "Vijf didactische fasen vastgelegd",
+        "PASS",
+        "MR03.F1 tot en met MR03.F5."
+      ],
+      [
+        "2 kalibratie, 4 brug, 6 C2 kern",
+        "PASS",
+        "Rolverdeling definitief vastgelegd per item."
+      ],
+      [
+        "ST1 en ST2 bewezen",
+        "PASS",
+        "7 ST1 en 5 ST2."
+      ],
+      [
+        "S1 naar S0 bewezen",
+        "PASS",
+        "10 items bereiken S0 of starten direct op S0; 007 en 008 zijn bewuste S1 uitzondering."
+      ],
+      [
+        "Meerdere semantische relaties",
+        "PASS",
+        "Causaliteit, gevolgtrekking, afweging, tegenstelling, concessie, toevoeging en tijd tegenover causaliteit."
+      ],
+      [
+        "Meerdere geldige antwoorden ondersteund",
+        "PASS",
+        "Vooral 007 tot en met 012."
+      ],
+      [
+        "Geen nieuwe VERB contentobjecten nodig",
+        "PASS",
+        "0 nieuwe Signal IDs, senses of constructies."
+      ],
+      [
+        "DigiBord uitvoerbaar",
+        "PASS",
+        "Presentatiecontract Edition 0.3 is vastgelegd."
+      ],
+      [
+        "Didactische confounds afwezig",
+        "PASS",
+        "Taak 010 kortom constructie is hersteld."
+      ],
+      [
+        "Bewijs voor MR03 opschaling",
+        "GO_VOOR_GECONTROLEERDE_MR03_OPSCHALING",
+        "Pilot bewijst architectuur voor gecontroleerde uitbreiding."
+      ],
+      [
+        "Volledige MR03 bank",
+        "NO GO",
+        "Omvang en batchverdeling moeten nog apart worden vastgesteld."
+      ],
+      [
+        "MR04 productie",
+        "NO GO",
+        "Niet vrijgegeven door deze poort."
+      ],
+      [
+        "C1 productie",
+        "NO GO",
+        "Niet vrijgegeven door deze poort."
+      ],
+      [
+        "Massaproductie",
+        "NO GO",
+        "Eerst opschalingscontract, productiebankomvang en nieuwe reviewgates vastleggen."
+      ]
+    ]
+  }
+}

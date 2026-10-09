@@ -1,4 +1,8 @@
 /* New landing content only: game shells and fullscreen sizing stay unchanged. */
+.support-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.support-links a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);font-size:15px;font-weight:400;text-decoration:none}
+.support-links a:hover{background:#f3f9fe}
+.support-links a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 #screen-play .landing-inner{grid-template-rows:auto auto auto;align-content:start}
 .gamecard-workforms .status{margin-top:12px;font-size:12px}
 @media(min-width:1800px){#screen-play .gamecards{grid-template-columns:repeat(6,minmax(0,1fr))}}

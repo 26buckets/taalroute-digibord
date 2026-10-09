@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.goto('file://'+path.join(served,'index.html'));
+ await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
  await page.evaluate(()=>{APP.boardStates.rotterdam={positions:{p0:7}};settingsPatch({participants:[{id:'p0',name:'Test',color:'#2389e8'}]});save();});
  const before=await page.evaluate(()=>JSON.stringify({boards:APP.boardStates,settings:settingsState()}));
  await page.locator('[data-category="words"]').click();
@@ -48,8 +48,9 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  const rendered=await page.evaluate(()=>{
   for(const item of WZ_ITEMS){
    const pool=wzPool({goalId:item.goalId,type:item.type,band:item.band});
-   wordRound=newWZRound({goalId:item.goalId,type:item.type,band:item.band,round:pool.findIndex(i=>i.id===item.id)+1});startWZ();
-   if(!document.querySelector('.card-instruction').textContent.includes(item.instruction))throw Error(item.id+' instruction');
+   // Inspect retained legacy records without reclassifying them as new released selections.
+   wordRound={version:4,source:item.source,level:'',clueCount:1,revealed:false,goalId:item.goalId,type:item.type,band:item.band,context:'',round:pool.findIndex(i=>i.id===item.id)+1,itemId:item.id,bankOrder:(item.tokens||[]).map((_,i)=>i),optionOrder:item.options.map(o=>o.id),selected:[],response:'',choice:null,status:'initial',checked:false,feedback:'',support:null,arranging:false,moveId:null};startWZ();
+   if(!document.querySelector('.card-instruction').textContent.includes(AppWording.text(item.instruction)))throw Error(item.id+' instruction');
    if(item.type==='Bouw'&&document.querySelectorAll('#spokenWords [role=listitem]').length!==item.tokens.length)throw Error(item.id+' tokens');
    if(item.type==='Kies'&&document.querySelectorAll('[data-wz-option]').length!==item.options.length)throw Error(item.id+' options');
    if(item.answerType==='OPEN'&&!document.querySelector('#wordCheck').hidden)throw Error(item.id+' check');
@@ -62,7 +63,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  for(const goal of await page.locator('[data-word-archive]').evaluateAll(bs=>bs.map(b=>b.dataset.wordArchive))){
   await page.locator(`[data-word-archive="${goal}"]`).click();
   assert.equal(await page.evaluate(()=>wordItem().source),'PRAATPAD_WORDS');
-  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>APP.level));
+  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>DigiRoutes.resolve(APP.level)));
   await page.locator('#wzGoalsBack').click();
  }
  await page.locator('[data-word-archive="WS_OMSCHRIJVEN"]').click();
@@ -84,10 +85,10 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  assert.equal(await page.locator('#wordClues li').count(),1);
  assert.equal(await page.locator('#wordTarget').innerText(),'');
  await page.locator('#undoAction').click();assert.equal(await page.locator('#wordClues li').count(),3);
- for(const level of ['A1','A2','B1','B2']){
-  await page.locator('#wzLevel').selectOption(level);
-  assert.equal(await page.evaluate(()=>wordItem().level),level);
-  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>APP.level));
+ for(const route of ['A1_A2','A2_B1','B1_B2','B2_C1']){
+  await page.locator('#wzLevel').selectOption(route);
+  assert.equal(await page.evaluate(()=>DigiRoutes.resolve(wordItem().level)),route);
+  assert.equal(await page.locator('#levelSelect').inputValue(),await page.evaluate(()=>DigiRoutes.resolve(APP.level)));
  }
  assert.equal(await page.evaluate(()=>{
   const cards=WORD_ITEMS.filter(i=>i.source==='PRAATPAD_WORDS');
@@ -128,7 +129,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  // Keyboard choice and a touch alternative to dragging.
  await page.setViewportSize({width:1440,height:900});await page.evaluate(()=>selectWZGoal('WZ_001'));
  await page.locator('#wordArrange').click();await page.locator('#wordBank button').first().focus();await page.keyboard.press('Space');assert.equal(await page.locator('#sentence button').count(),1);
- const touch=await browser.newPage({viewport:{width:1024,height:768},hasTouch:true});await touch.goto('file://'+path.join(served,'index.html'));await touch.locator('[data-category="words"]').tap();await touch.locator('[data-wz-goal="WZ_005"]').tap();await touch.locator('#wordArrange').tap();await touch.locator('#wordBank button').first().tap();assert.equal(await touch.locator('#sentence button').count(),1);await touch.close();
+ const touch=await browser.newPage({viewport:{width:1024,height:768},hasTouch:true});await touch.addInitScript(()=>{window.DigiBordArchiveReview=true});await touch.goto('file://'+path.join(served,'index.html'));await touch.locator('[data-category="words"]').tap();await touch.locator('[data-wz-goal="WZ_005"]').tap();await touch.locator('#wordArrange').tap();await touch.locator('#wordBank button').first().tap();assert.equal(await touch.locator('#sentence button').count(),1);await touch.close();
  assert.deepEqual(errors,[]);
  console.log('PASS: 9 taaldoelen via UI, 680 WZ + 28 historische renders, 7 vormen, bron/niveaubehoud, raadaanwijzingen/onthullen, antwoordcontrole, open guard, hervatten/Terug, pion- en instellingenbehoud, toetsenbord/tik, 3 schermbreedtes.');
  }finally{await browser.close()}

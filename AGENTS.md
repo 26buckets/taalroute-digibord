@@ -1,10 +1,34 @@
-# Taalroute DigiBord V01.24
+# Taalroute DigiBord V01.25
 
-Deze repository bevat de volledige actieve V01.24-app. De oude app is gearchiveerd onder tag `archive/pre-v0124-20260921`.
+Deze branch bevat de actuele V01.25-app met de bewaarde oudere inhoud. De oude app is gearchiveerd onder tag `archive/pre-v0124-20260921`.
 
-- Bewaar de bestaande vormgeving en werking tenzij de gebruiker om een wijziging vraagt.
+- Bewaar de bestaande vormgeving en werking tenzij de gebruiker om een wijziging vraagt. Lees [VORMGEVING.md](VORMGEVING.md) bij wijzigingen aan uiterlijk of uitleg: hergebruik de vier goedgekeurde woordlogo’s in assets/guidance/.
+- Tongbrekers blijven groot volgens de vaste maten in VORMGEVING.md. Niet verkleinen bij algemene kaart- of schermwijzigingen; tests/tongbrekers-browser.cjs bewaakt dit. Alleen wijzigen op expliciet verzoek van Nico.
 - Lees BANKEN-V2-INTEGRATIE.md voor inhoudelijke wijzigingen. De canonieke banken in Lessen/, data/opdrachtenbank.json, data/snelvragen.json en data-bundle.js moeten gelijk blijven. Wijzig geen borgingshash om een fout te omzeilen.
+- Lees [INHOUDSNIVEAUS.md](INHOUDSNIVEAUS.md) voor niveaukeuzes en volgende bankaansluitingen: A1/A1+ delen de basis, relatieve bijzin vanaf B1, groei tot C1 per concrete oefening. De gebruiker heeft deze indeling gedelegeerd.
 - Voer npm test, npm run test:activities, npm run lint, npm run types en npm run build uit. Browsercontroles: npm run test:banks:browser, npm run smoke en npm run test:tongue:browser.
 - Alleen dist/ wordt gepubliceerd. Geen oude applicatie, historische databestanden, tests, verslagen of back-ups toevoegen aan dist/.
 - Behoud lokale groepen, pionnen, instellingen en voortgang. Maak vóór gegevensvervanging een nieuwe back-up.
 - Publicatie alleen met expliciete toestemming. Controleer na publicatie de daadwerkelijke publieke app.
+
+- Inhoudsreviews op verzoek van Nico (23 september): combineer verwante onderdelen tot werksets van 90–120 opdrachten. Beoordeel iedere opdracht afzonderlijk; voer bouwen, verplichte spelcontroles en verslag één keer per groter blok uit. De kleine historische dertigsets zijn geen verplichte stopmomenten.
+
+- Vaste woordkeuze op verzoek van Nico (24 september): gebruik bij een persoon die naast iemand woont altijd **buurman** of **buurvrouw**, nooit de verkorte enkelvoudsvorm. Dit geldt voor opdrachten, antwoorden, hulp, instellingen, verslagen en gesproken tekst. Bewaar historische bronnen en lesreferenties; de gedeelde tekstweergave gebruikt de afgesproken woordkeuze, ook bij hervatten. `tests/wording.cjs` en `tests/wording-browser.cjs` bewaken dit.
+
+- Vaste schrijfregel van Nico (2 oktober): schrijf in de app gewoon **een medewerker**, **een collega**, **een klant** of de concrete rol. Geen toevoeging **fictief/fictieve**, ook niet bij situaties, locaties, gegevens, opdrachten, hulp of voorbeelden. Vervang dit niet door vergelijkbare labels zoals **een verzonnen persoon** of **een denkbeeldige medewerker**. Schrijf direct en eenvoudig. Laat overbodige verklaringen over de herkomst van een oefensituatie weg. Houd nuttige uitleg over grammatica, ontbrekende informatie en de mogelijkheid om geen persoonlijke gegevens te delen inhoudelijk intact. Deze regel geldt ook bij hervatten en voor toekomstige inhoud. Historische bronnen blijven bewaard; AppWording verzorgt de zichtbare tekst. De woordkeuzetests bewaken de regel vóór publicatie.
+
+- Publicatie vanaf 25 september: alleen de volledig nagekeken 1.440 Er/Zullen/Zouden en 2.621 Snelvragen. ReleasePolicy beperkt de gezamenlijke selectie én klassieke ingangen; andere bronnen/lessen blijven bewaard maar verborgen. Geen niveau-, instelling- of URL-keuze mag ongecontroleerde inhoud weer zichtbaar maken. Archive-regressietests gebruiken expliciet DigiBordArchiveReview in een aparte testbrowser; tests/release-browser.cjs toetst de echte standaard zonder die vlag.
+
+- Vaste opdrachtopmaak (25 september): alle verplichte oefenwoorden, begin-/eindwoorden, keuzeopties bij ‘Kies:’ en aangehaalde termen waarover de vraag gaat krijgen nadruk volgens VORMGEVING.md. Gebruik de gedeelde contentPromptHtml-weergave in alle geschikte spellen en voorbereiding; laat omliggende instructies normaal. Controleer nieuwe instructievormen vóór publicatie.
+
+- Publieke tekst: geen interne nakijk-, bron- of ontwikkelstatus in de live app. Komende activiteiten zijn grijs, uitgeschakeld en tonen Binnenkort op de afbeelding. Zie de vaste regel in VORMGEVING.md; controleer ook hervatten en het inhoudsoverzicht.
+
+- Dobbelspellen hersteld met expliciet akkoord van Nico (1 oktober 2026): Zinnen bouwen gebruikt de 23 bestaande vrijgegeven Taalworp-sets, Verhaal maken de 10 bestaande beeldsets (320 beelden), Dobbelen met opdrachten de bevroren gezamenlijke voorbereiding met nagekeken vragen. De eerste twee zijn zelfstandige spellen. Bewaar hun eigen worp en de eerdere les bij wisselen/hervatten. Dit geeft geen overige tekstbanken of komende kaartspellen vrij.
+
+- Kaartvrijgave op expliciet verzoek van Nico (2 oktober 2026): de 280 R014.1-kaarten (zeven families), 240 definitieve tongbrekers en 50 herbeoordeelde kaarten Nederlands tussen de regels zijn vrijgegeven. De eerste acht kaartsoorten starten zelfstandig. Nederlands tussen de regels gebruikt uitsluitend CB-BETWEEN-LINES-012 versie 2026-09-23.1 via de bestaande voorbereiding, 19 B1/31 B2. Dit is een aanvulling op de 4.061 bestaande opdrachten; overige banken blijven verborgen. Audio blijft uit. Eerdere AI-redactie is bevestigd; geen uitgevoerde klasproef claimen.
+
+- WZ-vrijgave 3 oktober 2026 op expliciete opdracht van Nico: 2.698 bestaande opdrachten (2.519 FREE, 179 GUIDED) uit de nieuwste R01–R26-sluitingsreviews. Alleen versie 2026-10-03.wz.release.1 van CB-WZ-001 t/m 005 is aanvullend vrijgegeven. De 862 afgewezen records blijven HARD_REVOKED; hun bron en eerdere tekstversies blijven bewaard. Nieuwe WZ-selectie gebruikt de individuele route en de bewuste keuze bij Oefendoel voor GUIDED. Geen GUIDED in algemene randomisatie. data/wz-reviewed.js is reproduceerbaar uit tests/fixtures/wz-release-source.json via scripts/import-wz-release.cjs. Test aanvullend tests/wz-release.cjs en tests/wz-release-browser.cjs; voer de laatste ook met LIVE_URL uit na publicatie. Een menselijke klasproef blijft niet uitgevoerd.
+
+- P0 contentbehoud (4 oktober 2026): voer `npm run test:p0` en `npm run test:p0:browser` uit vóór publicatie. `npm run build` controleert bron en dist automatisch tegen de bevroren manifesten in tests/fixtures/p0. Geen snapshot of borgingshash aanpassen om een verlies te laten slagen. Alle 570 historische IDs blijven verantwoord; 530 actief plus uitsluitend de 40 expliciet geblokkeerde Story Cards volgens de actuele Drive-sluitmatrix. Nieuwe inhoud of route-/gate-/mediaverliezen vereisen een geregistreerd bronbesluit. Zie P0-CONTENT-PRESERVATION.md. Nieuwe functionaliteitsontwikkeling blijft geblokkeerd zolang deze poort niet groen is.
+
+- Aanvullend P0-herstel (4 oktober): bescherm ook de 80 bestaande Drive/Taalmix-rebussen in tests/fixtures/p0-restored-rebuses-80.json. Totaal 610 actief + 40 expliciet geblokkeerde Story Cards; familie spreekwoorden/uitdrukkingen/rebussen 120, waarvan 90 beeldrebussen. Voer test:rebuses:browser uit: vóór eigen poging geen zichtbare oplossing in instructie, context, hulp of vergroting. Bewaar exacte bronvelden bij de opgevraagde oplossing en wijzig de oorspronkelijke 570-baseline niet. Zie de correctieve herstelbeslissing in P0-CONTENT-PRESERVATION.md.

@@ -1,0 +1,1157 @@
+{
+  "source": "1qA_L7Blxy5eGq5i6cCO9ukHhu7xlvLyf",
+  "sha256": "05bccbcd8c2185cd64118ebc2ccd0720aee092eb11eed115ebf6bcdb2a8f6b98",
+  "app_publication": "Niet gewijzigd tijdens deze opslag- en voorbereidingsronde.",
+  "assets": [
+    {
+      "id": "TR-IDIOMS-P001-002-R0",
+      "sha256": "8db62dbe86b2c141da1a04e3aab21592e3b43b327614a0447b6a668789cdf733",
+      "drive_id": "14iD0PtYHlCRP7b4BrK-8GQL99ugZ63bT",
+      "solution": "balpen"
+    },
+    {
+      "id": "TR-IDIOMS-P001-003-R0",
+      "sha256": "3243b151b4e8938d6fbb9659b2442bf61c57be21e27450854a2aa8c1cea10460",
+      "drive_id": "1QnwgM-HJEB49Bgt5iibMpK6UdeyCaifU",
+      "solution": "pen"
+    },
+    {
+      "id": "TR-IDIOMS-P001-005-R1",
+      "sha256": "5fff7040ceb46f00d0087d725f58fe2e7f125a9bebb54f54ac4a31b70d752bc5",
+      "drive_id": "1KRM6FWyI-PWre5ke7SBpA5sTXOrD8qil",
+      "solution": "regenjas"
+    },
+    {
+      "id": "TR-IDIOMS-P001-008-R2",
+      "sha256": "66fde20d113273af796c88f217110ff93cce9a9838b0055555938e9dc5cacbf6",
+      "drive_id": "1ac5uDCcEzz4xKc0P8Ji_3mUDUZdKZN-h",
+      "solution": "lam"
+    },
+    {
+      "id": "TR-IDIOMS-P001-010-R2",
+      "sha256": "9b9d7955a21eeb0d29b3a68cd93ae860d841b65e0ba7357faa1623108828f6d9",
+      "drive_id": "1VLHeLWczuhYnJCfqbqoFoY9bk5BY8XIB",
+      "solution": "ik loop"
+    },
+    {
+      "id": "TR-IDIOMS-P001-012-R3",
+      "sha256": "3c5f0dc1651250231155390cd9ad04fd71df9e4db11b552c32d5c920a2a907b4",
+      "drive_id": "1mXjCSMB9UZNttvvdtKJuDnRQYE_cIkt6",
+      "solution": "een handje helpen"
+    },
+    {
+      "id": "TR-IDIOMS-P001-014-R3",
+      "sha256": "8b505f4d0e59c3b2f0c68562feb02bb038a39230705a20e76ac425f1fb6486fe",
+      "drive_id": "1Q8alCPsHNLmGZ5NguJXsVRxEbenohwYC",
+      "solution": "een tandje bijzetten"
+    },
+    {
+      "id": "TR-IDIOMS-P001-016-R4",
+      "sha256": "f9212ec2a8ff285bf9ad848bfec3fdd87188b42b56c3256333363af174ae22d3",
+      "drive_id": "1MfqxdCwe5oqIb4qJlFeZbPjWvNfZcSLy",
+      "solution": "de knoop doorhakken"
+    },
+    {
+      "id": "TR-IDIOMS-P001-018-R5",
+      "sha256": "2e2bb7327fa186448cd8419abe4f6e43a7921df041904be0554440940aeeabad",
+      "drive_id": "1JDEPPrEEZCfJQgfGQIXFbfC5QiHlLJuT",
+      "solution": "voorbeeld"
+    },
+    {
+      "id": "TR-IDIOMS-P001-020-R6",
+      "sha256": "c889912f899bc02442c2de6ad0f02809c23ae7d719ffdb1634277d789a98c114",
+      "drive_id": "1-JXGHWmOT7UfBlsWqXkGraaCX5siEgik",
+      "solution": "samenwerken"
+    }
+  ],
+  "unlinked": [
+    {
+      "id": "TR-REBUS-BRON01-11",
+      "solution": "Goulash"
+    },
+    {
+      "id": "TR-REBUS-BRON01-12",
+      "solution": "Alles is koek en ei"
+    },
+    {
+      "id": "TR-REBUS-BRON01-13",
+      "solution": "Kom je aan tafel? We gaan eten"
+    },
+    {
+      "id": "TR-REBUS-BRON01-14",
+      "solution": "Niet over één nacht ijs gaan"
+    },
+    {
+      "id": "TR-REBUS-BRON01-15",
+      "solution": "De hond in de pot vinden"
+    },
+    {
+      "id": "TR-REBUS-BRON01-16",
+      "solution": "Van dik hout zaagt men planken"
+    },
+    {
+      "id": "TR-REBUS-BRON01-17",
+      "solution": "Door de bomen het bos niet meer zien"
+    },
+    {
+      "id": "TR-REBUS-BRON01-18",
+      "solution": "Het water staat me tot aan de lippen"
+    },
+    {
+      "id": "TR-REBUS-BRON01-19",
+      "solution": "Wie de schoen past, trekke hem aan"
+    },
+    {
+      "id": "TR-REBUS-BRON01-20",
+      "solution": "De boog kan niet altijd gespannen zijn"
+    },
+    {
+      "id": "TR-REBUS-BRON01-21",
+      "solution": "Verandering van spijs doet eten"
+    },
+    {
+      "id": "TR-REBUS-BRON01-22",
+      "solution": "De gebraden eenden vliegen me in de mond"
+    },
+    {
+      "id": "TR-REBUS-KORT-23",
+      "solution": "voetbal"
+    },
+    {
+      "id": "TR-REBUS-KORT-24",
+      "solution": "handdoek"
+    },
+    {
+      "id": "TR-REBUS-KORT-25",
+      "solution": "huisdeur"
+    },
+    {
+      "id": "TR-REBUS-KORT-26",
+      "solution": "theepot"
+    },
+    {
+      "id": "TR-REBUS-KORT-27",
+      "solution": "fietsbel"
+    },
+    {
+      "id": "TR-REBUS-KORT-28",
+      "solution": "oorbel"
+    },
+    {
+      "id": "TR-REBUS-KORT-29",
+      "solution": "bedlamp"
+    },
+    {
+      "id": "TR-REBUS-KORT-30",
+      "solution": "ijsbeer"
+    },
+    {
+      "id": "TR-REBUS-KORT-31",
+      "solution": "viskom"
+    },
+    {
+      "id": "TR-REBUS-KORT-32",
+      "solution": "tas"
+    },
+    {
+      "id": "TR-REBUS-KORT-33",
+      "solution": "pan"
+    },
+    {
+      "id": "TR-REBUS-KORT-34",
+      "solution": "kat"
+    },
+    {
+      "id": "TR-REBUS-KORT-35",
+      "solution": "zonnebril"
+    },
+    {
+      "id": "TR-REBUS-KORT-36",
+      "solution": "boekenkast"
+    },
+    {
+      "id": "TR-REBUS-KORT-37",
+      "solution": "tuinslang"
+    },
+    {
+      "id": "TR-REBUS-KORT-38",
+      "solution": "broodrooster"
+    },
+    {
+      "id": "TR-REBUS-KORT-39",
+      "solution": "werkboek"
+    },
+    {
+      "id": "TR-REBUS-KORT-40",
+      "solution": "voetbalveld"
+    },
+    {
+      "id": "TR-REBUS-KORT-41",
+      "solution": "handdoekrek"
+    },
+    {
+      "id": "TR-REBUS-KORT-42",
+      "solution": "school"
+    },
+    {
+      "id": "N-A1-I01",
+      "solution": "appelsap"
+    },
+    {
+      "id": "N-A1-I02",
+      "solution": "melkfles"
+    },
+    {
+      "id": "N-A1-I03",
+      "solution": "melkpak"
+    },
+    {
+      "id": "N-A1-I04",
+      "solution": "soepkom"
+    },
+    {
+      "id": "N-A1-I05",
+      "solution": "broodmes"
+    },
+    {
+      "id": "N-A1-I06",
+      "solution": "schooltas"
+    },
+    {
+      "id": "N-A1-I07",
+      "solution": "schoolboek"
+    },
+    {
+      "id": "N-A1-I08",
+      "solution": "rugzak"
+    },
+    {
+      "id": "N-A1-I09",
+      "solution": "tuindeur"
+    },
+    {
+      "id": "N-A1-I10",
+      "solution": "tuinstoel"
+    },
+    {
+      "id": "N-A1-I11",
+      "solution": "huiskat"
+    },
+    {
+      "id": "N-A1-I12",
+      "solution": "badjas"
+    },
+    {
+      "id": "N-A1-I13",
+      "solution": "badkamer"
+    },
+    {
+      "id": "N-A1-I14",
+      "solution": "theeglas"
+    },
+    {
+      "id": "N-A1-I15",
+      "solution": "theelepel"
+    },
+    {
+      "id": "N-A1-I16",
+      "solution": "waterfles"
+    },
+    {
+      "id": "N-A1-I17",
+      "solution": "waterkraan"
+    },
+    {
+      "id": "N-A1-I18",
+      "solution": "bloempot"
+    },
+    {
+      "id": "N-A1-I19",
+      "solution": "fruitmand"
+    },
+    {
+      "id": "N-A1-I20",
+      "solution": "handtas"
+    },
+    {
+      "id": "N-A1-V01",
+      "solution": "bus"
+    },
+    {
+      "id": "N-A1-V02",
+      "solution": "vis"
+    },
+    {
+      "id": "N-A1-V03",
+      "solution": "huis"
+    },
+    {
+      "id": "N-A1-V04",
+      "solution": "boek"
+    },
+    {
+      "id": "N-A1-V05",
+      "solution": "bed"
+    },
+    {
+      "id": "N-A1-V06",
+      "solution": "maan"
+    },
+    {
+      "id": "N-A1-V07",
+      "solution": "roos"
+    },
+    {
+      "id": "N-A1-V08",
+      "solution": "sok"
+    },
+    {
+      "id": "N-A1-V09",
+      "solution": "jas"
+    },
+    {
+      "id": "N-A1-V10",
+      "solution": "boot"
+    },
+    {
+      "id": "N-A1-V11",
+      "solution": "mes"
+    },
+    {
+      "id": "N-A1-V12",
+      "solution": "kaas"
+    },
+    {
+      "id": "N-A1-V13",
+      "solution": "soep"
+    },
+    {
+      "id": "N-A1-V14",
+      "solution": "tafel"
+    },
+    {
+      "id": "N-A1-V15",
+      "solution": "stoel"
+    },
+    {
+      "id": "N-A1-V16",
+      "solution": "muur"
+    },
+    {
+      "id": "N-A1-V17",
+      "solution": "kip"
+    },
+    {
+      "id": "N-A1-V18",
+      "solution": "been"
+    },
+    {
+      "id": "N-A1-V19",
+      "solution": "hand"
+    },
+    {
+      "id": "N-A1-V20",
+      "solution": "meer"
+    },
+    {
+      "id": "N-A1-U01",
+      "solution": "koelkast"
+    },
+    {
+      "id": "N-A1-U02",
+      "solution": "brievenbus"
+    },
+    {
+      "id": "N-A1-U03",
+      "solution": "tandenborstel"
+    },
+    {
+      "id": "N-A1-U04",
+      "solution": "afwasborstel"
+    },
+    {
+      "id": "N-A1-U05",
+      "solution": "boekenplank"
+    },
+    {
+      "id": "N-A1-U06",
+      "solution": "regenboog"
+    },
+    {
+      "id": "N-A1-U07",
+      "solution": "zaklamp"
+    },
+    {
+      "id": "N-A1-U08",
+      "solution": "deurmat"
+    },
+    {
+      "id": "N-A1-U09",
+      "solution": "fietshelm"
+    },
+    {
+      "id": "N-A1-U10",
+      "solution": "handschoen"
+    },
+    {
+      "id": "N-A1-U11",
+      "solution": "schoenendoos"
+    },
+    {
+      "id": "N-A1-U12",
+      "solution": "voordeur"
+    },
+    {
+      "id": "N-A1-U13",
+      "solution": "koffiekop"
+    },
+    {
+      "id": "N-A1-U14",
+      "solution": "boterham"
+    },
+    {
+      "id": "N-A1-U15",
+      "solution": "pindakaas"
+    },
+    {
+      "id": "N-A1-U16",
+      "solution": "tomatensoep"
+    },
+    {
+      "id": "N-A1-U17",
+      "solution": "ijsblok"
+    },
+    {
+      "id": "N-A1-U18",
+      "solution": "zwembroek"
+    },
+    {
+      "id": "N-A1-U19",
+      "solution": "winkelmand"
+    },
+    {
+      "id": "N-A1-U20",
+      "solution": "tandpasta"
+    },
+    {
+      "id": "N-A2-I01",
+      "solution": "treinkaartje"
+    },
+    {
+      "id": "N-A2-I02",
+      "solution": "buskaart"
+    },
+    {
+      "id": "N-A2-I03",
+      "solution": "fietspomp"
+    },
+    {
+      "id": "N-A2-I04",
+      "solution": "autoband"
+    },
+    {
+      "id": "N-A2-I05",
+      "solution": "autodeur"
+    },
+    {
+      "id": "N-A2-I06",
+      "solution": "treinstation"
+    },
+    {
+      "id": "N-A2-I07",
+      "solution": "bushalte"
+    },
+    {
+      "id": "N-A2-I08",
+      "solution": "sleutelhanger"
+    },
+    {
+      "id": "N-A2-I09",
+      "solution": "wasmand"
+    },
+    {
+      "id": "N-A2-I10",
+      "solution": "wasbak"
+    },
+    {
+      "id": "N-A2-I11",
+      "solution": "wasmachine"
+    },
+    {
+      "id": "N-A2-I12",
+      "solution": "kledingkast"
+    },
+    {
+      "id": "N-A2-I13",
+      "solution": "kledingwinkel"
+    },
+    {
+      "id": "N-A2-I14",
+      "solution": "broodtrommel"
+    },
+    {
+      "id": "N-A2-I15",
+      "solution": "koektrommel"
+    },
+    {
+      "id": "N-A2-I16",
+      "solution": "vissoep"
+    },
+    {
+      "id": "N-A2-I17",
+      "solution": "groentesoep"
+    },
+    {
+      "id": "N-A2-I18",
+      "solution": "appeltaart"
+    },
+    {
+      "id": "N-A2-I19",
+      "solution": "citroensap"
+    },
+    {
+      "id": "N-A2-I20",
+      "solution": "fietstas"
+    },
+    {
+      "id": "N-A2-V01",
+      "solution": "werkjas"
+    },
+    {
+      "id": "N-A2-V02",
+      "solution": "werkbank"
+    },
+    {
+      "id": "N-A2-V03",
+      "solution": "werkplek"
+    },
+    {
+      "id": "N-A2-V04",
+      "solution": "kookboek"
+    },
+    {
+      "id": "N-A2-V05",
+      "solution": "kookpan"
+    },
+    {
+      "id": "N-A2-V06",
+      "solution": "spaarpot"
+    },
+    {
+      "id": "N-A2-V07",
+      "solution": "slaapzak"
+    },
+    {
+      "id": "N-A2-V08",
+      "solution": "slaapbank"
+    },
+    {
+      "id": "N-A2-V09",
+      "solution": "regenlaars"
+    },
+    {
+      "id": "N-A2-V10",
+      "solution": "sneeuwpop"
+    },
+    {
+      "id": "N-A2-V11",
+      "solution": "bloemenwinkel"
+    },
+    {
+      "id": "N-A2-V12",
+      "solution": "fietsenmaker"
+    },
+    {
+      "id": "N-A2-V13",
+      "solution": "huishouden"
+    },
+    {
+      "id": "N-A2-V14",
+      "solution": "badhanddoek"
+    },
+    {
+      "id": "N-A2-V15",
+      "solution": "keukentafel"
+    },
+    {
+      "id": "N-A2-V16",
+      "solution": "keukenstoel"
+    },
+    {
+      "id": "N-A2-V17",
+      "solution": "zonnebloem"
+    },
+    {
+      "id": "N-A2-V18",
+      "solution": "zonnebrand"
+    },
+    {
+      "id": "N-A2-V19",
+      "solution": "dagboek"
+    },
+    {
+      "id": "N-A2-V20",
+      "solution": "feestdag"
+    },
+    {
+      "id": "N-A2-U01",
+      "solution": "ik ben thuis"
+    },
+    {
+      "id": "N-A2-U02",
+      "solution": "ik ga naar school"
+    },
+    {
+      "id": "N-A2-U03",
+      "solution": "ik wil water"
+    },
+    {
+      "id": "N-A2-U04",
+      "solution": "ik heb honger"
+    },
+    {
+      "id": "N-A2-U05",
+      "solution": "ik heb dorst"
+    },
+    {
+      "id": "N-A2-U06",
+      "solution": "ik ben moe"
+    },
+    {
+      "id": "N-A2-U07",
+      "solution": "het is koud"
+    },
+    {
+      "id": "N-A2-U08",
+      "solution": "ik kom morgen"
+    },
+    {
+      "id": "N-A2-U09",
+      "solution": "tot morgen"
+    },
+    {
+      "id": "N-A2-U10",
+      "solution": "hoe laat is het"
+    },
+    {
+      "id": "N-A2-U11",
+      "solution": "waar is mijn tas"
+    },
+    {
+      "id": "N-A2-U12",
+      "solution": "de winkel is open"
+    },
+    {
+      "id": "N-A2-U13",
+      "solution": "ik zoek mijn jas"
+    },
+    {
+      "id": "N-A2-U14",
+      "solution": "ik neem de trein"
+    },
+    {
+      "id": "N-A2-U15",
+      "solution": "we eten soep"
+    },
+    {
+      "id": "N-A2-U16",
+      "solution": "we gaan fietsen"
+    },
+    {
+      "id": "N-A2-U17",
+      "solution": "ik fiets naar huis"
+    },
+    {
+      "id": "N-A2-U18",
+      "solution": "zet de tas neer"
+    },
+    {
+      "id": "N-A2-U19",
+      "solution": "de bus is vol"
+    },
+    {
+      "id": "N-A2-U20",
+      "solution": "doe de deur dicht"
+    },
+    {
+      "id": "N-B1-I01",
+      "solution": "brandweer"
+    },
+    {
+      "id": "N-B1-I02",
+      "solution": "huisarts"
+    },
+    {
+      "id": "N-B1-I03",
+      "solution": "tandarts"
+    },
+    {
+      "id": "N-B1-I04",
+      "solution": "dierenarts"
+    },
+    {
+      "id": "N-B1-I05",
+      "solution": "hoofdpijn"
+    },
+    {
+      "id": "N-B1-I06",
+      "solution": "rugpijn"
+    },
+    {
+      "id": "N-B1-I07",
+      "solution": "hoofddoek"
+    },
+    {
+      "id": "N-B1-I08",
+      "solution": "voetganger"
+    },
+    {
+      "id": "N-B1-I09",
+      "solution": "zebrapad"
+    },
+    {
+      "id": "N-B1-I10",
+      "solution": "kruispunt"
+    },
+    {
+      "id": "N-B1-I11",
+      "solution": "spoorbrug"
+    },
+    {
+      "id": "N-B1-I12",
+      "solution": "fietsroute"
+    },
+    {
+      "id": "N-B1-I13",
+      "solution": "regenwater"
+    },
+    {
+      "id": "N-B1-I14",
+      "solution": "zeewater"
+    },
+    {
+      "id": "N-B1-I15",
+      "solution": "afvalbak"
+    },
+    {
+      "id": "N-B1-I16",
+      "solution": "papierbak"
+    },
+    {
+      "id": "N-B1-I17",
+      "solution": "glasbak"
+    },
+    {
+      "id": "N-B1-I18",
+      "solution": "werkdag"
+    },
+    {
+      "id": "N-B1-I19",
+      "solution": "inkomen"
+    },
+    {
+      "id": "N-B1-I20",
+      "solution": "afspraak"
+    },
+    {
+      "id": "N-B1-V01",
+      "solution": "ziekenhuis"
+    },
+    {
+      "id": "N-B1-V02",
+      "solution": "werkrooster"
+    },
+    {
+      "id": "N-B1-V03",
+      "solution": "werkdruk"
+    },
+    {
+      "id": "N-B1-V04",
+      "solution": "werkloos"
+    },
+    {
+      "id": "N-B1-V05",
+      "solution": "werkgever"
+    },
+    {
+      "id": "N-B1-V06",
+      "solution": "werknemer"
+    },
+    {
+      "id": "N-B1-V07",
+      "solution": "loonstrook"
+    },
+    {
+      "id": "N-B1-V08",
+      "solution": "spaarrekening"
+    },
+    {
+      "id": "N-B1-V09",
+      "solution": "uitkering"
+    },
+    {
+      "id": "N-B1-V10",
+      "solution": "verzekering"
+    },
+    {
+      "id": "N-B1-V11",
+      "solution": "opruimen"
+    },
+    {
+      "id": "N-B1-V12",
+      "solution": "uitnodiging"
+    },
+    {
+      "id": "N-B1-V13",
+      "solution": "verhuizen"
+    },
+    {
+      "id": "N-B1-V14",
+      "solution": "terugkomen"
+    },
+    {
+      "id": "N-B1-V15",
+      "solution": "meedoen"
+    },
+    {
+      "id": "N-B1-V16",
+      "solution": "doorgaan"
+    },
+    {
+      "id": "N-B1-V17",
+      "solution": "oplossen"
+    },
+    {
+      "id": "N-B1-V18",
+      "solution": "overleggen"
+    },
+    {
+      "id": "N-B1-V19",
+      "solution": "samenwonen"
+    },
+    {
+      "id": "N-B1-V20",
+      "solution": "handtekening"
+    },
+    {
+      "id": "N-B1-U01",
+      "solution": "met de deur in huis vallen"
+    },
+    {
+      "id": "N-B1-U02",
+      "solution": "een oogje dichtknijpen"
+    },
+    {
+      "id": "N-B1-U03",
+      "solution": "de handen uit de mouwen steken"
+    },
+    {
+      "id": "N-B1-U04",
+      "solution": "de kat uit de boom kijken"
+    },
+    {
+      "id": "N-B1-U05",
+      "solution": "een hart van goud hebben"
+    },
+    {
+      "id": "N-B1-U06",
+      "solution": "met beide benen op de grond staan"
+    },
+    {
+      "id": "N-B1-U07",
+      "solution": "iets onder de knie hebben"
+    },
+    {
+      "id": "N-B1-U08",
+      "solution": "een steentje bijdragen"
+    },
+    {
+      "id": "N-B1-U09",
+      "solution": "op eigen benen staan"
+    },
+    {
+      "id": "N-B1-U10",
+      "solution": "met lege handen staan"
+    },
+    {
+      "id": "N-B1-U11",
+      "solution": "de draad kwijt zijn"
+    },
+    {
+      "id": "N-B1-U12",
+      "solution": "in de wolken zijn"
+    },
+    {
+      "id": "N-B1-U13",
+      "solution": "het hoofd koel houden"
+    },
+    {
+      "id": "N-B1-U14",
+      "solution": "een lange neus maken"
+    },
+    {
+      "id": "N-B1-U15",
+      "solution": "iets uit het hoofd leren"
+    },
+    {
+      "id": "N-B1-U16",
+      "solution": "door de mand vallen"
+    },
+    {
+      "id": "N-B1-U17",
+      "solution": "op het verkeerde been zetten"
+    },
+    {
+      "id": "N-B1-U18",
+      "solution": "de handen vol hebben"
+    },
+    {
+      "id": "N-B1-U19",
+      "solution": "een frisse neus halen"
+    },
+    {
+      "id": "N-B1-U20",
+      "solution": "in hetzelfde schuitje zitten"
+    },
+    {
+      "id": "N-B2-I01",
+      "solution": "tegenwind"
+    },
+    {
+      "id": "N-B2-I02",
+      "solution": "tegenlicht"
+    },
+    {
+      "id": "N-B2-I03",
+      "solution": "standpunt"
+    },
+    {
+      "id": "N-B2-I04",
+      "solution": "blikveld"
+    },
+    {
+      "id": "N-B2-I05",
+      "solution": "blikvanger"
+    },
+    {
+      "id": "N-B2-I06",
+      "solution": "keerpunt"
+    },
+    {
+      "id": "N-B2-I07",
+      "solution": "kantelpunt"
+    },
+    {
+      "id": "N-B2-I08",
+      "solution": "sleutelrol"
+    },
+    {
+      "id": "N-B2-I09",
+      "solution": "hoofdzaak"
+    },
+    {
+      "id": "N-B2-I10",
+      "solution": "bijzaak"
+    },
+    {
+      "id": "N-B2-I11",
+      "solution": "netwerk"
+    },
+    {
+      "id": "N-B2-I12",
+      "solution": "vangnet"
+    },
+    {
+      "id": "N-B2-I13",
+      "solution": "valkuil"
+    },
+    {
+      "id": "N-B2-I14",
+      "solution": "voetnoot"
+    },
+    {
+      "id": "N-B2-I15",
+      "solution": "mijlpaal"
+    },
+    {
+      "id": "N-B2-I16",
+      "solution": "bouwsteen"
+    },
+    {
+      "id": "N-B2-I17",
+      "solution": "brandpunt"
+    },
+    {
+      "id": "N-B2-I18",
+      "solution": "lichtpunt"
+    },
+    {
+      "id": "N-B2-I19",
+      "solution": "waterdicht"
+    },
+    {
+      "id": "N-B2-I20",
+      "solution": "spiegelbeeld"
+    },
+    {
+      "id": "N-B2-V01",
+      "solution": "de spijker op zijn kop slaan"
+    },
+    {
+      "id": "N-B2-V02",
+      "solution": "water bij de wijn doen"
+    },
+    {
+      "id": "N-B2-V03",
+      "solution": "olie op het vuur gooien"
+    },
+    {
+      "id": "N-B2-V04",
+      "solution": "een brug te ver"
+    },
+    {
+      "id": "N-B2-V05",
+      "solution": "twee vliegen in één klap"
+    },
+    {
+      "id": "N-B2-V06",
+      "solution": "een slag om de arm houden"
+    },
+    {
+      "id": "N-B2-V07",
+      "solution": "tussen wal en schip vallen"
+    },
+    {
+      "id": "N-B2-V08",
+      "solution": "de bakens verzetten"
+    },
+    {
+      "id": "N-B2-V09",
+      "solution": "de vinger op de zere plek leggen"
+    },
+    {
+      "id": "N-B2-V10",
+      "solution": "de koe bij de horens vatten"
+    },
+    {
+      "id": "N-B2-V11",
+      "solution": "de bal ligt in jouw kamp"
+    },
+    {
+      "id": "N-B2-V12",
+      "solution": "de vinger aan de pols houden"
+    },
+    {
+      "id": "N-B2-V13",
+      "solution": "iets op de lange baan schuiven"
+    },
+    {
+      "id": "N-B2-V14",
+      "solution": "een stok achter de deur"
+    },
+    {
+      "id": "N-B2-V15",
+      "solution": "op twee gedachten hinken"
+    },
+    {
+      "id": "N-B2-V16",
+      "solution": "op glad ijs"
+    },
+    {
+      "id": "N-B2-V17",
+      "solution": "de puntjes op de i zetten"
+    },
+    {
+      "id": "N-B2-V18",
+      "solution": "een open deur"
+    },
+    {
+      "id": "N-B2-V19",
+      "solution": "met de neus op de feiten drukken"
+    },
+    {
+      "id": "N-B2-V20",
+      "solution": "een draai aan iets geven"
+    },
+    {
+      "id": "N-B2-U01",
+      "solution": "geen slapende honden wakker maken"
+    },
+    {
+      "id": "N-B2-U02",
+      "solution": "het gras voor de voeten wegmaaien"
+    },
+    {
+      "id": "N-B2-U03",
+      "solution": "het kaf van het koren scheiden"
+    },
+    {
+      "id": "N-B2-U04",
+      "solution": "appels met peren vergelijken"
+    },
+    {
+      "id": "N-B2-U05",
+      "solution": "op eieren lopen"
+    },
+    {
+      "id": "N-B2-U06",
+      "solution": "de schijn ophouden"
+    },
+    {
+      "id": "N-B2-U07",
+      "solution": "zich in allerlei bochten wringen"
+    },
+    {
+      "id": "N-B2-U08",
+      "solution": "het paard achter de wagen spannen"
+    },
+    {
+      "id": "N-B2-U09",
+      "solution": "de hand in eigen boezem steken"
+    },
+    {
+      "id": "N-B2-U10",
+      "solution": "de onderste steen boven halen"
+    },
+    {
+      "id": "N-B2-U11",
+      "solution": "de hete aardappel doorschuiven"
+    },
+    {
+      "id": "N-B2-U12",
+      "solution": "geen blad voor de mond nemen"
+    },
+    {
+      "id": "N-B2-U13",
+      "solution": "de hakken in het zand zetten"
+    },
+    {
+      "id": "N-B2-U14",
+      "solution": "de touwtjes in handen hebben"
+    },
+    {
+      "id": "N-B2-U15",
+      "solution": "het roer omgooien"
+    },
+    {
+      "id": "N-B2-U16",
+      "solution": "oude koeien uit de sloot halen"
+    },
+    {
+      "id": "N-B2-U17",
+      "solution": "de kogel is door de kerk"
+    },
+    {
+      "id": "N-B2-U18",
+      "solution": "iets met een korreltje zout nemen"
+    },
+    {
+      "id": "N-B2-U19",
+      "solution": "een storm in een glas water"
+    },
+    {
+      "id": "N-B2-U20",
+      "solution": "de druppel die de emmer doet overlopen"
+    }
+  ]
+}

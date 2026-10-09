@@ -41,7 +41,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   assert.equal(await page.locator('#applyVerbSets').isDisabled(),true);
   await selectSets('SET_A2_BASIS');
   // Seed a valid basic verb outside the target grammar set, then use the real controls.
-  const held=await page.evaluate(()=>{APP.currentVerb=currentVerbPool().find(v=>!tw.sets.sets.SET_A2_WEDERKEREND.recordIds.includes(v.id)).id;renderVerbCard();return APP.currentVerb});
+  const held=await page.evaluate(()=>{twDiceState.WHO.value=tw.manifest.diceFamilies.WHO.values[0];APP.currentVerb=currentVerbPool().find(v=>!tw.sets.sets.SET_A2_WEDERKEREND.recordIds.includes(v.id)).id;renderVerbCard();return APP.currentVerb});
   await page.locator('#verbLock').click();await page.locator('[data-lock="WHO"]').click();
   const who=await page.evaluate(()=>JSON.stringify(twDiceState.WHO));
   await selectSets('SET_A2_WEDERKEREND');

@@ -1,0 +1,965 @@
+{
+  "version": "2026-09-23.1",
+  "source_url": "https://docs.google.com/document/d/1eRumPSM6O2Ma0HfEMLplf2meWDdb44IqYFmbR4P1jAw/edit",
+  "source_index_url": "https://docs.google.com/document/d/1bNY4PiH4aq3Ax-cj-y-L1OypEPkaEt02cLyiClpowo8/edit",
+  "source_sha256": "bd5c4214d08f04a19e04bf69cb030b01b127a146b64fc83996bbc7bf1cb9961b",
+  "source_snapshot": "Text/plain export op 23 september 2026; laatst gewijzigd op Drive 22 september 2026 10:28:06.684Z. Eigen controlesom, geen freeze-manifest.",
+  "source_level": "C1",
+  "source_status": "PRODUCTIE COMPLEET; NOG NIET FROZEN; REVIEWRONDE 1 OPEN",
+  "scope": "Alle 50 kaarten lokaal gelezen en geredigeerd op betekenis, antwoorden, niveau, overlap en spelgebruik. Lokale AI-review, geen Drive-goedkeuring of onafhankelijke menselijke review en lesproef.",
+  "actual_answer_counts": {
+    "A": 17,
+    "B": 17,
+    "C": 16
+  },
+  "reviewed_answer_counts": {
+    "A": 20,
+    "B": 17,
+    "C": 13
+  },
+  "items": {
+    "C1_OO_001": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een beperkt resultaat gebruiken voor een voorzichtig voorstel. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Een beperkt resultaat gebruiken voor een voorzichtig voorstel.",
+      "patch": {
+        "title": "Bewijs en voorstel",
+        "prompt": "Welke zin steunt je voorstel zonder te veel te beloven?",
+        "explanation": "De eerste resultaten geven een reden om verder onderzoek voor te stellen. Ze bewijzen nog niet dat de proef bij een grote groep werkt.",
+        "note": "Of verlengen verstandig is, hangt ook af van kosten, risico’s en andere informatie.",
+        "options": [
+          "De eerste resultaten zijn positief. Ik stel voor de proef te verlengen om meer te leren; we weten nog niet of de aanpak bij een grotere groep werkt.",
+          "De pilot werkt aantoonbaar en moet daarom worden verlengd.",
+          "Omdat de resultaten positief zijn, is verdere toetsing eigenlijk niet meer nodig."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Een voorstel tot vervolgonderzoek is verdedigbaar; positieve eerste resultaten maken verlenging nog niet zonder meer gerechtvaardigd. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_002": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een argument koppelen aan een genoemde prioriteit. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Een argument koppelen aan een genoemde prioriteit.",
+      "patch": {
+        "title": "Wat de klant belangrijk vindt",
+        "prompt": "Welk argument sluit aan op de belangrijkste wens van de klant?",
+        "explanation": "De klant vindt betrouwbare levering belangrijker dan de laagste prijs. Leg uit wat jouw voorstel daarvoor biedt en waarop je dat baseert.",
+        "note": "Beweer niet zonder bewijs dat jouw voorstel beter is dan het andere.",
+        "letter": "A",
+        "options": [
+          "Laten zien wat jouw voorstel biedt voor betrouwbare levering en waarop je dat baseert, ook als de prijs iets hoger is.",
+          "Benadrukken dat jouw voorstel professioneel is opgebouwd.",
+          "De lagere kwaliteit van het andere voorstel benadrukken."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Niet zonder informatie beweren dat het eigen voorstel levering beter waarborgt dan de concurrent. Verkeerde bronletter hersteld: B → A; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_003": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: De volgorde van argumenten afstemmen op de belangrijkste zorg. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "De volgorde van argumenten afstemmen op de belangrijkste zorg.",
+      "patch": {
+        "title": "Beginnen met de grootste zorg",
+        "prompt": "Met welk argument kun je het beste beginnen?",
+        "explanation": "De directie maakt zich vooral zorgen over het volgen van regels. Begin daarmee en bespreek daarna de andere voordelen.",
+        "note": "Een passende volgorde helpt, maar vervangt het bewijs voor je argumenten niet.",
+        "letter": "B",
+        "context": "Je hebt drie argumenten voor extra training: minder fouten, hogere tevredenheid en beter voldoen aan nieuwe regels. De directie maakt zich vooral zorgen dat de organisatie niet aan die regels voldoet.",
+        "options": [
+          "Alle drie argumenten even uitgebreid behandelen zonder prioriteit.",
+          "Beginnen met het voldoen aan de regels en daarna de andere voordelen bespreken.",
+          "Beginnen met tevredenheid, daarna fouten en pas als laatste regelgeving."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Compliance-risico en operationele voordelen in gewone woorden weergegeven. Verkeerde bronletter hersteld: C → B; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_004": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Losse reacties onderscheiden van een brede meting. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Losse reacties onderscheiden van een brede meting.",
+      "patch": {
+        "title": "Drie reacties zijn geen onderzoek",
+        "prompt": "Welke zin past bij het bewijs dat je hebt?",
+        "explanation": "Drie positieve reacties zijn een eerste signaal. Ze laten niet zien wat alle klanten vinden of dat de nieuwe dienst beter is dan de oude.",
+        "note": "Vertel hoe beperkt je informatie is."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_005": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een verandering na een maatregel onderscheiden van een bewezen gevolg. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Een verandering na een maatregel onderscheiden van een bewezen gevolg.",
+      "patch": {
+        "title": "Geen oorzaak verzinnen",
+        "prompt": "Welke zin blijft bij wat je weet?",
+        "explanation": "Er waren minder te late starts na het nieuwe rooster. Ook de bezetting veranderde, dus het effect van het rooster alleen staat niet vast.",
+        "note": "Na iets gebeuren betekent niet altijd door iets gebeuren.",
+        "letter": "A"
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Verkeerde bronletter hersteld: B → A; opties niet herschikt voor een gelijke verdeling."
+    },
+    "C1_OO_006": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een voorbeeld onderscheiden van bewijs voor een bredere conclusie. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Een voorbeeld onderscheiden van bewijs voor een bredere conclusie.",
+      "patch": {
+        "title": "Voorbeeld en cijfers",
+        "prompt": "Hoe kun je het voorbeeld naast de cijfers gebruiken?",
+        "explanation": "Het voorbeeld maakt de uitleg concreet. De cijfers uit meer teams kunnen een bredere conclusie ondersteunen, als hun inhoud en kwaliteit daarvoor voldoende zijn.",
+        "note": "Ook cijfers uit vier teams bewijzen niet automatisch dat iets overal werkt.",
+        "letter": "B",
+        "options": [
+          "Het voorbeeld weglaten omdat voorbeelden nooit overtuigend zijn.",
+          "Het voorbeeld gebruiken om de cijfers concreet te maken. Een bredere conclusie baseren op de gegevens uit de vier teams, voor zover die de conclusie ondersteunen.",
+          "Het voorbeeld presenteren als bewijs dat het model overal werkt."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Het bestaan van cijfers alleen onderbouwt nog geen algemene claim. Verkeerde bronletter hersteld: C → B; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_007": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een regel en een praktisch risico als verschillende argumenten behandelen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Een regel en een praktisch risico als verschillende argumenten behandelen.",
+      "patch": {
+        "title": "Regel en praktisch risico",
+        "prompt": "Hoe kun je de twee soorten argumenten duidelijk houden?",
+        "explanation": "Bespreek wat de regels vragen en welk praktisch risico de maatregel kan beperken. Dat zijn twee verschillende argumenten.",
+        "note": "Een praktisch risico is op zichzelf nog geen wettelijke plicht.",
+        "options": [
+          "Apart bespreken wat de privacyregels vragen en welk praktisch risico strengere controle kan beperken; onderbouwen hoe de maatregel bij beide past.",
+          "Alleen zeggen dat strengere controle professioneler overkomt.",
+          "De praktische risico's presenteren alsof ze zelf een wettelijke verplichting vormen."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. De enkele aanwezigheid van privacyregels niet als bewezen wettelijke verplichting tot precies deze maatregel presenteren. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_008": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een gemiddeld voordeel en een ongunstige uitzondering samen bespreken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Een gemiddeld voordeel en een ongunstige uitzondering samen bespreken.",
+      "patch": {
+        "title": "Ook de uitzondering noemen",
+        "prompt": "Welke zin neemt het tegenargument serieus?",
+        "explanation": "Gemiddeld gaat het sneller, maar één soort dossier kost meer tijd. Het voorstel noemt dat nadeel en vraagt om een aparte aanpak.",
+        "note": "Of invoeren verstandig is, moet nog worden afgewogen.",
+        "letter": "A",
+        "options": [
+          "Gemiddeld gaat het sneller, maar bij één soort dossier duurt het langer. Daarom stel ik invoering voor met een aparte aanpak voor dat type dossier.",
+          "De nieuwe werkwijze is sneller.",
+          "De vertraging bij dat type dossier is een uitzondering die we niet hoeven mee te nemen."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Complexe dossiers is niet gegeven; vervangen door het genoemde type dossier zonder die eigenschap te verzinnen. Verkeerde bronletter hersteld: B → A; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_009": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Meetresultaat en gekozen beoordelingspunt met elkaar verbinden. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "Meetresultaat en gekozen beoordelingspunt met elkaar verbinden.",
+      "patch": {
+        "title": "Waarom vind je het verstandig?",
+        "prompt": "Welke zin maakt duidelijk waarop je oordeel berust?",
+        "explanation": "De proef laat lagere kosten zonder gemeten kwaliteitsverlies zien. Het argument legt uit waarom dat telt als dit het afgesproken doel is.",
+        "note": "Het gekozen doel en het bewijs zijn twee verschillende dingen.",
+        "letter": "B"
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Verkeerde bronletter hersteld: C → B; opties niet herschikt voor een gelijke verdeling."
+    },
+    "C1_OO_010": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: De duur van een conclusie laten passen bij de duur van het onderzoek. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Argumenten en bewijs",
+      "source_section": "OVERTUIGINGSLIJN EN BEWIJS",
+      "goal": "De duur van een conclusie laten passen bij de duur van het onderzoek.",
+      "patch": {
+        "title": "Wat zegt kort onderzoek?",
+        "prompt": "Welke zin trekt geen conclusie over de lange termijn?",
+        "explanation": "Drie metingen laten hetzelfde effect op korte termijn zien. Het effect op lange termijn is nog onbekend.",
+        "note": "Een stabiel effect bewijst niet vanzelf dat verder gebruik wenselijk of veilig is.",
+        "options": [
+          "Het effect op korte termijn is in drie metingen stabiel. Ik stel voor langer te meten voordat we een conclusie trekken over het effect op lange termijn.",
+          "De interventie heeft duurzaam effect.",
+          "De interventie moet definitief worden ingevoerd omdat drie metingen genoeg zijn."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Stabiel effect zegt niets over gewenste richting of verantwoord vervolggebruik; geen automatisch gebruiksadvies. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_011": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Andere nadruk leggen zonder informatie te vervormen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Andere nadruk leggen zonder informatie te vervormen.",
+      "patch": {
+        "title": "Hetzelfde voorstel anders uitleggen",
+        "prompt": "Hoe kun je je uitleg op beide afdelingen afstemmen?",
+        "explanation": "Bij HR telt ontwikkeling zwaar; bij Finance tellen kosten en opbrengst. Je kunt de nadruk aanpassen terwijl de feiten gelijk blijven.",
+        "note": "Laat belangrijke nadelen niet weg omdat ze minder goed uitkomen.",
+        "letter": "A"
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Verkeerde bronletter hersteld: B → A; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_012": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een wens erkennen en de behoeften van de ander onderzoeken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Een wens erkennen en de behoeften van de ander onderzoeken.",
+      "patch": {
+        "title": "De wens van de klant erkennen",
+        "prompt": "Welke opening helpt om kosten en kwaliteit te bespreken?",
+        "explanation": "De reactie erkent de wens om te besparen en vraagt welk kwaliteitsniveau de klant nodig heeft.",
+        "note": "Neem niet alvast aan dat beide partijen hetzelfde kwaliteitsniveau willen.",
+        "options": [
+          "“Kwaliteit kost nu eenmaal geld.”",
+          "“Als u alleen naar prijs kijkt, komen we hier niet uit.”",
+          "“Ik begrijp dat u wilt besparen. Welk kwaliteitsniveau heeft u nodig? Dan kunnen we kijken wat mogelijk is binnen wat wij verantwoord kunnen leveren.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Geen gedeeld kwaliteitsbelang verzinnen: klant eerst vragen wat nodig is. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_013": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een mogelijk indirect voordeel onderscheiden van een garantie. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Een mogelijk indirect voordeel onderscheiden van een garantie.",
+      "patch": {
+        "title": "Aansluiten zonder te overdrijven",
+        "prompt": "Welke zin sluit aan op de zorg zonder een garantie te geven?",
+        "explanation": "Minder fouten kunnen ook het risico op reputatieschade beperken. Dat betekent niet dat alle reputatieschade wordt voorkomen.",
+        "note": "Afstemmen op de luisteraar mag je bewijs niet sterker maken.",
+        "letter": "B",
+        "options": [
+          "De maatregel voorkomt reputatieschade.",
+          "De maatregel vermindert vooral fouten in het werk. Daardoor kan ook het risico op reputatieschade afnemen.",
+          "De maatregel is noodzakelijk omdat reputatie belangrijker is dan operatie."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Mogelijk indirect gevolg behouden; geen garantie of niet gegeven belangrijke bron toevoegen. Verkeerde bronletter hersteld: A → B; opties niet herschikt voor een gelijke verdeling."
+    },
+    "C1_OO_014": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een gedeelde prioriteit gebruiken bij het vergelijken van oplossingen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Een gedeelde prioriteit gebruiken bij het vergelijken van oplossingen.",
+      "patch": {
+        "title": "Samen vergelijken",
+        "prompt": "Welke stap helpt om de twee voorstellen te vergelijken?",
+        "explanation": "Beide afdelingen vinden ononderbroken dienstverlening aan klanten belangrijk. Vergelijk wat beide voorstellen daarvoor betekenen.",
+        "note": "De vergelijking kan ook ongunstig uitpakken voor je eigen voorstel.",
+        "context": "Twee afdelingen willen verschillende oplossingen. Beide zeggen dat klanten zonder onderbreking geholpen moeten blijven worden en vinden dat het belangrijkst.",
+        "options": [
+          "De afdeling met de meeste expertise laten beslissen.",
+          "Beide oplossingen vergelijken op de gevolgen voor de dienstverlening aan klanten voordat andere voorkeuren worden besproken.",
+          "Een compromis tussen de twee oplossingen voorstellen zonder verdere vergelijking."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Klantcontinuïteit concreet uitgelegd; gezamenlijk doel behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_015": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Bij een verzoek de gevolgen voor de andere partij bespreken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Bij een verzoek de gevolgen voor de andere partij bespreken.",
+      "patch": {
+        "title": "Ook de moeite van de ander",
+        "prompt": "Hoe kun je je verzoek eerlijk onderbouwen?",
+        "explanation": "Leg uit waarom je hulp vraagt, hoeveel werk dat oplevert en hoe de belasting kan worden beperkt. Bespreek ook wat jij kunt terugdoen.",
+        "note": "Beloof geen voordeel of tegenprestatie die je niet kunt waarmaken.",
+        "letter": "A",
+        "options": [
+          "Uitleggen waarom je het werk vraagt, wat het hun kost, hoe je de belasting kunt beperken en wat je eventueel kunt terugdoen.",
+          "Benadrukken dat het directieteam jouw project belangrijk vindt.",
+          "Alleen uitleggen hoeveel vertraging jouw project anders oploopt."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Geen al bestaande tegenprestatie suggereren als die nog niet gegeven is. Verkeerde bronletter hersteld: C → A; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_016": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een gevraagde langere afspraak koppelen aan concrete mogelijke voordelen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Een gevraagde langere afspraak koppelen aan concrete mogelijke voordelen.",
+      "patch": {
+        "title": "Wat krijgt de klant terug?",
+        "prompt": "Welk argument maakt het voordeel voor de klant duidelijk?",
+        "explanation": "Een langere looptijd kan worden gekoppeld aan vaste prijzen en duidelijke serviceafspraken. Dat sluit aan op de wensen van de klant.",
+        "note": "Doe alleen toezeggingen die je kunt nakomen.",
+        "letter": "C",
+        "options": [
+          "Een langere looptijd is voor leveranciers altijd efficiënter.",
+          "Een langere looptijd is gebruikelijk in de sector.",
+          "Een langere looptijd kan worden gekoppeld aan vaste prijsafspraken en duidelijke serviceafspraken, zodat de klant beter weet waar hij aan toe is."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Voordelen blijven onderdeel van een te bespreken aanbod; geen ongefundeerde garantie. Verkeerde bronletter hersteld: A → C; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_017": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een uitleg laten aansluiten bij een duidelijk genoemde volgorde van wensen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Een uitleg laten aansluiten bij een duidelijk genoemde volgorde van wensen.",
+      "patch": {
+        "title": "Wat komt eerst?",
+        "prompt": "Met welk punt kun je het beste beginnen?",
+        "explanation": "Het bestuur noemt veiligheid als eerste, daarna continuïteit en kosten. Die volgorde kan je uitleg sturen.",
+        "note": "Noem niet alleen het goedkoopste voorstel als veiligheid vooropstaat."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_018": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een bezwaar over werkdruk concreet onderzoeken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Een bezwaar over werkdruk concreet onderzoeken.",
+      "patch": {
+        "title": "Een zorg onderzoeken",
+        "prompt": "Welke reactie neemt de zorg over extra werk serieus?",
+        "explanation": "Bekijk welke handelingen erbij komen en welke verdwijnen. Zo kun je de gevolgen voor de benodigde tijd bespreken.",
+        "note": "Neem niet vooraf aan dat het extra werk wel meevalt.",
+        "letter": "A",
+        "options": [
+          "“Ik begrijp de zorg over extra administratie. Laten we bekijken welke taken erbij komen, welke verdwijnen en hoeveel tijd dat samen kost.”",
+          "“De voordelen wegen ruimschoots op tegen administratieve bezwaren.”",
+          "“Die zorg blijkt meestal mee te vallen.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Netto tijdsbelasting in gewone woorden; onderzoek geen vooraf vaststaande tijdwinst. Verkeerde bronletter hersteld: C → A; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_019": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Waardering onderscheiden van instemming en open voorwaarden onderzoeken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Waardering onderscheiden van instemming en open voorwaarden onderzoeken.",
+      "patch": {
+        "title": "Interesse is nog geen akkoord",
+        "prompt": "Welke vraag onderzoekt wat de klant nog tegenhoudt?",
+        "explanation": "De klant ziet voordelen, maar twijfelt nog of de investering past. Vraag wat daarbij doorslaggevend is.",
+        "note": "Dat kan over geld gaan, maar ook over andere voorwaarden.",
+        "letter": "B",
+        "options": [
+          "“Mooi, dan zijn we het inhoudelijk eens.”",
+          "“U ziet voordelen, maar twijfelt nog of de investering past. Wat moet daarvoor duidelijk worden? Gaat het bijvoorbeeld om het budget of om andere voorwaarden?”",
+          "“Als u de voordelen ziet, komt het budget meestal wel goed.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Niet aannemen dat alleen financiële verantwoording nog openstaat. Verkeerde bronletter hersteld: A → B; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_020": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Enthousiasme van een deskundige onderscheiden van toestemming voor aankoop. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Wat de ander belangrijk vindt",
+      "source_section": "AFSTEMMEN OP BELANGEN EN PUBLIEK",
+      "goal": "Enthousiasme van een deskundige onderscheiden van toestemming voor aankoop.",
+      "patch": {
+        "title": "Wie mag beslissen?",
+        "prompt": "Welke vervolgstap houdt rekening met wie beslist?",
+        "explanation": "De expert kan informatie geven over wat de beslissers nodig hebben. De expert mag zelf de aankoop niet goedkeuren.",
+        "note": "Vraag geen akkoord aan iemand die daar niet over mag beslissen."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_021": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Doorvragen naar een onduidelijk genoemd risico. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Doorvragen naar een onduidelijk genoemd risico.",
+      "patch": {
+        "title": "Welk risico bedoel je?",
+        "prompt": "Welke vraag maakt het bezwaar duidelijker?",
+        "explanation": "Je weet nog niet welk risico de ander bedoelt. Vraag daarnaar voordat je met een oplossing of verdediging komt.",
+        "note": "Een breed bezwaar kan verschillende zorgen bevatten."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_022": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een juist deel van kritiek erkennen zonder relevante informatie weg te laten. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Een juist deel van kritiek erkennen zonder relevante informatie weg te laten.",
+      "patch": {
+        "title": "Een terecht bezwaar erkennen",
+        "prompt": "Welke reactie erkent het bezwaar en geeft extra informatie?",
+        "explanation": "Er is weinig algemene speling. Voor de belangrijke stappen zijn er wel noodscenario’s. Noem beide punten.",
+        "note": "Noodscenario’s nemen niet automatisch alle risico’s weg."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_023": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een vraag om bewijs onderscheiden van afwijzing van een heel voorstel. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Een vraag om bewijs onderscheiden van afwijzing van een heel voorstel.",
+      "patch": {
+        "title": "Het bezwaar niet groter maken",
+        "prompt": "Welke vraag controleert wat de ander precies bedoelt?",
+        "explanation": "De ander vraagt om bewijs dat het op grotere schaal werkt. Controleer die vraag en laat ruimte voor eventuele andere bezwaren.",
+        "note": "Neem ook niet alvast aan dat de ander met de rest instemt.",
+        "letter": "A",
+        "options": [
+          "“U wilt eerst bewijs dat het op grotere schaal werkt. Begrijp ik dat goed, en zijn er daarnaast nog andere bezwaren?”",
+          "“Dus u gelooft niet dat het project kan werken?”",
+          "“Waarom bent u zo terughoudend?”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Geen volledige steun aan het principe suggereren; beperkte vraag controleren en andere bezwaren openlaten. Verkeerde bronletter hersteld: B → A; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_024": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een concrete grens bij een toegeving duidelijk noemen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Een concrete grens bij een toegeving duidelijk noemen.",
+      "patch": {
+        "title": "Maximaal twee weken",
+        "prompt": "Welke zin bewaart je grens?",
+        "explanation": "Je kunt uitstel accepteren, maar niet meer dan twee weken. Het antwoord noemt beide delen.",
+        "note": "Een vaag later laat de grens weg."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden."
+    },
+    "C1_OO_025": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Voorwaardelijke steun herkennen en de voorwaarde nader bespreken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Voorwaardelijke steun herkennen en de voorwaarde nader bespreken.",
+      "patch": {
+        "title": "Eens, als er iets verandert",
+        "prompt": "Welke reactie maakt de voorwaarde duidelijker?",
+        "explanation": "De ander kan ermee leven als de rapportage eenvoudiger wordt. Vraag wat daarvoor moet veranderen.",
+        "note": "Eenvoudiger maken betekent niet automatisch helemaal schrappen.",
+        "letter": "B"
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Verkeerde bronletter hersteld: A → B; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_026": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: De volgorde van bespreking afstemmen op een doorslaggevend bezwaar. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "De volgorde van bespreking afstemmen op een doorslaggevend bezwaar.",
+      "patch": {
+        "title": "Het zwaarste bezwaar eerst",
+        "prompt": "Welk bezwaar bespreek je eerst?",
+        "explanation": "De juridische haalbaarheid is volgens de ander beslissend. Die eerst onderzoeken voorkomt dat je alleen kleinere bezwaren oplost.",
+        "note": "Dit is een gespreksoefening, geen oordeel over de juridische haalbaarheid zelf.",
+        "letter": "C"
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Verkeerde bronletter hersteld: B → C; opties niet herschikt voor een gelijke verdeling. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_027": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Onzekerheid erkennen en mogelijke gevolgen bespreken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Onzekerheid erkennen en mogelijke gevolgen bespreken.",
+      "patch": {
+        "title": "Eerlijk over onzekerheid",
+        "prompt": "Welke reactie past als je de toekomst niet zeker weet?",
+        "explanation": "Er is onzekerheid over de vraag. Een voorstel kan rekening houden met de gevolgen, zonder te doen alsof die onzekerheid verdwijnt.",
+        "note": "Een voorstel om risico te beperken is nog geen bewezen oplossing."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_028": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een vaste grens onderscheiden van een grens die van voorwaarden afhangt. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Een vaste grens onderscheiden van een grens die van voorwaarden afhangt.",
+      "patch": {
+        "title": "Wanneer is er wel ruimte?",
+        "prompt": "Welke vraag onderzoekt de genoemde prijsgrens?",
+        "explanation": "De vraag onderzoekt welke kosten en voorwaarden de prijs bepalen en wat bij andere hoeveelheden verandert.",
+        "note": "Een voorwaarde bij korting betekent niet vanzelf dat de leverancier eerder loog."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_029": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een algemeen bezwaar omzetten in concrete voorwaarden. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Een algemeen bezwaar omzetten in concrete voorwaarden.",
+      "patch": {
+        "title": "Wanneer is het goed genoeg?",
+        "prompt": "Welke vraag maakt het bezwaar controleerbaar?",
+        "explanation": "Vraag waaraan de invoering moet voldoen om volgens de ander betrouwbaar genoeg te zijn.",
+        "note": "Laat de ander uitleggen hoe je dat kunt controleren.",
+        "options": [
+          "“Onze implementatie is niet kwetsbaar.”",
+          "“Waaraan moet de invoering volgens u voldoen om betrouwbaar genoeg te zijn, en hoe kunnen we dat controleren?”",
+          "“Dan moeten we waarschijnlijk langer wachten.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Implementatie en acceptatiecriteria in gewone woorden; doel behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_030": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een mogelijke toegeving aan een voorwaarde koppelen zonder direct het maximum te bieden. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Omgaan met bezwaren",
+      "source_section": "TEGENARGUMENTEN, VOORBEHOUD EN CONCESSIES",
+      "goal": "Een mogelijke toegeving aan een voorwaarde koppelen zonder direct het maximum te bieden.",
+      "patch": {
+        "title": "Niet meteen je grens bieden",
+        "prompt": "Welke reactie noemt nog niet meteen je maximale korting?",
+        "explanation": "Het antwoord wijst 15 procent af en opent een gesprek over korting bij een langere looptijd. Het noemt nog niet de interne grens van 8 procent.",
+        "note": "Bewaak je ruimte zonder onjuiste informatie te geven. De bron noemt geen vaste looptijd van drie jaar.",
+        "options": [
+          "“Wij kunnen maximaal 8 procent korting geven bij een langere looptijd.”",
+          "“Laten we 8 procent korting doen als u voor een langere looptijd kiest.”",
+          "“15 procent lukt niet. Bij een langere looptijd kunnen we wel bespreken welke prijsruimte er ontstaat.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Niet gegeven drie jaar verwijderd. Vraag begrensd tot maximum nog niet direct noemen; geen universeel beste onderhandelstrategie. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_031": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Verschillende prioriteiten gebruiken om een ruil te onderzoeken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Verschillende prioriteiten gebruiken om een ruil te onderzoeken.",
+      "patch": {
+        "title": "Verschillende wensen gebruiken",
+        "prompt": "Welke aanpak zoekt voordeel voor beide partijen?",
+        "explanation": "Prijs telt voor jou zwaarder en levertempo voor de ander. Onderzoek of je op het minder belangrijke punt ruimte kunt geven.",
+        "note": "Uit de situatie blijkt niet wie levert of welk tempo de ander wil.",
+        "options": [
+          "Een ruil onderzoeken met voor jou een gunstigere prijs en voor de ander een gunstiger levertempo.",
+          "Het midden zoeken op zowel prijs als levertempo.",
+          "Eerst alleen over prijs onderhandelen en levertempo later behandelen."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Niet verzinnen dat de ander sneller wil of zelf levert; de rollen en richting zijn niet gegeven. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_032": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een toegeving met een tegenprestatie in één zin formuleren. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Een toegeving met een tegenprestatie in één zin formuleren.",
+      "patch": {
+        "title": "Iets bieden onder een voorwaarde",
+        "prompt": "Welke zin houdt aanbod en voorwaarde bij elkaar?",
+        "explanation": "Extra ondersteuning hangt af van een langere contractduur. De zin bewaart die koppeling.",
+        "note": "Extra ondersteuning betekent niet automatisch gratis ondersteuning."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden."
+    },
+    "C1_OO_033": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Onderhandelpunten in verschillende combinaties vergelijken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Onderhandelpunten in verschillende combinaties vergelijken.",
+      "patch": {
+        "title": "Meerdere punten combineren",
+        "prompt": "Welke stap kan helpen als losse punten vastlopen?",
+        "explanation": "Een pakket laat zien wat een verandering in prijs, looptijd, service of rapportage voor de rest betekent.",
+        "note": "Een pakket biedt mogelijkheden, maar garandeert geen akkoord."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_034": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een noodzakelijke voorwaarde rustig formuleren. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Een noodzakelijke voorwaarde rustig formuleren.",
+      "patch": {
+        "title": "Een voorwaarde rustig zeggen",
+        "prompt": "Welke zin noemt de voorwaarde zonder te dreigen?",
+        "explanation": "Voor levering op maandag moet de bestelling vrijdag definitief zijn. De zin houdt die voorwaarde vast.",
+        "note": "Dat vrijdag nodig is, betekent niet dat vrijdag alleen voldoende is voor een garantie.",
+        "options": [
+          "“Om maandag te kunnen leveren, moet de bestelling vrijdag definitief zijn.”",
+          "“Als u vrijdag niet beslist, krijgt u maandag niets.”",
+          "“U moet vrijdag akkoord geven, anders vervalt onze planning.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Alleen als is een noodzakelijke voorwaarde; dat mag geen voldoende voorwaarde of levergarantie worden."
+    },
+    "C1_OO_035": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een alternatief gebruiken bij het bepalen van de eigen grens. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Een alternatief gebruiken bij het bepalen van de eigen grens.",
+      "patch": {
+        "title": "Een alternatief kennen",
+        "prompt": "Welke aanpak bewaakt je eigen grens zonder te dreigen?",
+        "explanation": "Het werkbare alternatief helpt bepalen wanneer de voorkeursafspraak niet meer gunstig genoeg is.",
+        "note": "Een alternatief noemen kan nuttig zijn, maar hoeft niet als dreigement te worden ingezet."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_036": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een ondergrens onderscheiden van een verbod op elke toegeving. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Een ondergrens onderscheiden van een verbod op elke toegeving.",
+      "patch": {
+        "title": "Een ondergrens noemen",
+        "prompt": "Welke zin bewaart de kwaliteitsgrens en laat andere keuzes open?",
+        "explanation": "Onder het genoemde kwaliteitsniveau kun je niet instemmen. Andere varianten binnen de grens kun je wel bespreken.",
+        "note": "Een grens aan één punt hoeft het hele gesprek niet te stoppen."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_037": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een toegeving benoemen en een mogelijke tegenprestatie bespreken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Een toegeving benoemen en een mogelijke tegenprestatie bespreken.",
+      "patch": {
+        "title": "Een aanpassing bespreken",
+        "prompt": "Welke aanpak maakt de waarde van je aanpassing zichtbaar?",
+        "explanation": "Je maakt zichtbaar welke aanpassing je doet en wat die je kost. Daarna kun je een ruil bespreken.",
+        "note": "Iets zonder tegenprestatie doen kan ook bewust gekozen worden; deze kaart geeft geen vaste onderhandelregel."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_038": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Stilte niet meteen als afwijzing behandelen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Stilte niet meteen als afwijzing behandelen.",
+      "patch": {
+        "title": "Ruimte om na te denken",
+        "prompt": "Wat kun je doen terwijl de ander nadenkt?",
+        "explanation": "De ander denkt na. Geef ruimte om te reageren voordat je je aanbod verandert.",
+        "note": "Je kunt ook rustig vragen of de ander meer tijd of uitleg nodig heeft."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_039": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Verschillende haalbare voorstellen gebruiken om prioriteiten te bespreken. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Verschillende haalbare voorstellen gebruiken om prioriteiten te bespreken.",
+      "patch": {
+        "title": "Keuze uit enkele voorstellen",
+        "prompt": "Welke aanpak kan helpen om de voorkeuren te ontdekken?",
+        "explanation": "Enkele varianten maken verschillen in prijs, service en looptijd zichtbaar. Vraag welke combinatie waarom past.",
+        "note": "Controleer wat de ander belangrijk vindt; neem dat niet vooraf aan."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_040": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Verenigbare wensen onderzoeken zonder automatisch het midden te kiezen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Aanbod en voorwaarden",
+      "source_section": "ONDERHANDELRUIMTE, RUILEN EN VOORWAARDEN",
+      "goal": "Verenigbare wensen onderzoeken zonder automatisch het midden te kiezen.",
+      "patch": {
+        "title": "Kunnen beide wensen samen?",
+        "prompt": "Welke aanpak onderzoekt of beide wensen samen kunnen?",
+        "explanation": "Snel invoeren en uitgebreid evalueren hoeven niet te botsen. Onderzoek een voorstel dat beide mogelijk maakt.",
+        "note": "Of de combinatie haalbaar is, staat nog niet vast.",
+        "options": [
+          "Onderzoeken of snelle invoering samen kan gaan met een uitgebreide evaluatie na drie maanden.",
+          "Implementatie iets vertragen en evaluatie iets verkorten.",
+          "Beide partijen vragen één wens te laten vallen."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Mogelijke verenigbaarheid niet behandelen als bewezen haalbaarheid; zware evaluatie vervangen door uitgebreide. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_041": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een deelafspraak onderscheiden van een volledig akkoord. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Een deelafspraak onderscheiden van een volledig akkoord.",
+      "patch": {
+        "title": "Waarover zijn we het eens?",
+        "prompt": "Welke samenvatting geeft de huidige stand precies weer?",
+        "explanation": "Prijs en looptijd zijn akkoord. De serviceafspraken staan nog open.",
+        "note": "Voeg geen vervolgstap toe die nog niet is afgesproken.",
+        "context": "Na een onderhandeling is overeenstemming over prijs en looptijd, maar de serviceafspraken zijn nog open.",
+        "options": [
+          "“We zijn het in grote lijnen eens.”",
+          "“We zijn het eens over prijs en looptijd. De serviceafspraken staan nog open.”",
+          "“De deal staat, op de service na.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Nog niet afgesproken aparte uitwerking verwijderd; servicelevels vereenvoudigd."
+    },
+    "C1_OO_042": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een korting en de bijbehorende voorwaarde samen noemen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Een korting en de bijbehorende voorwaarde samen noemen.",
+      "patch": {
+        "title": "De voorwaarde blijft gelden",
+        "prompt": "Wat moet je samen met de korting vastleggen?",
+        "explanation": "De korting geldt alleen bij het genoemde jaarlijkse volume. Zonder die voorwaarde is de afspraak onvolledig.",
+        "note": "Boven 10.000 betekent meer dan 10.000, niet vanaf 10.000."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden."
+    },
+    "C1_OO_043": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een open reactie onderscheiden van instemming. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Een open reactie onderscheiden van instemming.",
+      "patch": {
+        "title": "Stilte is geen ja",
+        "prompt": "Wat kun je doen als de ander nog intern wil overleggen?",
+        "explanation": "De ander wil eerst intern overleggen. Vraag naar de stand van het voorstel en neem nog geen akkoord aan.",
+        "note": "Dit gaat over duidelijke communicatie in deze situatie, niet over een algemene juridische regel."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_044": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Inhoudelijke instemming onderscheiden van vereiste formele goedkeuring. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Inhoudelijke instemming onderscheiden van vereiste formele goedkeuring.",
+      "patch": {
+        "title": "Nog toestemming nodig",
+        "prompt": "Welke zin bewaart dat goedkeuring nog nodig is?",
+        "explanation": "De gesprekspartner is inhoudelijk akkoord, maar heeft nog toestemming van de directie nodig.",
+        "note": "Of en wanneer die goedkeuring volgt, is nog onbekend.",
+        "options": [
+          "“Dan hebben we een voorlopig akkoord.”",
+          "“U bent inhoudelijk akkoord. Voor formeel akkoord is nog goedkeuring van de directie nodig.”",
+          "“De deal is rond onder voorbehoud van administratie.”"
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Niet zeker stellen dat formeel akkoord volgt; ook eigen instemming niet afleiden uit alleen die van de gesprekspartner."
+    },
+    "C1_OO_045": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Vooruitgang benoemen zonder een resterende voorwaarde weg te poetsen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Vooruitgang benoemen zonder een resterende voorwaarde weg te poetsen.",
+      "patch": {
+        "title": "Eén belangrijk punt staat open",
+        "prompt": "Welke samenvatting neemt het open punt serieus?",
+        "explanation": "De commerciële punten zijn afgerond, maar de juridische bepaling kan de uiteindelijke overeenkomst nog beïnvloeden.",
+        "note": "Eén open punt kan doorslaggevend blijven."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden."
+    },
+    "C1_OO_046": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een vage afspraak uitwerken in tijd, aanleiding en uitvoering. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Een vage afspraak uitwerken in tijd, aanleiding en uitvoering.",
+      "patch": {
+        "title": "Wat betekent snel?",
+        "prompt": "Welke stap maakt de afspraak duidelijker?",
+        "explanation": "Bespreek wanneer de ondersteuning nodig is, binnen welke termijn die komt en in welke vorm.",
+        "note": "Vraag of beide partijen dezelfde concrete afspraak bedoelen.",
+        "options": [
+          "Afspreken binnen welke termijn, bij welke problemen en in welke vorm ondersteuning wordt geleverd.",
+          "Het woord snel laten staan omdat beide partijen begrijpen wat ermee bedoeld wordt.",
+          "Alleen vastleggen wie ondersteuning levert."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Trigger en operationeel vervangen door concrete woorden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_047": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Een toegeving en de bijbehorende tegenprestaties samen vastleggen. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Een toegeving en de bijbehorende tegenprestaties samen vastleggen.",
+      "patch": {
+        "title": "De hele ruil vastleggen",
+        "prompt": "Hoe houd je zichtbaar welke afspraken bij elkaar horen?",
+        "explanation": "De lagere prijs hoort bij de langere looptijd en het lagere serviceniveau. Bewaar die samenhang.",
+        "note": "De oefening gaat over duidelijk formuleren, niet over de juridische vorm van een contract."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden."
+    },
+    "C1_OO_048": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: concreet gegeven grens, voorwaarde, prioriteit of eenvoudige reactie herkennen. Doel: Een voorzichtig voornemen onderscheiden van een toezegging. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "canonical",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Een voorzichtig voornemen onderscheiden van een toezegging.",
+      "patch": {
+        "title": "Een wens is nog geen belofte",
+        "prompt": "Welke samenvatting past bij de uitspraak?",
+        "explanation": "De ander wil waarschijnlijk doorgaan, maar moet nog rekenen. Doorgaan is nog niet toegezegd.",
+        "note": "Houd woorden zoals waarschijnlijk zichtbaar in de betekenis.",
+        "options": [
+          "Er is een voorlopige toezegging onder een financiële voorwaarde.",
+          "Partijen hebben afgesproken verder te gaan zodra de berekening klopt.",
+          "De ander wil waarschijnlijk doorgaan, maar heeft dat nog niet toegezegd."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Commitment vervangen door toezegging; waarschijnlijk behouden."
+    },
+    "C1_OO_049": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: Vooraf afspreken hoe een verschil wordt besproken en beoordeeld. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "Vooraf afspreken hoe een verschil wordt besproken en beoordeeld.",
+      "patch": {
+        "title": "Wat doen we bij verschil?",
+        "prompt": "Welke afspraak helpt bij latere verschillen van mening?",
+        "explanation": "Leg vast wie eerst kijkt, wanneer een volgende stap nodig is en wie mag beslissen.",
+        "note": "Een duidelijke aanpak kan ruzie beperken, maar voorkomt niet elk conflict.",
+        "options": [
+          "Vooraf afspreken wie eerst naar het verschil kijkt, wanneer een volgende stap nodig is en wie uiteindelijk mag beslissen.",
+          "Afspreken dat partijen bij verschil opnieuw onderhandelen.",
+          "Geen escalatieprocedure opnemen om vertrouwen te tonen."
+        ]
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Escalatiepad uitgelegd zonder garantie dat elk conflict wordt voorkomen. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    },
+    "C1_OO_050": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: argumenten, voorwaarden of belangen precies afwegen bij een gegeven korte werksituatie. Doel: De ander laten controleren wat is afgesproken en wat openblijft. De taak vraagt een keuze uit geschreven opties, geen zelfstandig betoog of complexe onderhandeling.",
+      "scoring": "discuss",
+      "section": "Afspraken maken",
+      "source_section": "GRENZEN, AFSPRAKEN EN AFRONDING",
+      "goal": "De ander laten controleren wat is afgesproken en wat openblijft.",
+      "patch": {
+        "title": "Samen het akkoord controleren",
+        "prompt": "Welke stap controleert of je elkaar goed hebt begrepen?",
+        "explanation": "Vraag of de samenvatting overeenkomt met wat de ander als akkoord en open punten ziet.",
+        "note": "Geef ruimte om fouten of verschillen te corrigeren."
+      },
+      "change_reason": "Korte titel, vraag en uitleg in gewone woorden; inhoudelijk passende antwoordoptie opnieuw beoordeeld. Kernbetekenis van de passende optie behouden. Mogelijk antwoord voor bespreking: de situatie bewijst geen unieke of gegarandeerd succesvolle strategie."
+    }
+  }
+}
