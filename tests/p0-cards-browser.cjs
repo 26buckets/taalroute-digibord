@@ -22,7 +22,7 @@ const root=path.resolve(__dirname,'..');
     }else{
      APP.tongueDifficulty='';APP.cardIndex=cardsFor(family).findIndex(c=>c.id===id);APP.cardKind=family;APP.last={type:'card',data:{kind:family}};startCards(family);
      if(currentCard()?.id!==id||document.querySelector('[data-card-id]')?.dataset.cardId!==id)failures.push(id+' render');
-     if(family==='tongue'){if(!document.querySelector('#tongueRead').disabled)failures.push(id+' audio');}
+     if(family==='tongue'){if(document.querySelector('#tongueRead').disabled||!tongueRecording(currentCard()))failures.push(id+' audio');}
      else{const c=currentCard(),text=[...document.querySelectorAll('.card-instruction li')].map(e=>e.textContent).join(' ').replace(/\s+/g,' ').trim();const expected=AppWording.text(c.visualRebus?'Los de rebus op.':c.instruction).replace(/\s+/g,' ').trim();if(!text.includes(expected))failures.push(id+' instruction');
       if(c.visualRebus){const img=document.querySelector('#cardRebus img');await img.decode().catch(()=>failures.push(id+' media decode'));if(!img.naturalWidth||!img.src.endsWith(c.visualRebus.src))failures.push(id+' media');}
       for(const action of ['cardAttempt','cardExample','cardHelp'])document.getElementById(action)?.click();
@@ -42,5 +42,5 @@ const root=path.resolve(__dirname,'..');
  }
  await p.setViewportSize({width:1440,height:900});await p.evaluate(()=>{APP.cardGuided=true;APP.level='A0_A1';APP.cardIndex=1;APP.cardShuffles={};APP.last={type:'card',data:{kind:'idioms'}};startCards('idioms')});
  const out=process.env.EVIDENCE_DIR||path.join(root,'test-results/p0-browser');fs.mkdirSync(out,{recursive:true});await p.screenshot({path:path.join(out,'rebus-desktop.png')});await p.setViewportSize({width:390,height:844});await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await p.screenshot({path:path.join(out,'rebus-mobile.png')});
- assert.deepEqual(report.errors,[]);report.status='PASS';fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));console.log('PASS P0: 570 original + 80 recovered IDs; all 610 active cards at four viewports; 40 blocked; 108 route/mode/family projections; media decode, source instructions, help/models, audio off and resume.');
+ assert.deepEqual(report.errors,[]);report.status='PASS';fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2));console.log('PASS P0: 570 original + 80 recovered IDs; all 610 active cards at four viewports; 40 blocked; 108 route/mode/family projections; media decode, source instructions, help/models, approved audio available and resume.');
  }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

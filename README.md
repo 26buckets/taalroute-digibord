@@ -45,3 +45,7 @@ De bestaande Cloudflare Worker `taalroute-digibord` publiceert uitsluitend `dist
 De oude app blijft volledig bereikbaar in Git onder `archive/pre-v0124-20260921`. Er staan geen oude applicatiebestanden in deze nieuwe publicatiemap. Bestaande hoofdingangen Praatpad.html en Start-Praatpad.html verwijzen naar de nieuwe startpagina.
 
 Voor onmiddellijk herstel naar de voorafgaande Cloudflare-versie: `npx wrangler@4.135.0 rollback 0e86621f-e71f-4195-89c3-a7b58bcb04f5`. Leg een herstelactie vast; synchroniseer daarna bewust met Git. Wis geen browseropslag.
+
+## Tongbrekeraudio — 12 oktober 2026
+
+Alle 240 tongbrekers hebben twee afzonderlijke goedgekeurde opnamen, Rustig (standaard) en Normaal. De keuze blijft bewaard; tempowissel, nieuwe kaart en verlaten stoppen de vorige opname. `data/tongbrekers-opnamen.js` koppelt de bestaande IDs aan 480 MP3-bestanden van 192 kbit/s; de JSON bevat hashes en verwijzingen naar de WAV-masters. De bestaande tekstbank blijft ongewijzigd. Eén bestaand woordkeuzecorrectie (buurman) is in beide nieuwe opnamen verwerkt. De oude audio blijft uitsluitend als historische bron in Git en wordt niet naar dist gekopieerd. Zie het audiobesluit in P0-CONTENT-PRESERVATION.md.

@@ -55,11 +55,29 @@ for(const c of bank.cards){
  const bytes=fs.readFileSync(path.join(root,c.audio.src));assert.ok(bytes.length>1000);
  assert.equal(require('node:crypto').createHash('sha256').update(bytes).digest('hex'),info.sha256);
 }
-// Even a direct call must never create a player while audio is paused site-wide.
-let created=0,stopped=0;
-ctx.Audio=function(){created++};
-vm.runInContext('readTongue()',ctx);assert.equal(created,0);
-ctx.oldPlayer={pause(){stopped++},currentTime:7};
-vm.runInContext('tongueAudio=oldPlayer;readTongue()',ctx);
-assert.equal(stopped,1);assert.equal(ctx.oldPlayer.currentTime,0);assert.equal(vm.runInContext('tongueAudio',ctx),null);
-console.log('PASS: all 240 audio mappings/files retained; playback disabled and an old player stopped.');
+// Approved recordings are separate from the frozen historical source bank.
+vm.runInContext(read('data/tongbrekers-opnamen.js'),ctx);
+const approved=JSON.parse(read('data/tongbrekers-opnamen.json')).recordings;
+assert.equal(approved.length,480);
+assert.equal(new Set(approved.map(r=>r.id+':'+r.variant)).size,480);
+for(const c of bank.cards)for(const variant of ['rustig','normaal']){
+ const record=approved.find(r=>r.id===c.id&&r.variant===variant);assert.ok(record);
+ assert.equal(ctx.window.TONGUE_RECORDINGS[c.id][variant],record.src);
+ assert.equal(record.text,require('../wording.js').text(c.text));
+ assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root,record.src))).digest('hex'),record.sha256);
+}
+(async()=>{
+ const players=[],messages=[];let rejectPlay=false,release;
+ ctx.Audio=function(src){this.src=src;this.currentTime=1;this.paused=false;this.pause=()=>{this.paused=true};this.play=()=>rejectPlay?Promise.reject(new Error('load failed')):new Promise(resolve=>{release=resolve});players.push(this)};
+ ctx.toast=m=>messages.push(m);ctx.card=bank.cards[0];ctx.button={isConnected:true,textContent:'Voorlezen'};
+ let playing=vm.runInContext('readTongue(card,button)',ctx);release();await playing;
+ assert.equal(players[0].src,ctx.window.TONGUE_RECORDINGS[ctx.card.id].rustig);
+ assert.equal(ctx.button.textContent,'Nog een keer');ctx.APP.tongueTempo='normaal';
+ playing=vm.runInContext('readTongue(card,button)',ctx);assert.equal(players[0].paused,true);assert.equal(players[0].currentTime,0);
+ assert.equal(players[1].src,ctx.window.TONGUE_RECORDINGS[ctx.card.id].normaal);
+ const staleError=players[0].onerror;staleError();assert.equal(messages.length,0);
+ vm.runInContext('stopTongueAudio()',ctx);release();await playing;assert.equal(players[1].paused,true);
+ rejectPlay=true;await vm.runInContext('readTongue(card,button)',ctx);assert.equal(ctx.button.textContent,'Voorlezen');assert.equal(messages.length,1);
+ await vm.runInContext('readTongue({id:"missing"},button)',ctx);assert.equal(players.length,3);
+ console.log('PASS: 480 approved files/hashes, both tempos, repeat, cancellation, stale callbacks and failure.');
+})().catch(e=>{console.error(e);process.exitCode=1});

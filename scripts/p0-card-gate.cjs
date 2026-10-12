@@ -35,7 +35,12 @@ function verifyFiles(target){
  const source=require('../tests/fixtures/e1-release-source.json');
  assert.equal(new Set(source.cards.cards.map(c=>c.id)).size,source.cards.cards.length,'duplicate canonical ID');
  for(const c of historical.filter(c=>!['tongue','between'].includes(c.family)))assert.equal(stable(cards.find(x=>x.id===c.id)),stable(c.record),'Historical source must remain preserved: '+c.id);
- for(const [ref,digest]of Object.entries(mediaManifest))assert.equal(hash(fs.readFileSync(path.join(target,ref))),digest,'Missing/changed media '+ref);
+ // Nico's 12 October audio replacement keeps frozen masters in Git, not in the public build.
+ for(const [ref,digest]of Object.entries(mediaManifest))assert.equal(hash(fs.readFileSync(path.join(ref.startsWith('assets/audio/tongbrekers/')?root:target,ref))),digest,'Missing/changed media '+ref);
+ const recordings=JSON.parse(fs.readFileSync(path.join(target,'data/tongbrekers-opnamen.json'))).recordings;
+ assert.equal(recordings.length,480);assert.equal(new Set(recordings.map(r=>r.id+':'+r.variant)).size,480);
+ for(const r of recordings)assert.equal(hash(fs.readFileSync(path.join(target,r.src))),r.sha256,'Approved audio '+r.id);
+ if(target!==root)assert.equal(fs.existsSync(path.join(target,'assets/audio/tongbrekers')),false,'Old audio must stay offline');
  const idioms=source.cards.cards.filter(c=>c.appFamily==='idioms');assert.equal(idioms.length,40);
  for(const c of idioms){const e=expected.find(x=>x.id===c.id);assert.ok(e);for(const [k,v]of Object.entries(c))if(!['route','targetLevel','version','e1FinalStatus'].includes(k))assert.equal(stable(e.record[k]),stable(v),c.id+' canonical '+k);}
 }
