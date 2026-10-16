@@ -1,10 +1,22 @@
 # Canonieke publicatie — herstel 16 oktober 2026
 
+## Publicatie bevroren — expliciete opdracht Nico, 16 oktober 2026
+
+De liveapp blijft exact op V01.25, commit `e4b6431968a683e9a3d4c7153fed5e91c86e9995`, Cloudflare-versie `184e28ad-34e7-4c57-b9ff-b166de4d0c10`. Tag `v1.25.0-approved-20261016` markeert deze goedgekeurde bron. `publication/frozen-v01.25-release.json` bewaart de gecontroleerde 1.428 bestandsvingerafdrukken; `publication-freeze.json` bevat het vastzetbesluit.
+
+`npm run deploy` en de normale Wrangler-publicatieroute worden geblokkeerd voordat bestanden of netwerkpublicatie worden voorbereid. Een ontbrekend of beschadigd vastzetbestand blokkeert eveneens. Er is geen omgevingsvariabele om de bevriezing te omzeilen. De oude eenmalige hersteluitzondering is verwijderd.
+
+De GitHub-hoofdbranch wordt op de server vergrendeld tegen updates, verwijdering en force-pushes. De goedgekeurde tag wordt beschermd tegen wijziging en verwijdering. Ontwikkeling kan in een aparte branch; zij geeft geen toestemming om productie bij te werken. De beveiligingscommit op main mag nieuwer zijn dan de vastgezette livecommit: die bevat alleen deze beveiliging, geen nieuwe apppublicatie.
+
+Een opdracht om een header, menu, kleur, audio of functie te wijzigen heft de publicatiebevriezing niet op. Alleen een nieuwe expliciete opdracht van Nico om een concreet gecontroleerd resultaat te publiceren mag tot bewuste vrijgave leiden. Leg dat besluit vast, behoud de originele tag en het oorspronkelijke manifest, controleer opnieuw de actuele livebasis en alle bestaande functies, en geef alleen de bedoelde wijziging vrij. Verwijder of omzeil geen blokkade om tests of publicatie alsnog te laten slagen. Publiceer nooit rechtstreeks uit oude checkouts, met alternatieve configuraties of met `--no-bundle`/overgeslagen bouwcontroles.
+
+De blokkade beschermt de canonieke bron en normale publicatieroute. Een beheerder met rechtstreekse Cloudflare-schrijfrechten kan technisch nog buiten deze route publiceren; claim daarom geen onveranderlijk platformslot. De vaste gebruikersinstructie verbiedt die omweg. GitHub Actions blijft handmatig uitgeschakeld en publiceert niets.
+
 Gebruik uitsluitend de actuele `main` van `26buckets/taalroute-digibord`. Deze bevat de bestaande goedgekeurde V01.25 plus de publicatie van de 480 tongbrekeropnamen, de gedeelde header en Taalroute-audiometadata. Oudere checkouts moeten eerst bijgewerkt worden.
 
 Voor publicatie: lees de publieke `/release.json`, haal `origin/main` op, controleer dat de lokale bron beide bevat, voer de verplichte lokale checks uit, commit en push samenhangend. Voer na de commit `npm run build` uit. Daarna gebruikt `npm run deploy` uitsluitend `wrangler.jsonc` en publiceert uitsluitend de gecontroleerde bouw; zware controles worden niet onnodig opnieuw uitgevoerd. Iedere aangeboden bestandsbyte wordt opnieuw vergeleken met de bron en de bouwvingerafdruk. De build controleert de vaste functies en audiohashes en schrijft een release-vingerafdruk. De publicatiecontrole vereist een schone checkout, exact de actuele `origin/main`, afstamming van de goedgekeurde audiovrijgave en afstamming van de huidige livecommit. Een onbekende liveversie blokkeert publicatie. Gebruik geen alternatieve configuratie zonder deze controle.
 
-De eenmalige `DIGIBORD_INITIAL_RECOVERY=1` is uitsluitend voor de vastgestelde V01.24-terugval: de controle accepteert dan alleen de exact vastgelegde verkeerde apphash. Zodra een geldige release.json online staat, geldt altijd de afstammingscontrole. Dit is geen algemene rollbackoptie.
+De tijdelijke hersteluitzondering `DIGIBORD_INITIAL_RECOVERY=1` is na het herstel verwijderd. Een ontbrekende of onbekende live release blokkeert iedere toekomstige publicatie.
 
 Na publicatie: controleer `/release.json`, de echte navigatie, Oefenen, Mijn lessen, instellingen, bronbanken, bewaren/hervatten en aangeboden audio. Bewaar bron en herstelgegevens in de bestaande Drive-projectmap. GitHub Actions blijft uit; zware checks draaien lokaal. De bestaande workflow bevat alleen nog een korte handmatig te starten contracttest en publiceert niets.
 

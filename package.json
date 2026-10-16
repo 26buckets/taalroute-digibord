@@ -63,7 +63,7 @@
     "smoke:core": "node tests/content-guidance-browser.cjs && node tests/board-browser.cjs && node tests/content-vert001-browser.cjs && node tests/content-ui-browser.cjs && node tests/v125-browser.cjs && node tests/quick-entry-browser.cjs",
     "test:grammar-catalog:browser": "node tests/grammar-catalog-browser.cjs && node tests/grammar-mix-browser.cjs",
     "test:content-overview:browser": "node tests/content-overview-browser.cjs",
-    "test:publication": "node tests/publication-contract.cjs",
+    "test:publication": "node tests/publication-contract.cjs && node tests/publication-freeze.cjs",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {

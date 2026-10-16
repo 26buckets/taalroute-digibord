@@ -1,5 +1,8 @@
 # Taalroute DigiBord V01.25
 
+## Productie bevroren — Nico, 16 oktober 2026
+De goedgekeurde liveversie is vastgezet op commit `e4b6431968a683e9a3d4c7153fed5e91c86e9995`, tag `v1.25.0-approved-20261016`. Lees vóór iedere wijziging PUBLICATIE.md en publication-freeze.json. De hoofdbranch en tag zijn op GitHub vergrendeld; de normale publicatieroute blokkeert. Een verzoek om de app, header of audio te wijzigen is geen toestemming om de bevriezing op te heffen of te publiceren. Alleen Nico kan met een nieuwe expliciete publicatieopdracht een gecontroleerde vrijgave toestaan. Geen alternatieve configuraties, oude checkouts, directe Cloudflare-publicatie of andere omwegen gebruiken. Behoud de oorspronkelijke tag, alle inhoud, lokale gegevens en 480 opnamen. Ontwikkeling en controles mogen in een aparte branch doorgaan zonder livepublicatie.
+
 Deze branch bevat de actuele V01.25-app met de bewaarde oudere inhoud. De oude app is gearchiveerd onder tag `archive/pre-v0124-20260921`.
 
 - Bewaar de bestaande vormgeving en werking tenzij de gebruiker om een wijziging vraagt. Lees [VORMGEVING.md](VORMGEVING.md) bij wijzigingen aan uiterlijk of uitleg: hergebruik de vier goedgekeurde woordlogo’s in assets/guidance/.

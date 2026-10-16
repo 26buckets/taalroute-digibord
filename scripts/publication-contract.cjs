@@ -2,6 +2,20 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const baseline='f86075c8c42d62e759ab5e8c046123948e2249f5';
 const required=['app.js','content-runtime.js','content-ui.js','content-overview.js','content-lessons.js','lesson-storage.js','storage-migration.js','release-policy.js','data/tongbrekers-opnamen.js'];
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+function publicationFreeze(root){
+ const freeze=JSON.parse(fs.readFileSync(path.join(root,'publication-freeze.json'),'utf8'));
+ assert.equal(freeze.schema,1,'Unknown publication freeze format');
+ assert.equal(typeof freeze.frozen,'boolean','Publication freeze must be explicit');
+ assert.equal(freeze.manifest,'publication/frozen-v01.25-release.json','Unknown frozen release manifest');
+ const bytes=fs.readFileSync(path.join(root,freeze.manifest));
+ assert.equal(hash(bytes),freeze.manifestSha256,'Frozen release fingerprint changed');
+ assert.equal(JSON.parse(bytes).commit,freeze.approvedCommit,'Frozen release commit differs');
+ return freeze;
+}
+function assertPublicationOpen(root){
+ const freeze=publicationFreeze(root);
+ assert.equal(freeze.frozen,false,'Publication frozen by Nico: V01.25 must remain online. A new explicit publication decision is required; do not bypass this guard.');
+}
 function verify(root){
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
  assert.match(html,/<title>Taalroute DigiBord V01\.25<\/title>/,'Publication must retain the approved V01.25 application');
@@ -16,4 +30,4 @@ function verify(root){
  }
  return Object.fromEntries(['index.html','settings/index.html','taalroute-menu/menu.css','taalroute-menu/menu.js','data/tongbrekers-opnamen.json',...required].map(file=>[file,hash(fs.readFileSync(path.join(root,file)))]));
 }
-module.exports={verify,baseline,hash,required};
+module.exports={verify,baseline,hash,required,publicationFreeze,assertPublicationOpen};
