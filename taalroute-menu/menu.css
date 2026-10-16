@@ -1,0 +1,92 @@
+
+.taalroute-beta{display:inline-block;flex:none;vertical-align:middle;margin-left:6px;padding:3px 6px;border:1px solid currentColor;border-radius:5px;background:color-mix(in srgb,var(--app-accent) 9%,white);color:var(--app-accent);font:500 9px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.04em;white-space:nowrap;text-transform:uppercase}
+nav.taalroute-suite-links.taalroute-suite-links{width:344px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 80px);overflow-y:auto;overscroll-behavior:contain;padding:4px;box-sizing:border-box;background:#fff;color:#233a58;border:1px solid #e3e5e8;border-radius:4px;box-shadow:0 6px 20px #233a5814;font-family:Arial,sans-serif;text-align:left}
+nav.taalroute-suite-links[hidden]{display:none}
+nav.taalroute-suite-links .tr-suite-row.tr-suite-row{display:grid;grid-template-columns:var(--suite-logo-width) minmax(0,1fr);align-items:center;gap:var(--suite-brand-gap);min-height:44px;width:100%;padding:6px 8px;box-sizing:border-box;margin:0;border:0;border-radius:2px;background:transparent;color:inherit;text-decoration:none;font:400 var(--suite-name-size)/1.4 Arial,sans-serif;box-shadow:none}
+nav.taalroute-suite-links .tr-suite-row>img{display:block;width:var(--suite-logo-width);height:var(--suite-logo-height);object-fit:contain;margin:0;padding:0;border:0;background:transparent}
+nav.taalroute-suite-links .tr-suite-label.tr-suite-label{display:flex;align-items:center;gap:5px;min-width:0;border:0;border-left:1px solid #e3e5e8;padding:0 0 0 var(--suite-brand-gap);margin:0;font:400 var(--suite-name-size)/28px Arial,sans-serif;white-space:nowrap;color:inherit}
+nav.taalroute-suite-links .taalroute-beta{margin-left:auto;padding:2px 4px;font-size:8px;line-height:1.2;letter-spacing:.04em;border-radius:3px}
+nav.taalroute-suite-links a.tr-suite-row:hover{background:#f5f6f8;text-decoration:none;box-shadow:none}
+nav.taalroute-suite-links a.tr-suite-row:focus-visible{outline:2px solid #126ab3;outline-offset:-2px;background:#f5f6f8}
+nav.taalroute-suite-links .tr-suite-row[aria-disabled]{color:#85858b;cursor:default}
+nav.taalroute-suite-links [aria-disabled]>img{filter:grayscale(1);opacity:.45}
+nav.taalroute-suite-links [aria-disabled] .taalroute-beta{color:#85858b;background:#f4f4f4}
+@media(max-width:760px){nav.taalroute-suite-links.taalroute-suite-links{width:296px}}
+@media(max-width:360px){nav.taalroute-suite-links.taalroute-suite-links{width:256px}}
+.taalroute-suite{position:relative;flex:none}
+.taalroute-suite>summary{display:flex;align-items:center;gap:6px;min-height:44px;list-style:none;cursor:pointer}
+.taalroute-suite>summary::-webkit-details-marker{display:none}
+.taalroute-suite>summary>svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.taalroute-suite>summary:focus-visible{outline:2px solid #126ab3;outline-offset:3px}
+.taalroute-suite>nav{position:absolute;top:calc(100% + 6px);left:0;z-index:100}
+@media(max-width:420px){.taalroute-beta{font-size:8px;padding:2px 4px}}
+@media print{.taalroute-beta,.taalroute-suite>nav{display:none!important}}
+
+@media(max-width:374px){#app>header .product{flex-direction:column;align-items:flex-start;gap:1px}}
+
+/* Shared identity measurements: Theaterlezen wordmark scale, DigiBord typography. */
+:root{--suite-logo-width:136px;--suite-logo-height:17.0453px;--suite-name-size:17px;--suite-brand-gap:12px;--suite-edge:24px;--suite-row-height:60px}
+@media(max-width:760px){:root{--suite-logo-width:105px;--suite-logo-height:13.16px;--suite-name-size:14px;--suite-brand-gap:8px;--suite-edge:12px}}
+:is(.muz-brand img,#appHeader .header-brand-logo,.app-header .product-logo,.tr-app-header .tr-logo,.teacher-header .teacher-logo,.teacher-header .teacher-logo-mask,.taalroute-bar .taalroute-brand,header .brand .taalroute-brand,.shell .brand-area summary>img){width:var(--suite-logo-width)!important;height:var(--suite-logo-height)!important;min-width:var(--suite-logo-width);max-width:var(--suite-logo-width);object-fit:contain;flex-shrink:0}
+:is(.muz-brand>span,#appHeader .product,.app-header .product-name,.tr-app-header .tr-product-name,.teacher-header .teacher-product-name,.taalroute-bar .taalroute-app,header .brand-name,.shell .brand-app-name){font:400 var(--suite-name-size)/1.2 Arial,sans-serif!important;letter-spacing:0;white-space:nowrap;align-items:center}
+:is(.muz-brand,#appHeader .brand,.app-header .product-home,.app-header .brand,.tr-app-header,.teacher-header .teacher-brand,.shell .brand-area){gap:var(--suite-brand-gap)!important}
+:is(.muz-brand-trigger,.taalroute-suite>summary,.app-header .brand-trigger,.tr-app-header .tr-app-trigger,.teacher-app-trigger,.brand-menu>summary,.shell .brand-area summary){gap:6px!important;padding:0!important;min-height:44px}
+:is(.muz-brand-trigger,.taalroute-suite>summary,.app-header .brand-trigger,.tr-app-header .tr-app-trigger,.teacher-app-trigger,.brand-menu>summary,.shell .brand-area summary)>svg:not(.product-logo){width:14px!important;height:14px!important;flex:none}
+:is(.muz-brand>span,.taalroute-bar .taalroute-app,header .brand-name,.shell .brand-app-name){padding-left:var(--suite-brand-gap)!important;min-height:28px;display:flex}
+:is(#appHeader .brand-sep,.app-header .product-divider,.app-header .brand-divider,.tr-app-header .tr-divider,.teacher-header .brand-separator){height:28px!important;width:1px;flex:none;display:block!important}
+:is(.muz-header,.app-header,.tr-app-header,.taalroute-bar,.shell,.teacher-header){box-sizing:border-box;width:100%;max-width:none}
+:is(.app-header,.tr-app-header,.taalroute-bar){height:60px!important;min-height:60px!important;max-height:60px!important;padding-inline:var(--suite-edge)!important}
+.taalroute-bar{gap:var(--suite-brand-gap)!important}
+.shell .shell-inner{min-height:58px;height:58px;padding-inline:var(--suite-edge);gap:var(--suite-brand-gap)}
+.teacher-header{border-bottom-width:2px}
+.teacher-header .teacher-header-inner{width:100%;padding-inline:var(--suite-edge);min-height:58px;box-sizing:border-box}
+.muz-header{min-height:60px;padding-inline:var(--suite-edge);border-top-width:2px}
+#appHeader{min-height:60px;height:60px;padding-inline:var(--suite-edge)}
+#app>header .product{flex-direction:row;gap:5px}
+header :is(.taalroute-beta){font:500 9px/1.2 Arial,sans-serif;letter-spacing:.04em;padding:3px 6px}
+@media(max-width:760px){header .taalroute-beta{font-size:8px;padding:2px 4px}.taalroute-bar .taalroute-app{font-size:14px!important}.taalroute-bar .taalroute-app>img{display:none}.app-header .product-name{display:inline-flex!important}.app-header .product-divider{display:block!important}}
+@media(max-width:960px){#app:not(:has(#screen-game.active .board-game)){grid-template-rows:114px minmax(0,1fr)}#app:not(:has(#screen-game.active .board-game))>#appHeader{height:114px;grid-template-rows:60px 54px}.teacher-header .teacher-header-inner{padding-block:0}.teacher-header .teacher-brand{min-height:58px}}
+.muz-header{height:60px;padding-block:0;flex-wrap:nowrap}
+@media(max-width:360px){:root{--suite-logo-width:80px;--suite-logo-height:10.0267px;--suite-name-size:12px;--suite-brand-gap:4px;--suite-edge:8px}.taalroute-bar .taalroute-app{font-size:12px!important}}
+.teacher-header{padding-inline:0!important}
+.teacher-header .teacher-header-inner{margin-inline:0}
+#appHeader .suite-header-controls{display:contents}
+#appHeader .suite-header-controls>summary{display:none}
+.settings-page .topbar .header-brand-logo{width:var(--suite-logo-width);height:var(--suite-logo-height)}
+@media(max-width:600px){
+ #appHeader .suite-header-controls{display:block;position:relative;grid-column:2;grid-row:1;justify-self:end}
+ #appHeader .suite-header-controls>summary{display:flex;align-items:center;justify-content:center;list-style:none;width:44px;height:44px;cursor:pointer;color:#173752;border-radius:4px}
+ #appHeader .suite-header-controls>summary::-webkit-details-marker{display:none}
+ #appHeader .suite-header-controls>summary>svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+ #appHeader .suite-header-controls>.header-actions{display:none}
+ #appHeader .suite-header-controls[open]>.header-actions{position:absolute;top:100%;right:0;z-index:100;display:grid;grid-template-columns:1fr 1fr;gap:8px;width:240px;padding:12px;background:white;border:1px solid #d7e4ee;box-shadow:0 8px 24px #17375220;border-radius:4px}
+ #appHeader .suite-header-controls .gear{width:100%;min-height:44px;gap:6px}
+ #appHeader .suite-header-controls .gear::after{content:attr(aria-label);font-size:11px}
+ #appHeader .suite-header-controls .level-pill{min-height:44px}
+}
+.muz-header{height:60px!important;min-height:60px!important;max-height:60px!important;padding-block:0!important;padding-inline:var(--suite-edge)!important;flex-wrap:nowrap!important}
+.settings-page .topbar{box-sizing:border-box;min-height:60px;height:60px;padding-inline:var(--suite-edge)}
+.settings-page .topbar .brand{gap:var(--suite-brand-gap)}
+.settings-page .topbar .product{font:400 var(--suite-name-size)/1.2 Arial,sans-serif}
+
+/* DigiBord adapters: shared identity above the existing navigation and controls. */
+:root{--header:60px}
+#appHeader{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px}
+#appHeader .product{display:flex!important;align-items:center}
+#appHeader .navitem{font-weight:400}
+#appHeader .navitem.active{font-weight:500}
+@media(max-width:960px){
+ #app:not(:has(#screen-game.active .board-game))>#appHeader{grid-template-columns:minmax(0,1fr) auto;gap:0}
+ #app:not(:has(#screen-game.active .board-game))>#appHeader>.brand{grid-column:1;grid-row:1}
+ #app:not(:has(#screen-game.active .board-game))>#appHeader .mainnav{display:flex;grid-column:1/-1;grid-row:2;height:54px;justify-content:center;gap:24px}
+ #app:not(:has(#screen-game.active .board-game))>#appHeader .header-actions{grid-column:2;grid-row:1}
+}
+/* Preserve the existing floating controls while a board fills the screen. */
+#app:has(#screen-game.active .board-game)>#appHeader{width:auto;height:auto!important;min-height:0;gap:8px}
+#app:has(#screen-game.active .board-game) .suite-header-controls{display:contents}
+#app:has(#screen-game.active .board-game) .suite-header-controls>summary{display:none}
+#app:has(#screen-game.active .board-game) .suite-header-controls>.header-actions{display:flex;position:static;padding:0;border:0;box-shadow:none;width:auto}
+
+.settings-page:not(.embedded)>.app{grid-template-rows:60px minmax(0,1fr)}
+.settings-page .topbar .brand-divider{height:28px;flex:none}
+@media(max-width:600px){.settings-page .topbar .saved-state{display:none}}

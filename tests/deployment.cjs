@@ -5,5 +5,11 @@ for(const page of ['index.html','settings/index.html'])for(const [,url] of fs.re
  if(/^(https?:|data:)/.test(url))continue;
  assert.ok(fs.existsSync(path.resolve(root,path.dirname(page),url.split('?')[0])),'Missing asset '+page+': '+url);
 }
+for(const page of ['index.html','settings/index.html']){
+ const html=fs.readFileSync(path.join(root,page),'utf8');
+ assert.deepEqual([...html.matchAll(/data-app-id="([^"]+)"/g)].map(m=>m[1]),['muziek','digibord','spreektijd','klankstudio','missies','oppad','theaterlezen'],'Shared menu missing or stale: '+page);
+ for(const url of ['https://missies.taalroute.nl/#docent','https://oppad.taalroute.nl/docent/'])assert.ok(html.includes('href="'+url+'"'),'Teacher destination missing: '+page);
+ assert.ok(html.includes('taalroute-menu/menu.css')&&html.includes('taalroute-menu/menu.js'),'Shared header assets missing: '+page);
+}
 for(const file of fs.readdirSync(root,{recursive:true})){const p=path.join(root,file);if(fs.statSync(p).isFile())assert.ok(fs.statSync(p).size<=25*1024*1024,'Cloudflare asset exceeds 25 MiB: '+file)}
 console.log('PASS: no legacy app or historical banks deployed; entry assets exist; Cloudflare file sizes valid.');
