@@ -78,7 +78,7 @@ header :is(.taalroute-beta){font:500 9px/1.2 Arial,sans-serif;letter-spacing:.04
 @media(max-width:960px){
  #app:not(:has(#screen-game.active .board-game))>#appHeader{grid-template-columns:minmax(0,1fr) auto;gap:0}
  #app:not(:has(#screen-game.active .board-game))>#appHeader>.brand{grid-column:1;grid-row:1}
- #app:not(:has(#screen-game.active .board-game))>#appHeader .mainnav{display:flex;grid-column:1/-1;grid-row:2;height:54px;justify-content:center;gap:24px}
+ #app:not(:has(#screen-game.active .board-game))>#appHeader .mainnav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-column:1/-1;grid-row:2;height:54px;width:100%;gap:2px}
  #app:not(:has(#screen-game.active .board-game))>#appHeader .header-actions{grid-column:2;grid-row:1}
 }
 /* Preserve the existing floating controls while a board fills the screen. */

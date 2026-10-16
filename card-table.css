@@ -97,10 +97,9 @@
 #gameDialog:has(.rebus-enlarged){width:min(1400px,96vw);padding:18px}
 .rebus-enlarged{margin-top:16px}.rebus-enlarged .rebus-image{max-height:70dvh}
 .detail-text-cards .rebus-image{margin:12px 0}
-/* Tongbrekers: the existing table, with one large sentence and compact filters. */
+/* Frozen classroom typography, 23 September 2026; see VORMGEVING.md. */
 .tongue-table .tongue-content{justify-content:safe center;text-align:center;padding:clamp(20px,3vw,48px)}
-.tongue-table .tongue-text{font-size:clamp(30px,3.8vw,66px);font-weight:700;line-height:1.25;overflow-wrap:anywhere;text-wrap:balance}
-.tongue-table .tongue-long{font-size:clamp(27px,2.8vw,46px)}
+.tongue-table .active-card .tongue-text{font-size:clamp(36px,5vw,88px);font-weight:700;line-height:1.25;overflow-wrap:anywhere;text-wrap:balance}
 
 /* Frozen C1 cards reuse the table, typography and animation settings. */
 .c1-table .c1-content{display:block;overflow-wrap:anywhere}
@@ -148,7 +147,6 @@
  .card-table-shell .card-controls{padding:12px;flex-basis:86px;height:86px}
  .card-control-row{gap:8px}
  .card-table-shell .right-actions{grid-template-columns:repeat(4,100px);gap:10px;justify-content:center}
- .tongue-table .tongue-text{font-size:32px}.tongue-table .tongue-long{font-size:27px}
 }
 @media(max-width:560px){.card-table-shell .right-actions{grid-template-columns:repeat(4,72px);gap:5px}.card-table-shell .card-ribbon>strong{font-size:18px}}
 
@@ -175,7 +173,7 @@
 @media(max-width:850px){.card-table-shell:not(.new-activity) .cards-stage{grid-template-rows:auto auto;min-height:0}.card-table-shell:not(.new-activity) .game-card-motion{min-height:max(360px,calc(100dvh - 348px))}}
 
 @media(min-width:1100px){
- .card-table-shell:not(.new-activity) .card-content:not(.c1-content):not(.tongue-content){display:block;columns:2;column-gap:24px;column-fill:balance}
+ .card-table-shell:not(.new-activity) .card-content:not(.c1-content):not(.tongue-content):not(.content-reading){display:block;columns:2;column-gap:24px;column-fill:balance}
  .card-table-shell:not(.new-activity) .card-content>*,.card-table-shell:not(.new-activity) .card-content [data-support]{break-inside:avoid}
  .card-table-shell:not(.new-activity) .active-card h2{font-size:24px;margin-bottom:12px}
  .card-table-shell:not(.new-activity) .card-instruction{font-size:20px;line-height:1.35;margin-bottom:16px}
@@ -207,8 +205,7 @@
  .card-table-shell:not(.new-activity) .active-card h2{font-size:22px;margin-bottom:8px}
  .card-table-shell:not(.new-activity) .card-content{padding:12px 18px;column-gap:20px}
  .card-table-shell:not(.new-activity) .card-instruction{font-size:17px;line-height:1.3;margin-bottom:10px}
- .card-table-shell:not(.new-activity) .card-content p,.card-table-shell:not(.new-activity) .card-situation p,.card-table-shell:not(.new-activity) .card-situation ul,.card-table-shell:not(.new-activity) .c1-content #c1Feedback p{font-size:15px;line-height:1.3}
- .card-table-shell:not(.new-activity) .tongue-text{font-size:36px}.card-table-shell:not(.new-activity) .tongue-long{font-size:30px}
+ .card-table-shell:not(.new-activity) .card-content:not(.content-reading) p:not(.tongue-text),.card-table-shell:not(.new-activity) .card-situation p,.card-table-shell:not(.new-activity) .card-situation ul,.card-table-shell:not(.new-activity) .c1-content #c1Feedback p{font-size:15px;line-height:1.3}
  .c1-choices h3{font-size:20px}.c1-choices button{font-size:16px;padding:8px}
  .card-step{font-size:15px;padding:8px}.card-step button{font-size:14px;padding:7px}
  .card-situation{padding:10px}.card-situation ul{margin-block:10px}

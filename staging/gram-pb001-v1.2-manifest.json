@@ -1,0 +1,56 @@
+{
+  "schema_version": "GRAM-IMP002-MANIFEST-1.0",
+  "source_drive_id": "1ofjEPAW9Crq4CgLWlsUS-FTubsgvEh4S_giFY4vhxCQ",
+  "source_version": "1.2",
+  "source_sha256": "17516b89747772425798de5a1a18e58fd4303c4b67397c3f94146cb5e21ed550",
+  "source_count": 1440,
+  "staging_source_path": "staging/gram-pb001-v1.2-source.json",
+  "staging_source_blob_sha": "b546ae23c0d92054e4a0c6d829f3d0522b6d38d6",
+  "runtime_projection_path": "data/content-vert001-er-b1.js",
+  "runtime_projection_blob_sha": "15f7ddcf33a4f5098a74620004611ecdc66f08c8",
+  "pre_import_git_sha": "d1c7c4202e974481aed3dc4233442fc88725ebfd",
+  "pre_import_data_backup_path": "bank-backups/content-vert001-er-b1-v1.1.js",
+  "pre_import_data_backup_blob_sha": "a5f777f4842220b4f057cb6b9cc44504ac1f02fa",
+  "review_gate": "REVIEW_GO",
+  "publication_status": "staging_only",
+  "topics": [
+    "ER",
+    "ZULLEN",
+    "ZOUDEN"
+  ],
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "family_filters": {
+    "MODAAL": {
+      "topics": [
+        "ZULLEN",
+        "ZOUDEN"
+      ],
+      "required_tag": "MODAAL",
+      "expected_count": 900
+    }
+  },
+  "order_renderer": {
+    "interaction_type": "IT_008_ORDER",
+    "mode": "COMPATIBLE_WITH_ADAPTER",
+    "adapter": "text_order",
+    "expected_count": 144
+  },
+  "counts": {
+    "ER": 540,
+    "ZULLEN": 450,
+    "ZOUDEN": 450,
+    "A2": 480,
+    "B1": 480,
+    "B2": 480,
+    "total": 1440
+  },
+  "rollback": {
+    "data_command": "node scripts/import-gram-pb001.cjs --rollback bank-backups/content-vert001-er-b1-v1.1.js",
+    "full_candidate_ref": "d1c7c4202e974481aed3dc4233442fc88725ebfd",
+    "note": "Voor volledige runtime rollback de kandidaatbranch terugbrengen naar de pre import Git SHA. Main en live zijn niet gewijzigd."
+  }
+}

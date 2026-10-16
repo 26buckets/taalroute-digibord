@@ -1,0 +1,904 @@
+{
+  "version": "2026-09-23.1",
+  "source_url": "https://drive.google.com/file/d/1NDqumcj6DFmUobRQwk-fuLQpT5ECmnsQ/view",
+  "manifest_url": "https://docs.google.com/document/d/1CdRnST9h8Zk311EMp7G1k_Y32g2OePSknKPFbJ1xsbM/edit",
+  "source_sha256": "5b0d83b15b057150a23210daeb6a9e9eaff6216604885f1281d459cbc4f0d83b",
+  "source_level": "C1",
+  "source_status": "FROZEN v1.0; Reviewronde 2 HERSTELD",
+  "scope": "Alle 50 kaarten lokaal gelezen; betekenis, antwoorden, eenvoudige taal, niveau, overlap en spelgebruik beoordeeld. Eigen AI-redactie en niveauadvies; geen onafhankelijke menselijke review of lesproef.",
+  "actual_answer_counts": {
+    "A": 17,
+    "B": 17,
+    "C": 16
+  },
+  "reviewed_answer_counts": {
+    "A": 17,
+    "B": 17,
+    "C": 16
+  },
+  "items": {
+    "C1_SB_001": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Feiten noemen zonder een oorzaak te verzinnen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Feiten noemen zonder een oorzaak te verzinnen.",
+      "patch": {
+        "title": "Feiten zonder oorzaak",
+        "prompt": "Welke samenvatting blijft bij de feiten?",
+        "explanation": "Het verzuim en de werkdruk zijn hoog en er loopt een reorganisatie. Er is niet vastgesteld dat het één het ander veroorzaakt.",
+        "note": "Noem een oorzaak alleen als die uit de situatie blijkt."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_002": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Steun en twee voorwaarden samen weergeven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Steun en twee voorwaarden samen weergeven.",
+      "patch": {
+        "title": "Beide voorwaarden",
+        "prompt": "Welke samenvatting bewaart beide voorwaarden?",
+        "explanation": "De groep is positief over de proef. Uitbreiding hangt af van een geslaagde beveiligingstest én extra capaciteit.",
+        "note": "Een voorwaarde is meer dan een wens.",
+        "options": [
+          "De projectgroep wil opschalen zodra de beveiligingstest is afgerond; extra capaciteit is daarbij wenselijk.",
+          "De projectgroep is positief over de proef en wil alleen uitbreiden als de beveiligingstest slaagt en extra capaciteit beschikbaar komt.",
+          "De projectgroep staat achter opschaling en verwacht dat aan de resterende voorwaarden wordt voldaan."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Positieve houding betreft de proef; maak daarvan geen reeds vastgestelde steun voor uitbreiding."
+    },
+    "C1_SB_003": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Het belangrijkste punt in een korte toelichting herkennen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Het belangrijkste punt in een korte toelichting herkennen.",
+      "patch": {
+        "title": "Wat is het belangrijkste?",
+        "prompt": "Wat moet centraal staan in de samenvatting?",
+        "explanation": "Levering vóór 1 december is doorslaggevend. De prijs is binnen de genoemde grenzen minder belangrijk.",
+        "note": "Het langste deel van een gesprek is niet altijd het belangrijkste."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_004": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: De meerderheid en het bezwaar van één deelnemer behouden. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "De meerderheid en het bezwaar van één deelnemer behouden.",
+      "patch": {
+        "title": "Ook het bezwaar noemen",
+        "prompt": "Welke samenvatting geeft alle vijf meningen goed weer?",
+        "explanation": "Vier mensen willen starten. De vijfde steunt het doel, maar wil eerst een privacycheck.",
+        "note": "Maak een voorwaarde niet kleiner door die alleen een aandachtspunt te noemen."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_005": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een positief resultaat en de beperking van het bewijs samen noemen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Een positief resultaat en de beperking van het bewijs samen noemen.",
+      "patch": {
+        "title": "Onzekerheid laten staan",
+        "prompt": "Welke samenvatting noemt ook de beperking van het onderzoek?",
+        "explanation": "De resultaten zijn positief, maar komen uit een kleine groep. Bredere conclusies vragen meer onderzoek.",
+        "note": "Zeg niet dat iets bewezen werkt als dat nog niet vaststaat."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_006": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Verschillende reacties op dezelfde startdatum apart weergeven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Verschillende reacties op dezelfde startdatum apart weergeven.",
+      "patch": {
+        "title": "Twee verschillende standpunten",
+        "prompt": "Welke samenvatting houdt de twee standpunten uit elkaar?",
+        "explanation": "De eerste medewerker is tegen starten op 1 november. De tweede vindt die datum mogelijk, maar alleen met extra ondersteuning.",
+        "note": "Maak van verschillende standpunten geen gezamenlijke instemming.",
+        "options": [
+          "Beide medewerkers zien invoering op 1 november als mogelijk, maar stellen andere voorwaarden.",
+          "De eerste medewerker is tegen invoering op 1 november omdat de training nog niet klaar is; de tweede vindt die datum haalbaar als extra ondersteuning geregeld wordt.",
+          "Beide medewerkers vinden de huidige voorbereiding onvoldoende voor 1 november."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Geen instemming met een latere invoering zodra de training klaar is toevoegen."
+    },
+    "C1_SB_007": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een gemeten verandering onderscheiden van uitleg door verschillende mensen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Een gemeten verandering onderscheiden van uitleg door verschillende mensen.",
+      "patch": {
+        "title": "Feit en mening",
+        "prompt": "Welke samenvatting laat zien wie welke mening heeft?",
+        "explanation": "De verkoopdaling is een feit. Dat die tijdelijk is, is de uitleg van de commercieel manager. De financieel manager vindt dat nog onzeker.",
+        "note": "Laat zien van wie een uitleg of oordeel komt.",
+        "options": [
+          "De verkoop zit tijdelijk in een dip.",
+          "De verkoop is drie maanden gedaald; de commercieel manager ziet dit als tijdelijk, terwijl de financieel manager die conclusie nog te vroeg vindt.",
+          "Finance verwacht dat de daling structureel is."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Finance vervangen door de daadwerkelijk genoemde spreker."
+    },
+    "C1_SB_008": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een regel voor een beperkte groep met een specifieke uitzondering samenvatten. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Een regel voor een beperkte groep met een specifieke uitzondering samenvatten.",
+      "patch": {
+        "title": "Regel en uitzondering",
+        "prompt": "Welke samenvatting bewaart de regel én de uitzondering?",
+        "explanation": "De regel geldt voor externen die klantdata verwerken. Alleen tijdelijke auditors die uitsluitend geanonimiseerde dossiers bekijken, vallen onder de genoemde uitzondering.",
+        "note": "Maak de groep of de uitzondering niet groter."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_009": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Een toezegging onderscheiden van steun of een besluit. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Een toezegging onderscheiden van steun of een besluit.",
+      "patch": {
+        "title": "Geen extra belofte",
+        "prompt": "Wat heeft de directeur precies toegezegd?",
+        "explanation": "De directeur zegt alleen toe het voorstel met de raad te bespreken. Steun of uitvoering is niet beloofd.",
+        "note": "Bespreken betekent nog niet akkoord gaan."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_010": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een volgorde met een voorwaarde en een later besluit behouden. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Kort samenvatten",
+      "source_section": "KERN EN REIKWIJDTE SAMENVATTEN",
+      "goal": "Een volgorde met een voorwaarde en een later besluit behouden.",
+      "patch": {
+        "title": "Stappen en voorwaarden",
+        "prompt": "Welke samenvatting bewaart de stappen en de voorwaarde?",
+        "explanation": "Eerst komt de juridische toets. Alleen na een positieve toets volgt het materiaal. Daarna beslist de directie over de start.",
+        "note": "Een afgeronde stap maakt het latere besluit nog niet zeker."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_011": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Een duidelijk bezwaar met de genoemde voorwaarde herkennen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Een duidelijk bezwaar met de genoemde voorwaarde herkennen.",
+      "patch": {
+        "title": "Een sterk bezwaar",
+        "prompt": "Welke samenvatting bewaart het bezwaar precies?",
+        "explanation": "De medewerker noemt invoering zonder extra beveiliging onverantwoord. Dat is sterker dan alleen zorgen hebben.",
+        "note": "Zwak een bezwaar niet af en maak het ook niet breder."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_012": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Voordelen zien onderscheiden van al overtuigd zijn. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Voordelen zien onderscheiden van al overtuigd zijn.",
+      "patch": {
+        "title": "Nog niet overtuigd",
+        "prompt": "Welke samenvatting bewaart de twijfel?",
+        "explanation": "De deelnemer ziet voordelen, maar vindt nog niet dat dit nu de beste keuze is.",
+        "note": "Twijfel is niet automatisch steun of afwijzing."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_013": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Kritiek uit een boze uitspraak in rustige woorden weergeven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Kritiek uit een boze uitspraak in rustige woorden weergeven.",
+      "patch": {
+        "title": "Boze woorden samenvatten",
+        "prompt": "Welke samenvatting geeft de kritiek rustig weer?",
+        "explanation": "De voorgestelde samenvatting noemt kritiek op het plan en de voorbereiding zonder de beledigende woorden over te nemen.",
+        "note": "Controleer bij de spreker of je de kritiek goed hebt begrepen."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_014": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een opgegeven reden onderscheiden van een vermoeden over iemands bedoeling. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Een opgegeven reden onderscheiden van een vermoeden over iemands bedoeling.",
+      "patch": {
+        "title": "Geen reden verzinnen",
+        "prompt": "Welke samenvatting blijft bij de genoemde reden?",
+        "explanation": "De afdeling noemt werk dat nog niet klaar is. De beschuldiging dat zij tijd rekt, is niet vastgesteld.",
+        "note": "Neem een vermoeden van een collega niet over als feit.",
+        "context": "Een afdeling vraagt drie weken extra tijd omdat zij nog wacht op werk van anderen. Een collega zegt dat ze ‘gewoon tijd proberen te rekken’.",
+        "options": [
+          "De afdeling verwacht de huidige deadline niet te halen en wil daarom uitstel.",
+          "De afdeling gebruikt het wachten op anderen als argument om meer tijd te krijgen.",
+          "De afdeling vraagt drie weken extra en zegt nog op werk van anderen te wachten; of er ook andere redenen spelen, is niet vastgesteld."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Afhankelijkheden concreet omschreven, onderscheid gegeven reden en vermoeden behouden."
+    },
+    "C1_SB_015": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Twee standpunten met hun redenen zonder negatieve woordkeuze weergeven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Twee standpunten met hun redenen zonder negatieve woordkeuze weergeven.",
+      "patch": {
+        "title": "Beide kanten eerlijk",
+        "prompt": "Welke samenvatting geeft beide standpunten even eerlijk weer?",
+        "explanation": "Team A wil één systeem om op dezelfde manier te werken. Team B wil ruimte voor verschillende werkprocessen.",
+        "note": "Beschrijf beide kanten met even neutrale woorden."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_016": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Twee duidelijk genoemde oordelen aan de juiste spreker koppelen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Twee duidelijk genoemde oordelen aan de juiste spreker koppelen.",
+      "patch": {
+        "title": "Wie zegt wat?",
+        "prompt": "Welke samenvatting laat zien wie welk oordeel geeft?",
+        "explanation": "De consultant noemt de planning onrealistisch. Het team noemt die ambitieus maar haalbaar.",
+        "note": "Kies niet zelf een kant in de samenvatting."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_017": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een genoemd verbod onderscheiden van een praktisch bezwaar. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Een genoemd verbod onderscheiden van een praktisch bezwaar.",
+      "patch": {
+        "title": "Twee soorten bezwaar",
+        "prompt": "Welke samenvatting bewaart het verschil tussen de bezwaren?",
+        "explanation": "De jurist zegt dat iets niet mag. De collega zegt dat het onhandig is. Dat zijn verschillende soorten bezwaar.",
+        "note": "Dit is een taaloefening: je geeft weer wat de jurist zegt, je toetst niet zelf de wet."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_018": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Een concrete wens samen met de genoemde reden weergeven. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Een concrete wens samen met de genoemde reden weergeven.",
+      "patch": {
+        "title": "Wens en reden",
+        "prompt": "Welke samenvatting noemt de wens en de gegeven reden?",
+        "explanation": "De werknemer wil woensdag niet werken omdat hij dan voor zijn kind zorgt.",
+        "note": "Voeg geen vaste afspraak of extra reden toe.",
+        "options": [
+          "De werknemer kan woensdag niet werken vanwege privéverplichtingen.",
+          "De werknemer wil woensdag niet werken omdat hij dan voor zijn kind zorgt.",
+          "De werknemer vraagt om een vaste vrije woensdag om zijn zorgtaken te kunnen combineren."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Vaste zorgtaak stond niet expliciet in de bron; geen herhaalde vaste afspraak veronderstellen."
+    },
+    "C1_SB_019": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Steun, afwijzing en een voorwaarde per onderdeel behouden. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Steun, afwijzing en een voorwaarde per onderdeel behouden.",
+      "patch": {
+        "title": "Niet overal mee eens",
+        "prompt": "Welke samenvatting bewaart alle onderdelen van het standpunt?",
+        "explanation": "De manager steunt werkwijze en training, wijst de startdatum af en stelt een grens aan extra rapportage.",
+        "note": "Eén algemeen voor of tegen zou hier informatie verliezen."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_020": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Overeenstemming en één duidelijk open punt onderscheiden. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Standpunten weergeven",
+      "source_section": "STANDPUNTEN NEUTRAAL WEERGEVEN",
+      "goal": "Overeenstemming en één duidelijk open punt onderscheiden.",
+      "patch": {
+        "title": "Waarover is nog verschil?",
+        "prompt": "Welke samenvatting noemt precies wat nog openstaat?",
+        "explanation": "Doel, budget en aanpak zijn akkoord. Alleen de startdatum staat nog open.",
+        "note": "Eén open punt kan toch belangrijk zijn."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_021": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Twee gezamenlijke wensen en één open taakvraag herkennen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Twee gezamenlijke wensen en één open taakvraag herkennen.",
+      "patch": {
+        "title": "Wat willen beiden?",
+        "prompt": "Welke samenvatting noemt de gedeelde wensen én het verschil?",
+        "explanation": "Beide afdelingen willen op tijd klaar zijn en de kwaliteit behouden. Wie het werk doet, staat nog open.",
+        "note": "Noem zowel wat vaststaat als wat nog moet worden besproken."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_022": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Steun met een extra voorwaarde onderscheiden van andere steun. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Steun met een extra voorwaarde onderscheiden van andere steun.",
+      "patch": {
+        "title": "Steun met een voorwaarde",
+        "prompt": "Welke samenvatting maakt het verschil in steun duidelijk?",
+        "explanation": "Drie deelnemers steunen A. Twee anderen steunen A alleen als er een extra voorwaarde komt.",
+        "note": "Zeg niet dat iedereen al met hetzelfde voorstel instemt.",
+        "options": [
+          "Er is brede steun voor optie A, al willen twee deelnemers nog een aanpassing.",
+          "Drie deelnemers steunen optie A; twee anderen vinden A alleen acceptabel als er een extra voorwaarde wordt toegevoegd.",
+          "De groep neigt naar optie A, maar consensus ontbreekt nog."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Onvoorwaardelijke steun is sterker dan de gegeven steun van drie deelnemers."
+    },
+    "C1_SB_023": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een lager totaalbedrag onderscheiden van een andere verdeling. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Een lager totaalbedrag onderscheiden van een andere verdeling.",
+      "patch": {
+        "title": "Bedrag of verdeling",
+        "prompt": "Welke samenvatting maakt duidelijk wie wat wil veranderen?",
+        "explanation": "Partij A wil minder geld in totaal. Partij B accepteert het huidige totaalbedrag, maar wil het anders verdelen.",
+        "note": "Koppel elke wens aan de juiste partij.",
+        "options": [
+          "Partij A wil een ander budget; Partij B wil vooral andere financiële prioriteiten.",
+          "De partijen verschillen zowel over de hoogte als over de verdeling van het budget.",
+          "Partij A wil het totale budget verlagen; Partij B accepteert het huidige totaalbedrag maar wil het anders verdelen."
+        ],
+        "context": "Eén partij wil het huidige budget verlagen. De andere accepteert het huidige totaalbedrag, maar wil een andere verdeling over posten."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Die totale hoogte kon ten onrechte naar het door A verlaagde bedrag verwijzen. Ook in de situatie verduidelijkt dat partij B het huidige, niet het verlaagde bedrag accepteert."
+    },
+    "C1_SB_024": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Eenzelfde probleem onderscheiden van verschillende oplossingen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Eenzelfde probleem onderscheiden van verschillende oplossingen.",
+      "patch": {
+        "title": "Ander idee voor de oplossing",
+        "prompt": "Welke samenvatting klopt?",
+        "explanation": "Beide teams vinden verandering nodig. Ze kiezen verschillende oplossingen: automatisering of extra personeel.",
+        "note": "Eens zijn over het probleem betekent niet eens zijn over de oplossing."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_025": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Gedeelde doelen en een andere keuze bij een botsing samenvatten. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Gedeelde doelen en een andere keuze bij een botsing samenvatten.",
+      "patch": {
+        "title": "Wat gaat voor?",
+        "prompt": "Welke samenvatting bewaart de verschillende prioriteiten?",
+        "explanation": "Beiden vinden kwaliteit en snelheid belangrijk. Als die botsen, kiest A voor kwaliteit en B voor de deadline.",
+        "note": "Een tweede prioriteit is niet automatisch onbelangrijk."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_026": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Een gedeeld probleem en verschillende vermoedelijke oorzaken herkennen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Een gedeeld probleem en verschillende vermoedelijke oorzaken herkennen.",
+      "patch": {
+        "title": "Andere uitleg voor het probleem",
+        "prompt": "Welke samenvatting klopt?",
+        "explanation": "Beide teams zien dat klanten afhaken. Ze geven daar een andere verklaring voor.",
+        "note": "Een verklaring van een team is nog geen bewezen oorzaak."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_027": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Gelijke beoordelingspunten onderscheiden van gelijke uitkomsten. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Gelijke beoordelingspunten onderscheiden van gelijke uitkomsten.",
+      "patch": {
+        "title": "Dezelfde beoordelingspunten",
+        "prompt": "Welke samenvatting helpt bij het verder bespreken?",
+        "explanation": "De beoordelaars gebruiken dezelfde punten, maar komen tot verschillende beoordelingen.",
+        "note": "Bespreek hoe iedereen dezelfde punten heeft toegepast.",
+        "context": "Twee kandidaten krijgen verschillende beoordelingen, maar alle beoordelaars letten op dezelfde drie punten.",
+        "options": [
+          "De beoordelaars zijn het eigenlijk eens over de kandidaten.",
+          "De beoordelingspunten zijn ongeschikt omdat de uitkomsten verschillen.",
+          "De beoordelaars komen tot verschillende uitkomsten, maar letten op dezelfde drie punten."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Criteria in gewone woorden beschreven; hetzelfde onderscheid blijft behouden."
+    },
+    "C1_SB_028": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Herkennen dat een feit nog moet worden gecontroleerd. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Herkennen dat een feit nog moet worden gecontroleerd.",
+      "patch": {
+        "title": "Een feit staat nog open",
+        "prompt": "Welke samenvatting is zorgvuldig?",
+        "explanation": "De partijen noemen een andere datum. Het document waarmee ze dat kunnen controleren, is nu niet beschikbaar.",
+        "note": "Kies geen winnaar zolang het bewijs ontbreekt."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_029": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Het aantal afspraken en het belang van een resterend verschil samen noemen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Het aantal afspraken en het belang van een resterend verschil samen noemen.",
+      "patch": {
+        "title": "Eén belangrijk punt open",
+        "prompt": "Welke samenvatting bewaart ook het belang van het open punt?",
+        "explanation": "Vier punten zijn akkoord. Het vijfde is financieel belangrijk en nog niet opgelost.",
+        "note": "Noem een zwaar open punt niet zomaar een afronding."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_030": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Verschillende voorwaarden naast elkaar leggen zonder al een oplossing te beloven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Overeenkomsten en verschillen",
+      "source_section": "OVEREENKOMSTEN EN VERSCHILLEN SAMENVATTEN",
+      "goal": "Verschillende voorwaarden naast elkaar leggen zonder al een oplossing te beloven.",
+      "patch": {
+        "title": "Verschillende voorwaarden",
+        "prompt": "Welke samenvatting helpt om samen verder te zoeken?",
+        "explanation": "A stelt een grens aan de looptijd. B wil tussentijds kunnen evalueren. Die voorwaarden hoeven niet te botsen.",
+        "note": "Onderzoek of ze samen kunnen; neem dat niet alvast aan.",
+        "options": [
+          "Beide partijen willen dezelfde voorwaarde.",
+          "De partijen zijn het oneens over de looptijd.",
+          "A wil een looptijd van maximaal twee jaar. B wil tussentijds kunnen evalueren. Deze voorwaarden hoeven elkaar niet uit te sluiten."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd. Verkeerde positieverwijzing hersteld; beide concrete voorwaarden behouden. Mogelijke verenigbaarheid is geen bewezen oplossing. Bespreekvoorbeeld bij samenvatten; kaart 045 oefent juist een volgende stap voorstellen."
+    },
+    "C1_SB_031": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een uitgesproken wens onderscheiden van het doel erachter. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Een uitgesproken wens onderscheiden van het doel erachter.",
+      "patch": {
+        "title": "Wens en mogelijke oplossing",
+        "prompt": "Welke samenvatting maakt duidelijk waarom een eigen kantoor wordt gevraagd?",
+        "explanation": "Het doel is ongestoord vertrouwelijk kunnen praten. Een eigen kantoor is één manier om dat mogelijk te maken.",
+        "note": "Onderzoek ook andere oplossingen die aan dat doel voldoen."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_032": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Twee wensen koppelen aan de verschillende genoemde redenen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Twee wensen koppelen aan de verschillende genoemde redenen.",
+      "patch": {
+        "title": "Waarom beide teams dit willen",
+        "prompt": "Welke samenvatting noemt de redenen van beide teams?",
+        "explanation": "Team A wil voorspelbaarheid. Team B wil ingewikkelde dossiers passend kunnen behandelen.",
+        "note": "Verzin geen gezamenlijk doel dat de teams niet hebben genoemd."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_033": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Een onbekende reden openlaten. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "canonical",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Een onbekende reden openlaten.",
+      "patch": {
+        "title": "De reden is nog onbekend",
+        "prompt": "Welke samenvatting blijft bij wat bekend is?",
+        "explanation": "De partij wil geen avondvergaderingen. De reden is nog niet genoemd.",
+        "note": "Vraag naar de reden in plaats van die in te vullen."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden."
+    },
+    "C1_SB_034": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een vaste beperking onderscheiden van ruimte om verder te zoeken. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Een vaste beperking onderscheiden van ruimte om verder te zoeken.",
+      "patch": {
+        "title": "Een grens aan de oplossing",
+        "prompt": "Welke samenvatting bewaart de genoemde wettelijke grens?",
+        "explanation": "In deze situatie mag delen zonder grondslag niet. De vervolgvraag is welke informatie binnen die grens wel gedeeld kan worden.",
+        "note": "De kaart oefent taal bij een gegeven grens; de juiste juridische beoordeling staat niet in deze oefening.",
+        "options": [
+          "De organisatie wil liever geen dossiers delen.",
+          "In deze situatie mag delen zonder grondslag niet. De vraag is welke informatie binnen die wettelijke grens wél gedeeld kan worden.",
+          "Beide partijen moeten elkaar halverwege tegemoetkomen."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Juridische grens uitsluitend als gegeven van de taalsituatie geformuleerd. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_035": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een gedeeld doel met verschillende risico’s brongetrouw samenvatten. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Een gedeeld doel met verschillende risico’s brongetrouw samenvatten.",
+      "patch": {
+        "title": "Verschillende risico’s",
+        "prompt": "Welke samenvatting noemt wat beide partijen willen beschermen?",
+        "explanation": "Beiden willen risico beperken. De leverancier noemt productie en voorraad; de klant noemt vaste afname bij wisselende vraag.",
+        "note": "Hier staat het risico van beide partijen uitdrukkelijk in de situatie."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Ongrammaticale titel vereenvoudigd; gedeelde risicowens is in de herstelde bron wel onderbouwd."
+    },
+    "C1_SB_036": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Twee redenen achter een verschil over tijd naast elkaar zetten. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Twee redenen achter een verschil over tijd naast elkaar zetten.",
+      "patch": {
+        "title": "Waarom de datum belangrijk is",
+        "prompt": "Welke samenvatting geeft beide redenen even eerlijk weer?",
+        "explanation": "Het team vreest kwaliteitsproblemen. De opdrachtgever heeft te maken met een externe campagnedatum.",
+        "note": "Een samenvatting hoeft nog geen compromis te bevatten."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_037": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een genoemd belang achter een bezwaar voorzichtig weergeven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Een genoemd belang achter een bezwaar voorzichtig weergeven.",
+      "patch": {
+        "title": "Erkenning van kennis",
+        "prompt": "Welke samenvatting helpt om het bezwaar te begrijpen?",
+        "explanation": "Erkenning van de kennis van de afdeling speelt mee. Dat is in het gesprek naar voren gekomen.",
+        "note": "Maak er geen verwijt van over emotie of status."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_038": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een mogelijk belang controleren en het besluit apart beoordelen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Een mogelijk belang controleren en het besluit apart beoordelen.",
+      "patch": {
+        "title": "Reden en besluit apart",
+        "prompt": "Welke reactie onderzoekt de reden zonder al in te stemmen?",
+        "explanation": "De deelnemer noemt de eerdere investering. Je kunt vragen of verlies daarvan de zorg is; dat staat nog niet vast.",
+        "note": "Ook na bevestiging moet nog worden bekeken of behoud van het systeem de beste keuze is.",
+        "options": [
+          "Je eerdere investering is een sterke reden om het systeem te behouden.",
+          "Je noemt de eerdere investering. Ben je bang dat die verloren gaat? Daarna kunnen we apart bekijken of het systeem behouden de beste keuze is.",
+          "Je noemt vooral een financieel belang, maar dat is voor de inhoudelijke keuze niet relevant."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Verliesangst is een mogelijke uitleg, niet een expliciet genoemd belang. Eerst controleren. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_039": {
+      "review": "GO",
+      "level": "B1",
+      "level_reason": "B1: de korte situatie geeft de relevante informatie rechtstreeks. Doel: Concrete behoeften achter twee wensen benoemen. De cursist kiest een antwoord bij een korte geschreven situatie; zelfstandig een lang gesprek samenvatten of bemiddelen wordt niet gevraagd.",
+      "scoring": "discuss",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Concrete behoeften achter twee wensen benoemen.",
+      "patch": {
+        "title": "Meer dan één oplossing",
+        "prompt": "Welke samenvatting helpt om meer oplossingen te zoeken?",
+        "explanation": "De werknemer noemt reistijd als probleem. De werkgever noemt aanwezigheid op vrijdag.",
+        "note": "Thuiswerken is een mogelijke oplossing, niet de enige denkbare."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_040": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Eén doorslaggevende wens en twee bespreekbare wensen samen behouden. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Wensen en redenen",
+      "source_section": "BELANGEN ACHTER POSITIES BEMIDDELEN",
+      "goal": "Eén doorslaggevende wens en twee bespreekbare wensen samen behouden.",
+      "patch": {
+        "title": "Welke wens telt het zwaarst?",
+        "prompt": "Welke samenvatting bewaart wat het belangrijkst is?",
+        "explanation": "De specialistische taken zijn doorslaggevend. Naam en systeemtoegang zijn ook belangrijk, maar bespreekbaar.",
+        "note": "Laat andere wensen niet weg omdat er één voorrang heeft.",
+        "options": [
+          "Behoud van de specialistische taken is voor de afdeling doorslaggevend. Naam en systeemtoegang zijn ook belangrijk, maar bespreekbaar.",
+          "De afdeling wil vooral haar specialistische positie en eigen identiteit behouden.",
+          "De specialistische taken zijn niet onderhandelbaar; de andere twee punten zijn van ondergeschikt belang."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Primair en secundair in gewone woorden weergegeven zonder de andere wensen af te zwakken."
+    },
+    "C1_SB_041": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een werkbare richting onderscheiden van een bevoegd gesloten akkoord. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Een werkbare richting onderscheiden van een bevoegd gesloten akkoord.",
+      "patch": {
+        "title": "Nog goedkeuring nodig",
+        "prompt": "Welke samenvatting bewaart de vooruitgang én de grens aan hun bevoegdheid?",
+        "explanation": "Er is een werkbare richting, maar de vertegenwoordigers kunnen zelf geen definitief akkoord geven.",
+        "note": "Zeg niet dat de goedkeuring vanzelf zal volgen.",
+        "options": [
+          "Er ligt een werkbare richting over prijs en planning. Voor een definitief akkoord is nog goedkeuring van beide besturen nodig.",
+          "Partijen zijn het inhoudelijk eens; alleen formele goedkeuring ontbreekt nog.",
+          "Er is een voorlopig akkoord dat na bestuursgoedkeuring definitief wordt."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Geen niet-toegezegde onmiddellijke vervolghandeling toevoegen; vereiste goedkeuring blijft open."
+    },
+    "C1_SB_042": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een voorgestelde controle laten aansluiten op een feitelijk verschil. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Een voorgestelde controle laten aansluiten op een feitelijk verschil.",
+      "patch": {
+        "title": "Eerst de cijfers controleren",
+        "prompt": "Welke vervolgstap past bij het open punt?",
+        "explanation": "Beide partijen accepteren een onafhankelijke berekening als manier om duidelijkheid te krijgen. Die eerst laten uitvoeren past bij het verschil.",
+        "note": "Presenteer dit als een voorstel voor de volgende stap, niet als een afspraak die al is gemaakt.",
+        "options": [
+          "Voorstellen om eerst de onafhankelijke berekening te laten uitvoeren en daarna het verschil opnieuw te bespreken.",
+          "De partijen middelen de twee ramingen.",
+          "De partij met de laagste raming moet haar cijfers aanpassen."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Voorstel tot vervolg is nog geen gemaakte afspraak. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_043": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Verschillende opties aan gedeelde doelen toetsen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Verschillende opties aan gedeelde doelen toetsen.",
+      "patch": {
+        "title": "Opties eerlijk vergelijken",
+        "prompt": "Welke stap helpt om de twee opties te vergelijken?",
+        "explanation": "Beide partijen vinden tijd en kwaliteit belangrijk. Vergelijk de opties op beide punten.",
+        "note": "Vraag daarna wat die vergelijking voor hun voorkeur betekent."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_044": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Voorzichtige toenadering onderscheiden van formele instemming. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "canonical",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Voorzichtige toenadering onderscheiden van formele instemming.",
+      "patch": {
+        "title": "Vooruitgang is nog geen akkoord",
+        "prompt": "Welke samenvatting maakt vooruitgang zichtbaar zonder al een akkoord te noemen?",
+        "explanation": "Dezelfde richting lijkt acceptabel, maar beide partijen moeten nog intern overleggen en formeel reageren.",
+        "note": "Een formele reactie kan ook een bezwaar of afwijzing bevatten.",
+        "options": [
+          "Over planning en taakverdeling lijkt dezelfde richting acceptabel. Beide partijen reageren pas formeel nadat zij intern hebben overlegd.",
+          "Over planning en taakverdeling is een voorlopig deelakkoord bereikt.",
+          "Partijen zijn het op de kern eens en hoeven alleen intern nog af te stemmen."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Instemming volgt niet noodzakelijk: een formele reactie kan ook afwijzing bevatten."
+    },
+    "C1_SB_045": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Mogelijke ruimte voor een oplossing onderzoeken zonder die al vast te stellen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Mogelijke ruimte voor een oplossing onderzoeken zonder die al vast te stellen.",
+      "patch": {
+        "title": "Kunnen de voorwaarden samen?",
+        "prompt": "Welke reactie onderzoekt of beide voorwaarden samen kunnen?",
+        "explanation": "De ene voorwaarde gaat over budget, de andere over looptijd. Onderzoek of één voorstel aan beide kan voldoen.",
+        "note": "Verschillende soorten voorwaarden passen niet automatisch bij elkaar."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_046": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een samenvatting opbouwen waarin beide partijen hun bijdrage herkennen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Een samenvatting opbouwen waarin beide partijen hun bijdrage herkennen.",
+      "patch": {
+        "title": "Rustig samenvatten na ruzie",
+        "prompt": "Welke aanpak helpt om beide partijen eerlijk weer te geven?",
+        "explanation": "Geef eerst per partij het kernpunt en de zorg weer. Benoem daarna overeenkomsten en open verschillen.",
+        "note": "Vraag of de partijen zich in die weergave herkennen."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_047": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Oplossingen verkennen zonder al een compromis te kiezen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Oplossingen verkennen zonder al een compromis te kiezen.",
+      "patch": {
+        "title": "Geen oplossing opleggen",
+        "prompt": "Welke vraag laat de keuze van de oplossing nog open?",
+        "explanation": "De vraag vertrekt vanuit de genoemde belangen en laat meerdere oplossingen toe.",
+        "note": "Een compromis of derde optie kan later passend blijken."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_048": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Een onopgelost punt zichtbaar houden en afhankelijkheden bewaken. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Een onopgelost punt zichtbaar houden en afhankelijkheden bewaken.",
+      "patch": {
+        "title": "Een punt voorlopig laten rusten",
+        "prompt": "Welke stap laat het gesprek zorgvuldig doorgaan?",
+        "explanation": "Leg vast wat nog openstaat. Bespreek alleen andere onderdelen die daar niet van afhangen.",
+        "note": "Een punt laten rusten is iets anders dan doen alsof het opgelost is."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_049": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Beide partijen gericht laten controleren of hun standpunt juist is weergegeven. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Beide partijen gericht laten controleren of hun standpunt juist is weergegeven.",
+      "patch": {
+        "title": "Klopt mijn samenvatting?",
+        "prompt": "Welke vervolgstap controleert of beide partijen zich herkennen?",
+        "explanation": "Vraag ieder of kernpunt, zorg en voorwaarde goed zijn weergegeven. Zo vraag je meer dan alleen of er een feitelijke fout is.",
+        "note": "Pas de samenvatting aan als een partij terecht iets mist."
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Betekenis en antwoordletter behouden. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    },
+    "C1_SB_050": {
+      "review": "GO",
+      "level": "B2",
+      "level_reason": "B2: de cursist vergelijkt precieze betekenis, voorwaarden of perspectieven bij dit doel: Verschillen over feiten, belangen en uitvoering apart behandelen. Het gaat om kiezen bij een korte geschreven situatie, niet zelfstandig een lang gesprek samenvatten of bemiddelen.",
+      "scoring": "discuss",
+      "section": "Samen verder",
+      "source_section": "VAN SAMENVATTING NAAR WERKBARE VERVOLGSTAP",
+      "goal": "Verschillen over feiten, belangen en uitvoering apart behandelen.",
+      "patch": {
+        "title": "De volgende stappen ordenen",
+        "prompt": "Welke volgorde kun je voorstellen om de drie verschillen apart te behandelen?",
+        "explanation": "Feiten controleren, belangen bespreken en uitvoeringsopties vergelijken zijn verschillende stappen. De voorgestelde volgorde kan helpen.",
+        "note": "Dit is geen vaste regel: urgentie of onderlinge afhankelijkheid kan om een andere volgorde vragen.",
+        "options": [
+          "Eerst het feitelijke punt controleren, daarna de belangen bespreken en vervolgens de uitvoeringsopties vergelijken.",
+          "De drie verschillen in één ronde bespreken zodat hun samenhang zichtbaar blijft.",
+          "Beginnen met het belangenconflict en de feitelijke kwestie pas later controleren."
+        ]
+      },
+      "change_reason": "Titel, vraag en uitleg vereenvoudigd; uitleg verwijst naar inhoud in plaats van positie van een antwoord. Vaste beste volgorde niet uit de korte bron afleidbaar; bespreekbaar voorstel met grens in toelichting. Mogelijk antwoord voor bespreking, geen unieke verplichte aanpak."
+    }
+  }
+}

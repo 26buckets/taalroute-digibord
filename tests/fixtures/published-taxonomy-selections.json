@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Andere informatie vooraan zetten",
+    "gate": "FREE",
+    "spec": {
+      "scope_clauses": [
+        {
+          "scope_id": "selection",
+          "content_family_id": null,
+          "content_bank_ids": [
+            "CB-GRAM-005"
+          ],
+          "topic_ids": [
+            "WOORDVOLGORDE"
+          ],
+          "cefr_levels": [
+            "A2_B1"
+          ],
+          "subtopic_ids": [],
+          "interaction_type_ids": [],
+          "weight": 1
+        }
+      ],
+      "filter_spec": {
+        "free_play_gate": "FREE",
+        "microconstructures": [
+          "Vooropplaatsing niet-onderwerp + inversie"
+        ],
+        "exercise_type_ids": [],
+        "family_tags": [],
+        "production_mode": "all",
+        "difficulty": "all"
+      },
+      "distribution_spec": {
+        "mode": "equal"
+      },
+      "compatibility_policy": "compatible_only"
+    },
+    "ids": [
+      "PB005_B1_02_041",
+      "PB005_B1_02_042",
+      "PB005_B1_02_043",
+      "PB005_B1_02_044",
+      "PB005_B1_02_045",
+      "PB005_B1_02_046",
+      "PB005_B1_02_047",
+      "PB005_B1_02_048",
+      "PB005_B1_02_049",
+      "PB005_B1_02_050",
+      "PB005_B1_02_051",
+      "PB005_B1_02_052",
+      "PB005_B1_02_053",
+      "PB005_B1_02_054",
+      "PB005_B1_02_055",
+      "PB005_B1_02_056",
+      "PB005_B1_02_057",
+      "PB005_B1_02_058",
+      "PB005_B1_02_059",
+      "PB005_B1_02_060",
+      "PB005_B1_02_061",
+      "PB005_B1_02_062",
+      "PB005_B1_02_063",
+      "PB005_B1_02_064",
+      "PB005_B1_02_065",
+      "PB005_B1_02_066",
+      "PB005_B1_02_067",
+      "PB005_B1_02_068",
+      "PB005_B1_02_069",
+      "PB005_B1_02_070",
+      "PB005_B1_02_071",
+      "PB005_B1_02_072",
+      "PB005_B1_02_073",
+      "PB005_B1_02_074"
+    ]
+  },
+  {
+    "name": "Andere informatie vooraan zetten",
+    "gate": "GUIDED",
+    "spec": {
+      "scope_clauses": [
+        {
+          "scope_id": "selection",
+          "content_family_id": null,
+          "content_bank_ids": [
+            "CB-GRAM-005"
+          ],
+          "topic_ids": [
+            "WOORDVOLGORDE"
+          ],
+          "cefr_levels": [
+            "A2_B1"
+          ],
+          "subtopic_ids": [],
+          "interaction_type_ids": [],
+          "weight": 1
+        }
+      ],
+      "filter_spec": {
+        "free_play_gate": "GUIDED",
+        "microconstructures": [
+          "Vooropplaatsing niet-onderwerp + inversie"
+        ],
+        "exercise_type_ids": [],
+        "family_tags": [],
+        "production_mode": "all",
+        "difficulty": "all"
+      },
+      "distribution_spec": {
+        "mode": "equal"
+      },
+      "compatibility_policy": "compatible_only"
+    },
+    "ids": [
+      "PB005_B1_02_075",
+      "PB005_B1_02_076",
+      "PB005_B1_02_077",
+      "PB005_B1_02_078",
+      "PB005_B1_02_079",
+      "PB005_B1_02_080"
+    ]
+  }
+]

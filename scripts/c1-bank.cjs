@@ -21,6 +21,7 @@ assert.equal(cards.length,50);assert.equal(new Set(cards.map(c=>c.id)).size,50);
 const bank={id:'c1-between-lines',title:'Nederlands tussen de regels',description:'C1 · Batch 001 · 50 kaarten in vijf domeinen.',intro:'Kies het antwoord dat het best bij de situatie past.',color:'#665398',icon:'idioms',level:'C1',status:'FROZEN',source:{filename,url:'https://drive.google.com/file/d/1MpxtfcBHfE3CFpCQmpbJ7KFzbH5qMrss/view'},domains,cards};
 const output='// Generated from the frozen Drive source by scripts/c1-bank.cjs.\nwindow.DIGIBORD_DATA.c1BetweenLines = '+JSON.stringify(bank,null,2)+';\n';
 const destination=path.join(root,'data/c1-between-lines.js');
-if(process.argv.includes('--write'))fs.writeFileSync(destination,output);
+if(require.main===module&&process.argv.includes('--write'))fs.writeFileSync(destination,output);
 else assert.equal(fs.readFileSync(destination,'utf8'),output,'C1 runtime differs from frozen source');
 console.log('PASS: all 50 frozen C1 cards, five domains, exact wording and ordered answers.');
+module.exports={bank,source};

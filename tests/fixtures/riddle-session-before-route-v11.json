@@ -1,0 +1,151 @@
+{
+  "source_commit": "9de2b586db4b135fb68d0cbd2d27d88ea522591b",
+  "session": {
+    "schema_version": 2,
+    "wheel_draw_version": 2,
+    "session_id": "CONTENT-murkux59-h6g1n9qzq5",
+    "selection_profile_id": "SP_RIDDLES_woordraadsels_Niveauvrij",
+    "selection_profile_version": "3.0",
+    "adapter_version": "RIDDLE-1.0",
+    "adapter_versions": {
+      "CB-ACT-RIDDLE": "RIDDLE-1.0"
+    },
+    "content_bank_id": "CB-ACT-RIDDLE",
+    "content_bank_ids": [
+      "CB-ACT-RIDDLE"
+    ],
+    "content_family": "riddles",
+    "topic": "woordraadsels",
+    "topic_ids": [
+      "woordraadsels"
+    ],
+    "cefr_level": "Niveauvrij",
+    "cefr_levels": [
+      "Niveauvrij"
+    ],
+    "filters": {
+      "topics": [],
+      "levels": [],
+      "family_tags": [],
+      "language_functions": [],
+      "exercise_types": [],
+      "interaction_types": [],
+      "support_levels": [],
+      "oral_or_written": [],
+      "bank_ids": [],
+      "family_ids": [
+        "riddles"
+      ],
+      "productive_or_receptive": "all",
+      "difficulty": "all"
+    },
+    "normalized_selection_spec": {
+      "scope_clauses": [
+        {
+          "scope_id": "selection",
+          "content_family_id": "riddles",
+          "content_bank_ids": [],
+          "topic_ids": [],
+          "cefr_levels": [],
+          "subtopic_ids": [],
+          "interaction_type_ids": [],
+          "weight": 1
+        }
+      ],
+      "filter_spec": {
+        "exercise_type_ids": [],
+        "family_tags": [],
+        "production_mode": "all",
+        "difficulty": "all"
+      },
+      "distribution_spec": {
+        "mode": "equal"
+      },
+      "compatibility_policy": "compatible_only"
+    },
+    "organization_mode": "class",
+    "selected_game_engine": "RIDDLE",
+    "selected_game_variant": null,
+    "game_engines": [
+      "RIDDLE"
+    ],
+    "game_engine_versions": {
+      "RIDDLE": "CONTENTENG-3.0"
+    },
+    "selected_item_ids": [
+      "ACT_RIDDLE_015",
+      "ACT_RIDDLE_019",
+      "ACT_RIDDLE_017",
+      "ACT_RIDDLE_016",
+      "ACT_RIDDLE_011"
+    ],
+    "selected_content_refs": [
+      {
+        "content_item_id": "ACT_RIDDLE_015",
+        "content_item_version": "activities-1.24-preserved",
+        "content_bank_id": "CB-ACT-RIDDLE",
+        "source_version": "activities-1.24-preserved",
+        "immutable_version_ref": "CB-ACT-RIDDLE@469875c6/ACT_RIDDLE_015@activities-1.24-preserved",
+        "content_hash": "c4602e4c"
+      },
+      {
+        "content_item_id": "ACT_RIDDLE_019",
+        "content_item_version": "activities-1.24-preserved",
+        "content_bank_id": "CB-ACT-RIDDLE",
+        "source_version": "activities-1.24-preserved",
+        "immutable_version_ref": "CB-ACT-RIDDLE@469875c6/ACT_RIDDLE_019@activities-1.24-preserved",
+        "content_hash": "8e4a8087"
+      },
+      {
+        "content_item_id": "ACT_RIDDLE_017",
+        "content_item_version": "activities-1.24-preserved",
+        "content_bank_id": "CB-ACT-RIDDLE",
+        "source_version": "activities-1.24-preserved",
+        "immutable_version_ref": "CB-ACT-RIDDLE@469875c6/ACT_RIDDLE_017@activities-1.24-preserved",
+        "content_hash": "1e5a53ac"
+      },
+      {
+        "content_item_id": "ACT_RIDDLE_016",
+        "content_item_version": "activities-1.24-preserved",
+        "content_bank_id": "CB-ACT-RIDDLE",
+        "source_version": "activities-1.24-preserved",
+        "immutable_version_ref": "CB-ACT-RIDDLE@469875c6/ACT_RIDDLE_016@activities-1.24-preserved",
+        "content_hash": "a245d4e0"
+      },
+      {
+        "content_item_id": "ACT_RIDDLE_011",
+        "content_item_version": "activities-1.24-preserved",
+        "content_bank_id": "CB-ACT-RIDDLE",
+        "source_version": "activities-1.24-preserved",
+        "immutable_version_ref": "CB-ACT-RIDDLE@469875c6/ACT_RIDDLE_011@activities-1.24-preserved",
+        "content_hash": "226b762b"
+      }
+    ],
+    "selection_seed": 17,
+    "target_duration_seconds": 300,
+    "actual_estimated_duration_seconds": 300,
+    "review_gate": [
+      "LEGACY_PRESERVED"
+    ],
+    "publication_gate": [
+      "staging_only",
+      "pilot_only",
+      "published"
+    ],
+    "rights_gate": [
+      "owned_original",
+      "licensed"
+    ],
+    "content_source": {
+      "qa_id": "EXISTING-ACTIVITIES-STRUCTURE",
+      "version": "activities-1.24-preserved"
+    },
+    "content_source_versions": {
+      "CB-ACT-RIDDLE": {
+        "qa_id": "EXISTING-ACTIVITIES-STRUCTURE",
+        "version": "activities-1.24-preserved"
+      }
+    },
+    "started_at": "2026-10-02T23:11:41.902Z"
+  }
+}

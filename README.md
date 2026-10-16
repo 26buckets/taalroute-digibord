@@ -1,6 +1,18 @@
-# Taalroute DigiBord V01.24
+# Actuele DigiBord 1.25
+
+Gebruik branch `codex/digibord-v1.25`. De volledige voorbereiding, selectie, rustige instellingen en 4.061 nagekeken opdrachten staan hier. Overige inhoud is behouden maar verborgen in de app. Lees [PUBLICATIE.md](PUBLICATIE.md) voor de publicatiegrens, tests en Drive-overdracht. Oudere documentatie hieronder beschrijft de voorafgaande basis.
+
+---
+
+# Taalroute DigiBord V01.25
 
 De volledige actuele app, met curriculum, kaartspellen, speelborden, dobbelspellen, woorden en zinnen en de vernieuwde opdrachtenbanken.
+
+## Nieuwe motor in 1.25
+
+Twee docentroutes komen samen in één voorbereiding. Grammatica, Woorden en zinnen en de bestaande woordraadsels gebruiken één selectie; tien spelvormen worden uitsluitend aangeboden wanneer ze de hele gekozen inhoud ondersteunen. Mijn lessen bewaart keuzes, recente sessies, favorieten en mixen op dit apparaat. De bestaande 1.24-opslag krijgt vóór de eerste wijziging een gecontroleerde reservekopie.
+
+Zie [bouw- en overdrachtsnotitie](DIGIBORD-V1.25.md) voor bronstatus, bankregistratie, opslag, controles en grenzen.
 
 ## Ontwikkelen en controleren
 
@@ -33,3 +45,7 @@ De bestaande Cloudflare Worker `taalroute-digibord` publiceert uitsluitend `dist
 De oude app blijft volledig bereikbaar in Git onder `archive/pre-v0124-20260921`. Er staan geen oude applicatiebestanden in deze nieuwe publicatiemap. Bestaande hoofdingangen Praatpad.html en Start-Praatpad.html verwijzen naar de nieuwe startpagina.
 
 Voor onmiddellijk herstel naar de voorafgaande Cloudflare-versie: `npx wrangler@4.135.0 rollback 0e86621f-e71f-4195-89c3-a7b58bcb04f5`. Leg een herstelactie vast; synchroniseer daarna bewust met Git. Wis geen browseropslag.
+
+## Tongbrekeraudio — 12 oktober 2026
+
+Alle 240 tongbrekers hebben twee afzonderlijke goedgekeurde opnamen, Rustig (standaard) en Normaal. De keuze blijft bewaard; tempowissel, nieuwe kaart en verlaten stoppen de vorige opname. `data/tongbrekers-opnamen.js` koppelt de bestaande IDs aan 480 MP3-bestanden van 192 kbit/s; de JSON bevat hashes en verwijzingen naar de WAV-masters. De bestaande tekstbank blijft ongewijzigd. Eén bestaand woordkeuzecorrectie (buurman) is in beide nieuwe opnamen verwerkt. De oude audio blijft uitsluitend als historische bron in Git en wordt niet naar dist gekopieerd. Zie het audiobesluit in P0-CONTENT-PRESERVATION.md.

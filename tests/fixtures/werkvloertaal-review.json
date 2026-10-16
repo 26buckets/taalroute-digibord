@@ -1,0 +1,1057 @@
+{
+ "version": "2026-09-23.1",
+ "source_url": "https://drive.google.com/file/d/1IcEP6i8THQ9QhW9-eZv8w0qiJdKZbwHe/view",
+ "manifest_url": "https://docs.google.com/document/d/12HiZlAXcxWImte6YQj8qzyb2UUk_rm4KRBrB1IvlnnY/edit",
+ "source_sha256": "28489f3d3cbcae4536b676f2d5f1b63ed1baa35f8a611593ac044706b2671d40",
+ "source_level": "C1",
+ "source_status": "FROZEN v1.0; Reviewronde 2 en 2B GO volgens bronmanifest.",
+ "scope": "Eigen lokale AI-redactie en taakgericht niveauadvies. Geen officiële ERK-toets, menselijke review of lesproef. De gebruiker heeft afzonderlijke lokale aansluiting expliciet opgedragen; geen wijziging aan de vastgezette Drive-bron.",
+ "actual_answer_counts": {
+  "A": 34,
+  "B": 33,
+  "C": 33
+ },
+ "items": {
+  "C1_WK_001": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “De kar trekken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “De kar trekken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_002": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iets bij iemand neerleggen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Iets bij iemand neerleggen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_003": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Eigenaarschap nemen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Eigenaarschap nemen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_004": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Dit ligt bij mij” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Dit ligt bij mij” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_005": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Aan zet zijn” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Aan zet zijn” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_006": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Dit valt onder jouw verantwoordelijkheid” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Dit valt onder jouw verantwoordelijkheid” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_007": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Iets overnemen” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Iets overnemen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_008": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Verantwoordelijkheid beleggen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Verantwoordelijkheid beleggen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_009": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “De bal ligt bij jou” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “De bal ligt bij jou” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_010": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Verantwoordelijkheid afschuiven” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Taken verdelen",
+   "goal": "Begrijpen wat “Verantwoordelijkheid afschuiven” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_011": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Afstemmen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Afstemmen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_012": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Terugkoppelen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Terugkoppelen” in deze werksituatie betekent.",
+   "patch": {
+    "prompt": "Welke terugkoppeling wordt hier gevraagd?"
+   },
+   "change_reason": "Vraag vraagt om de bedoelde terugkoppeling zonder informeren kunstmatig smaller te definiëren."
+  },
+  "C1_WK_013": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Kortsluiten” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Kortsluiten” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_014": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iemand meenemen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Iemand meenemen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_015": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Aangehaakt blijven” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Aangehaakt blijven” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_016": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Even schakelen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Even schakelen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_017": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Op één lijn zitten” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Op één lijn zitten” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_018": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Iemand bijpraten” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Iemand bijpraten” in deze werksituatie betekent.",
+   "patch": {
+    "prompt": "Wat hoort hier bij bijpraten?"
+   },
+   "change_reason": "Onjuiste vraagformulering over terugkeer vervangen door de bedoelde handeling."
+  },
+  "C1_WK_019": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Afspraak is afspraak” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Afspraak is afspraak” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_020": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Gelijktrekken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samen afspreken",
+   "goal": "Begrijpen wat “Gelijktrekken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_021": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Prioriteit geven” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Prioriteit geven” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_022": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Naar voren halen” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Naar voren halen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_023": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Op de lange baan schuiven” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Op de lange baan schuiven” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_024": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Geen haast, wel aandacht” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Geen haast, wel aandacht” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_025": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “De planning loopt uit” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “De planning loopt uit” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_026": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Ruimte in de planning” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Ruimte in de planning” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_027": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Strak plannen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Strak plannen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_028": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Een buffer inbouwen” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Een buffer inbouwen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_029": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Wat kan wachten?” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Wat kan wachten?” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_030": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een harde deadline” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Planning",
+   "goal": "Begrijpen wat “Een harde deadline” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_031": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Ergens tegenaan lopen” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Ergens tegenaan lopen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_032": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Aandachtspunt” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Aandachtspunt” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_033": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Het begint te knellen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Het begint te knellen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_034": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Een knelpunt” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Een knelpunt” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_035": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Dit vraagt om actie” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Dit vraagt om actie” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_036": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een risico ondervangen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Een risico ondervangen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_037": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een workaround” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Een workaround” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_038": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Het probleem bij de bron aanpakken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Het probleem bij de bron aanpakken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_039": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “De vinger aan de pols houden” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “De vinger aan de pols houden” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_040": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Brandjes blussen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Problemen oplossen",
+   "goal": "Begrijpen wat “Brandjes blussen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_041": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Verwachtingen managen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Verwachtingen managen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_042": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Waar kunnen we van uitgaan?” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Waar kunnen we van uitgaan?” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_043": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Een slag om de arm houden” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Een slag om de arm houden” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_044": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Onder voorbehoud” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Onder voorbehoud” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_045": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Een toezegging doen” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Een toezegging doen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_046": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Geen garanties afgeven” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Geen garanties afgeven” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_047": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Expliciet maken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Expliciet maken” in deze werksituatie betekent.",
+   "patch": {
+    "explanation": "Expliciet maken betekent dat onuitgesproken aannames duidelijk worden benoemd. Dat kan mondeling of schriftelijk."
+   },
+   "change_reason": "Expliciet maken vereist geen schriftelijke vastlegging."
+  },
+  "C1_WK_048": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “We spreken af dat” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “We spreken af dat” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_049": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Verwachtingen scherpstellen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Verwachtingen scherpstellen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_050": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Iemand ergens op vastpinnen” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Afspraken maken",
+   "goal": "Begrijpen wat “Iemand ergens op vastpinnen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_051": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iets aanscherpen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Iets aanscherpen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_052": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Nog niet op niveau” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Nog niet op niveau” in deze werksituatie betekent.",
+   "patch": {
+    "note": "Bruikbare feedback maakt duidelijk wat beter moet."
+   },
+   "change_reason": "Algemene lestip losgemaakt van het onterecht vaste C1-label."
+  },
+  "C1_WK_053": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Hier zit nog winst” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Hier zit nog winst” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_054": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een verbeterslag maken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Een verbeterslag maken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_055": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Kritisch tegen het licht houden” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Kritisch tegen het licht houden” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_056": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “De lat hoger leggen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “De lat hoger leggen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_057": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Door de ondergrens zakken” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Door de ondergrens zakken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_058": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Feedback verwerken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Feedback verwerken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_059": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een blinde vlek” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “Een blinde vlek” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_060": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “De puntjes op de i zetten” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Feedback geven",
+   "goal": "Begrijpen wat “De puntjes op de i zetten” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_061": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Even sparren” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Even sparren” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_062": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iemand ontlasten” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Iemand ontlasten” in deze werksituatie betekent.",
+   "patch": {
+    "explanation": "Ontlasten betekent de belasting verminderen. In deze situatie gaat het om tijdelijke hulp.",
+    "note": "Ontlasten kan ook structureel. Als de werkdruk langdurig te hoog is, kan een blijvende aanpassing nodig zijn."
+   },
+   "change_reason": "Tijdelijkheid hoort bij deze situatie, niet bij iedere betekenis van ontlasten."
+  },
+  "C1_WK_063": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Even meedenken” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Even meedenken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_064": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Elkaar scherp houden” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Elkaar scherp houden” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_065": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Samen optrekken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Samen optrekken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_066": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een frisse blik” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Een frisse blik” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_067": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iemand aanhaken” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Iemand aanhaken” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_068": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Een beroep op iemand doen” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Een beroep op iemand doen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_069": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Elkaar vinden” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “Elkaar vinden” in deze werksituatie betekent.",
+   "patch": {
+    "prompt": "Wat drukt de spreker vooral uit?",
+    "options": [
+     "Dat alle verschillen feitelijk verdwenen zijn.",
+     "Dat één partij haar standpunt moet intrekken.",
+     "Dat een werkbare middenweg mogelijk lijkt, terwijl details nog openstaan."
+    ],
+    "explanation": "De spreker ziet een mogelijkheid om tot een gedeelde aanpak te komen. De formulering bevestigt nog geen definitieve overeenstemming.",
+    "note": "Vraag bij een belangrijke afspraak na waarover de partijen het precies eens zijn."
+   },
+   "change_reason": "Voorlopige toenadering onderscheiden van al bereikte overeenstemming; vraag en antwoorden afgestemd."
+  },
+  "C1_WK_070": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “De handen ineenslaan” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Samenwerken",
+   "goal": "Begrijpen wat “De handen ineenslaan” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_071": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Mandaat hebben” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Mandaat hebben” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_072": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Beslissingsruimte” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Beslissingsruimte” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_073": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Dit moet hogerop” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Dit moet hogerop” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_074": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Draagvlak creëren” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Draagvlak creëren” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_075": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Een besluit afdwingen” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Een besluit afdwingen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_076": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Dit is aan het management” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Dit is aan het management” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_077": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iemand passeren” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Iemand passeren” in deze werksituatie betekent.",
+   "patch": {
+    "options": [
+     "Omdat een persoon die normaal bij het proces hoort te worden betrokken, wordt overgeslagen.",
+     "Omdat de directeur formeel hoger staat.",
+     "Omdat medewerkers nooit rechtstreeks met een directeur mogen spreken."
+    ]
+   },
+   "change_reason": "Bewuste bedoeling is niet gegeven en mag niet uit het overslaan worden afgeleid."
+  },
+  "C1_WK_078": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Rugdekking hebben” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Rugdekking hebben” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_079": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Binnen de kaders” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Binnen de kaders” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_080": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Een besluit dragen” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Besluiten nemen",
+   "goal": "Begrijpen wat “Een besluit dragen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_081": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Komt goed” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "discuss",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Komt goed” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_082": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Ik zit vol” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Ik zit vol” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_083": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Ik schiet je straks even aan” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Ik schiet je straks even aan” in deze werksituatie betekent.",
+   "patch": {
+    "note": "Dit is informele spreektaal. In een formele brief past meestal een neutralere formulering, zoals kort met u bespreken."
+   },
+   "change_reason": "Registeradvies genuanceerd; geen absoluut verbod op een informele uitdrukking."
+  },
+  "C1_WK_084": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Ik trek het even na” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Ik trek het even na” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_085": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Ik duik erin” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Ik duik erin” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_086": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een vraag uitzetten” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Een vraag uitzetten” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_087": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Ergens achteraan gaan” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Ergens achteraan gaan” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_088": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Ik houd je op de hoogte” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Ik houd je op de hoogte” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_089": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Dat red ik niet” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Dat red ik niet” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_090": {
+   "review": "GO",
+   "level": "B1",
+   "level_reason": "B1: bij “Dat is te doen” een expliciete dagelijkse betekenis of concrete afspraak herkennen. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Praten op het werk",
+   "goal": "Begrijpen wat “Dat is te doen” in deze werksituatie betekent.",
+   "patch": {
+    "options": [
+     "Dat hij de gevraagde controle haalbaar acht.",
+     "Dat de planning waarschijnlijk haalbaar is.",
+     "Dat de taak eenvoudig of zonder inspanning zal zijn."
+    ]
+   },
+   "change_reason": "Eerdere afleider over begrijpen was óók niet uit de uitspraak af te leiden; één bedoeld antwoord behouden."
+  },
+  "C1_WK_091": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iets op de radar hebben” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Iets op de radar hebben” in deze werksituatie betekent.",
+   "patch": {
+    "options": [
+     "Het onderwerp heeft hun aandacht, zonder dat er noodzakelijk al directe actie plaatsvindt.",
+     "Het onderwerp heeft de hoogste prioriteit.",
+     "Het onderwerp is al volledig geanalyseerd."
+    ],
+    "explanation": "Iets op de radar hebben betekent dat het bekend is en aandacht heeft. Daaruit blijkt nog niet welke voorbereiding of actie al plaatsvindt."
+   },
+   "change_reason": "Bekendheid en aandacht onderscheiden van actief volgen of al genomen maatregelen."
+  },
+  "C1_WK_092": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iets borgen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Iets borgen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_093": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Iets verankeren” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Iets verankeren” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_094": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een stip op de horizon” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Een stip op de horizon” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_095": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Een quick win” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Een quick win” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_096": {
+   "review": "GO",
+   "level": "C1",
+   "level_reason": "C1: bij “Laaghangend fruit” precieze nuance in houding, voorbehoud, connotatie of twee verwante uitdrukkingen onderscheiden. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Laaghangend fruit” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_097": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iets tegen iemand aanhouden” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Iets tegen iemand aanhouden” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_098": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Uitkristalliseren” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Uitkristalliseren” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_099": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Iets afvangen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Iets afvangen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  },
+  "C1_WK_100": {
+   "review": "GO",
+   "level": "B2",
+   "level_reason": "B2: bij “Aan de voorkant regelen” een figuurlijke of zakelijke uitdrukking in de gegeven context uitleggen en onderscheiden van een te sterke conclusie. Dit advies geldt voor de concrete keuzevraag.",
+   "scoring": "canonical",
+   "section": "Uitdrukkingen",
+   "goal": "Begrijpen wat “Aan de voorkant regelen” in deze werksituatie betekent.",
+   "patch": {},
+   "change_reason": "Brontekst behouden; betekenis, antwoord en niveau per kaart gecontroleerd."
+  }
+ }
+}

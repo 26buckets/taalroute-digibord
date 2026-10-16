@@ -1,0 +1,838 @@
+[
+  {
+    "bank": "CB-GRAM-001",
+    "family": "grammar",
+    "topic": "ER",
+    "label": "ER",
+    "count": 540,
+    "available": 540,
+    "micro": [
+      "plaatsverwijzing",
+      "kwantitatief_er",
+      "nieuwe_informatie",
+      "ernaartoe_ervandaan",
+      "richting",
+      "inversie",
+      "er_plus_aan",
+      "er_plus_over",
+      "ernaartoe",
+      "plaatsverwijzing_met_inversie",
+      "hoeveelheid_uit_een_groep",
+      "heen",
+      "er_plus_van",
+      "er_plus_naar",
+      "er_niets_aan_kunnen_doen",
+      "er_wordt",
+      "mix_a2",
+      "er_plus_voorzetsel",
+      "ervoor_zorgen",
+      "ervoor_kiezen",
+      "ermee_stoppen",
+      "erop_rekenen_dat",
+      "werkwoord_en_er",
+      "gesplitst_er_plus_voorzetsel",
+      "mix_b1",
+      "formeel_er_wordt",
+      "formele_nominale_constructie",
+      "voorzichtige_inferentie_lijken",
+      "vaste_formele_combinatie",
+      "er_niet_onderuit_dat",
+      "erop_aankomen_dat",
+      "zich_er_bewust_van_zijn_dat",
+      "erop_neerkomen_dat",
+      "ervoor_pleiten_om",
+      "ervan_uitgaan_dat",
+      "ervan_afhangen_welke",
+      "er_plus_dat_of",
+      "twijfel_over",
+      "er_valt_veel_voor_te_zeggen",
+      "er_komt_nog_bij_dat",
+      "er_kan_worden_betoogd_dat",
+      "er_moet_rekening_mee_worden_gehouden_dat",
+      "er_is_reden_om_aan_te_nemen",
+      "er_kan_niet_zonder_meer_worden_geconcludeerd_dat",
+      "er_valt_iets_tegen_in_te_brengen",
+      "er_speelt_mee_dat",
+      "er_kan_worden_gesteld_dat",
+      "formeel_onpersoonlijk_passief_onderscheid",
+      "er_is_aanleiding_om",
+      "er_zijn_argumenten_voor_de_stelling_dat",
+      "er_moet_worden_bedacht_dat",
+      "er_valt_weinig_af_te_dingen_op",
+      "er_kan_worden_aangevoerd_dat",
+      "er_is_onvoldoende_grond_om",
+      "er_kan_worden_opgemerkt_dat",
+      "formeel_onpersoonlijk_passief_rekening_houden",
+      "er_valt_veel_te_zeggen_voor",
+      "er_kan_worden_geconcludeerd_dat",
+      "er_is_reden_voor_terughoudendheid",
+      "er_valt_niet_uit_te_sluiten_dat",
+      "er_is_aanleiding_voor_nader_onderzoek"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-001",
+    "family": "grammar",
+    "topic": "ZULLEN",
+    "label": "ZULLEN",
+    "count": 450,
+    "available": 450,
+    "micro": [
+      "zullen_we",
+      "zal_ik",
+      "ik_zal",
+      "zal_toekomst",
+      "formele_toekomst",
+      "epistemisch_zal",
+      "zullen_moeten",
+      "zakelijke_toekomst",
+      "je_zult",
+      "wij_zullen",
+      "waarschijnlijke_verklaring",
+      "formeel_toekomstbeeld",
+      "zal_wel",
+      "zal_in_formele_redenering",
+      "sterke_verwachting"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-001",
+    "family": "grammar",
+    "topic": "ZOUDEN",
+    "label": "ZOUDEN",
+    "count": 450,
+    "available": 450,
+    "micro": [
+      "zou_u",
+      "zou_graag_willen",
+      "zouden_we",
+      "zou_ik_mogen",
+      "zou_liever",
+      "ik_zou",
+      "als_dan_zou",
+      "zou_in_indirecte_rede",
+      "zou_kunnen",
+      "zou_u_willen",
+      "zou_hebben",
+      "zou_volgens_bronnen",
+      "zou_kunnen_wijzen_op",
+      "zou_willen",
+      "zou_kunnen_leiden"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_001",
+    "label": "Gewone hoofdzin",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Hoofdzin — enkelvoudige mededeling"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_002",
+    "label": "Onderwerp en persoonsvorm",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Onderwerp + persoonsvorm"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_003",
+    "label": "Tegenwoordige tijd",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Presens — eenvoudige hoofdzin"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_004",
+    "label": "Ja nee vraag",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Ja/nee-vraag — eenvoudige inversie",
+      "Presentatief er in ja/nee-vraag"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_005",
+    "label": "Vraagwoordvraag",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Vraagwoordvraag — eenvoudig",
+      "Vraagwoordvraag + redenbijzin als input",
+      "Modaal kunnen in vraagwoordvraag"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_006",
+    "label": "Niet",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Negatie met niet — eenvoudig",
+      "Niet meer — beëindigde toestand",
+      "Niet + modaal werkwoord + infinitief",
+      "Niet + modaal kunnen",
+      "Modaal kunnen + negatie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_007",
+    "label": "Geen",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Negatie met geen — eenvoudig",
+      "Geen + presentatief er",
+      "Eventief er — vervoer/gebeurtenis",
+      "Plaats vooraan + inversie bij existentieel naamwoord"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_008",
+    "label": "Modale werkwoorden",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Modaal werkwoord + infinitief"
+    ]
+  },
+  {
+    "bank": "CB-WZ-001",
+    "family": "words",
+    "topic": "WZ_006_007",
+    "label": "Contrast niet of geen",
+    "count": 40,
+    "available": 40,
+    "micro": [
+      "Contrast niet / geen"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_011",
+    "label": "Gewone zin uitbreiden",
+    "count": 80,
+    "available": 68,
+    "micro": [
+      "Zinsuitbreiding — tijd/plaats in hoofdzin"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_012",
+    "label": "Onderwerp en werkwoord in langere zinnen",
+    "count": 80,
+    "available": 68,
+    "micro": [
+      "Congruentie in langere hoofdzin"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_013",
+    "label": "Tegenwoordige tijd met tijd en plaats",
+    "count": 80,
+    "available": 66,
+    "micro": [
+      "Presens + tijd/plaats"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_014",
+    "label": "Vragen met extra informatie",
+    "count": 80,
+    "available": 54,
+    "micro": [
+      "Vraag met extra informatie / voorzetselvraag"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_015",
+    "label": "Niet en geen in uitgebreidere zinnen",
+    "count": 80,
+    "available": 44,
+    "micro": [
+      "Niet/geen in uitgebreidere hoofdzin"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_016",
+    "label": "Modale werkwoorden in praktijksituaties",
+    "count": 80,
+    "available": 52,
+    "micro": [
+      "Modaal werkwoord + infinitief in context"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_017",
+    "label": "Er en plaatswerkwoorden",
+    "count": 80,
+    "available": 44,
+    "micro": [
+      "Presentatief er + plaatswerkwoord",
+      "Presentatief er + vooropplaatsing/inversie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-003",
+    "family": "words",
+    "topic": "WZ_018",
+    "label": "Inversie met tijd en plaats",
+    "count": 80,
+    "available": 68,
+    "micro": [
+      "Tijd/plaats vooraan + inversie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_019",
+    "label": "Zin uitbreiden",
+    "count": 80,
+    "available": 68,
+    "micro": [
+      "Zinsuitbreiding — hoofdzin"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_020",
+    "label": "Inversie",
+    "count": 80,
+    "available": 68,
+    "micro": [
+      "Tijd/plaats vooraan + inversie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_021",
+    "label": "Er gebruiken",
+    "count": 80,
+    "available": 45,
+    "micro": [
+      "Presentatief er — aanwezigheid/plaatswerkwoord",
+      "Presentatief er + vooropplaatsing/inversie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_022",
+    "label": "Scheidbare werkwoorden",
+    "count": 80,
+    "available": 63,
+    "micro": [
+      "Scheidbaar werkwoord — hoofdzin/presens"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_023",
+    "label": "Voltooide tijd",
+    "count": 80,
+    "available": 60,
+    "micro": [
+      "Perfectum — basis"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_024",
+    "label": "Twee werkwoorden",
+    "count": 80,
+    "available": 58,
+    "micro": [
+      "Twee werkwoorden — modaal/gaan + infinitief"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_025",
+    "label": "Bijzinnen",
+    "count": 80,
+    "available": 58,
+    "micro": [
+      "Eenvoudige bijzin — omdat/als/dat",
+      "Tijd-/relatiebijzin — nadat/voordat/totdat/terwijl/zodra/zolang",
+      "Wanneer-bijzin — temporele relatie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_026",
+    "label": "Reden geven",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Reden met omdat",
+      "Reden met want"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_027",
+    "label": "Doel uitdrukken met om te",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Doel met om te — eenvoudig",
+      "Uitgebreide om-te-constructie — negatie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_028",
+    "label": "Volgorde en samenhang",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Volgorde en samenhang — eerst/daarna/dan"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_029",
+    "label": "Relatieve zinnen herkennen en voorbereiden",
+    "count": 80,
+    "available": 50,
+    "micro": [
+      "Relatieve zin met die/dat"
+    ]
+  },
+  {
+    "bank": "CB-WZ-004",
+    "family": "words",
+    "topic": "WZ_030",
+    "label": "Zinnen combineren",
+    "count": 80,
+    "available": 64,
+    "micro": [
+      "Nevenschikking — en/maar/want/of"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_031",
+    "label": "Hoofdzin en bijzin combineren",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Hoofdzin + bijzin combineren"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_032",
+    "label": "Relatieve zinnen met die en dat",
+    "count": 80,
+    "available": 49,
+    "micro": [
+      "Relatieve zin met die/dat"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_033",
+    "label": "Werkwoordgroepen in bijzinnen",
+    "count": 80,
+    "available": 50,
+    "micro": [
+      "Werkwoordgroep in bijzin"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_034",
+    "label": "Voorwaarden",
+    "count": 80,
+    "available": 50,
+    "micro": [
+      "Voorwaarde met als + inversie"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_035",
+    "label": "Reden en oorzaak",
+    "count": 80,
+    "available": 50,
+    "micro": [
+      "Reden/oorzaak — omdat/want/doordat"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_036",
+    "label": "Gevolg en doel",
+    "count": 80,
+    "available": 50,
+    "micro": [
+      "Gevolg/doel — zodat/om te"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_037",
+    "label": "Tijdrelaties",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Tijdrelatie — voordat/nadat/zodra/totdat/zolang"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_038",
+    "label": "Er bij gebeurtenissen",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Eventief er — gebeurtenis/context"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_039",
+    "label": "Om te constructies uitbreiden",
+    "count": 80,
+    "available": 50,
+    "micro": [
+      "Uitgebreide om-te/te-infinitiefgroep",
+      "Om te — uitbreiding"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_040",
+    "label": "Verbindingswoorden",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Verbindingswoorden en samenhang"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_041",
+    "label": "Passief herkennen en gebruiken",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Passief — worden + voltooid deelwoord"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_042",
+    "label": "Zinnen combineren en herschrijven",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Combineren/herschrijven over meerdere constructies"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_043",
+    "label": "Mening, reden en onderbouwing",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Mening + reden + onderbouwing"
+    ]
+  },
+  {
+    "bank": "CB-WZ-005",
+    "family": "words",
+    "topic": "WZ_044",
+    "label": "Samenhang over meerdere zinnen",
+    "count": 80,
+    "available": 51,
+    "micro": [
+      "Samenhang over meerdere zinnen"
+    ]
+  },
+  {
+    "bank": "CB-WZ-002",
+    "family": "words",
+    "topic": "WZ_009",
+    "label": "Er en aanwezigheid",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Presentatief er — er is/er zijn",
+      "Presentatief er — staan/liggen/zitten/hangen",
+      "Presentatief er + vooropplaatsing/inversie",
+      "Presentatief er — is/zijn en positiewerkwoorden",
+      "Presentatief er — basis"
+    ]
+  },
+  {
+    "bank": "CB-WZ-002",
+    "family": "words",
+    "topic": "WZ_010",
+    "label": "Tijd of plaats vooraan",
+    "count": 80,
+    "available": 80,
+    "micro": [
+      "Tijd/plaats vooraan + inversie"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-002",
+    "family": "grammar",
+    "topic": "RELATIEVE_BIJZIN",
+    "label": "Relatieve bijzin",
+    "count": 600,
+    "available": 600,
+    "micro": [
+      "de_woord_die_als_onderwerp",
+      "het_woord_dat_als_onderwerp",
+      "de_woord_die_als_object",
+      "het_woord_dat_als_object",
+      "keuze_op_basis_van_antecedent",
+      "persoon_met_voorzetsel",
+      "zaak_met_voorzetsel",
+      "voltooide_tijd_in_relatieve_bijzin",
+      "tijd_en_plaats_in_relatieve_bijzin",
+      "van_twee_zinnen_naar_een",
+      "formeel_voornaamwoordelijk_bijwoord",
+      "relatieve_bijzin_met_bijzin",
+      "kommas_en_extra_informatie",
+      "nominale_relatieve_bijzin",
+      "compact_formeel_verwijzen"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-003",
+    "family": "grammar",
+    "topic": "KUNNEN",
+    "label": "KUNNEN",
+    "count": 90,
+    "available": 90,
+    "micro": [
+      "kunnen_als_vaardigheid",
+      "kunnen_als_mogelijkheid",
+      "kunnen_in_analyse"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-003",
+    "family": "grammar",
+    "topic": "MOETEN",
+    "label": "MOETEN",
+    "count": 90,
+    "available": 90,
+    "micro": [
+      "moeten_als_plicht",
+      "moet_wel",
+      "moeten_in_beleid"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-003",
+    "family": "grammar",
+    "topic": "MOGEN",
+    "label": "MOGEN",
+    "count": 90,
+    "available": 90,
+    "micro": [
+      "mogen_als_toestemming",
+      "mogen_binnen_regels",
+      "mogen_in_formeel_register"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-003",
+    "family": "grammar",
+    "topic": "WILLEN",
+    "label": "WILLEN",
+    "count": 90,
+    "available": 90,
+    "micro": [
+      "willen_als_wens",
+      "willen_als_voornemen",
+      "willen_in_formeel_discours"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-003",
+    "family": "grammar",
+    "topic": "HOEVEN",
+    "label": "HOEVEN",
+    "count": 90,
+    "available": 90,
+    "micro": [
+      "hoeven_niet_te",
+      "alleen_hoeven_of_niet_hoeven",
+      "hoeft_niet_te_betekenen"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-005",
+    "family": "grammar",
+    "topic": "WOORDVOLGORDE",
+    "label": "Woordvolgorde",
+    "count": 320,
+    "available": 320,
+    "micro": [
+      "Middenveld: object + tijd/wijze/plaats",
+      "Vooropplaatsing niet-onderwerp + inversie",
+      "Zinsadverbiaal in hoofdzin",
+      "Pronomen/nominale objecten + adverbialen",
+      "Complex middenveld",
+      "Topicalisatie + inversie",
+      "Plaatsing en scope van focuspartikels en zinsadverbia",
+      "Uitgebreide/formele hoofdzinvolgorde"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-006",
+    "family": "grammar",
+    "topic": "WERKWOORDSTIJDEN",
+    "label": "Werkwoordstijden",
+    "count": 360,
+    "available": 360,
+    "micro": [
+      "Imperfectum basis",
+      "Imperfectum: toestand, gewoonte en achtergrond",
+      "Perfectum versus imperfectum",
+      "Tijdslijn en gebeurtenisvolgorde",
+      "Tijdskeuze in praktische/professionele context",
+      "Actuele relevantie versus afgesloten verleden",
+      "Achtergrond, gewoonte, toestand en gebeurtenisketen",
+      "Tijdconsistentie en gecontroleerde tijdswissel",
+      "Tijdsperspectief in rapportage, samenvatting en anekdote"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-007",
+    "family": "grammar",
+    "topic": "VOORZETSELS_EN_VOORNAAMWOORDEN",
+    "label": "Voorzetsels en voornaamwoorden",
+    "count": 440,
+    "available": 440,
+    "micro": [
+      "Persoonlijke voornaamwoorden — onderwerp en object",
+      "Bezittelijke en aanwijzende voornaamwoorden",
+      "Dagelijkse voorzetsels en eenvoudige vaste combinaties",
+      "Frequent werkwoord + vast voorzetsel",
+      "Adjectief/naamwoord + vast voorzetsel",
+      "Wederkerende voornaamwoorden en werkwoorden",
+      "Objectvoornaamwoorden en verwijzing",
+      "Abstract/formeler werkwoord + vast voorzetsel",
+      "Betekeniscontrast door voorzetselkeuze",
+      "Hen/hun en formele persoonverwijzing",
+      "Wederkerend, wederzijds en tekstverwijzing"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-008",
+    "family": "grammar",
+    "topic": "VOEGWOORDEN_EN_BIJZINNEN",
+    "label": "Voegwoorden en bijzinnen",
+    "count": 160,
+    "available": 160,
+    "micro": [
+      "Contrast en concessie",
+      "Reden, oorzaak en register",
+      "Voorwaarde en tijd — betekeniscontrast",
+      "Complexe bijzinsbouw"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-009",
+    "family": "grammar",
+    "topic": "LIDWOORDEN_ADJECTIEVEN_NEGATIE",
+    "label": "Lidwoorden, adjectieven en negatie",
+    "count": 400,
+    "available": 400,
+    "micro": [
+      "Lidwoordkeuze in context — de/het/een/Ø",
+      "Adjectief vóór/na naamwoord — -e/Ø",
+      "Bepaaldheid en nulartikel in context",
+      "Adjectiefverbuiging in uitgebreide nominale groepen",
+      "Trappen van vergelijking en graad",
+      "Negatiepositie en scope in uitgebreidere zinnen",
+      "Lidwoordnuance en referentie",
+      "Adjectief, bijwoord en graadnuance",
+      "Vergelijking en kwalificatie in complexe context",
+      "Negatiescope en focus"
+    ]
+  },
+  {
+    "bank": "CB-GRAM-010",
+    "family": "grammar",
+    "topic": "SCHEIDBARE_WERKWOORDEN_TE_INFINITIEF",
+    "label": "Scheidbare werkwoorden en te-infinitief",
+    "count": 280,
+    "available": 280,
+    "micro": [
+      "Werkwoorden met te-infinitief — basis",
+      "Scheidbaar — infinitief, perfectum en bijzincontrast",
+      "Te-selecterende werkwoorden + scheidbare te-plaatsing",
+      "Te-infinitief en complementkeuze bij houding/besluit",
+      "Scheidbaar + te in complexe werkwoordgroepen",
+      "Positiewerkwoorden + te-infinitief",
+      "Graad/resultaat — te ... om te"
+    ]
+  }
+]

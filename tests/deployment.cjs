@@ -3,7 +3,7 @@ const root=path.resolve(__dirname,'../dist');
 for(const name of ['Praatpad.html','digiboard.js','digiboard.css','Lessen','Actiewoorden','Beeldbibliotheek','Woordspel','Kaarten','tests','node_modules','data/kaartenkast_160.json','data/kaartenkast_180.json'])assert.ok(!fs.existsSync(path.join(root,name)),'Legacy/development file in deployment: '+name);
 for(const page of ['index.html','settings/index.html'])for(const [,url] of fs.readFileSync(path.join(root,page),'utf8').matchAll(/(?:src|href)="([^"#]+)"/g)){
  if(/^(https?:|data:)/.test(url))continue;
- assert.ok(fs.existsSync(path.resolve(root,path.dirname(page),url.split('?')[0])),'Missing asset '+page+': '+url);
+ assert.ok(fs.existsSync(path.resolve(root,'.'+(url.startsWith('/')?url.split('?')[0]:'/'+path.join(path.dirname(page),url.split('?')[0])))),'Missing asset '+page+': '+url);
 }
 for(const page of ['index.html','settings/index.html']){
  const html=fs.readFileSync(path.join(root,page),'utf8');

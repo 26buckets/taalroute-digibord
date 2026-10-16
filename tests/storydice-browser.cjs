@@ -15,7 +15,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   const selectedSets=()=>page.locator('[data-storyset]:checked').evaluateAll(inputs=>inputs.map(x=>x.value));
   const boards=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   await page.locator('[data-category="dice"]').click();
-  assert.match(await page.locator('.tile[data-dicegame="verhaalworp"]').innerText(),/320 beelden · 10 sets/);
+  assert.match(await page.locator('.tile[data-dicegame="verhaalworp"]').innerText(),/3, 6 of 9 stenen/);
   await page.locator('.tile[data-dicegame="verhaalworp"]').click();
   assert.equal(await page.locator('[data-storyset]').count(),10);
   const sets=await page.evaluate(()=>story.collections.map(s=>({id:s.id,label:s.label,count:s.count})));
@@ -34,7 +34,9 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   for(const set of sets){
    await selectSets(set.id);
    const counts=set.count<9?[3,6]:[3,6,9];
-   assert.deepEqual(await page.locator('[data-storycount]').allTextContents(),counts.map(String));
+   assert.deepEqual(await page.locator('[data-storycount]').allTextContents(),['3','6','9']);
+   assert.deepEqual(await page.locator('[data-storycount]:enabled').allTextContents(),counts.map(String));
+   if(!counts.includes(9)){assert.ok(await page.locator('#storyCountHelp').isVisible());assert.match(await page.locator('#storyCountHelp').innerText(),/Kies er een beeldset bij/)}
    for(const count of counts){
     await page.locator(`[data-storycount="${count}"]`).click();
     assert.equal(await page.locator('.story-tile').count(),count);
@@ -114,16 +116,20 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.reload();await page.locator('#resumeBtn').click();
   assert.deepEqual(await selectedSets(),['dagelijks']);assert.deepEqual(await page.evaluate(()=>APP.storyRoll),legacyRoll);
   await page.locator('[data-storylock="0"]').click();
-  // Every new set is also discoverable and starts from the existing cabinet.
+  // Retain the archived cabinet checks separately from the public dice routes.
+  const archivePage=await browser.newPage();
+  await archivePage.addInitScript(()=>{window.DigiBordArchiveReview=true});
+  await archivePage.goto('file://'+path.join(served,'index.html'));
   for(const set of sets){
-   await page.locator('[data-main="mycollection"]').click();await page.locator('#collectionStorySets').click();
-   assert.equal(await page.locator('[data-cabinet-type="story"]').count(),10);
-   await page.locator(`[data-cabinet-id="${set.id}"][data-cabinet-type="story"]`).click();
-   assert.equal(await page.locator('#setDetailTitle').innerText(),set.label);
-   assert.equal(await page.locator('#setStoryCount option').count(),set.count<9?2:3);
-   await page.locator('#startCabinetActivity').click();
-   assert.deepEqual(await selectedSets(),[set.id]);
+   await archivePage.locator('[data-main="mycollection"]').click();await archivePage.locator('#collectionStorySets').click();
+   assert.equal(await archivePage.locator('[data-cabinet-type="story"]').count(),10);
+   await archivePage.locator(`[data-cabinet-id="${set.id}"][data-cabinet-type="story"]`).click();
+   assert.equal(await archivePage.locator('#setDetailTitle').innerText(),set.label);
+   assert.equal(await archivePage.locator('#setStoryCount option').count(),set.count<9?2:3);
+   await archivePage.locator('#startCabinetActivity').click();
+   assert.deepEqual(await archivePage.evaluate(()=>APP.storyCollections),[set.id]);
   }
+  await archivePage.close();
   for(const width of [1440,1024,768,390]){
    await page.setViewportSize({width,height:900});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+width);

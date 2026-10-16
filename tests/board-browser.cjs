@@ -71,7 +71,7 @@ async function check(page, label) {
       disconnect(){this.targets.clear();super.disconnect();}
     };
   });
-  await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
   // Default overlay mode keeps board size and position when panels open.
   await page.evaluate(()=>{settingsPatch({reducedMotion:true});startBoard('rotterdam');});
   const boardRect = () => page.locator('#boardBackground').evaluate(el => JSON.stringify(el.getBoundingClientRect()));
@@ -108,7 +108,7 @@ async function check(page, label) {
     assert.equal(await page.evaluate(()=>APP.boardStates.rotterdam.classPos),position,'each Space rolls exactly once');
   }
   const positions=await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions));
-  for(const level of ['B1','Alpha A']){
+  for(const level of ['B1_B2','ALPHA_AC']){
     await page.locator('#levelSelect').selectOption(level);
     assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true,'level change keeps fullscreen');
     assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');
@@ -243,7 +243,7 @@ async function check(page, label) {
     for(const expression of ["startTaalworp('SET_A2_BASIS')","startStory('basis')","startCards('conversation')"]){await page.evaluate(expression);assert.equal(await page.locator('#primaryGame').count(),1);}
     // Self-contained file entry remains supported.
     const offline=await browser.newPage();offline.on('pageerror',e=>errors.push(e.message));
-    await offline.goto('file://'+path.join(root,'index.html'));await offline.evaluate(()=>startBoard('rotterdam'));await check(offline,'offline file');await offline.close();
+    await offline.addInitScript(()=>{window.DigiBordArchiveReview=true});await offline.goto('file://'+path.join(root,'index.html'));await offline.evaluate(()=>startBoard('rotterdam'));await check(offline,'offline file');await offline.close();
   }
   assert.deepEqual(errors,[],'browser errors');
   fs.writeFileSync(path.join(results,process.env.BUILD_SMOKE?'build-smoke.json':process.env.QUICK_SMOKE?'quick-smoke.json':'board-matrix.json'),JSON.stringify(measurements,null,2));
