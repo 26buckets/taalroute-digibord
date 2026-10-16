@@ -90,3 +90,6 @@ header :is(.taalroute-beta){font:500 9px/1.2 Arial,sans-serif;letter-spacing:.04
 .settings-page:not(.embedded)>.app{grid-template-rows:60px minmax(0,1fr)}
 .settings-page .topbar .brand-divider{height:28px;flex:none}
 @media(max-width:600px){.settings-page .topbar .saved-state{display:none}}
+
+/* Match the blue triangle in assets/brand/taalroute.svg. */
+#app:not(:has(#screen-game.active .board-game))>#appHeader,.settings-page .topbar{border-bottom:2px solid #087ef1}
