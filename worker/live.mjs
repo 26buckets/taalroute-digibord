@@ -12,7 +12,7 @@ export default {
   const url=new URL(request.url);
   if(!url.pathname.startsWith('/api/live/'))return env.ASSETS.fetch(request);
   try{
-   if(request.headers.get('Origin')&&request.headers.get('Origin')!==url.origin)throw new SessionError('ORIGIN','Open Live vanuit DigiBord.',403);
+   if(request.headers.get('Origin')&&request.headers.get('Origin')!==url.origin)throw new SessionError('ORIGIN','Open Live vanuit Actief.',403);
    if(url.pathname==='/api/live/sessions'&&request.method==='POST'){
     const data=await body(request);
     for(let i=0;i<5;i++){

@@ -3,7 +3,7 @@ const STORAGE='taalroute-poc0141-settings';
 const PAWN_COLORS=['#2389e8','#cf4d42','#4a8d69','#8165c7','#df9829','#269f9b','#d65d91','#426f9d','#90a83e','#9a6b45','#b85bac','#687b8b'];
 const DEFAULT_NAMES=['Laila','Daan','Yusuf','Sara'];
 
-const SOUNDS=[{"id": "original", "label": "Origineel", "duration": 1.045, "description": "Het oorspronkelijke DigiBord rolgeluid. Helder, ritmisch en herkenbaar."}, {"id": "felt", "label": "Zacht op vilt", "duration": 1.2, "description": "Rustiger en zachter. Geschikt voor een stille lesomgeving."}, {"id": "wood", "label": "Klassiek op hout", "duration": 1.35, "description": "Een duidelijk klassiek dobbelsteengeluid met houten resonantie."}, {"id": "cup", "label": "Dobbelbeker en rollen", "duration": 1.65, "description": "Langere beweging met een hoorbare beker en uitrol."}, {"id": "board", "label": "Licht op het spelbord", "duration": 1.05, "description": "Kort en licht. Minder nadrukkelijk tijdens klassikaal gebruik."}];
+const SOUNDS=[{"id": "original", "label": "Origineel", "duration": 1.045, "description": "Het oorspronkelijke Actief rolgeluid. Helder, ritmisch en herkenbaar."}, {"id": "felt", "label": "Zacht op vilt", "duration": 1.2, "description": "Rustiger en zachter. Geschikt voor een stille lesomgeving."}, {"id": "wood", "label": "Klassiek op hout", "duration": 1.35, "description": "Een duidelijk klassiek dobbelsteengeluid met houten resonantie."}, {"id": "cup", "label": "Dobbelbeker en rollen", "duration": 1.65, "description": "Langere beweging met een hoorbare beker en uitrol."}, {"id": "board", "label": "Licht op het spelbord", "duration": 1.05, "description": "Kort en licht. Minder nadrukkelijk tijdens klassikaal gebruik."}];
 
 const defaults={
  page:'people',
@@ -204,7 +204,7 @@ qs('#practiceLayout').onchange=e=>{state.practiceLayout=e.target.value;save()};
 function renderDisplay(){qs('#practiceLayout').value=['topic','level','goal','game','recent'].includes(state.practiceLayout)?state.practiceLayout:'topic';qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle))}
 
 /* Backup and other */
-qs('#backupDownload').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Taalroute-DigiBord-V01-5-settings.json';a.click();URL.revokeObjectURL(a.href)};
+qs('#backupDownload').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Taalroute-Actief-V01-5-settings.json';a.click();URL.revokeObjectURL(a.href)};
 qs('#backupRestore').onchange=async e=>{if(!e.target.files[0])return;try{state={...structuredClone(defaults),...JSON.parse(await e.target.files[0].text())};save();renderAll();toast('Reservekopie hersteld.')}catch{toast('Reservekopie kon niet worden gelezen.')}};
 qs('#resetSettings').onclick=()=>{if(confirm('Alle instellingen herstellen?')){state=structuredClone(defaults);save();renderAll();toast('Instellingen hersteld.')}};
 qs('#finishLesson').onclick=()=>toast('Les afgerond. FINISH blijft een apart spelmoment.');

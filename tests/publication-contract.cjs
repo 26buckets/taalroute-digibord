@@ -2,7 +2,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('nod
 const {verify,hash,required}=require('../scripts/publication-contract.cjs');
 const root=fs.mkdtempSync(path.join(os.tmpdir(),'digibord-publication-'));
 const put=(file,text)=>{fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),text);};
-const html='<title>Taalroute DigiBord V01.25</title>'+['play','practice','lessons','mycollection'].map(r=>'data-main="'+r+'"').join(' ')+required.map(f=>'<script src="'+f+'"></script>').join('');
+const html='<title>Taalroute Actief V01.25</title>'+['play','practice','lessons','mycollection'].map(r=>'data-main="'+r+'"').join(' ')+required.map(f=>'<script src="'+f+'"></script>').join('');
 try{
  put('index.html',html);for(const file of ['settings/index.html','taalroute-menu/menu.css','taalroute-menu/menu.js',...required])put(file,'fixture');
  const recordings=Array.from({length:480},(_,i)=>({src:'audio/'+i+'.mp3',sha256:hash('audio'),deliveryBrand:'Taalroute'}));

@@ -1,3 +1,7 @@
+# Actief-migratie — expliciete opdracht Nico, 20 oktober 2026
+
+De actuele naams- en domeinwijziging heeft een begrensde vrijgave: lees `publication/MIGRATIE-ACTIEF-20261020.md`, `PUBLICATIE.md` en het actuele `publication-freeze.json`. De oude V01.25-tag en het oorspronkelijke manifest blijven ongewijzigd. Alleen de vastgelegde bestanden mogen wijzigen; alle overige inhoud, media en opslag blijven behouden. `actief.taalroute.nl` is de publicatiebasis voor deze app; `digibord.taalroute.nl` hoort bij de afzonderlijke methodeomgeving.
+
 # Taalroute DigiBord V01.25
 
 ## Productie bevroren — Nico, 16 oktober 2026

@@ -7,3 +7,5 @@ bank-backups/
 .wrangler/
 *.log
 backups/
+
+/node_modules

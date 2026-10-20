@@ -1,4 +1,4 @@
-/* Seven starter games on the existing DigiBord card table and shared controls. */
+/* Seven starter games on the existing Actief card table and shared controls. */
 window.DigiActivities = (() => {
  const content=window.DIGIBORD_ACTIVITIES, rounds={}, histories={};
  let kind, state, timer;

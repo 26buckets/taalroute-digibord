@@ -15,10 +15,26 @@ function publicationFreeze(root){
 function assertPublicationOpen(root){
  const freeze=publicationFreeze(root);
  assert.equal(freeze.frozen,false,'Publication frozen by Nico: V01.25 must remain online. A new explicit publication decision is required; do not bypass this guard.');
+ assert.equal(freeze.releaseDecision,'publication/actief-migration-20261020.json','An explicit scoped release decision is required');
+ const decision=JSON.parse(fs.readFileSync(path.join(root,freeze.releaseDecision),'utf8'));
+ assert.equal(decision.schema,1,'Unknown release decision');
+ assert.equal(decision.approvedBy,'Nico','Explicit owner approval required');
+ assert.equal(decision.baselineCommit,freeze.approvedCommit,'Release decision has another approved baseline');
+ assert.equal(decision.productionOrigin,'https://actief.taalroute.nl','Publish Actief only at its approved address');
+ const manifest=JSON.parse(fs.readFileSync(path.join(root,freeze.manifest)));
+ verifyApprovedFiles(root,manifest.assets,decision.files);
+ return decision;
+}
+function verifyApprovedFiles(root,baselineAssets,approvedFiles){
+ assert.ok(approvedFiles&&Object.keys(approvedFiles).length,'Approved file fingerprints are required');
+ for(const [file,digest] of Object.entries({...baselineAssets,...approvedFiles})){
+  assert.ok(!path.isAbsolute(file)&&!file.split('/').includes('..'),'Unsafe release path');
+  assert.equal(hash(fs.readFileSync(path.join(root,file))),digest,'Outside the approved Actief migration: '+file);
+ }
 }
 function verify(root){
  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
- assert.match(html,/<title>Taalroute DigiBord V01\.25<\/title>/,'Publication must retain the approved V01.25 application');
+ assert.match(html,/<title>Taalroute Actief V01\.25<\/title>/,'Publication must retain the approved V01.25 application');
  for(const route of ['play','practice','lessons','mycollection'])assert.ok(html.includes('data-main="'+route+'"'),'Missing published navigation: '+route);
  for(const file of required){assert.ok(html.includes('src="'+file),'Missing loaded module: '+file);assert.ok(fs.statSync(path.join(root,file)).size>0,'Empty module: '+file);}
  const recordings=JSON.parse(fs.readFileSync(path.join(root,'data/tongbrekers-opnamen.json'))).recordings;
@@ -30,4 +46,4 @@ function verify(root){
  }
  return Object.fromEntries(['index.html','settings/index.html','taalroute-menu/menu.css','taalroute-menu/menu.js','data/tongbrekers-opnamen.json',...required].map(file=>[file,hash(fs.readFileSync(path.join(root,file)))]));
 }
-module.exports={verify,baseline,hash,required,publicationFreeze,assertPublicationOpen};
+module.exports={verify,baseline,hash,required,publicationFreeze,assertPublicationOpen,verifyApprovedFiles};

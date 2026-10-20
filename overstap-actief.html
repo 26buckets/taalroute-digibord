@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lessen meenemen · Taalroute Actief</title>
+  <link rel="icon" href="/assets/brand/favicon.svg">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#fff;color:#223a59;font:400 18px/1.5 Arial,sans-serif}header,main{max-width:850px;margin:auto;padding:24px}header{display:flex;align-items:center;gap:20px;border-bottom:1px solid #e3e5e8}header img{width:136px}h1,h2,strong{font-weight:500}h1{font-size:30px}h2{font-size:23px}button,.button{display:inline-block;padding:10px 16px;min-height:44px;border:1px solid #b6c6d7;border-radius:4px;color:#223a59;background:#fff;font:inherit;text-decoration:none;cursor:pointer}button:disabled{opacity:.5;cursor:default}a{color:#126ab3}section{margin:28px 0}label{display:block;margin:16px 0}input{font:inherit;max-width:100%}input[type=checkbox]{width:20px;height:20px;vertical-align:middle}#status{padding:14px;background:#edf5fc;white-space:pre-line}#status:empty,[hidden]{display:none!important}:focus-visible{outline:3px solid #126ab3;outline-offset:3px}
+  </style>
+  <script defer src="/actief-transfer.js"></script>
+  <script defer src="/overstap-actief.js"></script>
+</head>
+<body>
+  <header><img src="/assets/brand/taalroute.svg" alt="Taalroute"><span>Actief</span></header>
+  <main>
+    <h1>Neem je lessen mee naar Actief</h1>
+    <p>De spellen en toepassingen van het oude DigiBord heten nu Actief. Je lessen en instellingen staan nog in de browser waarin je ze hebt gemaakt.</p>
+    <section id="export-section">
+      <h2>1. Bewaar je gegevens van het oude adres</h2>
+      <p>Open deze pagina in dezelfde browser en op hetzelfde apparaat als je oude DigiBord. De download bevat je lessen, collectie, groepen, instellingen en bewaarde spelvoortgang. De oorspronkelijke gegevens blijven staan.</p>
+      <button id="download">Reservekopie downloaden</button>
+      <p><a href="https://actief.taalroute.nl/overstap-actief.html">Ga daarna naar Actief om de reservekopie over te nemen</a></p>
+    </section>
+    <section id="import-section" hidden>
+      <h2>Neem je reservekopie over</h2>
+      <p>Download eerst je gegevens op <a href="https://digibord.taalroute.nl/overstap-actief.html">het oude DigiBord-adres</a>. Sluit daarna andere Actief-vensters. Je bestand wordt alleen in deze browser verwerkt.</p>
+      <label>Reservekopie kiezen <input id="backup" type="file" accept=".json,application/json"></label>
+      <p id="summary"></p>
+      <label id="conflict-label" hidden><input type="checkbox" id="replace"> Vervang de afwijkende gegevens in Actief. Download eerst een herstelkopie van de huidige gegevens.</label>
+      <button id="restore" disabled>Lessen en instellingen overnemen</button>
+      <p><a class="button" href="https://actief.taalroute.nl/">Open Actief</a></p>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p>Actieve Live-sessies worden niet verplaatst. Start die opnieuw vanuit Actief.</p>
+    <p><a href="https://digibord.taalroute.nl/">Naar het methode-DigiBord</a></p>
+  </main>
+</body>
+</html>

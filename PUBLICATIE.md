@@ -1,3 +1,9 @@
+# Actuele publicatieopdracht — 20 oktober 2026
+
+De app verhuist als **Actief** naar `actief.taalroute.nl`. Lees eerst [de begrensde migratievrijgave](publication/MIGRATIE-ACTIEF-20261020.md). De canonieke bron en Worker blijven behouden. De oorspronkelijke bevriezing en goedgekeurde bron hieronder blijven als historische herstelbasis beschikbaar; de nieuwe vrijgave is beperkt tot de exact vastgelegde bestanden.
+
+---
+
 # Canonieke publicatie — herstel 16 oktober 2026
 
 ## Publicatie bevroren — expliciete opdracht Nico, 16 oktober 2026

@@ -13,17 +13,17 @@ function builtAssets(){
 }
 function stamp(){
  const assets=builtAssets(),commit=git('rev-parse','HEAD');
- fs.writeFileSync(path.join(dist,'release.json'),JSON.stringify({schema:1,version:'1.25.0',commit,baseline,assets},null,2)+'\n');
+ fs.writeFileSync(path.join(dist,'release.json'),JSON.stringify({schema:1,version:'1.25.1',product:'Actief',commit,baseline,assets},null,2)+'\n');
  console.log('PASS: V01.25 publication contract and release fingerprint.');
 }
 function remote(url){return cp.execFileSync('curl',['--fail','--silent','--show-error','--max-time','30','-H','Cache-Control: no-cache',url],{maxBuffer:2*1024*1024});}
 function deployCheck(){
- assertPublicationOpen(root);
+ const decision=assertPublicationOpen(root);
  const assets=builtAssets(),release=JSON.parse(fs.readFileSync(path.join(dist,'release.json'))),head=git('rev-parse','HEAD');
  assert.deepEqual(release.assets,assets,'Build changed after its release fingerprint');assert.equal(release.commit,head,'Build belongs to another commit');
  assert.equal(git('status','--porcelain','--untracked-files=normal'),'','Commit all source changes before publishing');
  git('fetch','origin','main');assert.equal(git('rev-parse','origin/main'),head,'Publish exactly the current canonical main branch');ancestor(baseline,head);
- const current=JSON.parse(remote('https://digibord.taalroute.nl/release.json').toString());
+ const current=JSON.parse(remote(decision.productionOrigin+'/release.json').toString());
  assert.equal(current.schema,1,'Unknown production release contract');assert.match(current.commit,/^[a-f0-9]{40}$/);ancestor(current.commit,head);
  console.log('PASS: canonical main, clean source, approved baseline and forward-only production ancestry.');
 }

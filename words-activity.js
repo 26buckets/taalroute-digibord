@@ -1,4 +1,4 @@
-/* Shared DigiBord card table; speaking first, arranging words optional. */
+/* Shared Actief card table; speaking first, arranging words optional. */
 const WORD_EXERCISES = [
  ['build', 'Bouw een zin', 'Woorden ordenen'], ['make', 'Maak en verander', 'Een zin aanpassen'],
  ['guess', 'Beschrijf en raad', 'Omschrijven en raden'], ['combine', 'Combineer en beschrijf', 'Begrippen verbinden']
