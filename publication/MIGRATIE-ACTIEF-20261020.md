@@ -21,3 +21,7 @@ Het methode-DigiBord gebruikt een afzonderlijke opslagcode. Oude instellingen-, 
 Gebruik voor Actief uitsluitend `npm run build` en `npm run deploy` met de canonieke `wrangler.jsonc`. Controleer de actuele release op **actief.taalroute.nl**, niet op het adres van de nieuwe methodeomgeving. De controle vereist een schone bron, exact de canonieke hoofdbranch, afstamming van de liveversie, behoud van alle oorspronkelijke assets buiten het vastgelegde wijzigingsbereik en de gecontroleerde audiohashes.
 
 Uitgebreide controles draaien lokaal. De bestaande handmatige, begrensde GitHub-workflow blijft uitgeschakeld; er worden geen automatische cloudcontroles of automatische publicaties toegevoegd.
+
+## Expliciete vrijgave na controle
+
+Nico bevestigde op 20 oktober 2026 na de geslaagde lokale controles uitdrukkelijk: “Ja, publiceer deze gecontroleerde migratie en hef daarvoor de bevriezing eenmalig op”. Dit autoriseert uitsluitend de in het vrijgavebestand vastgelegde migratie en domeinomschakeling. De oorspronkelijke vastzetting, goedgekeurde tag, audio en herstelbasis blijven bewaard. De GitHub-updatevergrendeling wordt alleen voor deze fast-forward geopend en direct hersteld.

@@ -19,7 +19,7 @@
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "44ba42e3ff9a63ce69eb3e310c51684d5b5867d2fec294f0d8085d33968a54e8",
     "publication-freeze.json": "4fc0e81013b1348b1117961698bfc06ddc78e279f9a0def3c0797705088fd3cc",
-    "publication/MIGRATIE-ACTIEF-20261020.md": "548d9d185d844fe39adce278c4f2c352d678b5b23489af095b060796c2982a3d",
+    "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
     "scripts/check-publication.cjs": "6441350e1c9393ec92d7db229ca1a8b445fd575d8f983ff080625d8f4dbbeec4",
@@ -35,5 +35,6 @@
     "worker/live.mjs": "984f7f7c31156c9791ddc4cb3cbad6571b0bef5ac6097478d29ead538ba20b7d",
     "wrangler.jsonc": "9e345050ad42b7ad133072c97b337c46128381c7e2d3ae7fae07c62f8f3ee0b6",
     "zinnenbouwer.html": "085b64b9bbf3494b2f5e37ede78c4ff81130217ec6af762b845aa168b49e363a"
-  }
+  },
+  "explicitPublicationApproval": "Ja, publiceer deze gecontroleerde migratie en hef daarvoor de bevriezing eenmalig op"
 }
