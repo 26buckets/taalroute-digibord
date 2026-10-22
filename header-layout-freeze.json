@@ -21,14 +21,14 @@
     "index.html": "84b0d12d2112ac6149f53521933c2b8d544066e6c32564c2d97c9adf21d73791"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
-  "approvedSourceCommit": "e8c5b73a12de6efbb5e57ddc892807139ee33b4d",
-  "liveVersion": "47bfa56a-dee9-4985-a01d-f50d7d573503",
+  "approvedSourceCommit": "efccd909ca7a5bdaecc11198bacf74f44f53f2ee",
+  "liveVersion": "4f984df3-4407-4e3a-ae3d-240e8fef5017",
   "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
     "approvedBy": "Nico",
     "scope": "Studio / Docentenomgeving / BETA as fixed first app-menu destination",
-    "status": "approved-and-locally-verified",
+    "status": "published-verified-frozen",
     "publicationApproval": "Nico: Ja, ook Actief en Spreektijd publiceren en opnieuw vastzetten."
   }
 }

@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "frozen": false,
+  "frozen": true,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Nico, 22 oktober 2026: Ja, ook Actief en Spreektijd publiceren en opnieuw vastzetten. Uitsluitend Studio / Docentenomgeving / BETA als vaste eerste menuoptie; noodzakelijke publicatie- en updateblokkade tijdelijk vrijgeven en direct herstellen.",
+  "decision": "Studio-menuoptie gepubliceerd en live gecontroleerd op expliciete toestemming van Nico; publicatie opnieuw bevroren. Verdere wijzigingen vereisen nieuwe toestemming.",
   "releaseDecision": "publication/header-20261022.json",
-  "headerSourceCommit": "e8c5b73a12de6efbb5e57ddc892807139ee33b4d",
-  "headerLiveVersion": "47bfa56a-dee9-4985-a01d-f50d7d573503"
+  "headerSourceCommit": "efccd909ca7a5bdaecc11198bacf74f44f53f2ee",
+  "headerLiveVersion": "4f984df3-4407-4e3a-ae3d-240e8fef5017"
 }
