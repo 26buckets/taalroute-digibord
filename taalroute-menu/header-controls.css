@@ -31,3 +31,8 @@
 #app:has(#screen-game.active .board-game)>#appHeader #boardMenuToggle{display:none}
 #appHeader .hdr001-panel .mainnav{display:flex!important;flex-direction:column;width:100%;height:auto!important}
 #appHeader .hdr001-panel .mainnav .navitem{width:100%;justify-content:flex-start}
+
+/* Studio is the fixed first destination; its subtitle shares one compact wordmark. */
+nav.taalroute-suite-links .tr-suite-wordmark{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;min-width:0;line-height:1.1}
+nav.taalroute-suite-links .tr-suite-wordmark>small{font:400 10px/1.2 Arial,sans-serif;letter-spacing:0;white-space:nowrap;color:inherit}
+nav.taalroute-suite-links [data-app-id="studio"] .taalroute-beta{--app-accent:#096cdb}

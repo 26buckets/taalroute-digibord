@@ -2,6 +2,7 @@
 (()=>{
   if(window.TaalrouteHeaderControls)return;
   const icons = {"maximize": "<svg aria-hidden=\"true\" focusable=\"false\" class=\"lucide lucide-maximize\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M8 3H5a2 2 0 0 0-2 2v3\" /> <path d=\"M21 8V5a2 2 0 0 0-2-2h-3\" /> <path d=\"M3 16v3a2 2 0 0 0 2 2h3\" /> <path d=\"M16 21h3a2 2 0 0 0 2-2v-3\" /> </svg>", "minimize": "<svg aria-hidden=\"true\" focusable=\"false\" class=\"lucide lucide-minimize\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M8 3v3a2 2 0 0 1-2 2H3\" /> <path d=\"M21 8h-3a2 2 0 0 1-2-2V3\" /> <path d=\"M3 16h3a2 2 0 0 1 2 2v3\" /> <path d=\"M16 21v-3a2 2 0 0 1 2-2h3\" /> </svg>", "menu": "<svg aria-hidden=\"true\" focusable=\"false\" class=\"lucide lucide-menu\" xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" > <path d=\"M4 5h16\" /> <path d=\"M4 12h16\" /> <path d=\"M4 19h16\" /> </svg>"};
+  const studioLogo=document.currentScript?.src?new URL('studio.svg',document.currentScript.src).href:'/taalroute-menu/studio.svg';
   const mounted = new WeakSet();
   let dialogMenuTrigger;
   function sync(button) {
@@ -13,8 +14,13 @@
   function install(header, menu, {actions='',oldFullscreen='',manualUrl='https://studio.taalroute.nl/#/hulp'}={}) {
     if(!header)return;
     if(oldFullscreen)for(const old of header.querySelectorAll(oldFullscreen)){old.hidden=true;old.setAttribute('data-hdr001-old-fullscreen','');}
-    if(mounted.has(header)&&header.querySelector('.hdr001-controls'))return;
     const links=header.querySelector('nav.taalroute-suite-links, #taalrouteAppMenu');if(!links)return;
+    if(!links.querySelector('[data-app-id="studio"]')){
+      const row=document.createElement('a');row.className='tr-suite-row';row.dataset.appId='studio';row.href='https://studio.taalroute.nl/';row.target='_blank';row.rel='noopener noreferrer';row.setAttribute('aria-label','Studio, Docentenomgeving');
+      row.innerHTML='<img alt=""><span class="tr-suite-label"><span class="tr-suite-wordmark"><span>Studio</span><small>Docentenomgeving</small></span><small class="taalroute-beta" aria-hidden="true">BETA</small></span>';
+      row.querySelector('img').src=studioLogo;links.prepend(row);
+    }
+    if(mounted.has(header)&&header.querySelector('.hdr001-controls'))return;
     const brandDetails=links.closest('details');
     const brandTrigger=brandDetails?.querySelector(':scope > summary')||header.querySelector('[popovertarget], .brand-trigger, .teacher-app-trigger');
     if(!brandTrigger)return;

@@ -5,8 +5,8 @@
   "publicationAllowed": false,
   "instruction": "HEADER-AFSPRAAK.md",
   "files": {
-    "taalroute-menu/header-controls.css": "23b9e7efe7514718f78a13419982cd768b43527eb0ad348dfe8920c234666ac1",
-    "taalroute-menu/header-controls.js": "c5170f1668ad71d9f8a33494556d9f362bc5fcc621d10a786222cee92148c804",
+    "taalroute-menu/header-controls.css": "2b1cc701b381864eb567a06feb12c78b0abf85627795a92258b012c5f595bed5",
+    "taalroute-menu/header-controls.js": "f132a28503b4da7f45e1a1d1d8cc9bd7896fd72daf04735535e8ad917e5a4306",
     "tests/landing-activities.cjs": "4c6a44374ba8a54512c7980f7211a55705578ee26eb0334a5cdab73a1226f149",
     "tests/banks-v2.cjs": "47f0976a3846c7c58e89d494da855639dfd8f532e7216daad6a8a09cada24ab1",
     "tests/content-guidance-browser.cjs": "952c4108471119862cf2c8c938d2a6df0dd6ca21c7df13831d80406b9fa0b8b7",
@@ -15,10 +15,20 @@
     "tests/v125-browser.cjs": "eff5c939543d2d3184361bacfe4c1ff8ecb047216a6415fb15f712f40c615445",
     "tests/grammar-review-browser.cjs": "e1a1908bb2fc85f61d3d1988e08680c3bcd0521810d9a4abd6af1bfaeabbec26",
     "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
-    "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f"
+    "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f",
+    "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
+    "settings/index.html": "d947c4d0f64e62e4d4367427735ce5cf4f54caab752d6a0ed33468104f599052",
+    "index.html": "84b0d12d2112ac6149f53521933c2b8d544066e6c32564c2d97c9adf21d73791"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
   "approvedSourceCommit": "e8c5b73a12de6efbb5e57ddc892807139ee33b4d",
   "liveVersion": "47bfa56a-dee9-4985-a01d-f50d7d573503",
-  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling."
+  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
+  "studioMenuAddition": {
+    "date": "2026-10-22",
+    "approvedBy": "Nico",
+    "scope": "Studio / Docentenomgeving / BETA as fixed first app-menu destination",
+    "status": "approved-and-locally-verified",
+    "publicationApproval": "Nico: Ja, ook Actief en Spreektijd publiceren en opnieuw vastzetten."
+  }
 }
