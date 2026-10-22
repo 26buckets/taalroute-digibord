@@ -15,7 +15,7 @@ function publicationFreeze(root){
 function assertPublicationOpen(root){
  const freeze=publicationFreeze(root);
  assert.equal(freeze.frozen,false,'Publication frozen by Nico: V01.25 must remain online. A new explicit publication decision is required; do not bypass this guard.');
- assert.equal(freeze.releaseDecision,'publication/actief-migration-20261020.json','An explicit scoped release decision is required');
+ assert.equal(freeze.releaseDecision,'publication/header-20261022.json','An explicit scoped release decision is required');
  const decision=JSON.parse(fs.readFileSync(path.join(root,freeze.releaseDecision),'utf8'));
  assert.equal(decision.schema,1,'Unknown release decision');
  assert.equal(decision.approvedBy,'Nico','Explicit owner approval required');

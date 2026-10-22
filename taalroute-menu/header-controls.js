@@ -10,7 +10,7 @@
     button.setAttribute('aria-label',button.title);button.setAttribute('aria-pressed',String(full));
     const icon=full?'minimize':'maximize';if(button.dataset.icon!==icon){button.innerHTML=icons[icon];button.dataset.icon=icon;}
   }
-  function install(header, menu, {actions='',oldFullscreen=''}={}) {
+  function install(header, menu, {actions='',oldFullscreen='',manualUrl='https://studio.taalroute.nl/#/hulp'}={}) {
     if(!header)return;
     if(oldFullscreen)for(const old of header.querySelectorAll(oldFullscreen)){old.hidden=true;old.setAttribute('data-hdr001-old-fullscreen','');}
     if(mounted.has(header)&&header.querySelector('.hdr001-controls'))return;
@@ -36,6 +36,8 @@
     if(actions)for(const action of header.querySelectorAll(actions))if(action!==menu&&!action.contains(menu)&&!menu.contains(action))panel.append(action);
     links.removeAttribute('popover');links.removeAttribute('hidden');links.removeAttribute('style');links.classList.add('hdr001-app-links');
     panel.append(links);
+    const manual=[...panel.querySelectorAll('a')].find(a=>a.getAttribute('href')===manualUrl)||document.createElement('a');
+    manual.href=manualUrl;manual.classList.add('hdr001-manual');manual.textContent='Docentenhandleiding';panel.prepend(manual);
     for(const action of panel.querySelectorAll('button[aria-label]'))if(!action.textContent.trim()&&!action.hidden){const label=document.createElement('span');label.textContent=action.getAttribute('aria-label');action.append(label);}
     const row=document.createElement('div');row.className='hdr001-controls';menu.before(row);
     const screen=document.createElement('button');screen.type='button';screen.className='hdr001-fullscreen';
@@ -61,6 +63,4 @@
   window.TaalrouteHeaderControls={install,observe,icons};
 })();
 
-
-
-window.TaalrouteHeaderControls.observe({"headers": "#appHeader, header.topbar:has(.taalroute-suite)", "menu": "details.suite-header-controls", "oldFullscreen": "#fullscreenBtn", "actions": "nav.mainnav"});
+window.TaalrouteHeaderControls.observe({"headers": "#appHeader, header.topbar:has(.taalroute-suite)", "menu": "details.suite-header-controls", "oldFullscreen": "#fullscreenBtn", "actions": "nav.mainnav", "manualUrl": "https://studio.taalroute.nl/#/apps/actief/handleiding"});

@@ -37,3 +37,5 @@
 .hdr001-panel .curriculum-button-label{display:inline}
 .hdr001-panel .mainnav{align-items:stretch}
 .hdr001-panel .mainnav .navitem{justify-content:flex-start;width:100%}
+
+.hdr001-panel>a.hdr001-manual{display:flex;align-items:center;padding:8px 12px;gap:8px;text-decoration:none;color:inherit;font-weight:500;border-bottom:1px solid var(--tr-color-border,#d7e4ee)}
