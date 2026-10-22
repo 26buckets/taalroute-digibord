@@ -1,8 +1,8 @@
 {
-  "status": "approved-for-publication",
+  "status": "frozen",
   "date": "2026-10-22",
   "baseCommit": "f63504696d25a186eb64107587e27019138af0ce",
-  "publicationAllowed": true,
+  "publicationAllowed": false,
   "instruction": "HEADER-AFSPRAAK.md",
   "files": {
     "taalroute-menu/header-controls.css": "23b9e7efe7514718f78a13419982cd768b43527eb0ad348dfe8920c234666ac1",
@@ -17,5 +17,8 @@
     "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
     "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f"
   },
-  "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming."
+  "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
+  "approvedSourceCommit": "e8c5b73a12de6efbb5e57ddc892807139ee33b4d",
+  "liveVersion": "47bfa56a-dee9-4985-a01d-f50d7d573503",
+  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling."
 }

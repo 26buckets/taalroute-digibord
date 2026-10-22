@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-22",
+  "sourceCommit": "e8c5b73a12de6efbb5e57ddc892807139ee33b4d",
+  "version": "47bfa56a-dee9-4985-a01d-f50d7d573503",
+  "scope": "Approved left logo dropdown restoration and two right controls",
+  "status": "live-verified",
+  "layout": "frozen",
+  "evidence": "Central header restoration review, local tests and live browser checks"
+}
