@@ -7,6 +7,6 @@
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Nico, 22 oktober 2026: Ook alle openbare websites, inclusief Actief en Spreektijd. Uitsluitend de gecontroleerde HDR001-headerbestanden.",
+  "decision": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
   "releaseDecision": "publication/header-20261022.json"
 }

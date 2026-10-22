@@ -1,0 +1,12 @@
+{
+  "status": "approved-for-publication",
+  "date": "2026-10-22",
+  "baseCommit": "f63504696d25a186eb64107587e27019138af0ce",
+  "publicationAllowed": true,
+  "instruction": "HEADER-AFSPRAAK.md",
+  "files": {
+    "taalroute-menu/header-controls.css": "b7ba2863990cc94fada9af2811bc4a6cb130291ee934df2bbfa0c3607b9eb4a6",
+    "taalroute-menu/header-controls.js": "bae305f07b4d26e3726329d48b5a0849ff98bf70d14c42e44c9b3930d4f4c3e5"
+  },
+  "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming."
+}

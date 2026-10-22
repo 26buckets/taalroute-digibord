@@ -20,11 +20,7 @@
     if(!brandTrigger)return;
     mounted.add(header);header.classList.add('hdr001-header');
     const shell=header.closest('header')||header;shell.classList.add('hdr001-shell');if(getComputedStyle(shell).position==='static')shell.style.position='relative';
-    const staticBrand=document.createElement('span');staticBrand.className='hdr001-brand';staticBrand.setAttribute('role','img');staticBrand.setAttribute('aria-label','Taalroute');
-    const logos=[...brandTrigger.querySelectorAll('img')];
-    if(!logos.length){const svg=brandTrigger.querySelector('svg');if(svg)logos.push(svg);}
-    staticBrand.append(...logos);(brandDetails||brandTrigger).before(staticBrand);
-    const oldBrand=brandDetails||brandTrigger;oldBrand.hidden=true;oldBrand.setAttribute('data-hdr001-old-brand','');
+    // Keep the existing logo trigger, app links and their handlers on the left.
     if(oldFullscreen)for(const old of header.querySelectorAll(oldFullscreen)){old.hidden=true;old.setAttribute('data-hdr001-old-fullscreen','');}
     let panel;
     if(menu?.matches('details')){panel=[...menu.children].find(e=>e.tagName!=='SUMMARY');menu.open=false;}
@@ -34,8 +30,6 @@
     const trigger=menu.querySelector(':scope > summary');trigger.classList.add('hdr001-menu-trigger');trigger.innerHTML=icons.menu;trigger.title='Menu';trigger.setAttribute('aria-label','Menu');
     // Move the original nodes, preserving app handlers, selected values and state.
     if(actions)for(const action of header.querySelectorAll(actions))if(action!==menu&&!action.contains(menu)&&!menu.contains(action))panel.append(action);
-    links.removeAttribute('popover');links.removeAttribute('hidden');links.removeAttribute('style');links.classList.add('hdr001-app-links');
-    panel.append(links);
     const manual=[...panel.querySelectorAll('a')].find(a=>a.getAttribute('href')===manualUrl)||document.createElement('a');
     manual.href=manualUrl;manual.classList.add('hdr001-manual');manual.textContent='Docentenhandleiding';panel.prepend(manual);
     for(const action of panel.querySelectorAll('button[aria-label]'))if(!action.textContent.trim()&&!action.hidden){const label=document.createElement('span');label.textContent=action.getAttribute('aria-label');action.append(label);}
