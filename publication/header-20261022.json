@@ -35,13 +35,13 @@
     "worker/live.mjs": "984f7f7c31156c9791ddc4cb3cbad6571b0bef5ac6097478d29ead538ba20b7d",
     "wrangler.jsonc": "9e345050ad42b7ad133072c97b337c46128381c7e2d3ae7fae07c62f8f3ee0b6",
     "zinnenbouwer.html": "085b64b9bbf3494b2f5e37ede78c4ff81130217ec6af762b845aa168b49e363a",
-    "taalroute-menu/header-controls.css": "b7ba2863990cc94fada9af2811bc4a6cb130291ee934df2bbfa0c3607b9eb4a6",
-    "taalroute-menu/header-controls.js": "bae305f07b4d26e3726329d48b5a0849ff98bf70d14c42e44c9b3930d4f4c3e5",
+    "taalroute-menu/header-controls.css": "23b9e7efe7514718f78a13419982cd768b43527eb0ad348dfe8920c234666ac1",
+    "taalroute-menu/header-controls.js": "c5170f1668ad71d9f8a33494556d9f362bc5fcc621d10a786222cee92148c804",
     "taalroute-menu/menu.js": "4840e3f63dac33dd5ea5eeb091ff250775c821b9a8137586fa48805bf3749299",
     "taalroute-menu/zinnen.svg": "e73cb98cc177a0f2d16a957ff697e40fb65e382c327cbe0b51a6dc2c23bf8a9c",
     "publication/HDR001-20261022.md": "b46702d42be128bd888a8e3da01f1f0a49b8db88626b5c751a3cffd41b608008",
     "HEADER-AFSPRAAK.md": "1137c59ebd86727241cdd732d2e7c2b6ecc83270d67d501574c039d4464484d4",
-    "header-layout-freeze.json": "48bb34321170e6373d1b57308b89dedfc929ad9366a340c403e154b63daaa082"
+    "header-layout-freeze.json": "a4bf75aacebb7abea09011c9936292cb2a0bc5e527bf3461ffeddcf56b13f189"
   },
   "explicitPublicationApproval": "Ja, publiceer deze gecontroleerde migratie en hef daarvoor de bevriezing eenmalig op",
   "previousDecision": "publication/actief-migration-20261020.json",

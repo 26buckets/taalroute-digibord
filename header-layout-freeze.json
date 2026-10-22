@@ -5,8 +5,17 @@
   "publicationAllowed": true,
   "instruction": "HEADER-AFSPRAAK.md",
   "files": {
-    "taalroute-menu/header-controls.css": "b7ba2863990cc94fada9af2811bc4a6cb130291ee934df2bbfa0c3607b9eb4a6",
-    "taalroute-menu/header-controls.js": "bae305f07b4d26e3726329d48b5a0849ff98bf70d14c42e44c9b3930d4f4c3e5"
+    "taalroute-menu/header-controls.css": "23b9e7efe7514718f78a13419982cd768b43527eb0ad348dfe8920c234666ac1",
+    "taalroute-menu/header-controls.js": "c5170f1668ad71d9f8a33494556d9f362bc5fcc621d10a786222cee92148c804",
+    "tests/landing-activities.cjs": "4c6a44374ba8a54512c7980f7211a55705578ee26eb0334a5cdab73a1226f149",
+    "tests/banks-v2.cjs": "47f0976a3846c7c58e89d494da855639dfd8f532e7216daad6a8a09cada24ab1",
+    "tests/content-guidance-browser.cjs": "952c4108471119862cf2c8c938d2a6df0dd6ca21c7df13831d80406b9fa0b8b7",
+    "tests/board-browser.cjs": "91fa206615d76adf369ed9b1d39184cdc4d94470df6d5bc8e66e74d66af17116",
+    "tests/content-ui-browser.cjs": "29fa681fd58b0c474dabb876dc82edd2a263be385abcfd3846acdf71a512d212",
+    "tests/v125-browser.cjs": "eff5c939543d2d3184361bacfe4c1ff8ecb047216a6415fb15f712f40c615445",
+    "tests/grammar-review-browser.cjs": "e1a1908bb2fc85f61d3d1988e08680c3bcd0521810d9a4abd6af1bfaeabbec26",
+    "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
+    "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming."
 }

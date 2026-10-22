@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const controls=require('./practice-controls.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
@@ -14,7 +15,7 @@ let browser;
  const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
- await page.locator('[data-main="practice"]').click();await page.waitForSelector('#screen-practice.active .practice-layout');
+ await headerAction(page, '[data-main="practice"]', 'click');await page.waitForSelector('#screen-practice.active .practice-layout');
  assert.equal(await page.evaluate(()=>ContentUI.state().topic),'ER');assert.equal(await page.evaluate(()=>ContentUI.state().level),'B1_B2');
  assert.equal(await page.evaluate(()=>ContentUI.availability().source_count),325);
  assert.equal(await page.locator('select[name=organization] option[value=pairs]').count(),1);
@@ -136,8 +137,8 @@ let browser;
  assert.equal(await page.evaluate(()=>window.ContentRuntime.activeSession()),null);
 
  for(const [width,height] of [[1024,768],[768,1024],[390,844]]){
-  await page.setViewportSize({width,height});await page.locator('[data-main="play"]').click();
-  if(width<=720){assert.equal(await page.locator('.practice-mobile-launch').isVisible(),true);await page.locator('.practice-mobile-launch').click()}else await page.locator('[data-main="practice"]').click();
+  await page.setViewportSize({width,height});await headerAction(page, '[data-main="play"]', 'click');
+  if(width<=720){assert.equal(await page.locator('.practice-mobile-launch').isVisible(),true);await page.locator('.practice-mobile-launch').click()}else await headerAction(page, '[data-main="practice"]', 'click');
   await page.waitForSelector('#screen-practice.active .practice-layout');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  assert.deepEqual(errors,[]);

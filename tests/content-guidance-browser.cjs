@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
@@ -10,7 +11,7 @@ let browser;
  const context=await browser.newContext({viewport:{width:1440,height:900},hasTouch:true});const page=await context.newPage();
  const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))errors.push(r.status()+' '+r.url())});
  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
- await page.locator('[data-main="practice"]').click();
+ await headerAction(page, '[data-main="practice"]', 'click');
  assert.equal(await page.locator('#practiceForm [data-guidance]').count(),4);
  const fieldIcons=await page.locator('#practiceForm .practice-select>span svg,#practiceForm .practice-field>legend svg').evaluateAll(icons=>icons.map(e=>e.innerHTML));
  assert.equal(new Set(fieldIcons).size,fieldIcons.length,'Different choices have different icons');
@@ -43,7 +44,7 @@ let browser;
  const selection=await page.evaluate(()=>({spec:ContentUI.selectionSpec(),p:ContentUI.preferences()}));
  await page.evaluate(({spec,p})=>ContentUI.loadSelection(spec,p,{record:{name:'Bewaarde les'}}),selection);
  assert.equal(await page.locator('#practiceForm .guidance-row').innerHTML(),first);
- await page.reload();await page.locator('[data-main="practice"]').click();await page.locator('.practice-guidance>summary').click();
+ await page.reload();await headerAction(page, '[data-main="practice"]', 'click');await page.locator('.practice-guidance>summary').click();
 
  for(const width of [320,390,768,1440,1920]){
   await page.setViewportSize({width,height:900});

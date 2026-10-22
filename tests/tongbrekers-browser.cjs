@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
@@ -14,12 +15,12 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   };
  });
  try{
-  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto('file://'+path.join(served,'index.html'));
-  await page.locator('[data-main="play"]').click();await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="tongue"]').click();
-  await page.locator('#levelSelect').selectOption('B2_C1');
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.ACTIEF_TEST_URL||'file://'+path.join(served,'index.html'));
+  await headerAction(page, '[data-main="play"]', 'click');await page.locator('[data-category="cards"]').click();await page.locator('[data-ctype="tongue"]').click();
+  await headerAction(page, '#levelSelect', 'selectOption', 'B2_C1');
   assert.equal(await page.locator('.card-activity-heading h1 span').innerText(),'240 kaarten');
   assert.equal(await page.locator('#cardHelp,#cardGoals,#cardPartner,#cardSetInfo,#cardSupport,#cardAttempt,[data-ghelp],[data-grules]').count(),0);
-  await page.locator('#levelSelect').selectOption('A1_A2');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 120');await page.locator('#levelSelect').selectOption('A2_B1');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 180');await page.locator('#levelSelect').selectOption('B2_C1');
+  await headerAction(page, '#levelSelect', 'selectOption', 'A1_A2');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 120');await headerAction(page, '#levelSelect', 'selectOption', 'A2_B1');assert.equal(await page.locator('.card-counter').innerText(),(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van 180');await headerAction(page, '#levelSelect', 'selectOption', 'B2_C1');
   await page.evaluate(()=>{selectShuffledCard('tongue',cardsFor('tongue'),'reset');startTongue()});const cycleStart=await page.evaluate(()=>APP.cardShuffles.tongue.cycle);
   assert.ok(await page.locator('#tongueRead').isEnabled());
   assert.equal(await page.locator('#tongueTempo').inputValue(),'rustig');
@@ -38,7 +39,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   assert.equal(seen.size,240);const nextCycle=await page.locator('.tongue-text').innerText();assert.equal(await page.evaluate(()=>APP.cardShuffles.tongue.cycle),cycleStart+1);
   await page.locator('#primaryGame').click();await page.locator('#undoAction').click();assert.equal(await page.locator('.tongue-text').innerText(),nextCycle);
   for(const level of ['A0_A1','A1_A2','A2_B1','B1_B2','B2_C1'])for(const difficulty of ['','easy','medium','hard']){
-   await page.locator('#levelSelect').selectOption(level);await page.locator('#tongueDifficulty').selectOption(difficulty);
+   await headerAction(page, '#levelSelect', 'selectOption', level);await page.locator('#tongueDifficulty').selectOption(difficulty);
    assert.equal(await page.locator('#levelSelect').inputValue(),level);
    const expected=await page.evaluate(()=>cardsFor('tongue').length);
    assert.equal(await page.locator('.card-counter').innerText(),expected?(await page.evaluate(()=>APP.cardShuffles.tongue.position))+' van '+expected:'0 kaarten');
@@ -46,16 +47,16 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    assert.equal(await page.locator('#tongueRead').isDisabled(),!expected);
    if(!expected)assert.equal(await page.locator('.tongue-text').innerText(),'Geen tongbrekers bij deze filters.');
   }
-  await page.locator('#tongueDifficulty').selectOption('');await page.locator('#levelSelect').selectOption('A0_A1');assert.ok(await page.evaluate(()=>cardsFor('tongue').some(c=>c.id===currentCard().id)));const retainedTongue=await page.locator('.tongue-text').innerText();
+  await page.locator('#tongueDifficulty').selectOption('');await headerAction(page, '#levelSelect', 'selectOption', 'A0_A1');assert.ok(await page.evaluate(()=>cardsFor('tongue').some(c=>c.id===currentCard().id)));const retainedTongue=await page.locator('.tongue-text').innerText();
   await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('#tongueTempo').inputValue(),'normaal');assert.equal(await page.locator('.tongue-text').innerText(),retainedTongue);
-  await page.locator('#levelSelect').selectOption('B2_C1');
+  await headerAction(page, '#levelSelect', 'selectOption', 'B2_C1');
   const states=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   for(const kind of ['mission','conversation','verbs','spelling','puzzles','idioms','story']){
    await page.locator('[data-ctype="'+kind+'"]').click();assert.equal(await page.locator('#cardHelp').count(),1);assert.equal(await page.locator('#levelSelect').getAttribute('data-routes'),'false');
    await page.locator('#primaryGame').click();assert.ok(await page.locator('#cardAttempt').isVisible());
   }
   await page.locator('[data-ctype="tongue"]').click();assert.equal(await page.locator('#levelSelect').inputValue(),'B2_C1');
-  await page.locator('#settingsBtn').click();await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open'));assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
+  await headerAction(page, '#settingsBtn', 'click');await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open'));assert.ok(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')));
   await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();await page.waitForFunction(()=>!document.querySelector('#settingsOverlay').classList.contains('open'));assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
   assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),states);
   // Preserve the base typography; the viewport fits the whole sentence on short windows.
@@ -74,8 +75,8 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
     if(process.env.SCREENSHOT_DIR&&[1440,390].includes(width)&&sourceNumber===210){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'tongbrekers-'+width+'.png')})}
    }
   }
-  await page.setViewportSize({width:1440,height:900});await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!!document.fullscreenElement);await page.locator('#fullscreenBtn').click();
-  await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#levelSelect').getAttribute('data-tongue'),'false');
+  await page.setViewportSize({width:1440,height:900});await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);await page.locator('.hdr001-fullscreen').click();
+  await headerAction(page, '[data-main="play"]', 'click');assert.equal(await page.locator('#levelSelect').getAttribute('data-tongue'),'false');
   await page.evaluate(()=>openCabinetSet('cards','tongue'));assert.equal(await page.locator('.detail-text-cards article').count(),240);assert.equal(await page.locator('.detail-text-cards').innerText().then(t=>t.includes('Mila maakt soep.')),false);
   await page.locator('#startCabinetActivity').click();assert.ok(await page.locator('.tongue-table').isVisible());
   assert.deepEqual(await page.evaluate(()=>window.spoken),[],'No tongue audio played through any route');

@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -88,18 +89,18 @@ async function check(page, label) {
     assert.equal(size.top,0,'board uses header space');assert.equal(size.footerHeight,size.expectedFooter,'footer height unchanged');
     assert.equal(size.viewportTop,8,'label does not reserve a row');assert.equal(size.viewportHeight,size.height-16);
     assert.ok(size.fits,'board header controls fit '+width);
-    assert.equal(await page.locator('#levelSelect').isVisible(),true,'level stays visible with menu closed');
+    await page.locator('.hdr001-menu-trigger').click();assert.equal(await page.locator('#levelSelect').isVisible(),true,'level remains available in the hamburger');
     assert.equal(await page.locator('#levelSelect').evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.height>=44}),true);
     const before=await boardRect();const state=await page.evaluate(()=>JSON.stringify(APP.boardStates));
-    await page.locator('#boardMenuToggle').click();assert.equal(await page.locator('#levelSelect').isVisible(),true);
+    assert.equal(await page.locator('#levelSelect').isVisible(),true);
     assert.equal(await boardRect(),before,'opening navigation does not shrink the board');
-    await page.keyboard.press('Escape');assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');
+    await page.keyboard.press('Escape');await page.waitForFunction(()=>document.querySelector('.hdr001-menu-trigger').getAttribute('aria-expanded')==='false');
     assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates)),state,'navigation preserves game state');
   }
   await page.setViewportSize({width:1920,height:1080});await settle(page);
   await page.evaluate(()=>{APP.fixedRoll=1;save();});
-  await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!!document.fullscreenElement);
-  assert.equal(await page.locator('#fullscreenBtn').getAttribute('aria-pressed'),'true');
+  await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);
+  assert.equal(await page.locator('.hdr001-fullscreen').getAttribute('aria-pressed'),'true');
   // Space after a pointer click must roll, not reactivate the fullscreen button.
   for(const position of [1,2]){
     await page.keyboard.press('Space');await settle(page);
@@ -109,24 +110,24 @@ async function check(page, label) {
   }
   const positions=await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions));
   for(const level of ['B1_B2','ALPHA_AC']){
-    await page.locator('#levelSelect').selectOption(level);
+    await headerAction(page, '#levelSelect', 'selectOption', level);
     assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true,'level change keeps fullscreen');
-    assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');
-    assert.equal(await page.locator('#levelSelect').isVisible(),true);
+    assert.equal(await page.locator('.hdr001-menu-trigger').getAttribute('aria-expanded'),'false');
+    assert.equal(await page.locator('#levelSelect').isVisible(),false);
     assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions)),positions);
   }
-  await page.locator('#fullscreenBtn').click();await page.waitForFunction(()=>!document.fullscreenElement);
+  await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!document.fullscreenElement);
   // Deliberate keyboard activation retains native button behavior and focus.
-  await page.locator('#fullscreenBtn').press('Space');await page.waitForFunction(()=>!!document.fullscreenElement);
-  assert.equal(await page.evaluate(()=>document.activeElement.id),'fullscreenBtn');
-  await page.locator('#fullscreenBtn').press('Space');await page.waitForFunction(()=>!document.fullscreenElement);
-  await page.locator('[data-main="play"]').click();assert.equal(await page.locator('#boardMenuToggle').isVisible(),false);
-  assert.equal(await page.locator('#levelSelect').isVisible(),true,'normal header returns outside boards');
+  await page.locator('.hdr001-fullscreen').press('Space');await page.waitForFunction(()=>!!document.fullscreenElement);
+  assert.equal(await page.locator('.hdr001-fullscreen').evaluate(e=>e===document.activeElement),true);
+  await page.locator('.hdr001-fullscreen').press('Space');await page.waitForFunction(()=>!document.fullscreenElement);
+  await headerAction(page, '[data-main="play"]', 'click');assert.equal(await page.locator('#boardMenuToggle').isVisible(),false);
+  assert.equal(await page.locator('.hdr001-menu-trigger').isVisible(),true,'normal hamburger returns outside boards');
   await page.evaluate(()=>startBoard('rotterdam'));await settle(page);
   const fixedRect = await boardRect();
-  await page.locator('#boardMenuToggle').click();
+  await page.locator('.hdr001-menu-trigger').click();
   await page.getByRole('button',{name:'Bordopties',exact:true}).click();
-  assert.equal(await page.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false','options close the navigation menu');
+  await page.waitForFunction(()=>document.querySelector('.hdr001-menu-trigger').getAttribute('aria-expanded')==='false');
   await page.waitForTimeout(250);
   assert.equal(await boardRect(),fixedRect,'options must not shrink the default board');
   await page.locator('#closeBoardOptions').click();
@@ -186,7 +187,7 @@ async function check(page, label) {
       for (const board of ['rotterdam','zwolle','deventer']) {
         await page.evaluate(board=>startBoard(board),board);
         for (const fullscreen of [false,true]) {
-          if(fullscreen){await page.locator('#fullscreenBtn').click();assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true);}
+          if(fullscreen){await page.locator('.hdr001-fullscreen').click();assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true);}
           const base=`${board} ${width}x${height} ${fullscreen?'fullscreen':'window'}`;
           await check(page,base+' closed');
           if(width===1920&&!fullscreen)await page.screenshot({path:path.join(results,board+'-closed.png')});
@@ -200,7 +201,7 @@ async function check(page, label) {
           await page.waitForTimeout(250);await check(page,base+' task+options');
           await page.locator('#closeBoardOptions').click();
           await page.evaluate(board=>{delete APP.boardStates[board].pending;startBoard(board);},board);
-          if(fullscreen){await page.locator('#fullscreenBtn').click();assert.equal(await page.evaluate(()=>!!document.fullscreenElement),false);}
+          if(fullscreen){await page.locator('.hdr001-fullscreen').click();assert.equal(await page.evaluate(()=>!!document.fullscreenElement),false);}
           await check(page,base+' restored');
         }
       }

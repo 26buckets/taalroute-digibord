@@ -24,3 +24,10 @@
 .hdr001-status{pointer-events:none}
 
 .hdr001-panel>a.hdr001-manual{display:flex;align-items:center;padding:8px 12px;text-decoration:none;color:inherit;font-weight:500;border-bottom:1px solid var(--tr-color-border,#d7e4ee)}
+
+/* Keep the approved floating board controls outside the board layout. */
+#app:has(#screen-game.active .board-game)>#appHeader.hdr001-header{position:absolute!important}
+#app:has(#screen-game.active .board-game)>#appHeader .hdr001-panel .navitem,#app:has(#screen-game.active .board-game)>#appHeader .hdr001-panel #curriculumContext,#app:has(#screen-game.active .board-game)>#appHeader .hdr001-panel #settingsBtn{display:flex}
+#app:has(#screen-game.active .board-game)>#appHeader #boardMenuToggle{display:none}
+#appHeader .hdr001-panel .mainnav{display:flex!important;flex-direction:column;width:100%;height:auto!important}
+#appHeader .hdr001-panel .mainnav .navitem{width:100%;justify-content:flex-start}

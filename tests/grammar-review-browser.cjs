@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
 const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(served+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res)});
@@ -9,7 +10,7 @@ let browser,page;
   page=await browser.newPage({viewport:{width:1630,height:900},reducedMotion:'reduce'});page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
  }
- await freshPage();await page.locator('[data-main=practice]').click();
+ await freshPage();await headerAction(page, '[data-main=practice]', 'click');
  await require('./practice-controls.cjs').level(page,'B2');assert.equal(await page.locator('[name=subtopic] option').filter({hasText:/^Verwijzen met er$/}).count(),1);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource({bank_ids:['CB-GRAM-001'],levels:['B2']}).every(i=>ContentGuidance.mapping(i,'erk'))),true);
  const dir=path.join(root,'tests/artifacts/grammar-review');fs.mkdirSync(dir,{recursive:true});

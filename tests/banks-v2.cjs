@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..');
@@ -38,12 +39,12 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
  assert.equal(await p.locator('#contextTooltip').isVisible(),true,'tap opens explanation');
  assert.equal(await p.locator('#contextTooltip').evaluate(el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight}),true);
  await p.keyboard.press('Escape');
- await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!!document.fullscreenElement);
+ await p.locator('.hdr001-fullscreen').click();await p.waitForFunction(()=>!!document.fullscreenElement);
  await p.getByRole('button',{name:'Uitleg: Geluid',exact:true}).click();
  assert.equal(await p.evaluate(()=>!!document.fullscreenElement),true,'opening explanation keeps fullscreen');
  assert.equal(await p.locator('#contextTooltip').isVisible(),true,'help is visible in fullscreen');
  assert.equal(await p.locator('#contextTooltip').evaluate(el=>getComputedStyle(el).backgroundColor),await p.locator('#boardOptions').evaluate(el=>getComputedStyle(el).backgroundColor),'fullscreen explanation uses the dark palette');
- await p.locator('#fullscreenBtn').click();await p.waitForFunction(()=>!document.fullscreenElement);
+ await p.locator('.hdr001-fullscreen').click();await p.waitForFunction(()=>!document.fullscreenElement);
  await p.locator('#optDark').uncheck();await p.locator('#optSound').check();
  await p.setViewportSize({width:1440,height:900});await p.locator('#closeBoardOptions').click();
  const report=await p.evaluate(()=>{
@@ -84,7 +85,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(root,'.'+deco
   await p.getByRole('button',{name:'Bordopties',exact:true}).click();await p.locator('#questionMode').selectOption(mode);
   assert.deepEqual(await p.evaluate(()=>({positions:JSON.stringify(APP.boardStates.rotterdam.positions),groups:JSON.stringify(APP.boardStates.rotterdam.groupPositions),classPos:APP.boardStates.rotterdam.classPos,turn:JSON.stringify(APP.turn)})),before);
  }
- await p.locator('#levelSelect').selectOption('A1_A2');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
+ await headerAction(p, '#levelSelect', 'selectOption', 'A1_A2');assert.equal(await p.locator('#boardMenuToggle').getAttribute('aria-expanded'),'false');assert.ok((await p.locator('#taskDrawer').getAttribute('data-task-id')).startsWith('dq-1-'));
  // Check real UI selections and long help on small and large screens.
  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
  for(const [width,height]of [[1440,900],[1024,768],[390,844]]){
