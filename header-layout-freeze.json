@@ -27,8 +27,8 @@
     "dist/taalroute-menu/menu-controls.css": "e49057ae24778bea398bd98e86f4ef54145b3fe388224f405ff2516f6f77b0fa"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
-  "approvedSourceCommit": "d68f67f1ff97edfa8b22fb1068a15617ba2e265a",
-  "liveVersion": "f865b134-b262-47a0-99ac-54783adbab3c",
+  "approvedSourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
+  "liveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387",
   "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
@@ -48,7 +48,9 @@
     "authorization": "Nico: Trek die laatste verschillen gelijk: dubbele labels bij Klankstudio weg, iconen bij Actief kleiner en het theatericoon goed zichtbaar in donker. Controleer ook mobiel en zet het online, met behoud van alle functies.",
     "scope": "Bestaande menu-iconen zijn 19 × 19 pixels; klikgebieden blijven minimaal 44 pixels. De niveaukeuze krijgt voldoende breedte op mobiel. Alle routes, inhoud, media en lokale opslag blijven behouden.",
     "baseCommit": "39b9d02ecf7e8c1bb9cfbe65f6ec90f47d507bd1",
-    "status": "locally-reviewed-awaiting-publication",
-    "record": "MENU-AFWERKING-20261024.md"
+    "status": "published-verified-frozen",
+    "record": "MENU-AFWERKING-20261024.md",
+    "sourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
+    "liveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387"
   }
 }
