@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "frozen": true,
+  "frozen": false,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Lege mobiele headerregel op expliciete opdracht hersteld en gepubliceerd; lokale en live controles geslaagd. Opnieuw vastgezet; volgende publicatie vereist nieuwe expliciete toestemming.",
+  "decision": "Ja, dit is goed. Zet deze donkere headers online bij Actief, Missies en Spreektijd. Alleen de headers aanpassen, de apps zelf blijven zoals ze zijn. Controleer het nog even en zet het daarna weer vast.",
   "releaseDecision": "publication/header-20261022.json",
   "headerSourceCommit": "8edd083048cccaa69568743640c48b1211b5fda1",
   "headerLiveVersion": "4b08b1ed-ff2c-476c-8707-7f23809c2355"

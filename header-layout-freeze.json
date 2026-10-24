@@ -5,7 +5,7 @@
   "publicationAllowed": false,
   "instruction": "HEADER-AFSPRAAK.md",
   "files": {
-    "taalroute-menu/header-controls.css": "2b1cc701b381864eb567a06feb12c78b0abf85627795a92258b012c5f595bed5",
+    "taalroute-menu/header-controls.css": "c09a6eec0281670d8f9c81f4cf0cdfc1df7161a430f0c291b251897f9906cf12",
     "taalroute-menu/header-controls.js": "1dd6a1536fb6667cc1ece3f74060deda952d457bdc22425175127981ad30fca4",
     "tests/landing-activities.cjs": "4c6a44374ba8a54512c7980f7211a55705578ee26eb0334a5cdab73a1226f149",
     "tests/banks-v2.cjs": "47f0976a3846c7c58e89d494da855639dfd8f532e7216daad6a8a09cada24ab1",
@@ -17,8 +17,8 @@
     "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
     "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
-    "settings/index.html": "f8d457073e3b914c6a212840847439ba323d184cb5c1b2050d996db4e04ae866",
-    "index.html": "c5a1485b0e52ce73453030ffc9253b6892cf7667c27c148181e43f999c1766fb",
+    "settings/index.html": "31d38bfbdd9706f45a3b185fa17bed8d70d37b09326a3f4861bd89b4698f10f6",
+    "index.html": "2767c1111740ab34ca8921fd02d13b41379473d92106f4ce89172256c959cce0",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
     "taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918",
@@ -94,5 +94,10 @@
     "request": "Herstel die vijf punten, ook bij Actief en Spreektijd. Behoud alle functies en de afgesproken headerindeling, controleer mobiel en desktop in licht en donker, zet het online en zet het daarna weer vast.",
     "scope": "Lege tweede mobiele headerregel verwijderen; spelbediening behouden.",
     "record": "HEADER-HERSTEL-20261024.json"
+  },
+  "darkHeader20261024": {
+    "approvedBy": "Nico",
+    "request": "Ja, dit is goed. Zet deze donkere headers online bij Actief, Missies en Spreektijd. Alleen de headers aanpassen, de apps zelf blijven zoals ze zijn. Controleer het nog even en zet het daarna weer vast.",
+    "record": "HEADER-DONKER-20261024.json"
   }
 }
