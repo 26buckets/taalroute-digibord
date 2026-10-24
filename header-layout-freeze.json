@@ -27,8 +27,8 @@
     "dist/taalroute-menu/menu-controls.css": "e49057ae24778bea398bd98e86f4ef54145b3fe388224f405ff2516f6f77b0fa"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
-  "approvedSourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
-  "liveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387",
+  "approvedSourceCommit": "cc81c7a58c08c9e07cff46f5683fa662236ac10a",
+  "liveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44",
   "futureChangesRequire": "Nieuwe expliciete toestemming van Nico v\u00f3\u00f3r iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
@@ -56,7 +56,12 @@
   "menuOpschoning20261024": {
     "authorization": "Nico, 24 oktober 2026: gewone tekst voor navigatielinks, iconen alleen bij herkenbare acties. Dubbele handleiding bij Lexicon en Voor docenten bij Theaterlezen verwijderen; Instellingen openen met hetzelfde tandwiel. Controleer mobiel en desktop en zet online, met behoud van alle functies.",
     "baseCommit": "bb92b2211240a6211fa5fba7c458732a16f51604",
-    "status": "local-verified-ready-to-publish",
-    "record": "MENU-OPSCHONING-20261024.md"
+    "status": "published-verified-frozen",
+    "record": "MENU-OPSCHONING-20261024.md",
+    "date": "2026-10-24",
+    "sourceCommit": "cc81c7a58c08c9e07cff46f5683fa662236ac10a",
+    "liveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44",
+    "scope": "Plain text for four navigation controls; Instellingen openen uses the existing gear and handler. Existing header, content, media and storage retained.",
+    "publicationRecord": "MENU-OPSCHONING-PUBLICATIE-20261024.json"
   }
 }

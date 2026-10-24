@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "44ba42e3ff9a63ce69eb3e310c51684d5b5867d2fec294f0d8085d33968a54e8",
-    "publication-freeze.json": "89364b84a08f450510d5d8c013cbf3d42a2dd95f2de88135a80a460c6032c6f7",
+    "publication-freeze.json": "6b6a8cf684f4ecac381e8f5a97c75c6deb708d4b3567f18ade831df97ed36bc0",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -41,13 +41,14 @@
     "taalroute-menu/zinnen.svg": "e73cb98cc177a0f2d16a957ff697e40fb65e382c327cbe0b51a6dc2c23bf8a9c",
     "publication/HDR001-20261022.md": "b46702d42be128bd888a8e3da01f1f0a49b8db88626b5c751a3cffd41b608008",
     "HEADER-AFSPRAAK.md": "e2905d70e27f2057c1d25c9607652c1bee5d87028b9e0c6cf6c1e2c2fd9f7f41",
-    "header-layout-freeze.json": "a790c2969a77735e1973d7b257d788abdf5c8c31d53377e2268fda4ab6a26004",
+    "header-layout-freeze.json": "75032c64c41c6f0b074115d1e5bdc42c681073388954dca105cc4584d2ba9a41",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "78de65b361c48055bf2c6261deb1abc70816ef8dddbb841189bde3d067a7ddc9",
     "taalroute-menu/menu-controls.css": "e49057ae24778bea398bd98e86f4ef54145b3fe388224f405ff2516f6f77b0fa",
     "MENU-AFWERKING-20261024.md": "bc75d03159e5d77517299405b59442f48e12906a07babeccd339ce735487f917",
-    "MENU-OPSCHONING-20261024.md": "66493421e6bd9136fee990d2e3079bd4221b69356591d7d15210c491663c0e3b"
+    "MENU-OPSCHONING-20261024.md": "66493421e6bd9136fee990d2e3079bd4221b69356591d7d15210c491663c0e3b",
+    "MENU-OPSCHONING-PUBLICATIE-20261024.json": "84ec28e4ec1fd12aaaea09f3ccf3401f75b1a2e48befc27e3a3f02078c78a08d"
   },
   "explicitPublicationApproval": "Nico, 24 oktober 2026: gewone tekst voor navigatielinks, iconen alleen bij herkenbare acties. Dubbele handleiding bij Lexicon en Voor docenten bij Theaterlezen verwijderen; Instellingen openen met hetzelfde tandwiel. Controleer mobiel en desktop en zet online, met behoud van alle functies.",
   "previousDecision": "publication/actief-migration-20261020.json",
@@ -61,5 +62,12 @@
     "sourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
     "liveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387",
     "checks": "build, full unit, core browser smoke, scoped publication contract, four viewport widths in light/dark, live asset equality"
+  },
+  "publishedMenuOpschoning20261024": {
+    "date": "2026-10-24",
+    "sourceCommit": "cc81c7a58c08c9e07cff46f5683fa662236ac10a",
+    "liveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44",
+    "status": "published-verified-frozen",
+    "scope": "Plain text for four navigation controls; Instellingen openen uses the existing gear and handler. Existing header, content, media and storage retained."
   }
 }
