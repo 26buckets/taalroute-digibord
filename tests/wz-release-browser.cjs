@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs'),{chromium}=require('playwright');
 (async()=>{
  const browser=await chromium.launch({headless:true,channel:'chrome',args:['--allow-file-access-from-files']});
@@ -52,7 +53,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   await page.evaluate(s=>ContentUI.loadSelection(s.normalized_selection_spec,{target_duration_seconds:60,organization_mode:'class',preferred_game_engine:'CARDS'}),guided);
   assert.equal(await page.locator('[name=duration]').inputValue(),'60','Short saved WZ lesson remains available after another family');
   for(const width of [1440,390,320]){
-   await page.setViewportSize({width,height:1000});await page.locator('[data-main=practice]').click();
+   await page.setViewportSize({width,height:1000});await headerAction(page, '[data-main=practice]', 'click');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
    assert.ok(await page.locator('.beta-label').isVisible());
    if(process.env.SCREENSHOT_DIR){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'wz-voorbereiding-'+width+'.png'),fullPage:true})}
