@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-24",
+  "approvedBy": "Nico",
+  "request": "Herstel die vijf punten, ook bij Actief en Spreektijd. Behoud alle functies en de afgesproken headerindeling, controleer mobiel en desktop in licht en donker, zet het online en zet het daarna weer vast.",
+  "scope": "Lege tweede mobiele headerregel verwijderen; spelbediening behouden.",
+  "baseCommit": "275ce23da87713af83c2f87745606e863e86bd0d",
+  "beforeLiveVersion": "3d480065-6593-49a7-b178-c2170abfd940",
+  "status": "Lokale validatie vóór gecontroleerde publicatie"
+}

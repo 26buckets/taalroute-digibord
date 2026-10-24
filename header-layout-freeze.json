@@ -17,8 +17,8 @@
     "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
     "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
-    "settings/index.html": "9def49d90f77afe9e6dc8bb5562c3d49446eda93e36ec8c907a58b6924a4158b",
-    "index.html": "0b7762432eb8d30f95977d87e5fb7dc6b929a499190751863ae8ac0fd0db49b2",
+    "settings/index.html": "f8d457073e3b914c6a212840847439ba323d184cb5c1b2050d996db4e04ae866",
+    "index.html": "c5a1485b0e52ce73453030ffc9253b6892cf7667c27c148181e43f999c1766fb",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
     "taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918",
@@ -88,5 +88,11 @@
     "sourceCommit": "9994d9c1f7159af8412b4f7e846b8e54559eb350",
     "liveVersion": "3d480065-6593-49a7-b178-c2170abfd940",
     "frozen": true
+  },
+  "finalHeaderRepair20261024": {
+    "approvedBy": "Nico",
+    "request": "Herstel die vijf punten, ook bij Actief en Spreektijd. Behoud alle functies en de afgesproken headerindeling, controleer mobiel en desktop in licht en donker, zet het online en zet het daarna weer vast.",
+    "scope": "Lege tweede mobiele headerregel verwijderen; spelbediening behouden.",
+    "record": "HEADER-HERSTEL-20261024.json"
   }
 }
