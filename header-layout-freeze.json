@@ -27,8 +27,8 @@
     "dist/taalroute-menu/menu-controls.css": "15ddefac84c5320796ffbfa0dfacfac305dfddc94465e20083969c905c0f2c73"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
-  "approvedSourceCommit": "cc81c7a58c08c9e07cff46f5683fa662236ac10a",
-  "liveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44",
+  "approvedSourceCommit": "53c64cc8bf3b610a1540cfda5960563532d2aa86",
+  "liveVersion": "ba025f24-359f-4ca6-a442-c203dd64690f",
   "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
@@ -69,5 +69,13 @@
     "request": "Ja, voer dit overal zo door, met Kopieer link bovenaan en de eigen afbeelding en appkleur. Behoud de bestaande deelopties voor lessen en de headerindeling. Controleer mobiel, desktop, licht en donker voordat je het online zet.",
     "headerPreserved": true,
     "evidence": "DELEN-20261024.json"
+  },
+  "sharingPublication20261024": {
+    "date": "2026-10-24",
+    "repository": "actief",
+    "sourceCommit": "53c64cc8bf3b610a1540cfda5960563532d2aa86",
+    "liveVersion": "ba025f24-359f-4ca6-a442-c203dd64690f",
+    "scope": "App delen: Kopieer link bovenaan, eigen afbeelding en appkleur; bestaande lesdeelopties en header behouden. KLINK en Scenario aangesloten met expliciete toestemming.",
+    "checks": "Lokale appcontrole 320/390/768/1440 in licht en donker; live 390/1440 in licht en donker (Lexicon aangemeld). Zie centrale controlebewijzen."
   }
 }

@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "frozen": false,
+  "frozen": true,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Nico: deeloptie overal publiceren met Kopieer link bovenaan, eigen afbeelding en appkleur; behoud bestaande deelopties voor lessen en headerindeling; controleer mobiel, desktop, licht en donker vóór publicatie. KLINK en Scenario ook laten aansluiten.",
+  "decision": "Gepubliceerd en gecontroleerd op 24 oktober 2026; opnieuw vastgezet. Nieuwe wijzigingen en publicatie vereisen een nieuwe expliciete opdracht.",
   "releaseDecision": "publication/header-20261022.json",
-  "headerSourceCommit": "cc81c7a58c08c9e07cff46f5683fa662236ac10a",
-  "headerLiveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44"
+  "headerSourceCommit": "53c64cc8bf3b610a1540cfda5960563532d2aa86",
+  "headerLiveVersion": "ba025f24-359f-4ca6-a442-c203dd64690f"
 }
