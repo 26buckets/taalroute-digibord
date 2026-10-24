@@ -5,5 +5,8 @@
   "scope": "Lege tweede mobiele headerregel verwijderen; spelbediening behouden.",
   "baseCommit": "275ce23da87713af83c2f87745606e863e86bd0d",
   "beforeLiveVersion": "3d480065-6593-49a7-b178-c2170abfd940",
-  "status": "Lokale validatie vóór gecontroleerde publicatie"
+  "status": "Gepubliceerd, live gecontroleerd en opnieuw vastgezet",
+  "sourceCommit": "8edd083048cccaa69568743640c48b1211b5fda1",
+  "liveVersion": "4b08b1ed-ff2c-476c-8707-7f23809c2355",
+  "checks": "Bouw, volledige bronreeksen, activiteiten via HTTP, lint/types, banken, smoke incl. 7200 grammaticaweergaven, tongbrekers via HTTP, P0 bron en 610 kaarten bij vier schermformaten geslaagd. Live header/menu 320/390/768/1440 licht/donker geslaagd."
 }
