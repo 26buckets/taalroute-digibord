@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "frozen": true,
+  "frozen": false,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Studio-menuoptie gepubliceerd en live gecontroleerd op expliciete toestemming van Nico; publicatie opnieuw bevroren. Verdere wijzigingen vereisen nieuwe toestemming.",
+  "decision": "Nico, 24 oktober 2026: Voer het goedgekeurde menu overal door, met behoud van de bestaande functies en headerindeling; controleer alles voordat het online komt. Deze vrijgave is uitsluitend voor dit gecontroleerde menu; na publicatie opnieuw vastzetten.",
   "releaseDecision": "publication/header-20261022.json",
   "headerSourceCommit": "efccd909ca7a5bdaecc11198bacf74f44f53f2ee",
   "headerLiveVersion": "4f984df3-4407-4e3a-ae3d-240e8fef5017"

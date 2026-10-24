@@ -11,6 +11,7 @@
     button.setAttribute('aria-label',button.title);button.setAttribute('aria-pressed',String(full));
     const icon=full?'minimize':'maximize';if(button.dataset.icon!==icon){button.innerHTML=icons[icon];button.dataset.icon=icon;}
   }
+  function labelActions(panel){for(const action of panel.querySelectorAll('button[aria-label]:not([data-appearance-choice])'))if(!action.textContent.trim()&&!action.hidden){const label=document.createElement('span');label.textContent=action.getAttribute('aria-label');action.append(label);}}
   function install(header, menu, {actions='',oldFullscreen='',manualUrl='https://studio.taalroute.nl/#/hulp'}={}) {
     if(!header)return;
     if(oldFullscreen)for(const old of header.querySelectorAll(oldFullscreen)){old.hidden=true;old.setAttribute('data-hdr001-old-fullscreen','');}
@@ -20,7 +21,7 @@
       row.innerHTML='<img alt=""><span class="tr-suite-label"><span class="tr-suite-wordmark"><span>Studio</span><small>Docentenomgeving</small></span><small class="taalroute-beta" aria-hidden="true">BETA</small></span>';
       row.querySelector('img').src=studioLogo;links.prepend(row);
     }
-    if(mounted.has(header)&&header.querySelector('.hdr001-controls'))return;
+    if(mounted.has(header)&&header.querySelector('.hdr001-controls')){labelActions(header.querySelector('.hdr001-panel'));return;}
     const brandDetails=links.closest('details');
     const brandTrigger=brandDetails?.querySelector(':scope > summary')||header.querySelector('[popovertarget], .brand-trigger, .teacher-app-trigger');
     if(!brandTrigger)return;
@@ -38,7 +39,9 @@
     if(actions)for(const action of header.querySelectorAll(actions))if(action!==menu&&!action.contains(menu)&&!menu.contains(action))panel.append(action);
     const manual=[...panel.querySelectorAll('a')].find(a=>a.getAttribute('href')===manualUrl)||document.createElement('a');
     manual.href=manualUrl;manual.classList.add('hdr001-manual');manual.textContent='Docentenhandleiding';panel.prepend(manual);
-    for(const action of panel.querySelectorAll('button[aria-label]'))if(!action.textContent.trim()&&!action.hidden){const label=document.createElement('span');label.textContent=action.getAttribute('aria-label');action.append(label);}
+    labelActions(panel);
+    for(const old of panel.querySelectorAll('[data-theme-toggle]'))old.hidden=true;
+    window.TaalrouteMenu?.mount(panel,manual);
     const row=document.createElement('div');row.className='hdr001-controls';menu.before(row);
     const screen=document.createElement('button');screen.type='button';screen.className='hdr001-fullscreen';
     const status=document.createElement('span');status.className='hdr001-status';status.setAttribute('role','status');row.append(screen,menu,status);sync(screen);
@@ -54,7 +57,7 @@
   }
   function observe(options){
     const mount=()=>{for(const header of document.querySelectorAll(options.headers))install(header,header.querySelector(options.menu),options);};
-    mount();new MutationObserver(mount).observe(document.body,{childList:true,subtree:true});
+    mount();new MutationObserver(mount).observe(document.documentElement,{childList:true,subtree:true});
   }
   document.addEventListener('keydown',event=>{if(event.key!=='Escape'||document.querySelector('dialog[open]'))return;const menu=document.querySelector('.hdr001-menu[open]');if(menu){event.preventDefault();event.stopPropagation();menu.open=false;menu.querySelector(':scope > summary').focus();}},true);
   document.addEventListener('close',()=>{if(dialogMenuTrigger&&!document.querySelector('dialog[open]')){if(dialogMenuTrigger.isConnected)dialogMenuTrigger.focus();dialogMenuTrigger=undefined;}},true);
@@ -67,4 +70,4 @@ window.TaalrouteHeaderControls.observe({"headers": "#appHeader, header.topbar:ha
 
 // Preserve Actief's pointer-vs-keyboard fullscreen behavior for the board's Space shortcut.
 document.addEventListener('click',event=>{if(event.detail>0)event.target.closest('#appHeader .hdr001-fullscreen')?.blur();});
-document.addEventListener('click',event=>{const action=event.target.closest('#appHeader .hdr001-panel button');if(action){const menu=action.closest('.hdr001-menu');menu.open=false;menu.querySelector('.hdr001-menu-trigger').setAttribute('aria-expanded','false');}});
+document.addEventListener('click',event=>{const action=event.target.closest('#appHeader .hdr001-panel button');if(action&&!action.closest('.tr-menu-appearance')){const menu=action.closest('.hdr001-menu');menu.open=false;menu.querySelector('.hdr001-menu-trigger').setAttribute('aria-expanded','false');}});

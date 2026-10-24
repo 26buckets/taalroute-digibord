@@ -1,0 +1,47 @@
+/* Only the inside of the hamburger menu changes; the brand row keeps its contract. */
+.tr-settings-panel {
+  --tr-menu-surface:#fff;--tr-menu-text:#233c58;--tr-menu-muted:#586b7e;--tr-menu-line:#e2e8ef;--tr-menu-soft:#f3f6fa;--tr-menu-hover:#edf2f7;--tr-menu-active:#24435f;--tr-menu-on-active:#fff;
+  position:fixed!important;inset:64px 8px auto auto!important;margin:0!important;max-height:calc(100dvh - 80px)!important;overflow-y:auto!important;box-sizing:border-box!important;width:340px!important;max-width:calc(100vw - 16px)!important;padding:12px!important;background:var(--tr-menu-surface)!important;color:var(--tr-menu-text)!important;border:1px solid var(--tr-menu-line)!important;border-radius:10px!important;box-shadow:0 8px 28px #21324716!important;font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;text-align:left!important;gap:0!important;
+}
+[data-theme="dark"] .tr-settings-panel {
+  --tr-menu-surface:#172232;--tr-menu-text:#e7edf5;--tr-menu-muted:#b1bfd0;--tr-menu-line:#334155;--tr-menu-soft:#202e40;--tr-menu-hover:#29394d;--tr-menu-active:#c5dcef;--tr-menu-on-active:#14283c;
+}
+.tr-settings-panel *{box-sizing:border-box}
+.tr-settings-panel .tr-menu-manual{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:11px!important;width:100%!important;min-height:58px!important;padding:8px 11px!important;margin:0!important;border:1px solid var(--tr-menu-line)!important;border-radius:7px!important;background:var(--tr-menu-soft)!important;color:var(--tr-menu-text)!important;font:500 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;text-decoration:none!important}
+.tr-menu-manual>svg{width:22px!important;height:22px!important;flex-shrink:0}
+.tr-menu-manual>svg:last-child:not(:first-child){width:16px!important;height:16px!important;margin-left:auto;color:var(--tr-menu-muted)!important}
+.tr-settings-panel .tr-menu-appearance{padding:19px 3px 18px;margin:0;border:0;border-bottom:1px solid var(--tr-menu-line)}
+.tr-menu-label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.tr-menu-label>[data-current-appearance]{font-size:12px;color:var(--tr-menu-muted)!important}
+.tr-menu-modes{display:flex;gap:4px;padding:4px;border:1px solid var(--tr-menu-line);border-radius:8px;background:var(--tr-menu-soft)}
+.tr-settings-panel .tr-menu-modes>button{display:flex!important;align-items:center!important;justify-content:center!important;flex:1!important;width:auto!important;min-width:44px!important;min-height:44px!important;padding:0!important;margin:0!important;border:0!important;border-radius:5px!important;background:transparent!important;color:var(--tr-menu-muted)!important;box-shadow:none!important;cursor:pointer}
+.tr-settings-panel .tr-menu-modes>button[aria-pressed="true"]{background:var(--tr-menu-active)!important;color:var(--tr-menu-on-active)!important}
+.tr-menu-modes svg{width:20px!important;height:20px!important;stroke:currentColor;fill:none}
+.tr-menu-message{margin:8px 0 0!important;font-size:12px!important;color:var(--tr-menu-muted)!important}
+.tr-menu-message:empty{display:none}
+.tr-settings-panel :is(a,button,summary,input,select):focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.tr-settings-panel>:is(a,button):not(.tr-menu-manual):not([hidden]),.tr-settings-panel>nav>a,.tr-settings-panel .tr-menu-row{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;min-height:46px!important;width:100%!important;padding:9px 10px!important;margin:0!important;border:0!important;border-radius:6px!important;background:transparent!important;color:var(--tr-menu-text)!important;font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;text-decoration:none!important;box-shadow:none!important}
+.tr-settings-panel :is(a,button,summary):hover{background:var(--tr-menu-hover)!important}
+.tr-settings-panel :is(a,button,summary)>svg{flex-shrink:0;width:19px;height:19px}
+.tr-settings-panel select,.tr-settings-panel input[type="search"]{max-width:100%;min-height:44px;border:1px solid var(--tr-menu-line);border-radius:6px;background:var(--tr-menu-surface);color:var(--tr-menu-text);font:inherit}
+.tr-settings-panel [hidden]{display:none!important}
+@media(max-width:380px){.tr-settings-panel{padding:10px!important}}
+@media print{.tr-settings-panel{display:none!important}}
+
+.tr-settings-panel :is(a,button)::after{content:none!important}
+.tr-settings-panel .tr-menu-modes{border-radius:8px!important}
+
+html[data-theme=dark],[data-theme=dark] body{background:#111b28}
+[data-theme=dark] :is(.screen-head,.board-menu){background:#172232;color:#e6edf5}
+
+
+.tr-settings-panel .tr-menu-appearance{display:block!important;width:100%!important;align-self:stretch!important;text-align:left!important}
+.tr-settings-panel button[aria-label]:not([data-appearance-choice])>span:not(.sr-only){display:inline!important}
+.tr-settings-panel>nav>button:not([hidden]){display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;min-height:46px!important;width:100%!important;padding:9px 10px!important;margin:0!important;border:0!important;border-radius:6px!important;background:transparent!important;color:var(--tr-menu-text)!important;font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;box-shadow:none!important}
+.tr-settings-panel .teacher-entrance>img{width:20px!important;height:20px!important;object-fit:contain}
+.tr-settings-panel .teacher-entrance strong{font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;color:var(--tr-menu-text)}
+.tr-settings-panel .teacher-entrance small{font:400 12px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;color:var(--tr-menu-muted)!important}
+
+#appHeader .tr-settings-panel .mainnav .navitem{height:auto!important;background:transparent!important;color:var(--tr-menu-text)!important;font-weight:400!important}
+#appHeader .tr-settings-panel .level-pill{width:100%;height:auto;padding:0;background:transparent;color:var(--tr-menu-text)}
+#appHeader .tr-settings-panel .level-pill select{width:100%;background:var(--tr-menu-soft);color:var(--tr-menu-text);border:1px solid var(--tr-menu-line);font:inherit}
