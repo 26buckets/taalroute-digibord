@@ -17,14 +17,14 @@
     "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
     "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
-    "settings/index.html": "bd9eb84a8f07cf9c28c065c09820338dec003a77e5a352b74713e0bb8de60642",
-    "index.html": "12f1a103dd8321b3ee1405b0d0403eb4a29b46a555efe99213fe99cc995894d7",
+    "settings/index.html": "9def49d90f77afe9e6dc8bb5562c3d49446eda93e36ec8c907a58b6924a4158b",
+    "index.html": "0b7762432eb8d30f95977d87e5fb7dc6b929a499190751863ae8ac0fd0db49b2",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
-    "taalroute-menu/menu-controls.css": "ca2a4f3cb2359cb7583b6de55b76b02b45d7c4e3e2c7c60d8cd7f1b1ba97c3e6",
+    "taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918",
     "dist/taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
-    "dist/taalroute-menu/menu-controls.js": "18e3a759028063ce7b3d564c64d4f35041c5919552604570ea86127c2bcb545b",
-    "dist/taalroute-menu/menu-controls.css": "15ddefac84c5320796ffbfa0dfacfac305dfddc94465e20083969c905c0f2c73"
+    "dist/taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
+    "dist/taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
   "approvedSourceCommit": "53c64cc8bf3b610a1540cfda5960563532d2aa86",
@@ -77,5 +77,11 @@
     "liveVersion": "ba025f24-359f-4ca6-a442-c203dd64690f",
     "scope": "App delen: Kopieer link bovenaan, eigen afbeelding en appkleur; bestaande lesdeelopties en header behouden. KLINK en Scenario aangesloten met expliciete toestemming.",
     "checks": "Lokale appcontrole 320/390/768/1440 in licht en donker; live 390/1440 in licht en donker (Lexicon aangemeld). Zie centrale controlebewijzen."
+  },
+  "klinkAppMenu20261024": {
+    "approvedBy": "Nico",
+    "request": "Ook KLINK in alle appmenu’s toevoegen",
+    "headerPreserved": true,
+    "evidence": "KLINK-APPMENU-20261024.json"
   }
 }

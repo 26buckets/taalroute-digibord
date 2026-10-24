@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24",
+  "approvedBy": "Nico",
+  "request": "Ook KLINK in alle appmenu’s toevoegen",
+  "publicationApproval": "Ja, publiceren en opnieuw vastzetten",
+  "baseCommit": "8eba4777deb09ebe0a995376d0d661a5de9bf4ac",
+  "scope": "KLINK als laatste appkeuze; Studio eerst; officiële D-logo’s, BETA rechts; headerindeling, functies, inhoud, media, opslag en overige bestemmingen behouden.",
+  "files": {
+    "header-layout-freeze.json": "85605c0b5ba7b8f90915b3d6c69c8bc829b5bd15869a240f23dc5ee85bfaf078",
+    "index.html": "0b7762432eb8d30f95977d87e5fb7dc6b929a499190751863ae8ac0fd0db49b2",
+    "publication-freeze.json": "33a8d2d0b101046702dc5532d95151f617a3e0e133203d8bc3c9499ee3803b51",
+    "publication/header-20261022.json": "87ef3d3effdb97b4ddc4cf4c341cf323a1aa53dcd504674e156dabd35c029d5e",
+    "settings/index.html": "9def49d90f77afe9e6dc8bb5562c3d49446eda93e36ec8c907a58b6924a4158b",
+    "taalroute-menu/klink-brand.svg": "dfbeab52f771fddcc52cb25256e8ca031cf93063361f12163d18a19ec1d973f1",
+    "taalroute-menu/klink-dark.svg": "fa0836b9916b4367efee65d152f72ca4917ef6f1fe060a9b9e62b1ac2c112e90",
+    "taalroute-menu/klink.svg": "bd5a040d349c0fc0d728ed6bafefa0e4a027c1a8cf698f6e99ec7d53eafc768c",
+    "taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918"
+  }
+}
