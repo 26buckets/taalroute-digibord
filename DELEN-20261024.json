@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-24",
+  "approvedBy": "Nico",
+  "request": "Ja, voer dit overal zo door, met Kopieer link bovenaan en de eigen afbeelding en appkleur. Behoud de bestaande deelopties voor lessen en de headerindeling. Controleer mobiel, desktop, licht en donker voordat je het online zet.",
+  "headerRequest": null,
+  "baseCommit": "a1ee1b576df18254244c303b4f89a59c8d9868d5",
+  "scope": "Algemeen appdelen; bestaande lesdelen, inhoud, media, opslag en headeropzet behouden. KLINK en Scenario krijgen de goedgekeurde twee headerknoppen en appkeuze.",
+  "files": {
+    "header-layout-freeze.json": "2d2d0eb4f42eaabef8ee03cf51d00a6a26a38d9ca83683bb61706e0b986b6700",
+    "index.html": "12f1a103dd8321b3ee1405b0d0403eb4a29b46a555efe99213fe99cc995894d7",
+    "publication-freeze.json": "807687b3e8618561d048794f70144d810f27a0b286efd2bb494d1de660111e07",
+    "publication/header-20261022.json": "e6cd926cad7980cbb854746f6b07fb6478b23cff4b71cde9db4e14dddd5a6a6e",
+    "settings/index.html": "bd9eb84a8f07cf9c28c065c09820338dec003a77e5a352b74713e0bb8de60642",
+    "taalroute-menu/menu-controls.css": "ca2a4f3cb2359cb7583b6de55b76b02b45d7c4e3e2c7c60d8cd7f1b1ba97c3e6",
+    "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
+    "taalroute-menu/share-card.webp": "62078634a075a9770525c4e8ef28a0a9795c3a09a96d6c0327bb8bc9d86225ae"
+  }
+}

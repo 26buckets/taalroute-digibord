@@ -17,19 +17,19 @@
     "tests/tongbrekers-browser.cjs": "5922bc877ee1c50f6a763f27e876f3ee8368b1469f019f590d97ebc9b2c6e462",
     "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
-    "settings/index.html": "0bc5d930753319cdaf9112b98dd5fd393fb4a6057dbb3ad24ddd852170f6184f",
-    "index.html": "554bed15c930d8f00c3f9fef3436016991a685bd9abd272f32f116dd6092f505",
+    "settings/index.html": "bd9eb84a8f07cf9c28c065c09820338dec003a77e5a352b74713e0bb8de60642",
+    "index.html": "12f1a103dd8321b3ee1405b0d0403eb4a29b46a555efe99213fe99cc995894d7",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
-    "taalroute-menu/menu-controls.js": "78de65b361c48055bf2c6261deb1abc70816ef8dddbb841189bde3d067a7ddc9",
-    "taalroute-menu/menu-controls.css": "e49057ae24778bea398bd98e86f4ef54145b3fe388224f405ff2516f6f77b0fa",
+    "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
+    "taalroute-menu/menu-controls.css": "ca2a4f3cb2359cb7583b6de55b76b02b45d7c4e3e2c7c60d8cd7f1b1ba97c3e6",
     "dist/taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
-    "dist/taalroute-menu/menu-controls.js": "78de65b361c48055bf2c6261deb1abc70816ef8dddbb841189bde3d067a7ddc9",
-    "dist/taalroute-menu/menu-controls.css": "e49057ae24778bea398bd98e86f4ef54145b3fe388224f405ff2516f6f77b0fa"
+    "dist/taalroute-menu/menu-controls.js": "18e3a759028063ce7b3d564c64d4f35041c5919552604570ea86127c2bcb545b",
+    "dist/taalroute-menu/menu-controls.css": "15ddefac84c5320796ffbfa0dfacfac305dfddc94465e20083969c905c0f2c73"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
   "approvedSourceCommit": "cc81c7a58c08c9e07cff46f5683fa662236ac10a",
   "liveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44",
-  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico v\u00f3\u00f3r iedere wijziging aan de headerindeling.",
+  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
     "approvedBy": "Nico",
@@ -46,7 +46,7 @@
   },
   "menuAfwerking20261024": {
     "authorization": "Nico: Trek die laatste verschillen gelijk: dubbele labels bij Klankstudio weg, iconen bij Actief kleiner en het theatericoon goed zichtbaar in donker. Controleer ook mobiel en zet het online, met behoud van alle functies.",
-    "scope": "Bestaande menu-iconen zijn 19 \u00d7 19 pixels; klikgebieden blijven minimaal 44 pixels. De niveaukeuze krijgt voldoende breedte op mobiel. Alle routes, inhoud, media en lokale opslag blijven behouden.",
+    "scope": "Bestaande menu-iconen zijn 19 × 19 pixels; klikgebieden blijven minimaal 44 pixels. De niveaukeuze krijgt voldoende breedte op mobiel. Alle routes, inhoud, media en lokale opslag blijven behouden.",
     "baseCommit": "39b9d02ecf7e8c1bb9cfbe65f6ec90f47d507bd1",
     "status": "published-verified-frozen",
     "record": "MENU-AFWERKING-20261024.md",
@@ -63,5 +63,11 @@
     "liveVersion": "711e26b1-5538-49d0-bc3d-c111837b2f44",
     "scope": "Plain text for four navigation controls; Instellingen openen uses the existing gear and handler. Existing header, content, media and storage retained.",
     "publicationRecord": "MENU-OPSCHONING-PUBLICATIE-20261024.json"
+  },
+  "sharing20261024": {
+    "approvedBy": "Nico",
+    "request": "Ja, voer dit overal zo door, met Kopieer link bovenaan en de eigen afbeelding en appkleur. Behoud de bestaande deelopties voor lessen en de headerindeling. Controleer mobiel, desktop, licht en donker voordat je het online zet.",
+    "headerPreserved": true,
+    "evidence": "DELEN-20261024.json"
   }
 }

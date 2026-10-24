@@ -31,20 +31,50 @@
 .tr-settings-panel :is(a,button)::after{content:none!important}
 .tr-settings-panel .tr-menu-modes{border-radius:8px!important}
 
-html[data-theme=dark],[data-theme=dark] body{background:#111b28}
-[data-theme=dark] :is(.screen-head,.board-menu){background:#172232;color:#e6edf5}
-
-
 .tr-settings-panel .tr-menu-appearance{display:block!important;width:100%!important;align-self:stretch!important;text-align:left!important}
 .tr-settings-panel button[aria-label]:not([data-appearance-choice])>span:not(.sr-only){display:inline!important}
 .tr-settings-panel>nav>button:not([hidden]){display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;min-height:46px!important;width:100%!important;padding:9px 10px!important;margin:0!important;border:0!important;border-radius:6px!important;background:transparent!important;color:var(--tr-menu-text)!important;font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;box-shadow:none!important}
-.tr-settings-panel .teacher-entrance>img{width:20px!important;height:20px!important;object-fit:contain}
+.tr-settings-panel .teacher-entrance>img{width:20px!important;height:20px!important;object-fit:contain;mix-blend-mode:normal!important}
 .tr-settings-panel .teacher-entrance strong{font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;color:var(--tr-menu-text)}
 .tr-settings-panel .teacher-entrance small{font:400 12px/1.45 var(--tr-font,Inter,system-ui,sans-serif)!important;color:var(--tr-menu-muted)!important}
 
-#appHeader .tr-settings-panel .mainnav .navitem{height:auto!important;background:transparent!important;color:var(--tr-menu-text)!important;font-weight:400!important}
-#appHeader .tr-settings-panel .level-pill{width:100%;height:auto;padding:0;background:transparent;color:var(--tr-menu-text)}
-#appHeader .tr-settings-panel .level-pill select{width:100%;background:var(--tr-menu-soft);color:var(--tr-menu-text);border:1px solid var(--tr-menu-line);font:inherit}
+/* Isolated sharing surface; no header or lesson layout selectors. */
+.tr-share-dialog{--share-accent:#096cdb;--share-bg:#fff;--share-text:#233c58;--share-muted:#586b7e;--share-line:#dce4ea;--share-hover:#f2f5f8;box-sizing:border-box;width:min(390px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);overflow:auto;margin:auto;padding:20px;border:1px solid var(--share-line);border-top:3px solid var(--share-accent);border-radius:12px;background:var(--share-bg);color:var(--share-text);font:400 14px/1.45 var(--tr-font,Inter,system-ui,sans-serif);box-shadow:0 16px 48px #0003;text-align:left}
+.tr-share-dialog[data-share-app="muziek"]{--share-accent:#7545e8}
+.tr-share-dialog[data-share-app="spreektijd"]{--share-accent:#c76349}
+.tr-share-dialog[data-share-app="klankstudio"]{--share-accent:#285f47}
+.tr-share-dialog[data-share-app="missies"]{--share-accent:#59402d}
+.tr-share-dialog[data-share-app="theaterlezen"]{--share-accent:#a27722}
+.tr-share-dialog[data-share-app="zinnen"]{--share-accent:#91472f}
+.tr-share-dialog[data-share-app="klink"]{--share-accent:#482c46}
+.tr-share-dialog[data-share-app="actief"],.tr-share-dialog[data-share-app="digibord"]{--share-accent:#0090f2}
+[data-theme="dark"] .tr-share-dialog{--share-bg:#172232;--share-text:#e7edf5;--share-muted:#b1bfd0;--share-line:#425269;--share-hover:#243449;color-scheme:dark}
+.tr-share-dialog::backdrop{background:#101a2470;backdrop-filter:blur(4px)}
+.tr-share-dialog *{box-sizing:border-box}
+.tr-share-dialog [hidden]{display:none!important}
+.tr-share-dialog h2{font:500 21px/1.3 var(--tr-font,Inter,system-ui,sans-serif);margin:0;text-align:left;color:var(--share-text)}
+.tr-share-dialog p{margin:5px 0 0;font:400 13px/1.5 var(--tr-font,Inter,system-ui,sans-serif);color:var(--share-muted)}
+.tr-share-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:16px}
+.tr-share-dialog button{appearance:none;box-sizing:border-box;min-width:44px;min-height:44px;border:1px solid var(--share-line);border-radius:7px;background:transparent;color:var(--share-text);font:400 14px/1.4 var(--tr-font,Inter,system-ui,sans-serif);padding:10px;text-align:left;cursor:pointer;box-shadow:none;letter-spacing:normal;text-transform:none}
+.tr-share-dialog button:hover{background:var(--share-hover)}
+.tr-share-dialog :is(button,input):focus-visible{outline:2px solid var(--share-text);outline-offset:3px}
+.tr-share-dialog button[data-share-close]{display:grid;place-items:center;flex:none;padding:0;width:44px;height:44px}
+.tr-share-actions{display:grid;gap:7px}
+.tr-share-actions>button{display:flex;align-items:center;justify-content:flex-start;gap:12px;width:100%;min-height:60px;padding:10px 13px}
+.tr-share-actions svg{width:20px;height:20px;flex:none;color:var(--share-accent)}
+[data-theme="dark"] .tr-share-actions svg{color:color-mix(in srgb,var(--share-accent) 45%,white)}
+.tr-share-dialog strong{display:block;font-weight:500}
+.tr-share-dialog small{display:block;font-size:12px;color:var(--share-muted);line-height:1.45}
+.tr-share-preview{margin:16px 0 0;border:1px solid var(--share-line);border-radius:8px;overflow:hidden;background:var(--share-bg)}
+.tr-share-preview>img{display:block;width:100%;height:auto;max-height:260px;object-fit:contain;background:var(--share-hover)}
+.tr-share-preview>figcaption{display:block;margin:0;padding:11px 12px;border-top:2px solid var(--share-accent);font:400 13px/1.45 var(--tr-font,Inter,system-ui,sans-serif);color:var(--share-text)}
+.tr-share-preview>figcaption>span{display:block;font-size:12px;color:var(--share-muted)}
+.tr-share-platforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:12px}
+.tr-share-platforms button{overflow-wrap:anywhere}
+.tr-share-link{display:block;margin-top:12px;font-size:13px}
+.tr-share-link input{display:block;width:100%;min-height:44px;border:1px solid var(--share-line);border-radius:5px;padding:8px;background:var(--share-bg);color:var(--share-text);font:inherit}
+.tr-share-dialog .tr-share-status{min-height:20px;margin-top:12px}
+@media(max-width:380px){.tr-share-dialog{padding:16px}.tr-share-dialog h2{font-size:20px}}
+@media print{.tr-share-dialog{display:none!important}}
 
-#appHeader .tr-settings-panel :is(.gear,.mainnav .navitem)>svg{width:19px!important;height:19px!important;flex:0 0 19px}
-#appHeader .tr-settings-panel #levelSelect{max-width:none;min-width:100px}
+.tr-share-dialog[data-share-app="scenario"]{--share-accent:#2e4b54}.tr-share-dialog[data-share-app="lexicon"]{--share-accent:#0090f2}
