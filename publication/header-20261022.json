@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "44ba42e3ff9a63ce69eb3e310c51684d5b5867d2fec294f0d8085d33968a54e8",
-    "publication-freeze.json": "a5c7c5b72da95367a613ded5510edebbcb6b2be835803b9a9ed54be1fc699622",
+    "publication-freeze.json": "5576f9594e78ed1e2de0fcba5940a7e421aab1fad5d6b3d6e2982ef6cade313b",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -41,7 +41,7 @@
     "taalroute-menu/zinnen.svg": "e73cb98cc177a0f2d16a957ff697e40fb65e382c327cbe0b51a6dc2c23bf8a9c",
     "publication/HDR001-20261022.md": "b46702d42be128bd888a8e3da01f1f0a49b8db88626b5c751a3cffd41b608008",
     "HEADER-AFSPRAAK.md": "e2905d70e27f2057c1d25c9607652c1bee5d87028b9e0c6cf6c1e2c2fd9f7f41",
-    "header-layout-freeze.json": "197949c4e32b835a224559357f0f1a3185d6e587ad08b572d5c06890f87a42ad",
+    "header-layout-freeze.json": "dd8fa9ecc20c300e992e2a32dfc815e3616897a6dc5255a3961d4c5cbdc951b8",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "78de65b361c48055bf2c6261deb1abc70816ef8dddbb841189bde3d067a7ddc9",
@@ -49,5 +49,10 @@
   },
   "explicitPublicationApproval": "Nico, 22 oktober 2026: Ja, ook Actief en Spreektijd publiceren en opnieuw vastzetten. Uitsluitend Studio / Docentenomgeving / BETA als vaste eerste menuoptie; noodzakelijke publicatie- en updateblokkade tijdelijk vrijgeven en direct herstellen.",
   "previousDecision": "publication/actief-migration-20261020.json",
-  "scope": "Only add Studio / Docentenomgeving / BETA as the first app-menu destination; preserve all existing content and functionality"
+  "scope": "Only add Studio / Docentenomgeving / BETA as the first app-menu destination; preserve all existing content and functionality",
+  "publishedMenu20261024": {
+    "sourceCommit": "d68f67f1ff97edfa8b22fb1068a15617ba2e265a",
+    "liveVersion": "f865b134-b262-47a0-99ac-54783adbab3c",
+    "checks": "local build, unit and smoke; live menu 320/768/1440; original freeze manifest retained"
+  }
 }

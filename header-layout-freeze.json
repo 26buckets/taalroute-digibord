@@ -27,8 +27,8 @@
     "dist/taalroute-menu/menu-controls.css": "61a8aa81009dc5ac77bd5b39e0b56b83a5f85cbc60c15e135c8e5924684c9161"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
-  "approvedSourceCommit": "efccd909ca7a5bdaecc11198bacf74f44f53f2ee",
-  "liveVersion": "4f984df3-4407-4e3a-ae3d-240e8fef5017",
+  "approvedSourceCommit": "d68f67f1ff97edfa8b22fb1068a15617ba2e265a",
+  "liveVersion": "f865b134-b262-47a0-99ac-54783adbab3c",
   "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
@@ -42,6 +42,6 @@
     "baseCommit": "2b69e24b9c22ed1cac1e9bf33e34f443faaff4d6",
     "scope": "Alleen hamburgerpresentatie, kleurvoorkeur en eerdere headerinitialisatie; vaste headerindeling en alle appfuncties behouden.",
     "record": "HEADER-MENU-20261024.md",
-    "status": "locally reviewed candidate; publication recorded separately"
+    "status": "published-verified-frozen"
   }
 }
