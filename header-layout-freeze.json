@@ -18,7 +18,7 @@
     "tests/header-actions.cjs": "3536208e2de071d41f6c4e39bf745e031134f404d16011d6aedf3eb70d47865f",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
     "settings/index.html": "0bc5d930753319cdaf9112b98dd5fd393fb4a6057dbb3ad24ddd852170f6184f",
-    "index.html": "7a1ee8bff3611f33860e30f3128db55a2ae2cdc42615bcc2ad49687a6f072564",
+    "index.html": "554bed15c930d8f00c3f9fef3436016991a685bd9abd272f32f116dd6092f505",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "78de65b361c48055bf2c6261deb1abc70816ef8dddbb841189bde3d067a7ddc9",
     "taalroute-menu/menu-controls.css": "e49057ae24778bea398bd98e86f4ef54145b3fe388224f405ff2516f6f77b0fa",
@@ -29,7 +29,7 @@
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
   "approvedSourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
   "liveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387",
-  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico vóór iedere wijziging aan de headerindeling.",
+  "futureChangesRequire": "Nieuwe expliciete toestemming van Nico v\u00f3\u00f3r iedere wijziging aan de headerindeling.",
   "studioMenuAddition": {
     "date": "2026-10-22",
     "approvedBy": "Nico",
@@ -46,11 +46,17 @@
   },
   "menuAfwerking20261024": {
     "authorization": "Nico: Trek die laatste verschillen gelijk: dubbele labels bij Klankstudio weg, iconen bij Actief kleiner en het theatericoon goed zichtbaar in donker. Controleer ook mobiel en zet het online, met behoud van alle functies.",
-    "scope": "Bestaande menu-iconen zijn 19 × 19 pixels; klikgebieden blijven minimaal 44 pixels. De niveaukeuze krijgt voldoende breedte op mobiel. Alle routes, inhoud, media en lokale opslag blijven behouden.",
+    "scope": "Bestaande menu-iconen zijn 19 \u00d7 19 pixels; klikgebieden blijven minimaal 44 pixels. De niveaukeuze krijgt voldoende breedte op mobiel. Alle routes, inhoud, media en lokale opslag blijven behouden.",
     "baseCommit": "39b9d02ecf7e8c1bb9cfbe65f6ec90f47d507bd1",
     "status": "published-verified-frozen",
     "record": "MENU-AFWERKING-20261024.md",
     "sourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
     "liveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387"
+  },
+  "menuOpschoning20261024": {
+    "authorization": "Nico, 24 oktober 2026: gewone tekst voor navigatielinks, iconen alleen bij herkenbare acties. Dubbele handleiding bij Lexicon en Voor docenten bij Theaterlezen verwijderen; Instellingen openen met hetzelfde tandwiel. Controleer mobiel en desktop en zet online, met behoud van alle functies.",
+    "baseCommit": "bb92b2211240a6211fa5fba7c458732a16f51604",
+    "status": "local-verified-ready-to-publish",
+    "record": "MENU-OPSCHONING-20261024.md"
   }
 }

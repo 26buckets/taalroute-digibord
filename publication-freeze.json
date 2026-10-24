@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "frozen": true,
+  "frozen": false,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Gerichte menuafwerking online gecontroleerd op 320/390/768/1440 pixels; opnieuw vastgezet. Volgende wijziging vereist nieuwe expliciete toestemming.",
+  "decision": "Nico, 24 oktober 2026: gewone tekst voor navigatielinks, iconen alleen bij herkenbare acties. Dubbele handleiding bij Lexicon en Voor docenten bij Theaterlezen verwijderen; Instellingen openen met hetzelfde tandwiel. Controleer mobiel en desktop en zet online, met behoud van alle functies.",
   "releaseDecision": "publication/header-20261022.json",
   "headerSourceCommit": "7be8ab8fbe7554dbacafee8da7ffed3690d72b42",
   "headerLiveVersion": "a1e6c7f2-3246-4b7d-a074-c1878ca28387"
