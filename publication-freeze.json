@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "frozen": false,
+  "frozen": true,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Ook KLINK in alle appmenu’s toevoegen; expliciete publicatievrijgave: Ja, publiceren en opnieuw vastzetten",
+  "decision": "KLINK-menuregel op expliciete opdracht gepubliceerd en live gecontroleerd; meteen opnieuw vastgezet. Nieuwe publicatie vereist nieuwe expliciete toestemming.",
   "releaseDecision": "publication/header-20261022.json",
-  "headerSourceCommit": "53c64cc8bf3b610a1540cfda5960563532d2aa86",
-  "headerLiveVersion": "ba025f24-359f-4ca6-a442-c203dd64690f"
+  "headerSourceCommit": "9994d9c1f7159af8412b4f7e846b8e54559eb350",
+  "headerLiveVersion": "3d480065-6593-49a7-b178-c2170abfd940"
 }

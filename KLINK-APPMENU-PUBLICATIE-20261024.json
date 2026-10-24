@@ -1,0 +1,7 @@
+{
+  "sourceCommit": "9994d9c1f7159af8412b4f7e846b8e54559eb350",
+  "liveVersion": "3d480065-6593-49a7-b178-c2170abfd940",
+  "scope": "KLINK als extra appkeuze; bestaande header en functies behouden",
+  "checks": "Vier breedtes, licht/donker lokaal en live; volledige voorgeschreven bestaande lokale controles geslaagd",
+  "frozen": true
+}

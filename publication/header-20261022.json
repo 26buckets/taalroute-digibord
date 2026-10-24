@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "44ba42e3ff9a63ce69eb3e310c51684d5b5867d2fec294f0d8085d33968a54e8",
-    "publication-freeze.json": "33a8d2d0b101046702dc5532d95151f617a3e0e133203d8bc3c9499ee3803b51",
+    "publication-freeze.json": "6d2c0d543efc3c72a0e1d81c4d75251ad35406651cb2d05eb88b476d00c7350b",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -54,7 +54,7 @@
     "taalroute-menu/klink-dark.svg": "fa0836b9916b4367efee65d152f72ca4917ef6f1fe060a9b9e62b1ac2c112e90",
     "taalroute-menu/klink-brand.svg": "dfbeab52f771fddcc52cb25256e8ca031cf93063361f12163d18a19ec1d973f1"
   },
-  "explicitPublicationApproval": "Nico: deeloptie overal publiceren met Kopieer link bovenaan, eigen afbeelding en appkleur; behoud bestaande deelopties voor lessen en headerindeling; controleer mobiel, desktop, licht en donker vóór publicatie. KLINK en Scenario ook laten aansluiten.",
+  "explicitPublicationApproval": "Nico: Ja, publiceren en opnieuw vastzetten",
   "previousDecision": "publication/actief-migration-20261020.json",
   "scope": "App delen: Kopieer link bovenaan, eigen afbeelding en appkleur; bestaande lesdeelopties en header behouden. KLINK en Scenario aangesloten met expliciete toestemming.",
   "publishedMenu20261024": {
@@ -81,5 +81,9 @@
     "liveVersion": "ba025f24-359f-4ca6-a442-c203dd64690f",
     "scope": "App delen: Kopieer link bovenaan, eigen afbeelding en appkleur; bestaande lesdeelopties en header behouden. KLINK en Scenario aangesloten met expliciete toestemming.",
     "checks": "Lokale appcontrole 320/390/768/1440 in licht en donker; live 390/1440 in licht en donker (Lexicon aangemeld). Zie centrale controlebewijzen."
+  },
+  "publishedKlinkAppMenu20261024": {
+    "sourceCommit": "9994d9c1f7159af8412b4f7e846b8e54559eb350",
+    "liveVersion": "3d480065-6593-49a7-b178-c2170abfd940"
   }
 }
