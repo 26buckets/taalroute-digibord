@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "frozen": false,
+  "frozen": true,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
@@ -9,6 +9,6 @@
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
   "decision": "Ja, dit is goed. Zet deze donkere headers online bij Actief, Missies en Spreektijd. Alleen de headers aanpassen, de apps zelf blijven zoals ze zijn. Controleer het nog even en zet het daarna weer vast.",
   "releaseDecision": "publication/header-20261022.json",
-  "headerSourceCommit": "8edd083048cccaa69568743640c48b1211b5fda1",
-  "headerLiveVersion": "4b08b1ed-ff2c-476c-8707-7f23809c2355"
+  "headerSourceCommit": "1479e8ff6bfc09c8cf605fe124030b22878230a2",
+  "headerLiveVersion": "a313eb7f-72c7-4528-967b-6d643001c48c"
 }

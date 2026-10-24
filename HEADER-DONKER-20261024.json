@@ -4,6 +4,11 @@
   "request": "Ja, dit is goed. Zet deze donkere headers online bij Actief, Missies en Spreektijd. Alleen de headers aanpassen, de apps zelf blijven zoals ze zijn. Controleer het nog even en zet het daarna weer vast.",
   "baseCommit": "443494cc42e93c025b9275df07538d96b70cb32a",
   "scope": "Alleen donkere headerkleuren; appkleur/accent, afmetingen, knoppen, lesinhoud, media en functies behouden.",
-  "status": "Lokale controles vóór publicatie",
-  "preview": "header-donker-preview-20261024: 12 combinaties, ongewijzigde pixels onder header"
+  "status": "Online gecontroleerd en opnieuw vastgezet",
+  "preview": "header-donker-preview-20261024: 12 combinaties, ongewijzigde pixels onder header",
+  "sourceCommit": "1479e8ff6bfc09c8cf605fe124030b22878230a2",
+  "liveVersion": "a313eb7f-72c7-4528-967b-6d643001c48c",
+  "localChecks": "40/40 op 320, 390, 768 en 1440 px; licht en donker; headergeometrie en pixels onder header gelijk",
+  "liveChecks": "8/8 geslaagd",
+  "scopeConfirmed": "Alleen headerkleuren en logoletters; appinhoud, functies en indeling ongewijzigd"
 }

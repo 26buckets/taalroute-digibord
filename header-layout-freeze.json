@@ -24,7 +24,8 @@
     "taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918",
     "dist/taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "dist/taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
-    "dist/taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918"
+    "dist/taalroute-menu/menu-controls.css": "401065595592d84ff8bacf79a98a9f972040fb6810910eb8989837091d25b918",
+    "taalroute-menu/taalroute-actief-dark.svg": "8c03ef39f7bc123a882ab51161db6dfe955860d062c09a7afbbcb6ed3a597fdf"
   },
   "approval": "Nico, 22 oktober 2026: Zorg dat het overal zo is, inclusief Actief en Spreektijd. Headerindeling daarna vastzetten; verdere wijzigingen alleen na mijn toestemming.",
   "approvedSourceCommit": "9994d9c1f7159af8412b4f7e846b8e54559eb350",
@@ -98,6 +99,9 @@
   "darkHeader20261024": {
     "approvedBy": "Nico",
     "request": "Ja, dit is goed. Zet deze donkere headers online bij Actief, Missies en Spreektijd. Alleen de headers aanpassen, de apps zelf blijven zoals ze zijn. Controleer het nog even en zet het daarna weer vast.",
-    "record": "HEADER-DONKER-20261024.json"
+    "record": "HEADER-DONKER-20261024.json",
+    "sourceCommit": "1479e8ff6bfc09c8cf605fe124030b22878230a2",
+    "liveVersion": "a313eb7f-72c7-4528-967b-6d643001c48c",
+    "status": "Gepubliceerd, gecontroleerd en vastgezet"
   }
 }
