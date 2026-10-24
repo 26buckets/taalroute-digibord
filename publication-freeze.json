@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "frozen": true,
+  "frozen": false,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Uniform menu gepubliceerd en op drie schermformaten gecontroleerd; publicatie opnieuw vastgezet. Volgende wijziging vereist Nico’s expliciete nieuwe opdracht.",
+  "decision": "Nico, 24 oktober 2026: Trek die laatste verschillen ook gelijk: iconen bij Actief kleiner. Controleer ook mobiel en zet het online, met behoud van alle functies. Deze expliciete publicatieopdracht geldt uitsluitend voor de gecontroleerde menuafwerking; daarna opnieuw vastzetten.",
   "releaseDecision": "publication/header-20261022.json",
   "headerSourceCommit": "d68f67f1ff97edfa8b22fb1068a15617ba2e265a",
   "headerLiveVersion": "f865b134-b262-47a0-99ac-54783adbab3c"

@@ -45,3 +45,6 @@ html[data-theme=dark],[data-theme=dark] body{background:#111b28}
 #appHeader .tr-settings-panel .mainnav .navitem{height:auto!important;background:transparent!important;color:var(--tr-menu-text)!important;font-weight:400!important}
 #appHeader .tr-settings-panel .level-pill{width:100%;height:auto;padding:0;background:transparent;color:var(--tr-menu-text)}
 #appHeader .tr-settings-panel .level-pill select{width:100%;background:var(--tr-menu-soft);color:var(--tr-menu-text);border:1px solid var(--tr-menu-line);font:inherit}
+
+#appHeader .tr-settings-panel :is(.gear,.mainnav .navitem)>svg{width:19px!important;height:19px!important;flex:0 0 19px}
+#appHeader .tr-settings-panel #levelSelect{max-width:none;min-width:100px}
