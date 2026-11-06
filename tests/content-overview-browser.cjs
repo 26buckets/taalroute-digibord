@@ -1,10 +1,11 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
 const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));if(!file.startsWith(served+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res)});
 let browser,page;
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({headless:true,channel:'chrome'});page=await browser.newPage({viewport:{width:1440,height:1100},reducedMotion:'reduce'});const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(process.env.LIVE_URL||`http://127.0.0.1:${server.address().port}/index.html`);await page.locator('[data-main=practice]').click();
+ await page.goto(process.env.LIVE_URL||`http://127.0.0.1:${server.address().port}/index.html`);await headerAction(page,'[data-main=practice]','click');
  const audit=await page.evaluate(()=>{
   const a=ContentOverview,failures=[],same=(x,y)=>JSON.stringify([...new Set(x.map(i=>i.content_item_id))].sort())===JSON.stringify([...new Set(y.map(i=>i.content_item_id))].sort());let scopes=0,shortSelection=null;
   for(const entry of a.entries())for(const route of DigiRoutes.routes){

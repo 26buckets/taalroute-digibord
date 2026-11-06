@@ -64,7 +64,7 @@
   const sets=Object.values(data.taalworpSets?.sets||{}).filter(s=>s.recordIds?.length),images=data.storydice?.icons||[],collections=(data.storydice?.collections||[]).filter(s=>s.status==='ready');
   return {cards,sets:sets.map(s=>({title:s.title||s.label||s.name,count:s.recordIds?.length||0})),verbs:new Set(sets.flatMap(s=>s.recordIds||[])).size,images:new Set(images.map(i=>i.id)).size,collections:collections.map(s=>({title:s.title||s.label||s.name,count:new Set(images.filter(i=>i.collection===s.id||(s.includeNumbers||[]).includes(i.number)).map(i=>i.id)).size}))};
  }
- function lesson(item){const registry=root.DIGIBORD_CONTENT_GUIDANCE;const b=registry?.bindings?.[item.content_item_id];return b?.item_version===item.version?b.lesson:null}
+ function lesson(item){const quick=root.QuickLessonGuidance?.lesson(item);if(quick)return quick;const registry=root.DIGIBORD_CONTENT_GUIDANCE;const b=registry?.bindings?.[item.content_item_id];return b?.item_version===item.version?b.lesson:null}
  function open(filters={},page='tasks'){root.ContentOverview.context={...filters};root.openSettings(page)}
  root.ContentOverview={entries,find,title,kinds,kindOf,routeOf,guided,unique,matching,counts,scope,selection,prepare,startMix,useMix,lesson,materials,open,context:{}};
 })(typeof globalThis!=='undefined'?globalThis:this);
