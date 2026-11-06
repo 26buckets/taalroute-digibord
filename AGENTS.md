@@ -52,3 +52,5 @@ Lees HEADER-AFSPRAAK.md en header-layout-freeze.json vóór headerwerk. Het logo
 
 ## Kaarttekst en leesbaarheid — Nico, 6 november 2026
 Schrijf concrete instructies. Gebruik ‘één zin’ in plaats van ‘één natuurlijke zin’; geen vage opdracht zoals ‘maak de zin natuurlijk’. Houd context, te lezen tekst/woorden, opdracht en antwoord zichtbaar uit elkaar. Geen dubbele oefentekst of punt direct voor een dubbele punt. Markeer het woord of zinsdeel dat de cursist moet veranderen. Laat lange kaartinhoud scrollen met bereikbare bediening; verklein de tekst niet automatisch om alles in de kaart te persen. Behoud de bronversies en opgeslagen lessen; pas de gedeelde weergave brongebonden aan.
+
+Bij werkwoorden vervangen noemt de opdracht het hele werkwoord, bijvoorbeeld ‘gaan’, en vraagt de cursist om de juiste vorm. Geef de vervoeging (‘gaat’) niet alvast in de opdracht. Het vervoegde model blijft bij het verborgen antwoord.

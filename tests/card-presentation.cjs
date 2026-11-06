@@ -17,8 +17,19 @@ const order={prompt:'Zet de woorden in volgorde: ik / werk',order_tokens:['ik','
 assert.deepEqual(presentation.shared(order,'Zet de woorden in volgorde: werk | ik').words,['werk','ik']);
 for(const card of source.cards.filter(c=>c.family==='verbs')){const p=presentation.standalone(card);assert.ok(p&&p.stimuli.length&&p.steps.length,card.id);if(p.target)assert.ok(p.stimuli.some(t=>t.includes(p.target)),card.id);}
 assert.equal(presentation.shared(byId('WZ_024_V14')).target,'moet');
-assert.equal(presentation.shared(byId('WZ_024_V14')).instruction,'Vervang het onderstreepte deel door ‘gaat’.');
-assert.equal(presentation.shared(byId('WZ_016_V05')).instruction,'Vervang het onderstreepte deel door ‘moeten’.');
+assert.equal(presentation.shared(byId('WZ_024_V14')).instruction,'Vervang het onderstreepte werkwoord door ‘gaan’. Zet het werkwoord in de juiste vorm.');
+assert.equal(presentation.shared(byId('WZ_016_V05')).instruction,'Vervang het onderstreepte werkwoord door ‘moeten’. Zet het werkwoord in de juiste vorm.');
+for(const series of ['016','024'])for(let n=1;n<=18;n++){
+ const item=byId(`WZ_${series}_V${String(n).padStart(2,'0')}`),p=presentation.shared(item);
+ const verb=(series==='016'?['moeten','mogen','kunnen','willen']:['moeten','gaan','willen','kunnen'])[(n-1)%4];
+ assert.equal(p.instruction,`Vervang het onderstreepte werkwoord door ‘${verb}’. Zet het werkwoord in de juiste vorm.`,item.content_item_id);
+ assert.ok(p.target&&item.stimulus.includes(p.target),item.content_item_id);
+ assert.equal(p.stimulus,item.stimulus);
+ assert.equal(presentation.steps(p.instruction).length,2);
+}
+assert.equal(byId('WZ_024_V10').model_answer,'Ik ga het formulier invullen.');
+assert.equal(byId('WZ_024_V14').model_answer,'Sara gaat de dokter bellen.');
+assert.equal(byId('WZ_024_V18').model_answer,'De kinderen gaan buiten spelen.');
 assert.equal(presentation.shared(byId('ER_B1_111')).instruction,'Antwoord onpersoonlijk met er.');
 assert.equal(presentation.shared(byId('PB007_A2_01_001')).instruction,'Kies wat op de lege plek past.');
 assert.equal(presentation.shared(byId('PB005_B1_01_001')).words.length,7);

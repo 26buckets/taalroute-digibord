@@ -134,11 +134,18 @@
    if(instruction==='Verbeter')instruction='Verbeter de zin';
    if(/^(?:Wat|Welke)/.test(instruction)&&!/[.!?]$/.test(instruction)){instruction=instruction.replace(/\b(in|in de zin)$/, 'in deze tekst')+'?';}
   }
-  if(instruction==='Verander alleen het laatste deel'||/^Verander het (?:eerste|modale) werkwoord naar .+ als dat past$/.test(instruction)){
+  const verbChange=instruction.match(/^Verander het (?:eerste|modale) werkwoord naar (moet|mag|kan|wil|gaat) als dat past$/);
+  if(instruction==='Verander alleen het laatste deel'||verbChange){
    const before=stimulus.replace(/[.!?]$/,'').split(' '),after=wording.text(item.model_answer).replace(/[.!?]$/,'').split(' ');
    let n=0,e=0;while(n<before.length&&n<after.length&&before[n]===after[n])n++;
    while(e<before.length-n&&e<after.length-n&&before[before.length-1-e]===after[after.length-1-e])e++;
-   if(n>0&&n<before.length&&n<after.length){target=before.slice(n,before.length-e).join(' ');instruction='Vervang het onderstreepte deel door ‘'+after.slice(n,after.length-e).join(' ')+'’';}
+   if(n>0&&n<before.length&&n<after.length){
+    target=before.slice(n,before.length-e).join(' ');
+    if(verbChange){
+     const verb={moet:'moeten',mag:'mogen',kan:'kunnen',wil:'willen',gaat:'gaan'}[verbChange[1]];
+     instruction='Vervang het onderstreepte werkwoord door ‘'+verb+'’. Zet het werkwoord in de juiste vorm';
+    }else instruction='Vervang het onderstreepte deel door ‘'+after.slice(n,after.length-e).join(' ')+'’';
+   }
   }
   const replace=instruction.match(/^(?:Verander|Vervang) [‘']?(.+?)[’']? (?:in|door) .+$/);
   if(!target&&replace&&stimulus.includes(replace[1]))target=replace[1];

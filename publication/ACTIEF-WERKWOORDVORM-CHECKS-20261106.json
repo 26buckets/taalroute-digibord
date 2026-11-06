@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-06",
+  "basis": "593f56ca798a3cd5daff9dd66658f30e630b2df6",
+  "status": "PASS",
+  "scope": {
+    "compared": 11030,
+    "changedInstructions": [
+      "WZ_016_V01",
+      "WZ_016_V02",
+      "WZ_016_V03",
+      "WZ_016_V04",
+      "WZ_016_V05",
+      "WZ_016_V06",
+      "WZ_016_V07",
+      "WZ_016_V08",
+      "WZ_016_V09",
+      "WZ_016_V10",
+      "WZ_016_V11",
+      "WZ_016_V12",
+      "WZ_016_V13",
+      "WZ_016_V14",
+      "WZ_016_V15",
+      "WZ_016_V16",
+      "WZ_016_V17",
+      "WZ_016_V18",
+      "WZ_024_V01",
+      "WZ_024_V02",
+      "WZ_024_V03",
+      "WZ_024_V04",
+      "WZ_024_V05",
+      "WZ_024_V06",
+      "WZ_024_V07",
+      "WZ_024_V08",
+      "WZ_024_V09",
+      "WZ_024_V10",
+      "WZ_024_V11",
+      "WZ_024_V12",
+      "WZ_024_V13",
+      "WZ_024_V14",
+      "WZ_024_V15",
+      "WZ_024_V16",
+      "WZ_024_V17",
+      "WZ_024_V18"
+    ],
+    "otherCardFieldsUnchanged": true,
+    "changedPublishedAssets": [
+      "card-presentation.js"
+    ]
+  },
+  "checks": [
+    "npm test",
+    "test:activities via lokale HTTP-server",
+    "lint",
+    "types",
+    "test:p0",
+    "test:p0:browser: 610 kaarten, vier viewports",
+    "test:banks:browser",
+    "smoke: alle onderdelen; grammar-review in zes bestaande shards, 7200 weergaven",
+    "test:tongue:browser via lokale HTTP-server",
+    "test:publication",
+    "build",
+    "all-card-presentation-browser: 11338 opdrachten, 234 combinaties, 36 werkwoordkaarten desktop/mobiel"
+  ],
+  "testNotes": [
+    "De eerste lokale file://-runs van landing/tongbrekers konden het headermenu niet laden. De bestaande HTTP-testopties gebruikt; alle controles daarna geslaagd.",
+    "De seriële grammaticareeks is vervangen door de bestaande zes shards voor dezelfde volledige dekking."
+  ],
+  "cloudWorkflowsStarted": 0,
+  "changesToWorkflow": false
+}
