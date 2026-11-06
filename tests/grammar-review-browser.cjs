@@ -1,3 +1,4 @@
+const displayText=require('../wording.js').text;
 const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
@@ -106,9 +107,9 @@ let browser,page;
   if(engine==='QUIZ')await page.locator('.na-quiz-board [data-content-item-id="'+id+'"]').click();
   const item=await page.evaluate(id=>ContentRuntime.itemById(id),id);
   const container=page.locator(engine==='BOARD'?'#taskDrawer':engine==='WHEEL'?'.na-wheel-result':engine==='QUIZ'?'.na-workspace':'.content-reading[data-content-item-id]');
-  const text=await container.innerText();assert.ok(text.includes(item.context),id+' '+engine+' situation visible');
-  assert.ok(text.replace(/\s+/g,' ').includes(item.prompt.split('\n')[0].replace(/\s+/g,' ')),id+' '+engine+' instruction visible');
-  if(['open','open_geleid'].includes(item.answer_type))assert.ok(!text.includes(item.model_answer),id+' hidden example');
+  const text=await container.innerText();assert.ok(text.includes(displayText(item.context)),id+' '+engine+' situation visible');
+  assert.ok(text.replace(/\s+/g,' ').includes(displayText(item.prompt).split('\n')[0].replace(/\s+/g,' ')),id+' '+engine+' instruction visible');
+  if(['open','open_geleid'].includes(item.answer_type))assert.ok(!text.includes(displayText(item.model_answer)),id+' hidden example');
   let answer;
   if(engine==='QUIZ'&&item.options.length){
    await page.locator('[data-na=quiz-answer]').nth(item.options.indexOf(item.correct_answer)).click();
@@ -118,7 +119,7 @@ let browser,page;
    const reveal=page.locator(engine==='BOARD'?'#contentBoardAnswer':engine==='WHEEL'?'.na-wheel-result summary':engine==='QUIZ'?'[data-na=quiz-reveal]':engine==='DICE'?'#contentDiceReveal':'#contentCardReveal');await reveal.click();
    answer=await page.locator(engine==='BOARD'?'#gameDialog':engine==='WHEEL'?'.na-wheel-result .content-answer':engine==='QUIZ'?'.na-quiz-review':engine==='DICE'?'#contentDiceAnswer':'#contentCardAnswer').innerText();
   }
-  assert.ok(answer.includes(item.model_answer),id+' '+engine+' model');assert.ok(answer.includes(item.explanation),id+' '+engine+' explanation');
+  assert.ok(answer.includes(displayText(item.model_answer)),id+' '+engine+' model');assert.ok(answer.includes(displayText(item.explanation)),id+' '+engine+' explanation');
   if(engine==='BOARD')await page.keyboard.press('Escape');
   assert.ok(await container.evaluate(e=>e.scrollWidth<=e.clientWidth+1),id+' '+engine+' no horizontal clipping');
   if(engine==='CARDS'&&['ZULLEN_A2_006','ZULLEN_A2_038','ZULLEN_A2_069','ZULLEN_A2_099','ER_B1_069','ER_B1_099','ER_B1_104','ER_B1_155','ER_B1_168','ER_A2_125','ER_A2_150','ER_B1_018','ER_B1_027','ER_B1_039','ER_A2_009','ER_A2_038','ER_A2_069','ER_A2_108','ZOUDEN_B2_129','ZOUDEN_B2_131','ZOUDEN_B2_142','ZOUDEN_B2_099','ZOUDEN_B2_109','ZOUDEN_B2_111','ZOUDEN_B2_069','ZOUDEN_B2_073','ZOUDEN_B2_090','ZOUDEN_B2_039','ZOUDEN_B2_052','ZOUDEN_B2_053','ZOUDEN_B2_009','ZOUDEN_B2_016','ZOUDEN_B2_020','ZULLEN_B2_129','ZULLEN_B2_131','ZULLEN_B2_141','ZULLEN_B2_094','ZULLEN_B2_099','ZULLEN_B2_111','ZULLEN_B2_061','ZULLEN_B2_081','ZULLEN_B2_086','ZULLEN_B2_037','ZULLEN_B2_048','ZULLEN_B2_060','ZULLEN_B2_007','ZULLEN_B2_009','ZULLEN_B2_021','ER_B2_159','ER_B2_168','ER_B2_180','ER_B2_129','ER_B2_141','ER_B2_143','ER_B2_070','ER_B2_078','ER_B2_090','ER_B2_049','ER_B2_053','ER_B2_060','ER_B2_002','ER_B2_009','ER_B2_020','ER_B2_092','ER_B2_111','ER_B2_113'].includes(id))await page.screenshot({path:path.join(dir,id+'-review.png')});

@@ -1,7 +1,31 @@
 // Taalroute's fixed wording also applies when displaying a retained lesson version.
 (function(root){
  'use strict';
- function text(value){
+ function text(value){return sourceText(value)
+  .replace(/\.\s*:/g,':')
+  .replace(/Maak de zin natuurlijk/gi,'Verbeter de zin')
+  .replace(/herschrijf natuurlijk:/gi,'herschrijf:')
+  .replace(/in deze context natuurlijk\?/gi,'in deze context passend?')
+  .replace(/natuurlijk\?/gi,'duidelijk?')
+  .replace(/Kies de natuurlijke /gi,'Kies de juiste ')
+  .replace(/\bnatuurlijke (?=(?:zin|zinnen|ja[ -]nee|relatieve zin|varianten|mededelende|hoofdzin|dat-zin|vraagwoordvraag|tegenwoordige tijd|en grammaticale woordvolgorde)\b)/gi,'')
+  .replace(/\bnatuurlijke (plaats|positie|woordvolgorde|volgorde|neutrale middenveldvolgorde)\b/gi,'juiste $1')
+  .replace(/\bnatuurlijke, /gi,'')
+  .replace(/\bnatuurlijke variant\b/gi,'passende variant')
+  .replace(/\bnatuurlijker\b/gi,'duidelijker')
+  .replace(/\bnatuurlijkst\b/gi,'het best')
+  .replace(/\bnatuurlijk (voor dagelijks contact|tussen directe collega’s)/gi,'passend $1')
+  .replace(/\bnatuurlijk informeel Nederlands\b/gi,'informeel Nederlands')
+  .replace(/\bnatuurlijk en proportioneel\b/gi,'duidelijk en passend')
+  .replace(/\bnatuurlijk bericht\b/gi,'duidelijk bericht')
+  .replace(/\b(correct|grammaticaal) en natuurlijk\b/gi,'$1')
+  .replace(/\bnatuurlijk (?=(?:bij|in|aan|met|zonder|verbinden|combineren|ordenen|gebruiken)\b)/gi,'')
+  .replace(/\bnatuurlijk (blijven|is|uitdrukt)\b/gi,'duidelijk $1')
+  .replace(/\bnatuurlijke middenveldpositie\b/gi,'juiste plaats in de zin')
+  .replace(/\bnatuurlijke (spreektaal|bevestiging)\b/gi,'$1')
+  .replace(/\bnatuurlijke productie\b/gi,'taalgebruik')
+  .replace(/\bnatuurlijke wijzigingsafspraak\b/gi,'afspraak over een wijziging');}
+ function sourceText(value){
   const plain=String(value??'').replace(/\bbuur\b/gi,word=>word==='BUUR'?'BUURMAN':word[0]==='B'?'Buurman':'buurman');
   if(!/\bfictie(?:f|ve)\b|\b(?:denkbeeldige|verzonnen) (?:medewerker|persoon|collega|buurman|buurvrouw|ouder|klant|gesprekspartner|vriend|huisgenoot)\b/i.test(plain))return plain;
   // Preserve the source and saved references; remove editorial labels at display time.
@@ -32,5 +56,5 @@
   .replace(/\b(?:denkbeeldige|verzonnen) (?=(?:medewerker|persoon|collega|buurman|buurvrouw|ouder|klant|gesprekspartner|vriend|huisgenoot)\b)/gi,'');
  }
  const audio=card=>card?.id==='TR-TONGUE-D240-A2-018'?'assets/audio/tongbrekers/tr-tongue-d240-a2-018-woordkeuze.mp3':card?.audio?.src;
- const api={text,audio};if(typeof module==='object'&&module.exports)module.exports=api;else root.AppWording=api;
+ const api={text,sourceText,audio};if(typeof module==='object'&&module.exports)module.exports=api;else root.AppWording=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

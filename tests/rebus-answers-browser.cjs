@@ -10,7 +10,7 @@ const rows=expected.filter(c=>c.record.visualRebus).map(c=>({...c,solution:solut
   await p.evaluate(row=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:true,sound:false});APP.cardGuided=true;APP.level=row.guided[0];APP.cardKind='idioms';APP.cardShuffles={};APP.cardIndex=cardsFor('idioms').findIndex(c=>c.id===row.id);delete APP.cardRound;APP.last={type:'card',data:{kind:'idioms'}};startCards('idioms')},row);
   assert.equal(await p.evaluate(()=>currentCard().id),row.id);
   await p.locator('#cardRebus img').evaluate(img=>img.decode());assert.equal(await p.locator('#cardRebus img').getAttribute('alt'),row.record.visualRebus.alt);
-  const fits=async()=>{const result=await p.evaluate(()=>{fitCardViewport();const c=document.querySelector('.card-content');return c.scrollHeight<=c.clientHeight+1&&c.scrollWidth<=c.clientWidth+1});assert.ok(result,row.id+' content fits '+width)};await fits();
+  const fits=async()=>{const result=await p.evaluate(()=>{const c=document.querySelector('.card-content');c.scrollTop=c.scrollHeight;const reachable=Math.abs(c.scrollHeight-c.clientHeight-c.scrollTop)<2;c.scrollTop=0;return reachable&&getComputedStyle(c).overflowY==='auto'&&c.scrollWidth<=c.clientWidth+1});assert.ok(result,row.id+' content fits '+width)};await fits();
   const norm=s=>s.toLocaleLowerCase('nl').replace(/[^\p{L}\p{N}]+/gu,' ').trim(),leaks=text=>(' '+norm(text)+' ').includes(' '+norm(row.solution)+' ');
   assert.equal(leaks(await p.locator('.active-card').innerText()),false,row.id+' initial answer leak');
   assert.equal(await p.locator('#cardExample').isDisabled(),true,row.id+' solution requires own attempt');

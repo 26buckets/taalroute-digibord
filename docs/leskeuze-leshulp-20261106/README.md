@@ -1,6 +1,6 @@
 # Actief — leskeuze en bruikbare leshulp
 
-Datum: 6 november 2026. Status: lokaal uitgevoerd; niet gepubliceerd.
+Datum: 6 november 2026. Status: lokaal uitgevoerd; Nico heeft livepublicatie expliciet opgedragen. Zie publication/ACTIEF-KAARTEN-20261106.md voor de latere aanvullingen over scrollen, spelling en kaartopmaak. De feitelijke livecontrole wordt na publicatie afzonderlijk vastgelegd.
 
 ## Aanleiding en resultaat
 
@@ -22,10 +22,10 @@ De volledige lokale unitreeks, lint, typecontrole, activiteiten op zes schermfor
 
 De volledige lokale smoke-reeks is geslaagd, waaronder 1.440 grammaticaopdrachten op vijf spelweergaven (7.200 weergaven), bestaande navigatie, selectie en opgeslagen voortgang. De tongbrekercontrole is geslaagd: 240 kaarten, 28 filtercombinaties, beide goedgekeurde audiotempo’s, terugzetten, hervatten, zeven andere spellen en acht schermformaten. De actuele schermvoorbeelden staan in het opleverpakket.
 
-De publicatiecontractcontrole slaagt. De afzonderlijke publicatievrijgavetest blokkeert wegens de bestaande bevriezing; dit is geen vrijgave en de beveiliging is niet aangepast. Er is niets gepusht en er zijn geen GitHub Actions gestart. De bestaande workflow is alleen handmatig beschikbaar; er is geen zware cloudcontrole toegevoegd.
+De publicatiecontractcontrole slaagt. Bij de eerste uitvoering blokkeerde de publicatievrijgavetest op de bevriezing. Na Nico’s expliciete publicatieopdracht is een begrensde vrijgave voorbereid en getest; de oorspronkelijke herstelbasis blijft behouden. Er is niets gepusht en er zijn geen GitHub Actions gestart. De bestaande workflow is alleen handmatig beschikbaar; er is geen zware cloudcontrole toegevoegd.
 
 ## Grenzen en volgende stap
 
 Dit is een redactionele en technische verbetering, geen onafhankelijke B1-certificering of praktijkproef in de klas. Bestaande opdrachtteksten zijn niet herschreven. Een docent moet nog in gebruik beoordelen of de steunzinnen en tijdschatting passen bij diens groep. De vaste ontwerpbasis is gelezen; dit losse hulpmiddel introduceert geen nieuw cursusprogramma of nieuwe boekdoelen.
 
-PUBLICATIE.md vereist een nieuwe expliciete opdracht om een concreet gecontroleerd resultaat te publiceren. Pas na die opdracht kan een begrensde vrijgave worden vastgelegd, de actuele livebasis opnieuw worden gecontroleerd en de canonieke publicatieroute worden gebruikt. De oorspronkelijke vastzetbestanden en herstelbasis blijven behouden.
+Nico heeft de door PUBLICATIE.md vereiste expliciete opdracht inmiddels gegeven. De begrensde vrijgave, hercontrole van de livebasis en canonieke publicatieroute blijven verplicht. De oorspronkelijke vastzetbestanden en herstelbasis blijven behouden.

@@ -1,3 +1,9 @@
+# Actuele publicatieopdracht — 6 november 2026
+
+Nico heeft herstel en livepublicatie van leskeuze, leshulp, scrollen en kaartpresentatie expliciet opgedragen. Lees [het begrensde besluit](publication/ACTIEF-KAARTEN-20261106.md). De originele bevriezing en herstelbasis blijven behouden. De toegestane bestanden worden exact vastgelegd; na livecontrole wordt opnieuw vastgezet.
+
+---
+
 # Actuele publicatieopdracht — 20 oktober 2026
 
 De app verhuist als **Actief** naar `actief.taalroute.nl`. Lees eerst [de begrensde migratievrijgave](publication/MIGRATIE-ACTIEF-20261020.md). De canonieke bron en Worker blijven behouden. De oorspronkelijke bevriezing en goedgekeurde bron hieronder blijven als historische herstelbasis beschikbaar; de nieuwe vrijgave is beperkt tot de exact vastgelegde bestanden.

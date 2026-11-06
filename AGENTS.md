@@ -49,3 +49,6 @@ Voor DigiBord is na het herstel van 16 oktober de canonieke bron 26buckets/taalr
 
 ## Headerindeling — expliciete correctie Nico, 22 oktober 2026
 Lees HEADER-AFSPRAAK.md en header-layout-freeze.json vóór headerwerk. Het logo-appmenu blijft links; rechts alleen fullscreen en hamburger. Bestaande linkernavigatie behouden. Nico heeft dit concrete herstel op 22 oktober 2026 expliciet voor alle websites vrijgegeven, inclusief Actief en Spreektijd. Na gecontroleerde publicatie staat de headerindeling vast; iedere volgende wijziging vereist vooraf zijn expliciete toestemming.
+
+## Kaarttekst en leesbaarheid — Nico, 6 november 2026
+Schrijf concrete instructies. Gebruik ‘één zin’ in plaats van ‘één natuurlijke zin’; geen vage opdracht zoals ‘maak de zin natuurlijk’. Houd context, te lezen tekst/woorden, opdracht en antwoord zichtbaar uit elkaar. Geen dubbele oefentekst of punt direct voor een dubbele punt. Markeer het woord of zinsdeel dat de cursist moet veranderen. Laat lange kaartinhoud scrollen met bereikbare bediening; verklein de tekst niet automatisch om alles in de kaart te persen. Behoud de bronversies en opgeslagen lessen; pas de gedeelde weergave brongebonden aan.

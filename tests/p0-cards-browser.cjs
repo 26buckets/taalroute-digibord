@@ -23,13 +23,13 @@ const root=path.resolve(__dirname,'..');
      APP.tongueDifficulty='';APP.cardIndex=cardsFor(family).findIndex(c=>c.id===id);APP.cardKind=family;APP.last={type:'card',data:{kind:family}};startCards(family);
      if(currentCard()?.id!==id||document.querySelector('[data-card-id]')?.dataset.cardId!==id)failures.push(id+' render');
      if(family==='tongue'){if(document.querySelector('#tongueRead').disabled||!tongueRecording(currentCard()))failures.push(id+' audio');}
-     else{const c=currentCard(),text=[...document.querySelectorAll('.card-instruction li')].map(e=>e.textContent).join(' ').replace(/\s+/g,' ').trim();const expected=AppWording.text(c.visualRebus?'Los de rebus op.':c.instruction).replace(/\s+/g,' ').trim();if(!text.includes(expected))failures.push(id+' instruction');
+     else{const c=currentCard(),text=[...document.querySelectorAll('.card-instruction li')].map(e=>e.textContent).join(' ').replace(/\s+/g,' ').trim();const expected=AppWording.text(CardPresentation.standalone(c)?.steps.join(' ')||(c.visualRebus?'Los de rebus op.':c.instruction)).replace(/\s+/g,' ').trim();if(!text.includes(expected))failures.push(id+' instruction');
       if(c.visualRebus){const img=document.querySelector('#cardRebus img');await img.decode().catch(()=>failures.push(id+' media decode'));if(!img.naturalWidth||!img.src.endsWith(c.visualRebus.src))failures.push(id+' media');}
       for(const action of ['cardAttempt','cardExample','cardHelp'])document.getElementById(action)?.click();
       if(!document.querySelector('.active-card').textContent.includes(AppWording.text(c.model.text)))failures.push(id+' model');
      }
     }
-    fitCardViewport();const content=document.querySelector('.card-content');if(content&&(content.scrollWidth>content.clientWidth+1||content.scrollHeight>content.clientHeight+1))failures.push(id+' overflow');if(document.documentElement.scrollWidth>innerWidth+1)failures.push(id+' horizontal');seen.push(id);
+    const content=document.querySelector('.card-content');if(content&&(content.scrollWidth>content.clientWidth+1||getComputedStyle(content).overflowY!=='auto'))failures.push(id+' overflow');if(document.documentElement.scrollWidth>innerWidth+1)failures.push(id+' horizontal');seen.push(id);
    }return {seen,failures};},expected);
   report.cards.push({width,height,count:audit.seen.length,failures:audit.failures});assert.equal(new Set(audit.seen).size,expected.length);assert.deepEqual(audit.failures,[],width+' individual renders');
  }

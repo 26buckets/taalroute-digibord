@@ -451,7 +451,7 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 /* Within the existing card: situation, visible exercise and instruction. No changes to tongue text. */
 #screen-game .card-table-shell .card-content.card-readable{display:flex;flex-direction:column;columns:auto;gap:16px;padding:24px 28px;font-family:var(--setup-font)}
 #screen-game .card-readable>h2{font-size:clamp(28px,2.3vw,36px);font-weight:500;line-height:1.25;margin:0}
-#screen-game .card-readable .card-reading-main{margin-block:0;display:flex;flex-direction:column;gap:22px}
+#screen-game .card-readable .card-reading-main{margin-block:0;display:flex;flex-direction:column;gap:16px}
 #screen-game .card-readable .card-situation{margin:0;padding:0;background:none;border-radius:0;color:var(--setup-ink)}
 #screen-game .card-readable .card-situation>div{width:100%}
 #screen-game .card-readable .card-situation strong{font-size:15px;font-weight:500;color:var(--setup-muted);margin-bottom:6px}
@@ -500,7 +500,8 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #screen-game .card-viewport .cards-stage{flex:1;min-height:0;grid-template-rows:minmax(0,1fr);overflow:visible}
 #screen-game .card-viewport .game-card-motion,#screen-game .card-viewport .active-card{height:100%;min-height:0;max-height:100%}
 #screen-game .card-viewport .active-card{overflow:hidden}
-#screen-game .card-viewport .card-content{flex:1;min-height:0;overflow:visible}
+#screen-game .card-viewport .card-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+#screen-game .card-viewport .card-content>*{flex-shrink:0}
 #screen-game .card-viewport .cardtypes{max-height:100%;overflow:auto}
 .card-viewport #cardMenuOpen{display:none}
 @media(min-width:851px){.card-viewport .gamebar{grid-template-columns:minmax(0,1fr) 320px minmax(0,1fr)}}
@@ -546,3 +547,19 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #contentPracticeApp select,.settings-page select{appearance:none;padding-right:42px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23415f79' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-position:right 14px center;background-size:18px;background-repeat:no-repeat}
 @media(forced-colors:active){#contentPracticeApp select,.settings-page select{appearance:auto;background-image:none}}
 @media(max-width:760px){#contentPracticeApp .practice-mix-grid{grid-template-columns:1fr}}
+
+/* Separate the material to read from the action, with the existing card typography. */
+.content-stimulus{margin:0 0 24px}
+.content-stimulus h3{font:500 15px var(--setup-font);color:#45647a;margin:0 0 12px}
+#screen-game .content-stimulus p{font-size:clamp(22px,2vw,32px);line-height:1.45;margin:0}
+.card-word-list{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline}
+.card-word-list .card-word-choice{border:1px solid #cbdce8;border-radius:8px;padding:10px 16px;background:#f5f9fc;font:400 clamp(22px,2vw,32px)/1.45 var(--setup-font);overflow-wrap:anywhere;max-width:100%;white-space:normal}
+.content-stimulus u{text-decoration-thickness:2px;text-underline-offset:5px}
+
+#screen-game .card-readable .content-stimulus{margin:0}
+#screen-game .card-readable .card-word-list .card-word-choice{display:block;padding:8px 12px;font-weight:400;background:#f5f9fc;color:#173752}
+#screen-game .card-viewport .card-content{scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#819eb4 #edf3f7}
+#screen-game .card-viewport .card-content::-webkit-scrollbar{width:8px}
+#screen-game .card-viewport .card-content::-webkit-scrollbar-thumb{background:#819eb4;border-radius:8px}
+
+#screen-game .card-readable>h2{margin-bottom:0}

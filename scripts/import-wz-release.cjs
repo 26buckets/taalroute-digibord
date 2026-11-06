@@ -9,7 +9,7 @@ const correctedBudgets=new Set(['WZ_006_H10','WZ_006_V16','WZ_006_S12','WZ_007_B
 const counts={},ids=new Set(),banks={};
 for(const master of source.masters){
  const items=master.rows.map((original,index)=>{
-  const x=Object.fromEntries(Object.entries(original).map(([k,v])=>[k,typeof v==='string'?wording.text(v):v]));
+  const x=Object.fromEntries(Object.entries(original).map(([k,v])=>[k,typeof v==='string'?wording.sourceText(v):v]));
   const review=source.reviews[x.ID],active=['RELEASE','GUIDED'].includes(review?.FinalStatus),open=x.Antwoordtype==='OPEN',gate=active?review.FinalGate:'BLOCKED',route=x['Nieuwe route'];
   assert.ok(review&&!ids.has(x.ID),x.ID);ids.add(x.ID);
   assert.equal(review.SourceSpreadsheetID,master.spreadsheet_id,x.ID);assert.equal(review.SourceRow,String(index+2),x.ID);

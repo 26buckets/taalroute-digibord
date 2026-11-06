@@ -788,27 +788,10 @@ function selectShuffledCard(kind,list,action='resume'){
  return deck;
 }
 function cardShuffleResetButton(){return '<button class="smallbtn card-order-reset" id="cardOrderReset" aria-label="Kaartvolgorde opnieuw beginnen" title="Kaartvolgorde opnieuw beginnen">'+gameIcon('shuffle')+'</button>'}
-// Fit the visible card after resizing, fullscreen changes, or revealing its answer.
-let disconnectCardFit=()=>{};
-function fitCardViewport(){
- disconnectCardFit();
- const shell=$('.card-viewport'),content=shell?.querySelector('.card-content');if(!content)return;
- let frame=0;
- function fit(){
-  frame=0;if(!shell.isConnected)return;
-  content.style.zoom='1';
-  const fits=()=>content.scrollHeight<=content.clientHeight+1&&content.scrollWidth<=content.clientWidth+1;
-  if(!fits()){
-   let low=.1,high=1;
-   for(let i=0;i<9;i++){const mid=(low+high)/2;content.style.zoom=String(mid);if(fits())low=mid;else high=mid}
-   content.style.zoom=String(low);
-  }
- }
- function schedule(){if(!frame)frame=requestAnimationFrame(fit)}
- const resize=new ResizeObserver(schedule);resize.observe(shell);
- const changes=new MutationObserver(schedule);changes.observe(content,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','open','class','data-section']});
- shell.addEventListener('load',schedule,true);document.fonts.ready.then(schedule);fit();
- disconnectCardFit=()=>{resize.disconnect();changes.disconnect();cancelAnimationFrame(frame);shell.removeEventListener('load',schedule,true)};
+// Keep long cards readable and reachable with the keyboard instead of shrinking them.
+function prepareCardReading(){
+ const content=$('.card-viewport .card-content');if(!content)return;
+ content.tabIndex=0;content.setAttribute('role','region');content.setAttribute('aria-label','Kaartinhoud');
 }
 function bindCardShuffleReset(){
  const button=$('#cardOrderReset');if(!button)return;
@@ -908,7 +891,7 @@ function cardTools(){const c=currentCard();if(APP.cardKind==='tongue')return `<d
 })}
 function renderCardTable(kind,counter,front){const item=collectionItems().find(x=>x.type==='cards'&&x.id===kind);$('#gameMount').innerHTML=`<div class="game-shell card-table-shell card-viewport${kind==='tongue'?' tongue-table':kind==='c1-between-lines'?' c1-table':''}"><div class="game-work card-work">${cardActivityHeader(kind)}<div class="cards-stage">${cardDeck(kind,counter)}<div class="game-card-motion"><article class="active-card">${front}<div class="card-controls">${cardTools()}</div></article><div class="game-card-back card-back-design" style="--deck-color:${item.color}" aria-hidden="true">${cardBack(item.title,'Kaartspel')}</div></div>${cardTypeChoices(kind)}</div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>${APP.cardKind==='c1-between-lines'?'':cardShuffleResetButton()}`)}</div>`;bindCards(kind)}
 function bindCards(kind){
- goScreen('game');bindGameBar(nextCard);bindCardShuffleReset();fitCardViewport();const c=currentCard();
+ goScreen('game');bindGameBar(nextCard);bindCardShuffleReset();prepareCardReading();const c=currentCard();
  $('#cardMenuOpen').onclick=()=>goScreen('cards');
 
  $$('[data-ctype]').forEach(b=>b.onclick=()=>prepareCards(b.dataset.ctype));
@@ -938,7 +921,7 @@ function bindCards(kind){
  }
  const state=cardRound(c);
  $('#cardSetInfo').onclick=()=>openGameDialog('Meer bij deze kaart',`${c.visualRebus?`<h3>Opdracht bij de oplossing</h3><p>${esc(c.instruction)}</p><p>${esc(c.situation)}</p><ul>${c.taskData.filter(t=>t!==c.situation).map(t=>`<li>${esc(t)}</li>`).join('')}</ul><h3>Hulp bij de opdracht</h3><ul>${c.help.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}<h3>Vervolg</h3><p>${esc(c.followUp.instruction)}</p><h3>Waar let je op?</h3><p>${esc(c.criterion)}</p><h3>Voor de docent</h3><p>${esc(c.teacherNote)}</p><details><summary>Voorlezen</summary><p>${esc(c.visualRebus?c.visualRebus.alt+' '+c.visualRebus.instruction:c.mediaRequirements.readAloudText)}</p><p>${esc(c.mediaRequirements.fallback)}</p></details><p>${c.participants.min} deelnemers · ${esc(routeLabel(c.route))} · ${esc(c.difficultyWithinRoute)}</p><button class="smallbtn" id="cardViewSet">Bekijk alle ${cardsFor(kind,true).length} kaarten</button>`,()=>{$('#cardViewSet').onclick=()=>{$('#gameDialog').close();openCabinetSet('cards',kind)}});
- for(const [id,section] of [['cardHelp','help'],['cardExample','example'],['cardGoals','goals'],['cardPartner','partner']])$('#'+id).onclick=()=>{const box=$('#cardSupport'),open=!(box.classList.contains('open')&&box.dataset.section===section);box.dataset.section=section;box.classList.toggle('open',open);for(const [name,key] of [['Help','help'],['Example','example'],['Goals','goals'],['Partner','partner']])$('#card'+name).setAttribute('aria-expanded',String(open&&section===key));fitCardViewport()};
+ for(const [id,section] of [['cardHelp','help'],['cardExample','example'],['cardGoals','goals'],['cardPartner','partner']])$('#'+id).onclick=()=>{const box=$('#cardSupport'),open=!(box.classList.contains('open')&&box.dataset.section===section);box.dataset.section=section;box.classList.toggle('open',open);for(const [name,key] of [['Help','help'],['Example','example'],['Goals','goals'],['Partner','partner']])$('#card'+name).setAttribute('aria-expanded',String(open&&section===key));if(open)box.scrollIntoView({block:'nearest'})};
  $('#cardAttempt').onclick=()=>{rememberAction('eigen poging afronden');state.attempted=true;save();unlockContextTool('cardExample');unlockContextTool('cardHelp');if(c.visualRebus)for(const id of ['cardGoals','cardPartner','cardSetInfo'])unlockContextTool(id);$('#cardAttempt').setAttribute('aria-pressed','true')};
  if($('#predictionReady'))$('#predictionReady').onclick=()=>{rememberAction('voorspelling vastleggen');state.predictionReady=true;save();$('#predictionDiscussion').hidden=false;$('#predictionReady').textContent='Beiden hebben gekozen ✓';$('#predictionReady').setAttribute('aria-pressed','true');$('#cardAttempt').disabled=false};
  if($('#cardReveal'))$('#cardReveal').onclick=()=>{rememberAction('reactie onthullen');state.revealed=true;save();$('#cardRevealed').hidden=false;$('#cardReveal').setAttribute('aria-expanded','true')};
@@ -984,7 +967,16 @@ function contentPromptHtml(prompt){
   return esc(sentence);
  }).join('');
 }
-function contentTaskText(item,options){const help=globalThis.QuickLessonGuidance?.lesson(item)?.help||item.help;if(item.reasoning)return ReasoningTasks.render(item,options);const prompt=ContentRuntime.displayPrompt(item),task=options?.card?cardActionSteps(prompt).map(t=>`<span class="card-action-line"><span>${contentPromptHtml(t)}</span></span>`).join(' '):contentPromptHtml(prompt);return `${contentSituation(item)}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${help?`<details class="content-help"><summary>Hulp</summary><p>${esc(help)}</p></details>`:''}${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`}
+function contentExerciseHtml(parts){
+ if(!parts)return '';
+ const text=parts.target?esc(parts.stimulus.slice(0,parts.stimulus.lastIndexOf(parts.target)))+'<u>'+esc(parts.target)+'</u>'+esc(parts.stimulus.slice(parts.stimulus.lastIndexOf(parts.target)+parts.target.length)):esc(parts.stimulus);
+ return `<section class="content-stimulus"><h3>${parts.words?'Woorden':'Lees dit'}</h3>${parts.words?`<div class="card-word-list">${parts.words.map(w=>`<span class="card-word-choice">${esc(w)}</span>`).join('')}</div>`:`<p>${text}</p>`}</section>`;
+}
+function contentTaskText(item,options){
+ const help=globalThis.QuickLessonGuidance?.lesson(item)?.help||item.help;if(item.reasoning)return ReasoningTasks.render(item,options);
+ const parts=globalThis.CardPresentation?.shared(item),prompt=parts?.instruction||ContentRuntime.displayPrompt(item),task=options?.card?cardActionSteps(prompt).map(t=>`<span class="card-action-line"><span>${contentPromptHtml(t)}</span></span>`).join(' '):contentPromptHtml(prompt);
+ return `${contentSituation(item)}${contentExerciseHtml(parts)}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${help?`<details class="content-help"><summary>Hulp</summary><p>${esc(help)}</p></details>`:''}${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`;
+}
 function contentAnswerLabel(item){return !item.model_answer?'Bespreek samen':ContentRuntime.answerPolicy(item).modelIsExample?'Bekijk een mogelijk antwoord':'Bekijk het antwoord'}
 function contentAnswerText(item,policy){const lesson=globalThis.QuickLessonGuidance?.lesson(item);return `${policy.modelAnswer?`<section><h3>${policy.modelIsExample?'Een mogelijk antwoord':'Antwoord'}</h3><p>${esc(policy.modelAnswer)}</p></section>`:''}<section><h3>Bespreek samen</h3><p>${esc(lesson?.discussion||item.explanation||item.learning_goal)}</p></section>${item.e1_canonical&&item.feedback_correct&&item.feedback_correct!==item.explanation?`<section><h3>Feedback</h3><p>${esc(item.feedback_correct)}</p></section>`:''}${item.e1_canonical&&item.feedback_incorrect&&item.feedback_incorrect!==item.feedback_correct?`<section><h3>Bij een ander antwoord</h3><p>${esc(item.feedback_incorrect)}</p></section>`:''}`}
 let contentDiceBusy=false;
@@ -1017,7 +1009,7 @@ function startContentCards(){
  const item=list[APP.cardIndex],projection=ContentRuntime.project('CARDS',item),policy=projection.answerPolicy,counter=`${deck.position} van ${list.length}`,label=contentSessionLabel(session,item);
  setLast('card',label,{kind:'content-vert001',contentItemId:item.content_item_id});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell card-viewport content-vert001-cards${item.reasoning?' reasoning-cards':''}"><div class="game-work card-work"><div class="card-activity-heading"><h1>${esc(contentSessionLabel(session,item,false))}</h1><button class="smallbtn card-menu-open" id="contentCardMenu">${gameIcon('cards')}<span>Kaartspellen</span></button></div><div class="cards-stage"><div class="deckpanel"><button class="card-deck-button" id="contentCardDeck" aria-label="Volgende kaart trekken"><span class="play-card-back" style="--deck-color:#176b9a"><img class="card-brand" src="assets/brand/taalroute-white.svg" alt="Taalroute">${gameIcon('cards')}<span class="card-family">Volgende kaart</span></span></button></div><div class="game-card-motion"><article class="active-card"><div class="card-ribbon" style="--ribbon:#176b9a"><strong>${esc(item.title||item.language_function.replaceAll('_',' '))}</strong><span class="card-counter">${counter}</span></div><div class="card-content content-reading" data-content-item-id="${esc(item.content_item_id)}">${contentTaskText(item,{card:true})}${item.reasoning?'':`<button class="smallbtn content-reveal" id="contentCardReveal" aria-expanded="false" aria-controls="contentCardAnswer">${contentAnswerLabel(item)}</button><div id="contentCardAnswer" class="content-answer" hidden>${contentAnswerText(item,policy)}</div>`}</div></article><div class="game-card-back card-back-design" style="--deck-color:#176b9a" aria-hidden="true">${cardBack(contentSessionLabel(session,item,false),'Kaartspel')}</div></div></div></div>${gameBar(`<button class="primary card-next-primary" id="primaryGame">${cardFan()}<span>VOLGENDE KAART</span></button>${APP.cardKind==='c1-between-lines'?'':cardShuffleResetButton()}`)}</div>`;
- goScreen('game');bindCardShuffleReset();fitCardViewport();$('#contentCardMenu').onclick=()=>goScreen('cards');bindGameBar(()=>nextCard(1));$('#contentCardDeck').onclick=()=>nextCard(1);if($('#contentCardReveal'))$('#contentCardReveal').onclick=()=>{const box=$('#contentCardAnswer'),open=box.hidden;box.hidden=!open;$('#contentCardReveal').setAttribute('aria-expanded',String(open))};
+ goScreen('game');bindCardShuffleReset();prepareCardReading();$('#contentCardMenu').onclick=()=>goScreen('cards');bindGameBar(()=>nextCard(1));$('#contentCardDeck').onclick=()=>nextCard(1);if($('#contentCardReveal'))$('#contentCardReveal').onclick=()=>{const box=$('#contentCardAnswer'),open=box.hidden;box.hidden=!open;$('#contentCardReveal').setAttribute('aria-expanded',String(open));if(open)box.scrollIntoView({block:'nearest'})};
 }
 let cardBusy=false;
 async function nextCard(direction=1){
@@ -1078,6 +1070,8 @@ function cardReadingParts(c,kind){
   if(match){focus=situation.slice(match.index);situation=situation.slice(0,match.index).trim()}
  }
  if(kind==='puzzles'){
+  const quote=c.taskData.find(t=>t.length>20&&situation.endsWith(t));
+  if(quote){focus=quote;situation=situation.slice(0,-quote.length).replace(/(?:In een bericht staat|Op een kaartje staat|De zin is):\s*$/,'').trim()}
   const match=situation.match(/^(?:De letters staan achter elkaar: |Letters: )([^.!?]+)[.]\s*/u);
   if(match){focus=match[1];situation=situation.slice(match[0].length)}
  }
@@ -1085,7 +1079,7 @@ function cardReadingParts(c,kind){
   const match=situation.match(/^Tekstrebus: ([^.]+)\.\s*/u);
   if(match){focus=match[1];situation=situation.slice(match[0].length)}
  }
- const extra=c.taskData.filter(t=>t!==c.situation&&t!==situation&&!focus.includes(t)&&!(words.length&&t.replace(/\s+/g,' ').trim()===c.situation.slice(0,c.situation.indexOf('.')+1)));
+ const extra=c.taskData.filter(t=>!c.situation.includes(t)&&t!==c.situation&&t!==situation&&!focus.includes(t)&&!(words.length&&t.replace(/\s+/g,' ').trim()===c.situation.slice(0,c.situation.indexOf('.')+1)));
  return {situation,focus,words,extra};
 }
 function cardWordPicture(word){
@@ -1104,6 +1098,8 @@ function cardWordPicture(word){
  return path?`<svg class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`:word==='slot'?gameIcon('lock'):word==='sleutelbos'?`<img src="assets/storydice/basis/31-sleutel.png" alt="" loading="lazy">`:gameIcon('people');
 }
 function cardReadingHtml(c,kind){
+ const presentation=globalThis.CardPresentation?.standalone(c);
+ if(presentation)return `<div class="card-reading-main">${presentation.situation?`<section class="card-situation"><div><h3>De situatie</h3><p>${esc(presentation.situation)}</p></div></section>`:''}<section class="content-stimulus"><h3>Lees dit</h3><div class="card-word-list">${presentation.stimuli.map(t=>`<p class="card-word-choice">${presentation.target?esc(t).replace(presentation.target,'<u>'+esc(presentation.target)+'</u>'):esc(t)}</p>`).join('')}</div></section>${cardStepsHtml(presentation.steps)}</div>`;
  const {situation,focus,words,extra}=cardReadingParts(c,kind);
  // Slash choices remain an oral task, not new answer buttons or an automatic score.
  let exercise=contentPromptHtml(focus);
@@ -1138,7 +1134,7 @@ function startCards(kind){
  const partner=c.prediction?`<div class="card-step"><strong>Eerst ieder een eigen keuze</strong><p>${esc(c.prediction.instruction)}</p><button class="smallbtn" id="predictionReady" aria-pressed="${state.predictionReady}">${state.predictionReady?'Beiden hebben gekozen ✓':'Beiden hebben hun keuze vastgelegd'}</button><div id="predictionDiscussion" ${state.predictionReady?'':'hidden'}><p>${esc(c.partnerPrompt)}</p></div></div>`:!delayed?`<div class="card-step"><strong>Wat doet de ander?</strong><p>${esc(c.partnerPrompt)}</p></div>`:'';
  const revealHtml=reveal?`<div class="card-step"><p>Onthullen: ${esc(c.reveal?'na '+reveal.after:reveal.after)}. De onthulling is zichtbaar voor iedereen.</p><button class="smallbtn" id="cardReveal" aria-expanded="${state.revealed}" aria-controls="cardRevealed">${esc(reveal.label)}</button><p id="cardRevealed" ${state.revealed?'':'hidden'}>${esc(reveal.text)}</p></div>`:'';
  const closed=c.closedStep.enabled?`<form id="closedChoice" class="card-step"><fieldset><legend>${esc(c.closedStep.prompt)}</legend>${c.closedStep.options.map(o=>`<label><input type="radio" name="choice" value="${esc(o.id)}" required ${state.choice===o.id?'checked':''}> ${esc(o.label)}</label>`).join('')}<button class="smallbtn" type="submit">Controleer deze keuze</button></fieldset><p id="closedFeedback" role="status">${state.choice?esc(c.closedStep.explanation):''}</p></form>`:'';
- renderCardTable(kind,counter,`<div class="card-ribbon" style="--ribbon:${sm.color}"><span class="card-shape" aria-hidden="true">${esc(sm.symbol)}</span><strong>${esc(sm.task)}</strong><span class="card-counter">${esc(routeLabel(c.route))} · ${counter}</span></div><div class="card-content card-readable" data-card-id="${esc(c.id)}"><h2 style="color:${sm.color}">${esc(rebus?rebus.title:(c.e1_canonical?c.title:(CARD_READING_EDITS[c.id]?.title||c.title)))}</h2>${rebus?`<button class="rebus-preview" id="cardRebus" aria-label="Vergroot de rebus">${rebusImage(c)}<span>Vergroot de rebus</span></button>`:''}${rebus?`${cardStepsHtml(['Los de rebus op.'])}<div class="card-situation"><div><strong>Kijk en puzzel</strong><p>${esc('Benoem de plaatjes. Voer de letteraanwijzingen uit. Lees van links naar rechts.')}</p>${extra.length?`<ul>${extra.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}</div></div>`:cardReadingHtml(c,kind)}${media}${closed}<div class="supportbox" id="cardSupport" data-section="help" aria-live="polite"><div data-support="goals"><strong>Doel en rollen</strong><p>${esc(c.goal)}</p><p>Met: ${esc(c.conversationPartner)}</p><p>${c.participants.min} deelnemers: ${c.participants.roles.map(esc).join(', ')}</p></div><div data-support="partner">${partner}${revealHtml}</div><div data-support="help"><strong>Hulp</strong><ul>${(rebus?['Benoem elk plaatje afzonderlijk. Pas daarna de letteraanwijzingen toe en lees van links naar rechts.']:c.help.items).map(t=>`<li>${esc(t)}</li>`).join('')}</ul>${c.practiceText?'<p>De docent mag eerst voordoen. Verstaanbaarheid gaat voor snelheid.</p>':''}</div><div data-support="example"><strong>${c.answerType==='hybrid'?'Oplossing en uitleg':'Mogelijk voorbeeld'}</strong>${rebus?`<p>${esc(rebus.explanation)}</p>`:''}<p>${esc(c.model.text)}</p><p class="card-feedback-note">${esc(c.criterion)}</p></div></div></div>`);
+ renderCardTable(kind,counter,`<div class="card-ribbon" style="--ribbon:${sm.color}"><span class="card-shape" aria-hidden="true">${esc(sm.symbol)}</span><strong>${esc(sm.task)}</strong><span class="card-counter">${esc(routeLabel(c.route))} · ${counter}</span></div><div class="card-content card-readable" data-card-id="${esc(c.id)}"><h2 style="color:${sm.color}">${esc(rebus?rebus.title:(globalThis.CardPresentation?.standalone(c)?.title||(c.e1_canonical?c.title:(CARD_READING_EDITS[c.id]?.title||c.title))))}</h2>${rebus?`<button class="rebus-preview" id="cardRebus" aria-label="Vergroot de rebus">${rebusImage(c)}<span>Vergroot de rebus</span></button>`:''}${rebus?`${cardStepsHtml(['Los de rebus op.'])}<div class="card-situation"><div><strong>Kijk en puzzel</strong><p>${esc('Benoem de plaatjes. Voer de letteraanwijzingen uit. Lees van links naar rechts.')}</p>${extra.length?`<ul>${extra.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:''}</div></div>`:cardReadingHtml(c,kind)}${media}${closed}<div class="supportbox" id="cardSupport" data-section="help" aria-live="polite"><div data-support="goals"><strong>Doel en rollen</strong><p>${esc(c.goal)}</p><p>Met: ${esc(c.conversationPartner)}</p><p>${c.participants.min} deelnemers: ${c.participants.roles.map(esc).join(', ')}</p></div><div data-support="partner">${partner}${revealHtml}</div><div data-support="help"><strong>Hulp</strong><ul>${(rebus?['Benoem elk plaatje afzonderlijk. Pas daarna de letteraanwijzingen toe en lees van links naar rechts.']:c.help.items).map(t=>`<li>${esc(t)}</li>`).join('')}</ul>${c.practiceText?'<p>De docent mag eerst voordoen. Verstaanbaarheid gaat voor snelheid.</p>':''}</div><div data-support="example"><strong>${c.answerType==='hybrid'?'Oplossing en uitleg':'Mogelijk voorbeeld'}</strong>${rebus?`<p>${esc(rebus.explanation)}</p>`:''}<p>${esc(c.model.text)}</p><p class="card-feedback-note">${esc(c.criterion)}</p></div></div></div>`);
 }
 
 /* Woorden en zinnen */
