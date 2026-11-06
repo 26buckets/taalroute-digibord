@@ -31,13 +31,14 @@ let browser;
  assert.equal(cardId,await page.evaluate(()=>APP.cardShuffles[cardShuffleScope()].currentCardId));assert.ok(session.selected_item_ids.includes(cardId));
  assert.match(await page.locator('.content-vert001-cards .card-activity-heading h1').textContent(),/^Grammatica Er$/);
  assert.equal(await page.locator('#levelSelect option:checked').textContent(),'B1 → B2');
- assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,cardId));
+ assert.equal(await page.locator('.content-vert001-cards .card-content h2').textContent(),await page.evaluate(id=>CardPresentation.shared(ContentRuntime.itemById(id),ContentRuntime.displayPrompt(ContentRuntime.itemById(id))).instruction,cardId));
 
  await page.evaluate(()=>CONTENT_VERT001.dice());
  await page.waitForSelector('#screen-game.active .content-engine-dice');
  const diceId=await page.locator('.content-engine-dice [data-content-item-id]').getAttribute('data-content-item-id');
  assert.equal(diceId,session.selected_item_ids[0]);
- assert.equal(await page.locator('.content-engine-dice .card-content h2').textContent(),await page.evaluate(id=>window.ContentRuntime.itemById(id).prompt,diceId));
+ assert.equal(await page.locator('.content-engine-dice .card-content h2').textContent(),await page.evaluate(id=>CardPresentation.shared(ContentRuntime.itemById(id),ContentRuntime.displayPrompt(ContentRuntime.itemById(id))).instruction,diceId));
+ const diceSource=await page.evaluate(id=>CardPresentation.shared(ContentRuntime.itemById(id)).stimulus,diceId);if(diceSource)assert.ok((await page.locator('.content-engine-dice .content-stimulus').textContent()).includes(diceSource));
  await page.locator('#primaryGame').click();
  const diceSession=await page.evaluate(()=>APP.contentSessionConfig);
  assert.deepEqual(diceSession.selected_item_ids,session.selected_item_ids);

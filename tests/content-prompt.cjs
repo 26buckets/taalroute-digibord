@@ -19,4 +19,6 @@ assert.deepEqual(bold('Welke hele zin met zouden klopt hier?'),['zouden']);
 assert.deepEqual(bold('Wat betekent het woord ‘compact’ hier?'),['‘compact’']);
 for(const text of ['Gebruik jij je telefoon?','Gebruik de informatie van de beheerder.','Wat denk je?','‘Hij zou er morgen zijn.’'])assert.equal(ctx.contentPromptHtml(text),ctx.esc(text));
 assert.ok(!ctx.contentPromptHtml('Gebruik <img onerror="bad">.').includes('<img'));
+for(const text of ['Formuleer één zin met er.','Maak een zin met willen en een tweede werkwoord.','Maak zelf een zin met deze relatieve vorm: met wie.'])assert.equal(ctx.contentPromptHtml(text).replace(/<[^>]+>/g,''),text);
+assert.deepEqual(bold('Maak een zin met willen en een tweede werkwoord.'),['willen']);
 console.log('PASS required words, starting/ending words, fill-in, choices, quoted terms, multiple instructions, unchanged text and HTML escaping.');

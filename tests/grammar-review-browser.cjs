@@ -44,7 +44,7 @@ let browser,page;
   if(engine==='QUIZ')await page.locator('.na-quiz-board [data-content-item-id=ER_B1_127]').click();
   const focus=page.locator('#screen-game.active .content-required');
   assert.deepEqual(await focus.locator('strong').allTextContents(),['er','voor zorgen']);
-  assert.equal(await focus.evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(231, 243, 254)');
+  assert.equal(await focus.evaluate(e=>getComputedStyle(e.closest('.card-action-line')||e).backgroundColor),'rgb(231, 243, 254)');
   for(const width of [1440,390]){await page.setViewportSize({width,height:900});assert.ok(await focus.evaluate(e=>e.scrollWidth<=e.clientWidth+1),'Required words fit '+engine+' '+width);}
   await page.setViewportSize({width:1440,height:900});
   if(engine==='CARDS')await page.screenshot({path:path.join(dir,'required-words.png')});
@@ -69,9 +69,11 @@ let browser,page;
    if(engine==='WHEEL'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);}
    if(engine==='QUIZ')await page.locator('.na-quiz-board [data-content-item-id="'+id+'"]').click();
    const selector=engine==='BOARD'?'#taskTitle':engine==='QUIZ'?'.na-workspace h2[data-content-item-id]':engine==='SEQUENCE'?'.na-sequence-source':engine==='WHEEL'?'.na-wheel-result .content-prompt h2':'.content-reading .content-prompt h2';
-   const task=page.locator(selector);assert.deepEqual(await task.locator('strong').allTextContents(),expected,id+' '+engine);
+   const task=page.locator(selector),layout=await page.evaluate(id=>CardPresentation.shared(ContentRuntime.itemById(id)),id);
+   if(['CARDS','DICE','WHEEL'].includes(engine)&&layout.stimulus&&expected.every(t=>layout.stimulus.includes(t))){const reading=await page.locator('#screen-game.active .content-stimulus').innerText();for(const word of expected)assert.ok(reading.includes(word),id+' separate reading choice');}
+   else assert.deepEqual(await task.locator('strong').allTextContents(),expected,id+' '+engine);
    assert.equal(await task.evaluate(e=>getComputedStyle(e).fontWeight),'400',id+' ordinary instruction stays lighter');
-   assert.ok((await task.locator('strong').evaluateAll(es=>es.every(e=>getComputedStyle(e).fontWeight==='800'))),id+' required words bold');
+   assert.ok((await task.locator('strong').evaluateAll(es=>es.every(e=>getComputedStyle(e).fontWeight===(e.closest('.card-action-line')?'500':'800')))),id+' required words bold');
    for(const width of [1440,390]){await page.setViewportSize({width,height:900});assert.ok(await task.evaluate(e=>e.scrollWidth<=e.clientWidth+1),id+' '+engine+' '+width);}
    if(engine==='CARDS')await page.screenshot({path:path.join(dir,id+'-emphasis.png')});
    await page.setViewportSize({width:1440,height:900});
@@ -108,7 +110,9 @@ let browser,page;
   const item=await page.evaluate(id=>ContentRuntime.itemById(id),id);
   const container=page.locator(engine==='BOARD'?'#taskDrawer':engine==='WHEEL'?'.na-wheel-result':engine==='QUIZ'?'.na-workspace':'.content-reading[data-content-item-id]');
   const text=await container.innerText();assert.ok(text.includes(displayText(item.context)),id+' '+engine+' situation visible');
-  assert.ok(text.replace(/\s+/g,' ').includes(displayText(item.prompt).split('\n')[0].replace(/\s+/g,' ')),id+' '+engine+' instruction visible');
+  const layout=require('../card-presentation').shared(item),normalize=t=>t.replace(/\s+/g,' ').trim();
+  if(['CARDS','DICE','WHEEL'].includes(engine)&&layout){assert.ok(normalize(text).includes(normalize(layout.instruction)),id+' '+engine+' instruction visible');for(const part of layout.words||[layout.stimulus])assert.ok(normalize(text).includes(normalize(part)),id+' '+engine+' source visible');}
+  else assert.ok(normalize(text).includes(normalize(displayText(item.prompt).split('\n')[0])),id+' '+engine+' instruction visible');
   if(['open','open_geleid'].includes(item.answer_type))assert.ok(!text.includes(displayText(item.model_answer)),id+' hidden example');
   let answer;
   if(engine==='QUIZ'&&item.options.length){

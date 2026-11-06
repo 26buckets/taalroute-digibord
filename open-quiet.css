@@ -563,3 +563,22 @@ html:has(#screen-game.active .board-game[data-dark=true]) #gameDialog{--setup-in
 #screen-game .card-viewport .card-content::-webkit-scrollbar-thumb{background:#819eb4;border-radius:8px}
 
 #screen-game .card-readable>h2{margin-bottom:0}
+
+/* One reading area and one action area, with the badge aligned to the first line. */
+#screen-game .card-actions li,
+#screen-game .content-reading .card-action-line{align-items:start;gap:12px;padding:14px 16px;background:var(--setup-soft);border-radius:10px;margin:0;line-height:1.4}
+#screen-game .card-actions li::before,
+#screen-game .content-reading .card-action-line::before{margin-top:4px;background:var(--setup-panel,#fff);font-size:16px}
+#screen-game .content-reading .card-action-lines{display:grid;gap:10px;margin:0;font-weight:400}
+#screen-game .content-reading .card-action-line .content-required{display:inline;padding:0;border:0;background:none;font:inherit;color:inherit}
+#screen-game .card-action-line strong,
+#screen-game .card-actions li strong{font-weight:500}
+#screen-game .content-stimulus p{white-space:pre-line}
+#screen-game .content-options h3{font-size:17px;font-weight:500;color:var(--setup-muted);margin:0 0 10px}
+#screen-game .content-options ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+#screen-game .content-options li{padding:10px 14px;border:1px solid var(--setup-line);border-radius:8px;font-size:clamp(20px,1.6vw,26px);line-height:1.45}
+#screen-game .content-stimulus u{text-decoration-thickness:2px;text-underline-offset:6px}
+@media(max-width:600px){
+ #screen-game .card-actions li,
+ #screen-game .content-reading .card-action-line{padding:12px;gap:10px}
+}

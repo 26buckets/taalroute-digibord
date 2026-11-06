@@ -272,11 +272,11 @@ for(const family of data.cardGames.families.filter(x=>x.id!=='tongue')){
   const c=family.cards[i],html=tableMount.innerHTML;
   const edit=vm.runInContext(`CARD_READING_EDITS[${JSON.stringify(c.id)}]`,tableCtx);
   const visible=c.visualRebus?[c.visualRebus.title,'Los de rebus op.',c.visualRebus.explanation,...c.visualRebus.context]:[edit?.title||c.title,...(edit?.steps||[c.instruction]),...(edit?.situation?[...edit.situation,...(c.id==='TR-PUZZLES-P001-011-R3'?['FIETSBELHALTE']:[])]:[c.situation,...c.taskData])];
-  const normalize=s=>s.replace(/\s+/g,' ').replace(/\s+([.,!?;:’”])/g,'$1').replace(/([‘“])\s+/g,'$1').trim(),plain=normalize(html.replace(/<[^>]*>/g,' '));
+  const normalize=s=>s.replace(/\s+/g,' ').replace(/\s+([.,!?;:’”])/g,'$1').replace(/([‘“])\s+/g,'$1').trim(),plain=normalize(html.replace(/<[^>]*>/g,' ').replace(/\bLees dit\b/g,''));
   for(const text of [...visible,c.model.text,c.criterion,...(c.visualRebus?[]:c.help.items)]){
    const quote=family.id==='puzzles'&&text===c.situation?c.taskData.find(t=>t.length>20&&text.endsWith(t)):null;
-   const pieces=quote?[text.slice(0,-quote.length).trim(),...quote.split(/(?<=[.!?])\s+/u)]:text.startsWith('Verhaalwoorden:')?text.replace(/^Verhaalwoorden:\s*/,'').split(/[,–]|\. /u):text.split(/(?<=[.!?])\s+/u);
-   for(const piece of pieces){const expected=normalize(piece.replace(/^(?:De letters staan achter elkaar: |Letters: |Tekstrebus: |In een bericht staat:\s*|Op een kaartje staat:\s*|De zin is:\s*)/u,'').replace(/[.]$/,''));assert.ok(plain.includes(expected),c.id+' missing '+piece);}
+   const pieces=quote?[text.slice(0,-quote.length).trim(),...quote.split(/(?<=[.!?])\s+/u)]:text.startsWith('Verhaalwoorden:')?text.replace(/^Verhaalwoorden:\s*/,'').split(/[,–]|\. /u):text.split(/(?<=[.!?])\s+|(?<=[.!?][’”])\s+|:\s+/u);
+   for(const piece of pieces){const expected=normalize(piece.replace(/^(?:De letters staan achter elkaar|Letters|Tekstrebus|In een bericht staat|Op een kaartje staat|De zin is)(?::\s*|$)/u,'').replace(/[.]$/,''));assert.ok(plain.toLowerCase().includes(expected.toLowerCase()),c.id+' missing '+piece);}
   }
   if(c.actionType==='rebus'){
    assert.ok(c.visualRebus,c.id+' needs its picture');

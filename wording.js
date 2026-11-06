@@ -2,6 +2,7 @@
 (function(root){
  'use strict';
  function text(value){return sourceText(value)
+  .replace(/ plus een tweede werkwoord/g,' en een tweede werkwoord')
   .replace(/\.\s*:/g,':')
   .replace(/Maak de zin natuurlijk/gi,'Verbeter de zin')
   .replace(/herschrijf natuurlijk:/gi,'herschrijf:')

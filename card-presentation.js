@@ -46,27 +46,106 @@
   ['Je controleert deze instructie:',['Mail het PDF bestand naar het emailadres en bewaar ook een backupbestand.'],['Verbeter alleen de spelling en de leestekens waar dat nodig is.','Houd de inhoud en de volgorde gelijk.','Leg twee van je keuzes uit aan een collega.']],
   ['Een redacteur wil in elk paar één vorm verbieden.',['typfout / typefout','niet ingevulde formulieren / niet-ingevulde formulieren'],['Beoordeel beide paren. Welke vormen zijn toegestaan?','Leg uit wat fout is en wat een keuze in de huisstijl kan zijn.']]
  ];
+ const verbs=[
+  ["Je zit in de pauze.",["Ik drink thee.","Ik drinken thee."],["Kies de goede zin.","Zeg daarna de hele zin."]],
+  ["Je ziet de bus.",["De bus … er.","is / zijn"],["Kies het woord dat op de lege plek past.","Zeg de hele zin."]],
+  ["Op een kaart staat:",["Ik pakt een boek."],["Verbeter het onderstreepte woord.","Zeg de goede zin."],"pakt"],
+  ["Je vertelt over morgen.",["Morgen werk ik.","Morgen werkt ik."],["Kies de goede zin en lees hem hardop.","Vertel ook wanneer jij werkt of oefent."]],
+  ["Het is warm in het lokaal.",["Jij … het raam open.","doet / doen"],["Kies het woord dat op de lege plek past.","Vraag je partner om het raam open te doen."]],
+  ["Je vertelt nu over twee mensen: jij en iemand anders.",["Ik eet om twaalf uur."],["Begin de zin met ‘Wij’ en pas het werkwoord aan.","Vertel hoe laat jullie eten."]],
+  ["Je bezoek is voorbij.",["Gisteren ben / was ik bij mijn buurvrouw."],["Kies ‘ben’ of ‘was’.","Vertel daarna één ding over het bezoek."]],
+  ["Je beschrijft je ochtend.",["Ik … om zeven uur … .","sta / op"],["Vul beide woorden op de juiste plek in.","Vraag hoe laat je partner opstaat."]],
+  ["Je hebt gisteren een afspraak geregeld.",["Ik heb een afspraak maken."],["Verbeter het onderstreepte woord.","Vertel waarvoor de afspraak is."],"maken"],
+  ["Je wilt weten of iemand morgen kan helpen.",["Je kunt morgen helpen."],["Maak van deze zin een vraag.","Vraag daarna op welk tijdstip het kan."]],
+  ["Je komt op het perron. De trein reed twee minuten geleden weg.",["De trein heeft vertrokken.","De trein is vertrokken."],["Kies de goede zin.","Leg je partner uit waarom je wacht."]],
+  ["Je meldt jezelf aan voor een workshop.",["Ik heb … gisteren aangemeld."],["Vul het woord in dat naar jezelf verwijst.","Vertel hoe je je hebt aangemeld."]],
+  ["In een bericht staat:",["Ik weet niet hoe laat begint de les."],["Zet de woorden in de juiste volgorde.","Stel daarna rechtstreeks de vraag naar de begintijd."]],
+  ["Je vertelt op dezelfde dag aan een collega wat de monteur zegt.",["De monteur zegt: Ik kom morgen terug."],["Begin met: ‘De monteur zegt dat …’","Leg uit wie er komt."]],
+  ["De tafel is niet opgeruimd.",["A. Kun je de tafel opruimen?","B. Had je de tafel niet kunnen opruimen?"],["Vergelijk A en B. Wat hoort de luisteraar waarschijnlijk?","Doe daarna een duidelijk verzoek zonder verwijt."]],
+  ["Een collega schrijft:",["Ik heb gisteren niet kunnen gekomen."],["Verbeter de werkwoordgroep.","Leg kort uit wat de collega wil meedelen.","Stel daarna een nieuw moment voor."]],
+  ["",["A. Als ik het wist, zou ik je bellen.","B. Als ik het had geweten, zou ik je hebben gebeld."],["Vergelijk de tijd in A en B. In welke zin is de mogelijkheid nog open en in welke is die voorbij?","Bedenk bij elke zin een passende situatie."]],
+  ["Je vergelijkt een terugblik met de samenvatting ervan.",["Terugblik: We zouden vrijdag openen, maar de sleutel werd pas maandag geleverd.","Samenvatting: We zijn vrijdag geopend."],["Leg uit waarom de samenvatting niet uit de terugblik volgt.","Maak een nieuwe samenvatting die wel klopt."]],
+  ["Een redactie bespreekt deze zin. Een collega denkt dat de begeleider zelf wachtte.",["De begeleider heeft de deelnemers laten wachten."],["Leg uit wie wachtte en wie dat veroorzaakte.","Schrijf de zin opnieuw zodat die rollen duidelijk zijn."]],
+  ["In een conceptbrief staat:",["Mocht de zaal niet beschikbaar zijn, dan wijken we uit naar het atelier.","A. De zaal is zeker bezet.","B. Er wordt rekening gehouden met de mogelijkheid dat de zaal niet beschikbaar is."],["Kies de betekenis die past: A of B.","Vergelijk ‘mocht’ met ‘als’. Bespreek het verschil in zekerheid en hoe formeel de zin klinkt."]],
+  ["Je vertelt bij een kennismaking waar je woont.",["Ik woon hier.","Ik woont hier."],["Kies de goede zin en zeg hem hardop."]],
+  ["Je vraagt bij een kennismaking naar iemands werkplek.",["Waar … u?","Werkwoord: werken"],["Vul de juiste vorm van ‘werken’ in.","Stel de hele vraag."]],
+  ["De terugbelafspraak is morgen tussen 10.00 en 11.00 uur.",["De monteur bellen morgen terug."],["Verbeter het onderstreepte werkwoord.","Bevestig daarna wanneer je wordt teruggebeld."],"bellen"],
+  ["Je vertelt nu over twee personen.",["Ik neem de bus om acht uur."],["Vervang ‘Ik’ door ‘Wij’ en pas het werkwoord aan.","Zeg de hele zin opnieuw."],"Ik"],
+  ["Je wilt een afspraak verzetten. Een alternatief is donderdag om 14.00 uur.",["Mag ik de afspraak verzetten?","Mogen ik de afspraak verzetten?"],["Kies de goede vraag.","Stel de vraag en noem het andere moment."]],
+  ["Je vertelt over gisteren.",["Vandaag moet ik tot zes uur werken."],["Verander de zin zodat die over gisteren gaat.","Leg daarna kort uit wat het gevolg was."]],
+  ["De nieuwe afspraak is vrijdag om 11.00 uur.",["De afspraak is gisteren verplaatsen naar vrijdag."],["Verbeter het onderstreepte werkwoord.","Bevestig daarna de nieuwe dag."],"verplaatsen"],
+  ["Je kunt donderdagavond of vrijdagochtend.",["Omdat ik morgen moet werken, ik kan niet komen."],["Zet de woorden in de juiste volgorde.","Vraag daarna om een nieuwe tijd."]],
+  ["Je vertelt op dezelfde dag aan een collega wat Noor zegt.",["Noor zegt: ‘Ik stuur het formulier vanmiddag.’"],["Begin met: ‘Noor zegt dat …’"]],
+  ["Je maakt aan een balie een afspraak. Beide zinnen zijn mogelijk.",["A. Ik wil graag een afspraak maken.","B. Ik zou graag een afspraak willen maken."],["Vergelijk A en B. Hoe klinkt elke zin?","Kies één zin en maak de afspraak."]],
+  ["Een collega vertelt wanneer je een formulier moet sturen. Het is nog niet duidelijk of vandaag de uiterste datum is.",["A. U moet dit vandaag sturen.","B. U zou dit vandaag moeten sturen."],["Vergelijk A en B.","Stel een vraag om duidelijk te krijgen wat de collega bedoelt."]],
+  ["Iemand schrijft:",["Ik had gisteren willen komen, maar mijn trein viel uit."],["Leg uit wat de persoon van plan was en wat er echt gebeurde.","Geef daarna een korte samenvatting zonder je eigen oordeel."]],
+  ["Je stelt maandag om 15.00 uur als nieuw moment voor.",["We hebben de afspraak moeten verzet."],["Verbeter het onderstreepte woord.","Leg kort uit wat er is gebeurd en stel het nieuwe moment voor."],"verzet"],
+  ["De aanvraag ligt nog bij de manager. Er is nog geen besluit. Morgen wordt de aanvraag beoordeeld.",["A. De aanvraag is goedgekeurd.","B. De aanvraag wordt morgen beoordeeld.","C. De aanvraag zou zijn goedgekeurd."],["Kies de zin die past bij de situatie.","Leg kort uit waarom de andere zinnen te veel of verkeerde informatie geven."]],
+  ["Je bespreekt de planning. Er is ruimte op donderdag. Niemand heeft besloten dat de afspraak verplaatst moet worden.",["A. We kunnen de afspraak verplaatsen.","B. We zouden de afspraak kunnen verplaatsen."],["Leg het verschil tussen A en B uit.","Gebruik één variant in een voorstel aan je collega."]],
+  ["In een overleg zegt iemand dit. De nieuwe planning noemt maandag. Het is niet bekend wie de fout heeft gemaakt.",["Ik had begrepen dat de levering vrijdag kwam."],["Leg uit wat ‘had begrepen’ hier betekent.","Vraag welke planning nu geldt."]],
+  ["Je hebt de informatie alleen via een collega gehoord. De informatie is nog niet bevestigd.",["De zaal wordt vrijdag gesloten."],["Schrijf de zin opnieuw met ‘zou’ om dat verschil duidelijk te maken.","Leg uit wat je daarmee wel en niet beweert."]],
+  ["In een evaluatie staat:",["De opmerking was bedoeld als voorstel, maar werd door een deel van de groep opgevat als besluit."],["Leg uit wat ‘was bedoeld’ en ‘werd opgevat’ ieder toevoegen.","Zeg hetzelfde in andere woorden. Voeg geen reden toe die niet in de tekst staat."]],
+  ["Je hebt twee bronnen: officiële notulen vermelden het besluit; een collega zegt dat er waarschijnlijk al een besluit is, maar dat er nog geen officiële bevestiging is.",["A. Het besluit is genomen.","B. Het besluit zou zijn genomen."],["Vergelijk A en B.","Koppel elke zin aan een bron en leg het verschil in zekerheid uit."]],
+  ["Een klant heeft nog niet op een voorstel gereageerd. Over de reden is niets bekend.",["A. Dat de klant niet reageert, betekent niet dat hij niet akkoord is.","B. Dat de klant niet reageert, hoeft niet te betekenen dat hij niet akkoord is."],["Kies de zin die het best past bij alleen deze informatie.","Leg uit waarom die zin minder stellig is."]]
+ ];
+ const verbById=new Map((source?.cards||[]).filter(c=>c.family==='verbs').map((c,i)=>[c.id,verbs[i]]));
  const spellingCards=(source?.cards||[]).filter(c=>c.family==='spelling');
  const spellingById=new Map(spellingCards.map((c,i)=>[c.id,spelling[i]]));
  function standalone(card){
-  const original=originals.get(card.id),row=spellingById.get(card.id);
+  const original=originals.get(card.id),row=spellingById.get(card.id)||verbById.get(card.id);
   if(source?.version!=='2026-10-04.e1.r25.1'||!original||original.version!==card.version||original.situation!==card.situation||original.instruction!==card.instruction)return null;
   if(card.id==='TR-PUZZLES-P002-008-R3')return {situation:'',stimuli:['Ik zette de fiets naast de scooter. Die was kapot.'],steps:['Welk voertuig kan ‘Die’ zijn: de fiets of de scooter?','Kies één voertuig. Schrijf de tweede zin opnieuw en noem daarin dat voertuig.'],title:card.title,target:'Die'};
   if(!row)return null;
-  return {situation:row[0],stimuli:row[1],steps:row[2],title:card.id==='TR-SPELLING-P002-010-R3'?'Een klein vel papier':card.title};
+  return {situation:row[0],stimuli:row[1],steps:row[2],target:row[3]||null,title:card.id==='TR-SPELLING-P002-010-R3'?'Een klein vel papier':card.title};
  }
- function shared(item){
-  const stimulus=wording.text(item.stimulus).trim(),prompt=wording.text(item.prompt).trim();
-  if(!stimulus||!prompt.endsWith(stimulus))return null;
-  let instruction=prompt.slice(0,-stimulus.length).trim().replace(/[:.]+$/,'').trim();
-  if(!instruction)return null;
-  let target=null;
-  if(instruction==='Verander alleen het laatste deel'){
-   const before=stimulus.replace(/[.!?]$/,'').split(' '),after=wording.text(item.model_answer).replace(/[.!?]$/,'').split(' ');
-   let n=0;while(n<before.length&&n<after.length&&before[n]===after[n])n++;
-   if(n>0&&n<before.length&&n<after.length){target=before.slice(n).join(' ');instruction='Vervang het onderstreepte deel door ‘'+after.slice(n).join(' ')+'’';}
+ const action=/^(?:Vraag|Kies|Zeg|Vertel|Leg|Bespreek|Vergelijk|Maak|Noem|Wijs|Lees|Schrijf|Reageer|Controleer|Gebruik|Geef|Laat|Stel|Vat|Speel|Bekijk|Los|Herschrijf|Onderzoek|Voorspel|Zet|Benoem|Bedenk|Herhaal|Erken|Breng|Herstel|Regel|Verhelder|Beoordeel|Luister|Verbeter|Vul|Verander|Begin|Orden|Formuleer|Weeg|Houd|Verwerk|Bepaal|Vervang|Voeg|Ontleed|Koppel|Bouw|Combineer|Sorteer|Beschrijf|Bied|Beloof|Bestel|Nodig|Bedank|Spreek|Licht|Meld|Kijk|Waarnaar|Waaraan|Doe|Vermijd|In welke|Bij welke|Met welke|Welke|Welk|Wat|Hoe|Waarom|Wanneer|Waar|Wie|Is|Zijn|Kan|Kun)\b/iu;
+ function sentences(text){return [...new Intl.Segmenter('nl',{granularity:'sentence'}).segment(text)].map(p=>p.segment.trim()).filter(Boolean);}
+ function steps(text){return sentences(text).reduce((list,line)=>{if(!list.length||action.test(line))list.push(line);else list[list.length-1]+=' '+line;return list;},[]);}
+ function end(text){return /[.!?…]$/.test(text)?text:text+'.';}
+ function shared(item,displayPrompt=item.prompt){
+  const prompt=wording.text(displayPrompt).trim().replace(/\b(?:Snelvraag|Opdracht):\s*([a-z])/g,(_,c)=>c.toUpperCase()).replace(/\b(?:Snelvraag|Opdracht):\s*/g,'');
+  if(!prompt)return null;
+  let stimulus=wording.text(item.stimulus).trim(),instruction=prompt,situation=wording.text(item.context).trim(),target=null;
+  if(item.content_item_id==='ER_B2_078'&&prompt==='De gegevens laten geen duidelijk verband zien. Je wilt voorzichtig formuleren dat er waarschijnlijk geen direct verband is.')return {situation:'De gegevens laten geen duidelijk verband zien.',stimulus:'',words:null,target:null,instruction:'Formuleer voorzichtig dat er waarschijnlijk geen direct verband is.'};
+  const reply=prompt.match(/^A:\s*(.*?)\s+B:\s*(Antwoord[\s\S]+)$/);
+  if(reply)return {situation,stimulus:'A: '+reply[1]+'\nB: …',words:null,target:null,instruction:reply[2]};
+  if(item.order_tokens?.length&&prompt.includes(':'))stimulus=prompt.slice(prompt.indexOf(':')+1).trim();
+  if(stimulus&&prompt.endsWith(stimulus))instruction=prompt.slice(0,-stimulus.length).trim().replace(/[:.]+$/,'').trim();
+  else if(!stimulus){
+   // Move an introductory case before the first task, retaining all of its conditions.
+   const lines=sentences(prompt),first=lines.findIndex(t=>action.test(t));
+   if(first>0){const intro=lines.slice(0,first).join(' ');situation=situation&&situation!==intro?situation+'\n'+intro:intro;instruction=lines.slice(first).join(' ');}
+   const dialogue=instruction.match(/^(.+?[.!?])\s+(A[:.]\s[\s\S]+)$/);
+   const marked=instruction.match(/^(.*?)\s*(?:\n(?=A:)|(?:Bron|Achtergrond|Uitgangszin|Informatie|Onderwerp|Referent):\s*|Gebruik als inspiratie:\s*)([\s\S]+)$/);
+   const colon=instruction.match(/^((?:Maak|Verbeter|Herstel|Herschrijf|Zet|Orden|Leg|Vul|Kies|Sorteer|Combineer|Vermijd|Wat|Welke)[^:\n]*):\s*([\s\S]+)$/);
+   if(dialogue){instruction=dialogue[1];stimulus=dialogue[2].replace(/^A[.] /,'A: ');}
+   else if(marked){instruction=marked[1].trim();stimulus=marked[2].trim();}
+   else if(colon){instruction=colon[1];stimulus=colon[2];}
+   else if(first<0&&/___|…|\.\.\./.test(prompt)){stimulus=prompt;instruction=item.options?.length?'Kies wat op de lege plek past.':'Vul de lege plek in.';}
+   if(stimulus){
+    const reading=sentences(stimulus),next=reading.findIndex((t,n)=>n>0&&action.test(t)&&! /^(?:Wat|Welke|Welk|Hoe|Waarom|Wanneer|Waar|Wie|Is|Zijn|Kan|Kun|In welke)\b/i.test(t));
+    if(next>0){instruction=end(instruction)+' '+reading.slice(next).join(' ');stimulus=reading.slice(0,next).join(' ');}
+   }
   }
-  return {instruction:instruction+'.',stimulus,words:stimulus.includes(' | ')?stimulus.split(' | '):null,target};
+  if(!instruction)return null;
+  instruction=instruction[0].toUpperCase()+instruction.slice(1);
+  if(stimulus){
+   if(instruction==='Kies')instruction=/___|…|\.\.\./.test(stimulus)?'Kies wat op de lege plek past':'Kies het juiste antwoord';
+   if(instruction==='Verbeter')instruction='Verbeter de zin';
+   if(/^(?:Wat|Welke)/.test(instruction)&&!/[.!?]$/.test(instruction)){instruction=instruction.replace(/\b(in|in de zin)$/, 'in deze tekst')+'?';}
+  }
+  if(instruction==='Verander alleen het laatste deel'||/^Verander het (?:eerste|modale) werkwoord naar .+ als dat past$/.test(instruction)){
+   const before=stimulus.replace(/[.!?]$/,'').split(' '),after=wording.text(item.model_answer).replace(/[.!?]$/,'').split(' ');
+   let n=0,e=0;while(n<before.length&&n<after.length&&before[n]===after[n])n++;
+   while(e<before.length-n&&e<after.length-n&&before[before.length-1-e]===after[after.length-1-e])e++;
+   if(n>0&&n<before.length&&n<after.length){target=before.slice(n,before.length-e).join(' ');instruction='Vervang het onderstreepte deel door ‘'+after.slice(n,after.length-e).join(' ')+'’';}
+  }
+  const replace=instruction.match(/^(?:Verander|Vervang) [‘']?(.+?)[’']? (?:in|door) .+$/);
+  if(!target&&replace&&stimulus.includes(replace[1]))target=replace[1];
+  let words=null;
+  if(stimulus.includes(' | '))words=stimulus.split(' | ');
+  else if((item.interaction_type==='IT_008_ORDER'||/^(?:Zet|Orden|Leg).*(?:volgorde|zinsdelen|hoofdzin)/.test(instruction))&&stimulus.includes(' / '))words=stimulus.split(' / ');
+  return {instruction:end(instruction),stimulus,words,target,situation};
  }
- const api={standalone,shared};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
+ const api={standalone,shared,steps};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

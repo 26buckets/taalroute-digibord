@@ -931,7 +931,7 @@ function bindCards(kind){
  if(c.visualRebus)$('#cardRebus').onclick=()=>openGameDialog('Bekijk de rebus',`<div class="rebus-enlarged">${rebusImage(c)}</div>`);
  $('#cardDeck').onclick=nextCard;
 }
-function contentSituation(item){return item.context?`<section class="content-situation"><h3>De situatie</h3><p>${esc(item.context)}</p></section>`:''}
+function contentSituation(item){return item.context?`<section class="content-situation"><h3>De situatie</h3>${item.context.split('\n').map(t=>`<p>${esc(t)}</p>`).join('')}</section>`:''}
 function contentPromptHtml(prompt){
  const text=lessonText(String(prompt||''));
  // Match instructions, not words in the situation or hidden example answer.
@@ -959,6 +959,7 @@ function contentPromptHtml(prompt){
    suffix=tail?esc(after):'';
    html=esc(match[1])+strong(match[2])+esc(match[3])+strong(match[4])+esc(punctuation+(tail?':':''));
   }
+  if(!html&&!tail&&(match=body.match(/^((?:Maak|Formuleer)(?: zelf)? (?:een|één) (?:korte )?zin met )(.+?)((?: plus| en) een tweede werkwoord)?$/))){html=esc(match[1])+strong(match[2])+esc(match[3]||'')+esc(punctuation);}
   if(html)return esc(space)+`<span class="content-required">${html}</span>${suffix}`;
   // In a question, keep the sentence together and only mark its named language form.
   const question=sentence.trimStart().match(/^(Welke hele zin (?:met |begint met ))(er|zullen|zouden|Er)([\s\S]*)$/);
@@ -968,14 +969,14 @@ function contentPromptHtml(prompt){
  }).join('');
 }
 function contentExerciseHtml(parts){
- if(!parts)return '';
+ if(!parts?.stimulus)return '';
  const text=parts.target?esc(parts.stimulus.slice(0,parts.stimulus.lastIndexOf(parts.target)))+'<u>'+esc(parts.target)+'</u>'+esc(parts.stimulus.slice(parts.stimulus.lastIndexOf(parts.target)+parts.target.length)):esc(parts.stimulus);
  return `<section class="content-stimulus"><h3>${parts.words?'Woorden':'Lees dit'}</h3>${parts.words?`<div class="card-word-list">${parts.words.map(w=>`<span class="card-word-choice">${esc(w)}</span>`).join('')}</div>`:`<p>${text}</p>`}</section>`;
 }
 function contentTaskText(item,options){
  const help=globalThis.QuickLessonGuidance?.lesson(item)?.help||item.help;if(item.reasoning)return ReasoningTasks.render(item,options);
- const parts=globalThis.CardPresentation?.shared(item),prompt=parts?.instruction||ContentRuntime.displayPrompt(item),task=options?.card?cardActionSteps(prompt).map(t=>`<span class="card-action-line"><span>${contentPromptHtml(t)}</span></span>`).join(' '):contentPromptHtml(prompt);
- return `${contentSituation(item)}${contentExerciseHtml(parts)}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${help?`<details class="content-help"><summary>Hulp</summary><p>${esc(help)}</p></details>`:''}${item.options?.length?`<ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul>`:''}</section>`;
+ const parts=globalThis.CardPresentation?.shared(item,ContentRuntime.displayPrompt(item)),prompt=parts?.instruction||ContentRuntime.displayPrompt(item),task=options?.card?cardActionSteps(prompt).map(t=>`<span class="card-action-line"><span>${contentPromptHtml(t)}</span></span>`).join(' '):contentPromptHtml(prompt);
+ return `${contentSituation(parts?{context:parts.situation}:item)}${contentExerciseHtml(parts)}${item.options?.length?`<section class="content-options"><h3>Kies uit</h3><ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul></section>`:''}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${help?`<details class="content-help"><summary>Hulp</summary><p>${esc(help)}</p></details>`:''}</section>`;
 }
 function contentAnswerLabel(item){return !item.model_answer?'Bespreek samen':ContentRuntime.answerPolicy(item).modelIsExample?'Bekijk een mogelijk antwoord':'Bekijk het antwoord'}
 function contentAnswerText(item,policy){const lesson=globalThis.QuickLessonGuidance?.lesson(item);return `${policy.modelAnswer?`<section><h3>${policy.modelIsExample?'Een mogelijk antwoord':'Antwoord'}</h3><p>${esc(policy.modelAnswer)}</p></section>`:''}<section><h3>Bespreek samen</h3><p>${esc(lesson?.discussion||item.explanation||item.learning_goal)}</p></section>${item.e1_canonical&&item.feedback_correct&&item.feedback_correct!==item.explanation?`<section><h3>Feedback</h3><p>${esc(item.feedback_correct)}</p></section>`:''}${item.e1_canonical&&item.feedback_incorrect&&item.feedback_incorrect!==item.feedback_correct?`<section><h3>Bij een ander antwoord</h3><p>${esc(item.feedback_incorrect)}</p></section>`:''}`}
@@ -1050,6 +1051,7 @@ const CARD_READING_EDITS={
  'TR-IDIOMS-P002-010-R3':{title:'Maak één woord',steps:['Zet de drie delen aan elkaar. Zeg het woord.','Bel de klantenservice. Spreek af wanneer zij jou kunnen bellen.']}
 };
 function cardActionSteps(text){
+ if(globalThis.CardPresentation?.steps)return CardPresentation.steps(text);
  // Split only before a new explicit action. Keep quoted options, times and conditions together.
  return String(text||'').trim().split(/(?<=[.!?])\s+(?=(?:Vraag|Kies|Zeg|Vertel|Leg|Bespreek|Vergelijk|Maak|Noem|Wijs|Lees|Schrijf|Reageer|Controleer|Gebruik|Geef|Laat|Stel|Vat|Speel|Bekijk|Los|Herschrijf|Onderzoek|Voorspel|Zet|Benoem|Bedenk|Herhaal|Erken|Breng|Herstel|Regel|Verhelder|Beoordeel|Luister)\b)/u).filter(Boolean);
 }
@@ -1079,7 +1081,12 @@ function cardReadingParts(c,kind){
   const match=situation.match(/^Tekstrebus: ([^.]+)\.\s*/u);
   if(match){focus=match[1];situation=situation.slice(match[0].length)}
  }
- const extra=c.taskData.filter(t=>!c.situation.includes(t)&&t!==c.situation&&t!==situation&&!focus.includes(t)&&!(words.length&&t.replace(/\s+/g,' ').trim()===c.situation.slice(0,c.situation.indexOf('.')+1)));
+ if(!focus&&!words.length&&!['mission','conversation','story'].includes(kind)){
+  const quote=situation.match(/^(.*?(?:staat|luidt|schrijft|zegt|leest):)\s*([\s\S]+)$/);
+  if(quote){situation=quote[1];focus=quote[2];}
+ }
+ const sameText=t=>lessonText(t).toLowerCase().replace(/[‘’“”"']/g,'').replace(/\b([a-c]):/g,'$1').replace(/[.]$/,'').replace(/\s+/g,' ').trim();
+ const extra=c.taskData.filter((t,i,all)=>!all.slice(0,i).some(x=>sameText(x)===sameText(t))&&!sameText(c.situation).includes(sameText(t))&&!c.situation.includes(t)&&t!==c.situation&&t!==situation&&!focus.includes(t)&&!(words.length&&t.replace(/\s+/g,' ').trim()===c.situation.slice(0,c.situation.indexOf('.')+1)));
  return {situation,focus,words,extra};
 }
 function cardWordPicture(word){
@@ -1099,7 +1106,7 @@ function cardWordPicture(word){
 }
 function cardReadingHtml(c,kind){
  const presentation=globalThis.CardPresentation?.standalone(c);
- if(presentation)return `<div class="card-reading-main">${presentation.situation?`<section class="card-situation"><div><h3>De situatie</h3><p>${esc(presentation.situation)}</p></div></section>`:''}<section class="content-stimulus"><h3>Lees dit</h3><div class="card-word-list">${presentation.stimuli.map(t=>`<p class="card-word-choice">${presentation.target?esc(t).replace(presentation.target,'<u>'+esc(presentation.target)+'</u>'):esc(t)}</p>`).join('')}</div></section>${cardStepsHtml(presentation.steps)}</div>`;
+ if(presentation)return `<div class="card-reading-main">${cardRolesHtml(c,kind)}${presentation.situation?`<section class="card-situation"><div><h3>De situatie</h3><p>${esc(presentation.situation)}</p></div></section>`:''}${presentation.stimuli.length?`<section class="content-stimulus"><h3>Lees dit</h3><div class="card-word-list">${presentation.stimuli.map(t=>`<p class="card-word-choice">${presentation.target?esc(t).replace(presentation.target,'<u>'+esc(presentation.target)+'</u>'):esc(t)}</p>`).join('')}</div></section>`:''}${cardStepsHtml(presentation.steps)}</div>`;
  const {situation,focus,words,extra}=cardReadingParts(c,kind);
  // Slash choices remain an oral task, not new answer buttons or an automatic score.
  let exercise=contentPromptHtml(focus);
@@ -1111,11 +1118,11 @@ function cardReadingHtml(c,kind){
   const at=focus.indexOf(':')+1;
   exercise=esc(focus.slice(0,at))+' '+focus.slice(at).trim().split(' / ').map(t=>`<span class="card-word-choice">${esc(t)}</span>`).join(' / ');
  }
- const parts=situation?[...new Intl.Segmenter('nl',{granularity:'sentence'}).segment(situation)].map(p=>p.segment.trim()):[];
+ const parts=situation?[situation]:[];
  const edit=c.e1_canonical?null:CARD_READING_EDITS[c.id],lines=edit?.situation||[...parts,...extra];
- const situationHtml=lines.length?`<section class="card-situation"><div><h3>${c.practiceText?'Oefentekst':kind==='puzzles'||kind==='idioms'&&focus?'Lees dit':'De situatie'}</h3>${lines.length===1?`<p>${contentPromptHtml(lines[0])}</p>`:`<ul>${lines.map(t=>`<li>${contentPromptHtml(t)}</li>`).join('')}</ul>`}</div></section>`:'';
- const focusHtml=focus?`<p class="card-focus">${exercise}</p>`:'';
- return `<div class="card-reading-main">${cardRolesHtml(c,kind)}${words.length?`<div class="card-story-words" aria-label="Verhaalwoorden">${words.map(w=>`<div>${cardWordPicture(w)}<strong>${esc(w)}</strong></div>`).join('')}</div>`:''}${kind==='puzzles'||kind==='idioms'&&focus?focusHtml+situationHtml:situationHtml+focusHtml}${cardStepsHtml(edit?.steps||cardActionSteps(c.instruction))}</div>`;
+ const situationHtml=lines.length?`<section class="card-situation"><div><h3>${c.practiceText?'Oefentekst':!focus&&kind==='puzzles'?'Lees dit':'De situatie'}</h3>${lines.length===1?`<p>${contentPromptHtml(lines[0])}</p>`:`<ul>${lines.map(t=>`<li>${contentPromptHtml(t)}</li>`).join('')}</ul>`}</div></section>`:'';
+ const focusHtml=focus?`<section class="content-stimulus"><h3>Lees dit</h3><p class="card-focus">${exercise}</p></section>`:'';
+ return `<div class="card-reading-main">${cardRolesHtml(c,kind)}${words.length?`<div class="card-story-words" aria-label="Verhaalwoorden">${words.map(w=>`<div>${cardWordPicture(w)}<strong>${esc(w)}</strong></div>`).join('')}</div>`:''}${situationHtml}${focusHtml}${cardStepsHtml(edit?.steps||cardActionSteps(c.instruction))}</div>`;
 }
 function startCards(kind){
  if(globalThis.ReleasePolicy?.enabled&&kind!=='content-vert001'&&!ReleasePolicy.cardAllowed(kind))return kind==='c1-between-lines'?ContentUI.openBetweenLines():toast(ReleasePolicy.message);
