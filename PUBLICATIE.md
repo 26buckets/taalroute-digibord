@@ -1,6 +1,6 @@
 # Actuele publicatieopdracht — alle kaartsoorten, 6 november 2026
 
-Nico heeft de controle, het herstel en de livepublicatie van alle kaartsoorten expliciet opgedragen. Lees [het begrensde besluit](publication/ACTIEF-ALLE-KAARTEN-20261106.md). De gecontroleerde bron bouwt voort op livecommit `62db914ec323bcab0bb9ddbfb3ad9f452193e983`. De oude tag, oorspronkelijke bevriezing en het herstelmanifest blijven behouden. De normale publicatieroute blijft verplicht; na de livecontrole wordt de publicatie opnieuw vastgezet.
+Nico heeft de controle, het herstel en de livepublicatie van alle kaartsoorten expliciet opgedragen. Lees [het begrensde besluit](publication/ACTIEF-ALLE-KAARTEN-20261106.md). De gecontroleerde bron bouwt voort op livecommit `62db914ec323bcab0bb9ddbfb3ad9f452193e983`. De oude tag, oorspronkelijke bevriezing en het herstelmanifest blijven behouden. De gecontroleerde bron staat live op commit `593f56ca798a3cd5daff9dd66658f30e630b2df6`, Cloudflare-versie `94b29f08-f9ad-48e7-8068-60bce6bef367`. De livecontrole is geslaagd en de publicatie is opnieuw vastgezet. Zie [de controle](publication/ACTIEF-ALLE-KAARTEN-LIVE-20261106.json). Een opvolgende metadata-commit wijzigt de livebron niet.
 
 ---
 

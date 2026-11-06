@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "date": "2026-11-06T11:38:08.355275+00:00",
+  "origin": "https://actief.taalroute.nl",
+  "sourceCommit": "593f56ca798a3cd5daff9dd66658f30e630b2df6",
+  "cloudflareDeployment": "94b29f08-f9ad-48e7-8068-60bce6bef367",
+  "previousLiveCommit": "62db914ec323bcab0bb9ddbfb3ad9f452193e983",
+  "sourceUnchanged": [
+    "data/e1-release.js",
+    "data-bundle.js",
+    "route definitions",
+    "stored lesson IDs/versions",
+    "480 approved recordings"
+  ],
+  "coverage": {
+    "availableSharedTasks": 11338,
+    "bankRouteTypeGroups": 234,
+    "standaloneCards": 610,
+    "standaloneViewports": 4,
+    "layoutViewports": 8,
+    "grammarItems": 1440,
+    "grammarEngineRuns": 7200,
+    "preparationBankGateRouteRuns": 117,
+    "verbLayoutsReviewed": 40,
+    "spellingLayoutsRetained": 40
+  },
+  "localChecks": [
+    "unit",
+    "lint-final",
+    "types",
+    "grammar-1",
+    "grammar-2",
+    "p0",
+    "p0-built",
+    "layout",
+    "banks",
+    "activities",
+    "tongue",
+    "rebus",
+    "smoke-rest",
+    "e1",
+    "build",
+    "publication",
+    "built-cards"
+  ],
+  "liveChecks": [
+    "live-all-cards",
+    "live-examples",
+    "live-layout",
+    "live-entry",
+    "live-memory"
+  ],
+  "publicAssets": {
+    "status": "PASS",
+    "commit": "593f56ca798a3cd5daff9dd66658f30e630b2df6",
+    "manifest_exact": true,
+    "files": [
+      "index.html",
+      "app.js",
+      "card-presentation.js",
+      "open-quiet.css",
+      "wording.js",
+      "reasoning-tasks.js",
+      "content-runtime.js",
+      "quick-lesson-guidance.js",
+      "data/e1-release.js",
+      "data/tongbrekers-opnamen.json",
+      "assets/audio/tongbrekers-20261012/tr-tongue-105-rustig.mp3",
+      "assets/audio/tongbrekers-20261012/tr-tongue-105-normaal.mp3"
+    ],
+    "audio_variants": [
+      "normaal",
+      "rustig"
+    ]
+  },
+  "limitations": [
+    "Geen nieuwe lesproef met cursisten.",
+    "Redactionele controle door de assistent; geen onafhankelijke menselijke beoordeling van elke opdracht."
+  ],
+  "designBasis": {
+    "source": "https://drive.google.com/file/d/1iXr55yHAoIVVtu_J6yZrcqkjKca3USrz/view",
+    "review": "Opdrachtfunctie, niveau, lesduur, bron- en lesreferenties blijven behouden; alleen de presentatie/instructie wordt duidelijker. Geen nieuw cursusprogramma of claim van praktijkbewijs."
+  },
+  "githubActions": "Geen workflow gestart; alleen workflow_dispatch aanwezig. Geen extra Actions-runs voor deze publicatie.",
+  "backupFolder": "https://drive.google.com/drive/folders/1-dU2_cTeXYeogzEb7Qpf5hhM_mVFeQjH",
+  "logSha256": {
+    "unit": "b52ba2a8f46945fc8beea1d16c1270aeec0c536c8a2eef4194d7fc2ec4afa7bf",
+    "lint-final": "0a1ae326f1ab1df4fbdc58439c910f33a54bcc85318cc40023e9fc696bc886ce",
+    "types": "2106772262b008155f642ce9cc29275f4a7445fa501777bf1a53c35db3f43066",
+    "grammar-1": "cf5476514dbf6b5e8c5f456eda11882f2abf0bf03c45e8f7bd1643afa95af84d",
+    "grammar-2": "4e663fa8ae9899dafb020839693da2ce79931d37bc8a1ee8e5b1d7ce4df31694",
+    "p0": "89717909f47da0463a1f11572b50d993cfc82b93ec827cfad62621539fd1303b",
+    "p0-built": "89717909f47da0463a1f11572b50d993cfc82b93ec827cfad62621539fd1303b",
+    "layout": "6e4053677d2f29f3410af316cf9dbe1813df41f2123d1d165b8081d98fbeafa3",
+    "banks": "86ea32c5f55ed77878d536beaab8caad467c623a29f6a1162c3ea76cfb252e0a",
+    "activities": "cf42fc41a50f587a2c643283a5fa1ee153d126a3caaeb7b84f74444db0344c9d",
+    "tongue": "7ad1eff1bfbb931f0f501cbd23313fce66631714d0495a6366325b9775516f86",
+    "rebus": "d65827f4ca4104e2aa2db7aebaf212c29d4f596086b6a2618f6cf54d2d32849b",
+    "smoke-rest": "cfd40644cbacfe2c1dd9aff1d42a4748093e8e5a2a2450b94e98c65d1547069e",
+    "e1": "d05ce8bc5bf870b0c4f6f5f4598f5e88f4bedad0ca0320c368f74886c66e01e1",
+    "build": "87aacb63cbd122c894e6f67983317a072a268874416a9ecb067a30deb47cd8b5",
+    "publication": "1dba15294868f04e33d96111aa2a7aa47f2e408b351f8aad8dfc6d4ad019427c",
+    "built-cards": "ed211ed00194e829bf97518fe7948b4a234851db0861bcb6d3e9703e84b07869",
+    "live-all-cards": "ed211ed00194e829bf97518fe7948b4a234851db0861bcb6d3e9703e84b07869",
+    "live-examples": "f0420f201887980c32231bd35511db2c90555788e5285ec14619566f9ffdfd52",
+    "live-layout": "6e4053677d2f29f3410af316cf9dbe1813df41f2123d1d165b8081d98fbeafa3",
+    "live-entry": "fa5c25fa79c0ce0ec342ff4ce2c779decb2ce6782e1a58b41aecd0194a627bb1",
+    "live-memory": "bc8b43c78cabcada9a7676a80094183d2ae48f162638683612162ac8690fa787"
+  }
+}

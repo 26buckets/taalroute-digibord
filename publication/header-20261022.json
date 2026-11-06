@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "8925e54e6fd4c3e1595b19f43e94e9e4978ddb95ac0c34b3d5156e93c6f1f9c3",
-    "PUBLICATIE.md": "e2be20c6e488c8abb5969898f3f86cc6330a14cf4a66ea7a128c8b2071e72162",
+    "PUBLICATIE.md": "f463c850ffb93b1cbd1893bfb667b72aa6c5c12fb827de44ccb7d46b98cc3b3b",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "2e2c50633c8be285f12d60e2c4134edad68f1ae7e57b90881cd37249bdfdab8e",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "30c58e2283d6083bd34a788d34b5eb1bf5d0932a3e850850b82f9e7c634fe2b6",
-    "publication-freeze.json": "42bcece810b29e130dfeae697ca6dc075b37c99062436988d6df06a172d2e2e9",
+    "publication-freeze.json": "24f8f711819f96305788e4e6ba89c7e582dc4dbee326a70cf7c112708651b3e8",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -87,7 +87,8 @@
     "tests/content-vert001-browser.cjs": "13db5dcd4ac42d4a9a6787349ed1da2847b47045e56bc0e5791e9ed8a362946e",
     "publication/ACTIEF-ALLE-KAARTEN-20261106.md": "539a4a7fb7d420aa346b6f8f9b96395c73bd81db5a329bab4c25c1a4236571b2",
     "publication/header-approved-before-all-cards-20261106.json": "fe3aaf822d48ca1484da65e1486bffac3bde484359b523cad2a1174b48c80843",
-    "tests/all-card-presentation-browser.cjs": "cacee9128fb64b2fe8c45491b00d09b7f661ecbb3654c6c9a81321378c97a899"
+    "tests/all-card-presentation-browser.cjs": "cacee9128fb64b2fe8c45491b00d09b7f661ecbb3654c6c9a81321378c97a899",
+    "publication/ACTIEF-ALLE-KAARTEN-LIVE-20261106.json": "fb5fb1cd0bb9824f70f861edfc680aac47f1bbdfc23e8f3b375846cb55100e0f"
   },
   "explicitPublicationApproval": "Expliciete actuele opdracht van Nico: herstel alle kaartsoorten en zet het live.",
   "previousDecision": "publication/header-approved-before-all-cards-20261106.json",
