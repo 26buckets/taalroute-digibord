@@ -1,6 +1,6 @@
 # Correctie werkwoordvorm — 6 november 2026
 
-Vervolg op de expliciet opgedragen kaartreparatie en livepublicatie. Lees [het begrensde besluit](publication/ACTIEF-WERKWOORDVORM-20261106.md). Basis: livecommit 593f56ca798a3cd5daff9dd66658f30e630b2df6. Alleen 36 werkwoordvervangingsopdrachten noemen voortaan de infinitief en vragen om vervoeging; modellen en bronbestanden blijven behouden.
+Vervolg op de expliciet opgedragen kaartreparatie en livepublicatie. Lees [het begrensde besluit](publication/ACTIEF-WERKWOORDVORM-20261106.md). Gecontroleerd live op commit `ed36e1e18ad26d94937baa68558a327a1a77a07f`, Cloudflare `ba787c26-6466-4870-aad3-8cedfb1a8ac9`. [Livecontrole](publication/ACTIEF-WERKWOORDVORM-LIVE-20261106.json) geslaagd; opnieuw vastgezet. Alleen 36 werkwoordvervangingsopdrachten noemen voortaan de infinitief en vragen om vervoeging; modellen en bronbestanden blijven behouden.
 
 ---
 

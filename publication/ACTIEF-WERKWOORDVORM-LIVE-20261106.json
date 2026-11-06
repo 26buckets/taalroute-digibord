@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-06",
+  "status": "PASS",
+  "commit": "ed36e1e18ad26d94937baa68558a327a1a77a07f",
+  "deployment": "ba787c26-6466-4870-aad3-8cedfb1a8ac9",
+  "origin": "https://actief.taalroute.nl",
+  "localChecks": "publication/ACTIEF-WERKWOORDVORM-CHECKS-20261106.json",
+  "liveChecks": [
+    "release.json commit and 1447 fingerprints equal tested build",
+    "actual card-presentation.js equals source",
+    "11338 available cards and 234 bank/route/type combinations",
+    "36 affected cards at desktop/mobile widths; underlining, two steps and hidden answers",
+    "three actual live examples: ik/Sara/de kinderen with correct hidden answer forms"
+  ],
+  "changedPublishedAssets": [
+    "card-presentation.js"
+  ],
+  "changedInstructions": 36,
+  "cloudWorkflowsStarted": 0
+}
