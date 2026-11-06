@@ -1,6 +1,6 @@
 # Actief — leskeuze en bruikbare leshulp
 
-Datum: 6 november 2026. Status: lokaal uitgevoerd; Nico heeft livepublicatie expliciet opgedragen. Zie publication/ACTIEF-KAARTEN-20261106.md voor de latere aanvullingen over scrollen, spelling en kaartopmaak. De feitelijke livecontrole wordt na publicatie afzonderlijk vastgelegd.
+Datum: 6 november 2026. Status: lokaal uitgevoerd; Nico heeft livepublicatie expliciet opgedragen. Zie publication/ACTIEF-KAARTEN-20261106.md voor de latere aanvullingen over scrollen, spelling en kaartopmaak. De livecontrole is geslaagd en vastgelegd in publication/ACTIEF-KAARTEN-LIVE-20261106.json.
 
 ## Aanleiding en resultaat
 
@@ -22,7 +22,7 @@ De volledige lokale unitreeks, lint, typecontrole, activiteiten op zes schermfor
 
 De volledige lokale smoke-reeks is geslaagd, waaronder 1.440 grammaticaopdrachten op vijf spelweergaven (7.200 weergaven), bestaande navigatie, selectie en opgeslagen voortgang. De tongbrekercontrole is geslaagd: 240 kaarten, 28 filtercombinaties, beide goedgekeurde audiotempo’s, terugzetten, hervatten, zeven andere spellen en acht schermformaten. De actuele schermvoorbeelden staan in het opleverpakket.
 
-De publicatiecontractcontrole slaagt. Bij de eerste uitvoering blokkeerde de publicatievrijgavetest op de bevriezing. Na Nico’s expliciete publicatieopdracht is een begrensde vrijgave voorbereid en getest; de oorspronkelijke herstelbasis blijft behouden. Er is niets gepusht en er zijn geen GitHub Actions gestart. De bestaande workflow is alleen handmatig beschikbaar; er is geen zware cloudcontrole toegevoegd.
+De publicatiecontractcontrole slaagt. Bij de eerste uitvoering blokkeerde de publicatievrijgavetest op de bevriezing. Na Nico’s expliciete publicatieopdracht is een begrensde vrijgave voorbereid en getest; de oorspronkelijke herstelbasis blijft behouden. De gecontroleerde versie is na Nico’s expliciete opdracht via main gepubliceerd; er zijn geen GitHub Actions gestart. De bestaande workflow is alleen handmatig beschikbaar; er is geen zware cloudcontrole toegevoegd.
 
 ## Grenzen en volgende stap
 

@@ -1,6 +1,6 @@
 # Actuele publicatieopdracht — 6 november 2026
 
-Nico heeft herstel en livepublicatie van leskeuze, leshulp, scrollen en kaartpresentatie expliciet opgedragen. Lees [het begrensde besluit](publication/ACTIEF-KAARTEN-20261106.md). De originele bevriezing en herstelbasis blijven behouden. De toegestane bestanden worden exact vastgelegd; na livecontrole wordt opnieuw vastgezet.
+Nico heeft herstel en livepublicatie van leskeuze, leshulp, scrollen en kaartpresentatie expliciet opgedragen. Lees [het begrensde besluit](publication/ACTIEF-KAARTEN-20261106.md). De originele bevriezing en herstelbasis blijven behouden. De gecontroleerde versie staat live op commit `62db914ec323bcab0bb9ddbfb3ad9f452193e983`, Cloudflare-versie `eec66a4f-170c-4005-b502-ab6bb74b121c`. De livecontrole is geslaagd en de publicatie is opnieuw vastgezet. Zie [de livecontrole](publication/ACTIEF-KAARTEN-LIVE-20261106.json). Een opvolgende metadata-commit op main verandert deze livebron niet.
 
 ---
 

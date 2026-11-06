@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-06",
+  "product": "Actief",
+  "origin": "https://actief.taalroute.nl",
+  "sourceCommit": "62db914ec323bcab0bb9ddbfb3ad9f452193e983",
+  "cloudflareDeployment": "eec66a4f-170c-4005-b502-ab6bb74b121c",
+  "previousLiveCommit": "1479e8ff6bfc09c8cf605fe124030b22878230a2",
+  "status": "published_and_verified",
+  "sourceFreezeRestored": true,
+  "originalTagAndManifestUnchanged": true,
+  "githubMainProtectionRestored": true,
+  "githubActionsRunsStarted": 0,
+  "checks": [
+    "npm test, lint, types, post-commit build and scoped publication contract",
+    "610 active cards at four viewports, original 40 blocked; source/media preserved",
+    "90 rebuses on desktop, tablet and small mobile",
+    "1200 rendered cards and 96 full deck cycles",
+    "7200 grammar renders across five game surfaces (two complete shards)",
+    "117 E1 bank/gate/route runs, 11338 tasks, save/resume and memory",
+    "all seven activities at six viewports",
+    "240 tongue twisters, both tempos and eight viewports",
+    "actual mouse, keyboard and touch scrolling",
+    "live lesson selection, 5/10 cards, support, spelling, reference words, sentence repair/build/change",
+    "live layouts at eight sizes, fullscreen and reset confirmation",
+    "live release and all changed/new public assets byte-equal to approved build; 480 audio fingerprints retained; actual audio samples read back"
+  ],
+  "independentTeacherReview": false,
+  "classroomPilot": false,
+  "backupFolder": "https://drive.google.com/drive/folders/1-dU2_cTeXYeogzEb7Qpf5hhM_mVFeQjH"
+}
