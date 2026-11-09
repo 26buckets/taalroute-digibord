@@ -6,7 +6,7 @@ try{
  assert.equal(cp.execFileSync('git',['rev-parse',freeze.approvedTag+'^{commit}'],{cwd:repo,encoding:'utf8'}).trim(),freeze.approvedCommit,'The original approved tag stays fixed');
  cp.execFileSync('git',['merge-base','--is-ancestor',freeze.approvedCommit,'HEAD'],{cwd:repo});
  assert.equal(manifest.commit,freeze.approvedCommit);
- assertPublicationOpen(repo);
+ if(freeze.frozen)assert.throws(()=>assertPublicationOpen(repo),/Publication frozen/);else assertPublicationOpen(repo);
  assert.throws(()=>assertPublicationOpen(temp));
  fs.mkdirSync(path.join(temp,'publication'));
  fs.copyFileSync(path.join(repo,freeze.manifest),path.join(temp,freeze.manifest));
@@ -17,8 +17,8 @@ try{
  write(freeze);fs.appendFileSync(path.join(temp,freeze.manifest),' ');assert.throws(()=>publicationFreeze(temp),/fingerprint changed/);
  fs.copyFileSync(path.join(repo,freeze.manifest),path.join(temp,freeze.manifest));
  write({...freeze,approvedCommit:'0'.repeat(40)});assert.throws(()=>publicationFreeze(temp),/commit differs/);
- write({...freeze,releaseDecision:null});assert.throws(()=>assertPublicationOpen(temp),/scoped release/);
- write(freeze);assert.throws(()=>assertPublicationOpen(temp),/ENOENT/);
+ write({...freeze,frozen:false,releaseDecision:null});assert.throws(()=>assertPublicationOpen(temp),/scoped release/);
+ write({...freeze,frozen:false});assert.throws(()=>assertPublicationOpen(temp),/ENOENT/);
  fs.writeFileSync(path.join(temp,'unchanged.txt'),'original');fs.writeFileSync(path.join(temp,'renamed.txt'),'Actief');
  const base={'unchanged.txt':hash('original'),'renamed.txt':hash('DigiBord')},allowed={'renamed.txt':hash('Actief')};
  verifyApprovedFiles(temp,base,allowed);
