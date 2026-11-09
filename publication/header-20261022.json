@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "1d6b4ba440e400474baf39a27ed05060c6f5c1da2a4c28a2656a8e2159ceb090",
+    "PUBLICATIE.md": "fba89425ba1570278b8c09d7b4e2ea57a9ac1e4623ed4c88c511905ca3a24f9d",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "2d5c051b23206cbbf17025b0168c0233b5cd0bf99bf5820cb809fa7ffef82fb6",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "e12793447b32f3cabc340774b6fdfa27c055b73494164c90e7c8f3022d3fa5fc",
-    "publication-freeze.json": "2f51b9e84bccdcc912b1b6628d2ddce1d3e2ec0d4705b89b4197036317ac1fa2",
+    "publication-freeze.json": "ed719242104d09cb6974fc552498cb0c2d81e03b8500692e18ccf96b96cd486a",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -41,7 +41,7 @@
     "taalroute-menu/zinnen.svg": "e73cb98cc177a0f2d16a957ff697e40fb65e382c327cbe0b51a6dc2c23bf8a9c",
     "publication/HDR001-20261022.md": "b46702d42be128bd888a8e3da01f1f0a49b8db88626b5c751a3cffd41b608008",
     "HEADER-AFSPRAAK.md": "0f0289778f1c9568363eabba9e9818a3e099de1bc66abc38a6105120a246a78d",
-    "header-layout-freeze.json": "c0eca978f1aa02160f9ce0b5a1ef8b917f8e4fcd35ca1cab86aaacf0b30d631a",
+    "header-layout-freeze.json": "5a90e4ebfec7f79cd825988a69c81c64cf16db011ec37aabc7ca7ac88d4e3341",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
@@ -172,7 +172,8 @@
     "meedoen.html": "5808c4adff294e4d0166f364e9cd74424aed3f1ee851a1502fc88ddfdc81f35a",
     "publication/ACTIEF-WERKWOORDVORM-CHECKS-20261106.json": "673ace0c8d9a8b038f4e567bfe4b8ed992547d7301a56ca38d89de7c5a2bcc63",
     "context-tools.css": "e0b75176c879596455d21d92b008db0955d3daf6f49fe2c9ddf7b56b58df8729",
-    "publication/header-herstel-20261022-vorige-vastzetting.json": "df7bf7bbca867ef3be4a2b60de44e942aa9d481cffcce86be6f1d5c149e728b4"
+    "publication/header-herstel-20261022-vorige-vastzetting.json": "df7bf7bbca867ef3be4a2b60de44e942aa9d481cffcce86be6f1d5c149e728b4",
+    "publication/ACTIEF-UI95-LIVE-20261109.json": "40dafb9e3a83a6b2e303afc8f9eecad7785b968bc4ed4da04a8b56bf048bc4ef"
   },
   "explicitPublicationApproval": "Expliciete actuele opdracht van Nico: herstel alle kaartsoorten en zet het live.",
   "previousDecision": "publication/decision-before-verb-form-20261106.json",

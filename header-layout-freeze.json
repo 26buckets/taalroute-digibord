@@ -120,6 +120,9 @@
     "approvedBy": "Nico",
     "record": "publication/ACTIEF-UI95-20261109.md",
     "scope": "Spel kiezen / Les maken / Mijn lessen; behoud logo, fullscreen, hamburger en routes. Gecontroleerde vereenvoudiging van lesbediening.",
-    "status": "controlled-release-authorized"
+    "status": "published-verified-frozen",
+    "sourceCommit": "ed839c65811d6ffed9d9ea5468e9b562c737d433",
+    "liveVersion": "f358d828-8c04-4f61-ac7d-48c7d8534ea6",
+    "liveReview": "publication/ACTIEF-UI95-LIVE-20261109.json"
   }
 }
