@@ -85,7 +85,7 @@
  }
  function finish(){
   if(busy())return;captureCard();root.LessonUI?.checkpoint(true);save();
-  openGameDialog('Les afronden','<p>De les en voortgang blijven op dit apparaat bewaard. Je kunt later verdergaan.</p><div class="navigation-dialog-actions"><button class="smallbtn" id="continueLesson">Verder met mijn les</button><button class="primary" id="finishLesson">Afronden en naar Spelen</button></div>',()=>{
+  openGameDialog('Les afronden','<p>De les en voortgang blijven op dit apparaat bewaard. Je kunt later verdergaan.</p><div class="navigation-dialog-actions"><button class="smallbtn" id="continueLesson">Verder met mijn les</button><button class="primary" id="finishLesson">Afronden en naar Spel kiezen</button></div>',()=>{
    document.querySelector('#continueLesson').onclick=()=>document.querySelector('#gameDialog').close();
    document.querySelector('#finishLesson').onclick=async()=>{await root.LessonUI?.flush();record().finished=true;save();document.querySelector('#gameDialog').close();home()};
   });

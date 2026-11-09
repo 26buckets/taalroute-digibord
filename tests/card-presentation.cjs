@@ -35,3 +35,8 @@ assert.equal(presentation.shared(byId('PB007_A2_01_001')).instruction,'Kies wat 
 assert.equal(presentation.shared(byId('PB005_B1_01_001')).words.length,7);
 assert.ok(presentation.shared(byId('REL_B1_081')).stimulus.includes('A:'));
 console.log('PASS: all '+items.length+' shared cards, 40 spelling and 40 verb layouts, exact transformation targets, source and constraints retained.');
+
+assert.equal(presentation.heading({language_function:'abstract_existenteel',exercise_type:'invullen'}),'Vul de zin aan');
+assert.equal(presentation.heading({language_function:'onpersoonlijk_passief',exercise_type:'herschrijven'}),'Schrijf de zin opnieuw');
+assert.equal(presentation.heading({title:'Welke was kapot?',exercise_type:'scenario'}),'Welke was kapot?');
+assert.equal(presentation.heading({exercise_type:'unknown'}),'Maak de opdracht');

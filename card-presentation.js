@@ -154,5 +154,7 @@
   else if((item.interaction_type==='IT_008_ORDER'||/^(?:Zet|Orden|Leg).*(?:volgorde|zinsdelen|hoofdzin)/.test(instruction))&&stimulus.includes(' / '))words=stimulus.split(' / ');
   return {instruction:end(instruction),stimulus,words,target,situation};
  }
- const api={standalone,shared,steps};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
+ const taskHeadings={betekenis_kiezen:'Kies de betekenis',dialoog_aanvullen:'Maak het gesprek af',fout_verbeteren:'Verbeter de zin',functie_sorteren:'Sorteer de zinnen',herschrijven:'Schrijf de zin opnieuw',invullen:'Vul de zin aan',meerkeuze_context:'Kies wat bij de situatie past',meerkeuze_vorm:'Kies de juiste vorm',referent_kiezen:'Waar verwijst het woord naar?',register_kiezen:'Kies wat bij de situatie past',scenario:'Wat zeg je?',snelvraag:'Vertel',vrije_productie:'Geef je antwoord',zinnen_leggen:'Zet de woorden in volgorde'};
+ function heading(item){return wording.text(item.title||taskHeadings[item.exercise_type]||'Maak de opdracht');}
+ const api={standalone,shared,steps,heading};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

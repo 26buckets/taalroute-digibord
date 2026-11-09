@@ -19,3 +19,6 @@ Nico heeft het concrete navigatievoorstel en directe publicatie expliciet goedge
 
 ## Vereenvoudigde lesbediening — 9 november 2026, lokale uitwerking
 Nico heeft na afwijzing van de extra lesknoppenrij expliciet ingestemd met het vereenvoudigde advies: bouw het in en beoordeel de bruikbaarheid. De afzonderlijke rij met teruggaan, aanpassen en afronden vervalt. De drie hoofdlinks blijven; bij kaarten staan Vorige, Overzicht en Volgende. Afronden verschijnt na de laatste kaart. Terugkijken bij andere spellen blijft onder Opties/Bordopties beschikbaar. Voortgang en hervatten blijven behouden. Deze gecontroleerde lokale uitwerking volgt de actuele livebasis, maar vervangt de vastgezette liveverwijzingen pas na een concrete publicatievrijgave.
+
+## Duidelijke hoofdkeuze en vrijgave — 9 november 2026
+Nico heeft de concrete vereenvoudigde UI plus de drie verbeterpunten expliciet vrijgegeven voor publicatie; zie publication/ACTIEF-UI95-20261109.md. De bestaande bestemmingen heten Spel kiezen, Les maken en Mijn lessen. De dubbele lesrij vervalt. Logo/appkeuze, fullscreen en hamburger blijven op hun plek. Dit is een gerichte Actief-vrijgave; de afspraken voor andere apps blijven staan.

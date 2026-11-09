@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-09",
+  "scope": "Actief UI en bediening; bestaande inhoud en vrijgave blijven behouden",
+  "grade": 9.5,
+  "gradeType": "Voorlopige expertbeoordeling; geen gemeten docentwaardering",
+  "reviewer": "Dezelfde reviewer voor beoordeling, kritische tegencontrole en hercontrole",
+  "criteria": [
+    {
+      "name": "Navigatie en oriëntatie",
+      "grade": 9.6,
+      "evidence": "Spel kiezen, Les maken en Mijn lessen zijn zichtbaar; Vorige/Overzicht/Volgende bij kaarten; directe hervatting en browserterug gecontroleerd."
+    },
+    {
+      "name": "Begrijpelijkheid voor een nieuwe docent",
+      "grade": 9.4,
+      "evidence": "Twee ingangen benoemen hun doel; korte uitleg; 9.578 kaartkoppen gecontroleerd; vijf hulpfuncties met tekst. Begrip door nieuwe docenten is nog niet in een gebruikersonderzoek gemeten."
+    },
+    {
+      "name": "Leesbaarheid en bediening",
+      "grade": 9.5,
+      "evidence": "Vierkantere knoppen, leesbaar selectiecontrast, scrollbare inhoud; hulpknoppen en afronding volledig bereikbaar op 320/390/768/1440 pixels, kaarten op acht schermformaten."
+    },
+    {
+      "name": "Snelheid van handelen",
+      "grade": 9.5,
+      "evidence": "Geen dubbele lesknoppenrij. Bestemming herkenbaar zonder menu openen; eerdere kaart, overzicht en hervatten rechtstreeks bereikbaar. Voorbereidingskeuzes blijven functioneel behouden; snelheid is niet met docenten getimed."
+    },
+    {
+      "name": "Voortgang en herstel",
+      "grade": 9.5,
+      "evidence": "Bestaande opslag en interne quizcategorieën blijven gelijk. Antwoorden, beurten, scores, opgeslagen les, browserterug, herladen, afronden en hervatten lokaal gecontroleerd."
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "focus": "Herkenbare kaartkoppen, duidelijke ingangen, zichtbare hulplabels",
+      "changes": "Gedeelde kopfunctie, Spel kiezen/Les maken met uitleg, Hulp/Voorbeeld/Doel/Partner/Meer, Geprobeerd, Spelhulp/Lesuitleg."
+    },
+    {
+      "round": 2,
+      "focus": "Kritische tegencontrole: verbergt de verbetering andere bediening of verraadt een kop het antwoord?",
+      "findings": [
+        "Geselecteerde kaartfamilie had te weinig contrast.",
+        "Intro lesvoorbereiding werd verborgen door oudere CSS.",
+        "Lang label liep op 320 pixels buiten de knop.",
+        "Taalworp drukte Beurt afronden weg.",
+        "Vaste mobiele kaarthoogte sneed hulpbalk af.",
+        "Quizcategorie kan technische taal of een antwoord bevatten.",
+        "Toegankelijke knopnaam moet de zichtbare naam bevatten."
+      ],
+      "resolution": "Contrast, zichtbare intro, tekstomloop, aparte afrondrij, automatische hoogte, neutrale Reeks-koppen zonder opslagwijziging en overeenkomende toegankelijke namen."
+    },
+    {
+      "round": 3,
+      "focus": "Hercontrole van werkelijke schermen en bereikbaarheid",
+      "checks": "Geen afgekapte labels of bedieningsknoppen in de gerichte controle, vier oppervlakken maal vier formaten. Alle 9.578 koppen zonder technische fallback. Quizvoortgang gelijk vóór en na hervatten. Volledige bestaande reeksen lokaal."
+    }
+  ],
+  "limits": [
+    "Geen onafhankelijke tweede reviewer of gemeten docentwaardering.",
+    "Geen fysieke digibordproef of volledige schermlezeraudit.",
+    "Zinnenbouwer-multiplayer is niet opnieuw end-to-end getest; dienst en interactielogica zijn niet gewijzigd."
+  ],
+  "preservation": [
+    "Bronbanken en media ongewijzigd",
+    "480 gecontroleerde opnamen behouden",
+    "Geen opslagmigratie, verwijdering van lessen of wijziging van antwoorden/scores",
+    "Oorspronkelijk bevroren manifest en goedgekeurde tag behouden"
+  ],
+  "actions": "Geen GitHub Actions-runs gestart; zware controles lokaal. Accountbudget niet gewijzigd."
+}
