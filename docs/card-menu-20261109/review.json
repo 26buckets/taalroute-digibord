@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-09",
+  "status": "local-preview-not-published",
+  "baseCommit": "96bfb91c125b85852154afece5254d1158f5f57a",
+  "liveSourceCommit": "ed839c65811d6ffed9d9ea5468e9b562c737d433",
+  "branch": "preview/kaartmenu-20261109",
+  "request": "One consistent card menu; preserve large cards and text; show real desktop and mobile examples before publication.",
+  "scope": [
+    "All available direct card families and levels",
+    "Prepared grammar, quick and conversation cards",
+    "Same choices in fixed desktop sidebar and narrow-screen dialog",
+    "Preserve exact card deck, turn, attempt and revealed example when switching and resuming"
+  ],
+  "design": {
+    "sidebarWidthPx": 224,
+    "sidebarFromViewportPx": 1101,
+    "narrowScreens": "Visible Kaartspellen button opens the same menu on request; no automatic slide-out",
+    "cardFonts": "Unchanged in all 12 baseline comparisons",
+    "preparedCardDesktopWidthPx": {
+      "before": 850,
+      "after": 1027.203125
+    },
+    "mobile390CardWidthPx": 362
+  },
+  "checks": {
+    "cardMenu": "24 available direct family/route cases; prepared families; 1440/1024/390/320; targets >=44px; no horizontal clipping; keyboard close and focus return; saved progress and reload",
+    "grammar": "Full 1440 reviewed tasks across five game surfaces, split into two local shards (7200 renders)",
+    "regressions": [
+      "npm test",
+      "npm run lint",
+      "npm run types",
+      "npm run test:activities",
+      "npm run test:banks:browser",
+      "npm run smoke (grammar shard 1/2 plus separate shard 2/2)",
+      "npm run test:tongue:browser",
+      "card-layout-browser",
+      "navigation-browser",
+      "quick-lesson-guidance-browser",
+      "UI clarity browser checks"
+    ],
+    "build": "See evidence/build.log; run after preview source commit"
+  },
+  "reviewRounds": [
+    {
+      "round": "Implementation review",
+      "finding": "Prepared cards had no sidebar and both alternative menu buttons were hidden.",
+      "resolution": "Use one shared menu and binder; keep the existing dialog and lesson preparation."
+    },
+    {
+      "round": "Critical review",
+      "findings": [
+        "Attempt state lost on direct family switch",
+        "Current menu choice could scroll offscreen after resize",
+        "Dark theme group labels on a light panel needed contrast",
+        "One card requires singular label"
+      ],
+      "resolution": [
+        "Restore round using current family key rather than previous APP.last",
+        "Reveal current choice on initial mount or panel-size change only",
+        "Explicit dark ink on the retained light panel",
+        "Use kaart when count is 1"
+      ]
+    },
+    {
+      "round": "Recheck",
+      "result": "Targeted menu/progress and navigation tests pass; actual desktop/mobile/dark screenshots inspected. Full local regression checks recorded in evidence."
+    }
+  ],
+  "unchanged": [
+    "Live release",
+    "publication-freeze.json",
+    "main branch",
+    "Content banks and media",
+    "480 recordings",
+    "Existing release gates"
+  ],
+  "limitations": [
+    "No new teacher classroom usability trial or physical touch-device trial.",
+    "Long cards retain vertical scrolling; text is deliberately not reduced.",
+    "DigiBord style-reference folder unavailable locally; retained current approved app typography and controls."
+  ],
+  "evidenceDirectory": "work/kaartmenu-20261109"
+}

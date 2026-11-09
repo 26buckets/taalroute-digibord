@@ -184,7 +184,7 @@ console.log('PASS: board footer keeps roll and undo controls unique; mode select
 
 // All three real card games render the same usable table with one of each control.
 const tableMount={innerHTML:''};
-const tableCtx=vm.createContext({routeLabel:DigiRoutes.label,DigiRoutes,RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0},taskBank:data.taskBank,story:data.storydice,Math,
+const tableCtx=vm.createContext({routeLabel:DigiRoutes.label,publicRoute:()=>DigiRoutes.resolve('A2'),defaultCardRoute:()=>'all',DIGIBORD_CONTENT_CATALOG:{families:[]},DigiRoutes,RUNTIME:data,CARD_GAMES:data.cardGames.families,CARD_ROUTES:data.cardGames.routeDefinitions,$$:()=>[],activeCardRoute:()=>'all',APP:{cardIndex:0},taskBank:data.taskBank,story:data.storydice,Math,
  $:()=>tableMount,save(){},selectShuffledCard:()=>({position:1,cursor:0}),cardShuffleResetButton:()=>'<button id="cardOrderReset"></button>',bindCards(){},setLast(){},toast(message){throw Error(message)},
  selectedTaskRoute:()=>data.taskBank.routes[2],adaptTask:c=>c,shapeMeta:id=>data.taskBank.shapes.find(s=>s.id===id),
  cardFan:()=>'<svg></svg>',levelInstruction:()=> 'Vertel in enkele zinnen.',gameIcon:()=>'<svg></svg>',gameBar:html=>html,cardBack:title=>title,

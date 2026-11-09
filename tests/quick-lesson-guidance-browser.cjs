@@ -21,7 +21,7 @@ const server=http.createServer((req,res)=>{const p=new URL(req.url,'http://local
   const before=await page.evaluate(()=>JSON.stringify(ContentRuntime.activeSession()));
   await page.locator('#contentCardReveal').click();assert.ok((await page.locator('#contentCardAnswer').innerText()).length>35);assert.doesNotMatch(await page.locator('#contentCardAnswer').innerText(),/kernboodschap/);
   assert.equal(await page.evaluate(()=>JSON.stringify(ContentRuntime.activeSession())),before,'Showing support must not mutate the saved content');
-  await page.locator('#contentCardMenu').click();await page.locator('[data-card-family=quick]').click();
+  await page.locator('#gameMount [data-card-family=quick]').click();
  }
  await page.locator('#practiceOverview').click();await frame.locator('[data-ov-explain]').click();await frame.locator('#ovRoute').selectOption('A2_B1');
  assert.match(await frame.locator('#contentDidactic').innerText(),/kennismaking/);assert.match(await frame.locator('#contentDidactic').innerText(),/Luisteraar|luisteraar/);

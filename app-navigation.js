@@ -20,7 +20,8 @@
   const content=document.querySelector('#gameMount .card-content'),support=document.querySelector('#cardSupport');
   r.cards[id]={...old,answer:!document.querySelector('#contentCardAnswer')?.hidden&&!!document.querySelector('#contentCardAnswer'),scroll:content?.scrollTop||0,support:support?.classList.contains('open')||false,section:support?.dataset.section||'',...(APP.cardRound?.id===renderedCard?{round:structuredClone(APP.cardRound)}:{})};
  }
- function restoreRound(card){if(APP.cardRound?.id===card.id)return;const state=record()?.cards[cardKey(card.id)]?.round;if(state&&state.id===card.id&&state.bankRevision===RUNTIME.cardGames.source)APP.cardRound=structuredClone(state)}
+ // The new family renders before setLast replaces the previous game's key.
+ function restoreRound(card){if(APP.cardRound?.id===card.id)return;const state=record(key('card',{kind:APP.cardKind}))?.cards[cardKey(card.id)]?.round;if(state&&state.id===card.id&&state.bankRevision===RUNTIME.cardGames.source)APP.cardRound=structuredClone(state)}
  function restoreCard(){
   const state=record()?.cards[cardKey()];if(!state)return;
   restoring=true;
@@ -61,6 +62,7 @@
   setText(banner.querySelector('span'),APP.last?.label||'');
   document.querySelector('#stage').classList.toggle('has-resume',!banner.hidden);
   if(playing&&APP.last?.type==='card'&&APP.cardKind!=='story')mountCardNavigation();
+  if(playing)root.revealCurrentCardType?.();
   const height=Math.ceil(document.querySelector('#appHeader').getBoundingClientRect().height);
   document.documentElement.style.setProperty('--actief-header-height',height+'px');
  }
