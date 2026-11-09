@@ -24,7 +24,7 @@ const {chromium}=require('playwright');
   }
   await page.evaluate(()=>{ContentUI.setState({family:'grammar',topic:'ER',level:'B1_B2',engine:'CARDS',focus:'all',subtopic:'all',duration:600});ContentUI.start(33)});await check();
   await page.locator('#contentCardReveal').click();await check();await page.locator('#contentCardReveal').click();await check();
-  if(width<=850){await page.locator('#contentCardMenu').click();await page.evaluate(()=>prepareCards('tongue'));await page.locator('#cardMenuOpen').click();assert.ok(await page.locator('#screen-cards.active').count())}
+  if(width<=850){await page.locator('#lessonBack').click();await page.evaluate(()=>prepareCards('tongue'));await page.locator('#lessonBack').click();assert.ok(await page.locator('#screen-cards.active').count())}
   await page.evaluate(()=>prepareCards('tongue'));await check();
   if(process.env.SCREENSHOT_DIR){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,`card-fit-${width}-${height}.png`)})}
  }

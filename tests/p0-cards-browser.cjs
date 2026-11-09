@@ -38,7 +38,7 @@ const root=path.resolve(__dirname,'..');
  for(const family of [...new Set(expected.filter(x=>x.family!=='between').map(x=>x.family))]){
   const row=expected.find(x=>x.family===family);await p.evaluate(async row=>{CONTENT_VERT001.stop();APP.cardGuided=true;APP.level=row.guided[0];await prepareCards(row.family)},row);
   await p.locator('#primaryGame').click();const before=await p.evaluate(async()=>{await LessonUI.flush();return{id:currentCard().id,deck:APP.cardShuffles[APP.cardKind],groups:APP.groups,boards:APP.boardStates}});
-  await p.reload();await p.locator('#resumeBtn').click();assert.deepEqual(await p.evaluate(()=>({id:currentCard().id,deck:APP.cardShuffles[APP.cardKind],groups:APP.groups,boards:APP.boardStates})),before,family+' resume');
+  await p.reload();await require('./resume-lesson.cjs')(p);assert.deepEqual(await p.evaluate(()=>({id:currentCard().id,deck:APP.cardShuffles[APP.cardKind],groups:APP.groups,boards:APP.boardStates})),before,family+' resume');
  }
  await p.setViewportSize({width:1440,height:900});await p.evaluate(()=>{APP.cardGuided=true;APP.level='A0_A1';APP.cardIndex=1;APP.cardShuffles={};APP.last={type:'card',data:{kind:'idioms'}};startCards('idioms')});
  const out=process.env.EVIDENCE_DIR||path.join(root,'test-results/p0-browser');fs.mkdirSync(out,{recursive:true});await p.screenshot({path:path.join(out,'rebus-desktop.png')});await p.setViewportSize({width:390,height:844});await p.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await p.screenshot({path:path.join(out,'rebus-mobile.png')});

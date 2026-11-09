@@ -19,7 +19,7 @@ let browser,page;
  await page.setViewportSize({width:1440,height:1000});
  await page.locator('[name=duration]').selectOption('900');await page.locator('[name=organization]').selectOption('pairs');
  await page.reload();await page.locator('[data-main=practice]').click();assert.equal(await page.locator('[name=duration]').inputValue(),'900');assert.equal(await page.locator('[name=organization]').inputValue(),'pairs');
- await page.locator('#settingsBtn').click();const frame=page.frameLocator('#settingsOverlay iframe');await frame.locator('.nav-btn').first().waitFor();
+ await require('./header-actions.cjs')(page,'#settingsBtn','click');const frame=page.frameLocator('#settingsOverlay iframe');await frame.locator('.nav-btn').first().waitFor();
  const pages=await frame.locator('.nav-btn').evaluateAll(es=>es.map(e=>e.dataset.page));
  for(const width of [1440,768,390,320]){
   await page.setViewportSize({width,height:1000});

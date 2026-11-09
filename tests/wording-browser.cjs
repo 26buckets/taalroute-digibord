@@ -30,7 +30,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    const c=cardsFor('mission',true).find(c=>c.situation.startsWith('Een fictieve medewerker'));
    APP.level=({R0:'A0',R1:'A1',R2:'A1+',R3:'A2',R4:'B1',R5:'B2',R6:'C1'}[c.routeId]);APP.cardIndex=cardsFor('mission').findIndex(x=>x.id===c.id);APP.cardShuffles={};APP.last={type:'card',data:{kind:'mission'}};startCards('mission');await LessonUI.flush();return c.id;
   });assert.match(await page.locator('.active-card').innerText(),/Een medewerker/);
-  await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.evaluate(()=>currentCard().id),kept);assert.match(await page.locator('.active-card').innerText(),/Een medewerker/);assert.doesNotMatch(await page.locator('.active-card').textContent(),/\bfictie(?:f|ve)\b/i);
+  await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.evaluate(()=>currentCard().id),kept);assert.match(await page.locator('.active-card').innerText(),/Een medewerker/);assert.doesNotMatch(await page.locator('.active-card').textContent(),/\bfictie(?:f|ve)\b/i);
   // Retain the actual old lesson reference; only its displayed wording changes.
   const source=require('../data/snelvragen-content.js'),runtime=require('../content-runtime.js').createContentRuntime(source),item=source.items.find(i=>i.content_item_id==='sq-r2-circle-003');assert.match(JSON.stringify(item),/\bbuur\b/i);
   for(const engine of ['CARDS','BOARD','WHEEL']){
@@ -41,7 +41,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
    const selector=engine==='BOARD'?'#taskDrawer.open':engine==='CARDS'?'.content-reading[data-content-item-id]':'.na-wheel-result';
    let text=await page.locator(selector).innerText();assert.ok(!/\bbuur\b/i.test(text));assert.match(text,/buurman/i);
    await page.locator(engine==='BOARD'?'#contentBoardAnswer':engine==='CARDS'?'#contentCardReveal':'.na-wheel-result summary').click();assert.ok(!/\bbuur\b/i.test(await page.locator(engine==='BOARD'?'#gameDialog':selector).innerText()));if(engine==='BOARD')await page.keyboard.press('Escape');
-   await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.locator(selector).waitFor({state:'visible'});
+   await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);await page.locator(selector).waitFor({state:'visible'});
    text=await page.locator(selector).innerText();assert.ok(!/\bbuur\b/i.test(text));assert.match(text,/buurman/i);
    assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_content_refs),s.selected_content_refs);
   }

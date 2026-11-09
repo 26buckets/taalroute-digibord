@@ -73,7 +73,7 @@ let browser;
   await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));
   boardSeen.push(await page.locator('#taskDrawer').getAttribute('data-task-id'));
   assert.ok((await page.locator('#taskInput .content-situation').textContent()).includes('De situatie'));
-  if(n===1){await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('#taskDrawer').getAttribute('data-task-id'),boardSeen.at(-1));}
+  if(n===1){await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.locator('#taskDrawer').getAttribute('data-task-id'),boardSeen.at(-1));}
  }
  assert.equal(new Set(boardSeen.slice(0,boardCount)).size,boardCount);assert.deepEqual(boardSeen.slice(boardCount),boardSeen.slice(0,boardCount));
  const pos=await page.evaluate(()=>APP.boardStates.rotterdam.classPos);await page.locator('#contentBoardNext').click();assert.notEqual(await page.locator('#taskDrawer').getAttribute('data-task-id'),boardSeen.at(-1));assert.equal(await page.evaluate(()=>APP.boardStates.rotterdam.classPos),pos);
@@ -91,7 +91,7 @@ let browser;
  }
  await page.locator('#contentDiceReveal').click();assert.ok(await page.locator('#contentDiceAnswer').isVisible());
  if(process.env.PILOT_SCREENSHOTS)await page.screenshot({path:path.join(process.env.PILOT_SCREENSHOTS,'dobbelspel-1440.png')});
- const dieId=await page.locator('.content-reading').getAttribute('data-content-item-id');await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.content-reading').getAttribute('data-content-item-id'),dieId);
+ const dieId=await page.locator('.content-reading').getAttribute('data-content-item-id');await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.locator('.content-reading').getAttribute('data-content-item-id'),dieId);
  // Existing 3D die animation, single-action guard and undo work through the real controls.
  await page.emulateMedia({reducedMotion:'no-preference'});await page.evaluate(()=>settingsPatch({reducedMotion:false}));
  const beforeDie=await page.evaluate(()=>({id:APP.contentDiceIndex,roll:APP.contentDiceLastRoll,history:undoHistory.length}));

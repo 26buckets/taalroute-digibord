@@ -41,7 +41,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  await page.locator('#wzResponse').fill(model);await page.locator('#wordCheck').click();assert.equal(await page.evaluate(()=>wordRound.status),'correct');
  await page.locator('#wzResponse').fill('Een andere zin.');await page.locator('#wordCheck').click();assert.equal(await page.evaluate(()=>wordRound.status),'review');
  const saved=await page.evaluate(()=>({itemId:wordRound.itemId,response:wordRound.response}));
- await page.reload();await page.locator('#resumeBtn').click();
+ await page.reload();await require('./resume-lesson.cjs')(page);
  assert.deepEqual(await page.evaluate(()=>({itemId:wordRound.itemId,response:wordRound.response})),saved);
  assert.equal(await page.evaluate(()=>JSON.stringify({boards:APP.boardStates,settings:settingsState()})),before);
  // Every source record renders its own instruction/model without substituting another card.
@@ -77,7 +77,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  const target=await page.evaluate(()=>wordItem().answerModel);
  assert.equal(await page.locator('#wordTarget').innerText(),'Het woord: '+target);
  const guessSaved=await page.evaluate(()=>JSON.stringify(wordRound));
- await page.reload();await page.locator('#resumeBtn').click();
+ await page.reload();await require('./resume-lesson.cjs')(page);
  assert.equal(await page.evaluate(()=>JSON.stringify(wordRound)),guessSaved);
  assert.equal(await page.locator('#wordTarget').innerText(),'Het woord: '+target);
  await page.locator('#wordExample').click();assert.equal(await page.locator('#wordTarget').innerText(),'');

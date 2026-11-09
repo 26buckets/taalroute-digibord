@@ -13,3 +13,6 @@ De gecontroleerde bronbestanden en hashes staan in header-layout-freeze.json. Di
 
 ## Studio vast bovenaan — Nico, 22 oktober 2026
 Studio staat altijd als eerste optie in het linker appkeuzemenu, met het bestaande Taalroute-logo, Studio en direct daaronder Docentenomgeving als één compact woordmerk. BETA staat rechts op dezelfde lijn als de andere labels en verticaal midden in de rij. Bestemming: https://studio.taalroute.nl/. De overige menuvolgorde, docentgrenzen, privéstatus en vastgezette headerindeling blijven behouden.
+
+## Goedgekeurde navigatie — Nico, 9 november 2026
+Nico heeft het concrete navigatievoorstel en directe publicatie expliciet goedgekeurd. Spelen, Oefenen en Mijn lessen staan voortaan zichtbaar in het midden van de header; op smalle schermen in een tweede regel. Mijn collectie blijft in het hamburgermenu. Logo/appkeuze links en fullscreen/hamburger rechts blijven behouden. De lessen krijgen een afzonderlijke navigatieregel onder de header. Deze gerichte toestemming vervangt voor Actief de eerdere beperking die deze hoofdlinks verborg. Zie publication/ACTIEF-NAVIGATIE-20261109.md. Na controle en publicatie is dit de nieuwe vaste referentie; andere apps veranderen niet.

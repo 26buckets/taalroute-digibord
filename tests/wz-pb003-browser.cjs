@@ -23,7 +23,7 @@ let browser;
  await page.setViewportSize({width:1440,height:1000});const dir=path.join(root,'tests/artifacts/wz-pb003');fs.mkdirSync(dir,{recursive:true});await page.screenshot({path:path.join(dir,'preparation.png')});
  await page.locator('#practiceSave').click();await page.locator('#lessonName').fill('Zinnen uitbreiden');await page.locator('#lessonSaveForm .primary').click();await page.waitForFunction(()=>!document.querySelector('#gameDialog').open);
  await page.locator('#practiceStart').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),prepared);await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());
- await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),prepared);assert.equal(await page.evaluate(()=>APP.cardIndex),1);
+ await page.reload();await require('./resume-lesson.cjs')(page);assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),prepared);assert.equal(await page.evaluate(()=>APP.cardIndex),1);
  await page.locator('[data-ghelp]').click();assert.equal(await page.locator('.guidance-status').textContent(),'A1');await page.keyboard.press('Escape');
  await page.evaluate(()=>{ContentUI.clearEditing();const filters={bank_ids:['CB-WZ-003']},pool=ContentRuntime.filterSource(filters);ContentUI.launch(ContentRuntime.createSession({filters,targetDurationSeconds:pool.reduce((n,i)=>n+i.estimated_duration_seconds,0),selectedGameEngine:'CARDS'}));settingsPatch({reducedMotion:true})});
  const seen=new Set();for(let n=0;n<425;n++){

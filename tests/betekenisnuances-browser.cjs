@@ -28,7 +28,7 @@ let browser;
  await page.locator('#practiceStart').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),prepared,'Start uses the actual preview IDs');
  await page.locator('[data-ghelp]').click();assert.equal(await page.locator('.guidance-status').textContent(),'B2');assert.equal(await page.locator('.guidance-content details').count(),prepared.length);await page.locator('#gameDialog [data-guidance=bow]').click();assert.ok((await page.locator('.guidance-content').textContent()).includes(prepared.length+' van de '+prepared.length));await page.keyboard.press('Escape');
  await page.locator('#contentCardReveal').click();await page.screenshot({path:path.join(dir,'card.png')});await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());
- await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),prepared);assert.equal(await page.evaluate(()=>APP.cardIndex),1);
+ await page.reload();await require('./resume-lesson.cjs')(page);assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),prepared);assert.equal(await page.evaluate(()=>APP.cardIndex),1);
  await page.locator('[data-ghelp]').click();assert.equal(await page.locator('.guidance-content details').count(),prepared.length);await page.keyboard.press('Escape');
  await page.evaluate(()=>{ContentUI.clearEditing();const filters={bank_ids:['CB-CONNOTATION-007']};ContentUI.launch(ContentRuntime.createSession({filters,targetDurationSeconds:ContentRuntime.filterSource(filters).reduce((n,i)=>n+i.estimated_duration_seconds,0),selectedGameEngine:'CARDS'}))});
  const seen=new Set();for(let n=0;n<80;n++){

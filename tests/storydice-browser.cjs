@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('file://'+path.join(served,'index.html'));
+  await page.goto(process.env.ACTIEF_TEST_URL||'file://'+path.join(served,'index.html'));
   const selectSets=async(...ids)=>{
    if(await page.locator('#storySet').getAttribute('open')===null)await page.locator('#storySet summary').click();
    for(const input of await page.locator('[data-storyset]').all())await input.setChecked(ids.includes(await input.inputValue()));
@@ -58,7 +58,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   const rolled=await page.evaluate(()=>APP.storyRoll);
   await page.locator('#primaryGame').click();await page.locator('#undoAction').click();
   assert.deepEqual(await page.evaluate(()=>APP.storyRoll),rolled);
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await selectedSets(),['familie']);
   assert.deepEqual(await page.evaluate(()=>APP.storyRoll),rolled);
   assert.equal(await page.locator('[data-storylock="0"]').getAttribute('aria-pressed'),'true');
@@ -77,7 +77,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   for(const input of await page.locator('[data-storyset]').all())await input.uncheck();
   assert.equal(await page.locator('#applyStorySets').isDisabled(),true);
   await page.locator('#storySet summary').click();
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await selectedSets(),['dagelijks','lichaam']);
   // A held Daily life image survives switching to Feelings, rolls, undo and reload.
   await selectSets('dagelijks');
@@ -90,7 +90,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   await page.locator('#undoAction').click();assert.deepEqual(await selectedSets(),['dagelijks']);
   assert.equal(await page.evaluate(()=>APP.storyRoll[0]),locked);
   await selectSets('gevoelens');await page.locator('#primaryGame').click();
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await selectedSets(),['gevoelens']);assert.equal(await page.evaluate(()=>APP.storyRoll[0]),locked);
   await page.locator('[data-storylock="0"]').click();await page.locator('#primaryGame').click();
   assert.ok(!(await page.evaluate(()=>APP.storyRoll)).includes(locked));
@@ -113,15 +113,15 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   const legacyRoll=await page.evaluate(()=>{
    delete APP.storyCollections;APP.last.data={collection:'dagelijks'};save();return APP.storyRoll;
   });
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await selectedSets(),['dagelijks']);assert.deepEqual(await page.evaluate(()=>APP.storyRoll),legacyRoll);
   await page.locator('[data-storylock="0"]').click();
   // Retain the archived cabinet checks separately from the public dice routes.
   const archivePage=await browser.newPage();
   await archivePage.addInitScript(()=>{window.DigiBordArchiveReview=true});
-  await archivePage.goto('file://'+path.join(served,'index.html'));
+  await archivePage.goto(process.env.ACTIEF_TEST_URL||'file://'+path.join(served,'index.html'));
   for(const set of sets){
-   await archivePage.locator('[data-main="mycollection"]').click();await archivePage.locator('#collectionStorySets').click();
+   await require('./header-actions.cjs')(archivePage,'[data-main="mycollection"]','click');await archivePage.locator('#collectionStorySets').click();
    assert.equal(await archivePage.locator('[data-cabinet-type="story"]').count(),10);
    await archivePage.locator(`[data-cabinet-id="${set.id}"][data-cabinet-type="story"]`).click();
    assert.equal(await archivePage.locator('#setDetailTitle').innerText(),set.label);

@@ -70,7 +70,7 @@ window.DigiActivities = (() => {
   if(setIndex>=0)histories[id]=[];else histories[id]??=[];
   setLast('activity',game()[1],{kind});render();goScreen('game');
  }
- function rootCheckpoint(){window.LessonUI?.checkpoint()}
+ function rootCheckpoint(){window.LessonUI?.checkpoint();window.AppNavigation?.schedule()}
  function checkpoint(){histories[kind].push({state:structuredClone(state),turn:structuredClone(APP.turn)});histories[kind]=histories[kind].slice(-20)}
  function feedback(text){state.feedback=text}
  const riddleData=()=>state.contentRiddle||content.riddles[state.round%content.riddles.length];
@@ -159,6 +159,7 @@ window.DigiActivities = (() => {
   $('[data-grules]').onclick=help;
   $('[data-goptions]').onclick=()=>kind==='draaiwiel'?editWheel():openGameDialog('Spelopties','<p>Kies de spelmodus links onderaan. Het niveau bovenaan past de gesprekstip aan. Kies bovenaan een andere ronde. Het niveau verandert de gesprekstip.</p><p>Bij de quiz kies je op het quizbord welk team antwoordt. Een goed antwoord levert punten op; een fout antwoord kost geen punten.</p>');
   $('#na-guess-form')?.addEventListener('submit',e=>{e.preventDefault();guess()});
+  $('#na-quiz-text')?.addEventListener('input',e=>{state.quizResponses[state.question]=e.target.value});
   $('#na-quiz-form')?.addEventListener('submit',e=>{e.preventDefault();const value=$('#na-quiz-text')?.value.trim();if(!value)return;checkpoint();state.quizResponses[state.question]=value;feedback('Antwoord vastgelegd. Toon nu het modelantwoord en beoordeel het antwoord.');render('na-quiz-text')});
   const message=state.feedback;
   requestAnimationFrame(()=>{const el=$('#na-feedback');if(el)el.textContent=lessonText(message)});
@@ -284,6 +285,6 @@ window.DigiActivities = (() => {
   if(base.contentQuiz){const n=base.contentQuiz.length;if(candidate.question!==null&&candidate.question>=n||candidate.team>1||candidate.scores.length!==2)fail();for(const [key,value] of Object.entries(candidate.answers)){const q=base.contentQuiz[key];if(!q||(q.manual?!['manual-correct','manual-incorrect'].includes(value):!Number.isInteger(value)||value>=q.options.length))fail()}if(Object.keys(candidate.quizRevealed).some(k=>Number(k)>=n))fail()}
   return candidate;
  }
- function restoreProgress(payload){const candidate=validateProgress(payload);kind=payload.kind;state=rounds[kind]=candidate;histories[kind]=[];state.busy=false;}
- return {start,exportProgress,restoreProgress,validateProgress};
+ function restoreProgress(payload){const candidate=validateProgress(payload);kind=payload.kind;if(rounds[kind]?.contentSessionId===candidate.contentSessionId)candidate.quizResponses=rounds[kind].quizResponses;state=rounds[kind]=candidate;histories[kind]=[];state.busy=false;}
+ return {start,exportProgress,restoreProgress,validateProgress,isBusy:()=>!!state?.busy};
 })();

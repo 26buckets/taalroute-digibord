@@ -16,7 +16,7 @@ let browser;
   if(engine==='BOARD')await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));
   if(engine==='WHEEL')await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);
   await page.evaluate(()=>LessonUI.flush());const before=await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex,items:ContentRuntime.enginePool(APP.contentSessionConfig.selected_game_engine,APP.contentSessionConfig)}));
-  await page.unroute('**/data/conversation-review.js*');await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active');
+  await page.unroute('**/data/conversation-review.js*');await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#screen-game.active');
   assert.equal(await page.evaluate(()=>ContentUI.state().level),'B2','Saved preparation follows the revised advice');
   const after=await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex,items:ContentRuntime.enginePool(APP.contentSessionConfig.selected_game_engine,APP.contentSessionConfig)}));assert.deepEqual(after,before,'Exact old session '+engine);
   await page.locator('[data-ghelp]').click();assert.equal(await page.locator('.guidance-status').innerText(),'C1');assert.equal(await page.locator('.guidance-content details').count(),before.items.length);await page.keyboard.press('Escape');

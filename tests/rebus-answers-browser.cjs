@@ -7,7 +7,7 @@ const rows=expected.filter(c=>c.record.visualRebus).map(c=>({...c,solution:solut
  for(const [width,height]of [[1440,900],[1024,768],[320,568]]){await p.setViewportSize({width,height});
  for(const row of rows){
   await p.mouse.move(0,0);await p.keyboard.press('Escape');
-  await p.evaluate(row=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:true,sound:false});APP.cardGuided=true;APP.level=row.guided[0];APP.cardKind='idioms';APP.cardShuffles={};APP.cardIndex=cardsFor('idioms').findIndex(c=>c.id===row.id);delete APP.cardRound;APP.last={type:'card',data:{kind:'idioms'}};startCards('idioms')},row);
+  await p.evaluate(row=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:true,sound:false});APP.cardGuided=true;APP.level=row.guided[0];APP.cardKind='idioms';APP.cardShuffles={};delete APP.navigation;APP.cardIndex=cardsFor('idioms').findIndex(c=>c.id===row.id);delete APP.cardRound;APP.last={type:'card',data:{kind:'idioms'}};startCards('idioms')},row);
   assert.equal(await p.evaluate(()=>currentCard().id),row.id);
   await p.locator('#cardRebus img').evaluate(img=>img.decode());assert.equal(await p.locator('#cardRebus img').getAttribute('alt'),row.record.visualRebus.alt);
   const fits=async()=>{const result=await p.evaluate(()=>{const c=document.querySelector('.card-content');c.scrollTop=c.scrollHeight;const reachable=Math.abs(c.scrollHeight-c.clientHeight-c.scrollTop)<2;c.scrollTop=0;return reachable&&getComputedStyle(c).overflowY==='auto'&&c.scrollWidth<=c.clientWidth+1});assert.ok(result,row.id+' content fits '+width)};await fits();

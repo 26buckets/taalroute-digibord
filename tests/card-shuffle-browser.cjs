@@ -16,21 +16,21 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
     await nextCard();
    }
    if(seen.size!==ids.length)failures.push(family+':coverage');
-   if(ids.length>1&&currentCard().id===order.at(-1))failures.push(family+':boundary');
+   if(currentCard().id!==order.at(-1)||!document.querySelector('#gameDialog[open]'))failures.push(family+':end preserves final card');document.querySelector('#gameDialog').close();
    rows.push({route:route.id,family,count:seen.size,cycle:APP.cardShuffles[family].cycle});
   }
   return {rows,failures};
  });assert.deepEqual(matrix.failures,[]);assert.equal(matrix.rows.length,42);
  // Real UI route/filter switches keep all overlapping IDs and the pending queue.
- await page.evaluate(()=>{APP.cardShuffles={};goScreen('cards');selectLevel('A0_A1');prepareCards('tongue')});
+ await page.evaluate(()=>{APP.cardShuffles={};goScreen('cards');selectLevel('A0_A1');return prepareCards('tongue')});
  for(let i=0;i<12;i++)await page.locator('#primaryGame').click();
  const lower=await page.evaluate(()=>structuredClone(APP.cardShuffles.tongue));
- await page.locator('#levelSelect').selectOption('B2_C1');
+ await require('./header-actions.cjs')(page,'#levelSelect','selectOption','B2_C1');
  const higher=await page.evaluate(()=>APP.cardShuffles.tongue);
  assert.ok(lower.used.every(id=>higher.used.includes(id)));assert.equal(higher.eligible.length,await page.evaluate(()=>cardsFor('tongue').length));assert.ok(higher.eligible.includes(higher.currentCardId));assert.equal(higher.queue.length,higher.eligible.filter(id=>!higher.used.includes(id)).length);
- await page.locator('#levelSelect').selectOption('B1_B2');assert.ok(await page.evaluate(()=>APP.cardShuffles.tongue.eligible.every(id=>cardsFor('tongue').some(c=>c.id===id))));
- await page.locator('#levelSelect').selectOption('A0_A1');assert.ok((await page.evaluate(()=>APP.cardShuffles.tongue.used)).length>=lower.used.length);
- await page.locator('#levelSelect').selectOption('B2_C1');await page.locator('#tongueDifficulty').selectOption('hard');
+ await require('./header-actions.cjs')(page,'#levelSelect','selectOption','B1_B2');assert.ok(await page.evaluate(()=>APP.cardShuffles.tongue.eligible.every(id=>cardsFor('tongue').some(c=>c.id===id))));
+ await require('./header-actions.cjs')(page,'#levelSelect','selectOption','A0_A1');assert.ok((await page.evaluate(()=>APP.cardShuffles.tongue.used)).length>=lower.used.length);
+ await require('./header-actions.cjs')(page,'#levelSelect','selectOption','B2_C1');await page.locator('#tongueDifficulty').selectOption('hard');
  assert.ok(lower.used.every(id=>higher.used.includes(id)));
  await page.locator('#tongueDifficulty').selectOption('');
  // Every family survives menu, reload and returning from a different family.
@@ -38,7 +38,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   await page.evaluate(kind=>{APP.cardGuided=true;APP.level=DigiRoutes.resolve(cardsFor(kind,true)[0].finalRoute);return prepareCards(kind)},kind);await page.locator('#primaryGame').click();
   const state=await page.evaluate(()=>({deck:APP.cardShuffles[APP.cardKind],id:currentCard().id,level:APP.level,turn:APP.turn,boards:APP.boardStates}));
   await page.evaluate(()=>goScreen('cards'));await page.locator('#cardMenuResume').click();
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await page.evaluate(()=>({deck:APP.cardShuffles[APP.cardKind],id:currentCard().id,level:APP.level,turn:APP.turn,boards:APP.boardStates})),state,kind+' exact resume');
   await page.evaluate(other=>prepareCards(other),kind==='tongue'?'verbs':'tongue');await page.evaluate(kind=>prepareCards(kind),kind);
   assert.deepEqual(await page.evaluate(()=>APP.cardShuffles[APP.cardKind]),state.deck,kind+' family return');
@@ -53,10 +53,10 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  for(const [route,count] of [['A2_B1',19],['B1_B2',31]]){
   await page.evaluate(route=>{const filters={bank_ids:['CB-BETWEEN-LINES-012'],levels:[route]};ContentUI.launch(ContentRuntime.createSession({filters,selectedGameEngine:'CARDS',targetDurationSeconds:ContentRuntime.filterSource(filters).reduce((n,c)=>n+c.estimated_duration_seconds,0),seed:9}))},route);
   assert.equal(await page.evaluate(()=>cardShuffleScope()),'between-lines');
-  const audit=await page.evaluate(async()=>{selectShuffledCard('content-vert001',contentSessionCards(),'reset');startContentCards();const seen=new Set();for(let i=0;i<contentSessionCards().length;i++){seen.add(contentSessionCards()[APP.cardIndex].content_item_id);await nextCard()}return [...seen]});assert.equal(audit.length,count);
+  const audit=await page.evaluate(async()=>{selectShuffledCard('content-vert001',contentSessionCards(),'reset');startContentCards();const seen=new Set();for(let i=0;i<contentSessionCards().length;i++){seen.add(contentSessionCards()[APP.cardIndex].content_item_id);await nextCard()}document.querySelector('#gameDialog[open]')?.close();return [...seen]});assert.equal(audit.length,count);
   await page.locator('#contentCardReveal').click();
   const state=await page.evaluate(async()=>{await LessonUI.flush();return {deck:structuredClone(APP.cardShuffles['between-lines']),index:APP.cardIndex,session:APP.contentSessionConfig,ids:contentSessionCards().map(c=>c.content_item_id)}});
-  await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('.content-vert001-cards');
+  await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('.content-vert001-cards');
   assert.deepEqual(await page.evaluate(()=>({deck:APP.cardShuffles['between-lines'],index:APP.cardIndex,session:APP.contentSessionConfig,ids:contentSessionCards().map(c=>c.content_item_id)})),state);
   // IndexedDB resume after another family, not only localStorage.
   await page.evaluate(()=>prepareCards('tongue'));await page.evaluate(id=>LessonUI.handle('resume','recent-'+id),state.session.session_id);
@@ -64,7 +64,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  }
  // Legacy current ID + unrelated state are preserved by the additive migration.
  await page.evaluate(()=>{ContentRuntime.clearSession();APP.cardShuffles={};APP.level='B2';APP.cardKind='tongue';APP.cardIndex=3;APP.tongueCardId=cardsFor('tongue')[3].id;APP.last={type:'card',title:'Tongbrekers',data:{kind:'tongue'}};save();localStorage.removeItem('taalroute-card-shuffle-v1-backup')});
- const legacy=await page.evaluate(()=>({raw:localStorage.getItem(STORE),id:APP.tongueCardId}));await page.reload();await page.locator('#resumeBtn').click();
+ const legacy=await page.evaluate(()=>({raw:localStorage.getItem(STORE),id:APP.tongueCardId}));await page.reload();await require('./resume-lesson.cjs')(page);
  assert.equal(await page.evaluate(()=>currentCard().id),legacy.id);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('taalroute-card-shuffle-v1-backup')).values[STORE]),legacy.raw);
  // Frozen generic lessons also persist their shuffle through the existing progress adapter.
  await page.evaluate(()=>{ContentUI.setState({family:'grammar',topic:'ER',level:'B1_B2',engine:'CARDS',focus:'all',subtopic:'all',duration:600});ContentUI.start(33)});
@@ -75,7 +75,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),9578);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().filter(i=>DigiRoutes.classification(i).FreePlayGate==='GUIDED').length),0);
  for(const width of [1920,390,320]){
-  await page.setViewportSize({width,height:900});await page.evaluate(()=>{goScreen('cards');selectLevel('B2_C1');prepareCards('tongue')});
+  await page.setViewportSize({width,height:900});await page.evaluate(()=>{goScreen('cards');selectLevel('B2_C1');return prepareCards('tongue')});
   const old=await page.evaluate(()=>currentCard().id);await page.locator('#primaryGame').click();assert.notEqual(await page.evaluate(()=>currentCard().id),old);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));assert.ok(await page.locator('.tongue-text').evaluate(e=>parseFloat(getComputedStyle(e).fontSize)>=36));
   await page.locator('#cardOrderReset').scrollIntoViewIfNeeded();assert.ok(await page.locator('#cardOrderReset').isVisible());

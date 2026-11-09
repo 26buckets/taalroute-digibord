@@ -48,7 +48,7 @@ let browser;
  const last=await page.locator('#screen-game [data-reasoning-item]').getAttribute('data-reasoning-item');
  await page.locator('#screen-game textarea').first().fill('<img src=x onerror=alert(1)>');await page.evaluate(()=>nextCard(-1));await page.evaluate(()=>nextCard(1));assert.equal(await page.locator('#screen-game textarea').first().inputValue(),'<img src=x onerror=alert(1)>');assert.equal(await page.locator('#screen-game .reasoning-task img').count(),0);
  await page.evaluate(()=>LessonUI.flush());const savedText=await page.evaluate(async()=>JSON.stringify(await LessonUI.service.list('recent_session')));assert.ok(!savedText.includes('onerror=alert'));assert.ok(!(await page.evaluate(()=>JSON.stringify(localStorage))).includes('onerror=alert'));
- await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('#screen-game [data-reasoning-item]').getAttribute('data-reasoning-item'),last);assert.equal(await page.locator('#screen-game [data-reasoning-action=example]').count(),0);
+ await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.locator('#screen-game [data-reasoning-item]').getAttribute('data-reasoning-item'),last);assert.equal(await page.locator('#screen-game [data-reasoning-action=example]').count(),0);
  const reloadHost=page.locator('#screen-game [data-reasoning-item]');if(await reloadHost.locator('[data-reasoning-action=read]').count())await reloadHost.locator('[data-reasoning-action=read]').click();assert.ok(!(await reloadHost.locator('textarea').first().inputValue()).includes('onerror'));
  for(const engine of ['BOARD','WHEEL']){
   await launch(engine);const visited=new Set();
@@ -59,7 +59,7 @@ let browser;
    if(n===0){await page.evaluate(()=>LessonUI.flush());await page.screenshot({path:path.join(dir,engine.toLowerCase()+'.png')});}
   }
   assert.equal(visited.size,12);
-  await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.locator('#screen-game [data-reasoning-item]').waitFor({state:'visible'});assert.equal(await page.locator('#screen-game [data-reasoning-item]').count(),1,'Resume '+engine+' with dotted source IDs');
+  await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);await page.locator('#screen-game [data-reasoning-item]').waitFor({state:'visible'});assert.equal(await page.locator('#screen-game [data-reasoning-item]').count(),1,'Resume '+engine+' with dotted source IDs');
   for(const width of [390,1440]){await page.setViewportSize({width,height:1000});assert.ok(await page.locator('#screen-game .reasoning-task').evaluate(e=>e.scrollWidth<=e.clientWidth+1),engine+' overflow');}
  }
  assert.deepEqual(errors,[]);console.log('PASS MR03 browser: all 12 tasks in CARDS/BOARD/WHEEL, both preparation routes, source blocks/edits/columns, hint and example gates, keyboard, draft navigation, no response persistence, lesson resume, dotted IDs and responsive layout.');

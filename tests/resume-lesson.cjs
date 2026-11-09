@@ -1,0 +1,2 @@
+// Reload now restores #/les directly; the start page still offers its resume button.
+module.exports=async page=>{await page.waitForFunction(()=>window.AppNavigation);if(!page.url().endsWith('#/les')&&!await page.locator('#screen-game.active').count()){const resume=page.locator('[data-nav-resume]');if(await resume.isVisible())await resume.click();else await page.locator('#resumeBtn').click()}await page.locator('#screen-game.active .game-shell').waitFor()};

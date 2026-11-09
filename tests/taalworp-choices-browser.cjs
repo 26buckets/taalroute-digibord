@@ -34,7 +34,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  assert.deepEqual(instructionStyle.map(x=>x.colour),['rgb(5, 143, 225)','rgb(228, 55, 53)','rgb(27, 162, 92)','rgb(223, 159, 8)','rgb(163, 77, 226)','rgb(126, 140, 154)']);
  assert.ok(instructionStyle.every(x=>x.width==='3px'&&x.display==='inline'&&x.strong&&x.background==='rgb(255, 253, 250)'));
  assert.deepEqual(examples,['De machine werkt weer goed.','De machine werkte weer goed.','De machine heeft weer goed gewerkt.']);
- const saved=await page.evaluate(()=>{delete APP.taalworpBothLinks;save();return JSON.stringify(twDiceState)});await page.reload();await page.locator('#resumeBtn').click();
+ const saved=await page.evaluate(()=>{delete APP.taalworpBothLinks;save();return JSON.stringify(twDiceState)});await page.reload();await require('./resume-lesson.cjs')(page);
  assert.equal(await page.evaluate(()=>JSON.stringify(twDiceState)),saved);assert.equal(await page.evaluate(()=>APP.taalworpBothLinks),true);
  await page.locator('#primaryGame').click();assert.equal(await page.evaluate(()=>twDiceState.WHO.value.label),'de machine');
  // A locked nonhuman subject survives an incompatible set: no nonsense replacement card.
@@ -45,7 +45,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
  await page.evaluate(()=>{for(const id of TW_DICE_IDS){const vals=languageChoices(id);if(vals.length){twDiceState[id].value=vals.reduce((a,b)=>languageCardInstruction(id,a).length>languageCardInstruction(id,b).length?a:b);twDiceState[id].active=true}}renderLanguageDice();renderVerbCard()});
  for(const [width,height] of [[1920,1080],[1440,900],[1366,768]]){
   await page.setViewportSize({width,height});
-  const clipped=await page.evaluate(()=>{const original=APP.currentVerb,failures=[];APP.verbLocked=true;for(const verb of Object.values(tw.manifest.verbs)){APP.currentVerb=verb.id;renderVerbCard();const el=document.querySelector('.verb-assignment');if(el.scrollHeight>el.clientHeight+1)failures.push({id:verb.id,lemma:verb.lemma,scroll:el.scrollHeight,height:el.clientHeight})}APP.currentVerb=original;renderVerbCard();return failures});
+  const clipped=await page.evaluate(()=>{const original=APP.currentVerb,failures=[];APP.verbLocked=true;for(const verb of Object.values(tw.manifest.verbs)){APP.currentVerb=verb.id;renderVerbCard();const el=document.querySelector('.verb-assignment');el.scrollTop=el.scrollHeight;if(Math.abs(el.scrollHeight-el.clientHeight-el.scrollTop)>1||getComputedStyle(el).overflowY!=='auto'||el.tabIndex!==0)failures.push({id:verb.id,lemma:verb.lemma,scroll:el.scrollHeight,height:el.clientHeight})}APP.currentVerb=original;renderVerbCard();return failures});
   assert.deepEqual(clipped,[],'long verb cards '+width);
  }
  if(out)fs.mkdirSync(out,{recursive:true});
@@ -53,7 +53,7 @@ const root=path.resolve(__dirname,'..'),out=process.env.SCREENSHOT_DIR;
   await page.setViewportSize({width,height});
   const box=await page.locator('.verb-assignment').evaluate(el=>({scroll:el.scrollHeight,client:el.clientHeight,overflow:document.documentElement.scrollWidth>innerWidth,visible:[...el.querySelectorAll('.sentence-choice')].every(x=>{const a=x.getBoundingClientRect(),b=el.getBoundingClientRect();return a.top>=b.top&&a.bottom<=b.bottom})}));
   assert.ok(!box.overflow,'page overflow '+width);
-  if(width>=1366){assert.ok(box.scroll<=box.client+1,'card scroll '+width+' '+JSON.stringify(box));assert.ok(box.visible,'six choices '+width)}
+  assert.ok(await page.locator('.verb-assignment').evaluate(el=>{el.scrollTop=el.scrollHeight;const reachable=Math.abs(el.scrollHeight-el.clientHeight-el.scrollTop)<2;el.scrollTop=0;return reachable&&el.tabIndex===0}),'all choices reachable '+width)
   if(out){await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));await page.screenshot({path:path.join(out,'zinnen-'+width+'.png')})}
  }
  await page.evaluate(()=>selectLevel('A1'));assert.equal(await page.locator('[data-die="CONNECT_2"]').isDisabled(),true);

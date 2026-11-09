@@ -10,7 +10,7 @@ assert.equal(read('data/tongbrekers-audio.json'),read('imports/tongbrekers-240-2
 const source=read('app.js');let rendered;
 const ctx=vm.createContext({DigiRoutes:require('../route-architecture.js'),RUNTIME:runtime,CARD_GAMES:runtime.cardGames.families,APP:{level:'A2',cardIndex:0},window:{},$$:()=>[],activeCardRoute:()=>ctx.APP.cardRoute||'all',esc:s=>String(s??''),setLast(){},renderCardTable:(kind,count,html)=>rendered={kind,count,html}});
 // This source/presentation audit selects each row explicitly; shuffle behavior has its own tests.
-ctx.selectShuffledCard=()=>({position:ctx.APP.cardIndex+1});
+ctx.selectShuffledCard=()=>({position:ctx.APP.cardIndex+1,cursor:ctx.APP.cardIndex});
 vm.runInContext(source.slice(source.indexOf('function cardsFor('),source.indexOf('function cardActivityHeader(')),ctx);
 for(const level of bank.levels){
  ctx.APP.level=level;

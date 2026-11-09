@@ -91,12 +91,12 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.equal(await page.evaluate(()=>ContentRuntime.activeSession()),null);assert.equal(await page.locator('#storyGrid .storydie').count(),3);
  await page.locator('[data-storylock="0"]').click();await page.locator('#primaryGame').click();
  const storyState=await page.evaluate(()=>({roll:APP.storyRoll,locks:APP.storyLocks,enabled:APP.storyEnabled,sets:APP.storyCollections}));
- await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#storyGrid');
+ await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#storyGrid');
  assert.deepEqual(await page.evaluate(()=>({roll:APP.storyRoll,locks:APP.storyLocks,enabled:APP.storyEnabled,sets:APP.storyCollections})),storyState);
  await page.locator('.dice-sidebar [data-dicegame=taalworp]').click();await page.waitForSelector('#languageStage');
  await page.locator('[data-lock=WHO]').click();await page.locator('#primaryGame').click();await page.waitForFunction(()=>!languageBusy);
  const sentenceState=await page.evaluate(()=>({dice:twDiceState,verb:APP.currentVerb,sets:APP.taalworpSets}));
- await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#languageStage');
+ await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#languageStage');
  assert.deepEqual(await page.evaluate(()=>({dice:twDiceState,verb:APP.currentVerb,sets:APP.taalworpSets})),sentenceState,'Sentence dice and verb resume exactly');
  const keptLesson=await page.evaluate(async id=>{await LessonUI.flush();return (await LessonUI.service.list('recent_session')).find(r=>r.recent_session_id===id)},previousLesson.recent_session_id);
  assert.deepEqual(keptLesson,previousLesson,'Standalone games do not overwrite the earlier shared lesson');
@@ -164,7 +164,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
    await page.setViewportSize({width:1440,height:1000});
   }
   assert.ok(await page.locator('#screen-game.active').isVisible());const old=await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs}));
-  await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active');assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs})),old);
+  await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#screen-game.active');assert.deepEqual(await page.evaluate(()=>({ids:APP.contentSessionConfig.selected_item_ids,refs:APP.contentSessionConfig.selected_content_refs})),old);
  }
  // Dice: expanded answers stay in the card; the die and card clear the title.
  await page.evaluate(()=>{CONTENT_VERT001.stop();settingsPatch({reducedMotion:true});ContentUI.setState({family:'grammar',topic:'ER',level:'B1',engine:'DICE',variant:null,subtopic:'all',focus:'all',production:'all',difficulty:'all',duration:180});ContentUI.start(41)});
@@ -187,7 +187,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  assert.doesNotMatch(await page.locator('.content-engine-dice').innerText(),/Tel zoveel|dezelfde opdracht|Je gooide/);
  await page.locator('[data-grules]').click();assert.doesNotMatch(await page.locator('#dialogBody').innerText(),/Tel zoveel|dezelfde opdracht/);await page.keyboard.press('Escape');
  const diceProgress=await page.evaluate(async()=>{await LessonUI.flush();return {index:APP.contentDiceIndex,roll:APP.contentDiceLastRoll,session:APP.contentSessionConfig}});
- await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('.content-engine-dice');
+ await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('.content-engine-dice');
  assert.deepEqual(await page.evaluate(()=>({index:APP.contentDiceIndex,roll:APP.contentDiceLastRoll,session:APP.contentSessionConfig})),diceProgress,'Dice progress survives reload');
  // Shared cards reuse the existing draw/slide/turn animation and its motion preferences.
  await page.emulateMedia({reducedMotion:'no-preference'});
@@ -215,7 +215,7 @@ const server=http.createServer((req,res)=>{const file=path.resolve(served,'.'+de
  }
  await page.screenshot({path:path.join(root,'tests/artifacts/release/kaart-geopend.png')});
  const savedCard=await page.evaluate(async()=>{await LessonUI.flush();return {index:APP.cardIndex,id:document.querySelector('[data-content-item-id]').dataset.contentItemId}});
- await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active [data-content-item-id]');
+ await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#screen-game.active [data-content-item-id]');
  assert.deepEqual(await page.evaluate(()=>({index:APP.cardIndex,id:document.querySelector('[data-content-item-id]').dataset.contentItemId})),savedCard,'Resume keeps the animated card');
  for(const pref of [{os:'reduce',app:false},{os:'no-preference',app:true}]){
   await page.emulateMedia({reducedMotion:pref.os});await page.evaluate(app=>settingsPatch({reducedMotion:app}),pref.app);

@@ -42,7 +42,7 @@ const {chromium}=require('playwright');
    await page.locator('.activity-shared-set').nth(29).locator(`[data-activity="${id}"]`).click();
    assert.equal(await page.locator('#na-set').inputValue(),'29');
    assert.equal(await page.locator('.new-activity').getAttribute('data-workspace'),'wide');
-   await page.locator('[data-activities-back]').click();await page.locator('[data-activities-library]').click();
+   await page.locator('#lessonBack').click();assert.equal(await page.locator('#screen-activities').isVisible(),true);
   }
   await page.locator('#screen-activities [data-category="workforms"]').click();
   assert.equal(await page.locator('#screen-play .activity-entry,#screen-play .workform-world').count(),0);
@@ -59,7 +59,7 @@ const {chromium}=require('playwright');
   await open('rangschikken');for(const i of [3,2,1,0])await click('step',i);await next();await feedback('nog niet');for(let i=0;i<4;i++)await click('remove-step',0);for(let i=0;i<4;i++)await click('step',i);await next();await feedback('volgorde klopt!');await next();
   await open('categorieenquiz');for(let i=0;i<30;i++){await click('question',i);const answer=await page.evaluate(i=>window.DIGIBORD_ACTIVITIES.quiz[i].answer,i);await click('quiz-answer',i===0?1:answer);await feedback(i===0?'Nog niet':'Goed!');await next()}assert.deepEqual(await page.locator('.na-scoreboard strong').allTextContents(),['2900','3000']);assert.equal(await page.locator('.na-quiz-board button:enabled').count(),0);await next();assert.equal(await page.locator('.na-quiz-board button:enabled').count(),30);
   await open('raad-het-woord');await page.locator('#na-guess').fill('auto');await page.locator('#na-guess-form button').click();await feedback('nog niet');await click('hint',0);assert.equal(await page.locator('.na-clues li').count(),2);await page.locator('#na-guess').fill('De fiets!');await page.locator('#na-guess-form button').click();await feedback('Goed geraden');await next();await click('reveal',0);assert.equal(await page.locator('.na-word').innerText(),'sleutel');await page.locator('#activityUndo').click();assert.equal(await page.locator('#na-guess').count(),1);
-  await headerAction(page, '#levelSelect', 'selectOption', 'B1_B2');assert.match(await page.locator('#na-level').innerText(),/vervolgvraag/);await headerAction(page, '[data-main="play"]', 'click');await page.locator('#resumeBtn').click();assert.equal(await page.locator('.new-activity .card-ribbon strong').innerText(),'Raad het woord');
+  await headerAction(page, '#levelSelect', 'selectOption', 'B1_B2');assert.match(await page.locator('#na-level').innerText(),/vervolgvraag/);await headerAction(page, '[data-main="play"]', 'click');await require('./resume-lesson.cjs')(page);assert.equal(await page.locator('.new-activity .card-ribbon strong').innerText(),'Raad het woord');
   for(const id of ids.filter(id=>id!=='categorieenquiz')){
    await open(id);const count=id==='draaiwiel'?5:30;assert.equal(await page.locator('#na-set option').count(),count+(id==='draaiwiel'?1:0));
    await page.locator('#na-set').selectOption(String(count-1));if(id!=='draaiwiel')assert.equal(await page.locator('.card-counter').innerText(),`${count} / ${count}`);else assert.equal(await page.locator('#na-set').inputValue(),String(count-1));

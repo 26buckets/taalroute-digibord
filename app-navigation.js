@@ -1,0 +1,164 @@
+/* Navigation changes the view; only a new task or explicit undo changes the turn. */
+(function(root){
+ 'use strict';
+ const labels={play:'Spelen',practice:'Oefenen',lessons:'Mijn lessen',mycollection:'Mijn collectie',boards:'Speelborden',dice:'Dobbelspellen',cards:'Kaartspellen',words:'Grammatica en zinsbouw',workforms:'Oefenvormen',activities:'Oefenvormen',collection:'Mijn collectie'};
+ const routes={play:'spelen',practice:'oefenen',lessons:'mijn-lessen',mycollection:'collectie',boards:'speelborden',dice:'dobbelspellen',cards:'kaartspellen',workforms:'oefenvormen',activities:'oefenbibliotheek',words:'taaldoelen',game:'les'};
+ let renderedKey='',renderedCard='',scheduled=false,restoring=false,historyMoving=false,screenAtSettings=null;
+ const screen=()=>document.querySelector('.screen.active')?.id.replace('screen-','')||'play';
+ const nav=()=>APP.navigation??=( {version:1,sessions:{}} );
+ function key(type=APP.last?.type,data=APP.last?.data){
+  const session=root.ContentRuntime?.activeSession();
+  if(session&&!['taalworp','story'].includes(type)&&!(type==='card'&&data?.kind!=='content-vert001'))return session.session_id;
+  return type?type+':'+(data?.kind||data?.board||'')+':'+publicRoute():'';
+ }
+ function record(k=key()){if(!k)return null;nav().sessions??={};return nav().sessions[k]??={origin:'play',cards:{},history:[],finished:false}}
+ function currentId(){return document.querySelector('#gameMount [data-content-item-id],#gameMount [data-card-id]')?.getAttribute('data-content-item-id')||document.querySelector('#gameMount [data-card-id]')?.dataset.cardId||''}
+ function deck(){try{return APP.cardShuffles?.[cardShuffleScope()]}catch{return null}}
+ function cardKey(id=currentId()){return (deck()?.cycle||1)+':'+id}
+ function captureCard(){
+  if(restoring||screen()!=='game'||renderedKey!==key()||renderedCard!==currentId()||!renderedCard)return;
+  const r=record(),id=cardKey(),old=r.cards[id]||{};
+  const content=document.querySelector('#gameMount .card-content'),support=document.querySelector('#cardSupport');
+  r.cards[id]={...old,answer:!document.querySelector('#contentCardAnswer')?.hidden&&!!document.querySelector('#contentCardAnswer'),scroll:content?.scrollTop||0,support:support?.classList.contains('open')||false,section:support?.dataset.section||'',...(APP.cardRound?.id===renderedCard?{round:structuredClone(APP.cardRound)}:{})};
+ }
+ function restoreRound(card){if(APP.cardRound?.id===card.id)return;const state=record()?.cards[cardKey(card.id)]?.round;if(state&&state.id===card.id&&state.bankRevision===RUNTIME.cardGames.source)APP.cardRound=structuredClone(state)}
+ function restoreCard(){
+  const state=record()?.cards[cardKey()];if(!state)return;
+  restoring=true;
+  const answer=document.querySelector('#contentCardAnswer'),button=document.querySelector('#contentCardReveal'),support=document.querySelector('#cardSupport');
+  if(answer&&button){answer.hidden=!state.answer;button.setAttribute('aria-expanded',String(!!state.answer))}
+  if(support){support.classList.toggle('open',!!state.support);support.dataset.section=state.section||'help';const b=document.querySelector(state.section==='example'?'#cardExample':state.section==='partner'?'#cardPartner':'#cardHelp');b?.setAttribute('aria-expanded',String(!!state.support))}
+  const content=document.querySelector('#gameMount .card-content');if(content)content.scrollTop=state.scroll||0;
+  restoring=false;
+ }
+ function enterGame(type,data){
+  const k=key(type,data),r=record(k),from=screen();if(!r)return;
+  if(from!=='game'&&!historyMoving)r.origin=from==='collection'?'cards':from==='play'?(type==='card'?'cards':['taalworp','story'].includes(type)?'dice':type==='board'?'boards':'practice'):from;
+  r.finished=false;
+ }
+ function busy(){return gameIsBusy()||!!root.DigiActivities?.isBusy()}
+ function beforeScreen(id){
+  if(screen()==='game'&&id!=='game'){
+   if(busy()){toast('Wacht tot deze spelactie klaar is.');return false}
+   captureCard();captureHistory();root.LessonUI?.checkpoint(true);save();
+  }
+  return true;
+ }
+ function afterScreen(id){
+  const url=routes[id];
+  if(url&&!historyMoving&&location.hash!=='#/'+url)history.pushState({actief:id},'', '#/'+url);
+  if(id==='game'){
+   renderedKey=key();renderedCard=currentId();restoring=true;queueMicrotask(()=>{restoreCard();restoring=false;refresh();captureHistory()});
+  }else refresh();
+ }
+ function schedule(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;refresh();captureHistory()})}
+ function setText(element,value){if(element&&element.textContent!==value)element.textContent=value}
+ function refresh(){
+  const playing=screen()==='game',r=record(),origin=r?.origin||'practice';
+  document.querySelectorAll('#screen-boards .tile[data-board] .status').forEach(el=>{const count=el.textContent.match(/\d+ posities/)?.[0]||'';setText(el,(root.ContentRuntime?.activeSession()?'Met je lopende les':'Kies eerst je les')+' · '+count)});
+  document.querySelectorAll('.navitem').forEach(b=>{const active=playing?(['practice','lessons'].includes(origin)?origin:'play'):['practice','lessons','mycollection'].includes(screen())?screen():'play';const selected=b.dataset.main===active;b.classList.toggle('active',selected);if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+  const banner=document.querySelector('#lessonResume'),resumeButton=document.querySelector('#resumeBtn');
+  banner.hidden=playing||!APP.last||!!resumeButton?.disabled;
+  setText(banner.querySelector('span'),APP.last?.label||'');
+  document.querySelector('#stage').classList.toggle('has-resume',!banner.hidden);
+  if(playing){
+   const back=document.querySelector('#lessonBack');setText(back,'← '+(labels[origin]||'Spelen'));back.dataset.destination=origin;
+   document.querySelector('#lessonEdit').disabled=busy();
+   const cards=APP.last?.type==='card'&&APP.cardKind!=='story';
+   document.querySelector('#lessonHistory').hidden=cards;
+   setText(document.querySelector('#lessonHistory'),['taalworp','story'].includes(APP.last?.type)?'Vorige worpen':'Bekeken opdrachten');
+   for(const id of ['lessonBack','lessonHistory','lessonFinish'])document.getElementById(id).disabled=busy();
+   if(cards)mountCardNavigation();
+  }
+  const height=Math.ceil(document.querySelector('#appHeader').getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--actief-header-height',height+'px');
+  const bar=document.querySelector('#lessonNavigation');if(playing)document.documentElement.style.setProperty('--actief-lesson-height',Math.ceil(bar.getBoundingClientRect().height)+'px');
+ }
+ function mountCardNavigation(){
+  const next=document.querySelector('#primaryGame'),slot=next?.parentElement,d=deck();if(!next||!slot||!d)return;
+  slot.classList.add('card-navigation');
+  if(!document.querySelector('#previousCard')){const b=document.createElement('button');b.id='previousCard';b.className='smallbtn';b.textContent='← Vorige opdracht';b.onclick=()=>nextCard(-1);slot.prepend(b);const overview=document.createElement('button');overview.id='cardOverview';overview.className='smallbtn';overview.onclick=showHistory;next.before(overview);}
+  document.querySelector('#previousCard').disabled=busy()||d.cursor===0;
+  setText(document.querySelector('#cardOverview'),`${d.cursor+1} van ${d.eligible.length} · Overzicht`);
+  const end=d.cursor===d.history.length-1&&!d.queue.length;
+  setText(next.querySelector('span'),end?'Les afronden':'Volgende opdracht →');next.disabled=busy();
+  next.setAttribute('aria-label',end?'Les afronden':'Volgende opdracht');
+  for(const id of ['cardDeck','contentCardDeck']){const b=document.getElementById(id);if(b){b.disabled=busy();b.setAttribute('aria-label',end?'Les afronden':'Volgende opdracht trekken')}}
+ }
+ async function resume(){
+  if(!APP.last)return;
+  await root.LessonUI?.flush();await resumeLast(!!document.querySelector('#gameMount .game-shell')&&renderedKey===key());refresh();
+ }
+ function edit(){
+  if(busy())return;
+  captureCard();captureHistory();root.LessonUI?.checkpoint(true);save();
+  const session=root.ContentRuntime?.activeSession();
+  if(session&&!['taalworp','story'].includes(APP.last?.type)&&!(APP.last?.type==='card'&&APP.cardKind!=='content-vert001')){
+   ContentUI.loadSelection(session.normalized_selection_spec,{target_duration_seconds:session.target_duration_seconds,organization_mode:session.organization_mode,preferred_game_engine:session.selected_game_engine,preferred_game_variant:session.selected_game_variant});
+  }else if(APP.last?.type==='card')goScreen('cards');else if(['taalworp','story'].includes(APP.last?.type))openSettings('tasks');else goScreen(record()?.origin||'practice');
+ }
+ function beforeLaunch(session,resuming){
+  captureCard();captureHistory();
+  if(!resuming){root.LessonUI?.checkpoint(true);const r=record(session.session_id);r.origin=screen()==='lessons'?'lessons':'practice'}
+ }
+ function finish(){
+  if(busy())return;captureCard();root.LessonUI?.checkpoint(true);save();
+  openGameDialog('Les afronden','<p>De les en voortgang blijven op dit apparaat bewaard. Je kunt later verdergaan.</p><div class="navigation-dialog-actions"><button class="smallbtn" id="continueLesson">Verder met mijn les</button><button class="primary" id="finishLesson">Afronden en naar Spelen</button></div>',()=>{
+   document.querySelector('#continueLesson').onclick=()=>document.querySelector('#gameDialog').close();
+   document.querySelector('#finishLesson').onclick=async()=>{await root.LessonUI?.flush();record().finished=true;save();document.querySelector('#gameDialog').close();home()};
+  });
+ }
+ function endCards(){
+  captureCard();
+  openGameDialog('Alle opdrachten bekeken','<p>Je hebt alle opdrachten in deze selectie bekeken. Je kunt terugkijken, de les afronden of de kaarten opnieuw schudden.</p><div class="navigation-dialog-actions"><button class="smallbtn" id="reviewCards">Opdrachten bekijken</button><button class="smallbtn" id="shuffleCardsAgain">Opnieuw schudden</button><button class="primary" id="completeCardLesson">Les afronden</button></div>',()=>{
+   document.querySelector('#reviewCards').onclick=()=>{document.querySelector('#gameDialog').close();showHistory()};document.querySelector('#completeCardLesson').onclick=()=>{document.querySelector('#gameDialog').close();finish()};document.querySelector('#shuffleCardsAgain').onclick=()=>{document.querySelector('#gameDialog').close();document.querySelector('#cardOrderReset')?.click()};
+  });
+ }
+ // Keep the previous cycle's answers so undoing a shuffle can restore them.
+ function resetCards(){renderedCard=''}
+ function cardTitle(id){const item=root.ContentRuntime?.itemById(id)||cardsFor(APP.cardKind).find(c=>c.id===id);return item?.title||item?.instruction||'Opdracht'}
+ function showHistory(){
+  if(APP.last?.type==='card'&&APP.cardKind!=='story'&&deck()){
+   captureCard();const d=deck();
+   openGameDialog('Bekeken opdrachten',`<p>Terugkijken verandert de beurt niet.</p><div class="navigation-history">${d.history.map((id,i)=>`<button class="smallbtn" data-history-card="${i}" ${i===d.cursor?'aria-current="step"':''}>${i+1}. ${esc(cardTitle(id))}${i===d.cursor?' · nu in beeld':''}</button>`).join('')}</div>`,()=>{
+    document.querySelectorAll('[data-history-card]').forEach(b=>b.onclick=()=>{const target=Number(b.dataset.historyCard),current=deck();captureCard();current.cursor=target;current.currentCardId=current.history[target];APP.cardIndex=(APP.cardKind==='content-vert001'?contentSessionCards():cardsFor(APP.cardKind)).findIndex(c=>(c.content_item_id||c.id)===current.currentCardId);delete APP.cardRound;document.querySelector('#gameDialog').close();startCards(APP.cardKind);save();document.querySelector('#cardOverview')?.focus()});
+   });return;
+  }
+  captureHistory();const entries=record()?.history||[];
+  openGameDialog('Terugkijken',`<p>Alleen terugkijken: de huidige beurt, worp en score blijven staan.</p><div class="navigation-history">${entries.length?entries.map((entry,i)=>`<details ${i===entries.length-1?'open':''}><summary>${i+1}. ${esc(entry.title)}</summary><div class="history-reading">${entry.images.map(src=>`<img src="${esc(src)}" alt="Afbeelding bij de eerdere opdracht">`).join('')}<p>${esc(entry.text)}</p></div></details>`).join(''):'<p>Hier verschijnen de opdrachten of worpen die je bekijkt.</p>'}</div>`);
+ }
+ function captureHistory(){
+  if(screen()!=='game'||busy()||renderedKey!==key()||APP.last?.type==='card')return;
+  let element=document.querySelector('#taskDrawer.open .drawer-body,#taskDrawer.open .task-content');
+  if(APP.last?.type==='board')element=element||document.querySelector('#taskDrawer.open');
+  else element=document.querySelector(APP.last?.type==='taalworp'?'#gameMount .taalworp-page':'#gameMount .card-content,#gameMount .story-stage');
+  if(!element||!element.checkVisibility())return;
+  const text=element.innerText.trim();if(!text)return;
+  const images=[...element.querySelectorAll('img')].filter(e=>e.checkVisibility()).map(e=>e.getAttribute('src')).filter(src=>src&&/^(assets\/|data:image\/svg\+xml;)/.test(src));
+  const progress=root.DigiActivities?.exportProgress(),token=APP.last.type==='board'?JSON.stringify(APP.boardStates[APP.last.data.board]?.pending||{}):APP.last.type==='taalworp'?JSON.stringify([APP.currentVerb,twDiceState]):APP.last.type==='story'?JSON.stringify(APP.storyRoll):JSON.stringify([APP.contentDiceIndex,progress?.kind,progress?.round,progress?.question,progress?.selected]);
+  const r=record(),entry={token,title:APP.last.label,text,images},existing=r.history.findIndex(x=>x.token===token);
+  if(existing>=0)r.history[existing]=entry;else r.history.push(entry);
+ }
+ function settingsOpened(){screenAtSettings=screen();if(!historyMoving)history.pushState({actief:'settings',returnTo:screenAtSettings},'','#/instellingen')}
+ function settingsClosed(){if(location.hash==='#/instellingen'){history.replaceState({actief:screenAtSettings||screen()},'','#/'+(routes[screenAtSettings||screen()]||'spelen'))}refresh()}
+ async function followRoute(id){
+  historyMoving=true;
+  try{
+   if(document.querySelector('#settingsOverlay.open'))closeSettings();
+   if(id==='game'){if(APP.last)await resume();else goScreen('play')}else if(id==='settings')openSettings();else if(id==='practice')ContentUI.open();else if(id==='lessons'){goScreen(id);await LessonUI.render()}else goScreen(routes[id]?id:'play');
+  }finally{historyMoving=false;refresh()}
+ }
+ root.AppNavigation={resume,beforeScreen,afterScreen,enterGame,schedule,captureCard,restoreRound,beforeLaunch,endCards,resetCards,settingsOpened,settingsClosed};
+ document.querySelector('#lessonBack').onclick=()=>{const origin=record()?.origin||'play';if(origin==='practice')edit();else if(origin==='lessons'){goScreen('lessons');LessonUI.render()}else goScreen(origin)};
+ document.querySelector('#lessonEdit').onclick=edit;document.querySelector('#lessonHistory').onclick=showHistory;document.querySelector('#lessonFinish').onclick=finish;
+ document.querySelector('[data-nav-resume]').onclick=resume;
+ document.querySelector('#resumeBtn').onclick=resume;document.querySelector('#collectionResume').onclick=resume;
+ document.addEventListener('click',()=>{captureCard();captureHistory();queueMicrotask(()=>{captureCard();schedule();if(screen()==='game')save()})},true);
+ document.addEventListener('input',event=>{if(event.target.closest('#gameMount')){captureCard();save()}},true);
+ window.addEventListener('popstate',event=>{if(busy()){history.pushState({actief:'game'},'','#/les');toast('Wacht tot deze spelactie klaar is.');return}followRoute(event.state?.actief||Object.keys(routes).find(id=>'#/'+routes[id]===location.hash)||'play')});
+ new ResizeObserver(refresh).observe(document.querySelector('#appHeader'));
+ new ResizeObserver(()=>{if(screen()==='game')document.documentElement.style.setProperty('--actief-lesson-height',Math.ceil(document.querySelector('#lessonNavigation').getBoundingClientRect().height)+'px')}).observe(document.querySelector('#lessonNavigation'));
+ const requested=Object.keys(routes).find(id=>'#/'+routes[id]===location.hash);
+ history.replaceState({actief:requested||screen()},'','#/'+(routes[requested||screen()]||'spelen'));
+ if(requested&&requested!==screen())followRoute(requested);else{renderedKey=key();renderedCard=currentId();refresh()}
+})(globalThis);

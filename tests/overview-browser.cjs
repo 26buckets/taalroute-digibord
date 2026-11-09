@@ -36,7 +36,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),{chromium}=
   await page.locator('[data-main=lessons]').click();await page.locator('[data-lesson-action=start]').waitFor();
   await page.locator('#lessonSearch').fill('inversie');await page.locator('#lessonSearch').press('Tab');await page.waitForFunction(()=>document.querySelector('[data-lesson-action=start]'));assert.equal(await page.locator('[data-lesson-action=start]').count(),1);
   await page.locator('[data-lesson-action=start]').click();await page.waitForSelector('#screen-game.active .content-reading');await page.locator('#primaryGame').click();await page.waitForFunction(()=>!cardBusy);
-  const saved=await page.evaluate(async()=>{await LessonUI.flush();return {session:APP.contentSessionConfig,index:APP.cardIndex}});await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex})),saved);
+  const saved=await page.evaluate(async()=>{await LessonUI.flush();return {session:APP.contentSessionConfig,index:APP.cardIndex}});await page.reload();await require('./resume-lesson.cjs')(page);assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex})),saved);
   assert.deepEqual(errors,[]);console.log(`PASS overview: all 11338 E1 IDs, ${entries.length} subject/level choices, guided-only reachability, unique counts, shared synonym search, safe markup, save/search/resume and 320–1920px.`);
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exitCode=1});

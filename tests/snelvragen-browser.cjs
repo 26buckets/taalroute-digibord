@@ -41,12 +41,12 @@ let browser,page;
    }
    if(engine==='CARDS'&&n<pool.length-1)await page.locator('#primaryGame').click();
   }
-  await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.locator(engine==='BOARD'?'#taskDrawer.open':engine==='CARDS'?'#screen-game .content-reading[data-content-item-id]':'.na-wheel-result [data-content-item-id]').waitFor({state:'visible'});assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),pool,'Saved lesson retains IDs');
+  await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);await page.locator(engine==='BOARD'?'#taskDrawer.open':engine==='CARDS'?'#screen-game .content-reading[data-content-item-id]':'.na-wheel-result [data-content-item-id]').waitFor({state:'visible'});assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),pool,'Saved lesson retains IDs');
  }
  // Earlier sessions retain their wrapped six-slot wheel and resume those exact positions.
  const historical=await page.evaluate(()=>{const session=structuredClone(ContentRuntime.createSession({filters:{family_ids:['quick'],topics:['quick-tell'],levels:['B2']},targetDurationSeconds:600,selectedGameEngine:'WHEEL',seed:51}));delete session.wheel_draw_version;ContentUI.launch(session);const progress={...DigiActivities.exportProgress(),round:1,selected:5,done:[5]};DigiActivities.restoreProgress(progress);DigiActivities.start('draaiwiel');return session.selected_item_ids;});
  const oldSlots=await page.locator('.na-wheel-legend [data-content-item-id]').evaluateAll(es=>es.map(e=>e.dataset.contentItemId));assert.deepEqual(oldSlots,Array.from({length:6},(_,i)=>historical[(6+i)%historical.length]));
- await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.locator('.na-wheel-result [data-content-item-id]').waitFor({state:'visible'});assert.deepEqual(await page.locator('.na-wheel-legend [data-content-item-id]').evaluateAll(es=>es.map(e=>e.dataset.contentItemId)),oldSlots);
+ await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);await page.locator('.na-wheel-result [data-content-item-id]').waitFor({state:'visible'});assert.deepEqual(await page.locator('.na-wheel-legend [data-content-item-id]').evaluateAll(es=>es.map(e=>e.dataset.contentItemId)),oldSlots);
  // All 37 separate Regel iets cards are reachable, with stable underscore IDs and their own examples.
  const regel=await page.evaluate(()=>ContentRuntime.items().filter(i=>i.content_item_id.startsWith('dq_')));assert.equal(regel.length,37);const revisedA2=new Set(['dq_5_diamond_04','dq_5_diamond_08','dq_5_diamond_09','dq_5_diamond_12','dq_4_diamond_03','dq_4_diamond_05','dq_4_diamond_06','dq_4_diamond_08','dq_4_diamond_09','dq_4_diamond_11']);assert.ok(regel.every(i=>i.model_answer&&(revisedA2.has(i.content_item_id)?i.cefr_level==='A2':['B1','B2'].includes(i.cefr_level))));
  await launch('CARDS','quick-answer','A1');await page.locator('#contentCardReveal').click();assert.ok((await page.locator('#contentCardAnswer').textContent()).includes('Een mogelijk antwoord'));
@@ -88,7 +88,7 @@ let browser,page;
   await page.evaluate(session=>{ContentUI.clearEditing();ContentUI.launch(ContentRuntime.restoreSession(session))},saved);
   if(engine==='BOARD'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'))}
   if(engine==='WHEEL'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled)}
-  await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();
+  await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);
   const container=page.locator(engine==='BOARD'?'#taskDrawer.open':engine==='CARDS'?'.content-reading[data-content-item-id]':'.na-wheel-result');await container.waitFor({state:'visible'});
   assert.ok((await container.innerText()).includes(wording(oldItem.prompt)),engine+' historical wording after reload');
   assert.equal(await page.evaluate(id=>ContentRuntime.itemForSession(id).cefr_level,oldItem.content_item_id),oldItem.cefr_level);

@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  try{
   const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('file://'+path.join(served,'index.html'));
+  await page.goto(process.env.ACTIEF_TEST_URL||'file://'+path.join(served,'index.html'));
   const boards=await page.evaluate(()=>JSON.stringify(APP.boardStates));
   await page.locator('[data-category="dice"]').click();await page.locator('.tile[data-dicegame="taalworp"]').click();
   const selectSets=async(...ids)=>{
@@ -34,7 +34,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   assert.ok(mix.pool.includes(await page.evaluate(()=>APP.currentVerb)));
   await page.locator('#primaryGame').click();const rolled=await page.evaluate(()=>APP.currentVerb);
   await page.locator('#drawVerb').click();await page.locator('#undoAction').click();assert.equal(await page.evaluate(()=>APP.currentVerb),rolled);
-  await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual((await selected()).sort(),[...mix.ids].sort());
+  await page.reload();await require('./resume-lesson.cjs')(page);assert.deepEqual((await selected()).sort(),[...mix.ids].sort());
   await page.locator('#verbSetPicker > summary').click();
   for(const group of await page.locator('.verb-set-group').all())await group.locator('summary').click();
   for(const input of await page.locator('[data-verbset]').all())await input.uncheck();
@@ -52,7 +52,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   assert.equal(await page.evaluate(()=>JSON.stringify(twDiceState.WHO)),who);
   await page.locator('#undoAction').click();await page.locator('#undoAction').click();
   assert.deepEqual(await selected(),['SET_A2_BASIS']);assert.equal(await page.evaluate(()=>APP.currentVerb),held);
-  await selectSets('SET_A2_WEDERKEREND');await page.reload();await page.locator('#resumeBtn').click();
+  await selectSets('SET_A2_WEDERKEREND');await page.reload();await require('./resume-lesson.cjs')(page);
   assert.equal(await page.evaluate(()=>APP.currentVerb),held);assert.equal(await page.locator('#verbLock').getAttribute('aria-pressed'),'true');
   await page.locator('#verbLock').click();
   assert.ok(await page.evaluate(()=>currentVerbPool().some(v=>v.id===APP.currentVerb)));
@@ -61,7 +61,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
   // Legacy single-set saves keep their selected set and current card.
   await page.evaluate(()=>{delete APP.taalworpSets;APP.last.data={setId:APP.taalworpSet};save()});
   const legacy=await page.evaluate(()=>APP.currentVerb);
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await selected(),['SET_A2_WEDERKEREND']);assert.equal(await page.evaluate(()=>APP.currentVerb),legacy);
   for(const width of [1440,1024,768,390]){
    await page.setViewportSize({width,height:900});await selectSets('SET_A2_BASIS','SET_A2_WERK');

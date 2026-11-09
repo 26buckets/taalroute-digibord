@@ -25,7 +25,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
  for(const n of [3,6,9]){await page.locator(`[data-storycount="${n}"]`).click();assert.equal(await page.locator('.story-tile').count(),n);await page.locator('#primaryGame').click();await page.waitForFunction(()=>!storyBusy);assert.equal(await page.evaluate(()=>new Set(APP.storyRoll).size),n);}
  const roll=await page.evaluate(()=>APP.storyRoll);
  if(process.env.SCREENSHOT_DIR)await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'negen-stenen.png'),fullPage:true});
- await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('.story-tile').count(),9);assert.deepEqual(await page.evaluate(()=>APP.storyRoll),roll);
+ await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.locator('.story-tile').count(),9);assert.deepEqual(await page.evaluate(()=>APP.storyRoll),roll);
  await page.locator('.dice-sidebar [data-dice-preparation]').click();assert.ok(await page.locator('#screen-practice.active').isVisible());
  assert.deepEqual(errors,[]);console.log('PASS three unique images; uniform image/label/title/text/card geometry at six widths; 3/6/9 unique dice, nine-dice resume and unchanged preparation.');
 }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

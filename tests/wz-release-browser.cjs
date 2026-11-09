@@ -40,14 +40,14 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
    assert.ok(await page.evaluate(()=>ContentRuntime.enginePool(APP.contentSessionConfig.selected_game_engine,APP.contentSessionConfig).every(i=>i.FreePlayGate==='FREE')));
    if(engine==='CARDS'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!cardBusy)}
    const before=await page.evaluate(async()=>{await LessonUI.flush();return {session:APP.contentSessionConfig,index:APP.cardIndex}});
-   await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active');
+   await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#screen-game.active');
    assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,index:APP.cardIndex})),before);
   }
   // Guided selection is kept in both the saved draft and the session across reload.
   await page.evaluate(g=>{CONTENT_VERT001.stop();ContentUI.open({family:'words'});ContentUI.setState({topic:g.topic,level:g.level,engine:'CARDS',duration:60,difficulty:'all',focus:'all'});ContentUI.setState({microconstructure:g.micro});},groups[0]);
   await page.locator('#practiceStart').click();const guided=await page.evaluate(async()=>{await LessonUI.flush();return APP.contentSessionConfig});
   assert.deepEqual(guided.normalized_selection_spec.filter_spec.microconstructures,[groups[0].micro]);
-  await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig),guided);
+  await page.reload();await require('./resume-lesson.cjs')(page);assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig),guided);
   await page.evaluate(()=>{ContentUI.open({family:'grammar'});ContentUI.setState({topic:'ER',level:'B1_B2',difficulty:'all',subtopic:'all',focus:'all'})});
   assert.equal(await page.evaluate(()=>ContentUI.scopeError()),'','Switching from a short WZ lesson restores a valid grammar duration');
   await page.evaluate(s=>ContentUI.loadSelection(s.normalized_selection_spec,{target_duration_seconds:60,organization_mode:'class',preferred_game_engine:'CARDS'}),guided);

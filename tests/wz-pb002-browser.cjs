@@ -23,7 +23,7 @@ let browser;
  }
  await page.setViewportSize({width:1440,height:1000});await page.locator('#practiceSave').click();await page.locator('#lessonName').fill('Er oefenen');await page.locator('#lessonSaveForm .primary').click();await page.waitForFunction(()=>!document.querySelector('#gameDialog').open);
  await page.locator('#practiceStart').click();await page.locator('#primaryGame').click();await page.evaluate(()=>LessonUI.flush());const session=await page.evaluate(()=>APP.contentSessionConfig);
- await page.reload();await page.locator('#resumeBtn').click();await page.waitForSelector('#screen-game.active .content-vert001-cards');await page.evaluate(()=>LessonUI.flush());assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids);assert.equal(await page.evaluate(()=>APP.cardIndex),1);
+ await page.reload();await require('./resume-lesson.cjs')(page);await page.waitForSelector('#screen-game.active .content-vert001-cards');await page.evaluate(()=>LessonUI.flush());assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_item_ids),session.selected_item_ids);assert.equal(await page.evaluate(()=>APP.cardIndex),1);
  // Every imported task is displayed using the same real card renderer.
  await page.evaluate(()=>{ContentUI.clearEditing();const filters={family_ids:['words'],topics:['WZ_009','WZ_010'],levels:['A0→A1']};const duration=ContentRuntime.filterSource(filters).reduce((n,i)=>n+i.estimated_duration_seconds,0);ContentUI.launch(ContentRuntime.createSession({filters,targetDurationSeconds:duration,selectedGameEngine:'CARDS'}))});
  const seen=new Set();for(let n=0;n<160;n++){

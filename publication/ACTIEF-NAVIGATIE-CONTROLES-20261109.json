@@ -1,0 +1,285 @@
+{
+  "date": "2026-11-09",
+  "status": "PASS",
+  "baselineCommit": "ed36e1e18ad26d94937baa68558a327a1a77a07f",
+  "rounds": [
+    "UI review",
+    "Critical counterreview and repair",
+    "Repeat review and local regression"
+  ],
+  "checks": [
+    {
+      "check": "unit",
+      "status": "PASS",
+      "log": "unit.log",
+      "sha256": "9ccaa17796933f892346f6541a87446930a9ff9ab375b9f7341d20d64b12d80e"
+    },
+    {
+      "check": "activities",
+      "status": "PASS",
+      "log": "activities-final.log",
+      "sha256": "cf42fc41a50f587a2c643283a5fa1ee153d126a3caaeb7b84f74444db0344c9d"
+    },
+    {
+      "check": "lint",
+      "status": "PASS",
+      "log": "lint-final.log",
+      "sha256": "e774b28eb97b1731fce3b6f6e91268b1b142001d4c5fba742f3fa9926214a12f"
+    },
+    {
+      "check": "types",
+      "status": "PASS",
+      "log": "types.log",
+      "sha256": "2106772262b008155f642ce9cc29275f4a7445fa501777bf1a53c35db3f43066"
+    },
+    {
+      "check": "build",
+      "status": "PASS",
+      "log": "build.log",
+      "sha256": "87aacb63cbd122c894e6f67983317a072a268874416a9ecb067a30deb47cd8b5"
+    },
+    {
+      "check": "banks",
+      "status": "PASS",
+      "log": "test-banks-browser.log",
+      "sha256": "86ea32c5f55ed77878d536beaab8caad467c623a29f6a1162c3ea76cfb252e0a"
+    },
+    {
+      "check": "tongue",
+      "status": "PASS",
+      "log": "test-tongue-browser-accepted.log",
+      "sha256": "7ad1eff1bfbb931f0f501cbd23313fce66631714d0495a6366325b9775516f86"
+    },
+    {
+      "check": "p0",
+      "status": "PASS",
+      "log": "test-p0.log",
+      "sha256": "53e8b909f106446731a0c9ab798c01e2c42c257253396b9256e1e2a8de523fcf"
+    },
+    {
+      "check": "p0_browser",
+      "status": "PASS",
+      "log": "test-p0-browser-final.log",
+      "sha256": "95e90ef4c73b5f3d54280ca362ca446bdff4a81ed688e40a53f4f064a76639d2"
+    },
+    {
+      "check": "rebuses",
+      "status": "PASS",
+      "log": "test-rebuses-browser-final.log",
+      "sha256": "d65827f4ca4104e2aa2db7aebaf212c29d4f596086b6a2618f6cf54d2d32849b"
+    },
+    {
+      "check": "wz_release",
+      "status": "PASS",
+      "log": "test-wz-release-browser-recheck.log",
+      "sha256": "f6b1294af3c9a9bf592cc80aeb66cbe768de7f9008aa97fa3f8e94b58f0fdb6e"
+    },
+    {
+      "check": "cards",
+      "status": "PASS",
+      "log": "test-cards-browser-accepted.log",
+      "sha256": "e60be9de95942f7323057102e0055fd1909d806cdd15937a65ada32c76bd9102"
+    },
+    {
+      "check": "shuffle",
+      "status": "PASS",
+      "log": "card-shuffle-browser-accepted.log",
+      "sha256": "fac85f99d8148e91042b2b19a5cbdbf96d8600dab1b0899ae5d59be3aa0a06c9"
+    },
+    {
+      "check": "routes",
+      "status": "PASS",
+      "log": "test-routes-recheck.log",
+      "sha256": "63d3417d51af89b5e9c3259ac6b87ca5ecc6b9466eca861ac9c6477a2dfa05f7"
+    },
+    {
+      "check": "release",
+      "status": "PASS",
+      "log": "release-final.log",
+      "sha256": "586e6f273c05b245b566864d1dce3d5049701b6f5975503ac7d70347af43ed2c"
+    },
+    {
+      "check": "taalworp",
+      "status": "PASS",
+      "log": "test-taalworp-browser-final.log",
+      "sha256": "4cce8a8a037b6a5374b411df6c9de35ae72a0f9e444a6f5d913e451058f44e9e"
+    },
+    {
+      "check": "story",
+      "status": "PASS",
+      "log": "test-story-browser-final.log",
+      "sha256": "1f8faf66315d6a92978333eb76c9bd79c3ba19ac6da448d6ff68dedfb8816ba6"
+    },
+    {
+      "check": "practice",
+      "status": "PASS",
+      "log": "test-practice-browser-final.log",
+      "sha256": "b774715d9f5ee22e4506342722afafc9584a343211ccc108f9c0e889fd2fa1ad"
+    },
+    {
+      "check": "navigation",
+      "status": "PASS",
+      "log": "test-navigation-browser-accepted.log",
+      "sha256": "27955dc5d7699b7ef7f293ebf30054e0b6475b8168c563e1c3ebe592d63037ad"
+    },
+    {
+      "check": "visual",
+      "status": "PASS",
+      "log": "visual-review-final.log",
+      "sha256": "86e2f074989bb814198f3744f09b2f6f9d964635c58faa817e0caaeba193f24b"
+    },
+    {
+      "check": "quick_entry",
+      "status": "PASS",
+      "log": "quick-entry-browser-accepted.log",
+      "sha256": "b4568bb366338fe13901b5fb68ee97bf23cb0070cb8516972015191e861afad1"
+    },
+    {
+      "check": "smoke",
+      "status": "PASS after targeted repair",
+      "log": "smoke-final.log + quick-entry-browser-accepted.log",
+      "details": "All six preceding smoke components passed, including all 7200 grammar surfaces. The final quick-entry test was rerun successfully after its resume helper was adapted to the new screen route and resume banner."
+    }
+  ],
+  "navResults": {
+    "results": [
+      {
+        "engine": "BOARD",
+        "available": true,
+        "sessionId": "CONTENT-14748d2b-0370-4588-9456-7ddfc45e0791",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "CARDS",
+        "available": true,
+        "sessionId": "CONTENT-a26dcd9e-afeb-4534-902f-b15fa4b6498d",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "DICE",
+        "available": true,
+        "sessionId": "CONTENT-7ac31d0d-4200-4f37-b856-bf2cbfbf7ebc",
+        "count": 6,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "WHEEL",
+        "available": true,
+        "sessionId": "CONTENT-9886f8e2-1f61-45a1-98e4-70674d0bd4a7",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "QUIZ",
+        "available": true,
+        "sessionId": "CONTENT-3c21688a-46bf-4193-bd66-dc4c4c96fdc8",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "MEMORY",
+        "available": true,
+        "sessionId": "CONTENT-e9b15c65-2ac4-475b-a670-0698e2c6f9a4",
+        "count": 4,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "MATCH",
+        "available": true,
+        "sessionId": "CONTENT-e131e3aa-d146-44c3-b99f-d5cf355ac336",
+        "count": 4,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "SORT",
+        "available": true,
+        "sessionId": "CONTENT-9d2b5d43-32e9-4250-8bba-f26819a018f1",
+        "count": 2,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "SEQUENCE",
+        "available": true,
+        "sessionId": "CONTENT-9a74614f-73e5-4b07-8b16-7e9b5e677bac",
+        "count": 4,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "RIDDLE",
+        "available": false
+      }
+    ],
+    "cards": {
+      "previous": true,
+      "overview": true,
+      "answers": true,
+      "reload": true,
+      "backForward": true,
+      "editCancel": true
+    },
+    "errors": []
+  },
+  "contentAssetsChanged": false,
+  "audioCount": 480,
+  "githubActionsRuns": 0,
+  "notPerformed": [
+    "Physical classroom/digibord trial"
+  ],
+  "e1Resume": "117 bank/gate/route UI cases passed in the first stage; remaining cases completed with the existing RESUME_UI continuation after the end-of-deck test expectation was updated."
+}

@@ -5,12 +5,12 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
  try{
  const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));
- await page.goto('file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
+ await page.goto(process.env.ACTIEF_TEST_URL||'file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
  assert.deepEqual(await page.locator('#levelSelect option').evaluateAll(es=>es.map(e=>e.value)),ids);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().length),9578);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource().filter(i=>i.domain==='WORDS').length),2519);
  assert.equal(await page.evaluate(()=>ContentRuntime.items().filter(i=>DigiRoutes.classification(i).displayRoute===DigiRoutes.REVIEW).length),30);
- await page.locator('#settingsBtn').click();
+ await require('./header-actions.cjs')(page,'#settingsBtn','click');
  await page.waitForFunction(()=>document.querySelector('#settingsOverlay').classList.contains('open')&&document.querySelector('#settingsOverlay iframe').contentWindow?.DigiRoutes);
  assert.deepEqual(await page.frameLocator('#settingsOverlay iframe').locator('#routeSelect option').allTextContents(),await page.evaluate(()=>DigiRoutes.routes.map(r=>r.label)));
  await page.frameLocator('#settingsOverlay iframe').locator('.back-btn').click();
@@ -23,21 +23,21 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
    APP.taalworpBothLinks=true;APP.taalworpDice=twDiceState;delete APP.routeArchitectureVersion;delete APP.taalworpLegacySnapshot;save();
    return {dice:structuredClone(twDiceState),verb:APP.currentVerb,sets:APP.taalworpSets,level:APP.level};
   },level);
-  await page.reload();await page.locator('#resumeBtn').click();
+  await page.reload();await require('./resume-lesson.cjs')(page);
   assert.deepEqual(await page.evaluate(()=>({dice:twDiceState,verb:APP.currentVerb,sets:APP.taalworpSets,level:APP.level})),before);
   assert.deepEqual(await page.evaluate(()=>APP.taalworpLegacySnapshot.dice),before.dice);
   assert.equal(await page.locator('#levelSelect').inputValue(),level==='C2'?'B2_C1':'A1_A2');
   assert.ok(!(await page.locator('.card-activity-heading').innerText()).includes('C2'));
   await page.evaluate(()=>{APP.cardGuided=true;startCards('conversation');save()});
   const card=await page.evaluate(()=>{delete APP.routeCardMigration;save();return currentCard().id});
-  await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.evaluate(()=>currentCard().id),card);
+  await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.evaluate(()=>currentCard().id),card);
  }
  assert.ok(await page.evaluate(()=>JSON.parse(localStorage.getItem('taalroute-route-v1.1-backup')).values));
  await page.locator('[data-main="practice"]').click();
  await page.evaluate(()=>ContentUI.setState({family:'grammar',topic:'ER',level:'A2_B1',engine:'CARDS'}));
  const values=await page.locator('[name=level]').evaluateAll(es=>es.map(e=>e.value));assert.ok(values.length);assert.ok(values.every(id=>ids.includes(id)));
  await page.locator('#practiceStart').click();
- assert.equal(await page.locator('#levelSelect').innerText(),'A2 → B1');
+ await page.locator('.hdr001-menu-trigger').click();assert.equal(await page.locator('#levelSelect').innerText(),'A2 → B1');await page.keyboard.press('Escape');
  for(const width of [1440,390]){
   await page.setViewportSize({width,height:900});await page.locator('[data-main="practice"]').click();
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));

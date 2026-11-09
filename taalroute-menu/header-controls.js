@@ -66,7 +66,7 @@
   window.TaalrouteHeaderControls={install,observe,icons};
 })();
 
-window.TaalrouteHeaderControls.observe({"headers": "#appHeader, header.topbar:has(.taalroute-suite)", "menu": "details.suite-header-controls", "oldFullscreen": "#fullscreenBtn", "actions": "nav.mainnav", "manualUrl": "https://studio.taalroute.nl/#/apps/actief/handleiding"});
+window.TaalrouteHeaderControls.observe({"headers": "#appHeader, header.topbar:has(.taalroute-suite)", "menu": "details.suite-header-controls", "oldFullscreen": "#fullscreenBtn", "actions": "", "manualUrl": "https://studio.taalroute.nl/#/apps/actief/handleiding"});
 
 // Preserve Actief's pointer-vs-keyboard fullscreen behavior for the board's Space shortcut.
 document.addEventListener('click',event=>{if(event.detail>0)event.target.closest('#appHeader .hdr001-fullscreen')?.blur();});

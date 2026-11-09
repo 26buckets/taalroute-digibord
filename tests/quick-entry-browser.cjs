@@ -34,7 +34,7 @@ const server=http.createServer((req,res)=>{const f=path.resolve(served,'.'+decod
  assert.match(old.question,/eerder komen/);
  await page.getByRole('button',{name:'Bordopties',exact:true}).click();await page.locator('#newQuickBoard').click();assert.equal(await page.evaluate(()=>ContentUI.state().topic),'quick-answer');
  assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam),old.board);assert.deepEqual(await page.evaluate(()=>APP.turn),old.turn);
- await page.reload();await page.locator('#resumeBtn').click();assert.equal(await page.locator('#taskTitle').innerText(),old.question);assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam),old.board);
+ await page.reload();await require('./resume-lesson.cjs')(page);assert.equal(await page.locator('#taskTitle').innerText(),old.question);assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam),old.board);
  // Restarting a classic direct lesson prepares the revised bank without clearing old pawns.
  await page.getByRole('button',{name:'Bordopties',exact:true}).click();await page.locator('#restartBoard').click();assert.ok(await page.locator('#screen-practice.active').isVisible());assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam),old.board);
  await page.locator('#practiceStart').click();await page.locator('#screen-game.active .board-game').waitFor();
@@ -42,13 +42,13 @@ const server=http.createServer((req,res)=>{const f=path.resolve(served,'.'+decod
  assert.ok(await page.evaluate(()=>ContentRuntime.enginePool('BOARD',ContentRuntime.activeSession()).every(i=>i.version===QuickReview.version)));
  assert.deepEqual(await page.evaluate(()=>APP.contentBoardBaseline.rotterdam),old.board,'Original board retained behind new lesson');
  await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));
- const pending=await page.locator('#taskDrawer').getAttribute('data-task-id');await page.evaluate(()=>LessonUI.flush());await page.reload();await page.locator('#resumeBtn').click();await page.locator('#taskDrawer.open').waitFor();
+ const pending=await page.locator('#taskDrawer').getAttribute('data-task-id');await page.evaluate(()=>LessonUI.flush());await page.reload();await require('./resume-lesson.cjs')(page);await page.locator('#taskDrawer.open').waitFor();
  assert.equal(await page.locator('#taskDrawer').getAttribute('data-task-id'),pending);assert.deepEqual(await page.evaluate(()=>APP.contentSessionConfig.selected_content_refs),session.selected_content_refs);
  // Opening another board must not discard an active shared lesson before the teacher starts a new one.
  const saved=await page.evaluate(()=>({board:structuredClone(APP.boardStates.rotterdam),session:structuredClone(APP.contentSessionConfig)}));
  await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-board=zwolle]').click();
  assert.deepEqual(await page.evaluate(()=>({board:APP.boardStates.rotterdam,session:APP.contentSessionConfig})),saved);
- await page.reload();await page.locator('#resumeBtn').click();await page.locator('#taskDrawer.open').waitFor();assert.equal(await page.locator('#taskDrawer').getAttribute('data-task-id'),pending);
+ await page.reload();await require('./resume-lesson.cjs')(page);await page.locator('#taskDrawer.open').waitFor();assert.equal(await page.locator('#taskDrawer').getAttribute('data-task-id'),pending);
  // The untouched conversation route is still playable; stopping a shared lesson restores its original board baseline.
  await page.evaluate(()=>{APP.questionMode='conversation';goScreen('boards')});await page.locator('#screen-boards [data-board=rotterdam]').click();await page.locator('.board-game').waitFor();assert.equal(await page.evaluate(()=>ContentRuntime.activeSession()),null);
  assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam.positions),old.board.positions);assert.deepEqual(await page.evaluate(()=>APP.boardStates.rotterdam.groupPositions),old.board.groupPositions);

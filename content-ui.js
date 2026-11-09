@@ -455,6 +455,7 @@
   return {recentItemIds:seed!=null||seedOverride!=null?[]:APP.contentRecentItemIds||[],seed:seed??seedOverride??previewSeed,targetDurationSeconds:state.duration,engines:compatible,filters:externalSpec?{}:filters(),selectionSpec:selectionSpec(),organizationMode:state.organization,selectedGameEngine:state.engine,selectedGameVariant:state.variant,selectionTopic:externalSpec?null:state.topic,startedAt:new Date().toISOString()};
  }
  function launch(session,{resume=false,progress=null}={}){
+  root.AppNavigation?.beforeLaunch(session,resume);
   if(progress)LessonUI.validateProgress(progress,session);
   ContentRuntime.restoreSession(session);delete root.contentRestoreError;APP.contentSessionConfig=structuredClone(session);
   APP.turn.mode=session.organization_mode;settingsPatch({pawnMode:session.organization_mode});

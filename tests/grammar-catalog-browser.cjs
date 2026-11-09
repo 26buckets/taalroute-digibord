@@ -74,7 +74,7 @@ const baseline=require('./fixtures/grammar-catalog-baseline.json');
  await page.evaluate(()=>{ContentUI.open({family:GrammarCatalog.familyId});ContentUI.setState({topic:'g-inversie',level:'A1_A2',engine:'CARDS',duration:30,microconstructure:'',difficulty:'all'});ContentUI.start(517)});
  await page.waitForSelector('#screen-game.active');
  const saved=await page.evaluate(async()=>{await LessonUI.flush();const record=await LessonUI.service.saveSelection({name:'Inversie voor mijn groep',selection_spec:ContentUI.selectionSpec(),execution_preferences:ContentUI.preferences()});await LessonUI.service.addFavorite('saved_selection',record.saved_selection_id);return {session:APP.contentSessionConfig,groups:APP.groups}});
- await page.reload();await page.locator('#resumeBtn').click();assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,groups:APP.groups})),saved);
+ await page.reload();await require('./resume-lesson.cjs')(page);assert.deepEqual(await page.evaluate(()=>({session:APP.contentSessionConfig,groups:APP.groups})),saved);
  await page.locator('[data-main=practice]').click();
  for(const [key,text] of [['0','keer gestart'],['1','Inversie'],['2','Inversie voor mijn groep']]){
   await page.locator(`[data-grammar-quick="${key}"]`).click();await page.locator('#grammarQuickResults').getByText(new RegExp(text)).first().waitFor();

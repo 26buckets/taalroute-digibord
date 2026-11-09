@@ -90,3 +90,6 @@ Historische situatie vóór 16 oktober: V01.25 stond op `codex/digibord-v1.25` e
 De volledige bronvoorraad, eerdere verslagen en chat-afspraken staan op Drive:
 https://drive.google.com/drive/folders/1LertxIY2VeDDWewY4dZK6JOGjdZ6Vu25
 Lees de nieuwste START-HIER en publicatie-aanvulling vóór verderwerken. Git bevat de app en tests; Drive bevat ook de volledige projectoverdracht, boekanalyses en overige bronnen buiten de repository.
+
+## Navigatievrijgave — 9 november 2026
+Nico heeft de concrete navigatie en livepublicatie expliciet goedgekeurd: publication/ACTIEF-NAVIGATIE-20261109.md. De laatste goedgekeurde livebasis vóór deze vrijgave is ed36e1e18ad26d94937baa68558a327a1a77a07f. Deze vrijgave behoudt inhoud, media, lokale lessen en voortgang. Gebruik de actuele publication-freeze.json en het liveverslag voor de uiteindelijke broncommit; blijf uitsluitend vanaf canonieke main publiceren.
