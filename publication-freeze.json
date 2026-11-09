@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "frozen": false,
+  "frozen": true,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Nieuwe expliciete navigatie- en publicatieopdracht Nico, 9 november 2026; uitsluitend het gecontroleerde resultaat uit publication/ACTIEF-NAVIGATIE-20261109.md. Oorspronkelijke vastzetbestanden blijven behouden.",
+  "decision": "De door Nico expliciet goedgekeurde navigatie is lokaal in drie rondes gecontroleerd, gepubliceerd en live nagekeken. Kaartlabels en laden van Mijn lessen zijn daarna gericht afgewerkt. Opnieuw vastgezet op de goedgekeurde livebron; oorspronkelijke tag en herstelmanifest behouden.",
   "releaseDecision": "publication/header-20261022.json",
-  "headerSourceCommit": "1479e8ff6bfc09c8cf605fe124030b22878230a2",
-  "headerLiveVersion": "a313eb7f-72c7-4528-967b-6d643001c48c",
-  "currentApprovedCommit": "573bf8f6f9a64f80bb494c0f0bca8433724a540b",
-  "currentCloudflareDeployment": "17eb9528-6074-4929-b997-54d0e8e22325",
-  "liveReview": "publication/ACTIEF-WERKWOORDVORM-LIVE-20261106.json"
+  "headerSourceCommit": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+  "headerLiveVersion": "2b00987d-904e-4fa1-a0e1-c899703090c6",
+  "currentApprovedCommit": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+  "currentCloudflareDeployment": "2b00987d-904e-4fa1-a0e1-c899703090c6",
+  "liveReview": "publication/ACTIEF-NAVIGATIE-LIVE-20261109.json"
 }

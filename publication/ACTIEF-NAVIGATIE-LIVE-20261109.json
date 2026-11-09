@@ -1,0 +1,193 @@
+{
+  "date": "2026-11-09",
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl",
+  "sourceCommit": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+  "cloudflareVersion": "2b00987d-904e-4fa1-a0e1-c899703090c6",
+  "assetVerification": {
+    "commit": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+    "manifestMatchesBuild": true,
+    "verifiedFiles": {
+      "app-navigation.css": "adff16b063369aba43ce59cce73d31c5e12bbbc0df1db4f1bb58229e534f81c6",
+      "app-navigation.js": "f4438a6f7bfa2eb5baf6ee8fd30849ed57150bc719db9ce062f0a17bdeddb0f1",
+      "app.js": "2bfc808314df6cef9ca8930da753c85a59d161318fadcad55d9781beff7802ad",
+      "content-lessons.js": "1c0f6a8f8aa82da31193f9279d100dbd53a2804746107d938ce41b4fa136a8af",
+      "content-ui.js": "3030239791855ce51256a22ccceb064717707ad00956e00ad0614f2d77d7e4a3",
+      "index.html": "df37487e14ecc5c0d64b97f6b5dfc8245be0d580ca2b66c160bd86066ce4e750",
+      "new-activities.js": "cd7e56872c3166f5459329b83741689ff941d84c44dbff155ed4d233a4d931ed",
+      "taalroute-menu/header-controls.js": "cc2718beb1537b10f2b31e0029dae18795e86d0bdcac88b03ce04e1ca048aa96"
+    },
+    "assetCount": 1449,
+    "unchangedPriorAssets": 1441
+  },
+  "navigation": {
+    "results": [
+      {
+        "engine": "BOARD",
+        "available": true,
+        "sessionId": "CONTENT-23ea9edc-b4be-4cee-b3e0-449201f16e2c",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "CARDS",
+        "available": true,
+        "sessionId": "CONTENT-817328f3-15dc-489e-a482-7e1c6896a3f7",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "DICE",
+        "available": true,
+        "sessionId": "CONTENT-66bee0c7-1738-42e7-a55d-8ffd57eafe36",
+        "count": 6,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "WHEEL",
+        "available": true,
+        "sessionId": "CONTENT-a422cf9b-dcbb-4d41-b587-3d52996fd3ce",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "QUIZ",
+        "available": true,
+        "sessionId": "CONTENT-a00ac2c3-d7fb-4a7e-9f41-8209e3f757ef",
+        "count": 4,
+        "topic": "WZ_024",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "MEMORY",
+        "available": true,
+        "sessionId": "CONTENT-b68884e8-03c5-4e94-aae1-75c1f9668ef5",
+        "count": 4,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "MATCH",
+        "available": true,
+        "sessionId": "CONTENT-0b82e5d3-183f-4d64-add7-d39731bea71c",
+        "count": 4,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "SORT",
+        "available": true,
+        "sessionId": "CONTENT-a8334949-567b-4a7b-9ca9-963555e71edb",
+        "count": 2,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "SEQUENCE",
+        "available": true,
+        "sessionId": "CONTENT-fba78e37-2a38-453e-8274-e1798dc16c63",
+        "count": 4,
+        "topic": "ER",
+        "level": [
+          "A1_A2"
+        ],
+        "menu": true,
+        "edit": true,
+        "history": true
+      },
+      {
+        "engine": "RIDDLE",
+        "available": false
+      }
+    ],
+    "cards": {
+      "previous": true,
+      "overview": true,
+      "answers": true,
+      "reload": true,
+      "backForward": true,
+      "editCancel": true
+    },
+    "errors": []
+  },
+  "examples": {
+    "origin": "https://actief.taalroute.nl",
+    "commit": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+    "capturedAt": "2026-11-09T16:12:07.327Z",
+    "examples": [
+      "kaart-a1-a2.png",
+      "kaart-b1-b2.png",
+      "speelbord.png",
+      "kaart-mobiel.png",
+      "kaart-mobiel-donker.png",
+      "overzicht.png",
+      "mijn-lessen.png"
+    ],
+    "errors": []
+  },
+  "screenshotSha256": {
+    "mijn-lessen.png": "ea3f7b62961b82be24c7dc683740eb7fa534814d137897fd1346d881c6e17635",
+    "overzicht.png": "6f2b81f8f21c2c25c6687624f1aaa13f5c0b50629e672da3180be6521d6ff0a2",
+    "kaart-b1-b2.png": "6b8b23823e56e171a416598e8cbbb6899723019489f8244b2574928ff81a3134",
+    "kaart-a1-a2.png": "17c32a7241157ba9cfe206b9b01897bf6289c84d3ad997e0f4730e52c9d33e45",
+    "kaart-mobiel.png": "896965f8b6994a3c26bc7234a4a88599b8537ed781f0c5843bee165bb3a8cc38",
+    "speelbord.png": "49ca830d17df1e86de1e970574a16112eb03b4e90ea477bf669be6f15de9d8f4",
+    "kaart-mobiel-donker.png": "9164141edc27a34b13df163ceee2765c02aab04aa3ad397e7467ad02412fb2a9"
+  },
+  "wzLiveRegression": {
+    "status": "PASS",
+    "sourceCommit": "573bf8f6f9a64f80bb494c0f0bca8433724a540b",
+    "projections": 8094,
+    "tasks": 2698,
+    "note": "Final follow-up changed only navigation labels and the lesson loading message; all content, game logic and media remain byte-identical."
+  },
+  "githubActionsRuns": 0,
+  "limitations": [
+    "No physical classroom/digibord trial",
+    "Free typed quiz answers remain in memory according to the existing privacy contract"
+  ]
+}

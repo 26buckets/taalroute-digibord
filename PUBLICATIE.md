@@ -93,3 +93,5 @@ Lees de nieuwste START-HIER en publicatie-aanvulling vóór verderwerken. Git be
 
 ## Navigatievrijgave — 9 november 2026
 Nico heeft de concrete navigatie en livepublicatie expliciet goedgekeurd: publication/ACTIEF-NAVIGATIE-20261109.md. De laatste goedgekeurde livebasis vóór deze vrijgave is ed36e1e18ad26d94937baa68558a327a1a77a07f. Deze vrijgave behoudt inhoud, media, lokale lessen en voortgang. Gebruik de actuele publication-freeze.json en het liveverslag voor de uiteindelijke broncommit; blijf uitsluitend vanaf canonieke main publiceren.
+
+De actuele goedgekeurde navigatie staat live op broncommit `9b3cf99802bffaad8b639cbe988cc86554b8fd2a`, Cloudflare `2b00987d-904e-4fa1-a0e1-c899703090c6`. Zie `publication/ACTIEF-NAVIGATIE-LIVE-20261109.json`. De daaropvolgende vastzetcommit bevat alleen administratie; appbestanden en publicatiebron blijven gelijk. Publicatie is weer geblokkeerd tot een volgende concrete opdracht.

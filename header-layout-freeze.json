@@ -110,7 +110,10 @@
     "approvedBy": "Nico",
     "record": "publication/ACTIEF-NAVIGATIE-20261109.md",
     "scope": "Drie zichtbare hoofdlinks; mobiele tweede regel; afzonderlijke lesnavigatie. Overige headerfuncties behouden.",
-    "status": "checked-awaiting-publication",
-    "baselineCommit": "ed36e1e18ad26d94937baa68558a327a1a77a07f"
+    "status": "published-verified-frozen",
+    "baselineCommit": "ed36e1e18ad26d94937baa68558a327a1a77a07f",
+    "sourceCommit": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+    "liveVersion": "2b00987d-904e-4fa1-a0e1-c899703090c6",
+    "liveReview": "publication/ACTIEF-NAVIGATIE-LIVE-20261109.json"
   }
 }
