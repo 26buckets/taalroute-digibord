@@ -10,7 +10,7 @@ const server=http.createServer((req,res)=>{const p=new URL(req.url,'http://local
  assert.equal(await page.locator('[data-browse-family=quick]').getAttribute('aria-pressed'),'true');
  assert.equal(await page.locator('[data-grammar-category]').count(),0);
  assert.ok(await page.locator('[data-choose-topic=vertel]').isVisible());
- await page.locator('[data-choose-topic=vertel]').click();await page.locator('label:has([name=level][value=A0_A1])').click();
+ await page.locator('[data-choose-topic=vertel]').click();await page.locator('[data-practice-step=level]>summary').click();await page.locator('label:has([name=level][value=A0_A1])').click();
  await page.locator('[name=duration]').selectOption('300');assert.equal(await page.locator('.practice-count strong').innerText(),'5');assert.match(await page.locator('.practice-summary').innerText(),/125 beschikbare opdrachten/);assert.match(await page.locator('.practice-summary').innerText(),/Tijd is een schatting/);
  await page.locator('#practiceOverview').click();const frame=page.frameLocator('#settingsOverlay iframe');await frame.locator('[data-ov-explain]').click();
  const examples=frame.locator('#contentDidactic .ov-example');await examples.first().waitFor();const second=await examples.nth(1).innerText();assert.match(second,/Ik spreek/);assert.doesNotMatch(second,/kernboodschap/);assert.match(second,/Docenttip/);assert.match(second,/Werkvorm/);assert.match(await frame.locator('#contentDidactic').innerText(),/beschikbaar bij deze keuzes/);

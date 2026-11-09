@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-09",
+  "status": "preview-not-published",
+  "basePreview": "d8256e1b5ec913d69f8c9f352315149f501e4371",
+  "liveSource": "ed839c65811d6ffed9d9ea5468e9b562c737d433",
+  "request": "The chosen route must stay the same for every card-menu family, including grammar, conversation and quick questions. Show real examples.",
+  "changes": [
+    "Show the selected route above both menu groups.",
+    "Use the full existing grammar catalog for the grammar entrance.",
+    "Disable lesson families, categories and subjects with no released content at the chosen route.",
+    "Preserve route through family/topic selection, mobile menu, browser back and draft reload.",
+    "Skip redundant level confirmation after choosing a subject; explicit level selection still works.",
+    "Prevent unrelated mix/recent shortcuts and profiles from silently changing the route within this menu preparation context."
+  ],
+  "reviewFindings": [
+    {
+      "finding": "The first topic of a new family and topic clicks could fall back to the first available level.",
+      "fix": "Retain the menu level in the existing draft and only enable topics at that level."
+    },
+    {
+      "finding": "Conversation lesson cards have no A1_A2 content.",
+      "fix": "Disable that entrance at A1_A2. Existing standalone conversation starters remain available."
+    },
+    {
+      "finding": "Reload/browser back reopened preparation without retaining the menu context.",
+      "fix": "Restore the draft keepLevel flag in the existing navigation route. Test with a different saved layout preference."
+    },
+    {
+      "finding": "The preparation intro still asked the teacher to choose the level again.",
+      "fix": "Show the carried route in the instruction and proceed directly from topic to exercise form."
+    }
+  ],
+  "checks": [
+    "card-menu-level-browser: all six route menus, twelve available lesson-family/route combinations, topic/category/family gating, actual selected item routes, unsupported presets, mobile switch, explicit level changes and draft reload",
+    "card-menu-browser: all 24 available standalone family/route combinations, exact saved progress",
+    "grammar-catalog-browser: 7148 retained IDs, 39 subjects, 238 selector scopes, saved lessons and 320–1920px",
+    "content-ui-browser and quick-lesson-guidance-browser",
+    "navigation-browser after the route-restore fix",
+    "npm test, lint, types, activities, banks, tongue, full smoke with grammar split over two local shards, build (logs in evidence)"
+  ],
+  "unchanged": [
+    "Live version and publication freeze",
+    "Source banks, routes, media and 480 recordings",
+    "Card layout and font sizes",
+    "Saved lessons, scores, turns and card order"
+  ],
+  "limitations": [
+    "No new classroom trial or physical phone test.",
+    "Conversation lesson cards remain unavailable at A0_A1 and A1_A2; no new content was invented."
+  ],
+  "evidence": "work/kaartniveau-20261109"
+}

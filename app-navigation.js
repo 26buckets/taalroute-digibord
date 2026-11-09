@@ -129,7 +129,7 @@
   historyMoving=true;
   try{
    if(document.querySelector('#settingsOverlay.open'))closeSettings();
-   if(id==='game'){if(APP.last)await resume();else goScreen('play')}else if(id==='settings')openSettings();else if(id==='practice')ContentUI.open();else if(id==='lessons'){goScreen(id);await LessonUI.render()}else goScreen(routes[id]?id:'play');
+   if(id==='game'){if(APP.last)await resume();else goScreen('play')}else if(id==='settings')openSettings();else if(id==='practice')ContentUI.open({keepLevel:ContentUI.state().keepLevel});else if(id==='lessons'){goScreen(id);await LessonUI.render()}else goScreen(routes[id]?id:'play');
   }finally{historyMoving=false;refresh()}
  }
  root.AppNavigation={resume,beforeScreen,afterScreen,enterGame,schedule,captureCard,restoreRound,beforeLaunch,endCards,resetCards,showHistory,settingsOpened,settingsClosed};
