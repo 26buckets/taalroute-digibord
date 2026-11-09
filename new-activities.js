@@ -157,7 +157,10 @@ window.DigiActivities = (() => {
   $('#activityUndo').onclick=()=>{if(!histories[kind].length||state.busy)return;const prior=histories[kind].pop();state=rounds[kind]=prior.state;APP.turn=prior.turn;save();render('activityUndo')};
   if(!contentSession())$('[data-ghelp]').onclick=help;
   $('[data-grules]').onclick=help;
-  $('[data-goptions]').onclick=()=>kind==='draaiwiel'?editWheel():openGameDialog('Spelopties','<p>Kies de spelmodus links onderaan. Het niveau bovenaan past de gesprekstip aan. Kies bovenaan een andere ronde. Het niveau verandert de gesprekstip.</p><p>Bij de quiz kies je op het quizbord welk team antwoordt. Een goed antwoord levert punten op; een fout antwoord kost geen punten.</p>');
+  if(kind==='draaiwiel'&&!state.contentOptions){
+   const options=$('[data-goptions]').onclick;
+   $('[data-goptions]').onclick=()=>{options();const button=document.createElement('button');button.className='smallbtn';button.textContent='Onderwerpen op het wiel wijzigen';button.onclick=editWheel;$('#gameDialog .navigation-dialog-actions').append(button)};
+  }
   $('#na-guess-form')?.addEventListener('submit',e=>{e.preventDefault();guess()});
   $('#na-quiz-text')?.addEventListener('input',e=>{state.quizResponses[state.question]=e.target.value});
   $('#na-quiz-form')?.addEventListener('submit',e=>{e.preventDefault();const value=$('#na-quiz-text')?.value.trim();if(!value)return;checkpoint();state.quizResponses[state.question]=value;feedback('Antwoord vastgelegd. Toon nu het modelantwoord en beoordeel het antwoord.');render('na-quiz-text')});

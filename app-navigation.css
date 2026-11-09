@@ -12,10 +12,7 @@
 #stage.has-resume>.screen:not(#screen-game){top:var(--actief-resume-height,60px)}
 .lesson-resume{position:absolute;inset:0 0 auto;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;padding:8px 24px;background:var(--setup-soft,#e7f2fc);color:var(--setup-ink,#173752);border-bottom:1px solid var(--setup-line,#d6e2ec)}
 .lesson-resume[hidden]{display:none}.lesson-resume span{min-width:0;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lesson-resume button{flex:none;min-height:44px}
-#screen-game .lesson-navigation{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 20px;background:var(--setup-panel,#fff);border-bottom:1px solid var(--setup-line,#d6e2ec);color:var(--setup-ink,#173752)}
-.lesson-navigation>div{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.lesson-navigation .smallbtn{min-height:44px;font-size:14px;font-weight:400;padding:8px 12px}
-#screen-game #gameMount{top:var(--actief-lesson-height,61px)!important;min-height:0}
+#screen-game #gameMount{top:0!important;min-height:0}
 #screen-game .card-viewport .card-activity-heading{height:auto!important;min-height:0!important;padding:12px 24px!important;flex:none;align-items:start}
 #screen-game .card-activity-heading h1{line-height:1.25;overflow-wrap:break-word}
 #screen-game :is(#contentCardMenu,#cardMenuOpen,.na-back){display:none!important}
@@ -41,8 +38,6 @@ html[data-theme=dark] #appHeader>.mainnav .navitem.active{background:#2b4056;col
  #appHeader>.mainnav .navitem{flex:1;padding:8px 6px}
  #appHeader .hdr001-controls{margin-left:auto!important}
  #appHeader .hdr001-menu>.hdr001-panel{top:var(--actief-header-height,110px)!important;max-height:calc(100dvh - var(--actief-header-height,110px) - 16px)!important}
- #screen-game .lesson-navigation{padding:6px 12px;flex-wrap:wrap}
- .lesson-navigation>div{gap:4px;flex:1}.lesson-navigation .smallbtn{padding:8px;font-size:13px}
  #screen-game .card-viewport .card-activity-heading{padding:10px 14px!important}
  #screen-game .card-viewport .card-activity-heading h1{font-size:21px!important}
  #screen-game .card-viewport .gamebar{padding:12px;justify-content:stretch;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,auto);gap:8px}
@@ -66,7 +61,6 @@ html[data-theme=dark] #appHeader>.mainnav .navitem.active{background:#2b4056;col
  #screen-game .card-viewport{--gamebar:172px}
  .lesson-resume{padding:8px 12px}.lesson-resume span{font-size:13px}.lesson-resume button{font-size:13px;padding:8px}
 }
-@media(max-width:420px){.lesson-navigation>div{width:100%;justify-content:space-between}.lesson-navigation #lessonBack{width:100%;text-align:left}.lesson-navigation .smallbtn{flex:1}}
 @media(max-height:650px){#screen-game .card-viewport .card-work{overflow:auto}#screen-game .card-viewport .cards-stage{min-height:330px}#screen-game .card-viewport .gamebar{position:relative;flex:none}}
 
 #screen-game .card-viewport.game-shell{grid-template-rows:minmax(0,1fr) auto}
@@ -77,13 +71,6 @@ html[data-theme=dark] #appHeader>.mainnav .navitem.active{background:#2b4056;col
 #app:has(#screen-game.active .board-game)>#appHeader>.mainnav .navitem{display:block!important}
 html[data-theme=dark] #appHeader>.mainnav .navitem{color:#edf4fb}
 html[data-theme=dark] #appHeader>.mainnav .navitem.active{color:#b5dfff}
-@media(max-width:420px){
- #screen-game .lesson-navigation{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
- #screen-game .lesson-navigation>div{display:contents}
- #screen-game .lesson-navigation #lessonBack{width:auto}
- #screen-game .lesson-navigation .smallbtn{padding:6px;font-size:12px}
- #screen-game .lesson-navigation:has(#lessonHistory:not([hidden])){grid-template-columns:repeat(2,minmax(0,1fr))}
-}
 @media(max-height:650px){
  #screen-game #gameMount{overflow-y:auto}
  #screen-game .card-viewport.game-shell{height:auto;min-height:100%;grid-template-rows:420px auto}

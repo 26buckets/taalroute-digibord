@@ -191,7 +191,8 @@ function bindGameBar(primaryHandler){
  $$('[data-grules]').forEach(b=>b.onclick=()=>openGameDialog('Spelregels',`<ol class="game-rules">${currentGameRules().split(/(?<=[.!?])\s+/).map(rule=>`<li>${esc(rule)}</li>`).join('')}</ol>`));
  $$('[data-goptions]').forEach(b=>b.onclick=()=>{
   const panel=$('#boardOptions');if(panel){setBoardMenu(false);panel.classList.toggle('open');return}
-  openGameDialog('Spelopties',`<label class="option-row">Minder beweging <input id="gameMotion" type="checkbox" ${settingsState().reducedMotion?'checked':''}></label><label class="option-row">Geluid <input id="gameSound" type="checkbox" ${settingsState().soundEnabled!==false?'checked':''}></label><p>${APP.last?.type==='word'&&APP.last.data.kind==='wz'?'De moeilijkheid kies je bij het taaldoel.':'Het niveau kies je rechtsboven.'} De beschikbare sets en aantallen staan bij het spel.</p>`,()=>{$('#gameMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});$('#gameSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked})});
+  const historyButton=APP.last?.type==='card'?'':`<div class="navigation-dialog-actions"><button class="smallbtn" data-game-history>${['taalworp','story'].includes(APP.last?.type)?'Vorige worpen':'Bekeken opdrachten'}</button></div>`;
+  openGameDialog('Spelopties',`${historyButton}<label class="option-row">Minder beweging <input id="gameMotion" type="checkbox" ${settingsState().reducedMotion?'checked':''}></label><label class="option-row">Geluid <input id="gameSound" type="checkbox" ${settingsState().soundEnabled!==false?'checked':''}></label><p>${APP.last?.type==='word'&&APP.last.data.kind==='wz'?'De moeilijkheid kies je bij het taaldoel.':'Het taalniveau kies je via Menu → Taalniveau.'} De beschikbare sets en aantallen staan bij het spel.</p>`,()=>{$('[data-game-history]')?.addEventListener('click',()=>AppNavigation.showHistory());$('#gameMotion').onchange=e=>settingsPatch({reducedMotion:e.target.checked});$('#gameSound').onchange=e=>settingsPatch({soundEnabled:e.target.checked})});
  });
  if(primaryHandler)$('#primaryGame')?.addEventListener('click',primaryHandler);
 }
@@ -331,7 +332,7 @@ function startBoard(board){
  <div id="boardViewport"><svg id="boardMap" viewBox="0 0 1920 900" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Speelbord ${board}, ${route.nodes.length} posities"><g id="boardLayers"><image id="boardBackground" href="${img}" width="${route.sourceWidth}" height="${route.sourceHeight}" preserveAspectRatio="xMidYMid meet"/><g id="boardRoute">${boardRouteSvg(board,route)}</g><ellipse id="activeFieldMarker" rx="20" ry="8"/><g id="pawnLayer"></g>${taxi?'<g id="boardTaxi"><image href="assets/boards/watertaxi.png" x="-45" y="-43" width="90" height="60"/></g>':''}${boardOcclusionSvg(route,img)}</g></svg></div>
  <div class="board-hud"><strong>${esc(route.label||board[0].toUpperCase()+board.slice(1))}</strong><span>Ronde <b id="roundValue">${s.round}</b></span><span id="boardStatus">Spatie om te gooien</span></div>
  <aside class="board-options" id="boardOptions"><div class="board-options-head"><strong>Bordopties</strong><button id="closeBoardOptions" aria-label="Sluit bordopties">×</button></div>
- <h3 class="board-settings-heading">Spelen</h3>
+ <button class="smallbtn" id="boardHistory">Bekeken opdrachten</button><h3 class="board-settings-heading">Spelen</h3>
  <div class="board-option-row board-exercise-choice">${boardOptionTitle('questionMode','Oefening',`Snelvragen: geef zelf antwoord op een korte vraag. Met gesprekspartner: voer samen een gesprek. Mix: beide soorten door elkaar. Voor het gekozen niveau zijn ${directBank.cards.filter(c=>c.routeId===selectedTaskRoute().id).length} snelvragen beschikbaar; de aangesloten snelvraagbank bevat ${directBank.cards.length} vragen in totaal.`)}<select class="mode-select" id="questionMode"><option value="direct">Snelvragen</option><option value="conversation">Met gesprekspartner</option><option value="mixed">Mix van beide</option></select></div>
  <div class="board-option-row">${boardOptionTitle('modeSelect','Speelmodus','Klassikaal: de hele klas speelt met één pion. Individueel: iedere deelnemer heeft een eigen pion en beurt. Duo’s: telkens twee deelnemers spelen samen. Groepen: iedere groep speelt met één pion. Deelnemers en groepen stel je in via Menu → Instellingen.')}<select class="mode-select" id="modeSelect"><option value="individual">Individueel</option><option value="class">Klassikaal</option><option value="groups">Groepen</option><option value="pairs">Duo's</option></select></div>
  <div class="board-option-row"><button class="smallbtn" id="nextBoardTask">Andere opdracht</button>${boardOptionInfo('Andere opdracht','Toon een andere opdracht voor het huidige vak, niveau en de gekozen oefening. De pion blijft staan.')}</div>
@@ -353,6 +354,7 @@ function startBoard(board){
  goScreen('game');BoardViewport.connect($('#boardView'),route);bindGameBar(()=>boardAction(board,route));renderBoardPawns(board,route);setTaxiPoint(route,s.taxiArrived);
  $('#taskDone').onclick=()=>boardAction(board,route);
  for(const [id,key] of [['Help','support'],['Example','model'],['Goals','goals'],['Partner','partner'],['More','more']])$('#task'+id).onclick=()=>showBoardSupport(key);
+ $('#boardHistory').onclick=()=>{AppNavigation.showHistory();$('#boardOptions').classList.remove('open')};
  $('#closeBoardOptions').onclick=()=>$('#boardOptions').classList.remove('open');
  $('#questionMode').value=boardTaskMode();$('#questionMode').onchange=e=>{if(boardBusy||!$('#taxiChoice').hidden){e.target.value=boardTaskMode();return}rememberAction('oefening kiezen');APP.questionMode=e.target.value;if(s.pending)delete s.pending.task;save();startBoard(board)};
  $('#contentBoardAnswer').onclick=()=>showBoardSupport('model');
@@ -1249,7 +1251,8 @@ function levelInstruction(){const session=globalThis.ContentRuntime?.activeSessi
 function adaptTask(c){return{...c,input:[c.input,levelInstruction()].filter(Boolean).join(' ')}}
 function openGameDialog(title,body,bind){
  const dlg=$('#gameDialog');$('#dialogTitle').textContent=lessonText(title);$('#dialogBody').innerHTML=body;
- if(!dlg.open)dlg.showModal();bind?.();
+ const alreadyOpen=dlg.open;if(!alreadyOpen)dlg.showModal();bind?.();
+ if(alreadyOpen)dlg.querySelector('#dialogBody button:not(:disabled),#dialogBody summary,#dialogClose')?.focus();
 }
 function currentGameRules(){
  const type=APP.last?.type;

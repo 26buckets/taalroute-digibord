@@ -10,7 +10,7 @@ const {chromium}=require('playwright');
    const shell=document.querySelector('.card-viewport'),work=shell.querySelector('.card-work'),card=shell.querySelector('.active-card'),text=shell.querySelector('.card-content'),bar=shell.querySelector('.gamebar'),reset=document.querySelector('#cardOrderReset'),next=document.querySelector('#primaryGame');
    text.scrollTop=text.scrollHeight;const reachable=Math.abs(text.scrollHeight-text.clientHeight-text.scrollTop)<2;text.scrollTop=0;
    const a=card.getBoundingClientRect(),b=bar.getBoundingClientRect(),r=reset.getBoundingClientRect(),n=next.getBoundingClientRect();
-   return {workFits:work.scrollHeight<=work.clientHeight+1,textFits:reachable&&text.scrollWidth<=text.clientWidth+1&&getComputedStyle(text).overflowY==='auto'&&Number(getComputedStyle(text).zoom)===1&&text.tabIndex===0,cardFits:a.top>=0&&a.bottom<=b.top+1,resetFits:r.width===44&&r.height===44&&r.x>=n.right&&r.right<=innerWidth&&r.top>=n.top&&r.bottom<=n.bottom,iconOnly:reset.textContent.trim()==='',label:reset.getAttribute('aria-label'),overflow:document.documentElement.scrollWidth>innerWidth};
+   return {workFits:work.scrollHeight<=work.clientHeight+1,textFits:reachable&&text.scrollWidth<=text.clientWidth+1&&getComputedStyle(text).overflowY==='auto'&&Number(getComputedStyle(text).zoom)===1&&text.tabIndex===0,cardFits:a.top>=0&&a.bottom<=b.top+1,resetFits:r.width===44&&r.height===44&&r.x>=0&&r.right<=innerWidth&&(innerWidth<=900?r.top>=n.bottom:r.x>=n.right&&r.top>=n.top&&r.bottom<=n.bottom),iconOnly:reset.textContent.trim()==='',label:reset.getAttribute('aria-label'),overflow:document.documentElement.scrollWidth>innerWidth};
   });assert.deepEqual(result,{workFits:true,textFits:true,cardFits:true,resetFits:true,iconOnly:true,label:'Kaartvolgorde opnieuw beginnen',overflow:false},JSON.stringify(await page.evaluate(()=>({id:currentCard()?.id,width:innerWidth,height:innerHeight,section:document.querySelector('#cardSupport')?.dataset.section,zoom:document.querySelector('.card-content').style.zoom,sh:document.querySelector('.card-content').scrollHeight,ch:document.querySelector('.card-content').clientHeight}))));
  }
  for(const [width,height]of [[1920,1080],[1440,900],[1366,768],[1440,650],[1024,768],[768,1024],[390,844],[320,568]]){
@@ -24,7 +24,7 @@ const {chromium}=require('playwright');
   }
   await page.evaluate(()=>{ContentUI.setState({family:'grammar',topic:'ER',level:'B1_B2',engine:'CARDS',focus:'all',subtopic:'all',duration:600});ContentUI.start(33)});await check();
   await page.locator('#contentCardReveal').click();await check();await page.locator('#contentCardReveal').click();await check();
-  if(width<=850){await page.locator('#lessonBack').click();await page.evaluate(()=>prepareCards('tongue'));await page.locator('#lessonBack').click();assert.ok(await page.locator('#screen-cards.active').count())}
+  if(width<=850){await page.locator('[data-main="play"]').click();await page.locator('#screen-play [data-category="cards"]').click();await page.evaluate(()=>prepareCards('tongue'));await page.locator('[data-main="play"]').click();await page.locator('#screen-play [data-category="cards"]').click();assert.ok(await page.locator('#screen-cards.active').count())}
   await page.evaluate(()=>prepareCards('tongue'));await check();
   if(process.env.SCREENSHOT_DIR){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,`card-fit-${width}-${height}.png`)})}
  }

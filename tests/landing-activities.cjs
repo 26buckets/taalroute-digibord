@@ -42,12 +42,13 @@ const {chromium}=require('playwright');
    await page.locator('.activity-shared-set').nth(29).locator(`[data-activity="${id}"]`).click();
    assert.equal(await page.locator('#na-set').inputValue(),'29');
    assert.equal(await page.locator('.new-activity').getAttribute('data-workspace'),'wide');
-   await page.locator('#lessonBack').click();assert.equal(await page.locator('#screen-activities').isVisible(),true);
+   await page.locator('[data-main="play"]').click();await page.locator('#screen-play [data-category="workforms"]').click();await page.locator('[data-activities-library]').click();assert.equal(await page.locator('#screen-activities').isVisible(),true);
   }
   await page.locator('#screen-activities [data-category="workforms"]').click();
   assert.equal(await page.locator('#screen-play .activity-entry,#screen-play .workform-world').count(),0);
   await page.locator('#screen-workforms [data-home]').click();assert.equal(await page.locator('#screen-play').isVisible(),true);
   await open('draaiwiel');await next();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);assert.notEqual(await page.locator('.na-wheel-result h2').innerText(),'Wat wordt het onderwerp?');
+  await page.locator('[data-goptions]').click();await page.getByRole('button',{name:'Onderwerpen op het wiel wijzigen'}).click();assert.ok(await page.locator('#na-wheel-input').isVisible());await page.keyboard.press('Escape');
   await click('edit-wheel');await page.locator('#na-wheel-input').fill('Eén');await page.locator('#na-wheel-form button').click();assert.ok(await page.locator('#na-wheel-error').innerText());
   await page.locator('#na-wheel-input').fill('<img src=x onerror=alert(1)>\nTweede onderwerp');await page.locator('#na-wheel-form button').click();assert.equal(await page.locator('.na-wheel-legend img').count(),0);assert.equal(await page.locator('.na-wheel-legend li').count(),2);await click('edit-wheel');await page.locator('#na-wheel-input').fill((await page.evaluate(()=>DIGIBORD_ACTIVITIES.wheel.slice(0,6))).join('\n'));await page.locator('#na-wheel-form button').click();
   await open('memory');await page.locator('#na-set').selectOption('0');const known={};

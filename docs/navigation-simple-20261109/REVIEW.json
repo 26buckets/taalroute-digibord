@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-09",
+  "status": "local preview; publication frozen",
+  "liveBase": "9b3cf99802bffaad8b639cbe988cc86554b8fd2a",
+  "scope": [
+    "remove duplicate lesson navigation",
+    "retain header links and card controls",
+    "history in game options",
+    "working wheel options",
+    "keyboard focus when replacing dialog"
+  ],
+  "preserved": [
+    "content",
+    "media",
+    "release gates",
+    "lesson and game progress",
+    "answers",
+    "scores",
+    "turns"
+  ],
+  "reviews": [
+    {
+      "round": 1,
+      "findings": [
+        "redundant lesson row",
+        "ambiguous edit action",
+        "finish before last card"
+      ],
+      "resolution": "remove row; keep finish at end of deck"
+    },
+    {
+      "round": 2,
+      "role": "devil’s advocate, same reviewer",
+      "findings": [
+        "history must remain reachable",
+        "prepared wheel options did nothing",
+        "focus must remain in dialog"
+      ],
+      "resolution": "shared real options and history; focus on replacement dialog control"
+    },
+    {
+      "round": 3,
+      "scope": [
+        "9 available prepared engines",
+        "standalone dice and story",
+        "all seven legacy activities in explicit archive review",
+        "card finish and resume",
+        "320–1920 widths, short windows, light/dark",
+        "53 actual UI screenshots"
+      ],
+      "status": "passed locally"
+    }
+  ],
+  "rating": {
+    "type": "provisional expert judgment, not measured user research",
+    "target": 9.5,
+    "score": 9.1,
+    "equalWeightCriteria": {
+      "navigation": 9.5,
+      "firstTimeUnderstanding": 8.5,
+      "readabilityAndControls": 9.0,
+      "efficiency": 9.0,
+      "progressAndRecovery": 9.5
+    }
+  },
+  "nextValidation": [
+    "Replace technical card headings such as abstract existentieel across related cards; shared presentation, source preserved",
+    "five teachers; start, prepare, previous, resume, finish without coaching",
+    "suggested success target >=95% tasks completed unaided, zero progress loss",
+    "test Spelen/Oefenen distinction and helper icon recognition",
+    "back-row legibility and physical board touch"
+  ],
+  "limitations": [
+    "same reviewer across three rounds",
+    "no classroom pilot",
+    "no full screen-reader audit",
+    "Zinnenbouwer realtime multiplayer not rerun",
+    "external style reference absent; existing settings styles used"
+  ],
+  "cloudRuns": 0,
+  "githubActionsExtraCost": 0,
+  "publicationFreezeChanged": false,
+  "checks": {
+    "unitAndContent": "npm test passed",
+    "activities": "passed, including options-to-custom-wheel path in explicit archive review",
+    "lint": "passed",
+    "types": "passed",
+    "smoke": "passed, including 7200 grammar renderings",
+    "banks": "1200 rendered cards, 96 cycles passed",
+    "tongue": "240 cards, 480 recordings, two tempos passed",
+    "navigation": "nine available prepared engines; RIDDLE unavailable and not newly enabled; card answers, finish/cancel/resume and history focus passed",
+    "cardLayout": "eight viewports passed",
+    "visual": "standalone dice/story, light/dark, short windows passed",
+    "gallery": "53 actual screenshots decoded",
+    "liveBase": "1449 live asset hashes match confirmed source ancestor"
+  }
+}

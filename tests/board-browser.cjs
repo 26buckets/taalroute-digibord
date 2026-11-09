@@ -84,7 +84,7 @@ async function check(page, label) {
       const viewport=document.querySelector('#boardViewport').getBoundingClientRect();
       const footer=document.querySelector('.board-game .gamebar').getBoundingClientRect();
       const controls=[...document.querySelectorAll('#appHeader button')].filter(e=>e.getClientRects().length).map(e=>e.getBoundingClientRect());
-      return {navigationBottom:document.querySelector('#lessonNavigation').getBoundingClientRect().bottom,top:board.top,height:board.height,viewportTop:viewport.top,viewportHeight:viewport.height,footerHeight:footer.height,expectedFooter:parseFloat(getComputedStyle(document.querySelector('.board-game')).getPropertyValue('--gamebar')),fits:controls.every(r=>r.left>=0&&r.right<=innerWidth&&r.height>=44)};
+      return {navigationBottom:document.querySelector('#appHeader').getBoundingClientRect().bottom,top:board.top,height:board.height,viewportTop:viewport.top,viewportHeight:viewport.height,footerHeight:footer.height,expectedFooter:parseFloat(getComputedStyle(document.querySelector('.board-game')).getPropertyValue('--gamebar')),fits:controls.every(r=>r.left>=0&&r.right<=innerWidth&&r.height>=44)};
     });
     assert.equal(size.top,size.navigationBottom,'board sits below the visible navigation');assert.equal(size.footerHeight,size.expectedFooter,'footer height unchanged');
     assert.equal(size.viewportTop,size.top+8,'label does not reserve a row');assert.equal(size.viewportHeight,size.height-16);
