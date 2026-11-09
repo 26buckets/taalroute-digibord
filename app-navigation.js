@@ -77,11 +77,11 @@
  function mountCardNavigation(){
   const next=document.querySelector('#primaryGame'),slot=next?.parentElement,d=deck();if(!next||!slot||!d)return;
   slot.classList.add('card-navigation');
-  if(!document.querySelector('#previousCard')){const b=document.createElement('button');b.id='previousCard';b.className='smallbtn';b.textContent='← Vorige opdracht';b.onclick=()=>nextCard(-1);slot.prepend(b);const overview=document.createElement('button');overview.id='cardOverview';overview.className='smallbtn';overview.onclick=showHistory;next.before(overview);}
+  if(!document.querySelector('#previousCard')){const b=document.createElement('button');b.id='previousCard';b.className='smallbtn';b.textContent='← Vorige';b.setAttribute('aria-label','Vorige opdracht');b.onclick=()=>nextCard(-1);slot.prepend(b);const overview=document.createElement('button');overview.id='cardOverview';overview.className='smallbtn';overview.innerHTML='<span class="card-count"></span><span class="card-overview-label">Overzicht</span>';overview.onclick=showHistory;next.before(overview);}
   document.querySelector('#previousCard').disabled=busy()||d.cursor===0;
-  setText(document.querySelector('#cardOverview'),`${d.cursor+1} van ${d.eligible.length} · Overzicht`);
+  setText(document.querySelector('#cardOverview .card-count'),`${d.cursor+1} van ${d.eligible.length}`);
   const end=d.cursor===d.history.length-1&&!d.queue.length;
-  setText(next.querySelector('span'),end?'Les afronden':'Volgende opdracht →');next.disabled=busy();
+  setText(next.querySelector('span'),end?'Afronden':'Volgende →');next.disabled=busy();
   next.setAttribute('aria-label',end?'Les afronden':'Volgende opdracht');
   for(const id of ['cardDeck','contentCardDeck']){const b=document.getElementById(id);if(b){b.disabled=busy();b.setAttribute('aria-label',end?'Les afronden':'Volgende opdracht trekken')}}
  }

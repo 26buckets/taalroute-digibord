@@ -68,9 +68,9 @@ let browser,page;
    if(engine==='BOARD'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!boardBusy&&document.querySelector('#taskDrawer.open'));}
    if(engine==='WHEEL'){await page.locator('#primaryGame').click();await page.waitForFunction(()=>!document.querySelector('#primaryGame').disabled);}
    if(engine==='QUIZ')await page.locator('.na-quiz-board [data-content-item-id="'+id+'"]').click();
-   const selector=engine==='BOARD'?'#taskTitle':engine==='QUIZ'?'.na-workspace h2[data-content-item-id]':engine==='SEQUENCE'?'.na-sequence-source':engine==='WHEEL'?'.na-wheel-result .content-prompt h2':'.content-reading .content-prompt h2';
+   const selector=engine==='BOARD'?'#taskTitle':engine==='QUIZ'?'.na-workspace .content-reading .content-prompt h2':engine==='SEQUENCE'?'.na-sequence-source':engine==='WHEEL'?'.na-wheel-result .content-prompt h2':'.content-reading .content-prompt h2';
    const task=page.locator(selector),layout=await page.evaluate(id=>CardPresentation.shared(ContentRuntime.itemById(id)),id);
-   if(['CARDS','DICE','WHEEL'].includes(engine)&&layout.stimulus&&expected.every(t=>layout.stimulus.includes(t))){const reading=await page.locator('#screen-game.active .content-stimulus').innerText();for(const word of expected)assert.ok(reading.includes(word),id+' separate reading choice');}
+   if(['CARDS','DICE','WHEEL','QUIZ'].includes(engine)&&layout.stimulus&&expected.every(t=>layout.stimulus.includes(t))){const reading=await page.locator('#screen-game.active .content-stimulus').innerText();for(const word of expected)assert.ok(reading.includes(word),id+' separate reading choice');}
    else assert.deepEqual(await task.locator('strong').allTextContents(),expected,id+' '+engine);
    assert.equal(await task.evaluate(e=>getComputedStyle(e).fontWeight),'400',id+' ordinary instruction stays lighter');
    assert.ok((await task.locator('strong').evaluateAll(es=>es.every(e=>getComputedStyle(e).fontWeight===(e.closest('.card-action-line')?'500':'800')))),id+' required words bold');
@@ -111,7 +111,7 @@ let browser,page;
   const container=page.locator(engine==='BOARD'?'#taskDrawer':engine==='WHEEL'?'.na-wheel-result':engine==='QUIZ'?'.na-workspace':'.content-reading[data-content-item-id]');
   const text=await container.innerText();assert.ok(text.includes(displayText(item.context)),id+' '+engine+' situation visible');
   const layout=require('../card-presentation').shared(item),normalize=t=>t.replace(/\s+/g,' ').trim();
-  if(['CARDS','DICE','WHEEL'].includes(engine)&&layout){assert.ok(normalize(text).includes(normalize(layout.instruction)),id+' '+engine+' instruction visible');for(const part of layout.words||[layout.stimulus])assert.ok(normalize(text).includes(normalize(part)),id+' '+engine+' source visible');}
+  if(['CARDS','DICE','WHEEL','QUIZ'].includes(engine)&&layout){assert.ok(normalize(text).includes(normalize(layout.instruction)),id+' '+engine+' instruction visible');for(const part of layout.words||[layout.stimulus])assert.ok(normalize(text).includes(normalize(part)),id+' '+engine+' source visible');}
   else assert.ok(normalize(text).includes(normalize(displayText(item.prompt).split('\n')[0])),id+' '+engine+' instruction visible');
   if(['open','open_geleid'].includes(item.answer_type))assert.ok(!text.includes(displayText(item.model_answer)),id+' hidden example');
   let answer;

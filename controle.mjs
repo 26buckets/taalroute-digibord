@@ -121,8 +121,8 @@ for(const [effect,duration] of [['draw',950],['slide',650],['turn',800],['invali
  animationEnds.splice(0).forEach(f=>f());await pending;
 }
 const cardControls=[{disabled:false}],cardShell={isConnected:true,querySelectorAll:()=>cardControls,setAttribute(){},removeAttribute(){}};
-const cc=vm.createContext({APP:{cardKind:'conversation',cardIndex:0},turns:0,draws:0,save(){},rememberAction(){},updateUndo(){},cardsFor:()=>[{id:"a"},{id:"b"},{id:"c"}],selectShuffledCard(){cc.APP.cardIndex++},
- $(selector){return selector==='.game-card-motion'?{closest:()=>cardShell}:{}},animateCard:()=>({finished:new Promise(resolve=>animationEnds.push(resolve))})});
+const cc=vm.createContext({queueMicrotask,APP:{cardKind:'conversation',cardIndex:0},turns:0,draws:0,save(){},rememberAction(){},updateUndo(){},cardsFor:()=>[{id:"a"},{id:"b"},{id:"c"}],selectShuffledCard(){cc.APP.cardIndex++},
+ $(selector){return selector==='.game-card-motion'?{closest:()=>cardShell}:{focus(){}}},animateCard:()=>({finished:new Promise(resolve=>animationEnds.push(resolve))})});
 vm.runInContext('function completeTurn(){turns++}function startCards(){draws++}',cc);
 vm.runInContext(source.slice(source.indexOf('let cardBusy=false;'),source.indexOf('function startCards(')),cc);
 pending=vm.runInContext('nextCard()',cc);await vm.runInContext('nextCard()',cc);

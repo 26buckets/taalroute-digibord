@@ -1,0 +1,25 @@
+/* Taalroute controls: shared by the app, settings and sentence builder. */
+:root{--control-radius:5px;--control-focus:#126ab3;--control-surface:#fff;--control-ink:#173752;--control-line:#cbdce8;--control-accent:#126ab3;--control-soft:#e7f3fe}
+html[data-theme=dark]{--control-focus:#9cd3ff;--control-surface:#1b3042;--control-ink:#edf4fb;--control-line:#536d82;--control-accent:#126ab3;--control-soft:#2b4056}
+/* Game pieces retain their shape; ordinary controls share one corner radius. */
+button:not(.pawn):not(.cube):not(.physical-die):not(.zb-card):not(.tile):not(.gamecard),select,input:not([type=radio]):not([type=checkbox]):not([type=range]),textarea,[role=button]:not(.pawn){border-radius:var(--control-radius)!important}
+:is(.smallbtn,.primary,.secondary,.game-action,.mode-select,.seg,.mini-btn,.use-btn,.typebtn,.navitem,.back-btn,.btn,.icon-btn,.bank-tab,.route-tab,.lesson-save,.practice-start){font-family:var(--setup-font,Inter,Arial,sans-serif)!important;font-weight:400!important;box-shadow:none!important;text-shadow:none!important}
+:is(.smallbtn,.game-action,.mode-select,.secondary,.mini-btn,.use-btn){min-height:44px;background:var(--control-surface)!important;color:var(--control-ink)!important;border:1px solid var(--control-line)!important}
+:is(.primary,.practice-start){background:var(--control-accent)!important;background-image:none!important;border:1px solid var(--control-accent)!important;color:#fff!important;box-shadow:none!important;font-weight:500!important;min-height:44px}
+:is(.smallbtn,.game-action,.secondary,.mini-btn,.use-btn):hover:not(:disabled){background:var(--control-soft)!important;border-color:var(--control-accent)!important}
+:is(.smallbtn,.seg,.typebtn,.navitem)[aria-pressed=true],.smallbtn[aria-expanded=true]{background:var(--control-soft)!important;border-color:var(--control-accent)!important}
+:is(button,select,input,textarea):focus-visible{outline:3px solid var(--control-focus)!important;outline-offset:3px}
+:is(.smallbtn,.game-action,.primary,.secondary):disabled{opacity:.5;cursor:default}
+.gamebar .mode-select{font-size:14px!important;line-height:1.3;font-weight:400;padding:8px 12px}
+.gamebar .chip{border-radius:var(--control-radius);box-shadow:none;font-weight:400}
+.gamebar .primary{border-radius:var(--control-radius)!important;box-shadow:none!important}
+.gamebar .game-action .game-icon{border:0;background:none;box-shadow:none}
+
+.na-choice{font-family:var(--setup-font,Inter,Arial,sans-serif);font-weight:400;box-shadow:none!important}
+#screen-game .gamebar{background:var(--control-surface);box-shadow:none}
+#screen-game .gamebar .game-action{font-size:14px;line-height:1.25}
+#screen-game .gamebar .right-actions{gap:8px}
+@media(min-width:901px){
+ #screen-game .card-table-shell:not(.card-viewport) .right-actions{display:flex}
+ #screen-game .card-table-shell:not(.card-viewport) .game-action{width:auto;min-width:70px;padding:8px}
+}
