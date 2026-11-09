@@ -116,7 +116,7 @@
  }
  // Keep the previous cycle's answers so undoing a shuffle can restore them.
  function resetCards(){renderedCard=''}
- function cardTitle(id){const item=root.ContentRuntime?.itemById(id)||cardsFor(APP.cardKind).find(c=>c.id===id);return item?.title||item?.instruction||'Opdracht'}
+ function cardTitle(id){const item=APP.cardKind==='content-vert001'?root.ContentRuntime?.itemForSession(id):cardsFor(APP.cardKind).find(c=>c.id===id);const reading=item?.content_item_id?root.CardPresentation?.shared(item):null;return reading?.stimulus||item?.title||reading?.instruction||item?.instruction||item?.prompt||'Opdracht'}
  function showHistory(){
   if(APP.last?.type==='card'&&APP.cardKind!=='story'&&deck()){
    captureCard();const d=deck();

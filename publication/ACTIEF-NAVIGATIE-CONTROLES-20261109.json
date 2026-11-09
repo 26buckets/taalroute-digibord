@@ -281,5 +281,21 @@
   "notPerformed": [
     "Physical classroom/digibord trial"
   ],
-  "e1Resume": "117 bank/gate/route UI cases passed in the first stage; remaining cases completed with the existing RESUME_UI continuation after the end-of-deck test expectation was updated."
+  "e1Resume": "117 bank/gate/route UI cases passed in the first stage; remaining cases completed with the existing RESUME_UI continuation after the end-of-deck test expectation was updated.",
+  "postLiveFollowup": {
+    "priorLiveCommit": "573bf8f6f9a64f80bb494c0f0bca8433724a540b",
+    "scope": [
+      "Recognizable card labels in overview",
+      "Loading message while saved lessons are fetched"
+    ],
+    "checks": [
+      "navigation-labels.log PASS",
+      "lint-labels.log PASS"
+    ],
+    "liveBeforeFollowup": [
+      "Navigation PASS",
+      "2698 WZ tasks / 8094 projections PASS",
+      "Manifest and eight actual changed files match build"
+    ]
+  }
 }

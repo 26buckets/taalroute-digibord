@@ -80,6 +80,7 @@
  const action=(kind,id,label,disabled=false)=>`<button class="smallbtn" type="button" data-lesson-action="${kind}" data-id="${esc(id)}" ${disabled?'disabled':''}>${esc(label)}</button>`;
  async function render(){
   const mount=$('#lessonLibrary');if(!mount)return;
+  if(!mount.hasChildNodes())mount.innerHTML='<h1>Mijn lessen</h1><p role="status">Lessen laden…</p>';
   try{
    await writing;
    const [lessons,recent,favorites,mixes]=await Promise.all(['saved_selection','recent_session','favorite','mix_profile'].map(k=>service.list(k)));

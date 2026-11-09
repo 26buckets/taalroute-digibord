@@ -31,3 +31,6 @@ De uitgevoerde controles en eventuele herstelrondes staan in ACTIEF-NAVIGATIE-CO
 ## Publicatie
 
 Alle zware controles lokaal. De enige GitHub-workflow is handmatig en maximaal twee minuten; deze taak start geen GitHub Actions-run. Publiceer alleen de gecontroleerde afstammeling vanaf canonieke main met npm run deploy en wrangler.jsonc. Gebruik het bestaande scoped release-besluit. Tijdens de twee benodigde main-updates wordt uitsluitend de updateblokkering binnen deze expliciete vrijgave tijdelijk geopend; verwijder- en force-pushbeveiliging en de oorspronkelijke tag blijven beschermd. Herstel de blokkering onmiddellijk en zet de publicatie na livecontrole opnieuw vast.
+
+## Afwerking uit de livevoorbeelden
+De eerste publicatie 573bf8f6f9a64f80bb494c0f0bca8433724a540b / 17eb9528-6074-4929-b997-54d0e8e22325 slaagde voor de live navigatiecontrole en de 8.094 WZ-projecties. De zichtbare voorbeelden gaven aanleiding tot twee kleine verbeteringen binnen dezelfde opdracht: herkenbare kaarttekst in het overzicht in plaats van het algemene “Opdracht”, en een laadmelding bij Mijn lessen. De aanvullende navigatiecontrole wacht nu ook op de werkelijk geladen lessen en controleert het kaartlabel. Negen oefenvormen en voortgang opnieuw geslaagd; broninhoud en opslag blijven ongewijzigd.
