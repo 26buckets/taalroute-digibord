@@ -249,3 +249,29 @@ svg.lucide{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;s
   .content{padding-top:16px}
   .didactic-layout{height:520px}
 }
+
+/* Keep the established layout; mobile uses one complete, labelled section selector. */
+.settings-page .settings-mobile-nav{display:none}
+.settings-page .page-header #lessonSettingNote{flex-basis:100%;margin:8px 0 0}
+.settings-page .page-header:has(#lessonSettingNote){flex-wrap:wrap}
+.settings-page :is(#addParticipant,#allPresent,#allAbsent){width:auto;min-height:44px;height:auto;padding:10px;gap:8px;display:inline-flex;align-items:center}
+.settings-page :is(.field,#pawnControls)[hidden]{display:none!important}
+.settings-page [data-page="backup"] .section-body>button{margin:8px 8px 8px 0}
+.settings-page #backupRestore{display:block;max-width:100%;font:inherit;margin-top:10px}
+.settings-page .presence,.settings-page .group-select{min-height:44px}
+@media(max-width:900px){
+ .settings-page .nav .nav-scroll{display:none}
+ .settings-page .nav .settings-mobile-nav{display:block;padding:4px 16px;font-size:14px}
+ .settings-page #settingsSection{display:block;width:100%;min-height:44px;margin-top:6px;font:inherit;border:1px solid #cad9e3;background-color:white;color:#173c58;padding:10px}
+}
+
+.settings-page #printFacts{width:100%;max-width:32rem;margin:0 0 16px}.settings-page #printFacts div{display:flex;justify-content:space-between;border-bottom:1px solid #dae5ee;padding:8px 0}.settings-page #printFacts dd{margin:0}
+@media print{body.settings-page,body.settings-page .settings-shell,body.settings-page .settings-card,body.settings-page .settings-layout,body.settings-page .content-wrap,body.settings-page .content{display:block;position:static;height:auto;overflow:visible}body.settings-page :is(.nav,.settings-head,.suite-header,#printLesson){display:none!important}}
+
+.embedded .standalone-game-link{display:none}
+
+.backup-file{position:relative;cursor:pointer}
+.backup-file input{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+.backup-file:focus-within{outline:3px solid #186da2;outline-offset:2px}
+#backupStatus{flex-basis:100%;margin:0}
+#backupStatus:empty{display:none}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-10",
+  "approvedBy": "Nico",
+  "request": "Ja, voer dit door bij de instellingen. Doe daarna die drie reviewrondes, behoud de lopende les en alle groepsgegevens en laat echte voorbeelden zien op desktop en mobiel. Je mag deze gecontroleerde versie direct live zetten.",
+  "previousCanonicalMain": "add098aa2335a824d843e0641b900d0eb294a908",
+  "previousLiveCommit": "d78b885cf9fe631e69a0a4e8d59ac1f51cad6176",
+  "scope": [
+    "app-navigation.js",
+    "app.js",
+    "settings/index.html",
+    "settings/settings.css",
+    "settings/settings.js",
+    "tests/content-overview-browser.cjs",
+    "tests/settings-review-browser.cjs"
+  ],
+  "reviews": [
+    "Functioneel: lesinstellingen, drie spelkiezers, afronden en hervatten; oude en nieuwe groepen.",
+    "Tegencontrole: annuleren, ongeldige bestanden, voorkeuren resetten en terugzetten, behoud van cursisten, kleuren, aanwezigheid, groepsindeling, gekozen niveau, sessie en kaart.",
+    "Hercontrole: afgekapt bestandsveld mobiel verholpen, sectienavigatie 320/390/768/1440 px, focus via toetsenbord; Chrome en Firefox."
+  ],
+  "gates": "Normale lokale bouw- en publicatiecontroles vóór upload. Vergelijk online manifest en gewijzigde publieke bestanden; herhaal instellingenproef op productiedomein. Zet daarna opnieuw vast.",
+  "actions": "Alleen bestaande handmatige workflow, maximaal twee minuten; geen runs aangevraagd.",
+  "teacherTrial": "Uitvoering later; geen gemeten docentwaardering."
+}

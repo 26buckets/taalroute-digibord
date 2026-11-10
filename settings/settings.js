@@ -1,7 +1,7 @@
 
 const STORAGE='taalroute-poc0141-settings';
 const PAWN_COLORS=['#2389e8','#cf4d42','#4a8d69','#8165c7','#df9829','#269f9b','#d65d91','#426f9d','#90a83e','#9a6b45','#b85bac','#687b8b'];
-const DEFAULT_NAMES=['Laila','Daan','Yusuf','Sara'];
+const DEFAULT_NAMES=['Cursist 1','Cursist 2','Cursist 3','Cursist 4'];
 
 const SOUNDS=[{"id": "original", "label": "Origineel", "duration": 1.045, "description": "Het oorspronkelijke Actief rolgeluid. Helder, ritmisch en herkenbaar."}, {"id": "felt", "label": "Zacht op vilt", "duration": 1.2, "description": "Rustiger en zachter. Geschikt voor een stille lesomgeving."}, {"id": "wood", "label": "Klassiek op hout", "duration": 1.35, "description": "Een duidelijk klassiek dobbelsteengeluid met houten resonantie."}, {"id": "cup", "label": "Dobbelbeker en rollen", "duration": 1.65, "description": "Langere beweging met een hoorbare beker en uitrol."}, {"id": "board", "label": "Licht op het spelbord", "duration": 1.05, "description": "Kort en licht. Minder nadrukkelijk tijdens klassikaal gebruik."}];
 
@@ -25,14 +25,10 @@ const defaults={
  bankTab:'method',
  selectedMethod:'fundament',
  didactic:{family:'gesprek',action:'Afronden',route:'A1 → A2'},
- savedGroups:[
-  {id:'g1',name:'Maandag A2',lastUsed:'Gisteren',pawnMode:'Individueel',names:['Ali','Fatima','Omar','Sophie','Leyla','Daan','Youssef','Sara']},
-  {id:'g2',name:'Dinsdag B1',lastUsed:'3 dagen geleden',pawnMode:'Groepen',names:['Nadia','Bilal','Meryem','Samir','Esra','Hamza']},
-  {id:'g3',name:'Intakegroep september',lastUsed:'12 september',pawnMode:'Klassikaal',names:['Amina','Rayan','Mina','Adam','Lina']}
- ]
+ savedGroups:[]
 };
-let state;
-try{state={...structuredClone(defaults),...JSON.parse(localStorage.getItem(STORAGE)||'{}')}}catch{state=structuredClone(defaults)}
+let state,settingsReadFailed=false;
+try{const stored=JSON.parse(localStorage.getItem(STORAGE)||'{}');if(!stored||typeof stored!=='object'||Array.isArray(stored)||(stored.participants!==undefined&&!Array.isArray(stored.participants))||(stored.savedGroups!==undefined&&!Array.isArray(stored.savedGroups)))throw Error();state={...structuredClone(defaults),...stored}}catch{settingsReadFailed=true;state=structuredClone(defaults)}
 if(!Array.isArray(state.participants))state.participants=structuredClone(defaults.participants);
 if(!Array.isArray(state.savedGroups))state.savedGroups=structuredClone(defaults.savedGroups);
 if(!state.didactic)state.didactic=structuredClone(defaults.didactic);
@@ -40,7 +36,8 @@ state.sourceRoute??=state.route;state.route=DigiRoutes.label(state.route);
 state.didactic.sourceRoute??=state.didactic.route;state.didactic.route=DigiRoutes.label(state.didactic.route);
 for(const id of ['routeSelect'])qs('#'+id).innerHTML=DigiRoutes.routes.map(r=>`<option>${r.label}</option>`).join('');
 
-function save(){localStorage.setItem(STORAGE,JSON.stringify(state))}
+function lessonContext(){try{return parent!==window?parent.settingsContext?.():null}catch{return null}}
+function save(){if(settingsReadFailed)return false;try{localStorage.setItem(STORAGE,JSON.stringify(state));return true}catch{toast('Bewaren lukt niet. Maak ruimte vrij en probeer opnieuw.');return false}}
 function qs(s){return document.querySelector(s)}
 function qsa(s){return [...document.querySelectorAll(s)]}
 function toast(msg){const t=qs('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),1800)}
@@ -56,14 +53,17 @@ document.addEventListener('mouseover',e=>{
 document.addEventListener('mouseout',e=>{if(e.target.closest('[data-tip]'))tip.classList.remove('show')});
 
 /* Navigation */
+qs('#settingsSection').onchange=e=>showPage(e.target.value);
 qsa('.nav-btn').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
 function showPage(page){
- state.page=page;save();
+ state.page=page;save();qs('#settingsSection').value=page;
  qsa('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
- qsa('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===page));
+ qsa('.page').forEach(p=>p.classList.toggle('active',p.dataset.page===page));qsa('.nav-btn').forEach(b=>b.setAttribute('aria-current',b.dataset.page===page?'page':'false'));
  qs('.content').scrollTop=0;
  if(page==='people')renderParticipants();
  if(page==='saved')renderSaved();
+ if(page==='print'){const facts=[['Niveau',lessonContext()?.route||state.route],['Aantal cursisten',state.participants.length],['Aanwezig',state.participants.filter(p=>p.present).length],['Bewaarde groepen',state.savedGroups.length],['Geluid',state.soundEnabled?'Aan':'Uit'],['Volume',state.volume+'%']];qs('#printFacts').innerHTML=facts.map(([name,value])=>`<div><dt>${esc(name)}</dt><dd>${esc(value)}</dd></div>`).join('')}
+ if(page==='backup')qs('#undoSettingsRestore').disabled=!localStorage.getItem(RESTORE_POINT);
  if(page==='tasks')renderBank();
  if(page==='didactic')renderDidactic();
  if(page==='sound')renderSound();
@@ -75,13 +75,13 @@ qs('#boardSelect').onchange=e=>{state.board=e.target.value;save()}
 qsa('[data-workmode]').forEach(b=>b.onclick=()=>{state.workMode=b.dataset.workmode;save();renderLesson();renderParticipants()});
 qsa('[data-pawnmode]').forEach(b=>b.onclick=()=>{state.pawnMode=b.dataset.pawnmode;save();renderLesson();renderParticipants()});
 function renderLesson(){
- qs('#routeSelect').value=state.route;qs('#boardSelect').value=state.board;
- qsa('[data-workmode]').forEach(b=>b.classList.toggle('active',b.dataset.workmode===state.workMode));
- qsa('[data-pawnmode]').forEach(b=>b.classList.toggle('active',b.dataset.pawnmode===state.pawnMode));
+ const ctx=lessonContext();qsa('[data-familylaunch]').forEach(b=>b.disabled=!ctx);qs('#routeSelect').value=ctx?.lesson?ctx.route:state.route;qs('#routeSelect').disabled=!!ctx?.lesson;qs('#boardSelect').closest('.field').hidden=true;qs('#pawnControls').hidden=!ctx?.board;qs('#lessonSettingNote').textContent=ctx?.lesson?'Je huidige niveau blijft behouden. Kies voor een ander niveau een nieuwe les via Les maken.':'Je keuzes worden op dit apparaat bewaard. Bij terugkeer naar het spel worden ze toegepast.';qs('#finishLesson').disabled=!ctx?.lesson;
+ qsa('[data-workmode]').forEach(b=>{const on=b.dataset.workmode===state.workMode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
+ qsa('[data-pawnmode]').forEach(b=>{const on=b.dataset.pawnmode===state.pawnMode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
 }
 
 /* Participants */
-const swatches=qs('.swatches');swatches.innerHTML=PAWN_COLORS.map(c=>`<button class="swatch" style="--c:${c}" data-swatch="${c}"></button>`).join('');
+const swatches=qs('.swatches');swatches.innerHTML=PAWN_COLORS.map((c,i)=>`<button aria-label="Kies pionkleur ${i+1}" class="swatch" style="--c:${c}" data-swatch="${c}"></button>`).join('');
 let colorTarget=null;
 qsa('[data-swatch]').forEach(b=>b.onclick=()=>{const p=state.participants.find(x=>x.id===colorTarget);if(p)p.color=b.dataset.swatch;save();qs('.color-pop').classList.remove('open');renderParticipants()});
 document.addEventListener('click',e=>{if(!e.target.closest('.color-pop')&&!e.target.closest('.color-btn'))qs('.color-pop').classList.remove('open')});
@@ -96,8 +96,8 @@ function renderParticipants(){
    <div class="participant-row ${groupMode?'group-mode':''}">
     <button class="color-btn" style="--pawn:${p.color}" data-num="${i+1}" data-color="${p.id}" data-tip="Pionkleur wijzigen" aria-label="Pionkleur wijzigen"></button>
     <input class="name-input" data-name="${p.id}" value="${esc(p.name)}" aria-label="Naam deelnemer ${i+1}">
-    <select class="presence" data-presence="${p.id}"><option value="1" ${p.present?'selected':''}>Aanwezig</option><option value="0" ${!p.present?'selected':''}>Afwezig</option></select>
-    ${groupMode?`<select class="group-select" data-group="${p.id}">${Array.from({length:state.groupCount||4},(_,g)=>`<option ${p.group===`Groep ${g+1}`?'selected':''}>Groep ${g+1}</option>`).join('')}</select>`:''}
+    <select class="presence" aria-label="Aanwezigheid van ${esc(p.name)}" data-presence="${p.id}"><option value="1" ${p.present?'selected':''}>Aanwezig</option><option value="0" ${!p.present?'selected':''}>Afwezig</option></select>
+    ${groupMode?`<select class="group-select" aria-label="Groep van ${esc(p.name)}" data-group="${p.id}">${Array.from({length:state.groupCount||4},(_,g)=>`<option ${p.group===`Groep ${g+1}`?'selected':''}>Groep ${g+1}</option>`).join('')}</select>`:''}
     <div class="row-actions"><button class="icon-btn" data-delete="${p.id}" data-tip="Deelnemer verwijderen" aria-label="Deelnemer verwijderen">${icon('trash')}</button></div>
    </div>`).join('');
  qsa('[data-name]').forEach(i=>i.onchange=()=>{state.participants.find(x=>x.id===i.dataset.name).name=i.value;save()});
@@ -127,13 +127,8 @@ function setParticipantCount(target){
  const current=state.participants.length;
  if(target>current){for(let i=current;i<target;i++)addParticipant()}
  else if(target<current){
-   const removable=state.participants.slice(target).every((p,idx)=>p.name===`Cursist ${target+idx+1}`||/^Cursist \d+$/.test(p.name));
-   if(removable)state.participants=state.participants.slice(0,target);
-   else{
-     const ok=confirm(`Er staan echte namen na deelnemer ${target}. Deze deelnemers worden niet verwijderd maar op afwezig gezet. Doorgaan?`);
-     if(!ok)return;
-     state.participants.forEach((p,i)=>{if(i>=target)p.present=false});
-   }
+   if(!confirm('De overige cursisten op afwezig zetten? Hun namen, kleuren en groepen blijven bewaard.'))return;
+   state.participants.forEach((p,i)=>{if(i>=target)p.present=false});
  }
  save();renderParticipants();toast(`Les ingesteld op ${target} deelnemers.`);
 }
@@ -144,21 +139,34 @@ function normalizeGroups(){state.participants.forEach((p,i)=>{const n=Number((p.
 
 /* Saved groups */
 function renderSaved(){
- qs('#savedGrid').innerHTML=state.savedGroups.map(g=>`<article class="saved-card">
-  <div class="saved-top"><div><h3>${esc(g.name)}</h3><div class="saved-sub">${g.names.length} deelnemers · laatst gebruikt ${g.lastUsed}</div></div><span class="page-meta">${g.pawnMode}</span></div>
+ qs('#saveCurrentGroup').innerHTML=icon('save')+(state.savedGroups.length?'Huidige groep bewaren':'Groep toevoegen');
+ qs('#savedGrid').innerHTML=state.savedGroups.length?state.savedGroups.map(g=>`<article class="saved-card">
+  <div class="saved-top"><div><h3>${esc(g.name)}</h3><div class="saved-sub">${g.names.length} deelnemers · laatst gebruikt ${esc(g.lastUsed||'Nog niet')}</div></div><span class="page-meta">${esc({class:'Klassikaal',groups:'Groepen',individual:'Individueel',pairs:'Duo’s'}[g.pawnMode]||g.pawnMode||'Klassikaal')}</span></div>
   <div class="name-preview">${g.names.slice(0,5).map(n=>`<span class="person-pill">${esc(n)}</span>`).join('')}${g.names.length>5?`<span class="person-pill">+${g.names.length-5}</span>`:''}</div>
-  <div class="saved-actions"><button class="mini-btn primary-mini" data-usegroup="${g.id}">Gebruik groep</button><button class="mini-btn" data-viewgroup="${g.id}">${icon('eye')}Bekijken</button><button class="mini-btn" data-editgroup="${g.id}">${icon('edit')}Bewerken</button><button class="mini-btn" data-copygroup="${g.id}">${icon('copy')}Dupliceren</button></div>
- </article>`).join('');
+  <div class="saved-actions"><button class="mini-btn primary-mini" data-usegroup="${esc(g.id)}">Gebruik groep</button><button class="mini-btn" data-viewgroup="${esc(g.id)}">${icon('eye')}Bekijken</button><button class="mini-btn" data-editgroup="${esc(g.id)}">${icon('edit')}Bewerken</button><button class="mini-btn" data-copygroup="${esc(g.id)}">${icon('copy')}Dupliceren</button></div>
+ </article>`).join(''):'<p>Je hebt nog geen groepen bewaard. Kies ‘Groep toevoegen’ om je huidige cursisten samen te bewaren.</p>';
  qsa('[data-usegroup]').forEach(b=>b.onclick=()=>useGroup(b.dataset.usegroup));
  qsa('[data-viewgroup]').forEach(b=>b.onclick=()=>viewGroup(b.dataset.viewgroup));
  qsa('[data-editgroup]').forEach(b=>b.onclick=()=>editGroup(b.dataset.editgroup));
  qsa('[data-copygroup]').forEach(b=>b.onclick=()=>copyGroup(b.dataset.copygroup));
 }
-function useGroup(id){const g=state.savedGroups.find(x=>x.id===id);state.participants=g.names.map((name,i)=>({id:'p'+Date.now()+i,name,present:true,group:'Groep '+((i%4)+1),color:PAWN_COLORS[i%PAWN_COLORS.length]}));save();toast(g.name+' geladen.')};
+function groupSnapshot(name){return {id:'g'+crypto.randomUUID(),name,lastUsed:new Date().toLocaleDateString('nl-NL'),pawnMode:state.pawnMode,workMode:state.workMode,groupCount:state.groupCount,names:state.participants.map(p=>p.name),participants:structuredClone(state.participants)}}
+function useGroup(id){
+ const g=state.savedGroups.find(x=>x.id===id);if(!g)return;
+ if(!confirm('Deze groep gebruiken? Je huidige cursisten en groepsindeling worden eerst als groep bewaard. De les en kaartpositie blijven behouden.'))return;
+ const next=structuredClone(state);
+ if(state.participants.length&&!state.savedGroups.some(old=>old.groupCount===state.groupCount&&old.workMode===state.workMode&&old.pawnMode===state.pawnMode&&JSON.stringify(old.participants)===JSON.stringify(state.participants)))next.savedGroups.push(groupSnapshot('Voor groepswissel · '+new Date().toLocaleString('nl-NL')));
+ next.groupCount=g.groupCount||state.groupCount;
+ next.pawnMode={Klassikaal:'class',Groepen:'groups',Individueel:'individual'}[g.pawnMode]||g.pawnMode||state.pawnMode;
+ next.workMode=g.workMode||state.workMode;
+ next.participants=g.participants?structuredClone(g.participants):g.names.map((name,i)=>({id:'p'+crypto.randomUUID(),name,present:true,group:'Groep '+(i%next.groupCount+1),color:PAWN_COLORS[i%PAWN_COLORS.length]}));
+ next.savedGroups.find(x=>x.id===id).lastUsed=new Date().toLocaleDateString('nl-NL');
+ if(replaceSettings(next)){renderAll();toast('Groep geladen. Je vorige groep is ook bewaard.');}
+}
 function viewGroup(id){const g=state.savedGroups.find(x=>x.id===id);alert(`${g.name}\n\n${g.names.join(', ')}`)}
 function editGroup(id){const g=state.savedGroups.find(x=>x.id===id),n=prompt('Naam van de groep',g.name);if(n&&n.trim()){g.name=n.trim();save();renderSaved()}}
 function copyGroup(id){const g=state.savedGroups.find(x=>x.id===id);state.savedGroups.push({...structuredClone(g),id:'g'+Date.now(),name:g.name+' kopie',lastUsed:'Nog niet'});save();renderSaved();toast('Groep gedupliceerd.')}
-qs('#saveCurrentGroup').onclick=()=>{const n=prompt('Naam voor deze groep','Nieuwe groep');if(!n)return;state.savedGroups.push({id:'g'+Date.now(),name:n,lastUsed:'Nu',pawnMode:state.pawnMode==='groups'?'Groepen':state.pawnMode==='individual'?'Individueel':'Klassikaal',names:state.participants.map(p=>p.name)});save();renderSaved();toast('Huidige groep bewaard.')};
+qs('#saveCurrentGroup').onclick=()=>{if(!state.participants.length)return toast('Voeg eerst cursisten toe.');const n=prompt('Naam voor deze groep','Nieuwe groep');if(!n?.trim())return;state.savedGroups.push(groupSnapshot(n.trim()));save();renderSaved();toast('Huidige groep bewaard.');};
 
 function renderBank(){SettingsContent.render('tasks')}
 function renderDidactic(){SettingsContent.render('didactic')}
@@ -166,9 +174,10 @@ function renderDidactic(){SettingsContent.render('didactic')}
 /* Sound */
 let activeAudio=null,audioCtx=null;
 function renderSound(){
- qs('#soundEnabled').classList.toggle('on',state.soundEnabled);
+ qs('#soundEnabled').classList.toggle('on',state.soundEnabled);qs('#soundEnabled').setAttribute('aria-pressed',String(state.soundEnabled));
  qs('#volume').value=state.volume;qs('#volumeValue').textContent=state.volume+'%';
- qs('#soundRows').innerHTML=SOUNDS.map(s=>`<div class="sound-row ${s.id===state.diceSound?'active':''}" data-sound="${s.id}"><span class="sound-radio"></span><div class="sound-copy"><strong>${s.label}</strong><span>${s.description}</span></div><button class="listen" data-listen="${s.id}" data-tip="Beluisteren">${icon('play')}</button></div>`).join('');
+ qs('#soundRows').innerHTML=SOUNDS.map(s=>`<div class="sound-row ${s.id===state.diceSound?'active':''}" data-sound="${s.id}"><span class="sound-radio"></span><div class="sound-copy"><strong>${s.label}</strong><span>${s.description}</span></div><button class="listen" data-listen="${s.id}" aria-label="Beluister ${esc(s.label)}" data-tip="Beluisteren">${icon('play')}</button></div>`).join('');
+ qsa('[data-sound]').forEach(r=>{r.tabIndex=0;r.setAttribute('role','radio');r.setAttribute('aria-checked',String(r.dataset.sound===state.diceSound));r.onkeydown=e=>{if(e.target===r&&['Enter',' '].includes(e.key)){e.preventDefault();r.click();qs('[data-sound="'+r.dataset.sound+'"]').focus()}}});
  qsa('[data-sound]').forEach(r=>r.onclick=e=>{if(e.target.closest('[data-listen]'))return;state.diceSound=r.dataset.sound;save();renderSound()});
  qsa('[data-listen]').forEach(b=>b.onclick=e=>{e.stopPropagation();previewSound(b.dataset.listen,b)});
 }
@@ -201,16 +210,39 @@ qs('#connectionsToggle').onclick=()=>{state.showConnections=!state.showConnectio
 qsa('[data-iconstyle]').forEach(b=>b.onclick=()=>{state.iconStyle=b.dataset.iconstyle;save();renderDisplay()});
 qs('#cardAnimation').onchange=e=>{state.cardAnimation=e.target.value;save();renderDisplay()};
 qs('#practiceLayout').onchange=e=>{state.practiceLayout=e.target.value;save()};
-function renderDisplay(){qs('#practiceLayout').value=['topic','level','goal','game','recent'].includes(state.practiceLayout)?state.practiceLayout:'topic';qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle))}
+function renderDisplay(){qs('#practiceLayout').value=['topic','level','goal','game','recent'].includes(state.practiceLayout)?state.practiceLayout:'topic';qs('#cardAnimation').value=['draw','slide','turn'].includes(state.cardAnimation)?state.cardAnimation:'draw';qs('#motionToggle').classList.toggle('on',state.reducedMotion);qs('#numbersToggle').classList.toggle('on',state.showNumbers);qs('#connectionsToggle').classList.toggle('on',state.showConnections);qsa('[data-iconstyle]').forEach(b=>{b.classList.toggle('active',b.dataset.iconstyle===state.iconStyle);b.setAttribute('aria-pressed',String(b.dataset.iconstyle===state.iconStyle))});qsa('.toggle').forEach(b=>b.setAttribute('aria-pressed',String(b.classList.contains('on'))))}
 
-/* Backup and other */
-qs('#backupDownload').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Taalroute-Actief-V01-5-settings.json';a.click();URL.revokeObjectURL(a.href)};
-qs('#backupRestore').onchange=async e=>{if(!e.target.files[0])return;try{state={...structuredClone(defaults),...JSON.parse(await e.target.files[0].text())};save();renderAll();toast('Reservekopie hersteld.')}catch{toast('Reservekopie kon niet worden gelezen.')}};
-qs('#resetSettings').onclick=()=>{if(confirm('Alle instellingen herstellen?')){state=structuredClone(defaults);save();renderAll();toast('Instellingen hersteld.')}};
-qs('#finishLesson').onclick=()=>toast('Les afgerond. FINISH blijft een apart spelmoment.');
+/* Keep restores local to settings; lesson storage is never replaced here. */
+const RESTORE_POINT=STORAGE+'-before-change';
+const preferenceKeys=['practiceLayout','iconStyle','reducedMotion','cardAnimation','showNumbers','showConnections','soundEnabled','diceSound','volume'];
+function replaceSettings(next){
+ try{localStorage.setItem(RESTORE_POINT,localStorage.getItem(STORAGE)||JSON.stringify(state));localStorage.setItem(STORAGE,JSON.stringify(next));state=next;settingsReadFailed=false;return true}
+ catch{toast('Niets vervangen: de reservekopie kon niet worden bewaard. Maak eerst ruimte vrij.');return false}
+}
+function readBackup(raw){
+ const data=JSON.parse(raw),v=data?.format==='Actief-instellingen'?(data.version===1?data.settings:null):data;
+ const text=(x,max=200)=>typeof x==='string'&&x.length<=max;
+ const id=x=>text(x,100)&&/^[\w.-]+$/.test(x);
+ const people=a=>Array.isArray(a)&&a.length<=300&&new Set(a.map(p=>p?.id)).size===a.length&&a.every(p=>p&&id(p.id)&&text(p.name)&&typeof p.present==='boolean'&&text(p.group,100)&&/^#[0-9a-f]{6}$/i.test(p.color));
+ if(!v||!people(v.participants)||!Array.isArray(v.savedGroups)||v.savedGroups.length>1000||new Set(v.savedGroups.map(g=>g?.id)).size!==v.savedGroups.length)throw Error('Dit is geen geldige reservekopie van Actief-instellingen.');
+ if(!v.savedGroups.every(g=>g&&id(g.id)&&text(g.name)&&Array.isArray(g.names)&&g.names.length<=300&&g.names.every(n=>text(n))&&(g.participants===undefined||people(g.participants))&&(g.groupCount===undefined||Number.isInteger(g.groupCount)&&g.groupCount>=2&&g.groupCount<=6)&&['class','groups','individual','pairs','Klassikaal','Groepen','Individueel'].includes(g.pawnMode)&&(g.workMode===undefined||['individual','classSpeaker','groups'].includes(g.workMode))))throw Error('De groepsgegevens zijn niet geldig.');
+ const enums={practiceLayout:['topic','level','goal','game','recent'],pawnMode:['class','groups','individual','pairs'],workMode:['individual','classSpeaker','groups'],iconStyle:['line','filled'],cardAnimation:['draw','slide','turn'],diceSound:SOUNDS.map(x=>x.id)};
+ for(const [k,values]of Object.entries(enums))if(v[k]!==undefined&&!values.includes(v[k]))throw Error('Ongeldige instelling: '+k);
+ for(const k of ['reducedMotion','showNumbers','showConnections','soundEnabled'])if(v[k]!==undefined&&typeof v[k]!=='boolean')throw Error('Ongeldige instelling: '+k);
+ if(v.volume!==undefined&&(!Number.isFinite(v.volume)||v.volume<0||v.volume>100)||v.groupCount!==undefined&&(!Number.isInteger(v.groupCount)||v.groupCount<2||v.groupCount>6))throw Error('Ongeldig volume of aantal groepen.');
+ const next=structuredClone(state);for(const k of ['participants','savedGroups','groupCount','pawnMode','workMode',...preferenceKeys])if(v[k]!==undefined)next[k]=structuredClone(v[k]);
+ return next;
+}
+qs('#backupDownload').onclick=()=>{const blob=new Blob([JSON.stringify({format:'Actief-instellingen',version:1,settings:state},null,2)],{type:'application/json'}),a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download='Actief-groepen-en-instellingen.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+qs('#backupRestore').onchange=async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;const status=qs('#backupStatus');status.textContent='';try{if(file.size>2*1024*1024)throw Error('Dit bestand is te groot. Kies een instellingenbestand kleiner dan 2 MB.');const next=readBackup(await file.text());if(!confirm('Deze reservekopie bevat '+next.participants.length+' cursisten en '+next.savedGroups.length+' groepen. Wil je je groepen en voorkeuren vervangen? De huidige versie blijft herstelbaar. Je les, niveau en voortgang blijven behouden.'))return;if(replaceSettings(next)){renderAll();status.textContent='Groepen en voorkeuren hersteld. Je les blijft behouden.'}}catch(err){status.textContent=err instanceof SyntaxError?'Dit bestand is geen reservekopie van Actief. Kies een ander bestand.':err.message||'Reservekopie kon niet worden gelezen.'}};
+qs('#undoSettingsRestore').onclick=()=>{const raw=localStorage.getItem(RESTORE_POINT);if(!raw)return toast('Er is nog geen vorige versie om terug te zetten.');try{const next=readBackup(raw);if(confirm('De vorige groepen en voorkeuren terugzetten? Je les blijft behouden.')&&replaceSettings(next)){renderAll();toast('Vorige groepen en voorkeuren teruggezet.')}}catch{toast('Deze vorige versie kan niet worden teruggezet. Je gegevens zijn niet veranderd.')}};
+qs('#resetSettings').onclick=()=>{if(!confirm('Alleen beeld, geluid en de indeling van Les maken terugzetten? Cursisten, groepen, niveau en lesvoortgang blijven behouden.'))return;const next={...state};for(const k of preferenceKeys)next[k]=defaults[k];if(replaceSettings(next)){renderAll();toast('Voorkeuren teruggezet. Cursisten, groepen en les behouden.')}};
+function settingsAction(action,family){if(window.parent===window){location.href='../index.html';return}window.parent.postMessage({type:'taalroute-settings-action',action,family},location.origin)}
+qs('#finishLesson').onclick=()=>settingsAction('finish');
 qs('#printLesson').onclick=()=>window.print();
-qsa('[data-familylaunch]').forEach(b=>b.onclick=()=>toast(b.dataset.familylaunch+' geselecteerd.'));
+qsa('[data-familylaunch]').forEach(b=>b.onclick=()=>settingsAction('family',b.dataset.familylaunch));
 qs('.back-btn').onclick=()=>{if(window.parent===window)window.location.href='../index.html'};
 
-function renderAll(){renderLesson();renderParticipants();renderSaved();renderSound();renderDisplay();showPage(state.page||'people')}
+function renderAll(){renderLesson();renderParticipants();renderSaved();renderSound();renderDisplay();showPage(state.page||'people');qsa('.toggle').forEach(b=>{b.setAttribute('aria-pressed',String(b.classList.contains('on')))});}
 renderAll();
+if(settingsReadFailed)toast('Je opgeslagen instellingen konden niet worden gelezen. Ze zijn niet overschreven. Herstel een geldige reservekopie.');

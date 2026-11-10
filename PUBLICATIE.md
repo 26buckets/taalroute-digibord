@@ -1,3 +1,7 @@
+## Actuele vrijgave — instellingen, 10 november 2026
+
+Begrijpelijke instellingen, volledige mobiele navigatie en veilig groepsherstel. Alleen de beoordeelde wijzigingen in `publication/ACTIEF-INSTELLINGEN-20261110.json` zijn vrijgegeven. Normale publicatieroute; na online controle opnieuw vastzetten. De docentproef volgt later.
+
 ## Actuele vrijgave — eenvoud en duidelijke kaarttekst, 10 november 2026
 
 Nico heeft de getoonde, gecontroleerde versie expliciet voor publicatie vrijgegeven: “Ja natuurlijk, hij mag zeker online. Zet het online.” Zie `publication/ACTIEF-EENVOUD-20261110.json`. De actuele goedgekeurde header is geïntegreerd; bronbanken, media en voortgang blijven behouden. Livebron: `d78b885cf9fe631e69a0a4e8d59ac1f51cad6176`; Cloudflare: `c69a8b3f-f857-474d-85df-54ed3b0819b0`. Lokaal en online gecontroleerd; opnieuw vastgezet. Zie `publication/ACTIEF-EENVOUD-LIVE-20261110.json`. Volgende publicatie alleen via canonieke main en de bestaande guard. De docentproef staat klaar voor later en is niet uitgevoerd.

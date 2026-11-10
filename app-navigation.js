@@ -132,7 +132,7 @@
    if(id==='game'){if(APP.last)await resume();else goScreen('play')}else if(id==='settings')openSettings();else if(id==='practice')ContentUI.open({keepLevel:ContentUI.state().keepLevel});else if(id==='lessons'){goScreen(id);await LessonUI.render()}else goScreen(routes[id]?id:'play');
   }finally{historyMoving=false;refresh()}
  }
- root.AppNavigation={resume,beforeScreen,afterScreen,enterGame,schedule,captureCard,restoreRound,beforeLaunch,endCards,resetCards,showHistory,settingsOpened,settingsClosed};
+ root.AppNavigation={resume,beforeScreen,afterScreen,enterGame,schedule,captureCard,restoreRound,beforeLaunch,endCards,resetCards,showHistory,settingsOpened,settingsClosed,finish};
  document.querySelector('[data-nav-resume]').onclick=resume;
  document.querySelector('#resumeBtn').onclick=resume;document.querySelector('#collectionResume').onclick=resume;
  document.addEventListener('click',()=>{captureCard();captureHistory();queueMicrotask(()=>{captureCard();schedule();if(screen()==='game')save()})},true);

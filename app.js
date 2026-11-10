@@ -13,8 +13,8 @@ function lessonText(value){return globalThis.AppWording?.text(value)??String(val
 function toast(s){const t=$('#toast');t.textContent=s;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),1700)}
 function settingsState(){try{return JSON.parse(localStorage.getItem(SETTINGS_STORE)||'{}')}catch{return {}}}
 function participants(){
- const s=settingsState(), defs=['Laila','Daan','Yusuf','Sara'];
- return Array.isArray(s.participants)&&s.participants.length?s.participants.filter(p=>p.present!==false):defs.map((name,i)=>({id:'p'+i,name,color:['#2389e8','#cf4d42','#4a8d69','#8165c7','#df9829','#269f9b','#d65d91','#426f9d'][i]}))
+ const s=settingsState(), defs=['Cursist 1','Cursist 2','Cursist 3','Cursist 4'];
+ return Array.isArray(s.participants)?s.participants.filter(p=>p.present!==false):defs.map((name,i)=>({id:'p'+i,name,color:['#2389e8','#cf4d42','#4a8d69','#8165c7','#df9829','#269f9b','#d65d91','#426f9d'][i]}))
 }
 // Five complete turns, retaining individual actions within each turn.
 let undoHistory=[];
@@ -104,7 +104,15 @@ $('#fullscreenBtn').onclick=async e=>{
 };
 document.addEventListener('fullscreenchange',syncFullscreen);syncFullscreen();
 $('#settingsBtn').innerHTML=gameIcon('settings');$('#settingsBtn').onclick=openSettings;$$('[data-open-settings]').forEach(b=>b.onclick=()=>openSettings(b.dataset.settingsPage));
-window.addEventListener('message',e=>{if(e.source===$('#settingsOverlay iframe').contentWindow&&e.data?.type==='taalroute-close-settings'){closeSettings();toast('Instellingen bijgewerkt.')}});
+function settingsContext(){const lesson=!!$('#screen-game.active')&&!!APP.last,session=lesson?globalThis.ContentRuntime?.activeSession():null;return {lesson,board:lesson&&APP.last.type==='board',route:session?.display_routes?.length===1?DigiRoutes.label(session.display_routes[0]):routeLabel()}}
+window.addEventListener('message',e=>{
+ if(e.source!==$('#settingsOverlay iframe').contentWindow||e.origin!==location.origin)return;
+ if(e.data?.type==='taalroute-close-settings'){closeSettings();toast('Instellingen bijgewerkt.');return}
+ if(e.data?.type!=='taalroute-settings-action')return;
+ if(e.data.action==='finish'&&settingsContext().lesson){closeSettings();globalThis.AppNavigation?.finish();return}
+ const target={'Dobbelspellen':'dice','Kaartspellen':'cards','Grammatica en zinsbouw':'practice'}[e.data.family];
+ if(e.data.action==='family'&&['practice','cards','dice'].includes(target)){const level=DigiRoutes.resolve(settingsContext().route);closeSettings();if(target==='practice')ContentUI.open({family:GrammarCatalog.familyId,level,keepLevel:true});else goScreen(target)}
+});
 
 function setLast(type,label,data={}){globalThis.AppNavigation?.enterGame(type,data);APP.last={type,label,data};save();updateResume()}
 function updateResume(){
@@ -264,7 +272,7 @@ function shapeMeta(shape){return (taskBank?.shapes||[]).find(x=>x.id===shape)||{
 /* Speelborden */
 $$('[data-board]').forEach(b=>b.onclick=()=>startBoard(b.dataset.board));
 async function getRoute(id){return routeCache[id] || null}
-function settingsPatch(patch){const s=settingsState();if(globalThis.DigiStorageBackupError)return s;Object.assign(s,patch);localStorage.setItem(SETTINGS_STORE,JSON.stringify(s));const board=$('.board-game');if(board){board.dataset.reducedMotion=String(!!s.reducedMotion);board.dataset.dark=String(!!s.boardDark)}if(patch.soundEnabled===false){appAudio?.pause?.();appAudio=null}return s}
+function settingsPatch(patch){let s;try{s=JSON.parse(localStorage.getItem(SETTINGS_STORE)||'{}');if(!s||typeof s!=='object'||Array.isArray(s))throw Error()}catch{return {}}if(globalThis.DigiStorageBackupError)return s;Object.assign(s,patch);localStorage.setItem(SETTINGS_STORE,JSON.stringify(s));const board=$('.board-game');if(board){board.dataset.reducedMotion=String(!!s.reducedMotion);board.dataset.dark=String(!!s.boardDark)}if(patch.soundEnabled===false){appAudio?.pause?.();appAudio=null}return s}
 function boardState(board,route){
  const ppl=participants(),s=APP.boardStates[board]||{};
  s.positions??={};s.finished??={};s.groupPositions??={};s.groupFinished??={};s.round??=1;

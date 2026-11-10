@@ -28,43 +28,19 @@ body.embedded .settings-card{max-width:1380px}
   </div>
 
   <div class="settings-layout">
-    <aside class="nav">
-      <div class="nav-scroll">
-        <div class="nav-group">Les</div>
-        <button class="nav-btn" data-page="lesson"><svg class="lucide"><use href="#i-map"/></svg>Kaart en oefening</button>
-        <button class="nav-btn" data-page="other"><svg class="lucide"><use href="#i-shapes"/></svg>Andere spelvormen</button>
-
-        <div class="nav-group">Groep</div>
-        <button class="nav-btn" data-page="people"><svg class="lucide"><use href="#i-users"/></svg>Namen en pionnen</button>
-        <button class="nav-btn" data-page="saved"><svg class="lucide"><use href="#i-users-round"/></svg>Bewaarde groepen</button>
-
-        <div class="nav-group">Inhoud</div>
-        <button class="nav-btn" data-page="tasks"><svg class="lucide"><use href="#i-library"/></svg>Inhoudsoverzicht</button>
-        <button class="nav-btn" data-page="didactic"><svg class="lucide"><use href="#i-graduation"/></svg>Didactische uitleg</button>
-        <button class="nav-btn" data-page="print"><svg class="lucide"><use href="#i-printer"/></svg>Lessen en printen</button>
-
-        <div class="nav-group">Weergave</div>
-        <button class="nav-btn" data-page="practice"><svg class="lucide"><use href="#i-library"/></svg>Oefenen</button>
-        <button class="nav-btn" data-page="display"><svg class="lucide"><use href="#i-monitor"/></svg>Beeld en beweging</button>
-        <button class="nav-btn" data-page="sound"><svg class="lucide"><use href="#i-volume"/></svg>Geluid</button>
-
-        <div class="nav-group">Lesbeheer</div>
-        <button class="nav-btn" data-page="backup"><svg class="lucide"><use href="#i-archive"/></svg>Reservekopie en herstel</button>
-        <button class="nav-btn" data-page="finish"><svg class="lucide"><use href="#i-flag"/></svg>Les afronden</button>
-      </div>
-    </aside>
+    <aside class="nav" aria-label="Instellingen"><label class="settings-mobile-nav" for="settingsSection">Onderdeel<select id="settingsSection"><optgroup label="Deze les"><option value="lesson">Niveau en samenspelen</option><option value="other">Ander spel kiezen</option><option value="finish">Les afronden</option></optgroup><optgroup label="Cursisten en groepen"><option value="people">Cursisten</option><option value="saved">Bewaarde groepen</option></optgroup><optgroup label="Beeld en geluid"><option value="display">Beeld en beweging</option><option value="sound">Geluid</option></optgroup><optgroup label="Lesvoorbereiding"><option value="practice">Indeling van Les maken</option><option value="tasks">Beschikbare opdrachten</option><option value="didactic">Uitleg bij opdrachten</option></optgroup><optgroup label="Bewaren en herstellen"><option value="backup">Reservekopie en herstel</option><option value="print">Instellingen afdrukken</option></optgroup></select></label><div class="nav-scroll"><div class="nav-group">Deze les</div><button class="nav-btn" data-page="lesson"><svg class="lucide" aria-hidden="true"><use href="#i-map"/></svg>Niveau en samenspelen</button><button class="nav-btn" data-page="other"><svg class="lucide" aria-hidden="true"><use href="#i-shapes"/></svg>Ander spel kiezen</button><button class="nav-btn" data-page="finish"><svg class="lucide" aria-hidden="true"><use href="#i-flag"/></svg>Les afronden</button><div class="nav-group">Cursisten en groepen</div><button class="nav-btn" data-page="people"><svg class="lucide" aria-hidden="true"><use href="#i-users"/></svg>Cursisten</button><button class="nav-btn" data-page="saved"><svg class="lucide" aria-hidden="true"><use href="#i-users-round"/></svg>Bewaarde groepen</button><div class="nav-group">Beeld en geluid</div><button class="nav-btn" data-page="display"><svg class="lucide" aria-hidden="true"><use href="#i-monitor"/></svg>Beeld en beweging</button><button class="nav-btn" data-page="sound"><svg class="lucide" aria-hidden="true"><use href="#i-volume"/></svg>Geluid</button><div class="nav-group">Lesvoorbereiding</div><button class="nav-btn" data-page="practice"><svg class="lucide" aria-hidden="true"><use href="#i-library"/></svg>Indeling van Les maken</button><button class="nav-btn" data-page="tasks"><svg class="lucide" aria-hidden="true"><use href="#i-library"/></svg>Beschikbare opdrachten</button><button class="nav-btn" data-page="didactic"><svg class="lucide" aria-hidden="true"><use href="#i-graduation"/></svg>Uitleg bij opdrachten</button><div class="nav-group">Bewaren en herstellen</div><button class="nav-btn" data-page="backup"><svg class="lucide" aria-hidden="true"><use href="#i-archive"/></svg>Reservekopie en herstel</button><button class="nav-btn" data-page="print"><svg class="lucide" aria-hidden="true"><use href="#i-printer"/></svg>Instellingen afdrukken</button></div></aside>
 
     <div class="content-wrap"><div class="content">
 
       <section class="page" data-page="lesson">
         <div class="page-header">
-          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-map"/></svg></span><div><h2>Kaart en oefening</h2><p class="page-lead">Stel alleen in wat de les nodig heeft. Werkvorm en pionindeling blijven bewust gescheiden.</p></div></div>
-          <span class="page-meta">Lesinstellingen</span>
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-map"/></svg></span><div><h2>Niveau en samenspelen</h2><p class="page-lead">Kies hoe cursisten samenwerken. Je les en voortgang blijven bewaard.</p></div></div>
+          <span class="page-meta">Deze les</span><p id="lessonSettingNote" class="helptext"></p>
         </div>
 
-        <div class="section"><div class="section-head"><div><h3>Speelwereld en taalroute</h3><p>De kaart en het opdrachtniveau staan los van de pionstand.</p></div></div><div class="section-body grid2">
+        <div class="section"><div class="section-head"><div><h3>Niveau</h3><p>Het niveau van de lopende les blijft behouden.</p></div></div><div class="section-body grid2">
           <div class="field"><label>Speelwereld</label><select class="select" id="boardSelect"><option>Rotterdam</option><option>Amsterdam</option><option>Utrecht</option><option>Zwolle</option><option>Bos</option><option>Polder</option></select></div>
-          <div class="field"><label>Niveauroute</label><select class="select" id="routeSelect"></select></div>
+          <div class="field"><label for="routeSelect">Niveau</label><select class="select" id="routeSelect"></select></div>
         </div></div>
 
         <div class="section"><div class="section-head"><div><h3>Werkvorm</h3><p>Wie bereidt voor, spreekt en reageert?</p></div></div><div class="section-body mode-cards">
@@ -73,7 +49,7 @@ body.embedded .settings-card{max-width:1380px}
           <button class="mode-card" data-workmode="groups"><strong>Groepen</strong><span>Groepen bereiden en voeren de opdracht samen uit.</span></button>
         </div></div>
 
-        <div class="section"><div class="section-head"><div><h3>Pionindeling</h3><p>Wie heeft op het speelbord een eigen positie?</p></div></div><div class="section-body mode-cards">
+        <div class="section" id="pawnControls"><div class="section-head"><div><h3>Pionindeling</h3><p>Wie heeft op het speelbord een eigen positie?</p></div></div><div class="section-body mode-cards">
           <button class="mode-card" data-pawnmode="class"><strong>Klassikaal</strong><span>Één gezamenlijke pion.</span></button>
           <button class="mode-card" data-pawnmode="groups"><strong>Groepen</strong><span>Één pion per groep.</span></button>
           <button class="mode-card" data-pawnmode="individual"><strong>Individueel</strong><span>Eigen pion per deelnemer.</span></button>
@@ -81,9 +57,9 @@ body.embedded .settings-card{max-width:1380px}
       </section>
 
       <section class="page" data-page="other">
-        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-shapes"/></svg></span><div><h2>Andere spelvormen</h2><p class="page-lead">Start een andere activiteit met dezelfde lescontext.</p></div></div></div>
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-shapes"/></svg></span><div><h2>Ander spel kiezen</h2><p class="page-lead">Kies een spel. Je lopende les blijft bewaard en kan later worden hervat.</p></div></div></div>
         <div class="grid3">
-          <button class="mode-card" data-familylaunch="Dobbelspellen"><strong>Dobbelspellen</strong><span>Taalworp en Verhaalworp.</span></button>
+          <a class="standalone-game-link" href="../index.html" target="_top">Open Actief om een spel te kiezen</a><button class="mode-card" data-familylaunch="Dobbelspellen"><strong>Dobbelspellen</strong><span>Taalworp en Verhaalworp.</span></button>
           <button class="mode-card" data-familylaunch="Kaartspellen"><strong>Kaartspellen</strong><span>Situatie, praten, kiezen en doen.</span></button>
           <button class="mode-card" data-familylaunch="Grammatica en zinsbouw"><strong>Grammatica en zinsbouw</strong><span>Bouwen, ordenen en controleren.</span></button>
         </div>
@@ -91,7 +67,7 @@ body.embedded .settings-card{max-width:1380px}
 
       <section class="page wide" data-page="people">
         <div class="page-header">
-          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-users"/></svg></span><div><h2>Namen en pionnen</h2><p class="page-lead">Maak de deelnemerslijst in enkele seconden klaar. Pionkleur en nummer zorgen samen voor herkenning.</p></div></div>
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-users"/></svg></span><div><h2>Cursisten</h2><p class="page-lead">Vul de namen in en geef aan wie er vandaag is.</p></div></div>
         </div>
 
         <div class="quick-setup">
@@ -100,9 +76,9 @@ body.embedded .settings-card{max-width:1380px}
             <option value="">Aantal deelnemers</option><option>5</option><option>8</option><option>10</option><option>12</option><option>15</option><option>20</option><option>25</option><option>30</option><option value="custom">Anders...</option>
           </select>
           <span class="tool-separator"></span>
-          <button class="icon-action primary-icon" id="addParticipant" data-tip="Deelnemer toevoegen" aria-label="Deelnemer toevoegen"><svg class="lucide"><use href="#i-user-plus"/></svg></button>
-          <button class="icon-action" id="allPresent" data-tip="Alles aanwezig" aria-label="Alles aanwezig"><svg class="lucide"><use href="#i-user-check"/></svg></button>
-          <button class="icon-action" id="allAbsent" data-tip="Alles afwezig" aria-label="Alles afwezig"><svg class="lucide"><use href="#i-user-x"/></svg></button>
+          <button class="icon-action primary-icon" id="addParticipant" data-tip="Deelnemer toevoegen" aria-label="Deelnemer toevoegen"><svg class="lucide"><use href="#i-user-plus"/></svg><span>Cursist toevoegen</span></button>
+          <button class="icon-action" id="allPresent" data-tip="Alles aanwezig" aria-label="Alles aanwezig"><svg class="lucide"><use href="#i-user-check"/></svg><span>Iedereen aanwezig</span></button>
+          <button class="icon-action" id="allAbsent" data-tip="Alles afwezig" aria-label="Alles afwezig"><svg class="lucide"><use href="#i-user-x"/></svg><span>Iedereen afwezig</span></button>
         </div>
 
         <div class="participants-toolbar"><div class="participants-count"><strong id="participantCount">0</strong><span>deelnemers in deze les</span></div></div>
@@ -126,17 +102,17 @@ body.embedded .settings-card{max-width:1380px}
         <div class="saved-grid" id="savedGrid"></div>
       </section>
 
-      <section class="page wide" data-page="tasks"><div class="page-header"><div class="page-title"><div><h2>Inhoudsoverzicht</h2><p class="page-lead">Bekijk wat beschikbaar is en zet een passende les klaar.</p></div></div></div><div id="contentOverview"></div></section>
-      <section class="page wide" data-page="didactic"><div class="page-header"><div class="page-title"><div><h2>Didactische uitleg</h2><p class="page-lead">Leerdoel, voorbeelden en taalsteun bij de beschikbare oefeningen.</p></div></div></div><div id="contentDidactic"></div></section>
+      <section class="page wide" data-page="tasks"><div class="page-header"><div class="page-title"><div><h2>Beschikbare opdrachten</h2><p class="page-lead">Bekijk wat beschikbaar is en zet een passende les klaar.</p></div></div></div><div id="contentOverview"></div></section>
+      <section class="page wide" data-page="didactic"><div class="page-header"><div class="page-title"><div><h2>Uitleg bij opdrachten</h2><p class="page-lead">Leerdoel, voorbeelden en taalsteun bij de beschikbare oefeningen.</p></div></div></div><div id="contentDidactic"></div></section>
 
       <section class="page" data-page="print">
-        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-printer"/></svg></span><div><h2>Lessen en printen</h2><p class="page-lead">Maak een compacte docentversie of print materiaal voor parallel werken.</p></div></div></div>
-        <div class="section cardish"><div class="section-body"><button class="secondary" id="printLesson"><svg class="lucide"><use href="#i-printer"/></svg>Print instellingenoverzicht</button></div></div>
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-printer"/></svg></span><div><h2>Instellingen afdrukken</h2><p class="page-lead">Druk dit instellingenoverzicht af. Dit is geen afdruk van de lesopdrachten.</p></div></div></div>
+        <div class="section cardish"><div class="section-body"><dl id="printFacts"></dl><button class="secondary" id="printLesson"><svg class="lucide"><use href="#i-printer"/></svg>Print instellingenoverzicht</button></div></div>
       </section>
 
       <section class="page" data-page="practice">
-        <div class="page-header"><div class="page-title"><div><h2>Oefenen</h2><p class="page-lead">Waar wil je mee beginnen?</p></div></div></div>
-        <div class="section"><div class="section-body"><label for="practiceLayout">Indeling</label><select id="practiceLayout" style="display:block;width:100%;max-width:420px;margin:12px 0;padding:12px;font:inherit;border:1px solid #cad9e3;border-radius:8px"><option value="topic">Onderwerp eerst (standaard)</option><option value="level">Niveau eerst</option><option value="goal">Lesdoel eerst</option><option value="game">Spel eerst</option><option value="recent">Eerder gebruikt</option></select><p class="helptext">Rustige lijst · lichtblauw voor je keuze. Je voorkeur wordt op dit apparaat bewaard.</p></div></div>
+        <div class="page-header"><div class="page-title"><div><h2>Indeling van Les maken</h2><p class="page-lead">Kies wat bovenaan staat wanneer je Les maken opent.</p></div></div></div>
+        <div class="section"><div class="section-body"><label for="practiceLayout">Indeling</label><select id="practiceLayout" style="display:block;width:100%;max-width:420px;margin:12px 0;padding:12px;font:inherit;border:1px solid #cad9e3;border-radius:8px"><option value="topic">Onderwerp eerst (standaard)</option><option value="level">Niveau eerst</option><option value="goal">Lesdoel eerst</option><option value="game">Spel eerst</option><option value="recent">Eerder gebruikt</option></select><p class="helptext">Dit verandert alleen de volgorde van de keuzes. Je bestaande lessen blijven behouden.</p></div></div>
       </section>
 
       <section class="page" data-page="display">
@@ -156,15 +132,15 @@ body.embedded .settings-card{max-width:1380px}
         <div class="volume-row"><span class="helptext">Volume</span><input class="range" type="range" min="0" max="100" id="volume"><span class="helptext" id="volumeValue"></span></div>
       </section>
 
-      <section class="page" data-page="backup"><p><a href="../overstap-actief.html">Alle lessen en instellingen meenemen naar Actief</a></p>
-        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-archive"/></svg></span><div><h2>Reservekopie en herstel</h2><p class="page-lead">Bewaar groepen, deelnemers en instellingen als één bestand.</p></div></div></div>
-        <div class="section cardish"><div class="section-body row"><button class="secondary" id="backupDownload"><svg class="lucide"><use href="#i-download"/></svg>Reservekopie downloaden</button><label class="secondary" style="cursor:pointer"><svg class="lucide"><use href="#i-upload"/></svg>Reservekopie herstellen<input type="file" id="backupRestore" accept=".json" style="display:none"></label></div></div>
-        <div class="section"><div class="section-body"><button class="danger" id="resetSettings">Herstel standaardinstellingen</button></div></div>
+      <section class="page" data-page="backup">
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-archive"/></svg></span><div><h2>Reservekopie en herstel</h2><p class="page-lead">Dit bestand bevat cursisten, groepen en voorkeuren. Opgeslagen lessen en lesvoortgang staan er niet in.</p></div></div></div>
+        <div class="section cardish"><div class="section-body row"><button class="secondary" id="backupDownload"><svg class="lucide"><use href="#i-download"/></svg>Reservekopie downloaden</button><label class="secondary backup-file"><svg class="lucide"><use href="#i-upload"/></svg>Reservekopie herstellen<input type="file" id="backupRestore" accept=".json" aria-label="Reservekopie herstellen"></label><p id="backupStatus" role="status"></p></div></div>
+        <div class="section"><div class="section-body"><p>Hiermee zet je beeld, geluid en de indeling van Les maken terug. Cursisten, groepen en de lopende les blijven behouden.</p><button class="secondary" id="resetSettings">Alleen voorkeuren terugzetten</button><button class="secondary" id="undoSettingsRestore">Vorige groepen en voorkeuren terugzetten</button><p><a href="../overstap-actief.html" target="_top">Alle lessen en instellingen overzetten</a></p></div></div>
       </section>
 
       <section class="page" data-page="finish">
-        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-flag"/></svg></span><div><h2>Les afronden</h2><p class="page-lead">Een docent kan de les op ieder moment afsluiten. Dit staat los van FINISH op het bord.</p></div></div></div>
-        <div class="section cardish"><div class="section-body"><button class="danger" id="finishLesson">Les bewust afronden</button></div></div>
+        <div class="page-header"><div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-flag"/></svg></span><div><h2>Les afronden</h2><p class="page-lead">Je gaat terug naar Spel kiezen. Je les en voortgang blijven bewaard; je kunt later verdergaan.</p></div></div></div>
+        <div class="section cardish"><div class="section-body"><button class="danger" id="finishLesson">Les afronden…</button></div></div>
       </section>
 
     </div></div>
@@ -175,7 +151,7 @@ body.embedded .settings-card{max-width:1380px}
 
 <div class="color-pop"><div class="swatches"></div></div>
 <div class="tooltip" id="tooltip"></div>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <svg width="0" height="0" style="position:absolute;overflow:hidden">
 <defs>
