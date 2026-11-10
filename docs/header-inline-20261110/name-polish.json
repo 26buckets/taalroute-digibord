@@ -1,0 +1,11 @@
+{
+  "request": "Same explicit approved header and publication request",
+  "baseCommit": "f15b2fce318ecfbc38563871aeee484f44a67c00",
+  "baseLiveCommit": "5afe09c959577a335cba6cc0e264077f8dea160f",
+  "baseVersion": "3e0f77f6-f196-4ed8-9814-096d7a9fff62",
+  "scope": "Only remove native browser border from app-name button; preserve its overview action and keyboard focus outline",
+  "files": {
+    "taalroute-menu/header-controls.css": "c0c8aeff602520ab657ae32100f18a65e6cacc3e47d2bb83c81cd67b130bf7e8"
+  },
+  "localChecks": "8 responsive/theme checks plus 4 border assertions passed; normal full build checks run"
+}

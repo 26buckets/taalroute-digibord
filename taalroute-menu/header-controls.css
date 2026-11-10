@@ -77,3 +77,5 @@ button,select,.smallbtn,.navitem,[role=button]{border-radius:0!important}
 #app :is(button,a,select,[role=button]){border-radius:0!important}
 
 #app>#appHeader.hdr001-header{flex-wrap:nowrap!important;height:60px!important}#app>#appHeader .hdr001-controls{margin-left:auto!important}
+
+#appHeader .product{border:0!important;background:transparent!important;padding:0!important;box-shadow:none!important}
