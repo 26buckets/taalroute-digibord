@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "f71c612161f19e09df1f702f77b8bd7a77b06b80d1a502cdd96e0f52c43e2ccb",
+    "PUBLICATIE.md": "9639e818ab736971436ede3aeddc33dc2737919788cfd8c4d2fdaab206d4cf66",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "f1dd932b232737a03a322743f53e88c117d077f389cf7fdade5999b0a6eab4fc",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "708092cb34277df127d5baa096f7893f908108a5eab0020087271912bf0c8bb9",
-    "publication-freeze.json": "f3a2bda21976786efb2879ebcb62521e7c77d4e7fbe7d99f2928ac761da75e96",
+    "publication-freeze.json": "41936eba34d265049eb5149dbd7112785b8d3db8a1dd996f9cd26158ebe0739d",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -219,6 +219,11 @@
   "publishedCardMenu20261110": {
     "sourceCommit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
     "liveVersion": "50ba140a-ac36-477f-bcb8-551e8dc1a409",
+    "status": "published-verified-frozen"
+  },
+  "publishedInlineHeader20261110": {
+    "sourceCommit": "5afe09c959577a335cba6cc0e264077f8dea160f",
+    "workerVersion": "3e0f77f6-f196-4ed8-9814-096d7a9fff62",
     "status": "published-verified-frozen"
   }
 }

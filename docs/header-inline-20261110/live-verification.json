@@ -1,0 +1,15 @@
+{
+  "sourceCommit": "5afe09c959577a335cba6cc0e264077f8dea160f",
+  "workerVersion": "3e0f77f6-f196-4ed8-9814-096d7a9fff62",
+  "allAssetsByteExact": 1448,
+  "changedRuntimeFiles": [
+    "index.html",
+    "settings/index.html",
+    "taalroute-menu/header-controls.css",
+    "taalroute-menu/header-controls.js",
+    "taalroute-menu/menu-controls.css",
+    "taalroute-menu/menu.css"
+  ],
+  "unchangedAssets": 1444,
+  "audioRecordingsRetained": 480
+}
