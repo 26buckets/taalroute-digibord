@@ -1,3 +1,7 @@
+## Definitieve headerafwerking — 10 november 2026
+
+Livebron `b6e8a35c984c8afc80bb9834aac0a934719d1d6c`, Cloudflare `e204538c-3244-461c-ab51-ef7e6d66fa86`. Alleen de onbedoelde standaardrand om de appnaam is verwijderd; focus en navigatie blijven behouden. Volledige lokale bouw-/publicatiecontroles geslaagd, live CSS en release exact gelijk. Publicatie opnieuw vastgezet. Zie `docs/header-inline-20261110/name-polish-live.json`.
+
 ## Actuele vrijgave — uniforme header, 10 november 2026
 
 Livebron `5afe09c959577a335cba6cc0e264077f8dea160f`, Cloudflare `3e0f77f6-f196-4ed8-9814-096d7a9fff62`. Appnaam naast het logo, vaste bediening en vierkante knophoeken. 1.448 publieke bestanden bytegelijk gecontroleerd; 480 opnamen, alle inhoud en voortgang behouden. Reeksen, kaartmenu, niveaubehoud en acht scherm-/kleurcombinaties lokaal en live gecontroleerd. Publicatie opnieuw bevroren; canonieke main blijft vergrendeld. Goedkeuring, herstelpakket en terugleesbewijs: `docs/header-inline-20261110/`.

@@ -1,0 +1,8 @@
+{
+  "sourceCommit": "b6e8a35c984c8afc80bb9834aac0a934719d1d6c",
+  "workerVersion": "e204538c-3244-461c-ab51-ef7e6d66fa86",
+  "liveReleaseExact": true,
+  "liveCssExact": true,
+  "previousFullVerification": "live-verification.json",
+  "change": "Remove native app-name button border; retained focus and action"
+}
