@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "d78b885cf9fe631e69a0a4e8d59ac1f51cad6176",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app-navigation.css",
+    "app.js",
+    "card-presentation.js",
+    "content-ui.css",
+    "content-ui.js",
+    "new-activities.js"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-10",
+  "cloudflareVersion": "c69a8b3f-f857-474d-85df-54ed3b0819b0",
+  "checks": {
+    "local": "publication/ACTIEF-EENVOUD-20261110.json",
+    "live": "Real simple-start flow; optional controls and current session; long/short cards and hint at bottom; plain question/options/answer; exact office context; all six routes and 12 lesson/family combinations; navigation, card history, answers, reload and resume. Fresh desktop/mobile images.",
+    "browser": "Installed Firefox with DOMContentLoaded and application readiness, all assertions retained. No measured cold-start or human usability rating."
+  },
+  "teacherTrial": "Prepared only, execution later.",
+  "headerPreservedFrom": "b6e8a35c984c8afc80bb9834aac0a934719d1d6c"
+}
