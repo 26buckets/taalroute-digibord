@@ -1,0 +1,20 @@
+{
+  "request": "Ja, dit is wat ik bedoel. Trek deze header nu door naar alle Taalroute-apps, met de appnaam altijd naast het logo en alle knoppen vierkant. zet alles online",
+  "previousLiveCommit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
+  "scope": "Header, button corners and adjusted header tests only. Content, progress, media and release gating unchanged.",
+  "files": {
+    "index.html": "f1dd932b232737a03a322743f53e88c117d077f389cf7fdade5999b0a6eab4fc",
+    "publication-freeze.json": "89d1d5fec422e32b55e12f51b7256c9ac7780cc5636ba28c839f60dbce84b69f",
+    "settings/index.html": "512c956876a4dca8db6451c95180f26f876e781a5dd44a209eb7f59129fd57fd",
+    "taalroute-menu/header-controls.css": "41f2d68d7bd7c5742e66f53d26b888ab6f230f3841e52c8e2e9ebc0e755810c0",
+    "taalroute-menu/header-controls.js": "a974cdfc6e3b5e3b6d12db59f1f35672c8ad5f6c4abf9871bd61f04009625258",
+    "taalroute-menu/menu-controls.css": "2d75d38f1c86d044c6d5ca469e8440d2567882241b30fb6c3472a3bdebeb0410",
+    "taalroute-menu/menu.css": "3b586219f4863f5640ec62d7bec74bbe03ea352c160a6c68cf4defc36b6caac7",
+    "tests/banks-v2.cjs": "43a15dcbf8549618efa061b53737989e767e5695b06af6abc5a4e37945045d07",
+    "tests/board-browser.cjs": "a036280fae9fe31aa1976e5d88ee23257852722ef4a239de3be4ce20bbab5027",
+    "tests/card-layout-browser.cjs": "e4bfeff5b564b31d46b47340da8d581ac9d0ebc81599c6ffc2c37a6237e272df",
+    "tests/header-actions.cjs": "18b57b4aaae9d033e4b7448d672fbf8f69813822728bb86c7f57562160c18858",
+    "tests/landing-activities.cjs": "9e80a1ac2a78bf4c95cca8c6139d6fe59e23f7c4ec902e5d1a77be6dba17e6b3",
+    "tests/tongbrekers-browser.cjs": "06ade78cdf650ad4728cb58f1ec15107e4ad4103fb4b61f4e190c241f8394455"
+  }
+}

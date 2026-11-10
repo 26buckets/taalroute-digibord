@@ -75,7 +75,7 @@ const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join
     if(process.env.SCREENSHOT_DIR&&[1440,390].includes(width)&&sourceNumber===210){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'tongbrekers-'+width+'.png')})}
    }
   }
-  await page.setViewportSize({width:1440,height:900});await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);await page.locator('.hdr001-fullscreen').click();
+  await page.setViewportSize({width:1440,height:900});await headerAction(page, '.hdr001-fullscreen', 'click');await page.waitForFunction(()=>!!document.fullscreenElement);await headerAction(page, '.hdr001-fullscreen', 'click');
   await headerAction(page, '[data-main="play"]', 'click');assert.equal(await page.locator('#levelSelect').getAttribute('data-tongue'),'false');
   await page.evaluate(()=>openCabinetSet('cards','tongue'));assert.equal(await page.locator('.detail-text-cards article').count(),240);assert.equal(await page.locator('.detail-text-cards').innerText().then(t=>t.includes('Mila maakt soep.')),false);
   await page.locator('#startCabinetActivity').click();assert.ok(await page.locator('.tongue-table').isVisible());

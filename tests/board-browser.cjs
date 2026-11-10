@@ -99,7 +99,7 @@ async function check(page, label) {
   }
   await page.setViewportSize({width:1920,height:1080});await settle(page);
   await page.evaluate(()=>{APP.fixedRoll=1;save();});
-  await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);
+  await headerAction(page, '.hdr001-fullscreen', 'click');await page.waitForFunction(()=>!!document.fullscreenElement);
   assert.equal(await page.locator('.hdr001-fullscreen').getAttribute('aria-pressed'),'true');
   // Space after a pointer click must roll, not reactivate the fullscreen button.
   for(const position of [1,2]){
@@ -116,7 +116,7 @@ async function check(page, label) {
     assert.equal(await page.locator('#levelSelect').isVisible(),false);
     assert.equal(await page.evaluate(()=>JSON.stringify(APP.boardStates.rotterdam.positions)),positions);
   }
-  await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!document.fullscreenElement);
+  await headerAction(page, '.hdr001-fullscreen', 'click');await page.waitForFunction(()=>!document.fullscreenElement);
   // Deliberate keyboard activation retains native button behavior and focus.
   await page.locator('.hdr001-fullscreen').press('Space');await page.waitForFunction(()=>!!document.fullscreenElement);
   assert.equal(await page.locator('.hdr001-fullscreen').evaluate(e=>e===document.activeElement),true);
@@ -187,7 +187,7 @@ async function check(page, label) {
       for (const board of ['rotterdam','zwolle','deventer']) {
         await page.evaluate(board=>startBoard(board),board);
         for (const fullscreen of [false,true]) {
-          if(fullscreen){await page.locator('.hdr001-fullscreen').click();assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true);}
+          if(fullscreen){await headerAction(page, '.hdr001-fullscreen', 'click');assert.equal(await page.evaluate(()=>!!document.fullscreenElement),true);}
           const base=`${board} ${width}x${height} ${fullscreen?'fullscreen':'window'}`;
           await check(page,base+' closed');
           if(width===1920&&!fullscreen)await page.screenshot({path:path.join(results,board+'-closed.png')});
@@ -201,7 +201,7 @@ async function check(page, label) {
           await page.waitForTimeout(250);await check(page,base+' task+options');
           await page.locator('#closeBoardOptions').click();
           await page.evaluate(board=>{delete APP.boardStates[board].pending;startBoard(board);},board);
-          if(fullscreen){await page.locator('.hdr001-fullscreen').click();assert.equal(await page.evaluate(()=>!!document.fullscreenElement),false);}
+          if(fullscreen){await headerAction(page, '.hdr001-fullscreen', 'click');assert.equal(await page.evaluate(()=>!!document.fullscreenElement),false);}
           await check(page,base+' restored');
         }
       }

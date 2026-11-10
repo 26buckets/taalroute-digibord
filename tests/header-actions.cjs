@@ -1,5 +1,6 @@
 // Exercise the approved hamburger path before operating a moved header control.
 async function headerAction(page, selector, method, ...args) {
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
  const control=page.locator(selector);
  if(!await control.isVisible())await page.locator('.hdr001-menu-trigger').click();
  await control[method](...args);
