@@ -1,0 +1,85 @@
+{
+  "status": "CONTROLLED_LOCAL_PREVIEW_NOT_PUBLISHED",
+  "date": "2026-11-10",
+  "sourceCommit": "d8fad1ebc04e7b580a59c6bb527b146c204a890c",
+  "canonicalBase": "359e58a6eaa8537328e86d1bda0376ef602240b8",
+  "verifiedLiveCommit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
+  "publicationFreezeUnchanged": true,
+  "scope": [
+    "Simpler default topic/level/card start; additional game, duration and filters under More options; saved alternative layouts retained",
+    "Scroll cue on internally overflowing card content; hides at bottom and on short cards; no reduced text size",
+    "Source-preserving recurring instruction simplification, three exact conversation-item mappings and removal of redundant theme metadata only on four grammatical exercise types",
+    "Empty teacher usability trial for later execution"
+  ],
+  "presentationAudit": {
+    "availableItems": 11338,
+    "presentationChanges": 2005,
+    "instructionChanges": 96,
+    "redundantGrammarLabelsRemoved": 1909,
+    "answerAndOptionMappings": [
+      "C1_NU_008",
+      "C1_NU_028",
+      "C1_WK_047"
+    ],
+    "stimuliWordsTargetsPreserved": true,
+    "sourceBanksUnchanged": true,
+    "humanReview": "Not all individual tasks re-reviewed; recurring patterns and three concrete items checked."
+  },
+  "localChecks": [
+    "test",
+    "lint",
+    "types",
+    "build-final",
+    "presentation",
+    "clarity-browser",
+    "dist-check",
+    "publication-contract",
+    "advance",
+    "quick-guidance",
+    "v125",
+    "grammar-shard1",
+    "grammar-shard2",
+    "navigation",
+    "levels",
+    "layouts",
+    "activities",
+    "banks",
+    "tongue",
+    "p0",
+    "p0-browser",
+    "rebus",
+    "quick-entry",
+    "form"
+  ],
+  "smoke": "All smoke constituents passed. Initial failures from controls moved under More options resolved in tests/content-ui-browser.cjs; v125 rechecked separately, grammar complete in two shards and quick-entry passed. No failed assertion was suppressed.",
+  "testEnvironment": "HTTP for browser checks; legacy file:// header loading failed before checks and was rerun over local HTTP. No GitHub Actions triggered.",
+  "reviewRounds": [
+    {
+      "round": "UI review",
+      "result": "Topic and level remain prominent; default cards remove one required choice. More options retains alternatives and duration."
+    },
+    {
+      "round": "Critical review, same reviewer",
+      "result": "Retained meaningful scenarios and free-production themes; tested old game choices and state before evaluating next step; preserved answer indices; kept visible save controls; cue does not reduce font sizes."
+    },
+    {
+      "round": "Verification, same reviewer",
+      "result": "Source and built-app examples checked at 320, 390, 768, 1024 and 1440px; long/short/bottom behavior, choice/start, existing lesson and route preservation passed."
+    }
+  ],
+  "open": [
+    "Teacher trial not performed; no human usability score or 9.5 claim",
+    "Recurring patterns and specified examples reviewed; not a fresh individual semantic audit of all 11338 tasks",
+    "Local preview only; next publication must follow canonical main and existing approval/guard route"
+  ],
+  "teacherTrial": {
+    "status": "PREPARED_NOT_EXECUTED",
+    "participants": 5,
+    "tasks": 5,
+    "results": null,
+    "driveId": "1GzGQrbEs3ebGLRcGUYF1Bcn1ryXLX7Xd"
+  },
+  "examplesDriveId": "1b9k0jJqQk2U_nu6CB0UeWdslRLp8RQvV",
+  "designBasisDriveId": "1iXr55yHAoIVVtu_J6yZrcqkjKca3USrz",
+  "recovery": "Canonical repository 26buckets/taalroute-digibord main at 359e58a is required for incremental bundle. Existing source/media backups in Drive remain unchanged. Do not deploy an older backup. Preview has not altered main or release controls."
+}
