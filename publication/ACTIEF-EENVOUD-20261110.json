@@ -18,5 +18,22 @@
     "saved lessons, current lesson, order, level and progress",
     "release gates and existing guard"
   ],
-  "refreeze": "Restore publication freeze after successful live checks."
+  "refreeze": "Restore publication freeze after successful live checks.",
+  "combinedHeaderChecks": {
+    "status": "PASS",
+    "checks": [
+      "lesson-clarity-browser",
+      "navigation-browser",
+      "card-menu-level-browser",
+      "activities",
+      "banks",
+      "tongue",
+      "p0-browser",
+      "lint",
+      "types",
+      "publication-contract",
+      "card-presentation"
+    ],
+    "testAdaptation": "New mobile header keeps navigation in the hamburger. The clarity test uses the existing header-actions helper, with all original assertions retained."
+  }
 }

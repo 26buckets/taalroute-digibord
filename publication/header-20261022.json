@@ -183,12 +183,12 @@
     "publication/ACTIEF-KAARTMENU-REVIEW-20261110.json": "d0bd13d5d1062ccb31c88bf0c05409b006b88212cc957cfb7fb3952ee60df8de",
     "publication/ACTIEF-KAARTMENU-LIVE-20261110.json": "cd77317dfb428f4cbee387abde22ad76db0b2f36d4455884b165bcff73779df6",
     "content-ui.css": "22cd08e6967c60d3d017cd75573723326c67ba135a9f9716043f517fbc55973a",
-    "tests/lesson-clarity-browser.cjs": "3c9db1eff80185220bc1b6b25ec8219e1f7aaec03e2ad694bea07d91a0be2158",
+    "tests/lesson-clarity-browser.cjs": "3646f2680b0d05040afd3fb01233d5816cad0a0acc0f63508acbf19713141ab2",
     "tests/practice-advance-browser.cjs": "5812d192cdb565e20dc333318d22c04354079594fb11a04e041fe8ef5c7ab51b",
     "tests/practice-controls.cjs": "ae045f17a33a89fda9bce597185e6e576e7bd7a27b61aeb15f51bd8f471ec1cb",
     "publication/ACTIEF-EENVOUD-PREVIEW-20261110.json": "38853432ccee9c844f3bda3fec5a42eec3b18347a7267f6ed3477c9e4ec2c073",
     "publication/decision-before-eenvoud-20261110.json": "256964bd4bdbe5cde39309bfb0e470c8e7dbdc8a75186d8c08721fee675c5be4",
-    "publication/ACTIEF-EENVOUD-20261110.json": "b1dcdf7060094333a3e40b51d7c5a8c49a69f136eb1e8de88a0810ffad59c603"
+    "publication/ACTIEF-EENVOUD-20261110.json": "5085923dfe7fa943b97082a7eada49656e4989a67fed493cf2d099d928c9f6da"
   },
   "explicitPublicationApproval": "Nieuwe expliciete vrijgave voor de getoonde en gecontroleerde eenvoudversie.",
   "previousDecision": "publication/decision-before-eenvoud-20261110.json",
