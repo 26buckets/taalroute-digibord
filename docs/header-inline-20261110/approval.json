@@ -17,5 +17,6 @@
     "tests/landing-activities.cjs": "9e80a1ac2a78bf4c95cca8c6139d6fe59e23f7c4ec902e5d1a77be6dba17e6b3",
     "tests/tongbrekers-browser.cjs": "06ade78cdf650ad4728cb58f1ec15107e4ad4103fb4b61f4e190c241f8394455"
   },
-  "integratedCanonicalMetadataCommit": "359e58a"
+  "integratedCanonicalMetadataCommit": "359e58a",
+  "canonicalPushProcedure": "Existing scoped release procedure in publication/ACTIEF-KAARTMENU-20261110.md: temporarily allow only a fast-forward update to main; retain deletion and force-push protection and immediately restore the update lock. New explicit publication approval is the request recorded above."
 }
