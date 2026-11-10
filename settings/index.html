@@ -34,19 +34,19 @@ body.embedded .settings-card{max-width:1380px}
 
       <section class="page" data-page="lesson">
         <div class="page-header">
-          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-map"/></svg></span><div><h2>Niveau en samenspelen</h2><p class="page-lead">Kies hoe cursisten samenwerken. Je les en voortgang blijven bewaard.</p></div></div>
-          <span class="page-meta">Deze les</span><p id="lessonSettingNote" class="helptext"></p>
+          <div class="page-title"><span class="page-title-icon"><svg class="lucide"><use href="#i-map"/></svg></span><div><h2>Niveau en samenspelen</h2><p class="page-lead">Kies hoe de cursisten de opdracht doen.</p></div></div>
+          <span class="page-meta">Deze les</span>
         </div>
 
-        <div class="section"><div class="section-head"><div><h3>Niveau</h3><p>Het niveau van de lopende les blijft behouden.</p></div></div><div class="section-body grid2">
+        <div class="section"><div class="section-body grid2">
           <div class="field"><label>Speelwereld</label><select class="select" id="boardSelect"><option>Rotterdam</option><option>Amsterdam</option><option>Utrecht</option><option>Zwolle</option><option>Bos</option><option>Polder</option></select></div>
-          <div class="field"><label for="routeSelect">Niveau</label><select class="select" id="routeSelect"></select></div>
+          <div class="field"><label for="routeSelect">Niveau</label><select class="select" id="routeSelect"></select><p id="lessonSettingNote" class="helptext"></p></div>
         </div></div>
 
         <div class="section"><div class="section-head"><div><h3>Werkvorm</h3><p>Wie bereidt voor, spreekt en reageert?</p></div></div><div class="section-body mode-cards">
-          <button class="mode-card" data-workmode="individual"><strong>Individueel</strong><span>Iedere cursist maakt een eigen antwoord.</span></button>
-          <button class="mode-card" data-workmode="classSpeaker"><strong>Klassikaal · één spreker</strong><span>Iedereen bereidt voor. Eén naam spreekt.</span></button>
-          <button class="mode-card" data-workmode="groups"><strong>Groepen</strong><span>Groepen bereiden en voeren de opdracht samen uit.</span></button>
+          <button class="mode-card" data-workmode="individual"><strong>Individueel</strong><span>Iedere cursist geeft zelf antwoord.</span></button>
+          <button class="mode-card" data-workmode="classSpeaker"><strong>Klassikaal · één spreker</strong><span>Iedereen denkt na. Eén cursist geeft antwoord.</span></button>
+          <button class="mode-card" data-workmode="groups"><strong>Groepen</strong><span>De cursisten doen de opdracht in groepjes.</span></button>
         </div></div>
 
         <div class="section" id="pawnControls"><div class="section-head"><div><h3>Pionindeling</h3><p>Wie heeft op het speelbord een eigen positie?</p></div></div><div class="section-body mode-cards">
@@ -183,7 +183,7 @@ body.embedded .settings-card{max-width:1380px}
 </svg>
 
 <script src="../wording.js?v=2026-10-02.gewone-woorden"></script>
-<script src="../storage-migration.js?v=1.1"></script><script src="../route-architecture.js?v=1.1"></script><script src="content-overview.js?v=2026-10-05.1"></script><script src="settings.js?v=2026-10-05.overview"></script>
+<script src="../storage-migration.js?v=1.1"></script><script src="../route-architecture.js?v=1.1"></script><script src="content-overview.js?v=2026-10-05.1"></script><script src="settings.js?v=2026-11-10.instellingen"></script>
 <script>
 if(window.parent!==window){document.body.classList.add('embedded')}
 document.querySelector('.back-btn')?.addEventListener('click',()=> {

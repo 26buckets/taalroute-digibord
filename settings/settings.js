@@ -75,7 +75,7 @@ qs('#boardSelect').onchange=e=>{state.board=e.target.value;save()}
 qsa('[data-workmode]').forEach(b=>b.onclick=()=>{state.workMode=b.dataset.workmode;save();renderLesson();renderParticipants()});
 qsa('[data-pawnmode]').forEach(b=>b.onclick=()=>{state.pawnMode=b.dataset.pawnmode;save();renderLesson();renderParticipants()});
 function renderLesson(){
- const ctx=lessonContext();qsa('[data-familylaunch]').forEach(b=>b.disabled=!ctx);qs('#routeSelect').value=ctx?.lesson?ctx.route:state.route;qs('#routeSelect').disabled=!!ctx?.lesson;qs('#boardSelect').closest('.field').hidden=true;qs('#pawnControls').hidden=!ctx?.board;qs('#lessonSettingNote').textContent=ctx?.lesson?'Je huidige niveau blijft behouden. Kies voor een ander niveau een nieuwe les via Les maken.':'Je keuzes worden op dit apparaat bewaard. Bij terugkeer naar het spel worden ze toegepast.';qs('#finishLesson').disabled=!ctx?.lesson;
+ const ctx=lessonContext();qsa('[data-familylaunch]').forEach(b=>b.disabled=!ctx);qs('#routeSelect').value=ctx?.lesson?ctx.route:state.route;qs('#routeSelect').disabled=!!ctx?.lesson;qs('#boardSelect').closest('.field').hidden=true;qs('#pawnControls').hidden=!ctx?.board;qs('#lessonSettingNote').textContent=ctx?.lesson?'Wil je op een ander niveau werken? Begin dan een nieuwe les via Les maken.':'Kies het niveau waarop je wilt spelen.';qs('#finishLesson').disabled=!ctx?.lesson;
  qsa('[data-workmode]').forEach(b=>{const on=b.dataset.workmode===state.workMode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
  qsa('[data-pawnmode]').forEach(b=>{const on=b.dataset.pawnmode===state.pawnMode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
 }

@@ -252,8 +252,7 @@ svg.lucide{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;s
 
 /* Keep the established layout; mobile uses one complete, labelled section selector. */
 .settings-page .settings-mobile-nav{display:none}
-.settings-page .page-header #lessonSettingNote{flex-basis:100%;margin:8px 0 0}
-.settings-page .page-header:has(#lessonSettingNote){flex-wrap:wrap}
+.settings-page #lessonSettingNote{margin:6px 0 0}
 .settings-page :is(#addParticipant,#allPresent,#allAbsent){width:auto;min-height:44px;height:auto;padding:10px;gap:8px;display:inline-flex;align-items:center}
 .settings-page :is(.field,#pawnControls)[hidden]{display:none!important}
 .settings-page [data-page="backup"] .section-body>button{margin:8px 8px 8px 0}
