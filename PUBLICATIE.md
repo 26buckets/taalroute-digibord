@@ -1,6 +1,6 @@
 ## Actuele vrijgave — kaartmenu en niveaubehoud, 10 november 2026
 
-Nico heeft de getoonde en gecontroleerde kaartmenuvoorvertoning expliciet vrijgegeven. Zie `publication/ACTIEF-KAARTMENU-20261110.md` en `publication/ACTIEF-KAARTMENU-REVIEW-20261110.json`. Publiceer alleen via de canonieke main en bestaande guard. Werk de feitelijke livecommit na geslaagde controle hieronder bij; daarna opnieuw vastzetten.
+Nico heeft de getoonde en gecontroleerde kaartmenuvoorvertoning expliciet vrijgegeven. Zie `publication/ACTIEF-KAARTMENU-20261110.md` en `publication/ACTIEF-KAARTMENU-REVIEW-20261110.json`. Livebron: `268476bed2e2c711eecf16710c2a8925d10dacd6`; Cloudflare-versie `50ba140a-ac36-477f-bcb8-551e8dc1a409`. Lokaal en live gecontroleerd, opnieuw vastgezet. Zie `publication/ACTIEF-KAARTMENU-LIVE-20261110.json`. Canonieke main is bijgewerkt; eerdere previewverslagen blijven historisch bewijs. Volgende publicatie alleen via de canonieke main en bestaande guard.
 
 # Actuele vrijgave — UI-afwerking, 9 november 2026
 
