@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-10",
+  "status": "reviewed-ready-for-scoped-publication",
+  "reviewer": "Codex; dezelfde reviewer voor beoordeling, tegencontrole en hercontrole",
+  "method": "Heuristische UI-beoordeling, echte browserbeelden en functionele regressiecontroles. Geen gemeten docentwaardering of volledige inhoudelijke herbeoordeling van iedere opdracht.",
+  "scope": [
+    "Spel kiezen, Les maken, Mijn lessen en Mijn collectie",
+    "Kaartspellen, speelborden, dobbelspellen en werkvormen",
+    "Alle 24 beschikbare losse kaartsoort/niveaucombinaties en 12 leskaartfamilie/niveaucombinaties",
+    "Negen beschikbare lesengines, instellingen en ingang Zinnenbouwer",
+    "Desktop, tablet en mobiel; kaartschermen ook donker; toetsenbord sluiten/focus, terug, hervatten, kaartoverzicht, afronden en herladen"
+  ],
+  "score": 9.2,
+  "weighting": "Vijf onderdelen gelijk gewogen; gemiddelde 9,2. Geen onafhankelijke gebruikersmeting.",
+  "scores": [
+    {
+      "area": "Navigatie en oriëntatie",
+      "score": 9.5,
+      "reason": "Drie vaste hoofdlinks, één kaartmenu, actuele route zichtbaar. Desktopmenu en mobiele menuknop bieden dezelfde keuzes."
+    },
+    {
+      "area": "Begrijpelijkheid voor een nieuwe docent",
+      "score": 9.0,
+      "reason": "Leesstof en opdracht gescheiden, duidelijke knoppen. Leskaarten versus losse kaarten en het brede voorbereidingsaanbod vragen nog uitleg."
+    },
+    {
+      "area": "Leesbaarheid en bediening",
+      "score": 8.8,
+      "reason": "Grote kaarttekst en bereikbare bediening. Lange telefoonkaarten tonen de opdracht soms pas na scrollen; sommige andere spelvormen hebben compactere tekst."
+    },
+    {
+      "area": "Snelheid van handelen",
+      "score": 9.0,
+      "reason": "Wisselen, teruggaan en hervatten zijn direct. De volledige lesvoorbereiding heeft veel opties en een lange mobiele route."
+    },
+    {
+      "area": "Voortgang en herstel",
+      "score": 9.7,
+      "reason": "Getest behoud van kaartvolgorde, beurt, poging, geopend antwoord, browserterug en herladen. Opslag blijft aan dit apparaat gebonden; geen nieuw apparaatverliesonderzoek."
+    }
+  ],
+  "rounds": [
+    {
+      "round": "UI-review",
+      "evidence": "43 browserweergaven, 39 unieke screenshots; desktop/mobiel, 320/768 kaartweergave, licht/donker. Geen gemeten overlap of horizontale knip in de geteste spelbediening.",
+      "findings": [
+        "Lesvoorbereiding blijft keuzerijk.",
+        "Op smalle kaarten kan de opdracht onder de zichtbare leesstof liggen.",
+        "Steekproef: context Eten en drinken boven een zin over kantoor of buiten spelen."
+      ]
+    },
+    {
+      "round": "Kritische tegencontrole",
+      "evidence": "Alle zes routes, niet-beschikbare families en onderwerpen, mobiel wisselen, opgeslagen ander voorbereidingsscherm, expliciet ander niveau kiezen, exacte hervatte les en losse kaart.",
+      "result": "Geen automatische niveausprong; niet-beschikbare leskaarten blijven uitgeschakeld. A1-gesprekstarters blijven beschikbaar; A1-gespreksleskaarten ontbreken in de vrijgegeven bron."
+    },
+    {
+      "round": "Hercontrole",
+      "evidence": "Menu- en niveaucontrole opnieuw groen, volledige P0-kaartweergave en rebuscontrole opnieuw groen. Bestaande volledige lokale suite van 9 november geldt voor aantoonbaar exact dezelfde appbestanden.",
+      "result": "Geen nieuwe blokkerende functionele fout gevonden in deze review. Geen nieuwe appwijziging nodig boven op de gecontroleerde preview."
+    }
+  ],
+  "advice": [
+    {
+      "priority": 1,
+      "subject": "Eerste les sneller klaarzetten",
+      "proposal": "Binnen de bestaande opzet eerst onderwerp, niveau en Start les laten domineren. Geavanceerde keuzes onder Meer opties; leg leskaarten en losse kaarten in één korte zin uit. Eerst met docenten toetsen, geen nieuwe indeling stilzwijgend publiceren."
+    },
+    {
+      "priority": 2,
+      "subject": "Scrollen herkenbaar maken",
+      "proposal": "Geef alleen bij werkelijk verborgen kaartinhoud een rustige aanwijzing Meer hieronder. Test of de opdracht eerder zichtbaar kan zonder tekst te verkleinen of de afgesproken kaartopzet te veranderen."
+    },
+    {
+      "priority": 3,
+      "subject": "Context en opdracht laten kloppen",
+      "proposal": "Gerichte inhoudelijke controle van situatielabel, leesstof en opdracht samen. Voorbeeld Eten en drinken/kantoor vraagt brongebonden herstel; niet automatisch alle labels vervangen."
+    },
+    {
+      "priority": 4,
+      "subject": "9,5 aantonen met docenten",
+      "proposal": "Laat minstens vijf nieuwe docenten zonder hulp een A1-les starten, wisselen, een eerdere kaart openen en hervatten. Registreer tijd, fouten en hulpvragen; beoordeel daarna opnieuw."
+    }
+  ],
+  "checks": {
+    "fresh": "card-menu-browser, card-menu-level-browser, P0 source and 610 active cards × four viewports, 90 rebuses × three viewports, navigation-browser, UI matrix, publication guard and clean build",
+    "reusedExactSource": "9 november: npm test, lint, types, activities, banks, tongue, smoke inclusief 7200 grammar renders. Alle 12 preview-bronhashes opnieuw gelijk bevonden.",
+    "cloudActionsRunsRequested": 0
+  },
+  "limitations": [
+    "Geen nieuwe docentproef of fysiek digibord/telefoontoestel.",
+    "Geen volledige screenreader/WCAG-audit of nieuwe browserenginevergelijking.",
+    "Inhoudelijke steekproef; geen claim dat alle opdrachten semantisch opnieuw beoordeeld zijn.",
+    "Lokale voortgang blijft apparaatgebonden."
+  ],
+  "evidence": "work/review-live-20261110; work/kaartniveau-20261109; work/kaartmenu-20261109"
+}

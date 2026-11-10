@@ -1,3 +1,7 @@
+## Actuele vrijgave — kaartmenu en niveaubehoud, 10 november 2026
+
+Nico heeft de getoonde en gecontroleerde kaartmenuvoorvertoning expliciet vrijgegeven. Zie `publication/ACTIEF-KAARTMENU-20261110.md` en `publication/ACTIEF-KAARTMENU-REVIEW-20261110.json`. Publiceer alleen via de canonieke main en bestaande guard. Werk de feitelijke livecommit na geslaagde controle hieronder bij; daarna opnieuw vastzetten.
+
 # Actuele vrijgave — UI-afwerking, 9 november 2026
 
 Nico heeft de drie concrete verbeteringen, de eerdere gecontroleerde lokale navigatie en het opheffen van de blokkade voor deze versie expliciet goedgekeurd. Lees `publication/ACTIEF-UI95-20261109.md`. Basis: livecommit `9b3cf99802bffaad8b639cbe988cc86554b8fd2a`. Gecontroleerd live op broncommit `ed839c65811d6ffed9d9ea5468e9b562c737d433`, Cloudflare `f358d828-8c04-4f61-ac7d-48c7d8534ea6`. Zie `publication/ACTIEF-UI95-LIVE-20261109.json`. Publicatie is opnieuw vastgezet; de volgende metadata-commit verandert de aangeboden appbestanden niet.
