@@ -1,3 +1,7 @@
+## Actuele vrijgave — eenvoud en duidelijke kaarttekst, 10 november 2026
+
+Nico heeft de getoonde, gecontroleerde versie expliciet voor publicatie vrijgegeven: “Ja natuurlijk, hij mag zeker online. Zet het online.” Zie `publication/ACTIEF-EENVOUD-20261110.json`. De actuele goedgekeurde header is geïntegreerd; bronbanken, media en voortgang blijven behouden. Publicatie uitsluitend via canonieke main en de bestaande guard. Na online controle wordt de livebron vastgelegd en opnieuw vastgezet. De docentproef staat klaar voor later en is niet uitgevoerd.
+
 ## Definitieve headerafwerking — 10 november 2026
 
 Livebron `b6e8a35c984c8afc80bb9834aac0a934719d1d6c`, Cloudflare `e204538c-3244-461c-ab51-ef7e6d66fa86`. Alleen de onbedoelde standaardrand om de appnaam is verwijderd; focus en navigatie blijven behouden. Volledige lokale bouw-/publicatiecontroles geslaagd, live CSS en release exact gelijk. Publicatie opnieuw vastgezet. Zie `docs/header-inline-20261110/name-polish-live.json`.

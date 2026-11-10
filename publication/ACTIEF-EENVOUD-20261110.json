@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-10",
+  "approvedBy": "Nico",
+  "request": "Ja natuurlijk, hij mag zeker online. Zet het online.",
+  "approvalScope": "The displayed and locally checked simpler lesson preparation, conditional scroll cue and clearer learner instructions; teacher trial remains prepared, not executed.",
+  "previewSource": "d8fad1ebc04e7b580a59c6bb527b146c204a890c",
+  "previewReview": "publication/ACTIEF-EENVOUD-PREVIEW-20261110.json",
+  "previousLiveCommit": "b6e8a35c984c8afc80bb9834aac0a934719d1d6c",
+  "previousCanonicalMain": "11c4af027805f8dd08c5207c05bc6d0ef6d043fd",
+  "concurrentApprovedHeader": "Latest canonical header and square controls merged without altering their files. Original preview source files retained byte for byte.",
+  "checks": "Full local preview suite completed. Combined header/preview checks and normal build precede deployment. Live release hashes, new UX, level preservation and resume checked after deployment.",
+  "publicationRoute": "Canonical main fast-forward, existing scoped guard and npm run deploy; no alternate configuration. Owner-approved main update lock temporarily opened only for the controlled push, deletion and force-push protections retained; update lock restored in finally.",
+  "actions": "Only existing manual 2-minute workflow, no push/PR trigger. No cloud checks requested.",
+  "preservation": [
+    "original approved tag and frozen manifest",
+    "latest approved header",
+    "source banks and 480 audio recordings",
+    "saved lessons, current lesson, order, level and progress",
+    "release gates and existing guard"
+  ],
+  "refreeze": "Restore publication freeze after successful live checks."
+}
