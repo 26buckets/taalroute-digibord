@@ -793,9 +793,22 @@ function selectShuffledCard(kind,list,action='resume'){
 }
 function cardShuffleResetButton(){return '<button class="smallbtn card-order-reset" id="cardOrderReset" aria-label="Kaartvolgorde opnieuw beginnen" title="Kaartvolgorde opnieuw beginnen">'+gameIcon('shuffle')+'</button>'}
 // Keep long cards readable and reachable with the keyboard instead of shrinking them.
+let stopCardReading=()=>{};
 function prepareCardReading(){
- const content=$('.card-viewport .card-content');if(!content)return;
+ stopCardReading();
+ const content=$('#gameMount .active-card .card-content');if(!content)return;
  content.tabIndex=0;content.setAttribute('role','region');content.setAttribute('aria-label','Kaartinhoud');
+ const hint=document.createElement('p');hint.className='card-scroll-hint';hint.textContent='↓ Meer hieronder';hint.setAttribute('aria-hidden','true');hint.hidden=true;content.parentElement.append(hint);
+ const update=()=>{
+  if(!content.isConnected)return;
+  // Ignore the hint's own height when deciding whether this card needs scrolling.
+  const overflow=content.scrollHeight>content.clientHeight+hint.getBoundingClientRect().height+2;
+  hint.hidden=!overflow;hint.style.visibility=overflow&&content.scrollHeight-content.clientHeight-content.scrollTop>3?'visible':'hidden';
+ };
+ const observer=new ResizeObserver(update);observer.observe(content);for(const child of content.children)observer.observe(child);
+ content.addEventListener('scroll',update,{passive:true});content.addEventListener('load',update,true);
+ stopCardReading=()=>{observer.disconnect();content.removeEventListener('scroll',update);content.removeEventListener('load',update,true);hint.remove()};
+ requestAnimationFrame(update);document.fonts.ready.then(update);
 }
 function bindCardShuffleReset(){
  const button=$('#cardOrderReset');if(!button)return;
@@ -1014,10 +1027,10 @@ function contentExerciseHtml(parts){
 function contentTaskText(item,options){
  const help=globalThis.QuickLessonGuidance?.lesson(item)?.help||item.help;if(item.reasoning)return ReasoningTasks.render(item,options);
  const parts=globalThis.CardPresentation?.shared(item,ContentRuntime.displayPrompt(item)),prompt=parts?.instruction||ContentRuntime.displayPrompt(item),task=options?.card?cardActionSteps(prompt).map(t=>`<span class="card-action-line"><span>${contentPromptHtml(t)}</span></span>`).join(' '):contentPromptHtml(prompt);
- return `${contentSituation(parts?{context:parts.situation}:item)}${contentExerciseHtml(parts)}${item.options?.length&&!options?.interactiveOptions?`<section class="content-options"><h3>Kies uit</h3><ul>${item.options.map(option=>`<li>${esc(option)}</li>`).join('')}</ul></section>`:''}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${help?`<details class="content-help"><summary>Hulp</summary><p>${esc(help)}</p></details>`:''}</section>`;
+ return `${contentSituation(parts?{context:parts.situation}:item)}${contentExerciseHtml(parts)}${item.options?.length&&!options?.interactiveOptions?`<section class="content-options"><h3>Kies uit</h3><ul>${item.options.map(option=>`<li>${esc(CardPresentation.learnerText(item,option))}</li>`).join('')}</ul></section>`:''}<section class="content-prompt"><h3>${options?.card?'Wat doe je?':'De opdracht'}</h3><h2${options?.card?' class="card-action-lines"':''}>${task}</h2>${help?`<details class="content-help"><summary>Hulp</summary><p>${esc(help)}</p></details>`:''}</section>`;
 }
 function contentAnswerLabel(item){return !item.model_answer?'Bespreek samen':ContentRuntime.answerPolicy(item).modelIsExample?'Bekijk een mogelijk antwoord':'Bekijk het antwoord'}
-function contentAnswerText(item,policy){const lesson=globalThis.QuickLessonGuidance?.lesson(item);return `${policy.modelAnswer?`<section><h3>${policy.modelIsExample?'Een mogelijk antwoord':'Antwoord'}</h3><p>${esc(policy.modelAnswer)}</p></section>`:''}<section><h3>Bespreek samen</h3><p>${esc(lesson?.discussion||item.explanation||item.learning_goal)}</p></section>${item.e1_canonical&&item.feedback_correct&&item.feedback_correct!==item.explanation?`<section><h3>Feedback</h3><p>${esc(item.feedback_correct)}</p></section>`:''}${item.e1_canonical&&item.feedback_incorrect&&item.feedback_incorrect!==item.feedback_correct?`<section><h3>Bij een ander antwoord</h3><p>${esc(item.feedback_incorrect)}</p></section>`:''}`}
+function contentAnswerText(item,policy){const lesson=globalThis.QuickLessonGuidance?.lesson(item);return `${policy.modelAnswer?`<section><h3>${policy.modelIsExample?'Een mogelijk antwoord':'Antwoord'}</h3><p>${esc(CardPresentation.learnerText(item,policy.modelAnswer))}</p></section>`:''}<section><h3>Bespreek samen</h3><p>${esc(CardPresentation.learnerText(item,lesson?.discussion||item.explanation||item.learning_goal))}</p></section>${item.e1_canonical&&item.feedback_correct&&item.feedback_correct!==item.explanation?`<section><h3>Feedback</h3><p>${esc(CardPresentation.learnerText(item,item.feedback_correct))}</p></section>`:''}${item.e1_canonical&&item.feedback_incorrect&&item.feedback_incorrect!==item.feedback_correct?`<section><h3>Bij een ander antwoord</h3><p>${esc(CardPresentation.learnerText(item,item.feedback_incorrect))}</p></section>`:''}`}
 let contentDiceBusy=false;
 function contentSessionDice(){const session=contentVertSession();return session?ContentRuntime.enginePool('DICE',session):[]}
 function startContentDice(){
@@ -1027,7 +1040,7 @@ function startContentDice(){
  const item=list[APP.contentDiceIndex],policy=ContentRuntime.project('DICE',item).answerPolicy,label=contentSessionLabel(session,item),counter=`${APP.contentDiceIndex+1} van ${list.length}`;
  setLast('activity',label,{kind:'content-dice',contentItemId:item.content_item_id});
  $('#gameMount').innerHTML=`<div class="game-shell card-table-shell content-engine-dice"><div class="game-work card-work"><div class="card-activity-heading"><h1>${esc(contentSessionLabel(session,item,false))}</h1></div><div class="content-dice-stage"><section class="content-dice-tray" aria-label="Dobbelsteen"><button id="contentDie" aria-label="${APP.contentDiceLastRoll?'Dobbelsteen '+APP.contentDiceLastRoll+'. ':''}Gooi de dobbelsteen">${softDie({value:APP.contentDiceLastRoll||1,front:false})}</button><p id="contentDiceRoll" role="status">${APP.contentDiceLastRoll?'Nieuwe opdracht.':'Gooi voor een opdracht.'}</p></section><article class="active-card"><div class="card-ribbon" style="--ribbon:#087ff5"><strong>Dobbelspel</strong><span class="card-counter">${counter}</span></div><div class="card-content content-reading" tabindex="0" role="region" aria-label="Opdracht en antwoord" data-content-item-id="${esc(item.content_item_id)}">${contentTaskText(item)}<button class="smallbtn content-reveal" id="contentDiceReveal" aria-expanded="false" aria-controls="contentDiceAnswer">${contentAnswerLabel(item)}</button><div id="contentDiceAnswer" class="content-answer" hidden>${contentAnswerText(item,policy)}</div></div></article></div></div>${gameBar('<button class="primary card-next-primary table-roll" id="primaryGame">GOOIEN</button>')}</div>`;
- goScreen('game');bindGameBar(rollContentDice);$('#contentDie').onclick=rollContentDice;SmoothDice.mount();$('#contentDiceReveal').onclick=()=>{const box=$('#contentDiceAnswer'),open=box.hidden;box.hidden=!open;$('#contentDiceReveal').setAttribute('aria-expanded',String(open));if(open)box.scrollIntoView({block:'nearest'})};
+ goScreen('game');bindGameBar(rollContentDice);prepareCardReading();$('#contentDie').onclick=rollContentDice;SmoothDice.mount();$('#contentDiceReveal').onclick=()=>{const box=$('#contentDiceAnswer'),open=box.hidden;box.hidden=!open;$('#contentDiceReveal').setAttribute('aria-expanded',String(open));if(open)box.scrollIntoView({block:'nearest'})};
 }
 async function rollContentDice(){
  const list=contentSessionDice(),mount=$('#contentDie');if(contentDiceBusy||!list.length||!mount)return;
@@ -1100,7 +1113,7 @@ function cardActionSteps(text){
  // Split only before a new explicit action. Keep quoted options, times and conditions together.
  return String(text||'').trim().split(/(?<=[.!?])\s+(?=(?:Vraag|Kies|Zeg|Vertel|Leg|Bespreek|Vergelijk|Maak|Noem|Wijs|Lees|Schrijf|Reageer|Controleer|Gebruik|Geef|Laat|Stel|Vat|Speel|Bekijk|Los|Herschrijf|Onderzoek|Voorspel|Zet|Benoem|Bedenk|Herhaal|Erken|Breng|Herstel|Regel|Verhelder|Beoordeel|Luister)\b)/u).filter(Boolean);
 }
-function cardStepsHtml(steps){return `<section class="card-actions"><h3>Wat doe je?</h3><ol class="card-instruction">${steps.map(t=>`<li><span>${contentPromptHtml(t)}</span></li>`).join('')}</ol></section>`}
+function cardStepsHtml(steps){steps=steps.map(step=>CardPresentation.clearInstruction(step));return `<section class="card-actions"><h3>Wat doe je?</h3><ol class="card-instruction">${steps.map(t=>`<li><span>${contentPromptHtml(t)}</span></li>`).join('')}</ol></section>`}
 function cardRolesHtml(c,kind){
  if(!['mission','conversation'].includes(kind))return '';
  const leader=c.participants.roles[0]==='gespreksleider',other=lessonText(c.conversationPartner).replace(/; de docent kan deze rol overnemen\.$/,'');

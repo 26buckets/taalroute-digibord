@@ -5,7 +5,7 @@ for(const item of structured){const p=presentation.shared(item);assert.ok(p.inst
 for(const card of source.cards.filter(c=>c.family==='spelling')){const p=presentation.standalone(card);assert.ok(p,card.id);assert.ok(p.stimuli.length&&p.steps.length);assert.equal(presentation.standalone({...card,instruction:card.instruction+' changed'}),null);assert.equal(presentation.standalone({...card,version:'other'}),null);}
 assert.equal(source.cards.filter(c=>c.family==='spelling').length,40);
 const byId=id=>items.find(i=>i.content_item_id===id);
-assert.deepEqual(presentation.shared(byId('WZ_001_V14')),{instruction:'Vervang het onderstreepte deel door ‘vandaag’.',stimulus:'Jullie werken morgen.',words:null,target:'morgen',situation:'Werk'});
+assert.deepEqual(presentation.shared(byId('WZ_001_V14')),{instruction:'Vervang het onderstreepte deel door ‘vandaag’.',stimulus:'Jullie werken morgen.',words:null,target:'morgen',situation:''});
 assert.equal(presentation.shared(byId('WZ_006_H03')).instruction,'Verbeter de zin.');
 assert.equal(wording.text('Maak één natuurlijke zin.'),'Maak één zin.');
 assert.equal(wording.text('Maak de zin natuurlijk.: De bus niet komt op tijd.'),'Verbeter de zin: De bus niet komt op tijd.');
@@ -40,3 +40,18 @@ assert.equal(presentation.heading({language_function:'abstract_existenteel',exer
 assert.equal(presentation.heading({language_function:'onpersoonlijk_passief',exercise_type:'herschrijven'}),'Schrijf de zin opnieuw');
 assert.equal(presentation.heading({title:'Welke was kapot?',exercise_type:'scenario'}),'Welke was kapot?');
 assert.equal(presentation.heading({exercise_type:'unknown'}),'Maak de opdracht');
+
+// Theme metadata must not invent a situation for a grammar sentence.
+assert.equal(presentation.shared(byId('WZ_018_K04')).situation,'');
+assert.equal(presentation.shared({content_item_id:'WZ_TEST',prompt:'Vertel over je werk.',context:'Werk'}).situation,'Werk');
+assert.equal(presentation.shared({content_item_id:'WZ_TEST',prompt:'Kies de juiste zin.',stimulus:'Hij werkt.',context:'Je collega vertelt over zijn nieuwe baan.'}).situation,'Je collega vertelt over zijn nieuwe baan.');
+assert.equal(presentation.clearInstruction('Welke herformulering bewaart de voorwaarde precies?'),'Welke versie bewaart de voorwaarde precies?');
+assert.equal(presentation.clearInstruction('Zet de woorden in de juiste volgorde: geïnterpreteerd / anders'),'Zet de woorden in de juiste volgorde: geïnterpreteerd / anders');
+const nuance=byId('C1_NU_008');
+assert.equal(presentation.shared(nuance).instruction,'Hoe bedoelt de voorzitter ‘misschien’?');
+assert.equal(presentation.learnerText(nuance,nuance.options[1]),'B. De voorzitter zegt voorzichtig dat de groep eerst de cijfers moet controleren.');
+assert.equal(nuance.options.indexOf(nuance.correct_answer),1);
+assert.equal(presentation.learnerText({content_item_id:'other'},nuance.options[1]),nuance.options[1]);
+console.log('PASS: learner instructions, exact options/answer mapping, real situations retained and generic grammar themes omitted.');
+
+assert.equal(presentation.shared({content_item_id:"WZ_TEST",exercise_type:"scenario",prompt:"Wat zeg je?",stimulus:"Ik wil koffie.",context:"Eten en drinken"}).situation,"Eten en drinken");

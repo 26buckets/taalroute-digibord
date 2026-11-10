@@ -116,3 +116,6 @@ html[data-theme=dark] #appHeader>.mainnav .navitem.active{color:#b5dfff}
 
 #gameMount .card-menu-sidebar>h3{position:sticky;top:-16px;z-index:1;background:#fffdfa;padding:8px 0}
 #gameMount .card-menu-sidebar .card-menu-group{color:#173752}
+/* A reserved hint on long cards never covers the reading material or controls. */
+.card-scroll-hint{flex:none;margin:0;padding:3px 12px 5px;text-align:center;font:400 13px/1.4 var(--setup-font);color:#31516a;background:#fffdfa;border-top:1px solid #d6e3ed}
+.card-scroll-hint[hidden]{display:none}

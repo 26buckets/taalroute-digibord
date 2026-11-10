@@ -102,10 +102,50 @@
  function sentences(text){return [...new Intl.Segmenter('nl',{granularity:'sentence'}).segment(text)].map(p=>p.segment.trim()).filter(Boolean);}
  function steps(text){return sentences(text).reduce((list,line)=>{if(!list.length||action.test(line))list.push(line);else list[list.length-1]+=' '+line;return list;},[]);}
  function end(text){return /[.!?…]$/.test(text)?text:text+'.';}
+ // Simplify instructions only; quoted exercise language and answer keys stay intact.
+ function clearInstruction(text){return wording.text(text)
+  .replace(/Welke formulering past grammaticaal en inhoudelijk het best/g,'Welke zin is goed en past het best bij de situatie')
+  .replace(/Welke zakelijke formulering past grammaticaal en inhoudelijk het best/g,'Welke zakelijke zin is goed en past het best bij de situatie')
+  .replace(/Welke herformulering/g,'Welke versie')
+  .replace(/Welke formulering past het best bij deze communicatieve functie:/g,'Welke zin past bij dit doel:')
+  .replace(/voorzichtige analytische inferentie/g,'voorzichtige conclusie')
+  .replace(/voorzichtige inferentie/g,'voorzichtige conclusie')
+  .replace(/Wat is waarschijnlijk de communicatieve functie\?/g,'Wat wil de spreker hiermee bereiken?')
+  .replace(/Wat geef je daarmee impliciet aan\?/g,'Wat laat je daarmee merken zonder het direct te zeggen?')
+  .replace(/Wat kan hier impliciet worden uitgedrukt\?/g,'Wat kan de spreker hiermee bedoelen zonder het direct te zeggen?')
+  .replace(/Wat kan deze uitspraak impliciet betekenen\?/g,'Wat kan de spreker hiermee bedoelen?')
+  .replace(/Wat is de (?:meest waarschijnlijke )?impliciete boodschap\?/g,'Wat bedoelt de spreker waarschijnlijk zonder het direct te zeggen?')
+  .replace(/Wat kan deze formulering impliciet aangeven\?/g,'Wat kan de spreker hiermee bedoelen zonder het direct te zeggen?')
+  .replace(/Wat kan deze reactie impliciet communiceren\?/g,'Wat kan iemand met deze reactie bedoelen?')
+  .replace(/Wat maakt daarentegen expliciet\?/g,'Welk verschil maakt ‘daarentegen’ duidelijk?')
+;}
+ const learnerPhrases={
+  C1_NU_008:{
+   "Hoe moet misschien hier waarschijnlijk worden geïnterpreteerd?":"Hoe bedoelt de voorzitter ‘misschien’?",
+   "Misschien kan een voorstel sociaal zachter maken zonder dat de spreker werkelijk sterk twijfelt over de gewenste stap.\n\nVoorzichtig geformuleerde taal kan inhoudelijk behoorlijk sturend zijn.":"Met ‘misschien’ klinkt het voorstel voorzichtiger. De voorzitter wil wel dat de groep eerst de cijfers controleert.",
+   'A. Als bewijs dat de voorzitter zelf niet weet wat verstandig is.':'A. De voorzitter weet zelf niet wat de beste keuze is.',
+   'B. Als een verzachter van een inhoudelijk vrij duidelijke sturing.':'B. De voorzitter zegt voorzichtig dat de groep eerst de cijfers moet controleren.',
+   'C. Als toestemming om de cijfers eventueel helemaal niet te controleren.':'C. De groep mag het controleren van de cijfers overslaan.'
+  },
+  C1_NU_028:{
+   "Allerminst betekent ongeveer “helemaal niet”. Het klinkt formeler en stelliger dan een gewone ontkenning.\n\nHet woord komt vooral voor in formeel spreken en schrijven.":"‘Allerminst’ betekent ‘helemaal niet’. Het woord klinkt sterker en formeler. De spreker bedoelt dat de verbetering nog niet betekent dat het hele probleem is opgelost.",
+   'A. Dat de verbetering wordt geïnterpreteerd als bewijs dat het hele probleem opgelost is.':'A. Dat iemand door de verbetering denkt dat het hele probleem is opgelost.',
+   'B. Dat iemand denkt dat er überhaupt enige verbetering was.':'B. Dat iemand denkt dat er ook maar iets is verbeterd.'
+  },
+  C1_WK_047:{
+   "Waarom moet dit expliciet worden gemaakt?":"Waarom moet je dit duidelijk afspreken?",
+   "Expliciet maken betekent dat onuitgesproken aannames duidelijk worden benoemd. Dat kan mondeling of schriftelijk gebeuren, afhankelijk van de context.\n\nVeel misverstanden ontstaan juist doordat beide partijen denken dat iets vanzelfsprekend is.":"Zeg duidelijk wie na de oplevering het beheer doet. Zo weten beide teams wat ze van elkaar kunnen verwachten. Dat kan mondeling of schriftelijk.",
+   'B. Omdat impliciete verwachtingen verschillend kunnen worden geïnterpreteerd en daardoor later problemen ontstaan.':'B. Omdat de teams zonder duidelijke afspraken iets anders kunnen verwachten. Dat kan later problemen geven.',
+   'C. Omdat één van de teams per definitie fout zit.':'C. Omdat één van de teams zeker een fout heeft gemaakt.'
+  }
+ };
+ function learnerText(item,text){return learnerPhrases[item.content_item_id]?.[text]||text;}
+ const themeLabels=new Set(['Afspraken','Vrije tijd','Sociaal','Eten en drinken','Winkel','Les','Vervoer','Werk','Thuis','Wonen','Dagelijks leven','Praktisch','Familie','Gezondheid','Participatie','Opleiding']);
  function shared(item,displayPrompt=item.prompt){
   const prompt=wording.text(displayPrompt).trim().replace(/\b(?:Snelvraag|Opdracht):\s*([a-z])/g,(_,c)=>c.toUpperCase()).replace(/\b(?:Snelvraag|Opdracht):\s*/g,'');
   if(!prompt)return null;
   let stimulus=wording.text(item.stimulus).trim(),instruction=prompt,situation=wording.text(item.context).trim(),target=null;
+  if(/^WZ_/.test(item.content_item_id)&&['herschrijven','zinnen_leggen','meerkeuze_vorm','fout_verbeteren'].includes(item.exercise_type)&&stimulus&&themeLabels.has(situation))situation='';
   if(item.content_item_id==='ER_B2_078'&&prompt==='De gegevens laten geen duidelijk verband zien. Je wilt voorzichtig formuleren dat er waarschijnlijk geen direct verband is.')return {situation:'De gegevens laten geen duidelijk verband zien.',stimulus:'',words:null,target:null,instruction:'Formuleer voorzichtig dat er waarschijnlijk geen direct verband is.'};
   const reply=prompt.match(/^A:\s*(.*?)\s+B:\s*(Antwoord[\s\S]+)$/);
   if(reply)return {situation,stimulus:'A: '+reply[1]+'\nB: …',words:null,target:null,instruction:reply[2]};
@@ -152,9 +192,9 @@
   let words=null;
   if(stimulus.includes(' | '))words=stimulus.split(' | ');
   else if((item.interaction_type==='IT_008_ORDER'||/^(?:Zet|Orden|Leg).*(?:volgorde|zinsdelen|hoofdzin)/.test(instruction))&&stimulus.includes(' / '))words=stimulus.split(' / ');
-  return {instruction:end(instruction),stimulus,words,target,situation};
+  return {instruction:learnerText(item,clearInstruction(end(instruction))),stimulus,words,target,situation};
  }
  const taskHeadings={betekenis_kiezen:'Kies de betekenis',dialoog_aanvullen:'Maak het gesprek af',fout_verbeteren:'Verbeter de zin',functie_sorteren:'Sorteer de zinnen',herschrijven:'Schrijf de zin opnieuw',invullen:'Vul de zin aan',meerkeuze_context:'Kies wat bij de situatie past',meerkeuze_vorm:'Kies de juiste vorm',referent_kiezen:'Waar verwijst het woord naar?',register_kiezen:'Kies wat bij de situatie past',scenario:'Wat zeg je?',snelvraag:'Vertel',vrije_productie:'Geef je antwoord',zinnen_leggen:'Zet de woorden in volgorde'};
  function heading(item){return wording.text(item.title||taskHeadings[item.exercise_type]||'Maak de opdracht');}
- const api={standalone,shared,steps,heading};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
+ const api={standalone,shared,steps,heading,clearInstruction,learnerText};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

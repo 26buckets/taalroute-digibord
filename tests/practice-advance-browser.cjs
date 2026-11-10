@@ -23,16 +23,17 @@ let browser,page;
    const levels=await page.locator('input[name=level]').evaluateAll(es=>es.map(e=>e.value));assert.ok(levels.length);
    const selected=await page.evaluate(()=>ContentUI.state().level),level=round<2?levels[round%levels.length]:levels.includes(selected)?selected:levels[0];
    const input=page.locator(`input[name=level][value="${level}"]`),label=input.locator('..');
-   await activate(round>=2&&!touch?input:label,round>=2&&!touch?round:false);await expectStep('game',`${touch} ${topic} ${level} level advances`);
+   await activate(round>=2&&!touch?input:label,round>=2&&!touch?round:false);await expectStep(null,`${touch} ${topic} ${level} ready with the selected game`);
+   await require('./practice-controls.cjs').openStep(page,'game');
    const engine=round===0?'CARDS':round===1?'WHEEL':'CARDS',gameInput=page.locator(`input[name=engine][value="${engine}"]`);
    await activate(round>=2&&!touch?gameInput:gameInput.locator('..'),round>=2&&!touch?round:false);await expectStep(null,`${touch} ${topic} game completes`);
    assert.equal(await page.locator('#practiceStart').isEnabled(),true);
    // Same selected level and same selected game must also advance without change events.
    await activate(page.locator('[data-practice-step=level]>summary'));
-   await activate(page.locator(`input[name=level][value="${level}"]`).locator('..'));await expectStep('game','same level');
+   await activate(page.locator(`input[name=level][value="${level}"]`).locator('..'));await expectStep(null,'same level is ready');await require('./practice-controls.cjs').openStep(page,'game');
    await activate(page.locator(`input[name=engine][value="${engine}"]`).locator('..'));await expectStep(null,'same game');
   }
   await page.close();
  }
- assert.deepEqual(errors,[]);console.log('PASS automatic steps for Er/Zullen/Zouden: changed and repeated topic/level/game, mouse, touch, Space/Enter, no helper opening the expected next step.');
+ assert.deepEqual(errors,[]);console.log('PASS automatic steps for Er/Zullen/Zouden: changed and repeated topic/level/game, mouse, touch, Space/Enter, optional game settings opened explicitly.');
 })().catch(async e=>{console.error(e);if(page&&!page.isClosed()){console.error(await page.locator('#practiceForm').innerText());await page.screenshot({path:path.join(root,'tests/artifacts/practice-advance-failure.png')});}process.exitCode=1}).finally(async()=>{await browser?.close();await new Promise(r=>server.close(r))});
