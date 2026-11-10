@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app-navigation.css",
+    "app-navigation.js",
+    "app.js",
+    "content-ui.js"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-10",
+  "cloudflareVersion": "50ba140a-ac36-477f-bcb8-551e8dc1a409",
+  "reviewScore": 9.2,
+  "checks": {
+    "local": "publication/ACTIEF-KAARTMENU-REVIEW-20261110.json",
+    "live": "24 direct card family/route combinations, 12 lesson family/route combinations, six routes, mobile menu, browser history, exact saved progress, actual desktop/mobile examples",
+    "retryNote": "Several headless Chrome/Chromium starts timed out or closed during loading. Ordinary in-app browser opened successfully. Full level assertions passed in installed Firefox 1572 after waiting for DOMContentLoaded and the application selector instead of the whole load event on navigation/reload. No application assertions were removed. Cause of headless startup timeouts not established; do not claim measured cold-start performance."
+  },
+  "coldStartReview": "Investigate first-load performance separately under a normal browser and slower connection; repeated headless load timeouts remain an environment/performance uncertainty.",
+  "additionalReviewFinding": "Live gesprekkaart uses interpreted/inhoudelijk duidelijke sturing: simplify learner-facing language in a separate source-grounded content review. The current release changes menu behavior and preserves all bank content."
+}

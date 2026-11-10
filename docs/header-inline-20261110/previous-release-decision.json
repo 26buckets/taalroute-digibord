@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "15f0df5be47620daf2554a1d181043d9ced8fd32040c9217983b7f4c575cf24f",
+    "PUBLICATIE.md": "f71c612161f19e09df1f702f77b8bd7a77b06b80d1a502cdd96e0f52c43e2ccb",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "2d5c051b23206cbbf17025b0168c0233b5cd0bf99bf5820cb809fa7ffef82fb6",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "708092cb34277df127d5baa096f7893f908108a5eab0020087271912bf0c8bb9",
-    "publication-freeze.json": "78d93f6f6dfda29e6d31b9bca93bb27275cfe421548f19ff1e4f556f5fe70d12",
+    "publication-freeze.json": "efc18ab19a58ae997ab7da62f41f58a571de324d913dff82698876974a7f31b5",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -180,7 +180,8 @@
     "docs/card-menu-20261109/review.json": "8078467fe582754260d5315c65e56fa55c0d7b2f50a3e23737783b25081f2948",
     "publication/ACTIEF-KAARTMENU-20261110.md": "6d5395de276d6e17971abeda91949d2997bdeb085c5b6a955221fb912412c3fe",
     "docs/card-menu-20261109/level-review.json": "65d6578763545e8b36bb64c1bf8e8c79bac2718fcdf66a200f97a58e7c5969b2",
-    "publication/ACTIEF-KAARTMENU-REVIEW-20261110.json": "d0bd13d5d1062ccb31c88bf0c05409b006b88212cc957cfb7fb3952ee60df8de"
+    "publication/ACTIEF-KAARTMENU-REVIEW-20261110.json": "d0bd13d5d1062ccb31c88bf0c05409b006b88212cc957cfb7fb3952ee60df8de",
+    "publication/ACTIEF-KAARTMENU-LIVE-20261110.json": "cd77317dfb428f4cbee387abde22ad76db0b2f36d4455884b165bcff73779df6"
   },
   "explicitPublicationApproval": "Actuele expliciete vrijgave van Nico voor de getoonde en gecontroleerde kaartmenu- en niveauwijzigingen.",
   "previousDecision": "publication/decision-before-card-menu-20261110.json",
@@ -214,5 +215,10 @@
     "sourceCommit": "9994d9c1f7159af8412b4f7e846b8e54559eb350",
     "liveVersion": "3d480065-6593-49a7-b178-c2170abfd940"
   },
-  "navigationReview": "publication/ACTIEF-KAARTMENU-REVIEW-20261110.json"
+  "navigationReview": "publication/ACTIEF-KAARTMENU-REVIEW-20261110.json",
+  "publishedCardMenu20261110": {
+    "sourceCommit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
+    "liveVersion": "50ba140a-ac36-477f-bcb8-551e8dc1a409",
+    "status": "published-verified-frozen"
+  }
 }

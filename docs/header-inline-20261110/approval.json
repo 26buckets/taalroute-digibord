@@ -4,7 +4,7 @@
   "scope": "Header, button corners and adjusted header tests only. Content, progress, media and release gating unchanged.",
   "files": {
     "index.html": "f1dd932b232737a03a322743f53e88c117d077f389cf7fdade5999b0a6eab4fc",
-    "publication-freeze.json": "89d1d5fec422e32b55e12f51b7256c9ac7780cc5636ba28c839f60dbce84b69f",
+    "publication-freeze.json": "f3a2bda21976786efb2879ebcb62521e7c77d4e7fbe7d99f2928ac761da75e96",
     "settings/index.html": "512c956876a4dca8db6451c95180f26f876e781a5dd44a209eb7f59129fd57fd",
     "taalroute-menu/header-controls.css": "41f2d68d7bd7c5742e66f53d26b888ab6f230f3841e52c8e2e9ebc0e755810c0",
     "taalroute-menu/header-controls.js": "a974cdfc6e3b5e3b6d12db59f1f35672c8ad5f6c4abf9871bd61f04009625258",
@@ -16,5 +16,6 @@
     "tests/header-actions.cjs": "18b57b4aaae9d033e4b7448d672fbf8f69813822728bb86c7f57562160c18858",
     "tests/landing-activities.cjs": "9e80a1ac2a78bf4c95cca8c6139d6fe59e23f7c4ec902e5d1a77be6dba17e6b3",
     "tests/tongbrekers-browser.cjs": "06ade78cdf650ad4728cb58f1ec15107e4ad4103fb4b61f4e190c241f8394455"
-  }
+  },
+  "integratedCanonicalMetadataCommit": "359e58a"
 }

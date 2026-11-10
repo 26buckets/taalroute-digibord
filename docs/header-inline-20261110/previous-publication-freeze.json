@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "frozen": false,
+  "frozen": true,
   "version": "1.25.0",
   "approvedCommit": "e4b6431968a683e9a3d4c7153fed5e91c86e9995",
   "approvedTag": "v1.25.0-approved-20261016",
   "cloudflareDeployment": "184e28ad-34e7-4c57-b9ff-b166de4d0c10",
   "manifest": "publication/frozen-v01.25-release.json",
   "manifestSha256": "6c1c084e370928125c1f3e7271abc7cae979bbf6e635cfa0f69ec5dd28637c7d",
-  "decision": "Nico heeft op 10 november 2026 de gecontroleerde kaartmenu- en niveaubehoudversie expliciet voor livepublicatie vrijgegeven; zie publication/ACTIEF-KAARTMENU-20261110.md.",
+  "decision": "De op 10 november 2026 expliciet vrijgegeven kaartmenu- en niveauversie is lokaal en live gecontroleerd. Opnieuw vastgezet; oorspronkelijke tag en herstelmanifest behouden.",
   "releaseDecision": "publication/header-20261022.json",
-  "headerSourceCommit": "ed839c65811d6ffed9d9ea5468e9b562c737d433",
-  "headerLiveVersion": "f358d828-8c04-4f61-ac7d-48c7d8534ea6",
-  "currentApprovedCommit": "ed839c65811d6ffed9d9ea5468e9b562c737d433",
-  "currentCloudflareDeployment": "f358d828-8c04-4f61-ac7d-48c7d8534ea6",
-  "liveReview": "publication/ACTIEF-UI95-LIVE-20261109.json"
+  "headerSourceCommit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
+  "headerLiveVersion": "50ba140a-ac36-477f-bcb8-551e8dc1a409",
+  "currentApprovedCommit": "268476bed2e2c711eecf16710c2a8925d10dacd6",
+  "currentCloudflareDeployment": "50ba140a-ac36-477f-bcb8-551e8dc1a409",
+  "liveReview": "publication/ACTIEF-KAARTMENU-LIVE-20261110.json"
 }
