@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "ff82d5d4e8a181fa3f0533b97af3d1c3735ed740801cb5f7898f61126f662eb3",
+    "PUBLICATIE.md": "c62be95073c2686b7a89e158d65bc4e32333c11cf27f30f54a7f94af1791eefd",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "f1dd932b232737a03a322743f53e88c117d077f389cf7fdade5999b0a6eab4fc",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "708092cb34277df127d5baa096f7893f908108a5eab0020087271912bf0c8bb9",
-    "publication-freeze.json": "291bb938307d10a4233759b428d35b342118bfbc7c5ce7b69bac6cbb83bdc7c0",
+    "publication-freeze.json": "9d34c012c862a5c79b2f3d021b259b43cf2adefb4ad4bd2c91e9ba9098268097",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -193,7 +193,8 @@
     "tests/settings-review-browser.cjs": "95314d447f1a9d4088b45c61a523a69d24c37bcfcbd7b457ef08e96f6aa5be62",
     "publication/ACTIEF-INSTELLINGEN-20261110.json": "27446745fb9019d64a02e513e96f8f18827e6842ad09e78bb234a6c9f16a076c",
     "settings/settings.css": "dd1f376fb229b060e6c957b7429115f16e59aabde5f1c71b97e96e39abf799ef",
-    "publication/decision-before-instellingen-20261110.json": "f97016c8d471a9753e8a82edca2dfa099911e0b4d254d9967f1a17ab39eb15fa"
+    "publication/decision-before-instellingen-20261110.json": "f97016c8d471a9753e8a82edca2dfa099911e0b4d254d9967f1a17ab39eb15fa",
+    "publication/ACTIEF-INSTELLINGEN-LIVE-20261110.json": "b7d6a9247dffc18345a85136dcee9f0ab54d6536214baea5296ab7a917e88242"
   },
   "explicitPublicationApproval": "Expliciete vrijgave van de gecontroleerde instellingenversie.",
   "previousDecision": "publication/decision-before-instellingen-20261110.json",
@@ -241,6 +242,11 @@
   "publishedEenvoud20261110": {
     "sourceCommit": "d78b885cf9fe631e69a0a4e8d59ac1f51cad6176",
     "liveVersion": "c69a8b3f-f857-474d-85df-54ed3b0819b0",
+    "status": "published-verified-frozen"
+  },
+  "publishedInstellingen20261110": {
+    "sourceCommit": "eb2453337815d58f17ddfd0476c9c250d52cf134",
+    "liveVersion": "e1997c16-c433-4616-8dfa-6c18e6617ea8",
     "status": "published-verified-frozen"
   }
 }

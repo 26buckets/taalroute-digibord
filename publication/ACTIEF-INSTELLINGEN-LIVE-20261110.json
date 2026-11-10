@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "eb2453337815d58f17ddfd0476c9c250d52cf134",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app-navigation.js",
+    "app.js",
+    "settings/index.html",
+    "settings/settings.css",
+    "settings/settings.js"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-10",
+  "cloudflareVersion": "e1997c16-c433-4616-8dfa-6c18e6617ea8",
+  "settingsReview": "publication/ACTIEF-INSTELLINGEN-20261110.json",
+  "productionTests": "Fresh isolated browser: 12 settings sections, 4 widths, real group records including legacy names-only, reversible reset/import, same lesson/session/card and three game entrances. Navigation suite for ten game surfaces.",
+  "teacherTrial": "Uitgesteld."
+}
