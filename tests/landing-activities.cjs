@@ -20,10 +20,10 @@ const {chromium}=require('playwright');
    const sizes=await page.locator('#screen-boards .tile').evaluateAll(es=>es.map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
    assert.ok(Math.abs(sizes[0].width-sizes[1].width)<1&&Math.abs(sizes[0].height-sizes[1].height)<1,'Equal board cards at '+width);
    if(await page.locator('.hdr001-menu').getAttribute('open')===null)await page.locator('.hdr001-menu-trigger').click();
-   for(const selector of ['.beta-label','.mainnav .navitem','#curriculumContext','#levelSelect','.hdr001-fullscreen','#settingsBtn']){
+   for(const selector of ['.product','.mainnav .navitem','#curriculumContext','#levelSelect','.hdr001-fullscreen','#settingsBtn']){
     assert.ok(await page.locator('#appHeader '+selector).evaluateAll(es=>es.every(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.left>=0&&r.right<=innerWidth+1})),selector+' remains visible at '+width);
    }
-   assert.ok(await page.evaluate(()=>document.querySelector('.beta-label').getBoundingClientRect().right<=document.querySelector('.hdr001-controls').getBoundingClientRect().left),'Brand and controls do not overlap at '+width);
+   assert.ok(await page.evaluate(()=>document.querySelector('#appHeader .product').getBoundingClientRect().right<=document.querySelector('.hdr001-controls').getBoundingClientRect().left),'Brand and controls do not overlap at '+width);
    await page.keyboard.press('Escape');assert.equal(await page.locator('.suite-header-controls').getAttribute('open'),null);
    if(output&&[390,1440].includes(width))await page.screenshot({path:output+'/speelborden-'+width+'.png'});
   }

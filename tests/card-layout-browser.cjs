@@ -1,3 +1,4 @@
+const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),path=require('node:path'),fs=require('node:fs');
 const {chromium}=require('playwright');
 (async()=>{const browser=await chromium.launch({channel:'chrome',headless:true});try{
@@ -28,7 +29,7 @@ const {chromium}=require('playwright');
   await page.evaluate(()=>prepareCards('tongue'));await check();
   if(process.env.SCREENSHOT_DIR){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,`card-fit-${width}-${height}.png`)})}
  }
- await page.setViewportSize({width:1440,height:900});await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!!document.fullscreenElement);await check();await page.locator('#primaryGame').click();await check();await page.locator('.hdr001-fullscreen').click();await page.waitForFunction(()=>!document.fullscreenElement);await check();
+ await page.setViewportSize({width:1440,height:900});await headerAction(page, '.hdr001-fullscreen', 'click');await page.waitForFunction(()=>!!document.fullscreenElement);await check();await page.locator('#primaryGame').click();await check();await headerAction(page, '.hdr001-fullscreen', 'click');await page.waitForFunction(()=>!document.fullscreenElement);await check();
  const before=await page.evaluate(()=>structuredClone(APP.cardShuffles));await page.locator('#cardOrderReset').click();await page.locator('#dialogClose').click();assert.deepEqual(await page.evaluate(()=>APP.cardShuffles),before);
  await page.locator('#cardOrderReset').click();await page.locator('#confirmCardOrderReset').click();await check();assert.equal(await page.evaluate(()=>APP.cardShuffles.tongue.position),1);
  assert.deepEqual(errors,[]);console.log('PASS: seven released standalone families and prepared cards remain readable and scroll to the end at eight screen sizes; long tongue twisters, revealed help/answers, compact reset + confirmation, enabled Voorlezen and tempo control, mobile card menu, resize and fullscreen.');

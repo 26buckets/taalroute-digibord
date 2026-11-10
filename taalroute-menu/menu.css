@@ -47,7 +47,7 @@ header :is(.taalroute-beta){font:500 9px/1.2 Arial,sans-serif;letter-spacing:.04
 @media(max-width:760px){header .taalroute-beta{font-size:8px;padding:2px 4px}.taalroute-bar .taalroute-app{font-size:14px!important}.taalroute-bar .taalroute-app>img{display:none}.app-header .product-name{display:inline-flex!important}.app-header .product-divider{display:block!important}}
 @media(max-width:960px){#app:not(:has(#screen-game.active .board-game)){grid-template-rows:60px minmax(0,1fr)}#app:not(:has(#screen-game.active .board-game))>#appHeader{height:60px;grid-template-rows:60px}.teacher-header .teacher-header-inner{padding-block:0}.teacher-header .teacher-brand{min-height:58px}}
 .muz-header{height:60px;padding-block:0;flex-wrap:nowrap}
-@media(max-width:360px){:root{--suite-logo-width:80px;--suite-logo-height:10.0267px;--suite-name-size:12px;--suite-brand-gap:4px;--suite-edge:8px}.taalroute-bar .taalroute-app{font-size:12px!important}}
+@media(max-width:360px){:root{--suite-logo-width:105px;--suite-logo-height:13.16px;--suite-name-size:14px;--suite-brand-gap:4px;--suite-edge:8px}.taalroute-bar .taalroute-app{font-size:14px!important}}
 .teacher-header{padding-inline:0!important}
 .teacher-header .teacher-header-inner{margin-inline:0}
 #appHeader .suite-header-controls{display:contents}
