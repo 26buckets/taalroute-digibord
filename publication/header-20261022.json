@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "9195fc4e2d487d7f7f78ab0987f89060ff3da2648e9554a40fba21c7293ab806",
+    "PUBLICATIE.md": "6b38c8ce5aebb01ae5a75069e8adb01fa678d8ab6c98445af502f2e89898fc48",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "426f32966ca3bf50ea97864fb7692b90a2a8311478ec1fb7ed9c51e63fe8f6fa",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "8e7fef4fb9c5912c34d75c83447b80d175f8394e1ea1dd2494fd7d84c30ebb58",
-    "publication-freeze.json": "75a8326eb974e903f479bc2aec3fe9fdb43ff3f9c532a12811bb5644e1f4641d",
+    "publication-freeze.json": "b156267ec21de48d25d213f5450b97ff18ed2bba255d62111731fb7c1d5c3ac3",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -217,7 +217,8 @@
     "publication/ACTIEF-INSTAP-LIVE-20261111.json": "691112f58f30edbf58a501ab97c3a5a2a54fd45464e2ef2196a7777e90ffd2e8",
     "tests/startup-browser.cjs": "7644d9ea0dd98006d71dbdd71f21ab02ddb1e9e031c17a9393f376f49a46d689",
     "publication/decision-before-startup-20261111.json": "3b0aa284fbc0aa43fbda0c0fa1a04ebdcc85c9a69f305b93354518dd271d2b3c",
-    "publication/ACTIEF-LAADHERSTEL-20261111.json": "a2b958f3ec45c3b00d362a2aeb161e902e5a3019eb63176fd70f6b3eccf1227c"
+    "publication/ACTIEF-LAADHERSTEL-20261111.json": "a2b958f3ec45c3b00d362a2aeb161e902e5a3019eb63176fd70f6b3eccf1227c",
+    "publication/ACTIEF-LAADHERSTEL-LIVE-20261111.json": "b735977f81803de44902721a9c6f9e6b5c0aeb3f205438e08fadf8bd93c4e9f5"
   },
   "explicitPublicationApproval": "Nico geeft expliciet toestemming voor deze gecontroleerde oplossing.",
   "previousDecision": "publication/decision-before-startup-20261111.json",
@@ -290,6 +291,11 @@
   "publishedNovice20261111": {
     "sourceCommit": "ce911e489e2547806643a39150b58dd6520ce457",
     "liveVersion": "261e2836-3aef-44cc-93ba-b318ca684ad3",
+    "status": "published-verified-frozen"
+  },
+  "publishedStartup20261111": {
+    "sourceCommit": "41c295a457a550d7f72578a0622e9e0ee0365dd6",
+    "liveVersion": "8349805f-38c5-4450-be01-2bc019a4b232",
     "status": "published-verified-frozen"
   }
 }

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "41c295a457a550d7f72578a0622e9e0ee0365dd6",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app-navigation.js",
+    "index.html"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "8349805f-38c5-4450-be01-2bc019a4b232",
+  "review": "publication/ACTIEF-LAADHERSTEL-20261111.json",
+  "productionTests": "Twenty public WebKit fresh-context starts, desktop/mobile; controlled fault/recovery in Chromium, Firefox, WebKit; same lesson/card/groups after retry; normal and persistent failures, blocked session storage, no loop, keyboard recovery. Settings/navigation/levels/accessibility retested.",
+  "normalStarts": {
+    "count": 20,
+    "maxMs": 5064,
+    "automaticRetries": 0
+  },
+  "limits": "Original sporadic transport cause not uniquely established. The reproducible no-recovery failure mode is repaired and bounded recovery verified. No completed native Safari/VoiceOver, physical iPhone or teacher trial. 9.5 is a provisional expert judgement, not measured user satisfaction.",
+  "actions": "All heavy checks local. No GitHub Actions runs requested."
+}
