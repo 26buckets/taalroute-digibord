@@ -3,6 +3,8 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Taalroute Actief V01.25</title>
 <style id="startupStyle">
 html[data-app-loading] body>:not(#startupStatus):not(script){visibility:hidden}
+/* Decorative photos must not compete with the files needed to start the lesson. */
+html[data-app-loading] .landing:before,html[data-app-loading] .gamecard .photo{background-image:none!important}
 #startupStatus{position:fixed;inset:0;z-index:99999;display:grid;place-content:center;padding:24px;background:#fff;color:#173752;font:400 20px/1.5 Arial,sans-serif;text-align:center}
 #startupStatus p{max-width:32em;margin:0 0 16px}#startupStatus button{justify-self:center;border:1px solid #b8cddd;border-radius:0;background:#fff;color:#173752;padding:12px 18px;font:inherit;min-height:48px;cursor:pointer}#startupStatus button:focus-visible{outline:3px solid #126ab3;outline-offset:3px}
 @media(prefers-color-scheme:dark){#startupStatus{background:#15202c;color:#eef5fc}#startupStatus button{background:#203244;color:#eef5fc}}
@@ -12,7 +14,8 @@ html[data-app-loading] body>:not(#startupStatus):not(script){visibility:hidden}
  const key='taalroute-actief-startup-retry-v1',windowMs=120000;
  // Show recovery even while a head resource blocks parsing the body.
  const status=document.createElement('div');status.id='startupStatus';status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.innerHTML='<p id="startupMessage">Actief wordt geladen…</p><button type="button" class="smallbtn" aria-describedby="startupMessage" hidden>Opnieuw proberen</button>';document.documentElement.append(status);
- let ended=false,failed=false,timer;
+ let ended=false,failed=false,timer,progress;
+ function watch(){if(!ended){clearTimeout(timer);timer=setTimeout(recover,12000)}}
  function message(text,retry=false){
   const box=document.getElementById('startupStatus');if(!box)return;
   box.querySelector('p').textContent=text;
@@ -21,7 +24,7 @@ html[data-app-loading] body>:not(#startupStatus):not(script){visibility:hidden}
   button.onclick=()=>{try{sessionStorage.removeItem(key)}catch{/* A manual retry also works without storage. */}location.reload()};
  }
  function recover(){
-  if(ended)return;ended=true;clearTimeout(timer);
+  if(ended)return;ended=true;clearTimeout(timer);progress?.disconnect();
   let canRetry=false;
   try{const previous=Number(sessionStorage.getItem(key));if(/^https?:$/.test(location.protocol)&&(!previous||Date.now()-previous>windowMs)){sessionStorage.setItem(key,String(Date.now()));canRetry=true}}catch{/* Do not loop when the retry limit cannot be stored. */}
   if(canRetry){message('Het laden duurt te lang. Actief probeert het nog een keer.');window.stop();setTimeout(()=>location.reload(),100)}
@@ -30,14 +33,16 @@ html[data-app-loading] body>:not(#startupStatus):not(script){visibility:hidden}
  function ready(){
   if(ended)return;
   if(failed||!window.AppNavigation||!window.ContentUI||!window.ContentRuntime){recover();return}
-  ended=true;clearTimeout(timer);window.removeEventListener('error',loadError,true);
+  ended=true;clearTimeout(timer);progress?.disconnect();window.removeEventListener('error',loadError,true);
   document.documentElement.removeAttribute('data-app-loading');document.getElementById('startupStatus')?.remove();document.getElementById('startupStyle')?.remove();
   try{sessionStorage.removeItem(key)}catch{/* Loading must work without session storage. */}
  }
  function loadError(event){if(event.target?.tagName==='SCRIPT'||event.target?.tagName==='LINK'&&event.target.rel==='stylesheet'||event.target===window)failed=true}
  window.addEventListener('error',loadError,true);
  document.addEventListener('DOMContentLoaded',()=>Promise.resolve(window.AppNavigation?.ready).then(ready,()=>{failed=true;recover()}),{once:true});
- timer=setTimeout(recover,12000);
+ // A working slow connection is not a stalled download.
+ try{progress=new PerformanceObserver(list=>{if(list.getEntries().some(entry=>['script','link'].includes(entry.initiatorType)))watch()});progress.observe({type:'resource',buffered:true})}catch{/* Keep the bounded fallback when resource timing is unavailable. */}
+ watch();
 })();
 </script>
 <script src="taalroute-menu/appearance.js?v=menu-uniform-20261024" data-preference-key="taalroute-actief-appearance-v1"></script>
@@ -130,8 +135,8 @@ html[data-app-loading] body>:not(#startupStatus):not(script){visibility:hidden}
         <div><strong>Verder waar je was</strong><small id="resumeText">Taalworp – Werkwoorden – A2</small></div>
         <div class="chev"><svg class="chev-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div>
       </button>
-      <a class="landing-shortcut shortcut-oppad" href="https://oppad.taalroute.nl" target="_blank" rel="noopener noreferrer" aria-label="Taalroute Op Pad (opent in een nieuw tabblad)"><img src="assets/landing/taalroute-oppad-app.png" width="52" height="52" alt=""><span><strong>Taalroute Op Pad</strong><small>Taal oefenen onderweg</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
-      <a class="landing-shortcut shortcut-missies" href="https://missies.taalroute.nl" target="_blank" rel="noopener noreferrer" aria-label="Taalroute Missies (opent in een nieuw tabblad)"><img src="assets/landing/taalroute-missies-app.png" width="52" height="52" alt=""><span><strong>Taalroute Missies</strong><small>Ga op avontuur · A2, B1 en B2</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+      <a class="landing-shortcut shortcut-oppad" href="https://oppad.taalroute.nl" target="_blank" rel="noopener noreferrer" aria-label="Taalroute Op Pad (opent in een nieuw tabblad)"><img loading="lazy" decoding="async" src="assets/landing/taalroute-oppad-app.png" width="52" height="52" alt=""><span><strong>Taalroute Op Pad</strong><small>Taal oefenen onderweg</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
+      <a class="landing-shortcut shortcut-missies" href="https://missies.taalroute.nl" target="_blank" rel="noopener noreferrer" aria-label="Taalroute Missies (opent in een nieuw tabblad)"><img loading="lazy" decoding="async" src="assets/landing/taalroute-missies-app.png" width="52" height="52" alt=""><span><strong>Taalroute Missies</strong><small>Ga op avontuur · A2, B1 en B2</small></span><span class="shortcut-arrow" aria-hidden="true">↗</span></a>
 
     </div>
 

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Onderzoek nu ook de echte oorzaak van die sporadische laadstilstand. Ik wil dat het gewoon goed laadt. Doe dat zonder mijn bediening, behoud de les en groepsgegevens en zet een gecontroleerde oplossing live.",
+  "previousMain": "3a4679bbc056dcea2ac9d78fedf6da4c4c2232eb",
+  "previousLiveCommit": "41c295a457a550d7f72578a0622e9e0ee0365dd6",
+  "scope": [
+    "index.html",
+    "new-activities.js",
+    "tests/startup-browser.cjs"
+  ],
+  "findings": [
+    "48 unmodified public WebKit starts, 24 fresh contexts and 24 reused-context starts: no original spontaneous failure reproduced.",
+    "Eight hidden legacy activity photos were eagerly requested despite current release routing to ContentUI: 16,977,807 bytes. Landing backgrounds also competed with required startup files.",
+    "A fixed 12-second total timeout interrupted legitimately progressing downloads. Controlled 80 ms latency / 8 Mbit/s before: restart, 25.553 s; 4 Mbit/s before: persistent recovery error.",
+    "Identical controlled request interception and throughput after: 8/4/2 Mbit/s load without restart (6.820/11.719/21.518 s).",
+    "Test-browser network-process IPC fault reports found, but timestamp correlation does not establish them as cause of original incidents."
+  ],
+  "changes": [
+    "Observe completion of required script/link resources; use 12 seconds without that progress, preserving bounded recovery and cleanup.",
+    "Defer decorative landing backgrounds until app and restored lesson are ready.",
+    "Use native lazy image loading for hidden legacy activity photos and small landing shortcuts; original assets unchanged.",
+    "Keep existing settings iframe initialization, defaults, lesson/group storage, routes and presentation."
+  ],
+  "verification": "Eleven local regression suites, complete build/content contract, startup and retained-state fault tests in Chromium/WebKit/Firefox including progressing startup beyond 14 seconds; actual desktop/mobile views.",
+  "limits": [
+    "Original random WebKit incident not uniquely attributed; no claim that every browser/network stall is fixed.",
+    "Resource timing observes completed resources, not individual bytes inside one long response.",
+    "No native Safari/VoiceOver, physical iPhone or teacher trial. No measured teacher score."
+  ]
+}

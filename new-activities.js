@@ -252,7 +252,7 @@ window.DigiActivities = (() => {
  // Navigation stays on goScreen/startCards; content is never copied into tile definitions.
  const assets=['DRAAIWIEL','MEMORY','KOPPELEN','SORTEREN','RANGSCHIKKEN','CATEGORIEENQUIZ','RAAD_HET_WOORD','MEER_ACTIVITEITEN'];
  const tiles=[...content.games.map(([id,title])=>({id,title})),{id:'library',title:'Meer activiteiten'}];
- $('#workformDecks').innerHTML=tiles.map((t,i)=>`<button type="button" class="activity-tile" ${t.id==='library'?'data-activities-library':`data-activity="${t.id}"`}><span class="photo-frame"><img src="assets/activities/DIGIBORD_ACT_${assets[i]}_VOLWASSEN_FINAL_${i===5?'v02':'v01'}.png" alt="" width="1536" height="1024"></span><strong>${esc(t.title)}</strong></button>`).join('');
+ $('#workformDecks').innerHTML=tiles.map((t,i)=>`<button type="button" class="activity-tile" ${t.id==='library'?'data-activities-library':`data-activity="${t.id}"`}><span class="photo-frame"><img loading="lazy" decoding="async" src="assets/activities/DIGIBORD_ACT_${assets[i]}_VOLWASSEN_FINAL_${i===5?'v02':'v01'}.png" alt="" width="1536" height="1024"></span><strong>${esc(t.title)}</strong></button>`).join('');
  const entry=(attr,id,title,icon)=>`<button type="button" class="smallbtn" ${attr}="${esc(id)}">${gameIcon(icon)}<span>${esc(title)}</span></button>`;
  const group=(title,body)=>`<section class="activity-library-group"><h2>${esc(title)}</h2><div class="activity-library-grid">${body}</div></section>`;
  $('#activityLibrary').innerHTML=[
