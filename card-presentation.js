@@ -34,7 +34,7 @@
   ['Dit is de onderwerpregel van een e-mail:',['Vraag aan de klanten service.'],['Verbeter de spelling in de onderwerpregel.','Stel daarna één korte vraag over een bestelling. Je mag die zelf bedenken.']],
   ['Je vult een contactformulier in.',['e-mailadres','emailadres','e mailadres'],['Kies de juiste schrijfwijze.','Vraag je partner waar je een bericht naartoe kunt mailen. Die mag een adres bedenken.']],
   ['Je bedoelt één klein of kort sms-bericht.',['sms → een …'],['Maak het verkleinwoord van sms.','Gebruik het in een korte zin.']],
-  ['Bij een balie vraagt iemand om één klein vel papier van A4-formaat.',['A4’tje','A4-tje'],['Welke schrijfwijze is goed?','Leg uit waarom je hier een apostrof gebruikt.']],
+  ['Bij een balie vraagt iemand om één klein vel papier van A4-formaat.',['A4’tje','A4-tje'],['Welke schrijfwijze is goed?','Waarom kies je die vorm?']],
   ['Je bedoelt een bestand dat je als reservekopie bewaart.',['back-upbestand','backup bestand','back upbestand'],['Kies de juiste schrijfwijze.','Schrijf één korte instructie voor een collega.']],
   ['Je controleert een factuur.',['Ik heb te veel betaald.','Het teveel aan verzendkosten wordt terugbetaald.'],['Leg uit waarom te veel en teveel hier verschillend worden geschreven.','Maak met elke vorm een nieuwe zin.']],
   ['Je schrijft een instructie over een bestand in pdf-formaat.',['pdf-bestand','PDF bestand','pdf bestand'],['Kies de juiste schrijfwijze.','Maak een korte zin waarin je iemand vraagt het bestand mee te sturen.']],
@@ -52,7 +52,7 @@
   ["Op een kaart staat:",["Ik pakt een boek."],["Verbeter het onderstreepte woord.","Zeg de goede zin."],"pakt"],
   ["Je vertelt over morgen.",["Morgen werk ik.","Morgen werkt ik."],["Kies de goede zin en lees hem hardop.","Vertel ook wanneer jij werkt of oefent."]],
   ["Het is warm in het lokaal.",["Jij … het raam open.","doet / doen"],["Kies het woord dat op de lege plek past.","Vraag je partner om het raam open te doen."]],
-  ["Je vertelt nu over twee mensen: jij en iemand anders.",["Ik eet om twaalf uur."],["Begin de zin met ‘Wij’ en pas het werkwoord aan.","Vertel hoe laat jullie eten."]],
+  ["Je vertelt nu over twee mensen: jij en iemand anders.",["Ik eet om twaalf uur."],["Begin de zin met ‘Wij’ en pas het werkwoord aan.","Vertel daarna hoe laat jullie pauze hebben."]],
   ["Je bezoek is voorbij.",["Gisteren ben / was ik bij mijn buurvrouw."],["Kies ‘ben’ of ‘was’.","Bedenk wat je tijdens het bezoek hebt gedaan. Vertel één ding."]],
   ["Je beschrijft je ochtend.",["Ik … om zeven uur … .","sta / op"],["Vul beide woorden op de juiste plek in.","Vraag hoe laat je partner opstaat."]],
   ["Je hebt gisteren een afspraak geregeld.",["Ik heb een afspraak maken."],["Verbeter het onderstreepte woord.","Waarover gaat de afspraak? Vertel het."],"maken"],
@@ -97,7 +97,7 @@
  const verbById=new Map((source?.cards||[]).filter(c=>c.family==='verbs').map((c,i)=>[c.id,verbs[i]]));
  const spellingCards=(source?.cards||[]).filter(c=>c.family==='spelling');
  const spellingById=new Map(spellingCards.map((c,i)=>[c.id,spelling[i]]));
- const verbTitles={'TR-VERBS-P001-001-R0':'In de pauze','TR-VERBS-P001-002-R0':'Bij de bushalte','TR-VERBS-P001-009-R2':'Een afspraak regelen','TR-VERBS-P001-016-R4':'Een bericht van een collega','TR-VERBS-P002-001-R0':'Bij een kennismaking','TR-VERBS-P002-002-R0':'Vragen naar werk','TR-VERBS-P002-003-R1':'De terugbelafspraak','TR-VERBS-P002-005-R2':'Een ander moment afspreken','TR-VERBS-P002-006-R2':'Langer werken','TR-VERBS-P002-007-R2':'Een andere dag','TR-VERBS-P002-008-R3':'Een nieuwe tijd afspreken'};
+ const verbTitles={'TR-VERBS-P001-006-R1':'Samen in de pauze','TR-VERBS-P001-001-R0':'In de pauze','TR-VERBS-P001-002-R0':'Bij de bushalte','TR-VERBS-P001-009-R2':'Een afspraak regelen','TR-VERBS-P001-016-R4':'Een bericht van een collega','TR-VERBS-P002-001-R0':'Bij een kennismaking','TR-VERBS-P002-002-R0':'Vragen naar werk','TR-VERBS-P002-003-R1':'De terugbelafspraak','TR-VERBS-P002-005-R2':'Een ander moment afspreken','TR-VERBS-P002-006-R2':'Langer werken','TR-VERBS-P002-007-R2':'Een andere dag','TR-VERBS-P002-008-R3':'Een nieuwe tijd afspreken'};
  const spellingTitles=['Wat neem je mee?','In het lokaal','Een warme drank','Met de trein','Winterweer','In de tuin','De route naar huis','Een klein boek','Om negen uur','Lange en korte klinkers','Een aanvraag indienen','Een bevestiging per mail','Welkom bij ons','Meer dan één afbeelding','Ten slotte of tenslotte','Het materiaal dat er ligt','Een verwachting','Trema in een publieksfolder','Zover of zo ver','Afkortingen in een publieksbericht','Op het formulier','Op de envelop','Een bericht voor morgen','Wanneer kun je?','Later aankomen','Afbeeldingen meesturen','Een vraag over je bestelling','Een contactformulier','Een kort bericht','Een klein vel papier','Een reservekopie bewaren','Te veel of een teveel','Een bestand meesturen','Wie organiseert het?','Niet-roker of niet roken','Een bestand openen','Oud-collega of oude collega','Woorden in een beleidsnotitie','Een digitale handleiding redigeren','Niet alles hoeft gecorrigeerd'];
  function standalone(card){
   const original=originals.get(card.id),row=spellingById.get(card.id)||verbById.get(card.id)||otherCards[card.id];

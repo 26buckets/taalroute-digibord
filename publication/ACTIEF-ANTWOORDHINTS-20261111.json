@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Voer die vijf verbeterpunten door in de hele app. Behoud de grote kaarten, lopende les en groepsgegevens. Controleer daarna opnieuw, laat echte voorbeelden zien op desktop en mobiel en zet de gecontroleerde versie direct live.",
+  "previousMain": "6915576cc457ab427b0f67a407ede7e3bcded8d2",
+  "previousLiveCommit": "722365b46d0e836fe6aa556412bc81210f03066c",
+  "scope": [
+    "card-presentation.js",
+    "tests/card-presentation.cjs"
+  ],
+  "changes": [
+    "De A4-opdracht noemt vooraf de apostrof niet meer.",
+    "De opdracht over Wij geeft de werkwoordsvorm niet meer weg in de titel of vervolgzin."
+  ],
+  "reviewRounds": [
+    "Beide gevonden bij visuele eindcontrole. Gerichte regressiecontrole voor beide opdrachten geslaagd."
+  ],
+  "verification": [
+    "Full local unit/content/build contract",
+    "All 610 active standalone cards at four widths; 90 rebuses at three widths",
+    "7200 grammar projections (1440 tasks x five engines) checked in three complete shards",
+    "Navigation/settings/levels/accessibility/new-teacher flows; 18 route/family combinations",
+    "Mouse and keyboard scroll at 390x620; actual screenshots 320/390/1024/1440"
+  ],
+  "preservation": "No bank, media, audio, storage schema, worker or migration changes. Isolated test data only.",
+  "limits": [
+    "No new teacher trial, native Safari, VoiceOver or physical iPhone test.",
+    "Automated structural/content checks are not a new semantic review of every task.",
+    "No measured 9.5 teacher score is claimed."
+  ],
+  "previousReview": "publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json"
+}
