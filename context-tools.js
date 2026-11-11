@@ -7,10 +7,12 @@ function contextTools(prefix, options={}) {
   ['Partner','people','Voor de gesprekspartner','Bekijk hoe je meedoet, luistert en reageert.'],
   ['More','more','Meer','Vervolg, verdieping en extra mogelijkheden bij deze opdracht.']
  ];
- return `<div class="card-tools context-tools" role="group" aria-label="Bij deze opdracht">${definitions.map(([key,icon,label,description])=>{
+ const controls=definitions.map(([key,icon,label,description])=>{
   const o=options[key]||{},id=o.id||prefix+key,disabled=!!o.disabled,visibleLabel=o.label||({Goals:'Leerdoel',Partner:'Rol partner',More:'Extra uitleg'}[key]||label);
   return `<span class="context-tool" ${disabled?`tabindex="0" aria-label="${esc(visibleLabel)}"`:''} data-tip-label="${esc(o.label||label)}" data-tip="${esc(o.tip||description)}"><button type="button" class="smallbtn" id="${esc(id)}" aria-label="${esc(visibleLabel)}" ${o.controls?`aria-expanded="false" aria-controls="${esc(o.controls)}"`:'aria-haspopup="dialog"'} ${disabled?'disabled':''}>${gameIcon(icon)}<span class="context-label">${esc(visibleLabel)}</span>${o.count?`<span class="context-count" aria-hidden="true">${esc(o.count)}</span>`:''}</button></span>`;
- }).join('')}</div>`;
+ });
+ const compact=prefix==='card',helpers=controls.filter((_,i)=>i!==1).join('');
+ return `<div class="card-tools context-tools" role="group" aria-label="Bij deze opdracht">${compact?controls[1]+`<div class="card-teacher-tools"><button type="button" class="smallbtn card-teacher-toggle" aria-expanded="false" aria-controls="cardTeacherPanel">Docenthulp</button><div id="cardTeacherPanel" class="card-teacher-panel">${helpers}</div></div>`:controls.join('')}</div>`;
 }
 function unlockContextTool(id) {
  const button=document.getElementById(id);button.disabled=false;
@@ -39,4 +41,12 @@ function installContextTooltips() {
  document.addEventListener('pointerup',e=>{if(e.pointerType==='touch'){const tool=e.target.closest('.context-tool:has(button:disabled)');if(tool)show(tool)}});
  document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
  document.addEventListener('scroll',hide,true);window.addEventListener('resize',hide);
+}
+
+// Keep the same controls and focus targets when the mobile help panel opens.
+function closeTeacherTools(panel){panel.removeAttribute('data-open');panel.querySelector('.card-teacher-toggle').setAttribute('aria-expanded','false')}
+if(typeof document!=='undefined'){
+document.addEventListener('click',event=>{const button=event.target.closest?.('.card-teacher-toggle');if(button){const panel=button.parentElement,open=!panel.hasAttribute('data-open');panel.toggleAttribute('data-open',open);button.setAttribute('aria-expanded',String(open))}});
+matchMedia('(min-width:601px)').addEventListener('change',event=>{document.querySelectorAll('.card-teacher-tools').forEach(panel=>{if(!event.matches&&panel.contains(document.activeElement))panel.querySelector('.card-teacher-toggle').focus();closeTeacherTools(panel)})});
+document.addEventListener('keydown',event=>{const panel=event.target.closest?.('.card-teacher-tools');if(event.key==='Escape'&&panel&&matchMedia('(max-width:600px)').matches){closeTeacherTools(panel);panel.querySelector('.card-teacher-toggle').focus()}});
 }

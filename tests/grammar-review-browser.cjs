@@ -14,7 +14,7 @@ let browser,page;
  await freshPage();await headerAction(page, '[data-main=practice]', 'click');
  await require('./practice-controls.cjs').level(page,'B2');assert.equal(await page.locator('[name=subtopic] option').filter({hasText:/^Verwijzen met er$/}).count(),1);
  assert.equal(await page.evaluate(()=>ContentRuntime.filterSource({bank_ids:['CB-GRAM-001'],levels:['B2']}).every(i=>ContentGuidance.mapping(i,'erk'))),true);
- const dir=path.join(root,'tests/artifacts/grammar-review');fs.mkdirSync(dir,{recursive:true});
+ const dir=process.env.GRAMMAR_OUTPUT||path.join(root,'tests/artifacts/grammar-review');fs.mkdirSync(dir,{recursive:true});
  async function launch(engine,id='ER_B2_099'){await page.evaluate(({engine,id})=>{
   ContentUI.clearEditing();APP.fixedRoll=1;settingsPatch({reducedMotion:true});
   const item=ContentRuntime.itemById(id);

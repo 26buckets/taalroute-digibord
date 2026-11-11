@@ -6,16 +6,16 @@
  // [Situation, separate reading material, steps] keeps the retained task and answer intact.
  const spelling=[
   ['Je neemt iets mee.',['tas','taas'],['Wijs het juiste woord aan.','Zeg: Dit is mijn …']],
-  ['Je kijkt naar het raam in het lokaal.',['r…m'],['Vul één of twee a’s in.','Zeg het woord hardop.']],
+  ['Je kijkt vanuit het lokaal naar buiten.',['r…m'],['Vul één of twee a’s in.','Zeg het woord hardop.']],
   ['Op een kaartje staat:',['Een kop kofee.'],['Verbeter het woord kofee.','De docent mag het woord eerst voorlezen.']],
-  ['Je gaat met de trein.',['reis','rijs'],['Kies het woord voor je tocht.','Bedenk waar je naartoe reist. Vertel het.']],
+  ['Je gaat met de trein.',['reis','rijs'],['Kies het woord voor je tocht.','Bedenk waar je naartoe gaat. Vertel het.']],
   ['Het is winter.',['Het is k…d.'],['Vul au of ou in.','Vertel wat je aantrekt.']],
   ['Op een briefje over de tuin staat:',['We planten twee boomen.'],['Verbeter het woord boomen.']],
   ['Je beschrijft een route.',['Je loopt langs het …','station','stasion'],['Kies het juiste woord.','Geef daarna nog een stap van de route.']],
-  ['Je krijgt een klein boek.',['boek…','je','tje'],['Maak het verkleinwoord. Kies je of tje.','Bedenk waarvoor je het boekje gebruikt. Vertel het.']],
+  ['Je krijgt een klein boek.',['boek…','je','tje'],['Maak het verkleinwoord. Kies je of tje.','Waarvoor gebruik je een klein boek? Vertel het.']],
   ['In een bericht staat:',['De les begind om negen uur.'],['Verbeter de spelling van begind.','Houd het onderwerp en de tijd hetzelfde.']],
   ['', ['bomen','ramen','katten','pennen'],['Maak twee groepen: woorden met één medeklinker in het midden en woorden met twee dezelfde medeklinkers in het midden.','Lees de woorden in elke groep voor.']],
-  ['Je maakt een titel voor een formulier.',['aanvraagformulier','aanvraag formulier'],['Kies de juiste schrijfwijze.','Leg uit waarvoor je een aanvraagformulier gebruikt.']],
+  ['Je maakt een titel voor een formulier.',['aanvraagformulier','aanvraag formulier'],['Kies de juiste schrijfwijze.','Leg uit waarvoor je dit formulier gebruikt.']],
   ['Je hebt de bevestiging al verstuurd.',['Ik heb de bevestiging ge…','Werkwoord: mailen'],['Vul de hele werkwoordsvorm in.']],
   ['De school houdt een informatieavond voor nieuwe cursisten. Op de uitnodiging staat:',['U bent van harte welkom op onze informatie avond.'],['Verbeter de spelling van informatie avond.','Leg uit voor wie de avond is.']],
   ['In de eerste versie van een verslag staat één foto. In de tweede versie staan er twee.',['foto → twee …'],['Maak het meervoud van foto.','Leg uit waarom het teken nodig is.']],
@@ -25,14 +25,14 @@
   ['In een folder staan twee woorden. Het gaat om een vervallen gebouw en een bijeenkomst van mensen die elkaar terugzien.',['ruine','reunie'],['Verbeter beide woorden.','Leg uit hoe het trema helpt bij het lezen.']],
   ['Je controleert drie zinnen voor een publieksbericht.',['A. Voor zover bekend is er geen schade.','B. De ingang ligt zo ver weg dat een bordje nodig is.','C. Ik wist niet dat het al zover was.'],['Leg de spelling van zover en zo ver in A en B uit.','Leg uit wat zover in C kan betekenen.']],
   ['In een vacature staat:',['We bieden een EU stage en vragen later een BTW nummer.'],['Verbeter de spelling.','Leg uit wanneer je een afkorting voor de lezer uitschrijft.']],
-  ['Je vult een bezorgformulier in.',['adres','adress'],['Kies het juiste woord.','Zeg: Mijn adres is … Je mag een straatnaam en huisnummer bedenken.']],
-  ['Je schrijft een adres op een envelop.',['str…t'],['Vul de ontbrekende letters in. Het woord is straat.','Noem daarna een straatnaam. Je mag die zelf bedenken.']],
+  ['Je vult een bezorgformulier in.',['adres','adress'],['Kies het juiste woord.','Noem daarna een straatnaam en huisnummer. Je mag die zelf bedenken.']],
+  ['Je schrijft een adres op een envelop.',['str…t'],['Vul de ontbrekende letters in.','Noem daarna de naam van een weg. Je mag die zelf bedenken.']],
   ['Je stuurt je buurvrouw een bericht.',['Morgen ben ik thuus.'],['Verbeter één woord.','Lees het hele bericht hardop.']],
-  ['Je geeft aan wanneer je kunt.',['in het weekend','in het week end'],['Kies de juiste schrijfwijze.','Vertel wanneer je in het weekend kunt.']],
+  ['Je geeft aan wanneer je kunt.',['in het weekend','in het week end'],['Kies de juiste schrijfwijze.','Vertel op welke dag je kunt.']],
   ['Je stuurt een bericht over een afspraak.',['Ik ben te laat.','Ik ben telaat.'],['Kies de juiste spelling.','Maak een kort bericht. Vertel hoeveel minuten later je komt. Je mag het aantal zelf kiezen.']],
   ['Je stuurt een e-mail met twee afbeeldingen.',['foto → twee …','Ik stuur twee … mee.'],['Maak het meervoud van foto.','Maak de zin af.']],
   ['Dit is de onderwerpregel van een e-mail:',['Vraag aan de klanten service.'],['Verbeter de spelling in de onderwerpregel.','Stel daarna één korte vraag over een bestelling. Je mag die zelf bedenken.']],
-  ['Je vult een contactformulier in.',['e-mailadres','emailadres','e mailadres'],['Kies de juiste schrijfwijze.','Vraag je partner om een e-mailadres. Die mag een adres bedenken.']],
+  ['Je vult een contactformulier in.',['e-mailadres','emailadres','e mailadres'],['Kies de juiste schrijfwijze.','Vraag je partner waar je een bericht naartoe kunt mailen. Die mag een adres bedenken.']],
   ['Je bedoelt één klein of kort sms-bericht.',['sms → een …'],['Maak het verkleinwoord van sms.','Gebruik het in een korte zin.']],
   ['Bij een balie vraagt iemand om één klein vel papier van A4-formaat.',['A4’tje','A4-tje'],['Welke schrijfwijze is goed?','Leg uit waarom je hier een apostrof gebruikt.']],
   ['Je bedoelt een bestand dat je als reservekopie bewaart.',['back-upbestand','backup bestand','back upbestand'],['Kies de juiste schrijfwijze.','Schrijf één korte instructie voor een collega.']],
@@ -40,7 +40,7 @@
   ['Je schrijft een instructie over een bestand in pdf-formaat.',['pdf-bestand','PDF bestand','pdf bestand'],['Kies de juiste schrijfwijze.','Maak een korte zin waarin je iemand vraagt het bestand mee te sturen.']],
   ['In een projectmail ontbreekt een trema.',['coordinator'],['Schrijf het woord met het trema.','Leg uit wat het trema duidelijk maakt over de uitspraak.']],
   ['Een buurthuis gebruikt deze twee teksten:',['Alleen voor niet-rokers.','Hier niet roken.'],['Vergelijk niet-rokers en niet roken. Leg het verschil uit.','Maak met elke vorm een nieuwe zin.']],
-  ['In een handleiding staat:',['Open het gedownloadde bestand.'],['Verbeter de spelling van gedownloadde.','Leg uit waarom je in de juiste vorm één d voor de uitgang schrijft.']],
+  ['In een handleiding staat:',['Open het gedownloadde bestand.'],['Verbeter de spelling van gedownloadde.','Leg uit hoe je de juiste vorm schrijft.']],
   ['Je bedoelt iemand met wie je vroeger werkte.',['oud-collega','oude collega'],['Kies de vorm die daarbij past.','Leg uit wat de andere vorm kan betekenen.']],
   ['Je controleert drie woordgroepen in een beleidsnotitie.',['niet lid','niet-roker','nog niet ingeschreven deelnemer'],['Verbeter de spelling waar dat nodig is. Bij niet lid gaat het om een zelfstandig naamwoord.','Leg per woordgroep uit waarom je wel of geen koppelteken gebruikt.']],
   ['Je controleert deze instructie:',['Mail het PDF bestand naar het emailadres en bewaar ook een backupbestand.'],['Verbeter alleen de spelling en de leestekens waar dat nodig is.','Houd de inhoud en de volgorde gelijk.','Leg twee van je keuzes uit aan een collega.']],
@@ -55,7 +55,7 @@
   ["Je vertelt nu over twee mensen: jij en iemand anders.",["Ik eet om twaalf uur."],["Begin de zin met ‘Wij’ en pas het werkwoord aan.","Vertel hoe laat jullie eten."]],
   ["Je bezoek is voorbij.",["Gisteren ben / was ik bij mijn buurvrouw."],["Kies ‘ben’ of ‘was’.","Bedenk wat je tijdens het bezoek hebt gedaan. Vertel één ding."]],
   ["Je beschrijft je ochtend.",["Ik … om zeven uur … .","sta / op"],["Vul beide woorden op de juiste plek in.","Vraag hoe laat je partner opstaat."]],
-  ["Je hebt gisteren een afspraak geregeld.",["Ik heb een afspraak maken."],["Verbeter het onderstreepte woord.","Bedenk waarvoor je de afspraak hebt gemaakt. Vertel het."],"maken"],
+  ["Je hebt gisteren een afspraak geregeld.",["Ik heb een afspraak maken."],["Verbeter het onderstreepte woord.","Waarover gaat de afspraak? Vertel het."],"maken"],
   ["Je wilt weten of iemand morgen kan helpen.",["Je kunt morgen helpen."],["Maak van deze zin een vraag.","Vraag daarna op welk tijdstip het kan."]],
   ["Je komt op het perron. De trein reed twee minuten geleden weg.",["De trein heeft vertrokken.","De trein is vertrokken."],["Kies de goede zin.","Leg je partner uit waarom je wacht."]],
   ["Je meldt jezelf aan voor een workshop.",["Ik heb … gisteren aangemeld."],["Vul het woord in dat naar jezelf verwijst.","Bedenk hoe je je hebt aangemeld. Vertel het."]],
@@ -97,12 +97,14 @@
  const verbById=new Map((source?.cards||[]).filter(c=>c.family==='verbs').map((c,i)=>[c.id,verbs[i]]));
  const spellingCards=(source?.cards||[]).filter(c=>c.family==='spelling');
  const spellingById=new Map(spellingCards.map((c,i)=>[c.id,spelling[i]]));
+ const verbTitles={'TR-VERBS-P001-001-R0':'In de pauze','TR-VERBS-P001-002-R0':'Bij de bushalte','TR-VERBS-P001-009-R2':'Een afspraak regelen','TR-VERBS-P001-016-R4':'Een bericht van een collega','TR-VERBS-P002-001-R0':'Bij een kennismaking','TR-VERBS-P002-002-R0':'Vragen naar werk','TR-VERBS-P002-003-R1':'De terugbelafspraak','TR-VERBS-P002-005-R2':'Een ander moment afspreken','TR-VERBS-P002-006-R2':'Langer werken','TR-VERBS-P002-007-R2':'Een andere dag','TR-VERBS-P002-008-R3':'Een nieuwe tijd afspreken'};
+ const spellingTitles=['Wat neem je mee?','In het lokaal','Een warme drank','Met de trein','Winterweer','In de tuin','De route naar huis','Een klein boek','Om negen uur','Lange en korte klinkers','Een aanvraag indienen','Een bevestiging per mail','Welkom bij ons','Meer dan één afbeelding','Ten slotte of tenslotte','Het materiaal dat er ligt','Een verwachting','Trema in een publieksfolder','Zover of zo ver','Afkortingen in een publieksbericht','Op het formulier','Op de envelop','Een bericht voor morgen','Wanneer kun je?','Later aankomen','Afbeeldingen meesturen','Een vraag over je bestelling','Een contactformulier','Een kort bericht','Een klein vel papier','Een reservekopie bewaren','Te veel of een teveel','Een bestand meesturen','Wie organiseert het?','Niet-roker of niet roken','Een bestand openen','Oud-collega of oude collega','Woorden in een beleidsnotitie','Een digitale handleiding redigeren','Niet alles hoeft gecorrigeerd'];
  function standalone(card){
   const original=originals.get(card.id),row=spellingById.get(card.id)||verbById.get(card.id)||otherCards[card.id];
   if(source?.version!=='2026-10-04.e1.r25.1'||!original||original.version!==card.version||original.situation!==card.situation||original.instruction!==card.instruction)return null;
   if(card.id==='TR-PUZZLES-P002-008-R3')return {situation:'',stimuli:['Ik zette de fiets naast de scooter. Die was kapot.'],steps:['Welk voertuig kan ‘Die’ zijn: de fiets of de scooter?','Kies één voertuig. Schrijf de tweede zin opnieuw en noem daarin dat voertuig.'],title:card.title,target:'Die'};
   if(!row)return null;
-  return {situation:row[0],stimuli:row[1],steps:row[2],target:row[3]||null,title:card.id==='TR-PUZZLES-P001-020-R6'?'Een woord in een woord':card.id==='TR-SPELLING-P002-010-R3'?'Een klein vel papier':card.title};
+  return {situation:row[0],stimuli:row[1],steps:row[2],target:row[3]||null,title:verbTitles[card.id]||(spellingById.has(card.id)?spellingTitles[spellingCards.findIndex(c=>c.id===card.id)]:card.id==='TR-PUZZLES-P001-020-R6'?'Een woord in een woord':card.id==='TR-SPELLING-P002-010-R3'?'Een klein vel papier':card.title)};
  }
  const action=/^(?:Vraag|Kies|Zeg|Vertel|Leg|Bespreek|Vergelijk|Maak|Noem|Wijs|Lees|Schrijf|Reageer|Controleer|Gebruik|Geef|Laat|Stel|Vat|Speel|Bekijk|Los|Herschrijf|Onderzoek|Voorspel|Zet|Benoem|Bedenk|Herhaal|Erken|Breng|Herstel|Regel|Verhelder|Beoordeel|Luister|Verbeter|Vul|Verander|Begin|Orden|Formuleer|Weeg|Houd|Verwerk|Bepaal|Vervang|Voeg|Ontleed|Koppel|Bouw|Combineer|Sorteer|Beschrijf|Bied|Beloof|Bestel|Nodig|Bedank|Spreek|Licht|Meld|Kijk|Waarnaar|Waaraan|Doe|Vermijd|In welke|Bij welke|Met welke|Welke|Welk|Wat|Hoe|Waarom|Wanneer|Waar|Wie|Is|Zijn|Kan|Kun)\b/iu;
  function sentences(text){return [...new Intl.Segmenter('nl',{granularity:'sentence'}).segment(text)].map(p=>p.segment.trim()).filter(Boolean);}

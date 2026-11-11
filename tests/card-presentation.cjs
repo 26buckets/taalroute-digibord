@@ -69,3 +69,10 @@ console.log('PASS: answerable context, explicit invented follow-ups, retained an
 
 assert.match(presentation.readAloud(source.cards.find(c=>c.id==='TR-SPELLING-P001-013-R3')),/informatieavond voor nieuwe cursisten/);
 assert.match(presentation.readAloud(source.cards.find(c=>c.id==='TR-PUZZLES-P001-014-R3')),/Bedenk waarom/);
+
+// A title or a second instruction must not reveal a closed spelling/verb answer.
+for(const [id,answer] of [
+ ['TR-SPELLING-P001-008-R2','boekje'],['TR-SPELLING-P001-006-R1','bomen'],['TR-SPELLING-P001-009-R2','begint'],['TR-SPELLING-P001-014-R3','foto’s'],['TR-SPELLING-P002-007-R2','klantenservice'],['TR-SPELLING-P002-009-R3','sms’je'],['TR-SPELLING-P002-014-R4','coördinator'],['TR-SPELLING-P002-016-R5','gedownloade'],
+ ['TR-VERBS-P001-001-R0','Ik drink thee'],['TR-VERBS-P001-002-R0','De bus is er'],['TR-VERBS-P001-009-R2','gemaakt'],['TR-VERBS-P001-016-R4','kunnen komen'],['TR-VERBS-P002-002-R0','werkt'],['TR-VERBS-P002-003-R1','belt'],['TR-VERBS-P002-006-R2','moest']
+]){const p=direct(id),visible=[p.title,p.situation,...p.steps].join(' ').toLocaleLowerCase('nl');assert(!visible.includes(answer.toLocaleLowerCase('nl')),id+' reveals '+answer)}
+console.log('PASS: no premature answers in reviewed spelling/verb titles and instructions.');

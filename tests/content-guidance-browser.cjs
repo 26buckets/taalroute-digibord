@@ -70,7 +70,7 @@ let browser;
   if(process.env.GUIDANCE_SCREENSHOT){await page.screenshot({path:path.resolve(process.env.GUIDANCE_SCREENSHOT,`guidance-${width}.png`)});}
   await page.locator('#dialogClose').tap();
  }
- await page.evaluate(()=>ContentUI.setState({family:'words'}));await page.locator('#practiceForm [data-guidance=bow]').click();
+ await page.evaluate(()=>ContentUI.setState({family:'words',level:'A0_A1'}));await page.locator('#practiceForm [data-guidance=bow]').click();
  assert.equal(await page.locator('.guidance-status').textContent(),'Lestips');assert.equal(await page.locator('.guidance-tip').count(),5);
  assert.ok(await page.locator('.guidance-lesson').count());assert.match(await page.locator('.guidance-content').textContent(),/Lees eerst voor/);
  await page.locator('#gameDialog [data-guidance=erk]').click();assert.equal(await page.locator('.guidance-status').textContent(),'A0 → A1');

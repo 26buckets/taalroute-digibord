@@ -76,11 +76,11 @@
   const shuffle=document.querySelector('#cardOrderReset'),tools=document.querySelector('.game-tools-body');
   const shuffleParent=matchMedia('(max-width:900px), (max-height:650px)').matches?tools:slot;
   if(shuffle&&shuffleParent&&shuffle.parentElement!==shuffleParent)shuffleParent.append(shuffle);
-  if(!document.querySelector('#previousCard')){const b=document.createElement('button');b.id='previousCard';b.className='smallbtn';b.textContent='← Vorige';b.setAttribute('aria-label','Vorige opdracht');b.onclick=()=>nextCard(-1);slot.prepend(b);const overview=document.createElement('button');overview.id='cardOverview';overview.className='smallbtn';overview.innerHTML='<span class="card-count"></span><span class="card-overview-label">Overzicht</span>';overview.onclick=showHistory;next.before(overview);}
+  if(!document.querySelector('#previousCard')){const b=document.createElement('button');b.id='previousCard';b.className='smallbtn';b.textContent='← Vorige opdracht';b.setAttribute('aria-label','Vorige opdracht');b.onclick=()=>nextCard(-1);slot.prepend(b);const overview=document.createElement('button');overview.id='cardOverview';overview.className='smallbtn';overview.innerHTML='<span class="card-count"></span><span class="card-overview-label">Overzicht</span>';overview.onclick=showHistory;next.before(overview);}
   document.querySelector('#previousCard').disabled=busy()||d.cursor===0;
   setText(document.querySelector('#cardOverview .card-count'),`${d.cursor+1} van ${d.eligible.length}`);
   const end=d.cursor===d.history.length-1&&!d.queue.length;
-  setText(next.querySelector('span'),end?'Afronden':'Volgende →');next.disabled=busy();
+  setText(next.querySelector('span'),end?'Afronden':'Volgende opdracht →');next.disabled=busy();
   next.setAttribute('aria-label',end?'Les afronden':'Volgende opdracht');
   for(const id of ['cardDeck','contentCardDeck']){const b=document.getElementById(id);if(b){b.disabled=busy();b.setAttribute('aria-label',end?'Les afronden':'Volgende opdracht trekken')}}
  }
@@ -101,7 +101,7 @@
  }
  function endCards(){
   captureCard();
-  openGameDialog('Alle opdrachten bekeken','<p>Je hebt alle opdrachten in deze selectie bekeken. Je kunt terugkijken, de les afronden of de kaarten opnieuw schudden.</p><div class="navigation-dialog-actions"><button class="smallbtn" id="reviewCards">Opdrachten bekijken</button><button class="smallbtn" id="shuffleCardsAgain">Opnieuw schudden</button><button class="primary" id="completeCardLesson">Les afronden</button></div>',()=>{
+  openGameDialog('Alle opdrachten bekeken','<p>Je hebt alle opdrachten in deze selectie bekeken. Je kunt terugkijken, de les afronden of de kaarten opnieuw schudden.</p><div class="navigation-dialog-actions"><button class="smallbtn" id="reviewCards">Opdrachten bekijken</button><button class="smallbtn" id="shuffleCardsAgain">Kaarten opnieuw beginnen</button><button class="primary" id="completeCardLesson">Les afronden</button></div>',()=>{
    document.querySelector('#reviewCards').onclick=()=>{document.querySelector('#gameDialog').close();showHistory()};document.querySelector('#completeCardLesson').onclick=()=>{document.querySelector('#gameDialog').close();finish()};document.querySelector('#shuffleCardsAgain').onclick=()=>{document.querySelector('#gameDialog').close();document.querySelector('#cardOrderReset')?.click()};
   });
  }

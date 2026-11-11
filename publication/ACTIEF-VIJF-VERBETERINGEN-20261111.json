@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Voer die vijf verbeterpunten door in de hele app. Behoud de grote kaarten, lopende les en groepsgegevens. Controleer daarna opnieuw, laat echte voorbeelden zien op desktop en mobiel en zet de gecontroleerde versie direct live.",
+  "previousMain": "f37547c222565167fbe6ec20be89c1928a6d6fee",
+  "previousLiveCommit": "8446a9c47f8f20796a44d7fc5b389fba8f2be346",
+  "scope": [
+    "app-navigation.js",
+    "app.js",
+    "card-presentation.js",
+    "content-ui.js",
+    "context-tools.js",
+    "controle.mjs",
+    "controls.css",
+    "tests/card-presentation-browser.cjs",
+    "tests/card-presentation.cjs",
+    "tests/content-guidance-browser.cjs",
+    "tests/content-ui-browser.cjs",
+    "tests/grammar-review-browser.cjs",
+    "tests/novice-ui-browser.cjs",
+    "tests/rebus-answers-browser.cjs",
+    "tests/teacher-five-browser.cjs",
+    "tests/v125-browser.cjs"
+  ],
+  "changes": [
+    "Keep selected level in every topic/family entrance; unavailable combinations explain why and cannot start.",
+    "Neutral titles and instructions in reviewed spelling/verb cards; pre-attempt help avoids answers; original source help stays available after attempt.",
+    "Mobile secondary controls grouped under Docenthulp with keyboard focus and Escape; preserve large card text.",
+    "Choosing a new family clears the old topic from the new-lesson summary while the active lesson remains resumable.",
+    "Consistent previous/undo/restart labels, meaningful options only; restart label fits on desktop."
+  ],
+  "reviewRounds": [
+    "Implementation and retained-state review",
+    "Adversarial check: source hints exposed answers; low phone scroll chaining blocked; restart label overflowed",
+    "Recheck of these findings plus three browser engines, exact lesson/card/groups restore and screenshots"
+  ],
+  "verification": [
+    "Full local unit/content/build contract",
+    "All 610 active standalone cards at four widths; 90 rebuses at three widths",
+    "7200 grammar projections (1440 tasks x five engines) checked in three complete shards",
+    "Navigation/settings/levels/accessibility/new-teacher flows; 18 route/family combinations",
+    "Mouse and keyboard scroll at 390x620; actual screenshots 320/390/1024/1440"
+  ],
+  "preservation": "No bank, media, audio, storage schema, worker or migration changes. Isolated test data only.",
+  "limits": [
+    "No new teacher trial, native Safari, VoiceOver or physical iPhone test.",
+    "Automated structural/content checks are not a new semantic review of every task.",
+    "No measured 9.5 teacher score is claimed."
+  ]
+}

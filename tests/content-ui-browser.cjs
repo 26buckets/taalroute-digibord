@@ -22,8 +22,8 @@ let browser;
 
  // No silent fallback for invalid selections.
  await page.evaluate(()=>ContentUI.setState({level:'ALPHA_AC'}));
- assert.equal(await page.locator('#practiceStart').isDisabled(),true);assert.match(await page.locator('.practice-warning').textContent(),/niveau.*niet beschikbaar/i);
- assert.match(await page.evaluate(()=>{try{ContentUI.sessionOptions(7);return''}catch(e){return e.message}}),/niveau.*niet beschikbaar/i);
+ assert.equal(await page.locator('#practiceStart').isDisabled(),true);assert.match(await page.locator('.practice-warning').textContent(),/niet beschikbaar op Alpha A–C/i);
+ assert.match(await page.evaluate(()=>{try{ContentUI.sessionOptions(7);return''}catch(e){return e.message}}),/niet beschikbaar op Alpha A–C/i);
  await page.evaluate(()=>ContentUI.setState({topic:'NIET_BESTAAND'}));
  assert.match(await page.locator('.practice-warning').textContent(),/onderwerp.*niet beschikbaar/i);
  await page.evaluate(()=>ContentUI.setState({topic:'ER',level:'B1',subtopic:'all'}));
