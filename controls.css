@@ -66,3 +66,27 @@ button:not(.pawn):not(.cube):not(.physical-die):not(.zb-card):not(.tile):not(.ga
 }
 .settings-page :is(button,input,select,textarea,summary):focus-visible{outline:3px solid #126ab3;outline-offset:2px}
 #cardSupport:focus-visible{outline:3px solid #126ab3;outline-offset:-3px}
+
+/* Explain entry choices without increasing the fixed desktop header height. */
+#appHeader .mainnav .navitem small{display:none}
+#appHeader .hdr001-panel .mainnav .navitem{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px}
+#appHeader .hdr001-panel .mainnav .navitem small{display:block;font-size:13px;line-height:1.35;color:var(--control-ink);white-space:normal}
+#screen-play .practice-mobile-launch{display:inline-flex;width:auto;max-width:100%;margin:14px 0 0;text-align:left;white-space:normal;border:1px solid var(--control-line);color:var(--control-ink);background:var(--control-surface);padding:10px 14px;min-height:44px;font:400 15px/1.4 var(--setup-font,Arial,sans-serif);gap:8px;flex-wrap:wrap}
+#screen-play .practice-mobile-launch span{font:inherit}
+#appHeader .actief-menu-group{border-top:1px solid var(--control-line);padding-top:6px;margin-top:6px;min-width:0}
+#appHeader .actief-menu-group>summary{display:list-item;cursor:pointer;min-height:44px;padding:12px 8px;box-sizing:border-box;font:400 15px/1.4 var(--setup-font,Arial,sans-serif);color:var(--control-ink)}
+#appHeader .actief-menu-group>summary:focus-visible{outline:3px solid var(--control-focus);outline-offset:1px}
+#appHeader .actief-menu-group>button,#appHeader .actief-menu-group>a{width:100%;text-align:left;justify-content:flex-start}
+#appHeader .actief-menu-group .tr-menu-appearance{margin:4px 0}
+#screen-game .card-controls{flex-wrap:wrap}
+#screen-game .card-attempt-hint{flex:1 0 100%;grid-column:1/-1;margin:0;padding:0 4px;font:400 14px/1.4 var(--setup-font,Arial,sans-serif);color:var(--control-ink)}
+
+#appHeader .hdr001-panel .mainnav .navitem{align-items:flex-start!important;justify-content:center!important;text-align:left!important;padding:8px 10px!important;gap:2px!important}
+#appHeader .actief-menu-group{display:block!important;width:100%}
+
+/* WebKit can expose an open nested disclosure inside a closed outer menu. */
+#appHeader .hdr001-menu:not([open])>.hdr001-panel{display:none!important}
+/* On short phones, scroll the playing area instead of reducing the reading window to a title. */
+@media(max-width:600px) and (max-height:700px){
+ #screen-game .card-viewport:has(.card-attempt){grid-template-rows:minmax(620px,1fr) auto;overflow-y:auto}
+}

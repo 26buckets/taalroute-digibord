@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Ja, voer die vier verbeterpunten door in de hele app. Behoud de grote kaarten, lopende les en groepsgegevens. Doe daarna opnieuw een review, laat echte voorbeelden zien op desktop en mobiel en zet de gecontroleerde versie live.",
+  "previousCanonicalMain": "fd14867e13dd73793c9a4eba03dd33286e9b00a8",
+  "previousLiveCommit": "1ebe42570c4e4e06d8c8fc2652095f8890169b00",
+  "scope": [
+    "HEADER-AFSPRAAK.md",
+    "app.js",
+    "card-presentation.js",
+    "content-lessons.js",
+    "content-ui.js",
+    "context-tools.js",
+    "controls.css",
+    "header-layout-freeze.json",
+    "index.html",
+    "taalroute-menu/header-controls.js",
+    "tests/card-presentation.cjs",
+    "tests/header-actions.cjs",
+    "tests/landing-activities.cjs",
+    "tests/novice-ui-browser.cjs",
+    "tests/ui-clarity-browser.cjs",
+    "tests/ui95-browser.cjs"
+  ],
+  "changes": [
+    "Elf brongebonden kaartweergaven: ontbrekende doelgroep toegevoegd, zelf bedachte vervolggegevens expliciet, woordraadsel zonder weggegeven oplossing. Ook kaartoverzicht en voorleestekst gebruiken deze presentatie.",
+    "Twee startmogelijkheden met korte toelichting; Les maken ook op desktop direct bereikbaar.",
+    "Poging gedaan met zichtbare toelichting; Leerdoel, Rol partner/Voorlezer, Extra uitleg en Onderwerpen combineren consequent benoemd.",
+    "Menu: lesnavigatie en hervatten eerst, twee inklapbare groepen; alle bestaande functies en headeropzet behouden.",
+    "Op korte telefoons blijft de leesruimte groot; het speelvlak kan scrollen zodat de knoppen bereikbaar blijven.",
+    "Hercontrole: geen focusroof na sluiten uitleg; groepen ook op speelborden zichtbaar, WebKit sluit geneste menugroepen volledig; toetsenbord kiest zichtbare menuactie."
+  ],
+  "contentCorrections": [
+    {
+      "id": "TR-VERBS-P001-007-R2",
+      "route": "A1→A2"
+    },
+    {
+      "id": "TR-VERBS-P001-009-R2",
+      "route": "A1→A2"
+    },
+    {
+      "id": "TR-VERBS-P001-012-R3",
+      "route": "A2→B1"
+    },
+    {
+      "id": "TR-PUZZLES-P001-014-R3",
+      "route": "A2→B1"
+    },
+    {
+      "id": "TR-PUZZLES-P001-020-R6",
+      "route": "B2→C1"
+    },
+    {
+      "id": "TR-SPELLING-P001-004-R1",
+      "route": "A1→A2"
+    },
+    {
+      "id": "TR-SPELLING-P001-008-R2",
+      "route": "A1→A2"
+    },
+    {
+      "id": "TR-SPELLING-P001-011-R3",
+      "route": "A2→B1"
+    },
+    {
+      "id": "TR-SPELLING-P001-013-R3",
+      "route": "A2→B1"
+    },
+    {
+      "id": "TR-PUZZLES-P002-006-R2",
+      "route": "A1→A2"
+    },
+    {
+      "id": "TR-VERBS-P002-006-R2",
+      "route": "A1→A2"
+    }
+  ],
+  "contentReview": "240 zelfstandige E1-bronkaarten nagelopen op dit type context-/opdrachtprobleem. 11.338 gedeelde opdrachten automatisch op presentatie en behoud gecontroleerd; dat is geen volledige menselijke inhoudelijke validatie.",
+  "reviews": [
+    "Eerste review: concrete context, startkeuze, knopnamen en menugroepen.",
+    "Kritische tegencontrole: bordmenu, gesloten geneste details in WebKit, toetsfocus, 320px/laag venster, oude les en groepen.",
+    "Hercontrole na herstel: Chromium, Firefox, WebKit; 25 axe-schermen; volledige bestaande lokale behoudscontroles."
+  ],
+  "checks": {
+    "unit.log": "PASS grammar mapping:",
+    "activities-recheck.log": "PASS: all seven games completed",
+    "banks-final.log": "1200 rendered cards",
+    "tongue-recheck.log": "PASS: real navigation",
+    "p0.log": "all 610 active cards",
+    "rebuses.log": "PASS 90 rebuses",
+    "smoke-final.log": "PASS quick entry",
+    "navigation.log": "PASS: navigation, saved progress",
+    "levels.log": "PASS 12 available",
+    "settings.log": "PASS settings:",
+    "presentation.log": "PASS: 11338",
+    "clarity.log": "PASS: simple start",
+    "ui-six.log": "PASS six UI changes:",
+    "ui95.log": "PASS UI95:",
+    "all-surfaces.log": "PASS: clear navigation",
+    "accessibility-webkit-final.log": "PASS accessibility: webkit",
+    "presentation-unit-final.log": "PASS: answerable context",
+    "build-final.log": "PASS: V01.25 publication contract",
+    "final-chromium.log": "PASS novice UI: chromium",
+    "final-webkit.log": "PASS novice UI: webkit",
+    "final-firefox.log": "PASS novice UI: firefox"
+  },
+  "data": "Geen bronbank-, media-, opslag- of migratiewijziging; behoud van les, kaart, groepen, herstel en hervatten getest met afzonderlijke testgegevens.",
+  "limits": [
+    "Docentproef volgt later.",
+    "Geen VoiceOver, volledige Safari-app-proef of fysieke iPhone-test.",
+    "Expertreview door dezelfde reviewer; geen onafhankelijke docentwaardering."
+  ],
+  "actions": "Alle zware controles lokaal; bestaande workflow alleen handmatig, geen run aangevraagd."
+}

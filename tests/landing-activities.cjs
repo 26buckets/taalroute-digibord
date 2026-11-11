@@ -12,7 +12,7 @@ const {chromium}=require('playwright');
  const next=()=>page.locator('#primaryGame').click();
  const feedback=async text=>{await page.waitForFunction(t=>document.querySelector('#na-feedback').textContent.includes(t),text)};
  try{
-  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.LANDING_TEST_URL||require('node:url').pathToFileURL(require('node:path').resolve(__dirname,'../index.html')).href);
+  await page.addInitScript(()=>{window.DigiBordArchiveReview=true});await page.goto(process.env.LANDING_TEST_URL||process.env.LIVE_URL||require('node:url').pathToFileURL(require('node:path').resolve(__dirname,'../index.html')).href);
   await page.locator('[data-category="boards"]').click();
   for(const width of [320,390,720,900,901,1024,1200,1440]){
    await page.setViewportSize({width,height:900});
@@ -20,6 +20,7 @@ const {chromium}=require('playwright');
    const sizes=await page.locator('#screen-boards .tile').evaluateAll(es=>es.map(e=>({width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
    assert.ok(Math.abs(sizes[0].width-sizes[1].width)<1&&Math.abs(sizes[0].height-sizes[1].height)<1,'Equal board cards at '+width);
    if(await page.locator('.hdr001-menu').getAttribute('open')===null)await page.locator('.hdr001-menu-trigger').click();
+   for(const group of await page.locator('.actief-menu-group').all())if(!await group.evaluate(e=>e.open))await group.locator(':scope>summary').click();
    for(const selector of ['.product','.mainnav .navitem','#curriculumContext','#levelSelect','.hdr001-fullscreen','#settingsBtn']){
     assert.ok(await page.locator('#appHeader '+selector).evaluateAll(es=>es.every(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.left>=0&&r.right<=innerWidth+1})),selector+' remains visible at '+width);
    }

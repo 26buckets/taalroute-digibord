@@ -124,5 +124,11 @@
     "sourceCommit": "ed839c65811d6ffed9d9ea5468e9b562c737d433",
     "liveVersion": "f358d828-8c04-4f61-ac7d-48c7d8534ea6",
     "liveReview": "publication/ACTIEF-UI95-LIVE-20261109.json"
+  },
+  "novice20261111": {
+    "approvedBy": "Nico",
+    "record": "publication/ACTIEF-INSTAP-20261111.json",
+    "scope": "Bestaande headeropzet behouden; menu met korte startuitleg, lesnavigatie eerst en twee inklapbare groepen.",
+    "status": "controlled-release-pending"
   }
 }

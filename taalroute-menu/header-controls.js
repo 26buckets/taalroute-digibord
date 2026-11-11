@@ -50,7 +50,7 @@
     screen.addEventListener('click',async()=>{status.textContent='';try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{status.textContent='Volledig scherm kon niet worden geopend of gesloten.';}sync(screen);});
     const close=()=>{menu.open=false;trigger.setAttribute('aria-expanded','false');};
     menu.addEventListener('toggle',()=>trigger.setAttribute('aria-expanded',String(menu.open)));
-    trigger.addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();menu.open=true;panel.querySelector('a,button:not([hidden]):not(:disabled),input:not(:disabled),select:not(:disabled)')?.focus();}});
+    trigger.addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();menu.open=true;[...panel.querySelectorAll('a,button:not([hidden]):not(:disabled),summary,input:not(:disabled),select:not(:disabled)')].find(action=>action.checkVisibility())?.focus();}});
     // Capture before existing lesson shortcuts; Escape closes the menu, never the lesson.
     menu.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.open){event.preventDefault();event.stopPropagation();close();trigger.focus();}},true);
     menu.addEventListener('click',event=>{if(event.target.closest('a'))close();if(event.target.closest('button'))setTimeout(()=>{if(document.querySelector('dialog[open]'))dialogMenuTrigger=trigger;},0);});
@@ -85,7 +85,20 @@
     }
     const center=options.center;if(center){center.classList.add('hdr002-center');const parent=innerWidth<=1050?panel:header;if(center.parentElement!==parent){if(parent===header)header.insertBefore(center,row);else panel.append(center);}}
     const screen=header.querySelector('.hdr001-fullscreen');
-    const actions=[material,help,screen].filter(Boolean);
+    let displayGroup,extraGroup;
+    if(header.id==='appHeader'){
+      function group(key,label){
+        let section=panel.querySelector('[data-menu-group="'+key+'"]');
+        if(!section){section=document.createElement('details');section.className='actief-menu-group';section.dataset.menuGroup=key;const summary=document.createElement('summary');summary.textContent=label;section.append(summary);panel.append(section);}
+        return section;
+      }
+      displayGroup=group('display','Weergave en instellingen');extraGroup=group('extra','Collectie en meer');
+      for(const [target,selectors] of [[displayGroup,'.tr-menu-appearance,#settingsBtn'],[extraGroup,'[data-main="mycollection"],#curriculumContext,[data-share-app-trigger]']]){
+        for(const action of panel.querySelectorAll(selectors))if(action.parentElement!==target)target.append(action);
+      }
+      if(compact.matches&&screen.parentElement!==displayGroup)displayGroup.append(screen);
+    }
+    const actions=[material,help,...(displayGroup&&compact.matches?[]:[screen])].filter(Boolean);
     if(compact.matches){
       let anchor=[...panel.children].find(e=>!actions.includes(e)&&e!==navigation&&!(header.id==='appHeader'&&(e===center||e.hasAttribute('data-menu-resume'))))||null;
       for(const action of [...actions].reverse()){if(action.nextSibling!==anchor||action.parentElement!==panel)panel.insertBefore(action,anchor);anchor=action;}

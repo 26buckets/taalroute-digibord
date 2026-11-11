@@ -8,16 +8,16 @@
   ['Je neemt iets mee.',['tas','taas'],['Wijs het juiste woord aan.','Zeg: Dit is mijn …']],
   ['Je kijkt naar het raam in het lokaal.',['r…m'],['Vul één of twee a’s in.','Zeg het woord hardop.']],
   ['Op een kaartje staat:',['Een kop kofee.'],['Verbeter het woord kofee.','De docent mag het woord eerst voorlezen.']],
-  ['Je gaat met de trein.',['reis','rijs'],['Kies het woord voor je tocht.','Vertel waar de reis naartoe gaat.']],
+  ['Je gaat met de trein.',['reis','rijs'],['Kies het woord voor je tocht.','Bedenk waar je naartoe reist. Vertel het.']],
   ['Het is winter.',['Het is k…d.'],['Vul au of ou in.','Vertel wat je aantrekt.']],
   ['Op een briefje over de tuin staat:',['We planten twee boomen.'],['Verbeter het woord boomen.']],
   ['Je beschrijft een route.',['Je loopt langs het …','station','stasion'],['Kies het juiste woord.','Geef daarna nog een stap van de route.']],
-  ['Je krijgt een klein boek.',['boek…','je','tje'],['Maak het verkleinwoord. Kies je of tje.','Vertel waarvoor je het gebruikt.']],
+  ['Je krijgt een klein boek.',['boek…','je','tje'],['Maak het verkleinwoord. Kies je of tje.','Bedenk waarvoor je het boekje gebruikt. Vertel het.']],
   ['In een bericht staat:',['De les begind om negen uur.'],['Verbeter de spelling van begind.','Houd het onderwerp en de tijd hetzelfde.']],
   ['', ['bomen','ramen','katten','pennen'],['Maak twee groepen: woorden met één medeklinker in het midden en woorden met twee dezelfde medeklinkers in het midden.','Lees de woorden in elke groep voor.']],
-  ['Je maakt een titel voor een formulier.',['aanvraagformulier','aanvraag formulier'],['Kies de juiste schrijfwijze.','Leg uit wat voor formulier het is.']],
+  ['Je maakt een titel voor een formulier.',['aanvraagformulier','aanvraag formulier'],['Kies de juiste schrijfwijze.','Leg uit waarvoor je een aanvraagformulier gebruikt.']],
   ['Je hebt de bevestiging al verstuurd.',['Ik heb de bevestiging ge…','Werkwoord: mailen'],['Vul de hele werkwoordsvorm in.']],
-  ['Op een uitnodiging staat:',['U bent van harte welkom op onze informatie avond.'],['Verbeter de spelling van informatie avond.','Leg uit voor wie de avond is.']],
+  ['De school houdt een informatieavond voor nieuwe cursisten. Op de uitnodiging staat:',['U bent van harte welkom op onze informatie avond.'],['Verbeter de spelling van informatie avond.','Leg uit voor wie de avond is.']],
   ['In de eerste versie van een verslag staat één foto. In de tweede versie staan er twee.',['foto → twee …'],['Maak het meervoud van foto.','Leg uit waarom het teken nodig is.']],
   ['', ['A. Ten slotte bedankte de voorzitter iedereen.','B. Je kunt het nog proberen; je bent tenslotte op tijd.'],['Leg het verschil in betekenis uit tussen ten slotte en tenslotte.','Maak met elke vorm een nieuwe zin.']],
   ['', ['papier','stoel','plastic','tafel'],['Maak twee groepen: materialen en voorwerpen.','Maak van elk materiaal een bijvoeglijk naamwoord bij tas of map.']],
@@ -53,12 +53,12 @@
   ["Je vertelt over morgen.",["Morgen werk ik.","Morgen werkt ik."],["Kies de goede zin en lees hem hardop.","Vertel ook wanneer jij werkt of oefent."]],
   ["Het is warm in het lokaal.",["Jij … het raam open.","doet / doen"],["Kies het woord dat op de lege plek past.","Vraag je partner om het raam open te doen."]],
   ["Je vertelt nu over twee mensen: jij en iemand anders.",["Ik eet om twaalf uur."],["Begin de zin met ‘Wij’ en pas het werkwoord aan.","Vertel hoe laat jullie eten."]],
-  ["Je bezoek is voorbij.",["Gisteren ben / was ik bij mijn buurvrouw."],["Kies ‘ben’ of ‘was’.","Vertel daarna één ding over het bezoek."]],
+  ["Je bezoek is voorbij.",["Gisteren ben / was ik bij mijn buurvrouw."],["Kies ‘ben’ of ‘was’.","Bedenk wat je tijdens het bezoek hebt gedaan. Vertel één ding."]],
   ["Je beschrijft je ochtend.",["Ik … om zeven uur … .","sta / op"],["Vul beide woorden op de juiste plek in.","Vraag hoe laat je partner opstaat."]],
-  ["Je hebt gisteren een afspraak geregeld.",["Ik heb een afspraak maken."],["Verbeter het onderstreepte woord.","Vertel waarvoor de afspraak is."],"maken"],
+  ["Je hebt gisteren een afspraak geregeld.",["Ik heb een afspraak maken."],["Verbeter het onderstreepte woord.","Bedenk waarvoor je de afspraak hebt gemaakt. Vertel het."],"maken"],
   ["Je wilt weten of iemand morgen kan helpen.",["Je kunt morgen helpen."],["Maak van deze zin een vraag.","Vraag daarna op welk tijdstip het kan."]],
   ["Je komt op het perron. De trein reed twee minuten geleden weg.",["De trein heeft vertrokken.","De trein is vertrokken."],["Kies de goede zin.","Leg je partner uit waarom je wacht."]],
-  ["Je meldt jezelf aan voor een workshop.",["Ik heb … gisteren aangemeld."],["Vul het woord in dat naar jezelf verwijst.","Vertel hoe je je hebt aangemeld."]],
+  ["Je meldt jezelf aan voor een workshop.",["Ik heb … gisteren aangemeld."],["Vul het woord in dat naar jezelf verwijst.","Bedenk hoe je je hebt aangemeld. Vertel het."]],
   ["In een bericht staat:",["Ik weet niet hoe laat begint de les."],["Zet de woorden in de juiste volgorde.","Stel daarna rechtstreeks de vraag naar de begintijd."]],
   ["Je vertelt op dezelfde dag aan een collega wat de monteur zegt.",["De monteur zegt: Ik kom morgen terug."],["Begin met: ‘De monteur zegt dat …’","Leg uit wie er komt."]],
   ["De tafel is niet opgeruimd.",["A. Kun je de tafel opruimen?","B. Had je de tafel niet kunnen opruimen?"],["Vergelijk A en B. Wat hoort de luisteraar waarschijnlijk?","Doe daarna een duidelijk verzoek zonder verwijt."]],
@@ -72,7 +72,7 @@
   ["De terugbelafspraak is morgen tussen 10.00 en 11.00 uur.",["De monteur bellen morgen terug."],["Verbeter het onderstreepte werkwoord.","Bevestig daarna wanneer je wordt teruggebeld."],"bellen"],
   ["Je vertelt nu over twee personen.",["Ik neem de bus om acht uur."],["Vervang ‘Ik’ door ‘Wij’ en pas het werkwoord aan.","Zeg de hele zin opnieuw."],"Ik"],
   ["Je wilt een afspraak verzetten. Een alternatief is donderdag om 14.00 uur.",["Mag ik de afspraak verzetten?","Mogen ik de afspraak verzetten?"],["Kies de goede vraag.","Stel de vraag en noem het andere moment."]],
-  ["Je vertelt over gisteren.",["Vandaag moet ik tot zes uur werken."],["Verander de zin zodat die over gisteren gaat.","Leg daarna kort uit wat het gevolg was."]],
+  ["Je vertelt over gisteren.",["Vandaag moet ik tot zes uur werken."],["Verander de zin zodat die over gisteren gaat.","Bedenk wat je daardoor niet kon doen. Vertel het."]],
   ["De nieuwe afspraak is vrijdag om 11.00 uur.",["De afspraak is gisteren verplaatsen naar vrijdag."],["Verbeter het onderstreepte werkwoord.","Bevestig daarna de nieuwe dag."],"verplaatsen"],
   ["Je kunt donderdagavond of vrijdagochtend.",["Omdat ik morgen moet werken, ik kan niet komen."],["Zet de woorden in de juiste volgorde.","Vraag daarna om een nieuwe tijd."]],
   ["Je vertelt op dezelfde dag aan een collega wat Noor zegt.",["Noor zegt: ‘Ik stuur het formulier vanmiddag.’"],["Begin met: ‘Noor zegt dat …’"]],
@@ -88,11 +88,17 @@
   ["Je hebt twee bronnen: officiële notulen vermelden het besluit; een collega zegt dat er waarschijnlijk al een besluit is, maar dat er nog geen officiële bevestiging is.",["A. Het besluit is genomen.","B. Het besluit zou zijn genomen."],["Vergelijk A en B.","Koppel elke zin aan een bron en leg het verschil in zekerheid uit."]],
   ["Een klant heeft nog niet op een voorstel gereageerd. Over de reden is niets bekend.",["A. Dat de klant niet reageert, betekent niet dat hij niet akkoord is.","B. Dat de klant niet reageert, hoeft niet te betekenen dat hij niet akkoord is."],["Kies de zin die het best past bij alleen deze informatie.","Leg uit waarom die zin minder stellig is."]]
  ];
+ // Explicitly separate given facts from an invented follow-up; retain the original keys.
+ const otherCards={
+  'TR-PUZZLES-P001-014-R3':['In een bericht ontbreekt één werkwoord. Het begint met ver en heeft negen letters.',['Dinsdag lukt niet. Kunnen we de afspraak ___ naar donderdag?'],['Vul het werkwoord in dat betekent: een afspraak naar een ander tijdstip brengen.','Bedenk waarom dinsdag niet lukt. Maak daarna een bericht met die reden en het nieuwe voorstel.']],
+  'TR-PUZZLES-P001-020-R6':['Een projectteam verdeelt taken en spreekt af wie waarover beslist.',['VERANTWOORDELIJKHEID'],['Zoek in dit woord een woord van acht letters dat past bij een vraag. De letters staan direct achter elkaar.','Leg het verschil uit tussen dat woord en verantwoordelijkheid in deze werksituatie.']],
+  'TR-PUZZLES-P002-006-R2':['Je kiest hoe je wilt betalen.',['pinnen','contant betalen','overmaken','fietsen'],['Welk woord hoort niet bij betalen?','Kies een van de drie manieren om te betalen. Zeg: Ik betaal …']]
+ };
  const verbById=new Map((source?.cards||[]).filter(c=>c.family==='verbs').map((c,i)=>[c.id,verbs[i]]));
  const spellingCards=(source?.cards||[]).filter(c=>c.family==='spelling');
  const spellingById=new Map(spellingCards.map((c,i)=>[c.id,spelling[i]]));
  function standalone(card){
-  const original=originals.get(card.id),row=spellingById.get(card.id)||verbById.get(card.id);
+  const original=originals.get(card.id),row=spellingById.get(card.id)||verbById.get(card.id)||otherCards[card.id];
   if(source?.version!=='2026-10-04.e1.r25.1'||!original||original.version!==card.version||original.situation!==card.situation||original.instruction!==card.instruction)return null;
   if(card.id==='TR-PUZZLES-P002-008-R3')return {situation:'',stimuli:['Ik zette de fiets naast de scooter. Die was kapot.'],steps:['Welk voertuig kan ‘Die’ zijn: de fiets of de scooter?','Kies één voertuig. Schrijf de tweede zin opnieuw en noem daarin dat voertuig.'],title:card.title,target:'Die'};
   if(!row)return null;
@@ -196,5 +202,6 @@
  }
  const taskHeadings={betekenis_kiezen:'Kies de betekenis',dialoog_aanvullen:'Maak het gesprek af',fout_verbeteren:'Verbeter de zin',functie_sorteren:'Sorteer de zinnen',herschrijven:'Schrijf de zin opnieuw',invullen:'Vul de zin aan',meerkeuze_context:'Kies wat bij de situatie past',meerkeuze_vorm:'Kies de juiste vorm',referent_kiezen:'Waar verwijst het woord naar?',register_kiezen:'Kies wat bij de situatie past',scenario:'Wat zeg je?',snelvraag:'Vertel',vrije_productie:'Geef je antwoord',zinnen_leggen:'Zet de woorden in volgorde'};
  function heading(item){return wording.text(item.title||taskHeadings[item.exercise_type]||'Maak de opdracht');}
- const api={standalone,shared,steps,heading,clearInstruction,learnerText};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
+ function readAloud(card){const p=standalone(card);return p?[p.situation,...p.stimuli,...p.steps].filter(Boolean).join(' '):card.mediaRequirements?.readAloudText||card.instruction;}
+ const api={standalone,shared,steps,heading,clearInstruction,learnerText,readAloud};if(typeof module==='object'&&module.exports)module.exports=api;else root.CardPresentation=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

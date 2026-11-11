@@ -55,3 +55,16 @@ assert.equal(presentation.learnerText({content_item_id:'other'},nuance.options[1
 console.log('PASS: learner instructions, exact options/answer mapping, real situations retained and generic grammar themes omitted.');
 
 assert.equal(presentation.shared({content_item_id:"WZ_TEST",exercise_type:"scenario",prompt:"Wat zeg je?",stimulus:"Ik wil koffie.",context:"Eten en drinken"}).situation,"Eten en drinken");
+
+// Given context must answer the question; open follow-ups must name the learner's choice.
+const direct=id=>presentation.standalone(source.cards.find(c=>c.id===id));
+assert.match(direct('TR-SPELLING-P001-013-R3').situation,/nieuwe cursisten/);
+assert.match(direct('TR-SPELLING-P001-004-R1').steps.join(' '),/Bedenk waar/);
+assert.match(direct('TR-PUZZLES-P001-014-R3').steps.join(' '),/Bedenk waarom/);
+assert.doesNotMatch(direct('TR-PUZZLES-P001-020-R6').situation+' '+direct('TR-PUZZLES-P001-020-R6').steps.join(' '),/ANTWOORD/);
+assert.match(direct('TR-PUZZLES-P002-006-R2').steps[1],/Kies een van de drie/);
+assert.equal(JSON.stringify(source),before);
+console.log('PASS: answerable context, explicit invented follow-ups, retained answer keys.');
+
+assert.match(presentation.readAloud(source.cards.find(c=>c.id==='TR-SPELLING-P001-013-R3')),/informatieavond voor nieuwe cursisten/);
+assert.match(presentation.readAloud(source.cards.find(c=>c.id==='TR-PUZZLES-P001-014-R3')),/Bedenk waarom/);

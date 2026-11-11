@@ -8,7 +8,7 @@ function contextTools(prefix, options={}) {
   ['More','more','Meer','Vervolg, verdieping en extra mogelijkheden bij deze opdracht.']
  ];
  return `<div class="card-tools context-tools" role="group" aria-label="Bij deze opdracht">${definitions.map(([key,icon,label,description])=>{
-  const o=options[key]||{},id=o.id||prefix+key,disabled=!!o.disabled,visibleLabel=o.label||({Goals:'Doel',Partner:'Partner'}[key]||label);
+  const o=options[key]||{},id=o.id||prefix+key,disabled=!!o.disabled,visibleLabel=o.label||({Goals:'Leerdoel',Partner:'Rol partner',More:'Extra uitleg'}[key]||label);
   return `<span class="context-tool" ${disabled?`tabindex="0" aria-label="${esc(visibleLabel)}"`:''} data-tip-label="${esc(o.label||label)}" data-tip="${esc(o.tip||description)}"><button type="button" class="smallbtn" id="${esc(id)}" aria-label="${esc(visibleLabel)}" ${o.controls?`aria-expanded="false" aria-controls="${esc(o.controls)}"`:'aria-haspopup="dialog"'} ${disabled?'disabled':''}>${gameIcon(icon)}<span class="context-label">${esc(visibleLabel)}</span>${o.count?`<span class="context-count" aria-hidden="true">${esc(o.count)}</span>`:''}</button></span>`;
  }).join('')}</div>`;
 }

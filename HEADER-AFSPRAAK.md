@@ -22,3 +22,6 @@ Nico heeft na afwijzing van de extra lesknoppenrij expliciet ingestemd met het v
 
 ## Duidelijke hoofdkeuze en vrijgave — 9 november 2026
 Nico heeft de concrete vereenvoudigde UI plus de drie verbeterpunten expliciet vrijgegeven voor publicatie; zie publication/ACTIEF-UI95-20261109.md. De bestaande bestemmingen heten Spel kiezen, Les maken en Mijn lessen. De dubbele lesrij vervalt. Logo/appkeuze, fullscreen en hamburger blijven op hun plek. Dit is een gerichte Actief-vrijgave; de afspraken voor andere apps blijven staan.
+
+## Duidelijke instap en gegroepeerd menu — 11 november 2026
+Nico heeft de vier concrete verbeterpunten en gecontroleerde publicatie expliciet opgedragen. De bestaande drie hoofdlinks blijven op desktop in de header en op mobiel in het menu. Korte toelichtingen leggen het verschil uit. Lesnavigatie en hervatten staan bovenaan; minder gebruikte functies staan onder Weergave en instellingen en Collectie en meer. De merkheader, grote kaarten, routes en lokale gegevens blijven behouden. Zie publication/ACTIEF-INSTAP-20261111.json; na livecontrole geldt dit als de nieuwe Actief-referentie. Andere apps veranderen niet.
