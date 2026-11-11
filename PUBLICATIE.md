@@ -1,6 +1,6 @@
 ## Actuele vrijgave — vraag en keuzes op mobiel, 11 november 2026
 
-Zie `publication/ACTIEF-MOBIELE-KEUZES-20261111.json`. Kaarttekst, originele keuzes, voortgang, groepsgegevens en desktopopzet blijven behouden. Normale publicatieroute; na publieke controle opnieuw vastzetten.
+Zie `publication/ACTIEF-MOBIELE-KEUZES-20261111.json`. Kaarttekst, originele keuzes, voortgang, groepsgegevens en desktopopzet blijven behouden. Publiek gecontroleerd en opnieuw vastgezet. Livebron `5df57eb25d5e1e9c29aca703ab844679b340daa7`. Zie `publication/ACTIEF-MOBIELE-KEUZES-LIVE-20261111.json`.
 
 ## Aanvullende vrijgave — twee vervolgvragen, 11 november 2026
 

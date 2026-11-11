@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "83f0ca0b0aa2d05ccc66b0bd32661faaa30c4104197403198020534034fe2d59",
+    "PUBLICATIE.md": "d20eb8e3d56652a9ffc550a4a4e3240df10624db99e6dd5cd1af7362feb9c07c",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "b773f392fd99e2ed63a5a4e144bcc149f95255c7ed79f7f6435c5621c23c33c2",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "8e7fef4fb9c5912c34d75c83447b80d175f8394e1ea1dd2494fd7d84c30ebb58",
-    "publication-freeze.json": "879fe9f30726bb45fb214f0b849c604afcdf5cdba1c6180ee2c3ae531e92d5f4",
+    "publication-freeze.json": "f3681d78136fb082551367385a7efb7e09009249db36f5166633659af62da32c",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -231,7 +231,8 @@
     "publication/ACTIEF-ANTWOORDHINTS-LIVE-20261111.json": "c15fd8d7bf8f45bbcf3a91c0c6d1e5d9425d8b6c37096da9cf397946a618cb82",
     "tests/mobile-choices-browser.cjs": "bcc84e9c19a40fd46a4a0531c8f199139087582b958e8e7b5fe1dfaeffc87d79",
     "publication/ACTIEF-MOBIELE-KEUZES-20261111.json": "3eec2f3789d60d5e790784b95bb4e2c5e62c5a2c450a60a30780ed8408123e75",
-    "publication/decision-before-mobile-choices-20261111.json": "6c181df48fe5dcf874851af03847ef73ce5ab41524fd28e0e8e31503e1c96022"
+    "publication/decision-before-mobile-choices-20261111.json": "6c181df48fe5dcf874851af03847ef73ce5ab41524fd28e0e8e31503e1c96022",
+    "publication/ACTIEF-MOBIELE-KEUZES-LIVE-20261111.json": "623fbe784a26f45ab0443d0c303ff592cd55e8e077f161b6568986c9994db0be"
   },
   "explicitPublicationApproval": "Nico vraagt deze gecontroleerde mobiele weergave direct live te zetten.",
   "previousDecision": "publication/decision-before-mobile-choices-20261111.json",
@@ -324,6 +325,11 @@
   "publishedAnswerHints20261111": {
     "sourceCommit": "0e85f936b3955cac7cdbfb092673e12bf7c7c943",
     "liveVersion": "dca6cc1e-d962-4544-b13a-27f5d4783507",
+    "status": "published-verified-frozen"
+  },
+  "publishedMobileChoices20261111": {
+    "sourceCommit": "5df57eb25d5e1e9c29aca703ab844679b340daa7",
+    "liveVersion": "e28d3140-b148-4456-ac83-30f24b8fbdb1",
     "status": "published-verified-frozen"
   }
 }

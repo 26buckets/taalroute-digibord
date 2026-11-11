@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "5df57eb25d5e1e9c29aca703ab844679b340daa7",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app.js",
+    "controls.css"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "e28d3140-b148-4456-ac83-30f24b8fbdb1",
+  "review": "publication/ACTIEF-MOBIELE-KEUZES-20261111.json",
+  "publicTests": [
+    {
+      "engine": "chromium",
+      "exit": 0
+    },
+    {
+      "engine": "webkit",
+      "exit": 0
+    },
+    {
+      "engine": "firefox",
+      "exit": 0
+    }
+  ],
+  "limits": "WebKit is not a native Safari/VoiceOver test; mobile viewport simulations, no teacher trial."
+}
