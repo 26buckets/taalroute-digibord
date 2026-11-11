@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Ja, hef de publicatieblokkade voor deze gecontroleerde versie op en zet hem direct live. Behoud de lopende les en groepsgegevens, controleer de liveversie op desktop en mobiel en laat me de echte voorbeelden zien.",
+  "previousMain": "42334820cbe0881868761b8bfc7bc2f82325ca34",
+  "previousLiveCommit": "5df57eb25d5e1e9c29aca703ab844679b340daa7",
+  "reviewedCommit": "df8508dbbbc39b4cc779105e7771a783f22835d0",
+  "scope": [
+    "app.js",
+    "card-presentation.js",
+    "content-ui.js",
+    "controls.css",
+    "tests/card-presentation.cjs",
+    "tests/grammar-review-browser.cjs",
+    "tests/teacher-five-browser.cjs"
+  ],
+  "verification": [
+    "Gecontroleerde voorbeeldles, mondelinge antwoordvorm, spelling, denkbeeldige situaties, groepsbehoud en hervatten.",
+    "Volledige lokale regressie, drie browserengines en vier schermbreedtes.",
+    "Voortzetting van testles en testgroep over deze publicatie op desktop en mobiel."
+  ]
+}
