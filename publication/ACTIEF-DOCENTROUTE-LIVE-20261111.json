@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "820bdd53768423a176b3fb516590cf5bb7c2a5f2",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app.js",
+    "card-presentation.js",
+    "content-ui.js",
+    "controls.css"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "ef126650-4b8c-4570-85fb-9c5477d2d266",
+  "review": "publication/ACTIEF-DOCENTROUTE-20261111.json",
+  "publicTests": [
+    {
+      "engine": "chromium",
+      "exit": 0
+    },
+    {
+      "engine": "webkit",
+      "exit": 0
+    },
+    {
+      "engine": "firefox",
+      "exit": 0
+    }
+  ],
+  "limits": "WebKit is not a native Safari/VoiceOver test; mobile viewport simulations, no teacher trial."
+}

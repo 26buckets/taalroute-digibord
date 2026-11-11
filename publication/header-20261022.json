@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "cc326daf5aa83e72566b329506e1453d837ae6639e7bb59684cbddb4dd186f25",
+    "PUBLICATIE.md": "110ecd3e907a047927479f36a2e0bf7f41bfba4975def2d97af91d52618deb3a",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "b773f392fd99e2ed63a5a4e144bcc149f95255c7ed79f7f6435c5621c23c33c2",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "8e7fef4fb9c5912c34d75c83447b80d175f8394e1ea1dd2494fd7d84c30ebb58",
-    "publication-freeze.json": "fd1958bf4cbd927b62f86abd0931e5f6af2630c112724478a2e549c786532ff1",
+    "publication-freeze.json": "d3fce4c29a16588e30243a6e4451b30a01f83c2b895d2cf3cbfb225408e4916f",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -234,7 +234,8 @@
     "publication/decision-before-mobile-choices-20261111.json": "6c181df48fe5dcf874851af03847ef73ce5ab41524fd28e0e8e31503e1c96022",
     "publication/ACTIEF-MOBIELE-KEUZES-LIVE-20261111.json": "623fbe784a26f45ab0443d0c303ff592cd55e8e077f161b6568986c9994db0be",
     "publication/decision-before-docentroute-20261111.json": "2c7d9f6fd73b14be92a63ca577826b4ab5bff328a498a0e715a37db8598eb161",
-    "publication/ACTIEF-DOCENTROUTE-20261111.json": "f265e7d05b88066c8a4b72d742f72f19b7c3acc3735bc73bfcc284629f1f515e"
+    "publication/ACTIEF-DOCENTROUTE-20261111.json": "f265e7d05b88066c8a4b72d742f72f19b7c3acc3735bc73bfcc284629f1f515e",
+    "publication/ACTIEF-DOCENTROUTE-LIVE-20261111.json": "332df38ed609f087748f7f7f0b18d4868689e61282554a648fa2fe5a0bbab0a1"
   },
   "explicitPublicationApproval": "Ja, hef de publicatieblokkade voor deze gecontroleerde versie op en zet hem direct live. Behoud de lopende les en groepsgegevens, controleer de liveversie op desktop en mobiel en laat me de echte voorbeelden zien.",
   "previousDecision": "publication/decision-before-docentroute-20261111.json",
@@ -332,6 +333,11 @@
   "publishedMobileChoices20261111": {
     "sourceCommit": "5df57eb25d5e1e9c29aca703ab844679b340daa7",
     "liveVersion": "e28d3140-b148-4456-ac83-30f24b8fbdb1",
+    "status": "published-verified-frozen"
+  },
+  "publishedTeacherRoute20261111": {
+    "sourceCommit": "820bdd53768423a176b3fb516590cf5bb7c2a5f2",
+    "liveVersion": "ef126650-4b8c-4570-85fb-9c5477d2d266",
     "status": "published-verified-frozen"
   }
 }

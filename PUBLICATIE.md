@@ -1,6 +1,6 @@
 ## Actuele vrijgave — eerste les en duidelijke kaartopdrachten, 11 november 2026
 
-Zie `publication/ACTIEF-DOCENTROUTE-20261111.json`. Normale publicatieroute; na publieke controle opnieuw vastzetten.
+Zie `publication/ACTIEF-DOCENTROUTE-20261111.json`. Publiek gecontroleerd en opnieuw vastgezet. Livebron `820bdd53768423a176b3fb516590cf5bb7c2a5f2`. Zie `publication/ACTIEF-DOCENTROUTE-LIVE-20261111.json`.
 
 ## Actuele vrijgave — vraag en keuzes op mobiel, 11 november 2026
 
