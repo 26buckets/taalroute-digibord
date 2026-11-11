@@ -74,7 +74,7 @@ qs('#routeSelect').onchange=e=>{state.route=e.target.value;save()}
 qs('#boardSelect').onchange=e=>{state.board=e.target.value;save()}
 qsa('[data-workmode]').forEach(b=>b.onclick=()=>{state.workMode=b.dataset.workmode;save();renderLesson();renderParticipants()});
 qsa('[data-pawnmode]').forEach(b=>b.onclick=()=>{state.pawnMode=b.dataset.pawnmode;save();renderLesson();renderParticipants()});
-function renderLesson(){
+function renderLesson(){const context=lessonContext(),mode=context?.mode||state.pawnMode,note=qs('#turnModeNote');note.hidden=!context?.lesson;note.textContent='Spelbeurten: '+({class:'klassikaal',groups:'per groep',pairs:'per duo',individual:'per cursist'}[mode]||'klassikaal')+(context?.board?'. Je kiest de spelbeurten bij Bordopties.':'. Je kiest de spelbeurten in de spelbalk. Op kleine schermen vind je die keuze onder Bediening.');
  const ctx=lessonContext();qsa('[data-familylaunch]').forEach(b=>b.disabled=!ctx);qs('#routeSelect').value=ctx?.lesson?ctx.route:state.route;qs('#routeSelect').disabled=!!ctx?.lesson;qs('#boardSelect').closest('.field').hidden=true;qs('#pawnControls').hidden=!ctx?.board;qs('#lessonSettingNote').textContent=ctx?.lesson?'Wil je op een ander niveau werken? Begin dan een nieuwe les via Les maken.':'Kies het niveau waarop je wilt spelen.';qs('#finishLesson').disabled=!ctx?.lesson;
  qsa('[data-workmode]').forEach(b=>{const on=b.dataset.workmode===state.workMode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
  qsa('[data-pawnmode]').forEach(b=>{const on=b.dataset.pawnmode===state.pawnMode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});
@@ -246,3 +246,5 @@ qs('.back-btn').onclick=()=>{if(window.parent===window)window.location.href='../
 function renderAll(){renderLesson();renderParticipants();renderSaved();renderSound();renderDisplay();showPage(state.page||'people');qsa('.toggle').forEach(b=>{b.setAttribute('aria-pressed',String(b.classList.contains('on')))});}
 renderAll();
 if(settingsReadFailed)toast('Je opgeslagen instellingen konden niet worden gelezen. Ze zijn niet overschreven. Herstel een geldige reservekopie.');
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&window.parent!==window){e.preventDefault();window.parent.postMessage({type:'taalroute-close-settings'},location.origin)}});

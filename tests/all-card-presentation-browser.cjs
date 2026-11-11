@@ -14,13 +14,13 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
    if(node.querySelectorAll('.content-stimulus').length>1)failures.push(item.content_item_id+' duplicate reading');
    if(/\.:|als dat past/.test(node.querySelector('.content-prompt h2').textContent))failures.push(item.content_item_id+' unclear punctuation/target');
    const visible=node.textContent;
-   if(item.options?.some(option=>!visible.includes(AppWording.text(option))))failures.push(item.content_item_id+' missing option');
+   if(item.options?.some(option=>!visible.includes(CardPresentation.learnerText(item,AppWording.text(option)))))failures.push(item.content_item_id+' missing option');
    if(p?.target&&!node.querySelector('u')?.textContent.includes(p.target))failures.push(item.content_item_id+' missing target');
    if(p?.stimulus&&p.instruction.includes(p.stimulus))failures.push(item.content_item_id+' duplicated stimulus');
    // A bound replacement deliberately replaces the old instruction, not the source sentence.
    if(!/^Verander (?:alleen het laatste deel|het (?:eerste|modale) werkwoord)/.test(item.prompt)){
     const texts=[],walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);while(walker.nextNode())texts.push(walker.currentNode.textContent);
-    const seen=new Set(tokens(texts.join(' '))),missing=tokens(item.prompt).filter(t=>!seen.has(t)&&!labels.has(t)&&!(item.content_item_id==='ER_B2_078'&&t==='formuleren'));
+    const seen=new Set(tokens(texts.join(' '))),missing=tokens(p?[p.instruction,p.stimulus,...(p.words||[])].filter(Boolean).join(' '):CardPresentation.learnerText(item,CardPresentation.clearInstruction(item.prompt))).filter(t=>!seen.has(t)&&!labels.has(t)&&!(item.content_item_id==='ER_B2_078'&&t==='formuleren'));
     if(missing.length)failures.push(item.content_item_id+' lost words: '+[...new Set(missing)].join(' '));
    }
   }

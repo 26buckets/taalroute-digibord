@@ -60,6 +60,8 @@
   const banner=document.querySelector('#lessonResume'),resumeButton=document.querySelector('#resumeBtn');
   banner.hidden=playing||!APP.last||!!resumeButton?.disabled;
   setText(banner.querySelector('span'),APP.last?.label||'');
+  const panel=document.querySelector('#appHeader .hdr001-panel');
+  if(panel){let menuResume=panel.querySelector('[data-menu-resume]');if(!menuResume){menuResume=document.createElement('button');menuResume.className='smallbtn';menuResume.dataset.menuResume='';menuResume.textContent='Verder met mijn les';menuResume.onclick=resume;panel.append(menuResume)}menuResume.hidden=banner.hidden||innerWidth>1050;}
   document.querySelector('#stage').classList.toggle('has-resume',!banner.hidden);
   if(playing&&APP.last?.type==='card'&&APP.cardKind!=='story')mountCardNavigation();
   if(playing)root.revealCurrentCardType?.();
@@ -69,6 +71,9 @@
  function mountCardNavigation(){
   const next=document.querySelector('#primaryGame'),slot=next?.parentElement,d=deck();if(!next||!slot||!d)return;
   slot.classList.add('card-navigation');
+  const shuffle=document.querySelector('#cardOrderReset'),tools=document.querySelector('.game-tools-body');
+  const shuffleParent=matchMedia('(max-width:900px), (max-height:650px)').matches?tools:slot;
+  if(shuffle&&shuffleParent&&shuffle.parentElement!==shuffleParent)shuffleParent.append(shuffle);
   if(!document.querySelector('#previousCard')){const b=document.createElement('button');b.id='previousCard';b.className='smallbtn';b.textContent='← Vorige';b.setAttribute('aria-label','Vorige opdracht');b.onclick=()=>nextCard(-1);slot.prepend(b);const overview=document.createElement('button');overview.id='cardOverview';overview.className='smallbtn';overview.innerHTML='<span class="card-count"></span><span class="card-overview-label">Overzicht</span>';overview.onclick=showHistory;next.before(overview);}
   document.querySelector('#previousCard').disabled=busy()||d.cursor===0;
   setText(document.querySelector('#cardOverview .card-count'),`${d.cursor+1} van ${d.eligible.length}`);

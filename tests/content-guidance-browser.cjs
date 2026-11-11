@@ -1,3 +1,4 @@
+const openPracticeResources=require('./practice-resources.cjs');
 const headerAction=require('./header-actions.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require('playwright');
@@ -16,7 +17,7 @@ let browser;
  const fieldIcons=await page.locator('#practiceForm .practice-select>span svg,#practiceForm .practice-field>legend svg').evaluateAll(icons=>icons.map(e=>e.innerHTML));
  assert.equal(new Set(fieldIcons).size,fieldIcons.length,'Different choices have different icons');
  for(const logo of await page.locator('#practiceForm [data-guidance]').all())assert.equal(await logo.isVisible(),false,'Lesson help starts collapsed');
- await page.locator('.practice-guidance>summary').click();
+ await openPracticeResources(page);await page.locator('.practice-guidance>summary').click();
  for(const logo of await page.locator('#practiceForm [data-guidance]').all())assert.equal(await logo.isVisible(),true,'Four unchanged logos are available under lesson help');
  await page.locator('#practiceForm [data-guidance=lowan]').click();
  await page.evaluate(()=>new Promise(resolve=>{const d=document.querySelector('#gameDialog');d.addEventListener('close',resolve,{once:true});d.close();document.querySelector('#practiceForm [data-guidance=bow]').focus()}));
@@ -44,7 +45,7 @@ let browser;
  const selection=await page.evaluate(()=>({spec:ContentUI.selectionSpec(),p:ContentUI.preferences()}));
  await page.evaluate(({spec,p})=>ContentUI.loadSelection(spec,p,{record:{name:'Bewaarde les'}}),selection);
  assert.equal(await page.locator('#practiceForm .guidance-row').innerHTML(),first);
- await page.reload();await headerAction(page, '[data-main="practice"]', 'click');await page.locator('.practice-guidance>summary').click();
+ await page.reload();await headerAction(page, '[data-main="practice"]', 'click');await openPracticeResources(page);await page.locator('.practice-guidance>summary').click();
 
  for(const width of [320,390,768,1440,1920]){
   await page.setViewportSize({width,height:900});

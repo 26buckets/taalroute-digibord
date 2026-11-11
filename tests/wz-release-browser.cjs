@@ -25,6 +25,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   for(const group of groups){
    await page.evaluate(g=>{ContentUI.open({family:'words'});ContentUI.setState({topic:g.topic,level:g.level,engine:'CARDS',duration:180,difficulty:'all',focus:'all',subtopic:'all'});},group);
    assert.ok(await page.locator('[name=microconstructure]').count());
+   if(!await page.locator('.practice-more').evaluate(e=>e.open))await page.locator('.practice-more>summary').click();
    await page.selectOption('[name=microconstructure]',group.micro);
    const detail=await page.evaluate(()=>({error:ContentUI.scopeError(),micro:ContentUI.selectionSpec().filter_spec.microconstructures,ids:ContentRuntime.selectionPool(ContentUI.selectionSpec()).map(i=>i.content_item_id),duration:ContentUI.state().duration,disabled:document.querySelector('#practiceStart').disabled}));
    assert.equal(detail.error,'');assert.deepEqual(detail.micro,[group.micro]);assert.ok(detail.ids.length);assert.equal(detail.disabled,false,JSON.stringify(group));
@@ -55,7 +56,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),fs=require(
   for(const width of [1440,390,320]){
    await page.setViewportSize({width,height:1000});await headerAction(page, '[data-main=practice]', 'click');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
-   assert.ok(await page.locator('.beta-label').isVisible());
+   assert.equal(await page.locator('.beta-label').isVisible(),false,'Approved header hides the old beta badge');
    if(process.env.SCREENSHOT_DIR){fs.mkdirSync(process.env.SCREENSHOT_DIR,{recursive:true});await page.screenshot({path:path.join(process.env.SCREENSHOT_DIR,'wz-voorbereiding-'+width+'.png'),fullPage:true})}
   }
   assert.deepEqual(errors,[]);console.log('PASS WZ browser: 2698 tasks / 8094 projections; every guided choice, sparse groups, 9 game routes, exact reload/resume and mobile preparation.');

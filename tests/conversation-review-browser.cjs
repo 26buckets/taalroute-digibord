@@ -1,3 +1,4 @@
+const openPracticeResources=require('./practice-resources.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root,dir=path.join(root,'tests/artifacts/conversation-review');
@@ -27,7 +28,7 @@ let browser;
  }
  const page=await browser.newPage({viewport:{width:1440,height:1000},hasTouch:true});page.on('pageerror',e=>errors.push(e.message));await page.goto(url);await page.locator('[data-main=practice]').click();
  const lessons=[];for(const id of ['begrijpen','afspraken','bedoeling']){
-  await page.evaluate(()=>ContentUI.open());await page.locator('.practice-inventory > summary').click();await page.getByText('Korte lessen',{exact:true}).click();await page.locator(`[data-conversation-trial="${id}"]`).click();
+  await page.evaluate(()=>ContentUI.open());await openPracticeResources(page);await page.locator('.practice-inventory > summary').click();await page.getByText('Korte lessen',{exact:true}).click();await page.locator(`[data-conversation-trial="${id}"]`).click();
   const prepared=await page.evaluate(()=>({ids:ContentUI.previewItems().map(i=>i.content_item_id),levels:[...new Set(ContentUI.previewItems().map(i=>i.cefr_level))],groups:ContentUI.previewItems().map(i=>i.practice_group||i.content_item_id),title:document.querySelector('.practice-chosen').firstChild.textContent.trim()}));assert.equal(prepared.ids.length,7);assert.equal(new Set(prepared.groups).size,7);assert.deepEqual(prepared.levels,[id==='begrijpen'?'B1':'B2']);
   await page.locator('#practiceForm [data-guidance=erk]').click();assert.equal(await page.locator('.guidance-status').innerText(),prepared.levels[0]);assert.equal(await page.locator('.guidance-content details').count(),7);await page.keyboard.press('Escape');
   await page.screenshot({path:path.join(dir,id+'.png')});await page.locator('#practiceSave').click();await page.locator('#lessonName').fill(prepared.title);await page.locator('#lessonSaveForm .primary').click();await page.waitForFunction(()=>!document.querySelector('#gameDialog').open);

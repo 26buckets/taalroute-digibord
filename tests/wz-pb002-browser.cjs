@@ -1,3 +1,4 @@
+const openPracticeResources=require('./practice-resources.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http');
 const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
@@ -12,7 +13,7 @@ let browser;
  await page.locator('[name=topic]').selectOption('WZ_009');assert.equal(await page.locator('[name=level]').inputValue(),'A0→A1');
  await page.locator('.practice-engine:has(input[value=CARDS])').click();assert.ok(await page.locator('.practice-engine .lucide-icon').count());
  assert.equal(await page.locator('.practice-engine input[value=DICE]').count(),0);assert.equal(await page.evaluate(()=>ContentUI.state().difficulty),'basis');
- await page.locator('.practice-inventory>summary').click();await page.locator('.practice-level-info>summary').click();assert.equal(await page.locator('.practice-levels .practice-level').last().textContent(),'C2');await page.locator('.practice-inventory>summary').click();
+ await openPracticeResources(page);await page.locator('.practice-inventory>summary').click();await page.locator('.practice-level-info>summary').click();assert.equal(await page.locator('.practice-levels .practice-level').last().textContent(),'C2');await openPracticeResources(page);await page.locator('.practice-inventory>summary').click();
  const first=await page.evaluate(()=>ContentRuntime.createSession(ContentUI.sessionOptions(24)).selected_item_ids);
  await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-practice-engine=BOARD]:not([data-practice-variant])').click();assert.deepEqual(await page.evaluate(()=>ContentRuntime.createSession(ContentUI.sessionOptions(24)).selected_item_ids),first);
  await page.locator('.practice-engine:has(input[value=CARDS])').click();

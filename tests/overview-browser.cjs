@@ -1,10 +1,11 @@
+const openPracticeResources=require('./practice-resources.cjs');
 const assert=require('node:assert/strict'),path=require('node:path'),{chromium}=require('playwright');
 (async()=>{
  const browser=await chromium.launch({channel:'chrome',headless:true,args:['--allow-file-access-from-files']});
  try{
   const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(process.env.LIVE_URL||'file://'+path.join(__dirname,'..',process.env.BUILD_SMOKE?'dist':'','index.html'));
-  await page.locator('[data-main=practice]').click();await page.locator('.practice-inventory>summary').click();
+  await page.locator('[data-main=practice]').click();await openPracticeResources(page);await page.locator('.practice-inventory>summary').click();
   assert.ok((await page.locator('#inventoryCount').innerText()).endsWith('11.338 opdrachten'),'current E1 release inventory, not the pre-E1 8,414 snapshot');
   assert.equal(await page.locator('.inventory-family[open]').count(),0);
   const entries=await page.locator('[data-inventory-topic]').evaluateAll(es=>[...new Map(es.map(e=>[e.dataset.inventoryFamily+'|'+e.dataset.inventoryTopic+'|'+e.dataset.inventoryLevel,{family:e.dataset.inventoryFamily,topic:e.dataset.inventoryTopic,level:e.dataset.inventoryLevel}])).values()]);
@@ -16,7 +17,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),{chromium}=
   assert.equal(await page.locator('.inventory-family[open]').count(),0);await page.locator('#inventoryReset').click();
   // Every listed subject/level opens the exact selection, including guided-only groups.
   for(const entry of entries){
-   if(!await page.locator('.practice-inventory').evaluate(e=>e.open))await page.locator('.practice-inventory>summary').click();
+   if(!await page.locator('.practice-inventory').evaluate(e=>e.open))await openPracticeResources(page);await page.locator('.practice-inventory>summary').click();
    await page.evaluate(e=>document.querySelector(`[data-inventory-family="${e.family}"][data-inventory-topic="${e.topic}"][data-inventory-level="${e.level}"]`).click(),entry);
    if(!await page.evaluate(()=>ContentUI.availability().source_count)){
     const micro=await page.locator('[name=microconstructure] option').evaluateAll(es=>es.find(e=>e.value)?.value);assert.ok(micro,JSON.stringify(entry));await page.selectOption('[name=microconstructure]',micro);
@@ -24,7 +25,7 @@ const assert=require('node:assert/strict'),path=require('node:path'),{chromium}=
    const state=await page.evaluate(()=>({state:ContentUI.state(),error:ContentUI.scopeError(),ids:ContentUI.previewItems().map(i=>i.content_item_id),levels:[...new Set(ContentUI.previewItems().map(i=>DigiRoutes.classification(i).displayRoute))]}));
    assert.equal(state.error,'',JSON.stringify(entry));assert.equal(state.state.topic,entry.topic);assert.ok(state.ids.length,JSON.stringify(entry));assert.deepEqual(state.levels,[entry.level]);
   }
-  await page.locator('.practice-inventory>summary').click();await page.locator('#inventorySearch').fill('die dat');
+  await openPracticeResources(page);await page.locator('.practice-inventory>summary').click();await page.locator('#inventorySearch').fill('die dat');
   assert.ok(await page.locator('[data-inventory-topic=g-relatieve-zinnen]').count());
   assert.equal(await page.locator('.inventory-family[open]').count(),0,'search is direct, no hidden source family');
   await page.locator('#inventorySearch').fill('<img src=x onerror=alert(1)>');assert.equal(await page.locator('#inventoryResults img').count(),0);assert.match(await page.locator('#inventoryResults').innerText(),/Geen aangesloten inhoud/);

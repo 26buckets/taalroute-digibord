@@ -119,3 +119,43 @@ html[data-theme=dark] #appHeader>.mainnav .navitem.active{color:#b5dfff}
 /* A reserved hint on long cards never covers the reading material or controls. */
 .card-scroll-hint{flex:none;margin:0;padding:3px 12px 5px;text-align:center;font:400 13px/1.4 var(--setup-font);color:#31516a;background:#fffdfa;border-top:1px solid #d6e3ed}
 .card-scroll-hint[hidden]{display:none}
+
+/* Keep the main task controls visible; secondary tools use one compact disclosure. */
+.gamebar .game-tools[hidden]{display:none!important}
+.gamebar .game-tools>summary{display:none}
+.gamebar>.primary-slot{order:1}.gamebar .turnzone{order:0}.gamebar .right-actions{order:2}
+#appHeader .hdr001-panel #levelSelect{width:100%;max-width:none;min-width:120px}
+#appHeader .hdr001-panel [data-menu-resume]{width:100%;text-align:left}
+.practice-resources{grid-column:1/-1;min-width:0}
+.practice-resources>summary{min-height:44px;padding:10px 0;cursor:pointer;font:500 16px/1.5 var(--setup-font);display:flex;gap:8px;align-items:center}
+.practice-resources>summary::after{content:"＋";margin-left:auto}.practice-resources[open]>summary::after{content:"−"}
+.practice-resources>.practice-help{display:grid;margin:8px 0 16px;width:auto}
+.practice-resources .practice-librarybar{margin:0}
+.content-reading>.content-prompt:first-child,.card-reading-main>.card-actions:first-child{margin-top:0;padding-top:0;border-top:0}
+.content-reading>.content-prompt:first-child,.card-reading-main>.card-actions:first-child{margin-bottom:24px}
+@media(max-width:900px),(max-height:650px){
+ #screen-game .gamebar:has(.game-tools){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto;gap:8px;padding:10px 12px}
+ #screen-game .gamebar>.primary-slot{grid-column:1/-1;grid-row:1}
+ #screen-game .gamebar .game-tools{display:block;grid-column:1/-1;grid-row:2;order:3}
+ #screen-game .gamebar .game-tools>summary{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;box-sizing:border-box;padding:8px 12px;border:1px solid var(--control-line);border-radius:var(--control-radius);background:var(--control-surface);color:var(--control-ink);cursor:pointer;font:400 14px/1.3 var(--setup-font)}
+ #screen-game .gamebar .game-tools>summary .game-icon{width:18px;height:18px}
+ #screen-game .gamebar .game-tools>summary::after{content:"＋"}.gamebar .game-tools[open]>summary::after{content:"−"!important}
+ #screen-game .gamebar .game-tools:not([open])>.game-tools-body{display:none}
+ #screen-game .gamebar .game-tools[open]>.game-tools-body{display:flex;flex-wrap:wrap;gap:12px;position:absolute;z-index:30;bottom:calc(100% + 4px);left:12px;right:12px;max-height:min(60dvh,420px);overflow:auto;padding:16px;border:1px solid var(--control-line);border-radius:var(--control-radius);background:var(--control-surface);box-shadow:0 6px 24px #0002}
+ #screen-game .gamebar .game-tools .turnzone{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;max-width:none;max-height:none;overflow:visible;width:100%}
+ #screen-game .gamebar .game-tools .mode-select{width:auto;max-width:100%;min-width:140px}
+ #screen-game .gamebar .game-tools .right-actions{display:flex;flex-wrap:wrap;justify-content:flex-start;width:100%;gap:8px}
+ #screen-game .gamebar .game-tools .right-actions .game-action{width:auto;min-height:44px;padding:8px 12px;white-space:normal}
+ #screen-game .gamebar .game-tools #cardOrderReset{order:3;width:auto;min-height:44px}
+ #screen-game .card-viewport .primary-slot.card-navigation{display:contents}
+ #screen-game .card-viewport{--gamebar:120px}
+ .card-navigation #previousCard{grid-column:1;grid-row:1}.card-navigation #cardOverview{grid-column:2;grid-row:1}.card-navigation #primaryGame{grid-column:3;grid-row:1}
+}
+
+#appHeader .hdr001-controls>.hdr001-fullscreen span{display:none}
+
+.game-turn-label{font:400 14px/1.3 var(--setup-font);color:var(--control-ink)}
+.card-shuffle-label{display:none}
+@media(max-width:900px),(max-height:650px){#screen-game .game-tools #cardOrderReset{display:flex;align-items:center;gap:8px}.game-tools .card-shuffle-label{display:inline}}
+/* Hidden legacy controls must not leave a blank row in the hamburger menu. */
+#app:has(#screen-practice.active,#screen-lessons.active)>header .hdr001-panel .level-pill,#appHeader .hdr001-panel #boardMenuToggle{display:none!important}

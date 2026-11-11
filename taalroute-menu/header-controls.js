@@ -86,12 +86,16 @@
     const screen=header.querySelector('.hdr001-fullscreen');
     const actions=[material,help,screen].filter(Boolean);
     if(compact.matches){
-      let anchor=[...panel.children].find(e=>!actions.includes(e)&&e!==navigation)||null;
+      let anchor=[...panel.children].find(e=>!actions.includes(e)&&e!==navigation&&!(header.id==='appHeader'&&(e===center||e.hasAttribute('data-menu-resume'))))||null;
       for(const action of [...actions].reverse()){if(action.nextSibling!==anchor||action.parentElement!==panel)panel.insertBefore(action,anchor);anchor=action;}
       if(narrow.matches&&navigation&&navigation.nextSibling!==anchor)panel.insertBefore(navigation,anchor);
     }else{
       let anchor=menu;
       for(const action of [...actions].reverse()){if(action.nextSibling!==anchor||action.parentElement!==row)row.insertBefore(action,anchor);anchor=action;}
+    }
+    if(header.id==='appHeader'&&center?.parentElement===panel){
+      if(panel.firstElementChild!==center)panel.prepend(center);
+      const resume=panel.querySelector('[data-menu-resume]');if(resume&&center.nextElementSibling!==resume)center.after(resume);
     }
   }
   for(const query of [compact,narrow,matchMedia('(max-width:1050px)')])query.addEventListener('change',()=>{for(const header of document.querySelectorAll('.hdr001-header'))refresh(header);});

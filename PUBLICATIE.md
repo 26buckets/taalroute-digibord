@@ -1,3 +1,7 @@
+## Actuele vrijgave — zes UI-verbeteringen, 11 november 2026
+
+Alleen de beoordeelde wijzigingen in `publication/ACTIEF-ZES-VERBETERINGEN-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, niveaus, lopende les en groepen blijven behouden. Normale publicatieroute; na online controle opnieuw vastzetten. De docentproef volgt later.
+
 ## Actuele vrijgave — instellingen, 10 november 2026
 
 Begrijpelijke instellingen, volledige mobiele navigatie en veilig groepsherstel. Alleen de beoordeelde wijzigingen in `publication/ACTIEF-INSTELLINGEN-20261110.json` zijn vrijgegeven. Online gecontroleerd en opnieuw vastgezet. Livebron: `eb2453337815d58f17ddfd0476c9c250d52cf134`; Cloudflare: `e1997c16-c433-4616-8dfa-6c18e6617ea8`. Zie `publication/ACTIEF-INSTELLINGEN-LIVE-20261110.json`. De docentproef volgt later.

@@ -1,3 +1,4 @@
+const openPracticeResources=require('./practice-resources.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
 const server=http.createServer((req,res)=>{const p=new URL(req.url,'http://localhost').pathname,file=path.resolve(served,'.'+(p==='/'?'/index.html':decodeURIComponent(p)));if(!file.startsWith(served+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile())return res.writeHead(404).end();res.setHeader('Content-Type',({'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml'})[path.extname(file)]||'application/octet-stream');fs.createReadStream(file).pipe(res)});
@@ -12,7 +13,7 @@ const server=http.createServer((req,res)=>{const p=new URL(req.url,'http://local
  assert.ok(await page.locator('[data-choose-topic=vertel]').isVisible());
  await page.locator('[data-choose-topic=vertel]').click();await page.locator('[data-practice-step=level]>summary').click();await page.locator('label:has([name=level][value=A0_A1])').click();
  await require('./practice-controls.cjs').more(page);await page.locator('[name=duration]').selectOption('300');assert.equal(await page.locator('.practice-count strong').innerText(),'5');assert.match(await page.locator('.practice-summary').innerText(),/125 beschikbare opdrachten/);assert.match(await page.locator('.practice-summary').innerText(),/Tijd is een schatting/);
- await page.locator('#practiceOverview').click();const frame=page.frameLocator('#settingsOverlay iframe');await frame.locator('[data-ov-explain]').click();
+ await openPracticeResources(page);await page.locator('#practiceOverview').click();const frame=page.frameLocator('#settingsOverlay iframe');await frame.locator('[data-ov-explain]').click();
  const examples=frame.locator('#contentDidactic .ov-example');await examples.first().waitFor();const second=await examples.nth(1).innerText();assert.match(second,/Ik spreek/);assert.doesNotMatch(second,/kernboodschap/);assert.match(second,/Docenttip/);assert.match(second,/Werkvorm/);assert.match(await frame.locator('#contentDidactic').innerText(),/beschikbaar bij deze keuzes/);
  await frame.locator('[data-ov-prepare]').click();assert.equal(await page.locator('#settingsOverlay').evaluate(e=>e.classList.contains('open')),false);
  // The overview prepares the pool; the duration chooses the actual lesson, not all 125 tasks.
@@ -23,7 +24,7 @@ const server=http.createServer((req,res)=>{const p=new URL(req.url,'http://local
   assert.equal(await page.evaluate(()=>JSON.stringify(ContentRuntime.activeSession())),before,'Showing support must not mutate the saved content');
   await page.locator('#gameMount [data-card-family=quick]').click();
  }
- await page.locator('#practiceOverview').click();await frame.locator('[data-ov-explain]').click();await frame.locator('#ovRoute').selectOption('A2_B1');
+ await openPracticeResources(page);await page.locator('#practiceOverview').click();await frame.locator('[data-ov-explain]').click();await frame.locator('#ovRoute').selectOption('A2_B1');
  assert.match(await frame.locator('#contentDidactic').innerText(),/kennismaking/);assert.match(await frame.locator('#contentDidactic').innerText(),/Luisteraar|luisteraar/);
  const dir=path.join(root,'tests/artifacts/quick-lesson-guidance');fs.mkdirSync(dir,{recursive:true});
  for(const width of [1440,390]){

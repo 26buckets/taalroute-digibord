@@ -1,3 +1,4 @@
+const openPracticeResources=require('./practice-resources.cjs');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),{chromium}=require('playwright');
 const wording=require('../wording.js').text;
 const root=path.resolve(__dirname,'..'),served=process.env.BUILD_SMOKE?path.join(root,'dist'):root;
@@ -13,7 +14,7 @@ let browser,page;
  assert.deepEqual(await page.locator('.practice-engine input').evaluateAll(es=>es.map(e=>e.value).sort()),['BOARD','CARDS','WHEEL']);
  await require('./practice-controls.cjs').game(page,'.practice-engine:has(input[value=CARDS])');const chosen=await page.evaluate(()=>ContentUI.previewItems().map(i=>i.content_item_id));
  await page.evaluate(()=>goScreen('boards'));await page.locator('#screen-boards [data-practice-engine=BOARD]:not([data-practice-variant])').click();assert.deepEqual(await page.evaluate(()=>ContentUI.previewItems().map(i=>i.content_item_id)),chosen);
- await page.locator('#practiceForm .practice-guidance > summary').click();await page.locator('#practiceForm [data-guidance=erk]').click();assert.equal(await page.locator('.guidance-status').textContent(),'B2');await page.keyboard.press('Escape');
+ await openPracticeResources(page);await page.locator('#practiceForm .practice-guidance > summary').click();await page.locator('#practiceForm [data-guidance=erk]').click();assert.equal(await page.locator('.guidance-status').textContent(),'B2');await page.keyboard.press('Escape');
  await page.locator('#practiceSave').click();await page.locator('#lessonName').fill('Snelvragen: afspraken');await page.locator('#lessonSaveForm .primary').click();await page.waitForFunction(()=>!document.querySelector('#gameDialog').open);
  async function launch(engine,topic='quick-tell',level='B2'){await page.evaluate(({engine,topic,level})=>{ContentUI.clearEditing();APP.fixedRoll=1;settingsPatch({reducedMotion:true});ContentUI.launch(ContentRuntime.createSession({filters:{family_ids:['quick'],topics:[topic],levels:[level]},targetDurationSeconds:600,selectedGameEngine:engine,seed:51}))},{engine,topic,level})}
  const dir=path.join(root,'tests/artifacts/snelvragen');fs.mkdirSync(dir,{recursive:true});

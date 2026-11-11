@@ -422,3 +422,5 @@ html:has(#screen-game.active .board-game[data-dark=true]) .context-tooltip stron
 .gamecard:disabled{filter:grayscale(1)}
 .gamecard:disabled .arrowbubble{display:none}
 .gamecard>.status{position:absolute;top:16px;right:16px;background:#edf0f3;color:#34414d;font-size:14px;padding:7px 12px;border-radius:8px}
+
+dialog.settings-overlay{width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0}dialog.settings-overlay::backdrop{background:transparent}
