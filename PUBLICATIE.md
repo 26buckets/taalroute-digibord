@@ -1,6 +1,6 @@
 ## Actuele vrijgave — toegankelijkheid en WebKit, 11 november 2026
 
-Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-TOEGANKELIJKHEID-20261111.json` zijn vrijgegeven. Grote kaarten, inhoud, media, les en groepsgegevens blijven behouden. Normale publicatieroute; na online controle opnieuw vastzetten. VoiceOver en docentproef zijn niet uitgevoerd.
+Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-TOEGANKELIJKHEID-20261111.json` zijn vrijgegeven. Grote kaarten, inhoud, media, les en groepsgegevens blijven behouden. Online gecontroleerd en opnieuw vastgezet. Livebron: `1ebe42570c4e4e06d8c8fc2652095f8890169b00`; Cloudflare: `90ad39cf-1a10-41ca-bed3-7909d45ee9eb`. Zie `publication/ACTIEF-TOEGANKELIJKHEID-LIVE-20261111.json`. VoiceOver en docentproef zijn niet uitgevoerd.
 
 ## Actuele vrijgave — UI-verfijningen, 11 november 2026
 

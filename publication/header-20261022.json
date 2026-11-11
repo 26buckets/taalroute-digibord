@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "3693bca12cd927f7fadef1ce59a894bacfbc42e5a59c52967292cccf45b61dca",
+    "PUBLICATIE.md": "2bef25afffc516f22d77a6082d872509a15115ed687ea70d6cbbd74a7341e519",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "007dbc5e80bb18750c1704271a22331e060ac91d767839c3090f7c14bf0dfd9b",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "708092cb34277df127d5baa096f7893f908108a5eab0020087271912bf0c8bb9",
-    "publication-freeze.json": "5793b66fac83a9466476f809dc5f3c4fae068c594fb13cb2b39f8b0603530580",
+    "publication-freeze.json": "0c136850ccedbf01a39e8bb136b186fb97c6ed808b6531a191c7ec2ba79b7f78",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -208,8 +208,9 @@
     "tests/card-back-browser.cjs": "81cad3276a0e4d372cda5d6beddde8cc116368db18655ec396f1bf85896227b9",
     "publication/ACTIEF-TOEGANKELIJKHEID-20261111.json": "9c2fa7bb05404186e9df465c3d1e066821a1114faa193fe15504f357a04ef23b",
     "publication/decision-before-accessibility-20261111.json": "4339670fe7942d7ecc295b37e18f874b639d43b4ec61ad0a92a8925ba59b436d",
-    "tests/accessibility-browser.cjs": "510331e1b168f8298a1afda456e6c698685cebf51fd2b51d4a0ecfdaa7febe9d",
-    "card-table.css": "b04dae54e438107d335b4ea83f1d2e8c5d36279bcae6d3fba24667170ae8461c"
+    "tests/accessibility-browser.cjs": "67397e9564e3922f4d190bf46466c7b2271a0bdae72ed32182c20be1c903537d",
+    "card-table.css": "b04dae54e438107d335b4ea83f1d2e8c5d36279bcae6d3fba24667170ae8461c",
+    "publication/ACTIEF-TOEGANKELIJKHEID-LIVE-20261111.json": "81fd352d72d25e61be90b3043ac943e0de0b1b9befabaf43bbf9c381843d1e13"
   },
   "explicitPublicationApproval": "Nico geeft expliciet toestemming voor deze gecontroleerde verbeteringen zonder VoiceOver.",
   "previousDecision": "publication/decision-before-accessibility-20261111.json",
@@ -272,6 +273,11 @@
   "publishedUI9520261111": {
     "sourceCommit": "0a1daf2b234e38031031eea81d059f62eb1a179b",
     "liveVersion": "c312c9ad-d91d-4f8f-b196-e54a0ea557b0",
+    "status": "published-verified-frozen"
+  },
+  "publishedAccessibility20261111": {
+    "sourceCommit": "1ebe42570c4e4e06d8c8fc2652095f8890169b00",
+    "liveVersion": "90ad39cf-1a10-41ca-bed3-7909d45ee9eb",
     "status": "published-verified-frozen"
   }
 }

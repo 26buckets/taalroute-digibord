@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "1ebe42570c4e4e06d8c8fc2652095f8890169b00",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app-navigation.css",
+    "app-navigation.js",
+    "app.js",
+    "card-table.css",
+    "controls.css",
+    "index.html",
+    "open-quiet.css",
+    "settings/content-overview.js",
+    "settings/index.html",
+    "settings/settings.css",
+    "settings/settings.js",
+    "taalroute-menu/header-controls.js"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "90ad39cf-1a10-41ca-bed3-7909d45ee9eb",
+  "review": "publication/ACTIEF-TOEGANKELIJKHEID-20261111.json",
+  "productionTests": "Fresh isolated profiles on public app: Chromium 157, Firefox 159 and WebKit 26.5. Ordinary start-next-previous-menu-resume routes, settings, keyboard focus, named landmarks/dialogs, card status, readable idle card front, animation finish/cancel, responsive screenshots. Settings/group restore and all six route menus checked separately. 22 axe views with zero violations; manual/incomplete checks are not represented as automatic passes.",
+  "limits": "No VoiceOver, full Safari-app completion, physical iPhone or teacher trial. No independent human reviewer.",
+  "actions": "Heavy checks local only. No new cloud workflow."
+}

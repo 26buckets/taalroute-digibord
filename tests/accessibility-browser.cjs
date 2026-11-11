@@ -40,7 +40,7 @@ fs.mkdirSync(out,{recursive:true});
   await page.keyboard.press('Escape');
   await page.waitForFunction(()=>document.activeElement===document.querySelector('#cardOverview'),{},{timeout:3000});
   await header(page,'#settingsBtn','click');
-  const settings=()=>page.frames().find(f=>f.url().includes('/settings/index.html'));await page.getByRole('dialog',{name:'Instellingen',exact:true}).waitFor();await settings().locator('.back-btn').waitFor();
+  const settings=()=>page.frames().find(f=>f.parentFrame()===page.mainFrame());await page.getByRole('dialog',{name:'Instellingen',exact:true}).waitFor();await settings().locator('.back-btn').waitFor();
   await page.getByRole('dialog',{name:'Instellingen',exact:true}).waitFor();
   await shot('instellingen-desktop');
   await settings().locator('.back-btn').click();await stable();
