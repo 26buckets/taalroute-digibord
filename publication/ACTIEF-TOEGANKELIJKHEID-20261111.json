@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Doe de overige controles dan zonder VoiceOver en zonder dat ik iets hoef te bedienen. Herstel wat je vindt, behoud de les en groepsgegevens en zet de gecontroleerde verbeteringen live. Laat echte voorbeelden zien.",
+  "previousCanonicalMain": "959bd53468101efb490b5bc89d06ab3f5690d46d",
+  "previousLiveCommit": "0a1daf2b234e38031031eea81d059f62eb1a179b",
+  "scope": [
+    "app-navigation.css",
+    "app-navigation.js",
+    "app.js",
+    "card-table.css",
+    "controle.mjs",
+    "controls.css",
+    "index.html",
+    "open-quiet.css",
+    "settings/content-overview.js",
+    "settings/index.html",
+    "settings/settings.css",
+    "settings/settings.js",
+    "taalroute-menu/header-controls.js",
+    "tests/accessibility-browser.cjs",
+    "tests/card-back-browser.cjs",
+    "tests/settings-review-browser.cjs"
+  ],
+  "changes": [
+    "WebKit: gespiegelde kaartachterkant kan de opdracht in rust niet meer bedekken; draaien, schuiven, afpakken en minder beweging behouden.",
+    "Toetsenbordknop Naar de inhoud, hoofdgebied en benoemde dialoogvensters.",
+    "Focus na sluiten van een dialoog terug naar de geopende knop, ook bij klikken in WebKit.",
+    "Scherm en kaartnummer via een blijvend statusgebied; decoratieve appbeelden uitgesloten.",
+    "Contrast van kleine teksten in voorbereiding en instellingen; uitleg blijft leesbaar bij donkere bediening.",
+    "Volumeschuif gekoppeld aan zichtbaar label; native geluidskeuze gescheiden van beluisterknoppen."
+  ],
+  "reviews": [
+    "Functionele review via openbare bediening in verse browserprofielen.",
+    "Kritische tegencontrole met WebKit-beelden: bedekkende kaartachterkant, focusherstel, contrast en geluidsbediening gevonden en hersteld.",
+    "Hercontrole met Chromium, Firefox en WebKit, 22 axe-schermcontroles, animatiecontrole en bestaande behoudstests."
+  ],
+  "localChecks": {
+    "unit.log": "PASS grammar mapping:",
+    "activities.log": "PASS: all seven games completed",
+    "banks.log": "1200 rendered cards",
+    "tongue.log": "PASS: real navigation",
+    "p0.log": "all 610 active cards",
+    "rebuses.log": "PASS 90 rebuses",
+    "smoke.log": "PASS quick entry",
+    "navigation.log": "PASS: navigation, saved progress",
+    "levels.log": "PASS 12 available",
+    "settings.log": "PASS settings:",
+    "presentation.log": "PASS: 11338",
+    "clarity.log": "PASS: simple start",
+    "ui-six.log": "PASS six UI changes:",
+    "ui95.log": "PASS UI95:",
+    "webkit.log": "PASS accessibility: webkit",
+    "chromium.log": "PASS accessibility: chromium",
+    "firefox.log": "PASS accessibility: firefox",
+    "card-back.log": "PASS WebKit card backs:"
+  },
+  "axe": {
+    "screens": 22,
+    "violations": 0,
+    "note": "Automatische WCAG 2.0/2.1 A/AA-controle; incomplete controles en menselijke lees-/bedieningsreview apart bewaard."
+  },
+  "limits": [
+    "VoiceOver op verzoek gestopt en niet hervat.",
+    "WebKit 26.5 geautomatiseerd; geen afgeronde proef in de volledige Safari-app of fysieke iPhone.",
+    "Docentproef volgt later. Geen onafhankelijk reviewer of gemeten docentwaardering."
+  ],
+  "data": "Geen wijzigingen in bronbanken, media, opslagsleutels of migraties. Groepen en voortgang gecontroleerd met geïsoleerde testgegevens.",
+  "actions": "Alle zware tests lokaal; workflow alleen handmatig en begrensd."
+}

@@ -55,6 +55,8 @@
  function setText(element,value){if(element&&element.textContent!==value)element.textContent=value}
  function refresh(){
   const playing=screen()==='game',r=record(),origin=r?.origin||'practice';
+  const active=document.querySelector('.screen.active'),heading=active?.querySelector('h1')?.textContent.trim(),counter=playing?active?.querySelector('.card-ribbon .card-counter')?.textContent.trim():'';
+  setText(document.querySelector('#navigationStatus'),[heading,counter].filter(Boolean).join('. '));
   document.querySelectorAll('#screen-boards .tile[data-board] .status').forEach(el=>{const count=el.textContent.match(/\d+ posities/)?.[0]||'';setText(el,(root.ContentRuntime?.activeSession()?'Met je lopende les':'Kies eerst je les')+' · '+count)});
   document.querySelectorAll('.navitem').forEach(b=>{const active=playing?(['practice','lessons'].includes(origin)?origin:'play'):['practice','lessons','mycollection'].includes(screen())?screen():'play';const selected=b.dataset.main===active;b.classList.toggle('active',selected);if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
   const banner=document.querySelector('#lessonResume'),resumeButton=document.querySelector('#resumeBtn');
@@ -138,6 +140,7 @@
   }finally{historyMoving=false;refresh()}
  }
  root.AppNavigation={resume,beforeScreen,afterScreen,enterGame,schedule,captureCard,restoreRound,beforeLaunch,endCards,resetCards,showHistory,settingsOpened,settingsClosed,finish};
+ document.querySelector('.skip-content').onclick=event=>{event.preventDefault();document.querySelector('#stage').focus()};
  document.querySelector('[data-nav-resume]').onclick=resume;
  document.querySelector('#resumeBtn').onclick=resume;document.querySelector('#collectionResume').onclick=resume;
  document.addEventListener('click',()=>{captureCard();captureHistory();queueMicrotask(()=>{captureCard();schedule();if(screen()==='game')save()})},true);

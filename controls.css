@@ -27,7 +27,7 @@ button:not(.pawn):not(.cube):not(.physical-die):not(.zb-card):not(.tile):not(.ga
 /* Keep the selected card family readable on its pale selection background. */
 .cardtypes .typebtn.active{color:var(--control-ink,#173752)!important;background:var(--control-soft,#e7f2fc)!important}
 
-#screen-practice .practice-head .navigation-intro{display:block;max-width:58ch;margin-top:8px;font:400 16px/1.5 var(--setup-font,Arial,sans-serif);color:var(--control-ink)}
+#screen-practice .practice-head .navigation-intro{display:block;max-width:58ch;margin-top:8px;font:400 16px/1.5 var(--setup-font,Arial,sans-serif);color:var(--setup-ink)}
 
 /* Labeled helpers need their actual height, including the mobile second row. */
 #screen-game .card-viewport .card-controls{height:auto;flex-basis:auto;flex-shrink:0}

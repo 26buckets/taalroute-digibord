@@ -1,6 +1,6 @@
 /* Open en rustig — shared presentation for preparation and every settings page.
    Deliberately scoped: game cards and the fixed large tongue twisters stay separate. */
-:root{--setup-ink:#173752;--setup-muted:#5c7386;--setup-blue:#126ab3;--setup-soft:#e7f3fe;--setup-line:#d7e4ee;--setup-font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root{--setup-ink:#173752;--setup-muted:#52697c;--setup-blue:#126ab3;--setup-soft:#e7f3fe;--setup-line:#d7e4ee;--setup-font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 /* One card structure, including the separate preparation button. Text stays complete. */
 #screen-boards .tiles{grid-auto-rows:1fr}
 .activity-entry>.tile{flex:1;display:flex;flex-direction:column;align-items:stretch;padding:0;min-width:0}

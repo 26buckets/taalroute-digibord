@@ -1294,7 +1294,10 @@ function animateCard(card,deck,preview=false){
  const effect=cardEffect(),motion=cabinetMotion(effect,dx,dy);
  if(!preview&&from?.width&&effect!=='turn'){const scale=Math.min(1,from.width/to.width);motion.frames[0].transform+=` scale(${scale})`;motion.frames[1].transform+=` scale(${(1+scale)/2})`;if(effect==='draw')motion.frames[2].transform+=' scale(.85)'}
  card.style.transformOrigin=motion.origin;
- return card.animate(motion.frames,{duration:motion.duration,easing:'cubic-bezier(.25,.6,.3,1)'});
+ const animation=card.animate(motion.frames,{duration:motion.duration,easing:'cubic-bezier(.25,.6,.3,1)'});
+ card.classList.add('card-animating');
+ for(const event of ['finish','cancel'])animation.addEventListener(event,()=>card.classList.remove('card-animating'),{once:true});
+ return animation;
 }
 function playCabinetEffect(deck,info){
  if(!deck)return;deck.previewAnimation?.cancel?.();deck.querySelector('.cabinet-reveal')?.remove();
@@ -1371,6 +1374,16 @@ if(APP.levelPreferenceVersion!==1){
 }
 syncLevelSelect(false);
 $('#levelSelect').onchange=e=>selectLevel(e.target.value);
+// Safari does not focus a clicked button, so remember the actual dialog opener.
+let gameDialogOpener;
+document.addEventListener('click',event=>{
+ if($('#gameDialog').open&&!event.target.closest('#gameDialog'))gameDialogOpener=event.target.closest('button,a,summary,[tabindex]');
+});
+$('#gameDialog').addEventListener('close',()=>{
+ if($('#gameDialog').open)return;
+ const opener=gameDialogOpener;gameDialogOpener=null;
+ if(opener?.isConnected&&opener.checkVisibility())opener.focus({preventScroll:true});
+});
 $('#dialogClose').onclick=()=>$('#gameDialog').close();
 
 window.addEventListener('keydown',e=>{

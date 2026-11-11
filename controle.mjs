@@ -49,10 +49,11 @@ console.log('PASS: individual/group/class turn progression, finished-player skip
 
 // Animation transaction: only free dice move, cards respect their lock, and rapid clicks cannot draw twice.
 const animationCalls=[],animationEnds=[],buttons=[{disabled:false},{disabled:false}],primary={disabled:false},deck={disabled:false,getBoundingClientRect:()=>({left:100,top:400,width:200})};
-const animate=(frames,options)=>{animationCalls.push({frames,options});return {finished:new Promise(resolve=>animationEnds.push(resolve))}};
+const animate=(frames,options)=>{animationCalls.push({frames,options});const events={};return {addEventListener(type,callback){events[type]=callback},finished:new Promise(resolve=>animationEnds.push(()=>{events.finish?.();resolve()}))}};
 const page={querySelectorAll:()=>buttons,setAttribute(){},removeAttribute(){}};
 const stage={isConnected:true,closest:()=>page,querySelector:()=>({animate})};
-const card={style:{},animate,getBoundingClientRect:()=>({left:500,top:400,width:300})};
+const cardClasses=new Set();
+const card={style:{},classList:{add:c=>cardClasses.add(c),remove:c=>cardClasses.delete(c)},animate,getBoundingClientRect:()=>({left:500,top:400,width:300})};
 const ac=vm.createContext({Promise,Math,APP:{verbLocked:false,currentVerb:'a'},reduced:false,draws:0,TW_DICE_IDS:['WHO','TENSE','CONNECT_1'],
  twDiceState:{WHO:{active:true,locked:true,value:{label:'ik'}},TENSE:{active:true,locked:false,value:{label:'nu'}},CONNECT_1:{active:false,locked:false,value:{label:'en'}}},
  tw:{manifest:{verbs:{a:{id:'a'},b:{id:'b'}},diceFamilies:{TENSE:{values:[{label:'nu'},{label:'verleden'}]}}}},
@@ -62,11 +63,11 @@ vm.runInContext("let languageBusy=false;function settingsState(){return {reduced
 vm.runInContext(source.slice(source.indexOf('function cardEffect(){'),source.indexOf('function playCabinetEffect(')),ac);
 vm.runInContext(source.slice(source.indexOf('function rollTaalworp(){'),source.indexOf('function drawVerb(')),ac);
 let pending=vm.runInContext('playTaalworp()',ac);
-assert.equal(animationCalls.length,2);assert.equal(animationCalls[1].options.duration,950);
+assert(cardClasses.has('card-animating'));assert.equal(animationCalls.length,2);assert.equal(animationCalls[1].options.duration,950);
 assert.ok(animationCalls[1].frames[0].transform.includes('rotateY(-180deg)'));
 assert.equal(animationCalls[1].frames.at(-1).transform,'none');assert.equal(primary.disabled,true);
 await vm.runInContext('playTaalworp()',ac);assert.equal(ac.draws,1);
-animationEnds.splice(0).forEach(f=>f());await pending;assert.equal(primary.disabled,false);
+animationEnds.splice(0).forEach(f=>f());await pending;assert.equal(primary.disabled,false);assert(!cardClasses.has('card-animating'));
 assert.equal(ac.twDiceState.WHO.value.label,'ik');assert.equal(ac.twDiceState.CONNECT_1.value.label,'en');
 const tenseBefore=ac.twDiceState.TENSE.value;animationCalls.length=0;
 pending=vm.runInContext('playTaalworp(true)',ac);assert.equal(animationCalls.length,1);assert.equal(ac.twDiceState.TENSE.value,tenseBefore);

@@ -1,3 +1,7 @@
+## Actuele vrijgave — toegankelijkheid en WebKit, 11 november 2026
+
+Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-TOEGANKELIJKHEID-20261111.json` zijn vrijgegeven. Grote kaarten, inhoud, media, les en groepsgegevens blijven behouden. Normale publicatieroute; na online controle opnieuw vastzetten. VoiceOver en docentproef zijn niet uitgevoerd.
+
 ## Actuele vrijgave — UI-verfijningen, 11 november 2026
 
 Alleen de beoordeelde wijzigingen in `publication/ACTIEF-UI95-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, niveaus, lopende les en groepen blijven behouden. Online gecontroleerd en opnieuw vastgezet. Livebron: `0a1daf2b234e38031031eea81d059f62eb1a179b`; Cloudflare: `c312c9ad-d91d-4f8f-b196-e54a0ea557b0`. Zie `publication/ACTIEF-UI95-LIVE-20261111.json`. De docentproef volgt later.

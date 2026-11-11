@@ -159,3 +159,7 @@ html[data-theme=dark] #appHeader>.mainnav .navitem.active{color:#b5dfff}
 @media(max-width:900px),(max-height:650px){#screen-game .game-tools #cardOrderReset{display:flex;align-items:center;gap:8px}.game-tools .card-shuffle-label{display:inline}}
 /* Hidden legacy controls must not leave a blank row in the hamburger menu. */
 #app:has(#screen-practice.active,#screen-lessons.active)>header .hdr001-panel .level-pill,#appHeader .hdr001-panel #boardMenuToggle{display:none!important}
+
+/* Only visible when reached by keyboard; keep the approved screen layout. */
+.skip-content{position:fixed;left:12px;top:8px;z-index:10000;transform:translateY(-200%)}
+.skip-content:focus{transform:none}

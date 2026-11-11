@@ -104,14 +104,14 @@ svg.lucide{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;s
 .mode-card span{font-size:12px;line-height:1.4;color:#6b8090;font-weight:400}
 
 .quick-setup{display:flex;align-items:center;gap:8px;padding:10px 0 14px;border-bottom:1px solid #eef2f4;margin-bottom:14px}
-.quick-setup .label{font-size:12px;color:#748794;margin-right:2px}
+.quick-setup .label{font-size:12px;color:#52697c;margin-right:2px}
 .count-select{height:40px;border:1px solid #d5dfe6;border-radius:9px;background:#fff;color:#345269;padding:0 10px;min-width:145px}
 .tool-separator{width:1px;height:24px;background:#e0e7eb;margin:0 2px}
 
 .participants-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px}
 .participants-count{display:flex;align-items:baseline;gap:7px}
 .participants-count strong{font-size:20px;font-weight:650}
-.participants-count span{color:#7c8e9b;font-size:12px}
+.participants-count span{color:#52697c;font-size:12px}
 .participant-list{display:grid;gap:6px}
 .participant-row{display:grid;grid-template-columns:38px minmax(180px,1fr) 118px 46px;gap:8px;align-items:center;min-height:48px;border-bottom:1px solid #edf1f3;padding:4px 3px}
 .participant-row:last-child{border-bottom:0}
@@ -214,7 +214,7 @@ svg.lucide{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;s
 .sound-compact{border-top:1px solid #edf1f3}
 .sound-row{display:grid;grid-template-columns:24px minmax(0,1fr) 42px;align-items:center;gap:9px;min-height:46px;border-bottom:1px solid #edf1f3;padding:4px 0}
 .sound-row.active{color:#0a6098}
-.sound-radio{width:16px;height:16px;border-radius:50%;border:2px solid #94a8b7;position:relative}
+.sound-radio{appearance:none;margin:0;cursor:pointer;width:16px;height:16px;border-radius:50%;border:2px solid #94a8b7;position:relative}
 .sound-row.active .sound-radio{border-color:var(--blue)}
 .sound-row.active .sound-radio:after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--blue)}
 .sound-copy strong{display:block;font-size:13px;font-weight:550}

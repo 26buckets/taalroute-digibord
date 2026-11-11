@@ -216,3 +216,7 @@
 .card-controls>.card-attempt[aria-pressed=true]{color:#286c43;background:#e5f4e9;border-color:#72a483}
 .card-controls>.context-tools{flex:1;min-width:0}
 @media(max-width:560px){.card-controls{gap:6px}.card-controls>.card-attempt{width:36px}.card-controls>.context-tools{gap:4px}.card-controls .context-tools .smallbtn{padding:6px}}
+
+/* WebKit can paint the mirrored back over an idle card. Only use it during a turn. */
+.card-table-shell .game-card-back{visibility:hidden}
+.card-table-shell .card-animating>.game-card-back{visibility:visible}

@@ -176,9 +176,8 @@ let activeAudio=null,audioCtx=null;
 function renderSound(){
  qs('#soundEnabled').classList.toggle('on',state.soundEnabled);qs('#soundEnabled').setAttribute('aria-pressed',String(state.soundEnabled));
  qs('#volume').value=state.volume;qs('#volumeValue').textContent=state.volume+'%';
- qs('#soundRows').innerHTML=SOUNDS.map(s=>`<div class="sound-row ${s.id===state.diceSound?'active':''}" data-sound="${s.id}"><span class="sound-radio"></span><div class="sound-copy"><strong>${s.label}</strong><span>${s.description}</span></div><button class="listen" data-listen="${s.id}" aria-label="Beluister ${esc(s.label)}" data-tip="Beluisteren">${icon('play')}</button></div>`).join('');
- qsa('[data-sound]').forEach(r=>{r.tabIndex=0;r.setAttribute('role','radio');r.setAttribute('aria-checked',String(r.dataset.sound===state.diceSound));r.onkeydown=e=>{if(e.target===r&&['Enter',' '].includes(e.key)){e.preventDefault();r.click();qs('[data-sound="'+r.dataset.sound+'"]').focus()}}});
- qsa('[data-sound]').forEach(r=>r.onclick=e=>{if(e.target.closest('[data-listen]'))return;state.diceSound=r.dataset.sound;save();renderSound()});
+ qs('#soundRows').innerHTML=SOUNDS.map(s=>`<div class="sound-row ${s.id===state.diceSound?'active':''}" data-sound="${s.id}"><input class="sound-radio" type="radio" name="diceSound" id="sound-${s.id}" value="${s.id}" ${s.id===state.diceSound?'checked':''}><label class="sound-copy" for="sound-${s.id}"><strong>${s.label}</strong><span>${s.description}</span></label><button class="listen" data-listen="${s.id}" aria-label="Beluister ${esc(s.label)}" data-tip="Beluisteren">${icon('play')}</button></div>`).join('');
+ qsa('[name=diceSound]').forEach(r=>r.onchange=()=>{state.diceSound=r.value;save();renderSound();qs('#sound-'+r.value).focus()});
  qsa('[data-listen]').forEach(b=>b.onclick=e=>{e.stopPropagation();previewSound(b.dataset.listen,b)});
 }
 qs('#soundEnabled').onclick=()=>{state.soundEnabled=!state.soundEnabled;save();renderSound()};

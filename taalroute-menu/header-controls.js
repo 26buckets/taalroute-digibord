@@ -22,6 +22,7 @@
       row.innerHTML='<img alt=""><span class="tr-suite-label"><span class="tr-suite-wordmark"><span>Studio</span><small>Docentenomgeving</small></span><small class="taalroute-beta" aria-hidden="true">BETA</small></span>';
       row.querySelector('img').src=studioLogo;links.prepend(row);
     }
+    for(const image of links.querySelectorAll('img[alt=""]'))image.setAttribute('aria-hidden','true');
     if(mounted.has(header)&&header.querySelector('.hdr001-controls')){refresh(header);labelActions(header.querySelector('.hdr001-panel'));return;}
     const brandDetails=links.closest('details');
     const brandTrigger=brandDetails?.querySelector(':scope > summary')||header.querySelector('[popovertarget], .brand-trigger, .teacher-app-trigger');
