@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "ce911e489e2547806643a39150b58dd6520ce457",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app.js",
+    "card-presentation.js",
+    "content-lessons.js",
+    "content-ui.js",
+    "context-tools.js",
+    "controls.css",
+    "index.html",
+    "taalroute-menu/header-controls.js"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "261e2836-3aef-44cc-93ba-b318ca684ad3",
+  "review": "publication/ACTIEF-INSTAP-20261111.json",
+  "productionTests": "Public app in isolated Chromium, Firefox and WebKit profiles: explicit entry choices, menu and disclosures, task context, answer gate, large text, settings, same lesson/card/groups, reload/resume. All route menus and settings restoration retested. 25 axe views without reported violations.",
+  "limits": "No VoiceOver, completed full Safari-app test, physical iPhone or teacher trial. Same reviewer; no measured teacher rating. Full WebKit flow passed on retry. Extra repeated-start diagnostics include five successful starts and 20/30/45-second navigation timeouts; subsequent HTTP checks return 200 quickly. Cause not established. Repeated WebKit loading remains OPEN; evidence retained. Provisional expert rating 9.3, not a defensible whole-app 9.5.",
+  "actions": "Heavy checks local only; no cloud workflow requested."
+}

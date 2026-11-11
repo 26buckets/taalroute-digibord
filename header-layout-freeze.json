@@ -129,6 +129,9 @@
     "approvedBy": "Nico",
     "record": "publication/ACTIEF-INSTAP-20261111.json",
     "scope": "Bestaande headeropzet behouden; menu met korte startuitleg, lesnavigatie eerst en twee inklapbare groepen.",
-    "status": "controlled-release-pending"
+    "status": "published-verified-frozen",
+    "sourceCommit": "ce911e489e2547806643a39150b58dd6520ce457",
+    "liveVersion": "261e2836-3aef-44cc-93ba-b318ca684ad3",
+    "liveReview": "publication/ACTIEF-INSTAP-LIVE-20261111.json"
   }
 }

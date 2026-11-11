@@ -1,6 +1,6 @@
 ## Actuele vrijgave — duidelijke instap en bediening, 11 november 2026
 
-Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-INSTAP-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, les en groepsgegevens blijven behouden. Normale publicatieroute; na online controle opnieuw vastzetten. Docentproef volgt later.
+Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-INSTAP-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, les en groepsgegevens blijven behouden. Online gecontroleerd en opnieuw vastgezet. Livebron: `ce911e489e2547806643a39150b58dd6520ce457`; Cloudflare: `261e2836-3aef-44cc-93ba-b318ca684ad3`. Zie `publication/ACTIEF-INSTAP-LIVE-20261111.json`. Docentproef volgt later.
 
 ## Actuele vrijgave — toegankelijkheid en WebKit, 11 november 2026
 

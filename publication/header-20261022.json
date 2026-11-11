@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "48d094d045ad9ef7457e3ec9697146c512a260ed80dfaf531a2b74b301c8ed29",
+    "PUBLICATIE.md": "d1f2dffc8364dda0c12a796be33719c53e1bf8931c2e0d2491d86272c296857f",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "13db2256028e57ac462d16f4a07a5fd390322a2a7c785bff76c2b8b34d1574df",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "708092cb34277df127d5baa096f7893f908108a5eab0020087271912bf0c8bb9",
-    "publication-freeze.json": "1edaea8d843f2ea186bc32ba4dfa36b86f86fb96dc66361224f934e1ed149736",
+    "publication-freeze.json": "d07f956a089e32855f65e6a0e90afcac393b43e1575cd7bc7e55ee0badcd1f7a",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -41,7 +41,7 @@
     "taalroute-menu/zinnen.svg": "e73cb98cc177a0f2d16a957ff697e40fb65e382c327cbe0b51a6dc2c23bf8a9c",
     "publication/HDR001-20261022.md": "b46702d42be128bd888a8e3da01f1f0a49b8db88626b5c751a3cffd41b608008",
     "HEADER-AFSPRAAK.md": "bc7751d49b7e823744a2e2eda364abfacbd18df5c985b8e4c47dd379884e05e8",
-    "header-layout-freeze.json": "9bf49c833c84ef645988f270f1103b5b3c4df4fad4f6e72ff31648eb1a49fd1d",
+    "header-layout-freeze.json": "7d466134757c784e912e20e3a0e64912278ccb41cf6f7ae6059b5a8f1f8d507c",
     "taalroute-menu/studio.svg": "56a167248fb18e934b74be11e1481bfc25148e3867530eae6beddef679d872c3",
     "taalroute-menu/appearance.js": "7b45b09d5f4ed7ae637437588a9b33d6e633136f316fdc8e00ba577f00a7ce95",
     "taalroute-menu/menu-controls.js": "b01fcf4ad586e68b024e075bfb4d1508bb1aba1dd54b9ce6899599d8e39e867d",
@@ -213,7 +213,8 @@
     "publication/ACTIEF-TOEGANKELIJKHEID-LIVE-20261111.json": "81fd352d72d25e61be90b3043ac943e0de0b1b9befabaf43bbf9c381843d1e13",
     "tests/novice-ui-browser.cjs": "89c9fa1ae331664a2b8ecfc7d533c5f4ae6b1a5150d2d90037fd949fb1f12c3f",
     "publication/decision-before-novice-20261111.json": "eaafd6c9afc41646c77016c4ade730c94587b948214a0ced5f26fc80645f7be9",
-    "publication/ACTIEF-INSTAP-20261111.json": "d25a87d5c44b029ac0cdd68b09bce16490ace2efa36909b4ff3e6def23c4eca7"
+    "publication/ACTIEF-INSTAP-20261111.json": "d25a87d5c44b029ac0cdd68b09bce16490ace2efa36909b4ff3e6def23c4eca7",
+    "publication/ACTIEF-INSTAP-LIVE-20261111.json": "691112f58f30edbf58a501ab97c3a5a2a54fd45464e2ef2196a7777e90ffd2e8"
   },
   "explicitPublicationApproval": "Nico geeft expliciet toestemming voor deze gecontroleerde versie.",
   "previousDecision": "publication/decision-before-novice-20261111.json",
@@ -281,6 +282,11 @@
   "publishedAccessibility20261111": {
     "sourceCommit": "1ebe42570c4e4e06d8c8fc2652095f8890169b00",
     "liveVersion": "90ad39cf-1a10-41ca-bed3-7909d45ee9eb",
+    "status": "published-verified-frozen"
+  },
+  "publishedNovice20261111": {
+    "sourceCommit": "ce911e489e2547806643a39150b58dd6520ce457",
+    "liveVersion": "261e2836-3aef-44cc-93ba-b318ca684ad3",
     "status": "published-verified-frozen"
   }
 }
