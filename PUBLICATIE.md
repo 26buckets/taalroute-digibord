@@ -1,6 +1,6 @@
 ## Actuele vrijgave — vijf UI-verbeteringen, 11 november 2026
 
-Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json` zijn vrijgegeven. Grote kaarten, oorspronkelijke inhoud, media, audio, les en groepen blijven behouden. Normale publicatieroute; na publieke controle opnieuw vastzetten.
+Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json` zijn vrijgegeven. Grote kaarten, oorspronkelijke inhoud, media, audio, les en groepen blijven behouden. Publiek gecontroleerd en opnieuw vastgezet. Livebron `722365b46d0e836fe6aa556412bc81210f03066c`. Zie `publication/ACTIEF-VIJF-VERBETERINGEN-LIVE-20261111.json`.
 
 ## Actuele vrijgave — opstartbelasting, 11 november 2026
 

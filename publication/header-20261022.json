@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "4df562b3e78b76fa06bcbc023335bc5e740bc87313e4483804b294faaa57637f",
+    "PUBLICATIE.md": "f69bb92dd51352dda40b752c75db6a6f23ce2db8e3a48c21ee9cf3b73f44fc88",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "b773f392fd99e2ed63a5a4e144bcc149f95255c7ed79f7f6435c5621c23c33c2",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "8e7fef4fb9c5912c34d75c83447b80d175f8394e1ea1dd2494fd7d84c30ebb58",
-    "publication-freeze.json": "07ec50da187e9bba6647b993fc8ecdac5f5b143164859232eb93b27f19e04477",
+    "publication-freeze.json": "358dc9e6094dda21ec8c19a1df74485df85b30a488767ca0423ba791c9ad74fb",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -224,7 +224,8 @@
     "publication/ACTIEF-OPSTARTPAD-LIVE-20261111.json": "28383fe2eb5641ba8aa141f9042861af04413ef398a6b8594308b13720183d43",
     "publication/decision-before-five-improvements-20261111.json": "c27780bd97d819fc173c46614cd1be65762530278c48b6486390cc2137038e09",
     "tests/teacher-five-browser.cjs": "e993573110b32ea079ba139f2dc569fcc10586359e0311e90e08a9cadcd49424",
-    "publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json": "4ea90c025d79de6ab217e7c3f31e7f62be7ac1f4ef5bad982c325fc2f045c74f"
+    "publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json": "4ea90c025d79de6ab217e7c3f31e7f62be7ac1f4ef5bad982c325fc2f045c74f",
+    "publication/ACTIEF-VIJF-VERBETERINGEN-LIVE-20261111.json": "89130a3cbf0214ffa641693c2fece26f62cb5885bacc53ccdb94eb0612bc118a"
   },
   "explicitPublicationApproval": "Nico geeft expliciet toestemming voor deze gecontroleerde versie.",
   "previousDecision": "publication/decision-before-five-improvements-20261111.json",
@@ -307,6 +308,11 @@
   "publishedCriticalStartup20261111": {
     "sourceCommit": "8446a9c47f8f20796a44d7fc5b389fba8f2be346",
     "liveVersion": "19ded67e-82dd-4539-b9e4-125d111face8",
+    "status": "published-verified-frozen"
+  },
+  "publishedFiveImprovements20261111": {
+    "sourceCommit": "722365b46d0e836fe6aa556412bc81210f03066c",
+    "liveVersion": "daaf8b47-dc04-43c7-9af7-86baa3a9a3e7",
     "status": "published-verified-frozen"
   }
 }

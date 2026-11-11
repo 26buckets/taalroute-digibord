@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "722365b46d0e836fe6aa556412bc81210f03066c",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app-navigation.js",
+    "app.js",
+    "card-presentation.js",
+    "content-ui.js",
+    "context-tools.js",
+    "controls.css"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "daaf8b47-dc04-43c7-9af7-86baa3a9a3e7",
+  "review": "publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json",
+  "publicTests": [
+    {
+      "test": "chromium",
+      "exit": 0
+    },
+    {
+      "test": "webkit",
+      "exit": 0
+    },
+    {
+      "test": "firefox",
+      "exit": 0
+    },
+    {
+      "test": "examples",
+      "exit": 0
+    },
+    {
+      "test": "accessibility",
+      "exit": 0
+    },
+    {
+      "test": "settings",
+      "exit": 0
+    },
+    {
+      "test": "scroll",
+      "exit": 0
+    }
+  ],
+  "limits": "WebKit is not a native Safari/VoiceOver test; mobile viewport simulations, no teacher trial."
+}
