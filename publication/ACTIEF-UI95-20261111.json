@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "9,3 is nog geen 9,5. Welke concrete UI-verbeteringen kunnen we nu nog doen zonder op de docentproef te wachten? Voer die door, behoud de les en groepsgegevens, laat echte voorbeelden zien en zet het live.",
+  "previousCanonicalMain": "8081ae685a01d6d7ec56b9f347164bb770cbc35b",
+  "previousLiveCommit": "bcf1528fe80430494481d269b4466829ad772f61",
+  "scope": [
+    "app.js",
+    "content-ui.js",
+    "context-tools.js",
+    "controle.mjs",
+    "controls.css",
+    "tests/ui95-browser.cjs"
+  ],
+  "changes": [
+    "Mobiele voorbereiding compacter, onderwerpnaam en niveaubadges op eigen regels; uitgebreide tijd/uitleg onder bestaande Lesgegevens.",
+    "Grote kaarttekst behouden, minder dubbele witruimte en zes leesbare kaartknoppen in twee rijen op mobiel.",
+    "Vergrendelde antwoordknoppen leggen ook bij aanraken uit hoe ze beschikbaar worden.",
+    "Hulp, antwoord, doel en partnerrol krijgen toetsenbordfocus; Escape sluit en herstelt focus op de geopende knop.",
+    "Mobiele instellingen hebben meer leesruimte en duidelijkere toetsenbordfocus."
+  ],
+  "measurements": [
+    {
+      "version": "voor",
+      "start": 790.671875,
+      "card": {
+        "id": "TR-SPELLING-P001-012-R3",
+        "controls": 131,
+        "reading": 345.46875,
+        "text": "21px"
+      },
+      "settings": 594.703125
+    },
+    {
+      "version": "na",
+      "start": 694.671875,
+      "card": {
+        "id": "TR-SPELLING-P001-012-R3",
+        "controls": 111,
+        "reading": 365.46875,
+        "text": "21px"
+      },
+      "settings": 622.703125
+    }
+  ],
+  "reviews": [
+    "Ronde 1: echte desktop/mobiele schermen, voorbereiding en leesruimte; opdrachttekst blijft even groot.",
+    "Kritische tegencontrole: 320px, vergrendeld antwoord met aanraken, focus in alle vier kaartpanelen, sluit/herstel en behoud van les. Hersteld: extra marge onder opdracht, touch-uitleg en onderwerpregels.",
+    "Hercontrole: Chrome en Firefox, alle zes eerdere UI-verbeteringen, alle vier steunpanelen, 44px bedieningsvlakken, licht/donker en bestaande gegevens."
+  ],
+  "expertScore": 9.5,
+  "scoreBasis": "Zeven even zwaar wegende onderdelen: 9.4/9.5/9.6/9.5/9.6/9.5/9.5 = 9.514. Professioneel oordeel, geen gemeten docentwaardering.",
+  "localChecks": {
+    "unit.log": "PASS grammar mapping:",
+    "activities.log": "PASS: all seven games completed",
+    "banks.log": "1200 rendered cards",
+    "tongue.log": "PASS: real navigation",
+    "p0.log": "all 610 active cards",
+    "rebuses.log": "PASS 90 rebuses",
+    "smoke.log": "PASS quick entry",
+    "navigation.log": "PASS: navigation, saved progress",
+    "levels.log": "PASS 12 available",
+    "settings.log": "PASS settings:",
+    "presentation.log": "PASS: 11338",
+    "clarity.log": "PASS: simple start",
+    "examples.log": "PASS six UI changes:",
+    "round3.log": "PASS UI95:",
+    "round3-firefox.log": "PASS UI95:"
+  },
+  "testMaintenance": "controle.mjs isoleert de voetregelrenderfunctie zonder de eerder toegevoegde matchMedia-abonnementen uit te voeren in de DOM-loze test. Bestaande assertions behouden.",
+  "gates": "Normale npm build/deploy; na publicatie online manifest/bytes en UI, instellingen, niveaus en lesherstel; daarna opnieuw vastzetten.",
+  "actions": "Bestaande workflow uitsluitend handmatig, twee minuten. Geen zware cloudrun of push-trigger.",
+  "teacherTrial": "Uitgesteld. Geen fysieke telefoon/digibord-, Safari- of volledige screenreaderproef."
+}

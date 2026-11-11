@@ -31,3 +31,38 @@ button:not(.pawn):not(.cube):not(.physical-die):not(.zb-card):not(.tile):not(.ga
 
 /* Labeled helpers need their actual height, including the mobile second row. */
 #screen-game .card-viewport .card-controls{height:auto;flex-basis:auto;flex-shrink:0}
+
+/* Keep the reading size; reclaim unused spacing on smaller screens. */
+@media(max-width:600px){
+ #screen-game .card-table-shell .card-content.content-reading{gap:16px;padding:18px}
+ #screen-game .content-reading .content-stimulus{margin:0}
+ #screen-game .content-reading>.content-prompt:first-child,#screen-game .card-reading-main>.card-actions:first-child{margin-bottom:0}
+ #screen-game .card-table-shell .card-content.card-readable{padding:16px;gap:12px}
+ #screen-game .card-readable .card-reading-main{gap:14px}
+ #screen-game .card-controls:has(>.card-attempt){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px}
+ #screen-game .card-controls>.card-attempt{display:flex;align-items:center;justify-content:center;gap:4px;width:100%;min-width:0;height:44px;font-size:14px;white-space:normal;line-height:1.2}
+ #screen-game .card-controls:has(>.card-attempt)>.context-tools{display:contents}
+ #screen-game .card-controls .context-tool{max-width:none}
+ #screen-game .card-controls .context-tool .smallbtn{display:flex;justify-content:center;align-items:center;height:44px;min-height:44px;padding:4px;font-size:14px}
+ #screen-game .card-controls .context-tool .game-icon{display:none}
+ #screen-practice .practice-shell{padding:16px 16px 32px}
+ #screen-practice .practice-head{margin-bottom:16px}
+ #contentPracticeApp .practice-config{gap:12px}
+ #contentPracticeApp .practice-layout{gap:16px}
+ #contentPracticeApp .practice-step>summary{min-height:64px;padding:8px;gap:10px}
+ #contentPracticeApp .practice-step-value{max-width:45%;overflow-wrap:normal}
+ #contentPracticeApp .practice-topic-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+ #contentPracticeApp .practice-topic-row .practice-labels{grid-column:1;flex-wrap:wrap}
+ #contentPracticeApp .practice-topic-row>span:last-child[aria-hidden]{grid-column:2;grid-row:1}
+ #contentPracticeApp .practice-summary{padding:16px}
+ #contentPracticeApp .practice-summary h2{margin-bottom:10px}
+ #contentPracticeApp .practice-chosen{margin-bottom:10px}
+ .settings-page .settings-card{grid-template-rows:64px minmax(0,1fr)}
+ .settings-page .settings-head{padding:8px 16px}
+ .settings-page .nav{padding-block:4px}
+ .settings-page .nav .settings-mobile-nav{padding-block:0}
+ .settings-page .content{padding:16px}
+ .settings-page .page-header{margin-bottom:16px}
+}
+.settings-page :is(button,input,select,textarea,summary):focus-visible{outline:3px solid #126ab3;outline-offset:2px}
+#cardSupport:focus-visible{outline:3px solid #126ab3;outline-offset:-3px}
