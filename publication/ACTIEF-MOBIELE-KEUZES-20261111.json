@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Zorg dat je op mobiel bij de A4-kaart en alle vergelijkbare kaarten de vraag én de keuzes meteen ziet, zonder scrollen. Houd de tekst groot en behoud de les en groepsgegevens. Controleer het, laat echte voorbeelden zien en zet het live.",
+  "previousMain": "5e45e6e5914b930b93b47e150e918a10013bfb99",
+  "previousLiveCommit": "0e85f936b3955cac7cdbfb092673e12bf7c7c943",
+  "scope": [
+    "app.js",
+    "controls.css",
+    "tests/mobile-choices-browser.cjs",
+    "tests/teacher-five-browser.cjs"
+  ],
+  "changes": [
+    "Show the first task and its original alternatives together on mobile. Follow-up steps and context remain available.",
+    "Use available space for long alternatives; keep the original desktop DOM, text sizes and storage."
+  ],
+  "verification": [
+    "Every one of the 46 standalone choice/material cards at 320x568, 375x667, 390x844 and 430x932.",
+    "2621 option-bearing lesson items in the shared card renderer at all four sizes. Chromium, WebKit and Firefox. Geometry checked against visible viewport and clipping ancestors.",
+    "Actual card navigation and desktop restoration; exact lesson, participants and groups retained through reload and settings.",
+    "Complete mandatory local unit, content, grammar, bank, activity, storage, tongue and build checks."
+  ],
+  "limits": "Mobile browser viewports, not a physical device or a measured teacher trial. Auxiliary text may scroll."
+}

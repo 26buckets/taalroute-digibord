@@ -819,9 +819,48 @@ function selectShuffledCard(kind,list,action='resume'){
 function cardShuffleResetButton(){return '<button class="smallbtn card-order-reset" id="cardOrderReset" aria-label="Kaarten opnieuw beginnen" title="Kaarten opnieuw beginnen">'+gameIcon('shuffle')+'<span class="card-shuffle-label">Kaarten opnieuw beginnen</span></button>'}
 // Keep long cards readable and reachable with the keyboard instead of shrinking them.
 let stopCardReading=()=>{};
+function arrangeMobileChoices(content){
+ if(!content.closest('.card-viewport'))return ()=>{};
+ const root=content.querySelector('.card-reading-main')||content;
+ const form=content.querySelector('#closedChoice'),options=root.querySelector('.content-options'),stimulus=root.querySelector('.content-stimulus');
+ const material=form||options||((stimulus?.querySelectorAll('.card-word-choice').length>1)?stimulus:null);
+ const task=root.querySelector(':scope > .card-actions,:scope > .content-prompt');
+ if(!material||!task)return ()=>{};
+ const mobile=matchMedia('(max-width:600px)'),places=[];
+ const move=(node,place)=>{const mark=document.createComment('');node.before(mark);places.push([mark,node]);place(node)};
+ let later=null;
+ const title=content.querySelector(':scope > h2');
+ function reset(){for(const [mark,node] of places.reverse())mark.replaceWith(node);places.length=0;later?.remove();later=null;content.classList.remove('choice-first','choice-tight','choice-page')}
+ function layout(){
+  reset();if(!mobile.matches)return;
+  content.classList.add('choice-first');
+  if(form){move(form,node=>content.prepend(node));return}
+  move(material,node=>task.after(node));
+  const steps=task.querySelector('.card-instruction,.card-action-lines');
+  if(steps?.children.length>1){
+   later=task.cloneNode(false);later.classList.add('choice-followup');
+   const label=document.createElement('h3');label.textContent='Daarna';const list=steps.cloneNode(false);
+   if(list.tagName==='OL')list.start=2;
+   later.append(label,list);material.after(later);
+   for(const step of Array.from(steps.children).slice(1))move(step,node=>list.append(node));
+  }
+  const end=material.getBoundingClientRect().bottom;
+  if(end>Math.min(innerHeight,content.getBoundingClientRect().bottom)-8){
+   content.classList.add('choice-tight');
+   if(title)move(title,node=>material.after(node));
+   if(material.getBoundingClientRect().bottom>innerHeight-4)content.classList.add('choice-page');
+  }
+ }
+ if(mobile.matches){content.closest('#gameMount').scrollTop=0;content.scrollTop=0}
+ layout();let frame=requestAnimationFrame(layout);
+ const resize=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(layout)};
+ window.addEventListener('resize',resize);
+ return ()=>{cancelAnimationFrame(frame);window.removeEventListener('resize',resize);reset()};
+}
 function prepareCardReading(){
  stopCardReading();
  const content=$('#gameMount .active-card .card-content');if(!content)return;
+ const resetChoices=arrangeMobileChoices(content);
  content.tabIndex=0;content.setAttribute('role','region');content.setAttribute('aria-label','Kaartinhoud');
  const hint=document.createElement('p');hint.className='card-scroll-hint';hint.textContent='↓ Meer hieronder';hint.setAttribute('aria-hidden','true');hint.hidden=true;content.parentElement.append(hint);
  const update=()=>{
@@ -832,7 +871,7 @@ function prepareCardReading(){
  };
  const observer=new ResizeObserver(update);observer.observe(content);for(const child of content.children)observer.observe(child);
  content.addEventListener('scroll',update,{passive:true});content.addEventListener('load',update,true);
- stopCardReading=()=>{observer.disconnect();content.removeEventListener('scroll',update);content.removeEventListener('load',update,true);hint.remove()};
+ stopCardReading=()=>{observer.disconnect();resetChoices();content.removeEventListener('scroll',update);content.removeEventListener('load',update,true);hint.remove()};
  requestAnimationFrame(update);document.fonts.ready.then(update);
 }
 function bindCardShuffleReset(){
