@@ -1,6 +1,6 @@
 ## Actuele vrijgave — opstartbelasting, 11 november 2026
 
-Alleen de gecontroleerde opstartverbetering in `publication/ACTIEF-OPSTARTPAD-20261111.json` is vrijgegeven. Afbeeldingen, grote kaarten, routes, inhoud, media, les en groepen blijven behouden. Normale publicatieroute; na publieke controle opnieuw vastzetten. Aangetoonde oorzaken: onnodige downloads en afbreken ondanks voortgang. De oorspronkelijke sporadische WebKit-stilstand blijft niet uniek toegeschreven.
+Alleen de gecontroleerde opstartverbetering in `publication/ACTIEF-OPSTARTPAD-20261111.json` is vrijgegeven. Afbeeldingen, grote kaarten, routes, inhoud, media, les en groepen blijven behouden. Publiek gecontroleerd en opnieuw vastgezet. Livebron `8446a9c47f8f20796a44d7fc5b389fba8f2be346`, Cloudflare `19ded67e-82dd-4539-b9e4-125d111face8`. Zie `publication/ACTIEF-OPSTARTPAD-LIVE-20261111.json`. Aangetoonde oorzaken: onnodige downloads en afbreken ondanks voortgang. De oorspronkelijke sporadische WebKit-stilstand blijft niet uniek toegeschreven.
 
 ## Actuele vrijgave — laadherstel, 11 november 2026
 
