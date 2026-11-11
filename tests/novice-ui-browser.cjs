@@ -44,7 +44,7 @@ fs.mkdirSync(out,{recursive:true});
    assert.match(await p.locator('.card-situation').innerText(),/nieuwe cursisten/);
    await p.locator('#cardSetInfo').click();await p.locator('#dialogBody details>summary').click();assert.match(await p.locator('#dialogBody details').innerText(),/nieuwe cursisten/);await p.locator('#cardViewSet').click();const preview=p.locator('.detail-text-cards article').filter({has:p.getByRole('heading',{name:'Welkom bij ons',exact:true})});assert.match(await preview.innerText(),/nieuwe cursisten/);assert.equal(await preview.locator('ol>li').count(),2);await exact(id);
   }
-  if(name==='taalkraker-c1')assert.doesNotMatch(await p.locator('.card-actions').innerText(),/ANTWOORD/);
+  if(name==='taalkraker-c1'){assert.doesNotMatch(await p.locator('.card-actions').innerText(),/ANTWOORD/);assert(await p.getByRole('heading',{name:'Een woord in een woord',exact:true}).isVisible());}
   await p.locator('#cardAttempt').click();assert(await p.locator('#cardExample').isEnabled());assert.match(await p.locator('#cardAttemptHint').innerText(),/nu/);await p.locator('#cardExample').click();assert(await p.locator('[data-support=example]').isVisible());await p.keyboard.press('Escape');
  }
  await p.setViewportSize({width:390,height:844});await p.evaluate(()=>TaalrouteAppearance.set('dark'));await p.locator('.hdr001-menu-trigger').click();await shot('menu-donker-mobiel');await p.keyboard.press('Escape');await p.evaluate(()=>TaalrouteAppearance.set('light'));

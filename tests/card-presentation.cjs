@@ -64,6 +64,7 @@ assert.match(direct('TR-PUZZLES-P001-014-R3').steps.join(' '),/Bedenk waarom/);
 assert.doesNotMatch(direct('TR-PUZZLES-P001-020-R6').situation+' '+direct('TR-PUZZLES-P001-020-R6').steps.join(' '),/ANTWOORD/);
 assert.match(direct('TR-PUZZLES-P002-006-R2').steps[1],/Kies een van de drie/);
 assert.equal(JSON.stringify(source),before);
+assert.equal(direct('TR-PUZZLES-P001-020-R6').title,'Een woord in een woord');
 console.log('PASS: answerable context, explicit invented follow-ups, retained answer keys.');
 
 assert.match(presentation.readAloud(source.cards.find(c=>c.id==='TR-SPELLING-P001-013-R3')),/informatieavond voor nieuwe cursisten/);

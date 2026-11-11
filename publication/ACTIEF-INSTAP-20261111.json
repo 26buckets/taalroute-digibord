@@ -111,5 +111,7 @@
     "Geen VoiceOver, volledige Safari-app-proef of fysieke iPhone-test.",
     "Expertreview door dezelfde reviewer; geen onafhankelijke docentwaardering."
   ],
-  "actions": "Alle zware controles lokaal; bestaande workflow alleen handmatig, geen run aangevraagd."
+  "actions": "Alle zware controles lokaal; bestaande workflow alleen handmatig, geen run aangevraagd.",
+  "finalVisualCorrection": "Laatste livebeeldcontrole: de titel van TR-PUZZLES-P001-020-R6 gaf de oplossing nog weg. Alleen de presentatie gewijzigd naar Een woord in een woord; bron, antwoord en begeleide vrijgave behouden. Een gerichte unit- en browsercontrole toegevoegd.",
+  "intermediateLiveCommit": "f0b6b6ec175aa911065d8deaf7911d05cae6f325"
 }

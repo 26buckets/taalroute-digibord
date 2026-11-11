@@ -102,7 +102,7 @@
   if(source?.version!=='2026-10-04.e1.r25.1'||!original||original.version!==card.version||original.situation!==card.situation||original.instruction!==card.instruction)return null;
   if(card.id==='TR-PUZZLES-P002-008-R3')return {situation:'',stimuli:['Ik zette de fiets naast de scooter. Die was kapot.'],steps:['Welk voertuig kan ‘Die’ zijn: de fiets of de scooter?','Kies één voertuig. Schrijf de tweede zin opnieuw en noem daarin dat voertuig.'],title:card.title,target:'Die'};
   if(!row)return null;
-  return {situation:row[0],stimuli:row[1],steps:row[2],target:row[3]||null,title:card.id==='TR-SPELLING-P002-010-R3'?'Een klein vel papier':card.title};
+  return {situation:row[0],stimuli:row[1],steps:row[2],target:row[3]||null,title:card.id==='TR-PUZZLES-P001-020-R6'?'Een woord in een woord':card.id==='TR-SPELLING-P002-010-R3'?'Een klein vel papier':card.title};
  }
  const action=/^(?:Vraag|Kies|Zeg|Vertel|Leg|Bespreek|Vergelijk|Maak|Noem|Wijs|Lees|Schrijf|Reageer|Controleer|Gebruik|Geef|Laat|Stel|Vat|Speel|Bekijk|Los|Herschrijf|Onderzoek|Voorspel|Zet|Benoem|Bedenk|Herhaal|Erken|Breng|Herstel|Regel|Verhelder|Beoordeel|Luister|Verbeter|Vul|Verander|Begin|Orden|Formuleer|Weeg|Houd|Verwerk|Bepaal|Vervang|Voeg|Ontleed|Koppel|Bouw|Combineer|Sorteer|Beschrijf|Bied|Beloof|Bestel|Nodig|Bedank|Spreek|Licht|Meld|Kijk|Waarnaar|Waaraan|Doe|Vermijd|In welke|Bij welke|Met welke|Welke|Welk|Wat|Hoe|Waarom|Wanneer|Waar|Wie|Is|Zijn|Kan|Kun)\b/iu;
  function sentences(text){return [...new Intl.Segmenter('nl',{granularity:'sentence'}).segment(text)].map(p=>p.segment.trim()).filter(Boolean);}
