@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-11",
+  "approvedBy": "Nico",
+  "request": "Onderzoek en herstel die WebKit-laadtimeouts zonder dat ik iets hoef te bedienen. Behoud de les en groepsgegevens, controleer opnieuw en zet de oplossing live. Ik wil die 9,5 wel echt kunnen verdedigen.",
+  "previousMain": "420a11718ebac59ca2cc3dcfea956f76b362e616",
+  "previousLiveCommit": "ce911e489e2547806643a39150b58dd6520ce457",
+  "scope": [
+    "app-navigation.js",
+    "index.html",
+    "package.json",
+    "tests/startup-browser.cjs"
+  ],
+  "findings": [
+    "Eerdere publieke WebKit-logboeken: aanvragen blijven tijdens het laden hangen, soms voordat de app is gestart. Exacte externe oorzaak niet bewezen.",
+    "Zestien nieuwe publieke normale startproeven met ongewijzigde bron slagen; twee lokale proeven eveneens. Geen vastgelopen appcode gereproduceerd.",
+    "Wel reproduceerbaar bij bewust geblokkeerde opstartaanvraag: geen laadherstel of melding in de bestaande app.",
+    "Hercontrole: hervatten van een bestaande les kan nog bezig zijn na DOMContentLoaded; de interface wacht nu ook op die bestaande herstelactie."
+  ],
+  "changes": [
+    "Kleine inline opstartbewaking vóór externe bestanden; zichtbare status zonder afhankelijkheid van de vastgelopen aanvraag.",
+    "Na 12 seconden maximaal één automatische herlading binnen twee minuten; bij blijvende fout een bereikbare knop, geen oneindige herlaadlus.",
+    "Bij geblokkeerde sessionStorage geen automatische herhaling; handmatig herstel werkt.",
+    "Appbediening pas vrijgeven wanneer de bestaande route/les is hersteld.",
+    "Geen wijzigingen in opgeslagen les-, kaart- of groepsgegevens; alleen een tijdelijke, afzonderlijke herlaadteller in sessionStorage.",
+    "Vijf gedeelde opstartbestanden behouden dezelfde HTTP-URL maar hebben een relatief pad zodat de bestaande lokale bestand-ingang blijft werken. Geen automatische herlading op file-URLs."
+  ],
+  "verification": "Drie browserengines: normale start, bewust vastgehouden en afgebroken aanvraag, exact één herlading, blijvende fout, geblokkeerde opslag, geen herlading na gereedmelding, dezelfde les/kaart/groepen. Volledige bestaande controles lokaal.",
+  "limits": [
+    "De oorspronkelijke sporadische transportstilstand is niet aan één browser- of serveroorzaak toegeschreven; de foutafhandeling en herstelroute zijn wel reproduceerbaar getest.",
+    "Geen VoiceOver, volledige Safari-app, fysieke iPhone of docentproef.",
+    "Een 9,5 blijft een onderbouwde expertinschatting, geen gemeten docentwaardering."
+  ]
+}

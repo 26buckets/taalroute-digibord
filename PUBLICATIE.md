@@ -1,3 +1,7 @@
+## Actuele vrijgave — laadherstel, 11 november 2026
+
+Alleen het gecontroleerde laadherstel in `publication/ACTIEF-LAADHERSTEL-20261111.json` is vrijgegeven. Grote kaarten, routes, inhoud, media, les en groepen blijven behouden. Normale publicatieroute; na publieke controle opnieuw vastzetten. De onderliggende sporadische transportstilstand blijft oorzaaktechnisch onbepaald; begrensd herstel wordt getest.
+
 ## Actuele vrijgave — duidelijke instap en bediening, 11 november 2026
 
 Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-INSTAP-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, les en groepsgegevens blijven behouden. Online gecontroleerd en opnieuw vastgezet. Livebron: `ce911e489e2547806643a39150b58dd6520ce457`; Cloudflare: `261e2836-3aef-44cc-93ba-b318ca684ad3`. Zie `publication/ACTIEF-INSTAP-LIVE-20261111.json`. Docentproef volgt later.

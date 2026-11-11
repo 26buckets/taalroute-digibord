@@ -149,5 +149,5 @@
  new ResizeObserver(refresh).observe(document.querySelector('#appHeader'));
  const requested=Object.keys(routes).find(id=>'#/'+routes[id]===location.hash);
  history.replaceState({actief:requested||screen()},'','#/'+(routes[requested||screen()]||'spelen'));
- if(requested&&requested!==screen())followRoute(requested);else{renderedKey=key();renderedCard=currentId();refresh()}
+ if(requested&&requested!==screen())root.AppNavigation.ready=followRoute(requested);else{renderedKey=key();renderedCard=currentId();refresh();root.AppNavigation.ready=Promise.resolve()}
 })(globalThis);

@@ -66,6 +66,7 @@
     "test:publication": "node tests/publication-contract.cjs && node tests/publication-freeze.cjs",
     "deploy": "wrangler deploy",
     "test:navigation:browser": "node tests/navigation-browser.cjs",
+    "test:startup:browser": "node tests/startup-browser.cjs",
     "test:card-menu:browser": "node tests/card-menu-browser.cjs && node tests/card-menu-level-browser.cjs"
   },
   "devDependencies": {

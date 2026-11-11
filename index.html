@@ -1,9 +1,49 @@
 <!doctype html>
-<html lang="nl">
-<head><script src="/taalroute-menu/appearance.js?v=menu-uniform-20261024" data-preference-key="taalroute-actief-appearance-v1"></script>
+<html lang="nl" data-app-loading>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Taalroute Actief V01.25</title>
+<style id="startupStyle">
+html[data-app-loading] body>:not(#startupStatus):not(script){visibility:hidden}
+#startupStatus{position:fixed;inset:0;z-index:99999;display:grid;place-content:center;padding:24px;background:#fff;color:#173752;font:400 20px/1.5 Arial,sans-serif;text-align:center}
+#startupStatus p{max-width:32em;margin:0 0 16px}#startupStatus button{justify-self:center;border:1px solid #b8cddd;border-radius:0;background:#fff;color:#173752;padding:12px 18px;font:inherit;min-height:48px;cursor:pointer}#startupStatus button:focus-visible{outline:3px solid #126ab3;outline-offset:3px}
+@media(prefers-color-scheme:dark){#startupStatus{background:#15202c;color:#eef5fc}#startupStatus button{background:#203244;color:#eef5fc}}
+</style>
+<script id="startupGuard">
+(() => {
+ const key='taalroute-actief-startup-retry-v1',windowMs=120000;
+ // Show recovery even while a head resource blocks parsing the body.
+ const status=document.createElement('div');status.id='startupStatus';status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.innerHTML='<p id="startupMessage">Actief wordt geladen…</p><button type="button" class="smallbtn" aria-describedby="startupMessage" hidden>Opnieuw proberen</button>';document.documentElement.append(status);
+ let ended=false,failed=false,timer;
+ function message(text,retry=false){
+  const box=document.getElementById('startupStatus');if(!box)return;
+  box.querySelector('p').textContent=text;
+  const button=box.querySelector('button');button.hidden=!retry;
+  if(retry){(document.body||document.documentElement.appendChild(document.createElement('body'))).prepend(box);button.focus()}
+  button.onclick=()=>{try{sessionStorage.removeItem(key)}catch{/* A manual retry also works without storage. */}location.reload()};
+ }
+ function recover(){
+  if(ended)return;ended=true;clearTimeout(timer);
+  let canRetry=false;
+  try{const previous=Number(sessionStorage.getItem(key));if(/^https?:$/.test(location.protocol)&&(!previous||Date.now()-previous>windowMs)){sessionStorage.setItem(key,String(Date.now()));canRetry=true}}catch{/* Do not loop when the retry limit cannot be stored. */}
+  if(canRetry){message('Het laden duurt te lang. Actief probeert het nog een keer.');window.stop();setTimeout(()=>location.reload(),100)}
+  else{window.stop();message('Actief kon niet helemaal laden. Je opgeslagen les en groepen blijven bewaard.',true)}
+ }
+ function ready(){
+  if(ended)return;
+  if(failed||!window.AppNavigation||!window.ContentUI||!window.ContentRuntime){recover();return}
+  ended=true;clearTimeout(timer);window.removeEventListener('error',loadError,true);
+  document.documentElement.removeAttribute('data-app-loading');document.getElementById('startupStatus')?.remove();document.getElementById('startupStyle')?.remove();
+  try{sessionStorage.removeItem(key)}catch{/* Loading must work without session storage. */}
+ }
+ function loadError(event){if(event.target?.tagName==='SCRIPT'||event.target?.tagName==='LINK'&&event.target.rel==='stylesheet'||event.target===window)failed=true}
+ window.addEventListener('error',loadError,true);
+ document.addEventListener('DOMContentLoaded',()=>Promise.resolve(window.AppNavigation?.ready).then(ready,()=>{failed=true;recover()}),{once:true});
+ timer=setTimeout(recover,12000);
+})();
+</script>
+<script src="taalroute-menu/appearance.js?v=menu-uniform-20261024" data-preference-key="taalroute-actief-appearance-v1"></script>
 <link rel="icon" type="image/svg+xml" sizes="any" href="assets/brand/favicon.svg?v=0124">
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Taalroute Actief V01.25</title><link rel="stylesheet" href="app.css?v=2026-09-25.binnenkort">
+
+<link rel="stylesheet" href="app.css?v=2026-09-25.binnenkort">
 <link rel="stylesheet" href="kaartenkast.css">
 <link rel="stylesheet" href="taalworp-table.css?v=0124">
 <link rel="stylesheet" href="card-table.css?v=1.25-tongue-large-1">
@@ -14,7 +54,7 @@
 <link rel="stylesheet" href="context-tools.css?v=1.25-snelvragen-1">
 <link rel="stylesheet" href="content-ui.css?v=2026-10-05.grammar-check">
 <link rel="stylesheet" href="open-quiet.css?v=2026-10-05.overview">
-<link rel="stylesheet" href="taalroute-menu/menu.css?v=inline-square-20261110"><script defer src="taalroute-menu/menu.js?v=restore-20261016-2"></script><link rel="stylesheet" href="/taalroute-menu/header-controls.css?v=inline-square-20261110"><script src="/taalroute-menu/menu-controls.js?v=delen-20261024" data-share-app="actief"></script><script src="/taalroute-menu/header-controls.js?v=inline-square-20261110"></script><link rel="stylesheet" href="/taalroute-menu/menu-controls.css?v=inline-square-20261110"><meta property="og:image" content="https://actief.taalroute.nl/taalroute-menu/share-card.webp"><meta property="og:image:alt" content="Taalroute Actief"><meta name="twitter:image" content="https://actief.taalroute.nl/taalroute-menu/share-card.webp"><meta property="og:title" content="Taalroute Actief"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="app-navigation.css?v=2026-11-09"><link rel="stylesheet" href="controls.css?v=2026-11-09"></head>
+<link rel="stylesheet" href="taalroute-menu/menu.css?v=inline-square-20261110"><script defer src="taalroute-menu/menu.js?v=restore-20261016-2"></script><link rel="stylesheet" href="taalroute-menu/header-controls.css?v=inline-square-20261110"><script src="taalroute-menu/menu-controls.js?v=delen-20261024" data-share-app="actief"></script><script src="taalroute-menu/header-controls.js?v=inline-square-20261110"></script><link rel="stylesheet" href="taalroute-menu/menu-controls.css?v=inline-square-20261110"><meta property="og:image" content="https://actief.taalroute.nl/taalroute-menu/share-card.webp"><meta property="og:image:alt" content="Taalroute Actief"><meta name="twitter:image" content="https://actief.taalroute.nl/taalroute-menu/share-card.webp"><meta property="og:title" content="Taalroute Actief"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><link rel="stylesheet" href="app-navigation.css?v=2026-11-09"><link rel="stylesheet" href="controls.css?v=2026-11-09"></head>
 <body>
 <button type="button" class="smallbtn skip-content" tabindex="0">Naar de inhoud</button>
 <div id="app">
