@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "origin": "https://actief.taalroute.nl/",
+  "commit": "0a1daf2b234e38031031eea81d059f62eb1a179b",
+  "assets": 1450,
+  "manifestMatchesBuild": true,
+  "changedAssetsDownloadedAndVerified": [
+    "app.js",
+    "content-ui.js",
+    "context-tools.js",
+    "controls.css"
+  ],
+  "unchangedDataAndMedia": 1351,
+  "sourceDescendsFromPreviousLive": true,
+  "date": "2026-11-11",
+  "cloudflareVersion": "c312c9ad-d91d-4f8f-b196-e54a0ea557b0",
+  "review": "publication/ACTIEF-UI95-20261111.json",
+  "productionTests": "Fresh isolated browsers on production: UI refinements, touch explanation for disabled controls, support-panel keyboard focus and Escape, compact settings, card labels, preparation, four widths, real group records including legacy names-only, reversible reset/import, exact lesson/session/card resume; navigation on available game surfaces; six route menus and twelve available family/route combinations. RIDDLE unavailable and not counted as passed.",
+  "teacherTrial": "Uitgesteld; geen gemeten docentwaardering."
+}

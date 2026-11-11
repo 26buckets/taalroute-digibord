@@ -1,6 +1,6 @@
 ## Actuele vrijgave — UI-verfijningen, 11 november 2026
 
-Alleen de beoordeelde wijzigingen in `publication/ACTIEF-UI95-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, niveaus, lopende les en groepen blijven behouden. Normale publicatieroute; na online controle opnieuw vastzetten. De docentproef volgt later.
+Alleen de beoordeelde wijzigingen in `publication/ACTIEF-UI95-20261111.json` zijn vrijgegeven. Grote kaarten, broninhoud, media, niveaus, lopende les en groepen blijven behouden. Online gecontroleerd en opnieuw vastgezet. Livebron: `0a1daf2b234e38031031eea81d059f62eb1a179b`; Cloudflare: `c312c9ad-d91d-4f8f-b196-e54a0ea557b0`. Zie `publication/ACTIEF-UI95-LIVE-20261111.json`. De docentproef volgt later.
 
 ## Actuele vrijgave — zes UI-verbeteringen, 11 november 2026
 

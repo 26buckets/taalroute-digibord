@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "c2b2542e69211196b02be3f4ef099cfd7ea3348fa26e56fad8e2bd05ae729953",
+    "PUBLICATIE.md": "3cbe344abb61c1cab558a07f6dbd655057208356be2647c60dc719dbac01cc1a",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "1a99649e5ad21c3b34cea49085d45f18c807393941d9b7d4895d58fd8f73c04a",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "708092cb34277df127d5baa096f7893f908108a5eab0020087271912bf0c8bb9",
-    "publication-freeze.json": "e9c97115f8bf33c844ef6f4d3348f3c495e2417ecd256ac94ff19fce1946cf70",
+    "publication-freeze.json": "f6ec5dcc6dc45c201f3ef3409b4ef55e6092f50f9aa788435f1ea4176944f2a6",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -203,7 +203,8 @@
     "publication/ACTIEF-ZES-VERBETERINGEN-LIVE-20261111.json": "d53f485d932bc7cbf7ffe7d9de1f959ac9d5572c589147a04b995d2550b6fdcc",
     "publication/ACTIEF-UI95-20261111.json": "7c5802baae6616e151b4be44553f52802e92c3673c9bb2eec8ea69aa54735351",
     "publication/decision-before-ui95-20261111.json": "0f2e5885bec446da7eb91aba1e3f5646941cc1bfcbfcc6c5617ec0d7431be503",
-    "tests/ui95-browser.cjs": "5e989a25bf7f54681f4a87993d00da3f770c4fc06087b2b705a9044756f0ecb7"
+    "tests/ui95-browser.cjs": "5e989a25bf7f54681f4a87993d00da3f770c4fc06087b2b705a9044756f0ecb7",
+    "publication/ACTIEF-UI95-LIVE-20261111.json": "3847b83f8ab9d2c0ed847ea8403ad7b061b7e96c49a5062a85f80209151f01c0"
   },
   "explicitPublicationApproval": "Expliciete vrijgave van de gecontroleerde UI-verfijningen.",
   "previousDecision": "publication/decision-before-ui95-20261111.json",
@@ -261,6 +262,11 @@
   "publishedSixUI20261111": {
     "sourceCommit": "bcf1528fe80430494481d269b4466829ad772f61",
     "liveVersion": "6dbc67da-5028-4eca-a696-8711e7c75a67",
+    "status": "published-verified-frozen"
+  },
+  "publishedUI9520261111": {
+    "sourceCommit": "0a1daf2b234e38031031eea81d059f62eb1a179b",
+    "liveVersion": "c312c9ad-d91d-4f8f-b196-e54a0ea557b0",
     "status": "published-verified-frozen"
   }
 }
