@@ -149,3 +149,8 @@ button:not(.pawn):not(.cube):not(.physical-die):not(.zb-card):not(.tile):not(.ga
  #screen-game .choice-page .content-options li{padding:2px 4px;line-height:1.18}
  #screen-game .choice-page .content-options h3{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
 }
+
+#screen-game .card-actions.choice-followup .card-instruction{counter-reset:card-action 1}
+.practice-example p{margin-block:.4em .7em}
+
+#screen-game .card-readable .card-word-list .card-word-choice{border:0;border-left:3px solid #a8c5da;border-radius:0;background:transparent;padding-inline:.45em}

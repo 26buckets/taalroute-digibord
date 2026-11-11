@@ -7,6 +7,17 @@ fs.mkdirSync(out,{recursive:true});
  await p.goto(process.env.LIVE_URL||'http://127.0.0.1:8193/',{waitUntil:'domcontentloaded'});await p.locator('html:not([data-app-loading])').waitFor();await p.waitForFunction(()=>window.ContentUI);
  const stable=async()=>{await p.waitForFunction(()=>!gameIsBusy());await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))))};
  const shot=async name=>{await p.screenshot({path:path.join(out,name+'.png')});};
+ const fresh=await b.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
+ try{
+  await fresh.goto(p.url());await fresh.locator('[data-practice-open]').click();
+  const button=fresh.getByRole('button',{name:'Start voorbeeldles',exact:true});
+  const box=await button.boundingBox();assert(box&&box.y>=0&&box.y+box.height<=844,'Example starts on first screen');
+  assert(!await fresh.evaluate(()=>APP.contentUiDraft),'Viewing an example must not create a draft');
+  await button.click();await fresh.locator('#gameMount [data-content-item-id]').waitFor();
+  const session=await fresh.evaluate(()=>APP.contentSessionConfig);assert(session.selected_item_ids.length);
+  await fresh.reload();await fresh.locator('#gameMount [data-content-item-id]').waitFor();
+  assert.deepEqual(await fresh.evaluate(()=>APP.contentSessionConfig),session,'Example lesson resumes after reload');
+ }finally{await fresh.close()}
  await p.locator('[data-practice-open]').click();await p.locator('[data-browse-family=quick]').click();assert(await p.locator('#practiceStart').isDisabled());
  await p.locator('[data-choose-topic=vertel]').click();await p.locator('label:has([name=level][value=A1_A2])').click();await p.locator('#practiceStart').click();await stable();await p.locator('#primaryGame').click();await stable();
  await p.evaluate(()=>settingsPatch({participants:[{id:'review1',name:'Testcursist',present:true,group:'Groep 1',color:'#2389e8'}],savedGroups:[{id:'reviewgroup',name:'Testgroep',names:['Testcursist'],pawnMode:'Groepen'}]}));

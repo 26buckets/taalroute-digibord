@@ -72,9 +72,9 @@ let browser,page;
    const task=page.locator(selector),layout=await page.evaluate(id=>CardPresentation.shared(ContentRuntime.itemById(id)),id);
    if(['CARDS','DICE','WHEEL','QUIZ'].includes(engine)&&layout.stimulus&&expected.every(t=>layout.stimulus.includes(t))){const reading=await page.locator('#screen-game.active .content-stimulus').innerText();for(const word of expected)assert.ok(reading.includes(word),id+' separate reading choice');}
    else assert.deepEqual(await task.locator('strong').allTextContents(),expected,id+' '+engine);
-   assert.equal(await task.evaluate(e=>getComputedStyle(e).fontWeight),'400',id+' ordinary instruction stays lighter');
+   assert.ok(await task.evaluateAll(es=>es.length>0&&es.every(e=>getComputedStyle(e).fontWeight==='400')),id+' every instruction stays lighter');
    assert.ok((await task.locator('strong').evaluateAll(es=>es.every(e=>getComputedStyle(e).fontWeight===(e.closest('.card-action-line')?'500':'800')))),id+' required words bold');
-   for(const width of [1440,390]){await page.setViewportSize({width,height:900});assert.ok(await task.evaluate(e=>e.scrollWidth<=e.clientWidth+1),id+' '+engine+' '+width);}
+   for(const width of [1440,390]){await page.setViewportSize({width,height:900});assert.ok(await task.evaluateAll(es=>es.length>0&&es.every(e=>e.scrollWidth<=e.clientWidth+1)),id+' '+engine+' '+width);}
    if(engine==='CARDS')await page.screenshot({path:path.join(dir,id+'-emphasis.png')});
    await page.setViewportSize({width:1440,height:900});
   }
