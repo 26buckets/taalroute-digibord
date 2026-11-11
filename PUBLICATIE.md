@@ -1,6 +1,6 @@
 ## Aanvullende vrijgave — twee vervolgvragen, 11 november 2026
 
-Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-ANTWOORDHINTS-20261111.json` zijn vrijgegeven. Grote kaarten, oorspronkelijke inhoud, media, audio, les en groepen blijven behouden. Normale publicatieroute; na publieke controle opnieuw vastzetten.
+Alleen de gecontroleerde wijzigingen in `publication/ACTIEF-ANTWOORDHINTS-20261111.json` zijn vrijgegeven. Grote kaarten, oorspronkelijke inhoud, media, audio, les en groepen blijven behouden. Publiek gecontroleerd en opnieuw vastgezet. Livebron `0e85f936b3955cac7cdbfb092673e12bf7c7c943`. Zie `publication/ACTIEF-ANTWOORDHINTS-LIVE-20261111.json`.
 
 ## Actuele vrijgave — vijf UI-verbeteringen, 11 november 2026
 

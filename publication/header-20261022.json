@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "bfce7421a606003f0eb21cc20540cd0e0e01ada36cd13116599faa590746ef87",
+    "PUBLICATIE.md": "ec3c02a137a45c4d0bcc6766a7517add4baffe9236c5ffc429d4816a218e992e",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "b773f392fd99e2ed63a5a4e144bcc149f95255c7ed79f7f6435c5621c23c33c2",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "8e7fef4fb9c5912c34d75c83447b80d175f8394e1ea1dd2494fd7d84c30ebb58",
-    "publication-freeze.json": "de146e3e28e681958a0959db1bec5db0f4e96f64e0f714a7b2beca48f33ee407",
+    "publication-freeze.json": "79ef17193acefb87ea2f1b5d60bb69e00a1536af28277c8b9390eae230a1cd31",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -227,7 +227,8 @@
     "publication/ACTIEF-VIJF-VERBETERINGEN-20261111.json": "4ea90c025d79de6ab217e7c3f31e7f62be7ac1f4ef5bad982c325fc2f045c74f",
     "publication/ACTIEF-VIJF-VERBETERINGEN-LIVE-20261111.json": "89130a3cbf0214ffa641693c2fece26f62cb5885bacc53ccdb94eb0612bc118a",
     "publication/decision-before-answer-hints-20261111.json": "d97bef93c5ad0aea7e2d604f20e55dfe624760e0c9d3c66dea37c01cd65ac536",
-    "publication/ACTIEF-ANTWOORDHINTS-20261111.json": "dff34de52c3bb9481691b8840bf8bc72acb75ddcb5e887a88130f4038c40de82"
+    "publication/ACTIEF-ANTWOORDHINTS-20261111.json": "dff34de52c3bb9481691b8840bf8bc72acb75ddcb5e887a88130f4038c40de82",
+    "publication/ACTIEF-ANTWOORDHINTS-LIVE-20261111.json": "c15fd8d7bf8f45bbcf3a91c0c6d1e5d9425d8b6c37096da9cf397946a618cb82"
   },
   "explicitPublicationApproval": "Nico geeft expliciet toestemming voor deze gecontroleerde versie.",
   "previousDecision": "publication/decision-before-answer-hints-20261111.json",
@@ -315,6 +316,11 @@
   "publishedFiveImprovements20261111": {
     "sourceCommit": "722365b46d0e836fe6aa556412bc81210f03066c",
     "liveVersion": "daaf8b47-dc04-43c7-9af7-86baa3a9a3e7",
+    "status": "published-verified-frozen"
+  },
+  "publishedAnswerHints20261111": {
+    "sourceCommit": "0e85f936b3955cac7cdbfb092673e12bf7c7c943",
+    "liveVersion": "dca6cc1e-d962-4544-b13a-27f5d4783507",
     "status": "published-verified-frozen"
   }
 }
