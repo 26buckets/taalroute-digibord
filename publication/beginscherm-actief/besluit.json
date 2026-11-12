@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-12",
+  "approvedBy": "Nico",
+  "request": "Ja, zet nu ook het Actief-icoon live. Centreer het witte lopertje in de okerkleurige strook en geef de driehoek precies hetzelfde oker.",
+  "productionOrigin": "https://actief.taalroute.nl",
+  "previousLive": "820bdd53768423a176b3fb516590cf5bb7c2a5f2",
+  "reviewedCommit": "c510fdc5c9d2eadba6db003bbb16ec1bef8c9939",
+  "scope": [
+    "assets/beginscherm/actief-180.png",
+    "assets/beginscherm/actief-192.png",
+    "assets/beginscherm/actief-512.png",
+    "assets/beginscherm/actief.webmanifest",
+    "index.html",
+    "meedoen.html",
+    "settings/index.html",
+    "zinnenbouwer.html"
+  ],
+  "color": "#A16E24",
+  "bitmap512": {
+    "left": 187,
+    "right": 187,
+    "top": 45,
+    "bottom": 45
+  }
+}
