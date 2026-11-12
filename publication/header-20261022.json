@@ -10,7 +10,7 @@
   "files": {
     ".gitignore": "88530797987e2f1c9042c679ec4db52b5a59111049b6e5e785366e095db07c33",
     "AGENTS.md": "9831fba0db0f0d371a7d170a070f20b55a9cec45fac4a12290ee27bd1be7bbec",
-    "PUBLICATIE.md": "a82faf7c688d1af06f85e0279477e534acee0f99e64fe08c2e3a4b7dd4b642f4",
+    "PUBLICATIE.md": "bfa563307a6a7cd47d00a436a771b47666562e221856b50a5790b4ef8ba8cc90",
     "actief-transfer.js": "5b5536101d31965e7a4b2862b71f172db880100c3198e6469087bb4f2484b527",
     "index.html": "6304f9e81a11bf92c50307959b8eab51cdcb32df0c1e876394fff5cde377ecab",
     "lesson-storage-adapter.js": "bf165f2cc6060e7c698dad703df9caea4a02346cabd99dc4c64a472891ba955d",
@@ -18,7 +18,7 @@
     "overstap-actief.html": "fa881b8c8d4d8f0fcc0c622989e44b704679b4cf98613a7a89e3a6ecf9a6bdff",
     "overstap-actief.js": "0d98139fbea4cc90d1b2534356836be4cb8d53f13f307d46ee4b16fbfee9eb6a",
     "package.json": "8e7fef4fb9c5912c34d75c83447b80d175f8394e1ea1dd2494fd7d84c30ebb58",
-    "publication-freeze.json": "eda819c638e760bae40a24322e422379c0f2b981ed0c59303758d83f17adb0b4",
+    "publication-freeze.json": "cecd3a9b8a5f6392351695418223b1c8c278a80f9e4e8d376bbc53ff52d17280",
     "publication/MIGRATIE-ACTIEF-20261020.md": "1d93dc2a75ab6a49af8482a4a91a3a30c7f6abc0573d282b01b91383b53b6de8",
     "publication/freeze-20261016.json": "baac5fdb4dcbf5b6205e3fd978f1521a4b4cb8a20ee4412631c940b8176042ef",
     "scripts/build.cjs": "54651914ce63733e293750bf1b9e74f569bc2062c5abb329cbe96eecaceede10",
@@ -242,7 +242,8 @@
     "assets/beginscherm/actief-180.png": "258cdec13275031885d04e88aee98b37f874708df1c3891e708587ce913509e7",
     "publication/beginscherm-actief/vorig-besluit.json": "02a42268e491889918446105d7b551a1eef37334f0d8c1a1bb63a5f7265f2aa4",
     "publication/beginscherm-actief/besluit.json": "05613f349353574c44b3eeb117abdd24ed6da6558228cd6c92a49838e2cd209e",
-    "publication/beginscherm-actief/actief.svg": "b62be7c06650d5233b9b9552119e088f4d1b2a6e9077973a57a724ab109da715"
+    "publication/beginscherm-actief/actief.svg": "b62be7c06650d5233b9b9552119e088f4d1b2a6e9077973a57a724ab109da715",
+    "publication/beginscherm-actief/live.json": "83a43ad88db36c04b3c70e3d20856805c703d19f24a21e6b2d43616533a88ef6"
   },
   "explicitPublicationApproval": "Ja, zet nu ook het Actief-icoon live. Centreer het witte lopertje in de okerkleurige strook en geef de driehoek precies hetzelfde oker.",
   "previousDecision": "publication/beginscherm-actief/vorig-besluit.json",

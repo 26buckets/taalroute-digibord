@@ -1,0 +1,86 @@
+{
+  "origin": "https://actief.taalroute.nl",
+  "commit": "69fe09b6040d6a7feab9c41aa576cad2b79f43cc",
+  "previous": "820bdd53768423a176b3fb516590cf5bb7c2a5f2",
+  "version": "9d21274b-b3cc-428b-9253-eb8a9ae61dbb",
+  "assets": 1454,
+  "changed": [
+    "assets/beginscherm/actief-180.png",
+    "assets/beginscherm/actief-192.png",
+    "assets/beginscherm/actief-512.png",
+    "assets/beginscherm/actief.webmanifest",
+    "index.html",
+    "meedoen.html",
+    "settings/index.html",
+    "zinnenbouwer.html"
+  ],
+  "unchanged": 1446,
+  "checked": "2026-11-12T20:28:59.948Z",
+  "mobile": {
+    "iPhone": [
+      {
+        "n": 180,
+        "links": 66,
+        "rechts": 66,
+        "boven": 15,
+        "onder": 16,
+        "strook": "a16e24",
+        "driehoek": "a16e24",
+        "sha256": "258cdec13275031885d04e88aee98b37f874708df1c3891e708587ce913509e7"
+      },
+      {
+        "n": 192,
+        "links": 70,
+        "rechts": 70,
+        "boven": 17,
+        "onder": 17,
+        "strook": "a16e24",
+        "driehoek": "a16e24",
+        "sha256": "814ac42307d49788eb8e8ebeca7963ad32e94213ac7aea6b0b68ced79d873854"
+      },
+      {
+        "n": 512,
+        "links": 187,
+        "rechts": 187,
+        "boven": 45,
+        "onder": 45,
+        "strook": "a16e24",
+        "driehoek": "a16e24",
+        "sha256": "0f160873185876bb10748562c33acd7f7a7128ec5f552b5578b2933300de05ea"
+      }
+    ],
+    "Android": [
+      {
+        "n": 180,
+        "links": 66,
+        "rechts": 66,
+        "boven": 15,
+        "onder": 16,
+        "strook": "a16e24",
+        "driehoek": "a16e24",
+        "sha256": "258cdec13275031885d04e88aee98b37f874708df1c3891e708587ce913509e7"
+      },
+      {
+        "n": 192,
+        "links": 70,
+        "rechts": 70,
+        "boven": 17,
+        "onder": 17,
+        "strook": "a16e24",
+        "driehoek": "a16e24",
+        "sha256": "814ac42307d49788eb8e8ebeca7963ad32e94213ac7aea6b0b68ced79d873854"
+      },
+      {
+        "n": 512,
+        "links": 187,
+        "rechts": 187,
+        "boven": 45,
+        "onder": 45,
+        "strook": "a16e24",
+        "driehoek": "a16e24",
+        "sha256": "0f160873185876bb10748562c33acd7f7a7128ec5f552b5578b2933300de05ea"
+      }
+    ]
+  },
+  "hardware": "WebKit en Chromium met telefoonprofielen; gesimuleerde beginschermen."
+}

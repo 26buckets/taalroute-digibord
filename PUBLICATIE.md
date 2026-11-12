@@ -1,6 +1,6 @@
 ## Beginschermicoon Actief — 12 november 2026
 
-De afzonderlijke vrijgave betreft uitsluitend het okeren beginschermicoon en de koppelingen ernaar. Zie `publication/beginscherm-actief/besluit.json`.
+De afzonderlijke vrijgave betreft uitsluitend het okeren beginschermicoon en de koppelingen ernaar. Livebron `69fe09b6040d6a7feab9c41aa576cad2b79f43cc`, Cloudflare-versie `9d21274b-b3cc-428b-9253-eb8a9ae61dbb`. Weer vastgezet. Zie `publication/beginscherm-actief/live.json`.
 
 ## Actuele vrijgave — eerste les en duidelijke kaartopdrachten, 11 november 2026
 
