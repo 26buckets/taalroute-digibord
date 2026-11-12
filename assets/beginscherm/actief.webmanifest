@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "Taalroute Actief",
+  "short_name": "Actief",
+  "lang": "nl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#A16E24",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/assets/beginscherm/actief-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/beginscherm/actief-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
