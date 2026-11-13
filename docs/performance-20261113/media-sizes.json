@@ -1,0 +1,92 @@
+[
+  {
+    "source": "assets/landing/dobbelen-opdrachten.png",
+    "web": "assets/landing/web/dobbelen-opdrachten.579caf497eaf.webp",
+    "before": 1844934,
+    "after": 66178,
+    "saved": 1778756,
+    "reductionPercent": 96.41,
+    "sha256": "579caf497eafaaf578dc36405d26452c5c736938ee8c9a9a3b7633c4ba8edc98"
+  },
+  {
+    "source": "assets/landing/dobbelspellen.png",
+    "web": "assets/landing/web/dobbelspellen.b5b5d7ade2ba.webp",
+    "before": 1851431,
+    "after": 64154,
+    "saved": 1787277,
+    "reductionPercent": 96.53,
+    "sha256": "b5b5d7ade2bae6258dc8a82cb89226b85833246ff143af940dc3b98797337628"
+  },
+  {
+    "source": "assets/landing/kaartspellen.png",
+    "web": "assets/landing/web/kaartspellen.98382ce34439.webp",
+    "before": 2169908,
+    "after": 105706,
+    "saved": 2064202,
+    "reductionPercent": 95.13,
+    "sha256": "98382ce34439ccd1d68a5311c984e6f7c4442c48bff41d975a76fcaab1875e5c"
+  },
+  {
+    "source": "assets/landing/live.png",
+    "web": "assets/landing/web/live.c27a5bcf5369.webp",
+    "before": 2035358,
+    "after": 122262,
+    "saved": 1913096,
+    "reductionPercent": 93.99,
+    "sha256": "c27a5bcf53699057854db6fdb57fb061eeee8bb41158539906a8f2f986389698"
+  },
+  {
+    "source": "assets/landing/nieuwe-activiteiten.png",
+    "web": "assets/landing/web/nieuwe-activiteiten.4337aa0049c3.webp",
+    "before": 2055663,
+    "after": 83482,
+    "saved": 1972181,
+    "reductionPercent": 95.94,
+    "sha256": "4337aa0049c3c8c058042344460549cd1d5d972a730254f7b8b0dc9ee028d248"
+  },
+  {
+    "source": "assets/landing/speelborden.png",
+    "web": "assets/landing/web/speelborden.7abd9ceec915.webp",
+    "before": 1916296,
+    "after": 70646,
+    "saved": 1845650,
+    "reductionPercent": 96.31,
+    "sha256": "7abd9ceec915bb9c63ff4b3c22f20593e7c4deb50bfcada14a20fdb477207180"
+  },
+  {
+    "source": "assets/landing/taalroute-missies-app.png",
+    "web": "assets/landing/web/taalroute-missies-app.6ab788819316.webp",
+    "before": 469849,
+    "after": 5340,
+    "saved": 464509,
+    "reductionPercent": 98.86,
+    "sha256": "6ab78881931696bc1b58f9e4f7c2f59ad30bf2efaf161608476e9a17491f2bf2"
+  },
+  {
+    "source": "assets/landing/verhaalworp.png",
+    "web": "assets/landing/web/verhaalworp.e7f0c84287e2.webp",
+    "before": 1872823,
+    "after": 71428,
+    "saved": 1801395,
+    "reductionPercent": 96.19,
+    "sha256": "e7f0c84287e2c2dc5a7f92f0ec30e2f9e64a48e41bbb4e3934f52ceac889480a"
+  },
+  {
+    "source": "assets/landing/woorden-zinnen.png",
+    "web": "assets/landing/web/woorden-zinnen.9b8d1b0bbabb.webp",
+    "before": 1767844,
+    "after": 79110,
+    "saved": 1688734,
+    "reductionPercent": 95.53,
+    "sha256": "9b8d1b0bbabb750ac188f524056bb27ce96d83505c5a373cbb1858fe91ca7c89"
+  },
+  {
+    "source": "taalroute-menu/theaterlezen.svg",
+    "web": "taalroute-menu/theaterlezen-web.svg",
+    "before": 667225,
+    "after": 37558,
+    "saved": 629667,
+    "reductionPercent": 94.37,
+    "sha256": "eb3dd17cdfd5809fc47ffa1c729107a836a38e5b223dda1d9156433fe984cae0"
+  }
+]

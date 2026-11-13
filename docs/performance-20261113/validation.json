@@ -1,0 +1,183 @@
+{
+  "date": "2026-11-13",
+  "baseCommit": "4ac9f1bd2d770f579cca715d5d8c8369899c4b19",
+  "status": "draft; existing settings return regression remains unresolved",
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "code": 0,
+      "seconds": 151.72
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:activities"
+      ],
+      "code": 0,
+      "seconds": 43.955
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "code": 0,
+      "seconds": 1.733
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "types"
+      ],
+      "code": 0,
+      "seconds": 1.182
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "code": 0,
+      "seconds": 171.405
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:banks:browser"
+      ],
+      "code": 0,
+      "seconds": 18.593
+    },
+    {
+      "command": [
+        "node",
+        "tests/content-vert001-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 7.33
+    },
+    {
+      "command": [
+        "node",
+        "tests/content-ui-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 8.223
+    },
+    {
+      "command": [
+        "node",
+        "tests/v125-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 11.286
+    },
+    {
+      "command": [
+        "env",
+        "GRAMMAR_SHARD=1/6",
+        "GRAMMAR_OUTPUT=/tmp/taalroute-besparing-sources/taalroute-digibord/tests/artifacts/grammar-shard-1",
+        "node",
+        "tests/grammar-review-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 182.297
+    },
+    {
+      "command": [
+        "env",
+        "GRAMMAR_SHARD=2/6",
+        "GRAMMAR_OUTPUT=/tmp/taalroute-besparing-sources/taalroute-digibord/tests/artifacts/grammar-shard-2",
+        "node",
+        "tests/grammar-review-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 179.345
+    },
+    {
+      "command": [
+        "env",
+        "GRAMMAR_SHARD=3/6",
+        "GRAMMAR_OUTPUT=/tmp/taalroute-besparing-sources/taalroute-digibord/tests/artifacts/grammar-shard-3",
+        "node",
+        "tests/grammar-review-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 225.92
+    },
+    {
+      "command": [
+        "env",
+        "GRAMMAR_SHARD=4/6",
+        "GRAMMAR_OUTPUT=/tmp/taalroute-besparing-sources/taalroute-digibord/tests/artifacts/grammar-shard-4",
+        "node",
+        "tests/grammar-review-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 182.178
+    },
+    {
+      "command": [
+        "env",
+        "GRAMMAR_SHARD=5/6",
+        "GRAMMAR_OUTPUT=/tmp/taalroute-besparing-sources/taalroute-digibord/tests/artifacts/grammar-shard-5",
+        "node",
+        "tests/grammar-review-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 183.783
+    },
+    {
+      "command": [
+        "env",
+        "GRAMMAR_SHARD=6/6",
+        "GRAMMAR_OUTPUT=/tmp/taalroute-besparing-sources/taalroute-digibord/tests/artifacts/grammar-shard-6",
+        "node",
+        "tests/grammar-review-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 183.94
+    },
+    {
+      "command": [
+        "node",
+        "tests/quick-entry-browser.cjs"
+      ],
+      "code": 0,
+      "seconds": 17.546
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:tongue:browser"
+      ],
+      "code": 1,
+      "seconds": 52.099
+    }
+  ],
+  "baselineComparison": {
+    "baseCommit": "4ac9f1bd2d770f579cca715d5d8c8369899c4b19",
+    "command": "node tests/tongbrekers-browser.cjs",
+    "code": 1,
+    "stdout": "",
+    "stderr": "page.waitForFunction: Timeout 30000ms exceeded.\n    at /private/tmp/taalroute-besparing-sources/taalroute-digibord/tests/tongbrekers-browser.cjs:60:94 {\n  log: [],\n  name: 'TimeoutError'\n}\n"
+  },
+  "notes": [
+    "npm test, activities, lint, types, build and bank browser checks passed. Build includes the frozen content preservation and release contract checks.",
+    "All 1440 grammar records checked across all five game surfaces using the existing six-way sharding option: 7200 cases passed.",
+    "The first smoke run failed once on whitespace in content-vert001-browser. Both the original and changed version passed its subsequent targeted run. No assertion or content baseline was changed; this intermittent result is retained as an open test reliability concern.",
+    "The tongue browser check consistently times out at tests/tongbrekers-browser.cjs:60 after clicking the settings return button. Reproduced on the original source files at the base commit, without these asset changes. This is not treated as a passed check.",
+    "The first grammar rerun hit a full temporary disk; redundant downloaded work copies were removed, then all six complete grammar shards passed.",
+    "Manual visual check of the start screen passed. All ten derived files in dist are byte-identical to the measured source variants. Original images and publication freeze are unchanged.",
+    "No production deployment or traffic measurement. Resolve the existing settings return issue and obtain the required publication release before deploying."
+  ]
+}
