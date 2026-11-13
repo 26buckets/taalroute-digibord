@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-13T15:16:14.666Z",
+  "sourceCommit": "b462ce8c18f0491fe7ac19cb72d59dcf625cf5e8",
+  "workerVersion": "08b008b2-0cc2-4b15-8bda-9c893dfffd15",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 35885,
+      "match": true,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "app.css",
+      "status": 200,
+      "bytes": 72443,
+      "match": true,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "settings/index.html",
+      "status": 200,
+      "bytes": 26220,
+      "match": true,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "taalroute-menu/theaterlezen-web.svg",
+      "status": 200,
+      "bytes": 37558,
+      "match": true,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "assets/landing/web/dobbelen-opdrachten.579caf497eaf.webp",
+      "status": 200,
+      "bytes": 66178,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/dobbelspellen.b5b5d7ade2ba.webp",
+      "status": 200,
+      "bytes": 64154,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/kaartspellen.98382ce34439.webp",
+      "status": 200,
+      "bytes": 105706,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/live.c27a5bcf5369.webp",
+      "status": 200,
+      "bytes": 122262,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/nieuwe-activiteiten.4337aa0049c3.webp",
+      "status": 200,
+      "bytes": 83482,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/speelborden.7abd9ceec915.webp",
+      "status": 200,
+      "bytes": 70646,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/taalroute-missies-app.6ab788819316.webp",
+      "status": 200,
+      "bytes": 5340,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/verhaalworp.e7f0c84287e2.webp",
+      "status": 200,
+      "bytes": 71428,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "file": "assets/landing/web/woorden-zinnen.9b8d1b0bbabb.webp",
+      "status": 200,
+      "bytes": 79110,
+      "match": true,
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ]
+}
