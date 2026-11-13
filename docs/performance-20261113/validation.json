@@ -1,7 +1,7 @@
 {
   "date": "2026-11-13",
   "baseCommit": "4ac9f1bd2d770f579cca715d5d8c8369899c4b19",
-  "status": "draft; existing settings return regression remains unresolved",
+  "status": "validated for scoped publication",
   "checks": [
     {
       "command": [
@@ -179,5 +179,38 @@
     "The first grammar rerun hit a full temporary disk; redundant downloaded work copies were removed, then all six complete grammar shards passed.",
     "Manual visual check of the start screen passed. All ten derived files in dist are byte-identical to the measured source variants. Original images and publication freeze are unchanged.",
     "No production deployment or traffic measurement. Resolve the existing settings return issue and obtain the required publication release before deploying."
-  ]
+  ],
+  "followupChecks": [
+    {
+      "command": [
+        "env",
+        "ACTIEF_TEST_URL=http://127.0.0.1:8094/index.html",
+        "npm",
+        "run",
+        "test:tongue:browser"
+      ],
+      "code": 0,
+      "seconds": 28.509
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:p0:browser"
+      ],
+      "code": 0,
+      "seconds": 77.938
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:rebuses:browser"
+      ],
+      "code": 0,
+      "seconds": 77.609
+    }
+  ],
+  "resolution": "De test slaagt via ACTIEF_TEST_URL=http://127.0.0.1:8094/index.html. De eerdere file-protocolfout is geen productiefout; toegangscontrole ongewijzigd. P0 en alle 90 rebussen slagen.",
+  "publicationAuthorization": "voer dit uit en publiceer"
 }
